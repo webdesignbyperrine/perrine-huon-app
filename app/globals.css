@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #00264D;
+  --background: #0a0e1a;
   --foreground: #FFFFFF;
   --primary: #00264D;
   --secondary: #DD47B3;
@@ -11,52 +11,114 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #0a0e1a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Animations personnalisées */
-@keyframes float {
+/* Animations 3D */
+@keyframes float-3d {
   0%, 100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+  }
+  33% {
+    transform: translateY(-30px) rotateX(5deg) rotateY(10deg);
+  }
+  66% {
+    transform: translateY(-15px) rotateX(-5deg) rotateY(-10deg);
+  }
+}
+
+@keyframes rotate-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(60px);
   }
   50% {
-    transform: translateY(-20px);
+    opacity: 0.8;
+    filter: blur(80px);
   }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(221, 71, 179, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(221, 71, 179, 0.8);
-  }
+.animate-float-3d {
+  animation: float-3d 8s ease-in-out infinite;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.animate-glow {
+  animation: glow-pulse 4s ease-in-out infinite;
 }
 
-/* Scrollbar personnalisée */
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Effet de texte néon */
+.text-glow {
+  text-shadow: 
+    0 0 10px rgba(221, 71, 179, 0.5),
+    0 0 20px rgba(221, 71, 179, 0.3),
+    0 0 30px rgba(221, 71, 179, 0.2);
+}
+
+/* Grille de fond */
+.grid-background {
+  background-image: 
+    linear-gradient(rgba(221, 71, 179, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(221, 71, 179, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Scrollbar ultra fine */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #001E3D;
+  background: #0a0e1a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DD47B3;
-  border-radius: 5px;
+  background: linear-gradient(180deg, #DD47B3, #FF4855);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF4855;
+  background: linear-gradient(180deg, #FF4855, #FFB97C);
+}
+
+/* Effet de grain/texture */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
 }

@@ -1,48 +1,83 @@
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-primary-900 to-primary">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Photo */}
-          <div className="relative">
-            <div className="relative w-full aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-accent-red rounded-2xl opacity-20 blur-2xl" />
-              <div className="relative w-full h-full rounded-2xl overflow-hidden border-4 border-secondary/30 shadow-2xl">
-                <div className="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-secondary to-accent-red rounded-full flex items-center justify-center">
-                      <span className="text-5xl font-bold">PH</span>
+    <section id="about" className="relative py-32 bg-primary-900 overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] animate-glow" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Titre de section */}
+          <div className="text-center mb-24">
+            <div className="inline-block">
+              <span className="text-sm uppercase tracking-[0.3em] text-white/40 font-light">01</span>
+              <h2 className="text-6xl md:text-7xl font-bold mt-4">
+                <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                  À PROPOS
+                </span>
+              </h2>
+              <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            {/* Photo */}
+            <div className="relative group">
+              <div className="relative aspect-square max-w-lg mx-auto">
+                {/* Glow effect */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-secondary via-accent-red to-accent-orange opacity-20 blur-3xl group-hover:opacity-30 transition-opacity duration-500" />
+                
+                {/* Frame décoratif */}
+                <div className="absolute -inset-0.5 bg-gradient-to-br from-secondary via-accent-orange to-accent-red opacity-50 rounded-2xl" />
+                
+                {/* Photo container */}
+                <div className="relative w-full h-full rounded-2xl overflow-hidden glass-dark">
+                  {/* Placeholder - remplacer par vraie photo */}
+                  <div className="w-full h-full bg-gradient-to-br from-primary-800 to-primary-900 flex items-center justify-center">
+                    <div className="text-center p-8">
+                      <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-secondary to-accent-red rounded-full flex items-center justify-center">
+                        <span className="text-6xl font-bold">PH</span>
+                      </div>
+                      <p className="text-white/50 text-sm">Insérer la photo ici</p>
+                      <p className="text-white/30 text-xs mt-2">Utilisez la 4ème capture d'écran</p>
                     </div>
-                    <p className="text-white/70 text-sm">Photo de Perrine à ajouter</p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Contenu */}
-          <div>
-            <h2 className="section-title">À propos</h2>
-            <div className="space-y-4 text-white/80 text-lg">
-              <p>
-                Passionnée par le <span className="text-secondary font-semibold">web design</span> et le{' '}
-                <span className="text-secondary font-semibold">développement</span>, je mets mon expertise au service
-                de votre réussite digitale.
-              </p>
-              <p>
-                Ma spécialité ? Créer des expériences web <span className="text-accent-orange font-semibold">uniques</span> et{' '}
-                <span className="text-accent-orange font-semibold">performantes</span>, optimisées pour le référencement local.
-              </p>
-              <div className="grid grid-cols-2 gap-4 mt-8">
+            {/* Contenu */}
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <p className="text-2xl md:text-3xl font-light text-white/90 leading-relaxed">
+                  Passionnée par le <span className="text-secondary font-normal">design</span> et le{' '}
+                  <span className="text-secondary font-normal">développement web</span>, je crée des expériences digitales uniques.
+                </p>
+
+                <div className="w-16 h-[1px] bg-secondary/50" />
+
+                <p className="text-lg text-white/60 leading-relaxed font-light">
+                  Ma spécialité : concevoir des sites et applications qui ne se contentent pas d'être beaux, 
+                  mais qui <span className="text-white/90">performent</span> et{' '}
+                  <span className="text-white/90">convertissent</span>, avec un{' '}
+                  <span className="text-accent-orange">SEO local ultra-ciblé</span>.
+                </p>
+              </div>
+
+              {/* Stats minimalistes */}
+              <div className="grid grid-cols-2 gap-6 pt-8">
                 {[
-                  { number: '50+', label: 'Projets réalisés' },
-                  { number: '100%', label: 'Clients satisfaits' },
-                  { number: '5 ans', label: 'D\'expérience' },
-                  { number: 'SEO', label: 'Expert local' },
+                  { value: '50+', label: 'Projets' },
+                  { value: '100%', label: 'Satisfaction' },
+                  { value: '5 ans', label: 'Expérience' },
+                  { value: 'Top 3', label: 'SEO Local' },
                 ].map((stat, index) => (
-                  <div key={index} className="card text-center">
-                    <div className="text-3xl font-bold text-secondary mb-2">{stat.number}</div>
-                    <div className="text-sm text-white/70">{stat.label}</div>
+                  <div key={index} className="text-center glass-dark p-6 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                    <div className="text-4xl font-bold bg-gradient-to-r from-secondary to-accent-orange bg-clip-text text-transparent mb-2">
+                      {stat.value}
+                    </div>
+                    <div className="text-sm text-white/50 uppercase tracking-wider">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -53,4 +88,3 @@ export default function About() {
     </section>
   );
 }
-

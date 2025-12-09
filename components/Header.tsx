@@ -1,10 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigation = [
     { name: 'À propos', href: '#about' },
@@ -12,51 +21,67 @@ export default function Header() {
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-primary/90 backdrop-blur-md border-b border-primary-400/20">
-      <nav className="container mx-auto px-4 py-4">
+    <header
+      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+        scrolled ? 'glass-dark backdrop-blur-xl' : 'bg-transparent'
+      }`}
+    >
+      <nav className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-12 h-12 bg-gradient-to-br from-secondary to-accent-red rounded-full flex items-center justify-center font-bold text-xl">
-              PH
+          {/* Logo minimaliste */}
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-accent-red rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
+              <div className="relative w-12 h-12 bg-gradient-to-br from-secondary to-accent-red rounded-full flex items-center justify-center font-bold text-lg">
+                PH
+              </div>
             </div>
-            <span className="text-xl font-bold hidden sm:block">Perrine Huon</span>
+            <span className="text-xl font-light tracking-wider hidden sm:block">
+              <span className="text-white">PERRINE</span>
+              <span className="text-white/40 ml-2">HUON</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-12">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-white/80 hover:text-secondary transition-colors duration-300 font-medium"
+                className="text-white/60 hover:text-white transition-colors duration-300 text-sm uppercase tracking-wider font-light"
               >
                 {item.name}
               </Link>
             ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden lg:block">
             <Link
-              href="#rdv"
-              className="btn-primary"
+              href="#contact"
+              className="relative group px-8 py-3 overflow-hidden"
             >
-              Réserver un appel
+              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-accent-red opacity-100 group-hover:opacity-90 transition-opacity" />
+              <span className="relative z-10 text-white text-sm uppercase tracking-wider font-semibold">
+                Contact
+              </span>
             </Link>
           </div>
 
           {/* Mobile menu button */}
           <button
             type="button"
-            className="md:hidden text-white"
+            className="lg:hidden text-white p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
@@ -64,23 +89,23 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-3">
+          <div className="lg:hidden mt-6 glass-dark rounded-2xl p-6 space-y-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="block text-white/80 hover:text-secondary transition-colors duration-300 font-medium py-2"
+                className="block text-white/60 hover:text-white transition-colors duration-300 text-sm uppercase tracking-wider font-light py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
             <Link
-              href="#rdv"
-              className="block w-full btn-primary text-center"
+              href="#contact"
+              className="block w-full text-center bg-gradient-to-r from-secondary to-accent-red px-8 py-3 text-white text-sm uppercase tracking-wider font-semibold mt-4"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Réserver un appel
+              Contact
             </Link>
           </div>
         )}
@@ -88,4 +113,3 @@ export default function Header() {
     </header>
   );
 }
-
