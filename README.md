@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Perrine Huon - Next.js App
 
-## Getting Started
+Ce projet est une application Next.js avec TypeScript, Tailwind CSS et Supabase comme base de données.
 
-First, run the development server:
+## 🚀 Stack Technique
 
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styles**: Tailwind CSS
+- **Base de données**: Supabase
+- **Déploiement**: Vercel
+- **Version Control**: Git/GitHub
+
+## 📋 Prérequis
+
+- Node.js 18+ et npm
+- Un compte Supabase
+- Un compte GitHub
+- Un compte Vercel
+
+## 🛠️ Installation
+
+1. Clonez le dépôt :
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <votre-repo-url>
+cd perrine-huon-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Installez les dépendances :
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Configurez les variables d'environnement :
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Ensuite, remplissez `.env.local` avec vos clés Supabase :
+- `NEXT_PUBLIC_SUPABASE_URL` : URL de votre projet Supabase
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` : Clé anonyme de votre projet
 
-## Learn More
+Vous pouvez trouver ces informations dans votre [tableau de bord Supabase](https://supabase.com/dashboard) > Paramètres du projet > API
 
-To learn more about Next.js, take a look at the following resources:
+4. Lancez le serveur de développement :
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🗄️ Configuration Supabase
 
-## Deploy on Vercel
+### Créer un projet Supabase
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Allez sur [supabase.com](https://supabase.com)
+2. Créez un nouveau projet
+3. Notez votre URL et clé API (anon/public)
+4. Ajoutez-les dans `.env.local`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Structure de la base de données
+
+Les clients Supabase sont configurés dans :
+- `lib/supabase/client.ts` - Pour les composants client
+- `lib/supabase/server.ts` - Pour les composants serveur
+- `lib/supabase/middleware.ts` - Pour le middleware Next.js
+
+## 🚢 Déploiement sur Vercel
+
+### Connexion GitHub
+
+1. Poussez votre code sur GitHub :
+```bash
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin <votre-repo-github-url>
+git push -u origin main
+```
+
+### Déploiement Vercel
+
+1. Allez sur [vercel.com](https://vercel.com)
+2. Connectez votre compte GitHub
+3. Importez votre dépôt
+4. Ajoutez les variables d'environnement :
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+5. Déployez !
+
+Vercel détectera automatiquement Next.js et appliquera les configurations optimales.
+
+## 📁 Structure du Projet
+
+```
+perrine-huon-app/
+├── app/                    # App Router de Next.js
+│   ├── layout.tsx         # Layout principal
+│   └── page.tsx           # Page d'accueil
+├── lib/
+│   └── supabase/          # Configuration Supabase
+│       ├── client.ts      # Client Supabase (côté client)
+│       ├── server.ts      # Client Supabase (côté serveur)
+│       └── middleware.ts  # Middleware Supabase
+├── middleware.ts          # Middleware Next.js
+├── .env.local            # Variables d'environnement (ne pas commiter)
+├── .env.example          # Template des variables d'environnement
+└── vercel.json           # Configuration Vercel
+```
+
+## 🔧 Scripts Disponibles
+
+- `npm run dev` - Lance le serveur de développement
+- `npm run build` - Crée une version de production
+- `npm run start` - Lance le serveur de production
+- `npm run lint` - Vérifie le code avec ESLint
+
+## 📚 Ressources
+
+- [Documentation Next.js](https://nextjs.org/docs)
+- [Documentation Supabase](https://supabase.com/docs)
+- [Documentation Vercel](https://vercel.com/docs)
+- [Documentation Tailwind CSS](https://tailwindcss.com/docs)
+
+## 🔐 Sécurité
+
+- Ne commitez jamais vos fichiers `.env.local`
+- Utilisez toujours la clé `anon` publique côté client
+- Configurez les Row Level Security (RLS) dans Supabase pour protéger vos données
+
+## 🤝 Contribution
+
+Ce projet est personnel. Pour toute question ou suggestion, n'hésitez pas à ouvrir une issue.
