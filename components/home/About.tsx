@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function About() {
   return (
     <section id="about" className="relative py-32 bg-primary-900 overflow-hidden">
@@ -33,14 +35,25 @@ export default function About() {
                 
                 {/* Photo container */}
                 <div className="relative w-full h-full rounded-2xl overflow-hidden glass-dark">
-                  {/* Placeholder - remplacer par vraie photo */}
+                  {/* Votre photo - décommentez et ajoutez portrait-perrine.jpg dans public/images/ */}
+                  {/* <Image
+                    src="/images/portrait-perrine.jpg"
+                    alt="Perrine Huon"
+                    fill
+                    className="object-cover"
+                    priority
+                  /> */}
+                  
+                  {/* Placeholder temporaire */}
                   <div className="w-full h-full bg-gradient-to-br from-primary-800 to-primary-900 flex items-center justify-center">
                     <div className="text-center p-8">
                       <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-secondary to-accent-red rounded-full flex items-center justify-center">
                         <span className="text-6xl font-bold">PH</span>
                       </div>
-                      <p className="text-white/50 text-sm">Insérer la photo ici</p>
-                      <p className="text-white/30 text-xs mt-2">Utilisez la 4ème capture d'écran</p>
+                      <p className="text-white/50 text-sm mb-2">📸 Votre photo ici</p>
+                      <p className="text-white/30 text-xs">
+                        Ajoutez portrait-perrine.jpg<br />dans public/images/
+                      </p>
                     </div>
                   </div>
                 </div>
