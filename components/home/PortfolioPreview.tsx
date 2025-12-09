@@ -1,9 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { ProjectWithMedia } from '@/types/database.types';
+import styles from '@/styles/portfolio-grid.module.scss';
 
 export default function PortfolioPreview() {
   const [projects, setProjects] = useState<ProjectWithMedia[]>([]);
@@ -24,7 +26,7 @@ export default function PortfolioPreview() {
         .eq('is_published', true)
         .eq('is_featured', true)
         .order('created_at', { ascending: false })
-        .limit(3);
+        .limit(4);
 
       if (!error && data) {
         setProjects(data as ProjectWithMedia[]);
@@ -35,110 +37,143 @@ export default function PortfolioPreview() {
     fetchProjects();
   }, []);
 
+  // Projets de démo avec le style exact de la capture
   const demoProjects = [
     {
       id: '1',
-      title: 'E-COMMERCE LYON',
-      slug: 'ecommerce-lyon',
-      short_description: 'Boutique en ligne moderne avec SEO local optimisé',
-      seo_city: 'Lyon',
-      main_image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
+      title: 'STUDIO 74',
+      slug: 'studio-74',
+      short_description: '',
+      number: '01',
+      icon: (
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 30L35 50L20 70M45 30H80M45 50H65M45 70H80" stroke="#6b8ec8" strokeWidth="4" strokeLinecap="round"/>
+        </svg>
+      ),
     },
     {
       id: '2',
-      title: 'SAAS DASHBOARD',
-      slug: 'saas-dashboard',
-      short_description: 'Application de gestion avec interface élégante',
-      seo_city: 'Paris',
-      main_image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
+      title: 'GLOSTER',
+      slug: 'gloster',
+      short_description: '',
+      number: '02',
+      icon: (
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="35" r="12" fill="#6b8ec8"/>
+          <circle cx="50" cy="65" r="12" fill="#6b8ec8"/>
+          <rect x="46" y="45" width="8" height="8" fill="#6b8ec8"/>
+        </svg>
+      ),
     },
     {
       id: '3',
-      title: 'SITE VITRINE',
-      slug: 'site-vitrine',
-      short_description: 'Présence web premium et performante',
-      seo_city: 'Marseille',
-      main_image_url: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800',
+      title: 'LINEA',
+      subtitle: 'VOL.1',
+      slug: 'linea-vol1',
+      short_description: '',
+      number: '03',
+      featured: true,
+      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80',
+    },
+    {
+      id: '4',
+      title: 'CUBE 2.0',
+      slug: 'cube-20',
+      short_description: '',
+      number: '04',
+      icon: (
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 40L50 25L70 40M30 60L50 75L70 60M50 25V75M30 40V60M70 40V60" stroke="#6b8ec8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      ),
     },
   ];
 
   const displayProjects = projects.length > 0 ? projects : demoProjects;
 
-  return (
-    <section id="portfolio" className="relative py-32 bg-primary-900 overflow-hidden">
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Titre */}
-          <div className="text-center mb-24">
-            <span className="text-sm uppercase tracking-[0.3em] text-white/40 font-light">03</span>
-            <h2 className="text-6xl md:text-7xl font-bold mt-4">
-              <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-                PORTFOLIO
-              </span>
-            </h2>
-            <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
+  if (loading) {
+    return (
+      <section className={styles.portfolioSection}>
+        <div className={styles.container}>
+          <div style={{ textAlign: 'center', padding: '80px 0', color: '#6b8ec8' }}>
+            <div style={{ 
+              width: '40px', 
+              height: '40px', 
+              border: '2px solid rgba(107, 142, 200, 0.3)',
+              borderTopColor: '#6b8ec8',
+              borderRadius: '50%',
+              margin: '0 auto',
+              animation: 'spin 1s linear infinite'
+            }} />
           </div>
+        </div>
+      </section>
+    );
+  }
 
-          {loading ? (
-            <div className="text-center py-20">
-              <div className="inline-block w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
-            </div>
-          ) : (
-            <>
-              <div className="grid md:grid-cols-3 gap-8">
-                {displayProjects.map((project, index) => (
-                  <Link
-                    key={project.id}
-                    href={`/portfolio/${project.slug}`}
-                    className="group relative aspect-square overflow-hidden rounded-2xl"
-                  >
-                    {/* Image */}
-                    <div 
-                      className="absolute inset-0 bg-cover bg-center transform scale-100 group-hover:scale-110 transition-transform duration-700"
-                      style={{ 
-                        backgroundImage: project.main_image_url 
-                          ? `url(${project.main_image_url})`
-                          : undefined,
-                        filter: 'blur(8px) brightness(0.6)'
-                      }}
-                    />
-                    
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
-                    
-                    {/* Contenu */}
-                    <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                      <div className="text-sm text-secondary uppercase tracking-wider mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                        {project.seo_city}
-                      </div>
-                      <h3 className="text-2xl font-bold mb-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        {project.title}
-                      </h3>
-                      <p className="text-white/60 text-sm font-light opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                        {project.short_description}
-                      </p>
+  return (
+    <section className={styles.portfolioSection}>
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          {displayProjects.map((project: any) => (
+            <Link
+              key={project.id}
+              href={`/portfolio/${project.slug}`}
+              className={`${styles.projectCard} ${project.featured ? styles.featured : ''}`}
+            >
+              {project.featured ? (
+                // Carte featured avec image
+                <div className={styles.featuredCard}>
+                  {project.image && (
+                    <div className={styles.featuredImage}>
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                      />
                     </div>
-
-                    {/* Border effect */}
-                    <div className="absolute inset-0 border-2 border-white/0 group-hover:border-secondary/30 rounded-2xl transition-colors duration-500" />
-                  </Link>
-                ))}
-              </div>
-
-              <div className="text-center mt-16">
-                <Link
-                  href="/portfolio"
-                  className="inline-block glass-dark px-12 py-5 hover:bg-white/5 transition-all duration-300"
-                >
-                  <span className="text-white/80 font-semibold tracking-wider uppercase text-sm">
-                    Voir tous les projets
-                  </span>
-                </Link>
-              </div>
-            </>
-          )}
+                  )}
+                  <div className={styles.projectContent}>
+                    <div className={styles.triangleIndicator} />
+                    <div className={styles.projectTitle}>
+                      <h3>{project.title}</h3>
+                      {project.subtitle && (
+                        <div className={styles.subtitle}>{project.subtitle}</div>
+                      )}
+                    </div>
+                    <div className={styles.projectNumber}>{project.number}</div>
+                    <div className={styles.progressLine} />
+                  </div>
+                </div>
+              ) : (
+                // Carte normale avec icône
+                <div className={styles.projectContent}>
+                  <div className={styles.triangleIndicator} />
+                  <div className={styles.projectIcon}>
+                    {project.icon || (
+                      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="30" stroke="#6b8ec8" strokeWidth="2"/>
+                      </svg>
+                    )}
+                  </div>
+                  <div className={styles.projectTitle}>
+                    <h3>{project.title}</h3>
+                  </div>
+                  <div className={styles.projectNumber}>{project.number}</div>
+                  <div className={styles.progressLine} />
+                </div>
+              )}
+            </Link>
+          ))}
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+      `}</style>
     </section>
   );
 }

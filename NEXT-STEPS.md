@@ -206,3 +206,4 @@ Avant de déployer, vérifiez :
 Le projet est entièrement configuré et prêt pour le développement.
 Suivez les étapes ci-dessus pour connecter GitHub et déployer sur Vercel.
 
+

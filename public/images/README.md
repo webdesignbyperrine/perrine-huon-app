@@ -29,3 +29,4 @@ public/
     └── projects/ (à créer si besoin)
 ```
 
+

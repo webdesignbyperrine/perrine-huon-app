@@ -113,3 +113,4 @@ Si vous avez besoin que je fasse ces modifications pour vous :
 
 **Note** : Next.js Image nécessite que les images soient dans le dossier `public/` pour fonctionner.
 
+

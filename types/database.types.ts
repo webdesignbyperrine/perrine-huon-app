@@ -96,3 +96,4 @@ export type BlogPostWithMedia = BlogPost & {
   })[];
 };
 
+

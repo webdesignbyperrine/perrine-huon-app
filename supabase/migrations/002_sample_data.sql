@@ -19,3 +19,4 @@ INSERT INTO public.media_assets (type, url, title, alt_text) VALUES
 -- Note: Les projets et articles seront créés via l'interface admin
 -- Une fois qu'un utilisateur admin sera authentifié
 
+
