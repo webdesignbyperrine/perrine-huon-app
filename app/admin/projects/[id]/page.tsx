@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
+import ImageUploader from '@/components/admin/ImageUploader';
 
 type Project = {
   id: string;
@@ -18,12 +19,22 @@ type Project = {
   published: boolean;
 };
 
+type UploadedImage = {
+  id: string;
+  url: string;
+  file_name: string;
+  file_size: number;
+  is_main?: boolean;
+};
+
 export default function EditProjectPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [project, setProject] = useState<Project | null>(null);
+  const [images, setImages] = useState<UploadedImage[]>([]);
+  const [initialImageIds, setInitialImageIds] = useState<string[]>([]);
 
   useEffect(() => {
     fetchProject();
@@ -31,19 +42,53 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
 
   async function fetchProject() {
     const supabase = createClient();
-    const { data, error } = await supabase
+    
+    // Récupérer le projet
+    const { data: projectData, error: projectError } = await supabase
       .from('projects')
       .select('*')
       .eq('id', params.id)
       .single();
 
-    if (error) {
+    if (projectError) {
       setError('Projet introuvable');
       setLoading(false);
-    } else {
-      setProject(data);
-      setLoading(false);
+      return;
     }
+
+    setProject(projectData);
+
+    // Récupérer les images liées au projet
+    const { data: mediaData, error: mediaError } = await supabase
+      .from('project_media')
+      .select(`
+        media_id,
+        is_main,
+        sort_order,
+        media_assets (
+          id,
+          file_url,
+          file_name,
+          file_size
+        )
+      `)
+      .eq('project_id', params.id)
+      .order('sort_order', { ascending: true });
+
+    if (!mediaError && mediaData) {
+      const loadedImages = mediaData.map((item: any) => ({
+        id: item.media_assets.id,
+        url: item.media_assets.file_url,
+        file_name: item.media_assets.file_name,
+        file_size: item.media_assets.file_size,
+        is_main: item.is_main,
+      }));
+      
+      setImages(loadedImages);
+      setInitialImageIds(loadedImages.map((img: UploadedImage) => img.id));
+    }
+
+    setLoading(false);
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -54,6 +99,10 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
     setError('');
 
     const supabase = createClient();
+    
+    // Mettre à jour l'image principale
+    const mainImage = images.find(img => img.is_main);
+    
     const { error: updateError } = await supabase
       .from('projects')
       .update({
@@ -64,7 +113,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
         year: project.year,
         short_description: project.short_description,
         long_description: project.long_description,
-        featured_image: project.featured_image,
+        featured_image: mainImage?.url || images[0]?.url || null,
         published: project.published,
       })
       .eq('id', params.id);
@@ -72,9 +121,41 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
     if (updateError) {
       setError(updateError.message);
       setSaving(false);
-    } else {
-      router.push('/admin/projects');
+      return;
     }
+
+    // Gérer les images
+    const currentImageIds = images.map(img => img.id);
+    const removedImageIds = initialImageIds.filter(id => !currentImageIds.includes(id));
+
+    // Supprimer les relations des images retirées
+    if (removedImageIds.length > 0) {
+      await supabase
+        .from('project_media')
+        .delete()
+        .eq('project_id', params.id)
+        .in('media_id', removedImageIds);
+    }
+
+    // Supprimer toutes les relations existantes et recréer
+    await supabase
+      .from('project_media')
+      .delete()
+      .eq('project_id', params.id);
+
+    // Créer les nouvelles relations
+    if (images.length > 0) {
+      const projectMedia = images.map((img, index) => ({
+        project_id: params.id,
+        media_id: img.id,
+        sort_order: index,
+        is_main: img.is_main || false,
+      }));
+
+      await supabase.from('project_media').insert(projectMedia);
+    }
+
+    router.push('/admin/projects');
   }
 
   if (loading) {
@@ -219,26 +300,19 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
               />
             </div>
 
-            {/* Image */}
+            {/* Galerie d'images */}
             <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Image principale (URL)
+              <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
+                Galerie d'images du projet
               </label>
-              <input
-                type="url"
-                value={project.featured_image || ''}
-                onChange={(e) => setProject({ ...project, featured_image: e.target.value })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
+              <ImageUploader
+                images={images}
+                onImagesChange={setImages}
+                maxImages={10}
               />
-              {project.featured_image && (
-                <div className="mt-4">
-                  <img
-                    src={project.featured_image}
-                    alt="Aperçu"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                </div>
-              )}
+              <p className="text-white/40 text-xs mt-2">
+                La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
+              </p>
             </div>
 
             {/* Publié */}

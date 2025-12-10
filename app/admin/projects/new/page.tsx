@@ -4,11 +4,21 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
+import ImageUploader from '@/components/admin/ImageUploader';
+
+type UploadedImage = {
+  id: string;
+  url: string;
+  file_name: string;
+  file_size: number;
+  is_main?: boolean;
+};
 
 export default function NewProjectPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [images, setImages] = useState<UploadedImage[]>([]);
 
   const [formData, setFormData] = useState({
     title: '',
@@ -18,7 +28,6 @@ export default function NewProjectPage() {
     year: new Date().getFullYear(),
     short_description: '',
     long_description: '',
-    featured_image: '',
     published: false,
   });
 
@@ -46,16 +55,46 @@ export default function NewProjectPage() {
     setError('');
 
     const supabase = createClient();
-    const { error: insertError } = await supabase
+    
+    // Récupérer l'URL de l'image principale
+    const mainImage = images.find(img => img.is_main);
+    
+    const projectData = {
+      ...formData,
+      featured_image: mainImage?.url || images[0]?.url || null,
+    };
+
+    const { data: project, error: insertError } = await supabase
       .from('projects')
-      .insert([formData]);
+      .insert([projectData])
+      .select()
+      .single();
 
     if (insertError) {
       setError(insertError.message);
       setLoading(false);
-    } else {
-      router.push('/admin/projects');
+      return;
     }
+
+    // Créer les relations project_media pour chaque image
+    if (images.length > 0 && project) {
+      const projectMedia = images.map((img, index) => ({
+        project_id: project.id,
+        media_id: img.id,
+        sort_order: index,
+        is_main: img.is_main || false,
+      }));
+
+      const { error: mediaError } = await supabase
+        .from('project_media')
+        .insert(projectMedia);
+
+      if (mediaError) {
+        console.error('Error linking media:', mediaError);
+      }
+    }
+
+    router.push('/admin/projects');
   }
 
   return (
@@ -186,27 +225,19 @@ export default function NewProjectPage() {
               />
             </div>
 
-            {/* Image */}
+            {/* Galerie d'images */}
             <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Image principale (URL)
+              <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
+                Galerie d'images du projet
               </label>
-              <input
-                type="url"
-                value={formData.featured_image}
-                onChange={(e) => setFormData({ ...formData, featured_image: e.target.value })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                placeholder="https://..."
+              <ImageUploader
+                images={images}
+                onImagesChange={setImages}
+                maxImages={10}
               />
-              {formData.featured_image && (
-                <div className="mt-4">
-                  <img
-                    src={formData.featured_image}
-                    alt="Aperçu"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                </div>
-              )}
+              <p className="text-white/40 text-xs mt-2">
+                La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
+              </p>
             </div>
 
             {/* Publié */}
