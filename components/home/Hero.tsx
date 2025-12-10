@@ -23,17 +23,22 @@ export default function Hero() {
       {/* Contenu principal */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Logo PH au centre avec effet 3D */}
+          {/* Logo perroquet au centre avec effet 3D */}
           <div className="flex justify-center mb-12">
             <div className="relative group">
               {/* Glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-secondary via-accent-orange to-accent-red rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
               
               {/* Logo container */}
-              <div className="relative w-48 h-48 glass-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
-                <span className="text-7xl font-bold bg-gradient-to-br from-white via-accent-orange to-secondary bg-clip-text text-transparent">
-                  PH
-                </span>
+              <div className="relative w-48 h-48 glass-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-transform duration-500 p-8">
+                <Image
+                  src="/images/logo_vert_perrine_huon.png"
+                  alt="Perrine Huon"
+                  width={120}
+                  height={120}
+                  className="object-contain"
+                  priority
+                />
               </div>
             </div>
           </div>

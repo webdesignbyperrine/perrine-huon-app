@@ -32,25 +32,18 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
-          {/* Logo avec image ou fallback */}
+          {/* Logo perroquet */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-accent-red rounded-full blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
-              <div className="relative w-12 h-12 bg-gradient-to-br from-secondary/20 to-accent-red/20 rounded-full flex items-center justify-center overflow-hidden">
-                {/* Remplacez par votre logo perroquet */}
-                {/* Décommentez quand vous ajoutez logo-perroquet.png dans public/images/ */}
-                {/* <Image
-                  src="/images/logo-perroquet.png"
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary to-accent-red rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
+              <div className="relative w-12 h-12 flex items-center justify-center">
+                <Image
+                  src="/images/logo_vert_perrine_huon.png"
                   alt="Perrine Huon Logo"
                   width={48}
                   height={48}
-                  className="object-contain"
-                /> */}
-                
-                {/* Fallback temporaire */}
-                <span className="text-xl font-bold bg-gradient-to-br from-white to-secondary bg-clip-text text-transparent">
-                  PH
-                </span>
+                  className="object-contain group-hover:scale-110 transition-transform duration-300"
+                />
               </div>
             </div>
             <span className="text-xl font-light tracking-wider hidden sm:block">
