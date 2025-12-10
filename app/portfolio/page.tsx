@@ -18,7 +18,7 @@ export default function PortfolioPage() {
       const { data, error } = await supabase
         .from('projects')
         .select('*')
-        .eq('is_published', true)
+        .eq('published', true)
         .order('created_at', { ascending: false });
 
       if (!error && data) {
