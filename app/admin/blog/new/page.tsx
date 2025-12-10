@@ -5,10 +5,12 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import RichTextEditor from '@/components/admin/RichTextEditor';
+import SingleImageUploader from '@/components/admin/SingleImageUploader';
 
 export default function NewBlogPostPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [generating, setGenerating] = useState(false);
   const [error, setError] = useState('');
 
   const [formData, setFormData] = useState({
@@ -36,6 +38,41 @@ export default function NewBlogPostPage() {
       slug: generateSlug(title),
     });
   };
+
+  // Générer du contenu avec IA
+  async function generateWithAI(type: 'excerpt' | 'content') {
+    if (!formData.title) {
+      alert('Veuillez d\'abord remplir le titre de l\'article');
+      return;
+    }
+
+    setGenerating(true);
+
+    try {
+      const response = await fetch('/api/generate-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: formData.title, type }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        alert(data.error);
+      } else {
+        if (type === 'excerpt') {
+          setFormData({ ...formData, excerpt: data.content });
+        } else {
+          setFormData({ ...formData, content: data.content });
+        }
+      }
+    } catch (error) {
+      console.error('Generation error:', error);
+      alert('Erreur lors de la génération. Vérifiez que votre clé API OpenAI est configurée.');
+    }
+
+    setGenerating(false);
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -115,9 +152,19 @@ export default function NewBlogPostPage() {
             </div>
 
             <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Extrait
-              </label>
+              <div className="flex justify-between items-center mb-2">
+                <label className="block text-white/80 text-sm uppercase tracking-wider">
+                  Extrait (résumé)
+                </label>
+                <button
+                  type="button"
+                  onClick={() => generateWithAI('excerpt')}
+                  disabled={generating || !formData.title}
+                  className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-semibold uppercase tracking-wider rounded disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 transition-opacity"
+                >
+                  ✨ Générer avec IA
+                </button>
+              </div>
               <textarea
                 value={formData.excerpt}
                 onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
@@ -125,42 +172,41 @@ export default function NewBlogPostPage() {
                 className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors resize-none"
                 placeholder="Résumé de l'article en quelques lignes..."
               />
+              <p className="text-white/40 text-xs mt-1">
+                💡 Astuce : Remplissez d'abord le titre, puis cliquez sur "Générer avec IA"
+              </p>
             </div>
 
             <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Contenu de l'article
-              </label>
+              <div className="flex justify-between items-center mb-2">
+                <label className="block text-white/80 text-sm uppercase tracking-wider">
+                  Contenu de l'article
+                </label>
+                <button
+                  type="button"
+                  onClick={() => generateWithAI('content')}
+                  disabled={generating || !formData.title}
+                  className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-semibold uppercase tracking-wider rounded disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 transition-opacity"
+                >
+                  {generating ? '⏳ Génération...' : '✨ Générer avec IA'}
+                </button>
+              </div>
               <RichTextEditor
                 content={formData.content}
                 onChange={(html) => setFormData({ ...formData, content: html })}
                 placeholder="Rédigez votre article ici... Utilisez la barre d'outils pour formater et ajouter des images."
               />
               <p className="text-white/40 text-xs mt-2">
-                💡 Vous pouvez insérer des images depuis votre ordinateur ou via URL, les aligner et les placer n'importe où dans le texte.
+                💡 Insérez des images depuis votre ordinateur ou via URL, alignez-les et placez-les n'importe où. Ou générez un brouillon avec l'IA et personnalisez-le !
               </p>
             </div>
 
             <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Image de couverture (URL)
-              </label>
-              <input
-                type="url"
-                value={formData.featured_image}
-                onChange={(e) => setFormData({ ...formData, featured_image: e.target.value })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                placeholder="https://..."
+              <SingleImageUploader
+                imageUrl={formData.featured_image}
+                onImageChange={(url) => setFormData({ ...formData, featured_image: url })}
+                label="Image de couverture"
               />
-              {formData.featured_image && (
-                <div className="mt-4">
-                  <img
-                    src={formData.featured_image}
-                    alt="Aperçu"
-                    className="w-full h-48 object-cover rounded-lg"
-                  />
-                </div>
-              )}
             </div>
 
             <div className="flex items-center gap-3">
