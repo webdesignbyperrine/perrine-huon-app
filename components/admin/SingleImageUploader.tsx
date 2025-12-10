@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
+import { optimizeImageWithPreset } from '@/lib/image-optimizer';
 
 type SingleImageUploaderProps = {
   imageUrl: string;
@@ -26,23 +27,22 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
       return;
     }
 
-    if (file.size > 5 * 1024 * 1024) {
-      alert('L\'image est trop volumineuse (max 5MB)');
-      return;
-    }
-
     setUploading(true);
 
     try {
+      // 1. Optimiser l'image automatiquement
+      console.log('🎨 Optimisation de l\'image en cours...');
+      const optimizedFile = await optimizeImageWithPreset(file, 'cover');
+
+      // 2. Upload vers Supabase
       const supabase = createClient();
-      
-      const fileExt = file.name.split('.').pop();
+      const fileExt = optimizedFile.name.split('.').pop();
       const fileName = `${Math.random().toString(36).substring(2)}-${Date.now()}.${fileExt}`;
       const filePath = `blog/covers/${fileName}`;
 
       const { error: uploadError } = await supabase.storage
         .from('assets')
-        .upload(filePath, file);
+        .upload(filePath, optimizedFile);
 
       if (uploadError) {
         alert('Erreur lors de l\'upload');

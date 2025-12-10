@@ -12,48 +12,16 @@ export default function CalendlySection() {
 
           {/* Calendly Embed */}
           <div className="card bg-white/5 backdrop-blur-xl border-secondary/30">
-            <div className="aspect-video bg-gradient-to-br from-primary-700 to-primary-900 rounded-lg flex items-center justify-center relative overflow-hidden">
-              {/* Fond animé */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-secondary rounded-full blur-3xl animate-float" />
-                <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent-red rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-              </div>
-
-              {/* Contenu placeholder */}
-              <div className="relative z-10 text-center p-8">
-                <svg className="w-20 h-20 mx-auto mb-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <h3 className="text-2xl font-bold mb-4">Intégration Calendly</h3>
-                <p className="text-white/70 mb-6 max-w-md">
-                  Le widget Calendly sera intégré ici pour permettre la prise de rendez-vous directement sur cette page.
-                </p>
-                <div className="text-sm text-white/50 space-y-2">
-                  <p>📅 Choisissez votre créneau</p>
-                  <p>⏰ Durée : 30 minutes</p>
-                  <p>💬 Visio ou téléphone</p>
-                </div>
-
-                {/* Instructions pour l'intégration */}
-                <div className="mt-8 p-4 bg-primary-800/50 rounded-lg text-left text-sm">
-                  <p className="text-white/70 mb-2"><strong className="text-secondary">Pour intégrer Calendly :</strong></p>
-                  <ol className="text-white/60 space-y-1 list-decimal list-inside">
-                    <li>Créez un compte sur Calendly</li>
-                    <li>Configurez votre type d'événement</li>
-                    <li>Récupérez le code d'intégration</li>
-                    <li>Remplacez ce contenu par l'iframe Calendly</li>
-                  </ol>
-                </div>
-              </div>
-
-              {/* Alternative : Lien direct vers Calendly */}
-              {/* Décommentez quand vous avez votre lien Calendly */}
-              {/* <iframe
-                src="https://calendly.com/VOTRE-COMPTE/30min"
+            <div className="aspect-video bg-white rounded-lg relative overflow-hidden">
+              {/* Calendly iframe intégré */}
+              <iframe
+                src="https://calendly.com/prne-hn/30min?hide_event_type_details=1&hide_gdpr_banner=1"
                 width="100%"
                 height="100%"
                 frameBorder="0"
-              ></iframe> */}
+                title="Réservation de rendez-vous"
+                className="absolute inset-0"
+              ></iframe>
             </div>
 
             {/* Bouton alternatif */}

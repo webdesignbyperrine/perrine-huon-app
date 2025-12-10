@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
+import { optimizeImageWithPreset } from '@/lib/image-optimizer';
 
 type UploadedImage = {
   id: string;
