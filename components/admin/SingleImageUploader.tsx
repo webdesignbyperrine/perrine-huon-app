@@ -233,6 +233,16 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
           onChange={handleFileChange}
           className="hidden"
         />
+
+        {/* Message d'optimisation */}
+        <div className="mt-3 p-3 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-lg">
+          <p className="text-white/70 text-sm">
+            ✨ <strong className="text-secondary">Optimisation automatique activée</strong>
+          </p>
+          <p className="text-white/50 text-xs mt-1">
+            Vos images sont automatiquement compressées et converties en format WebP (60-80% plus légères) pour des performances optimales.
+          </p>
+        </div>
       </div>
 
       {/* Modal de génération */}

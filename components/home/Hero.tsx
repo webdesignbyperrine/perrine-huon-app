@@ -1,7 +1,26 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
+  const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
+
+  useEffect(() => {
+    // Charger le logo depuis les settings
+    fetch('/api/site-settings')
+      .then(res => res.json())
+      .then(data => {
+        if (data.logo_url) {
+          setLogoUrl(data.logo_url);
+        }
+      })
+      .catch(error => {
+        console.error('Error loading logo:', error);
+      });
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-900">
       {/* Fond avec grille subtile */}
@@ -32,12 +51,13 @@ export default function Hero() {
               {/* Logo container */}
               <div className="relative w-48 h-48 glass-dark rounded-full flex items-center justify-center transform hover:scale-105 transition-transform duration-500 p-8">
                 <Image
-                  src="/images/logo_vert_perrine_huon.png"
+                  src={logoUrl}
                   alt="Perrine Huon"
                   width={120}
                   height={120}
                   className="object-contain"
                   priority
+                  key={logoUrl}
                 />
               </div>
             </div>

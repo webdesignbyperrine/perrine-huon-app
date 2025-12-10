@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,20 @@ export default function Header() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Charger le logo depuis les settings
+    fetch('/api/site-settings')
+      .then(res => res.json())
+      .then(data => {
+        if (data.logo_url) {
+          setLogoUrl(data.logo_url);
+        }
+      })
+      .catch(error => {
+        console.error('Error loading logo:', error);
+      });
   }, []);
 
   const navigation = [
@@ -38,11 +53,12 @@ export default function Header() {
               <div className="absolute inset-0 bg-gradient-to-br from-secondary to-accent-red rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
               <div className="relative w-12 h-12 flex items-center justify-center">
                 <Image
-                  src="/images/logo_vert_perrine_huon.png"
+                  src={logoUrl}
                   alt="Perrine Huon Logo"
                   width={48}
                   height={48}
                   className="object-contain group-hover:scale-110 transition-transform duration-300"
+                  key={logoUrl}
                 />
               </div>
             </div>
