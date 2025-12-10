@@ -206,7 +206,11 @@ export default function NewBlogPostPage() {
                 imageUrl={formData.featured_image}
                 onImageChange={(url) => setFormData({ ...formData, featured_image: url })}
                 label="Image de couverture"
+                articleTitle={formData.title}
               />
+              <p className="text-white/40 text-xs mt-2">
+                💡 Uploadez une image depuis votre ordinateur ou cliquez "✨ Générer avec IA" pour créer une image unique basée sur votre titre
+              </p>
             </div>
 
             <div className="flex items-center gap-3">

@@ -237,7 +237,11 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
                 imageUrl={post.featured_image || ''}
                 onImageChange={(url) => setPost({ ...post, featured_image: url })}
                 label="Image de couverture"
+                articleTitle={post.title}
               />
+              <p className="text-white/40 text-xs mt-2">
+                💡 Uploadez une image depuis votre ordinateur ou cliquez "✨ Générer avec IA" pour créer une image unique basée sur votre titre
+              </p>
             </div>
 
             <div className="flex items-center gap-3">

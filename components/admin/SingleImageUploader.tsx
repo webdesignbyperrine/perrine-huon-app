@@ -8,10 +8,12 @@ type SingleImageUploaderProps = {
   imageUrl: string;
   onImageChange: (url: string) => void;
   label?: string;
+  articleTitle?: string; // Pour la génération IA
 };
 
-export default function SingleImageUploader({ imageUrl, onImageChange, label = 'Image de couverture' }: SingleImageUploaderProps) {
+export default function SingleImageUploader({ imageUrl, onImageChange, label = 'Image de couverture', articleTitle }: SingleImageUploaderProps) {
   const [uploading, setUploading] = useState(false);
+  const [generating, setGenerating] = useState(false);
   const [dragging, setDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -91,11 +93,53 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
     onImageChange('');
   }
 
+  async function generateImageWithAI() {
+    if (!articleTitle) {
+      alert('Veuillez d\'abord remplir le titre de l\'article');
+      return;
+    }
+
+    setGenerating(true);
+
+    try {
+      const response = await fetch('/api/generate-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: articleTitle, style: 'professional' }),
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        alert(data.error);
+      } else {
+        onImageChange(data.imageUrl);
+      }
+    } catch (error) {
+      console.error('Image generation error:', error);
+      alert('Erreur lors de la génération. Vérifiez que votre clé API OpenAI est configurée.');
+    }
+
+    setGenerating(false);
+  }
+
   return (
     <div className="space-y-3">
-      <label className="block text-white/80 text-sm uppercase tracking-wider">
-        {label}
-      </label>
+      <div className="flex justify-between items-center">
+        <label className="block text-white/80 text-sm uppercase tracking-wider">
+          {label}
+        </label>
+        {articleTitle && (
+          <button
+            type="button"
+            onClick={generateImageWithAI}
+            disabled={generating || uploading}
+            className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-semibold uppercase tracking-wider rounded disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 transition-opacity"
+          >
+            {generating ? '🎨 Génération...' : '✨ Générer avec IA'}
+          </button>
+        )}
+      </div>
 
       {imageUrl ? (
         // Image existante
@@ -133,14 +177,22 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           onDrop={handleDrop}
-          onClick={() => fileInputRef.current?.click()}
+          onClick={() => !generating && fileInputRef.current?.click()}
           className={`relative border-2 border-dashed rounded-lg p-12 text-center cursor-pointer transition-all ${
             dragging
               ? 'border-secondary bg-secondary/10'
+              : generating
+              ? 'border-purple-500 bg-purple-500/10 cursor-wait'
               : 'border-white/20 hover:border-white/40 hover:bg-white/5'
           }`}
         >
-          {uploading ? (
+          {generating ? (
+            <div className="space-y-3">
+              <div className="w-12 h-12 border-2 border-purple-500/30 border-t-purple-500 rounded-full animate-spin mx-auto" />
+              <p className="text-white/60 text-sm">Génération de l'image avec IA...</p>
+              <p className="text-white/40 text-xs">Cela peut prendre 5-10 secondes</p>
+            </div>
+          ) : uploading ? (
             <div className="space-y-3">
               <div className="w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin mx-auto" />
               <p className="text-white/60 text-sm">Upload en cours...</p>
