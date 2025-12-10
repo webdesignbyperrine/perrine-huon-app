@@ -23,8 +23,7 @@ export default function PortfolioPreview() {
             media:media_assets (*)
           )
         `)
-        .eq('is_published', true)
-        .eq('is_featured', true)
+        .eq('published', true)
         .order('created_at', { ascending: false })
         .limit(4);
 
