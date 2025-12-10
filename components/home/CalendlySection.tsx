@@ -10,18 +10,35 @@ export default function CalendlySection() {
             </p>
           </div>
 
-          {/* Calendly Embed */}
-          <div className="card bg-white/5 backdrop-blur-xl border-secondary/30">
-            <div className="aspect-video bg-white rounded-lg relative overflow-hidden">
-              {/* Calendly iframe intégré */}
-              <iframe
-                src="https://calendly.com/prne-hn/30min?hide_event_type_details=1&hide_gdpr_banner=1"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                title="Réservation de rendez-vous"
-                className="absolute inset-0"
-              ></iframe>
+          {/* Calendly Embed avec wrapper sombre */}
+          <div className="relative">
+            {/* Fond sombre décoratif */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-900 to-primary-950 rounded-2xl overflow-hidden">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" />
+              <div 
+                className="absolute bottom-0 left-0 w-96 h-96 bg-accent-orange/20 rounded-full blur-3xl animate-float" 
+                style={{ animationDelay: '2s' }}
+              />
+            </div>
+
+            {/* Card avec glass effect */}
+            <div className="relative glass-dark border border-secondary/30 rounded-2xl p-8">
+              <div className="aspect-video relative overflow-hidden rounded-xl">
+                {/* Calendly iframe */}
+                <iframe
+                  src="https://calendly.com/prne-hn/30min?hide_event_type_details=1&hide_gdpr_banner=1"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  title="Réservation de rendez-vous"
+                  className="absolute inset-0 rounded-xl shadow-2xl"
+                ></iframe>
+              </div>
+
+              {/* Badge décoratif */}
+              <div className="absolute -top-3 -right-3 px-4 py-2 bg-gradient-to-r from-secondary to-accent-orange text-white text-xs font-semibold uppercase tracking-wider rounded-full shadow-lg">
+                ✨ Réservation en ligne
+              </div>
             </div>
 
             {/* Bouton alternatif */}
@@ -70,5 +87,3 @@ export default function CalendlySection() {
     </section>
   );
 }
-
-
