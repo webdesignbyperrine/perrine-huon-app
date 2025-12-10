@@ -3,6 +3,8 @@ export type Profile = {
   email: string;
   role: 'admin' | 'user';
   name: string | null;
+  bio: string | null;
+  avatar_url: string | null;
   created_at: string;
 };
 
