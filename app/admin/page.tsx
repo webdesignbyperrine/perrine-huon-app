@@ -77,6 +77,7 @@ export default function AdminDashboard() {
     { title: 'Médias', href: '/admin/media', icon: '🖼️', count: 0 },
     { title: 'Messages', href: '/admin/messages', icon: '✉️', count: stats.messages, highlight: stats.messages > 0 },
     { title: 'Profil', href: '/admin/profile', icon: '👤', count: 0 },
+    { title: 'Paramètres', href: '/admin/settings', icon: '⚙️', count: 0 },
   ];
 
   return (
