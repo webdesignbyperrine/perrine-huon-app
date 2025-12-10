@@ -3,11 +3,11 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
   try {
-    const { title, style = 'professional' } = await request.json();
+    const { title, style = 'professional', customPrompt } = await request.json();
 
-    if (!title) {
+    if (!title && !customPrompt) {
       return NextResponse.json(
-        { error: 'Le titre est requis pour générer une image' },
+        { error: 'Le titre ou un prompt personnalisé est requis pour générer une image' },
         { status: 400 }
       );
     }
@@ -22,22 +22,30 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Générer un prompt optimisé basé sur le titre et le style
-    const stylePrompts: Record<string, string> = {
-      professional: 'professional photography, modern, clean, minimalist, high quality, 8k',
-      illustration: 'digital illustration, vibrant colors, artistic, modern style, detailed',
-      abstract: 'abstract art, geometric shapes, gradient colors, modern, elegant',
-      tech: 'technology themed, futuristic, digital, sleek design, purple and orange accents',
-    };
+    let prompt: string;
 
-    const styleDescription = stylePrompts[style] || stylePrompts.professional;
-    
-    const prompt = `Create a professional blog cover image for an article titled "${title}". 
+    // Si un prompt personnalisé est fourni, l'utiliser directement
+    if (customPrompt && customPrompt.trim()) {
+      prompt = customPrompt.trim();
+      console.log('Using custom prompt:', prompt);
+    } else {
+      // Sinon, générer un prompt optimisé basé sur le titre et le style
+      const stylePrompts: Record<string, string> = {
+        professional: 'professional photography, modern, clean, minimalist, high quality, 8k',
+        illustration: 'digital illustration, vibrant colors, artistic, modern style, detailed',
+        abstract: 'abstract art, geometric shapes, gradient colors, modern, elegant',
+        tech: 'technology themed, futuristic, digital, sleek design, purple and orange accents',
+      };
+
+      const styleDescription = stylePrompts[style] || stylePrompts.professional;
+      
+      prompt = `Create a professional blog cover image for an article titled "${title}". 
 Style: ${styleDescription}. 
 The image should be visually appealing, relevant to the topic, and suitable as a blog header. 
 No text or typography in the image.`;
 
-    console.log('Generating image with prompt:', prompt);
+      console.log('Generating image with auto prompt:', prompt);
+    }
 
     // Appeler DALL-E 3
     const dalleResponse = await fetch('https://api.openai.com/v1/images/generations', {

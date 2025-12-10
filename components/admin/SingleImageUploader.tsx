@@ -15,6 +15,9 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
   const [uploading, setUploading] = useState(false);
   const [generating, setGenerating] = useState(false);
   const [dragging, setDragging] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [customPrompt, setCustomPrompt] = useState('');
+  const [useCustomPrompt, setUseCustomPrompt] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   async function uploadImage(file: File) {
@@ -93,19 +96,27 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
     onImageChange('');
   }
 
-  async function generateImageWithAI() {
-    if (!articleTitle) {
-      alert('Veuillez d\'abord remplir le titre de l\'article');
+  function handleGenerateClick() {
+    if (!articleTitle || articleTitle.trim() === '') {
+      alert('⚠️ Veuillez d\'abord remplir le titre de l\'article en haut du formulaire.\n\nL\'IA utilisera ce titre pour générer une image pertinente, ou vous pouvez saisir un prompt personnalisé.');
       return;
     }
+    setShowModal(true);
+  }
 
+  async function generateImageWithAI(prompt?: string) {
+    setShowModal(false);
     setGenerating(true);
 
     try {
       const response = await fetch('/api/generate-image', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: articleTitle, style: 'professional' }),
+        body: JSON.stringify({ 
+          title: articleTitle,
+          customPrompt: prompt || (useCustomPrompt ? customPrompt : undefined),
+          style: 'professional' 
+        }),
       });
 
       const data = await response.json();
@@ -121,25 +132,26 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
     }
 
     setGenerating(false);
+    setCustomPrompt('');
+    setUseCustomPrompt(false);
   }
 
   return (
-    <div className="space-y-3">
-      <div className="flex justify-between items-center">
-        <label className="block text-white/80 text-sm uppercase tracking-wider">
-          {label}
-        </label>
-        {articleTitle && (
+    <>
+      <div className="space-y-3">
+        <div className="flex justify-between items-center">
+          <label className="block text-white/80 text-sm uppercase tracking-wider">
+            {label}
+          </label>
           <button
             type="button"
-            onClick={generateImageWithAI}
+            onClick={handleGenerateClick}
             disabled={generating || uploading}
             className="px-3 py-1 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-xs font-semibold uppercase tracking-wider rounded disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 transition-opacity"
           >
             {generating ? '🎨 Génération...' : '✨ Générer avec IA'}
           </button>
-        )}
-      </div>
+        </div>
 
       {imageUrl ? (
         // Image existante
@@ -213,15 +225,125 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
         </div>
       )}
 
-      {/* Input file caché */}
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        className="hidden"
-      />
-    </div>
+        {/* Input file caché */}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className="hidden"
+        />
+      </div>
+
+      {/* Modal de génération */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass-dark rounded-xl p-8 max-w-2xl w-full space-y-6">
+            <div className="flex justify-between items-start">
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  ✨ Générer une image avec IA
+                </h3>
+                <p className="text-white/60 text-sm">
+                  Choisissez comment générer votre image de couverture
+                </p>
+              </div>
+              <button
+                onClick={() => setShowModal(false)}
+                className="text-white/60 hover:text-white text-2xl"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="space-y-4">
+              {/* Option 1 : Génération automatique */}
+              <div className="glass-dark p-4 rounded-lg border border-white/10 hover:border-secondary/50 transition-colors">
+                <div className="flex items-start gap-3">
+                  <input
+                    type="radio"
+                    name="generation-type"
+                    id="auto-generation"
+                    checked={!useCustomPrompt}
+                    onChange={() => setUseCustomPrompt(false)}
+                    className="mt-1"
+                  />
+                  <div className="flex-1">
+                    <label htmlFor="auto-generation" className="block text-white font-semibold mb-1 cursor-pointer">
+                      🤖 Génération automatique (recommandé)
+                    </label>
+                    <p className="text-white/60 text-sm mb-2">
+                      L'IA créera une image professionnelle basée sur votre titre
+                    </p>
+                    {articleTitle && (
+                      <div className="text-xs bg-primary-800/50 p-2 rounded text-white/80 mt-2">
+                        <strong>Titre :</strong> "{articleTitle}"
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              {/* Option 2 : Prompt personnalisé */}
+              <div className="glass-dark p-4 rounded-lg border border-white/10 hover:border-secondary/50 transition-colors">
+                <div className="flex items-start gap-3">
+                  <input
+                    type="radio"
+                    name="generation-type"
+                    id="custom-prompt"
+                    checked={useCustomPrompt}
+                    onChange={() => setUseCustomPrompt(true)}
+                    className="mt-1"
+                  />
+                  <div className="flex-1">
+                    <label htmlFor="custom-prompt" className="block text-white font-semibold mb-1 cursor-pointer">
+                      ✏️ Prompt personnalisé
+                    </label>
+                    <p className="text-white/60 text-sm mb-3">
+                      Décrivez précisément l'image que vous souhaitez
+                    </p>
+                    <textarea
+                      value={customPrompt}
+                      onChange={(e) => {
+                        setCustomPrompt(e.target.value);
+                        setUseCustomPrompt(true);
+                      }}
+                      placeholder="Ex: A modern minimalist website interface with purple and orange gradients, floating 3D elements, professional photography style, 8k quality..."
+                      rows={4}
+                      className="w-full px-3 py-2 bg-primary-800/50 border border-white/10 rounded text-white text-sm placeholder-white/30 focus:outline-none focus:border-secondary transition-colors resize-none"
+                    />
+                    <p className="text-white/40 text-xs mt-2">
+                      💡 Astuce : Soyez précis (style, couleurs, ambiance, éléments...)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex gap-3 pt-4">
+              <button
+                onClick={() => generateImageWithAI(useCustomPrompt ? customPrompt : undefined)}
+                disabled={useCustomPrompt && !customPrompt.trim()}
+                className="flex-1 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold uppercase tracking-wider text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 transition-opacity rounded-lg"
+              >
+                🎨 Générer l'image (~10 sec)
+              </button>
+              <button
+                onClick={() => setShowModal(false)}
+                className="px-6 py-3 glass-dark hover:bg-white/5 text-white/80 hover:text-white transition-all text-sm uppercase tracking-wider rounded-lg"
+              >
+                Annuler
+              </button>
+            </div>
+
+            <div className="text-center text-white/40 text-xs">
+              💰 Coût : ~0.04€ par image générée
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
