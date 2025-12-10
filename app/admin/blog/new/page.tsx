@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
+import RichTextEditor from '@/components/admin/RichTextEditor';
 
 export default function NewBlogPostPage() {
   const router = useRouter();
@@ -130,13 +131,14 @@ export default function NewBlogPostPage() {
               <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
                 Contenu de l'article
               </label>
-              <textarea
-                value={formData.content}
-                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                rows={12}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors resize-none"
-                placeholder="Rédigez votre article ici..."
+              <RichTextEditor
+                content={formData.content}
+                onChange={(html) => setFormData({ ...formData, content: html })}
+                placeholder="Rédigez votre article ici... Utilisez la barre d'outils pour formater et ajouter des images."
               />
+              <p className="text-white/40 text-xs mt-2">
+                💡 Vous pouvez insérer des images depuis votre ordinateur ou via URL, les aligner et les placer n'importe où dans le texte.
+              </p>
             </div>
 
             <div>
