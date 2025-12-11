@@ -5,9 +5,8 @@ import { useState } from 'react';
 export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false);
 
-  // TODO: Remplacer par votre numéro WhatsApp au format international
-  // Exemple France: 33612345678 (sans le +, sans espaces)
-  const phoneNumber = '33612345678'; // À REMPLACER
+  // Numéro WhatsApp de Perrine Huon
+  const phoneNumber = '33645182749';
   
   const message = encodeURIComponent(
     "Bonjour Perrine, je vous contacte depuis votre site web. J'aimerais discuter d'un projet..."

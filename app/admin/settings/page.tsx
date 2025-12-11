@@ -30,7 +30,7 @@ export default function SettingsPage() {
     calendly_url: 'https://calendly.com/prne-hn/30min',
   });
 
-  const [whatsappNumber, setWhatsappNumber] = useState('33612345678'); // À configurer
+  const [whatsappNumber, setWhatsappNumber] = useState('33645182749');
 
   useEffect(() => {
     fetchSettings();
