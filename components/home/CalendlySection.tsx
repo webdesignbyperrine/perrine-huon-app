@@ -10,44 +10,42 @@ export default function CalendlySection() {
             </p>
           </div>
 
-          {/* Calendly Embed avec wrapper sombre */}
-          <div className="relative">
-            {/* Fond sombre décoratif */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-900 to-primary-950 rounded-2xl overflow-hidden">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" />
-              <div 
-                className="absolute bottom-0 left-0 w-96 h-96 bg-accent-orange/20 rounded-full blur-3xl animate-float" 
-                style={{ animationDelay: '2s' }}
-              />
-            </div>
-
-            {/* Card avec glass effect */}
-            <div className="relative glass-dark border border-secondary/30 rounded-2xl p-8">
-              <div className="aspect-video relative overflow-hidden rounded-xl">
-                {/* Calendly iframe */}
-                <iframe
-                  src="https://calendly.com/prne-hn/30min?hide_event_type_details=1&hide_gdpr_banner=1"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  title="Réservation de rendez-vous"
-                  className="absolute inset-0 rounded-xl shadow-2xl"
-                ></iframe>
+          {/* Bouton CTA Calendly */}
+          <div className="card bg-white/5 backdrop-blur-xl border-secondary/30 p-12 text-center">
+            <div className="max-w-2xl mx-auto">
+              <div className="mb-8">
+                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-secondary to-accent-orange rounded-full flex items-center justify-center">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-3xl font-bold text-white mb-4">Choisissez votre créneau</h3>
+                <p className="text-white/60 mb-8">
+                  Cliquez sur le bouton ci-dessous pour accéder au calendrier et réserver votre consultation gratuite de 30 minutes.
+                </p>
               </div>
 
-              {/* Badge décoratif */}
-              <div className="absolute -top-3 -right-3 px-4 py-2 bg-gradient-to-r from-secondary to-accent-orange text-white text-xs font-semibold uppercase tracking-wider rounded-full shadow-lg">
-                ✨ Réservation en ligne
-              </div>
+              <a
+                href="https://calendly.com/prne-hn/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-12 py-5 bg-gradient-to-r from-secondary to-accent-orange text-white font-semibold text-lg uppercase tracking-wider hover:opacity-90 transition-opacity rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                📅 Réserver un créneau (30 min)
+              </a>
+
+              <p className="text-white/40 text-sm mt-6">
+                ✨ Première consultation offerte • Sans engagement • Réponse sous 24h
+              </p>
             </div>
 
             {/* Bouton alternatif */}
-            <div className="mt-6 text-center">
+            <div className="mt-8 pt-8 border-t border-white/10">
               <a
                 href="mailto:contact@perrinehuon.com"
-                className="btn-secondary inline-block"
+                className="text-secondary hover:text-accent-orange transition-colors text-sm uppercase tracking-wider"
               >
-                Ou contactez-moi par email
+                Ou contactez-moi par email →
               </a>
             </div>
           </div>
