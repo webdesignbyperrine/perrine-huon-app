@@ -55,9 +55,10 @@ export default function Hero() {
                   alt="Perrine Huon"
                   width={120}
                   height={120}
-                  className="object-contain"
+                  className="object-contain brightness-0 invert"
                   priority
                   key={logoUrl}
+                  style={{ filter: 'brightness(0) invert(1)' }}
                 />
               </div>
             </div>

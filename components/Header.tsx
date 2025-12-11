@@ -57,8 +57,9 @@ export default function Header() {
                   alt="Perrine Huon Logo"
                   width={48}
                   height={48}
-                  className="object-contain group-hover:scale-110 transition-transform duration-300"
+                  className="object-contain group-hover:scale-110 transition-transform duration-300 brightness-0 invert"
                   key={logoUrl}
+                  style={{ filter: 'brightness(0) invert(1)' }}
                 />
               </div>
             </div>
