@@ -30,6 +30,8 @@ export default function SettingsPage() {
     calendly_url: 'https://calendly.com/prne-hn/30min',
   });
 
+  const [whatsappNumber, setWhatsappNumber] = useState('33612345678'); // À configurer
+
   useEffect(() => {
     fetchSettings();
   }, []);
@@ -299,6 +301,26 @@ export default function SettingsPage() {
               />
               <p className="text-white/40 text-xs mt-2">
                 📅 Ce lien sera utilisé pour le bouton de prise de rendez-vous sur votre site
+              </p>
+            </div>
+
+            {/* Numéro WhatsApp */}
+            <div>
+              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
+                Numéro WhatsApp
+              </label>
+              <input
+                type="tel"
+                value={whatsappNumber}
+                onChange={(e) => setWhatsappNumber(e.target.value)}
+                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
+                placeholder="33612345678"
+              />
+              <p className="text-white/40 text-xs mt-2">
+                📱 Format international sans le + et sans espaces (ex: 33612345678 pour +33 6 12 34 56 78)
+              </p>
+              <p className="text-white/40 text-xs mt-1">
+                💬 Le bouton WhatsApp flottant apparaîtra en bas à droite de toutes les pages
               </p>
             </div>
 
