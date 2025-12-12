@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
 
 export default function ContactForm() {
@@ -13,6 +13,22 @@ export default function ContactForm() {
     source: 'form_home',
     consent: false,
   });
+  
+  const messageRef = useRef<HTMLTextAreaElement>(null);
+
+  // Écouter les changements du message via input event (pour le pré-remplissage du qualifier)
+  useEffect(() => {
+    const textarea = messageRef.current;
+    if (!textarea) return;
+
+    const handleInput = (e: Event) => {
+      const target = e.target as HTMLTextAreaElement;
+      setFormData(prev => ({ ...prev, message: target.value }));
+    };
+
+    textarea.addEventListener('input', handleInput);
+    return () => textarea.removeEventListener('input', handleInput);
+  }, []);
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -174,6 +190,7 @@ export default function ContactForm() {
                     Message *
                   </label>
                   <textarea
+                    ref={messageRef}
                     id="message"
                     name="message"
                     required
