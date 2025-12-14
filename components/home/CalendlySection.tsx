@@ -1,53 +1,63 @@
+'use client';
+
+import Script from 'next/script';
+
 export default function CalendlySection() {
   return (
     <section id="rdv" className="py-20 bg-gradient-to-b from-primary-900 to-primary">
+      {/* Script Calendly */}
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        strategy="lazyOnload"
+      />
+
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Réserver un Appel</h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto mt-4">
-              Discutons de votre projet lors d'un appel de 30 minutes. C'est gratuit et sans engagement.
+          <div className="text-center mb-8">
+            <h2 
+              className="inline-flex items-center justify-center gap-5" 
+              style={{ fontSize: '46px', fontWeight: 'bold', lineHeight: 1.2 }}
+            >
+              <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+                Réserver un Appel
+              </span>
+              {/* Icône visio à droite */}
+              <svg 
+                className="text-secondary flex-shrink-0" 
+                style={{ width: '48px', height: '48px', marginTop: '4px' }}
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={1.5} 
+                  d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" 
+                />
+              </svg>
+            </h2>
+            <p className="text-xl text-white/70 max-w-3xl mx-auto mt-6">
+              Choisissez un créneau directement dans le calendrier ci-dessous. C'est gratuit et sans engagement.
             </p>
           </div>
 
-          {/* Bouton CTA Calendly */}
-          <div className="card bg-white/5 backdrop-blur-xl border-secondary/30 p-12 text-center">
-            <div className="max-w-2xl mx-auto">
-              <div className="mb-8">
-                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-secondary to-accent-orange rounded-full flex items-center justify-center">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-4">Choisissez votre créneau</h3>
-                <p className="text-white/60 mb-8">
-                  Cliquez sur le bouton ci-dessous pour accéder au calendrier et réserver votre consultation gratuite de 30 minutes.
-                </p>
-              </div>
-
-              <a
-                href="https://calendly.com/prne-hn/30min"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-12 py-5 bg-gradient-to-r from-secondary to-accent-orange text-white font-semibold text-lg uppercase tracking-wider hover:opacity-90 transition-opacity rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                📅 Réserver un créneau (30 min)
-              </a>
-
-              <p className="text-white/40 text-sm mt-6">
-                ✨ Première consultation offerte • Sans engagement • Réponse sous 24h
-              </p>
-            </div>
-
-            {/* Bouton alternatif */}
-            <div className="mt-8 pt-8 border-t border-white/10">
-              <a
-                href="mailto:contact@perrinehuon.com"
-                className="text-secondary hover:text-accent-orange transition-colors text-sm uppercase tracking-wider"
-              >
-                Ou contactez-moi par email →
-              </a>
-            </div>
+          {/* Widget Calendly intégré */}
+          <div className="card bg-white/5 backdrop-blur-xl border-secondary/30 p-4 md:p-8 overflow-hidden">
+            <div 
+              id="calendly-embed"
+              className="calendly-inline-widget"
+              data-url="https://calendly.com/prne-hn/30min?hide_gdpr_banner=1&background_color=0a1628&text_color=F0EAD6&primary_color=2F4558"
+              style={{ 
+                minWidth: '320px', 
+                height: '700px',
+                width: '100%'
+              }}
+            />
+            
+            <p className="text-white/40 text-sm mt-4 text-center">
+              ✨ Première consultation offerte • Sans engagement • Réponse sous 24h
+            </p>
           </div>
 
           {/* Bénéfices */}
@@ -79,6 +89,16 @@ export default function CalendlySection() {
               <h3 className="font-semibold text-white mb-2">Réponse personnalisée</h3>
               <p className="text-white/60 text-sm">Solutions adaptées à vos besoins</p>
             </div>
+          </div>
+
+          {/* Bouton alternatif */}
+          <div className="mt-8 text-center">
+            <a
+              href="mailto:contact@perrinehuon.com"
+              className="text-secondary hover:text-accent-orange transition-colors text-sm uppercase tracking-wider"
+            >
+              Ou contactez-moi par email →
+            </a>
           </div>
         </div>
       </div>
