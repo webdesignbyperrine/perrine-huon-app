@@ -9,6 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Blanc coquille d'œuf - doux et chaleureux
+        white: '#F0EAD6',
         primary: {
           DEFAULT: '#0a0e1a',
           50: '#f0f1f5',
@@ -23,17 +25,17 @@ const config: Config = {
           900: '#0a0e1a',
         },
         secondary: {
-          DEFAULT: '#DD47B3',
-          50: '#FCE8F6',
-          100: '#F9D1ED',
-          200: '#F3A3DB',
-          300: '#ED75C9',
-          400: '#E747B7',
-          500: '#DD47B3',
-          600: '#B1398F',
-          700: '#852B6B',
-          800: '#591C47',
-          900: '#2D0E24',
+          DEFAULT: '#2F4558',
+          50: '#E8ECF0',
+          100: '#D1D9E1',
+          200: '#A3B3C3',
+          300: '#758DA5',
+          400: '#476787',
+          500: '#2F4558',
+          600: '#263846',
+          700: '#1C2A35',
+          800: '#131C23',
+          900: '#090E12',
         },
         accent: {
           orange: '#FFB97C',

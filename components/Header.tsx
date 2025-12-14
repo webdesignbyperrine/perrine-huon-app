@@ -3,11 +3,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
+  const pathname = usePathname();
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    // Si on est sur la home, scroll vers le haut
+    if (pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    // Sinon, le Link navigue vers "/"
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +59,7 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-6">
         <div className="flex items-center justify-between">
           {/* Logo perroquet */}
-          <Link href="/" className="flex items-center space-x-3 group">
+          <Link href="/" onClick={handleLogoClick} className="flex items-center space-x-3 group">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-secondary to-accent-red rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity" />
               <div className="relative w-12 h-12 flex items-center justify-center">

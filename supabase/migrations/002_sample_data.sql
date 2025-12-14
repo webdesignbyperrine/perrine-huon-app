@@ -20,3 +20,4 @@ INSERT INTO public.media_assets (type, url, title, alt_text) VALUES
 -- Une fois qu'un utilisateur admin sera authentifié
 
 
+

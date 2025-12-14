@@ -24,16 +24,22 @@ export default function SelectionCard({
       onClick={onClick}
       className={`
         group relative text-left w-full p-6 
-        glass-dark rounded-2xl
+        rounded-2xl
         border-2 transition-all duration-300
-        hover:bg-white/5 hover:scale-[1.02]
+        hover:scale-[1.02]
         focus:outline-none focus:ring-2 focus:ring-secondary/50
-        ${selected 
-          ? 'border-secondary bg-secondary/10' 
-          : 'border-transparent hover:border-white/10'
-        }
         ${className}
       `}
+      style={{
+        background: selected 
+          ? 'linear-gradient(135deg, rgba(47, 69, 88, 0.3) 0%, rgba(47, 69, 88, 0.15) 100%)' 
+          : 'rgba(0, 0, 0, 0.4)',
+        backdropFilter: 'blur(30px)',
+        borderColor: selected ? '#2F4558' : 'transparent',
+        boxShadow: selected 
+          ? '0 0 20px rgba(47, 69, 88, 0.4), inset 0 1px 0 rgba(255,255,255,0.1)' 
+          : 'inset 0 1px 0 rgba(255,255,255,0.05)',
+      }}
     >
       {/* Indicateur de sélection */}
       {showCheck && (
@@ -83,16 +89,22 @@ export function MultiSelectCard({
       onClick={onClick}
       className={`
         group relative text-left w-full p-4 
-        glass-dark rounded-xl
+        rounded-xl
         border-2 transition-all duration-300
-        hover:bg-white/5 hover:scale-[1.01]
+        hover:scale-[1.01]
         focus:outline-none focus:ring-2 focus:ring-secondary/50
-        ${selected 
-          ? 'border-secondary bg-secondary/10' 
-          : 'border-transparent hover:border-white/10'
-        }
         ${className}
       `}
+      style={{
+        background: selected 
+          ? 'linear-gradient(135deg, rgba(47, 69, 88, 0.3) 0%, rgba(47, 69, 88, 0.15) 100%)' 
+          : 'rgba(0, 0, 0, 0.4)',
+        backdropFilter: 'blur(30px)',
+        borderColor: selected ? '#2F4558' : 'transparent',
+        boxShadow: selected 
+          ? '0 0 20px rgba(47, 69, 88, 0.4), inset 0 1px 0 rgba(255,255,255,0.1)' 
+          : 'inset 0 1px 0 rgba(255,255,255,0.05)',
+      }}
     >
       {/* Checkbox */}
       <div className={`
@@ -136,15 +148,21 @@ export function MoodboardCard({
       onClick={onClick}
       className={`
         group relative text-left w-full p-6 
-        glass-dark rounded-2xl
+        rounded-2xl
         border-2 transition-all duration-300
-        hover:bg-white/5 hover:scale-[1.02]
+        hover:scale-[1.02]
         focus:outline-none focus:ring-2 focus:ring-secondary/50
-        ${selected 
-          ? 'border-secondary bg-secondary/10' 
-          : 'border-transparent hover:border-white/10'
-        }
       `}
+      style={{
+        background: selected 
+          ? 'linear-gradient(135deg, rgba(47, 69, 88, 0.3) 0%, rgba(47, 69, 88, 0.15) 100%)' 
+          : 'rgba(0, 0, 0, 0.4)',
+        backdropFilter: 'blur(30px)',
+        borderColor: selected ? '#2F4558' : 'transparent',
+        boxShadow: selected 
+          ? '0 0 20px rgba(47, 69, 88, 0.4), inset 0 1px 0 rgba(255,255,255,0.1)' 
+          : 'inset 0 1px 0 rgba(255,255,255,0.05)',
+      }}
     >
       {/* Indicateur de sélection */}
       {showCheck && (

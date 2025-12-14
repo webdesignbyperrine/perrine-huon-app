@@ -159,7 +159,7 @@ function ModereAnimation() {
             <div 
               className="w-8 h-8 rounded-full mb-2"
               style={{
-                background: i === 0 ? '#DD47B3' : i === 1 ? '#FFB97C' : '#FF4855',
+                background: i === 0 ? '#2F4558' : i === 1 ? '#FFB97C' : '#FF4855',
                 opacity: 0.6,
               }}
             />
@@ -207,7 +207,7 @@ function ImmersifAnimation() {
           style={{
             width: `${4 + (i % 3) * 2}px`,
             height: `${4 + (i % 3) * 2}px`,
-            background: i % 3 === 0 ? '#DD47B3' : i % 3 === 1 ? '#FFB97C' : '#FF4855',
+            background: i % 3 === 0 ? '#2F4558' : i % 3 === 1 ? '#FFB97C' : '#FF4855',
             left: `${10 + (i * 7)}%`,
             top: '60%',
             animation: `flyParticle ${1 + (i % 4) * 0.3}s ease-out infinite`,
@@ -221,7 +221,7 @@ function ImmersifAnimation() {
         <div 
           className="relative w-16 h-16 rounded-2xl"
           style={{
-            background: 'linear-gradient(135deg, #DD47B3, #FF4855, #FFB97C)',
+            background: 'linear-gradient(135deg, #2F4558, #FF4855, #FFB97C)',
             animation: 'rotate3D 3s ease-in-out infinite',
             transformStyle: 'preserve-3d',
           }}
@@ -230,7 +230,7 @@ function ImmersifAnimation() {
           <div 
             className="absolute inset-0 rounded-2xl"
             style={{
-              background: 'linear-gradient(135deg, #DD47B3, #FF4855, #FFB97C)',
+              background: 'linear-gradient(135deg, #2F4558, #FF4855, #FFB97C)',
               filter: 'blur(15px)',
               animation: 'pulseGlow 1.5s ease-in-out infinite',
             }}

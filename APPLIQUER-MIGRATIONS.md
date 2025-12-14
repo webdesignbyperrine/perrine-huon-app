@@ -54,3 +54,4 @@ Quand vous aurez appliqué les migrations :
 
 **Besoin d'aide ?** Dites-moi simplement "migrations appliquées" quand c'est fait !
 
+

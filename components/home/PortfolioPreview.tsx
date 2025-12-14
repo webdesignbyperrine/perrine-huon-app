@@ -4,31 +4,50 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import type { ProjectWithMedia } from '@/types/database.types';
 import styles from '@/styles/portfolio-grid.module.scss';
 
+type ProjectData = {
+  id: string;
+  title: string;
+  slug: string;
+  short_description: string | null;
+  featured_image: string | null;
+  published: boolean;
+};
+
 export default function PortfolioPreview() {
-  const [projects, setProjects] = useState<ProjectWithMedia[]>([]);
+  const [projects, setProjects] = useState<ProjectData[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchProjects() {
       const supabase = createClient();
+      
+      // Requête simple - récupérer tous les projets publiés
       const { data, error } = await supabase
         .from('projects')
-        .select(`
-          *,
-          project_media (
-            *,
-            media:media_assets (*)
-          )
-        `)
+        .select('*')
         .eq('published', true)
         .order('created_at', { ascending: false })
         .limit(4);
 
+      console.log('Supabase response:', { data, error });
+
       if (!error && data) {
-        setProjects(data as ProjectWithMedia[]);
+        setProjects(data as any[]);
+      } else if (error) {
+        console.error('Error loading projects:', error);
+        // En cas d'erreur, essayer sans filtre published
+        const { data: allData } = await supabase
+          .from('projects')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(4);
+        
+        console.log('All projects (no filter):', allData);
+        if (allData) {
+          setProjects(allData as any[]);
+        }
       }
       setLoading(false);
     }
@@ -36,59 +55,17 @@ export default function PortfolioPreview() {
     fetchProjects();
   }, []);
 
-  // Projets de démo avec le style exact de la capture
-  const demoProjects = [
-    {
-      id: '1',
-      title: 'STUDIO 74',
-      slug: 'studio-74',
-      short_description: '',
-      number: '01',
-      icon: (
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 30L35 50L20 70M45 30H80M45 50H65M45 70H80" stroke="#6b8ec8" strokeWidth="4" strokeLinecap="round"/>
-        </svg>
-      ),
-    },
-    {
-      id: '2',
-      title: 'GLOSTER',
-      slug: 'gloster',
-      short_description: '',
-      number: '02',
-      icon: (
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="35" r="12" fill="#6b8ec8"/>
-          <circle cx="50" cy="65" r="12" fill="#6b8ec8"/>
-          <rect x="46" y="45" width="8" height="8" fill="#6b8ec8"/>
-        </svg>
-      ),
-    },
-    {
-      id: '3',
-      title: 'LINEA',
-      subtitle: 'VOL.1',
-      slug: 'linea-vol1',
-      short_description: '',
-      number: '03',
-      featured: true,
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80',
-    },
-    {
-      id: '4',
-      title: 'CUBE 2.0',
-      slug: 'cube-20',
-      short_description: '',
-      number: '04',
-      icon: (
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 40L50 25L70 40M30 60L50 75L70 60M50 25V75M30 40V60M70 40V60" stroke="#6b8ec8" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
-    },
-  ];
+  // Projets de démo (affichés uniquement si aucun projet publié en DB)
+  const demoProjects: any[] = [];
 
-  const displayProjects = projects.length > 0 ? projects : demoProjects;
+  // Transformer les projets de la DB
+  const formattedProjects = projects.map((project: any, index: number) => ({
+    ...project,
+    number: String(index + 1).padStart(2, '0'),
+    previewImage: project.featured_image,
+  }));
+
+  const displayProjects = formattedProjects.length > 0 ? formattedProjects : demoProjects;
 
   if (loading) {
     return (
@@ -110,6 +87,32 @@ export default function PortfolioPreview() {
     );
   }
 
+  // Si aucun projet, afficher un message
+  if (displayProjects.length === 0) {
+    return (
+      <section className={styles.portfolioSection}>
+        <div className={styles.container}>
+          <div style={{ textAlign: 'center', padding: '80px 0' }}>
+            <p style={{ color: '#6b8ec8', fontSize: '18px' }}>
+              Aucun projet publié pour le moment
+            </p>
+            <Link 
+              href="/portfolio" 
+              style={{ 
+                color: '#ff9a5c', 
+                marginTop: '16px', 
+                display: 'inline-block',
+                textDecoration: 'underline'
+              }}
+            >
+              Voir tous les projets →
+            </Link>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className={styles.portfolioSection}>
       <div className={styles.container}>
@@ -118,51 +121,54 @@ export default function PortfolioPreview() {
             <Link
               key={project.id}
               href={`/portfolio/${project.slug}`}
-              className={`${styles.projectCard} ${project.featured ? styles.featured : ''}`}
+              className={styles.projectCard}
             >
-              {project.featured ? (
-                // Carte featured avec image
-                <div className={styles.featuredCard}>
-                  {project.image && (
-                    <div className={styles.featuredImage}>
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        style={{ objectFit: 'cover' }}
-                      />
-                    </div>
-                  )}
-                  <div className={styles.projectContent}>
-                    <div className={styles.triangleIndicator} />
-                    <div className={styles.projectTitle}>
-                      <h3>{project.title}</h3>
-                      {project.subtitle && (
-                        <div className={styles.subtitle}>{project.subtitle}</div>
-                      )}
-                    </div>
-                    <div className={styles.projectNumber}>{project.number}</div>
-                    <div className={styles.progressLine} />
+              {/* Image de preview qui apparaît au survol */}
+              <div className={styles.previewImageWrapper}>
+                {project.previewImage ? (
+                  <Image
+                    src={project.previewImage}
+                    alt={`Preview ${project.title}`}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    unoptimized
+                  />
+                ) : (
+                  <div className={styles.placeholderImage}>
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                      <circle cx="8.5" cy="8.5" r="1.5"/>
+                      <polyline points="21 15 16 10 5 21"/>
+                    </svg>
                   </div>
+                )}
+                <div className={styles.viewProjectLabel}>
+                  <span>Voir le projet</span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
                 </div>
-              ) : (
-                // Carte normale avec icône
+              </div>
+              
+              {/* Carte avec icône - slide vers le haut au hover */}
+              <div className={styles.cardSlider}>
                 <div className={styles.projectContent}>
                   <div className={styles.triangleIndicator} />
                   <div className={styles.projectIcon}>
-                    {project.icon || (
-                      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="50" r="30" stroke="#6b8ec8" strokeWidth="2"/>
-                      </svg>
-                    )}
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="50" cy="50" r="30" stroke="#6b8ec8" strokeWidth="2"/>
+                    </svg>
                   </div>
                   <div className={styles.projectTitle}>
                     <h3>{project.title}</h3>
+                    {project.short_description && (
+                      <div className={styles.subtitle}>{project.short_description}</div>
+                    )}
                   </div>
                   <div className={styles.projectNumber}>{project.number}</div>
                   <div className={styles.progressLine} />
                 </div>
-              )}
+              </div>
             </Link>
           ))}
         </div>

@@ -70,7 +70,7 @@ const QualifierContext = createContext<QualifierContextType | undefined>(undefin
 
 export function QualifierProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<QualifierData>(defaultData);
-  const [currentStep, setCurrentStep] = useState<Step>('intro');
+  const [currentStep, setCurrentStep] = useState<Step>('project-type'); // Skip intro, start directly at first step
   const [isOpen, setIsOpen] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
 
@@ -89,7 +89,8 @@ export function QualifierProvider({ children }: { children: ReactNode }) {
       }
       
       if (savedStep && STEPS_ORDER.includes(savedStep as Step)) {
-        setCurrentStep(savedStep as Step);
+        // Si l'étape sauvegardée est 'intro', aller directement à 'project-type'
+        setCurrentStep(savedStep === 'intro' ? 'project-type' : savedStep as Step);
       }
       
       setIsInitialized(true);
@@ -124,7 +125,8 @@ export function QualifierProvider({ children }: { children: ReactNode }) {
 
   const goPrevious = useCallback(() => {
     const currentIndex = STEPS_ORDER.indexOf(currentStep);
-    if (currentIndex > 0) {
+    // Ne jamais revenir à l'intro (index 0), donc vérifier > 1
+    if (currentIndex > 1) {
       setCurrentStep(STEPS_ORDER[currentIndex - 1]);
     }
   }, [currentStep]);
@@ -135,7 +137,7 @@ export function QualifierProvider({ children }: { children: ReactNode }) {
 
   const resetQualifier = useCallback(() => {
     setData(defaultData);
-    setCurrentStep('intro');
+    setCurrentStep('project-type'); // Reset to first step, skip intro
     if (typeof window !== 'undefined') {
       localStorage.removeItem(STORAGE_KEY);
       localStorage.removeItem(STEP_STORAGE_KEY);
@@ -219,11 +221,14 @@ export function QualifierProvider({ children }: { children: ReactNode }) {
 
   const canGoPrevious = useCallback(() => {
     const currentIndex = STEPS_ORDER.indexOf(currentStep);
-    return currentIndex > 0;
+    // Ne pas permettre de revenir à l'intro (index 0), donc > 1
+    return currentIndex > 1;
   }, [currentStep]);
 
   const getStepNumber = useCallback(() => {
-    return STEPS_ORDER.indexOf(currentStep);
+    // Retourne le numéro d'étape en excluant l'intro (commence à 1)
+    const index = STEPS_ORDER.indexOf(currentStep);
+    return index > 0 ? index : 1;
   }, [currentStep]);
 
   const getTotalSteps = useCallback(() => {

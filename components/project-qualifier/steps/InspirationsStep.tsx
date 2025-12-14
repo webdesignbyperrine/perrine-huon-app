@@ -5,21 +5,53 @@ import { useQualifier } from '../context';
 import NavigationButtons from '../ui/NavigationButtons';
 import ProgressBar from '../ui/ProgressBar';
 
-// Fonction pour générer l'URL de preview d'un site (WordPress mshots - gratuit et fiable)
+// Fonction pour générer l'URL de preview via WordPress mshots
 const getPreviewUrl = (siteUrl: string) => {
   return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(siteUrl)}?w=800&h=600`;
 };
 
-// Liste réduite à 8 sites avec des designs variés et des aperçus fiables
+// Liste de 8 sites avec des univers graphiques différents
 const INSPIRATION_SITES = [
-  { name: 'Apple', url: 'https://apple.com', style: 'Minimaliste', color: '#000000' },
-  { name: 'Nike', url: 'https://nike.com', style: 'Dynamique', color: '#ff6b35' },
-  { name: 'Spotify', url: 'https://spotify.com', style: 'Coloré', color: '#1db954' },
-  { name: 'Airbnb', url: 'https://www.airbnb.fr/s/Paris/homes', style: 'Chaleureux', color: '#ff5a5f' },
-  { name: 'Stripe', url: 'https://stripe.com', style: 'Tech', color: '#635bff' },
-  { name: 'Netflix', url: 'https://netflix.com', style: 'Immersif', color: '#e50914' },
-  { name: 'Notion', url: 'https://notion.so', style: 'Productif', color: '#000000' },
-  { name: 'Linear', url: 'https://linear.app', style: 'SaaS moderne', color: '#5e6ad2' },
+  { 
+    name: 'Créatif', 
+    url: 'https://www.figma.com', 
+    color: '#a259ff'
+  },
+  { 
+    name: 'Chaleureux', 
+    url: 'https://www.brasserie-jules.fr/fr', 
+    color: '#8b6914'
+  },
+  { 
+    name: 'Sobre', 
+    url: 'https://solwos.com/', 
+    color: '#1a365d'
+  },
+  { 
+    name: 'Immersif', 
+    url: 'https://www.ferrari.com', 
+    color: '#dc0000'
+  },
+  { 
+    name: 'Raffiné', 
+    url: 'https://www.voyageursdumonde.fr/voyage-sur-mesure', 
+    color: '#c9a040'
+  },
+  { 
+    name: 'Coloré', 
+    url: 'https://www.joinflowparty.com', 
+    color: '#ff6b9d'
+  },
+  { 
+    name: 'Gradient', 
+    url: 'https://stripe.com/fr', 
+    color: '#635bff'
+  },
+  { 
+    name: 'Clair', 
+    url: 'https://www.who.int', 
+    color: '#009edb'
+  },
 ];
 
 export default function InspirationsStep() {
@@ -125,12 +157,12 @@ export default function InspirationsStep() {
                 `}
               >
                 {/* Miniature du site */}
-                <div className="relative h-28 overflow-hidden bg-white">
+                <div className="relative h-28 overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
                   <img
                     src={getPreviewUrl(site.url)}
                     alt={`Aperçu ${site.name}`}
                     className="w-full h-full object-cover object-top"
-                    loading="lazy"
+                    loading="eager"
                   />
                   {/* Overlay au hover */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
@@ -149,7 +181,6 @@ export default function InspirationsStep() {
                     />
                     <span className="font-semibold text-white text-sm truncate">{site.name}</span>
                   </div>
-                  <span className="text-xs text-white/40 ml-5">{site.style}</span>
                 </div>
 
                 {/* Checkbox pour sélectionner */}
@@ -215,14 +246,14 @@ export default function InspirationsStep() {
                 </button>
               </div>
               
-              {/* Grande preview */}
-              <div className="relative h-96 overflow-hidden bg-white">
-                <img
-                  src={getPreviewUrl(expandedSiteData.url)}
-                  alt={`Aperçu ${expandedSiteData.name}`}
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
+                    {/* Grande preview */}
+                    <div className="relative h-96 overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
+                      <img
+                        src={getPreviewUrl(expandedSiteData.url)}
+                        alt={`Aperçu ${expandedSiteData.name}`}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
               
               {/* Footer avec actions */}
               <div className="px-4 py-3 bg-black/50 flex items-center justify-between">
@@ -232,7 +263,6 @@ export default function InspirationsStep() {
                     style={{ backgroundColor: expandedSiteData.color }}
                   />
                   <span className="text-white font-semibold">{expandedSiteData.name}</span>
-                  <span className="text-white/50 text-sm">• {expandedSiteData.style}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <button

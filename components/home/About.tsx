@@ -13,11 +13,11 @@ export default function About() {
           {/* Titre de section */}
           <div className="text-center mb-24">
             <div className="inline-block">
-              <span className="text-sm uppercase tracking-[0.3em] text-white/40 font-light">01</span>
               <h2 className="text-6xl md:text-7xl font-bold mt-4">
                 <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-                  À PROPOS
+                  Perrine Huon
                 </span>
+                <span className="text-secondary"> ?</span>
               </h2>
               <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
             </div>
