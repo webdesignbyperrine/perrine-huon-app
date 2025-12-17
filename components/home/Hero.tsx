@@ -43,6 +43,26 @@ export default function Hero() {
     }
   }, [showQualifier]);
 
+  // Écouter l'événement pour fermer le questionnaire depuis le Header
+  useEffect(() => {
+    const handleCloseQualifier = () => {
+      if (showQualifier) {
+        // Fermer le questionnaire
+        setShowQualifier(false);
+        // Scroller vers le haut après fermeture
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 300); // Attendre la fin de l'animation de fermeture
+      } else {
+        // Si le questionnaire n'est pas ouvert, juste scroller vers le haut
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('closeQualifier', handleCloseQualifier);
+    return () => window.removeEventListener('closeQualifier', handleCloseQualifier);
+  }, [showQualifier]);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-900 pb-32">
       {/* Fond avec grille subtile */}

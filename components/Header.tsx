@@ -3,21 +3,28 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
   const pathname = usePathname();
+  const router = useRouter();
 
   const handleLogoClick = (e: React.MouseEvent) => {
-    // Si on est sur la home, scroll vers le haut
+    // Marquer qu'on vient d'un clic sur le logo
+    sessionStorage.setItem('logoClick', 'true');
+    
+    // Émettre un événement pour fermer le questionnaire si ouvert
+    window.dispatchEvent(new CustomEvent('closeQualifier'));
+    
+    // Si on est déjà sur la home, empêcher la navigation par défaut
     if (pathname === '/') {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Le scroll sera géré par l'événement closeQualifier dans le Hero
     }
-    // Sinon, le Link navigue vers "/"
+    // Sinon, laisser Next.js naviguer vers "/"
   };
 
   useEffect(() => {
@@ -27,6 +34,21 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Scroll vers le haut quand on arrive sur la page d'accueil après un clic sur le logo
+  useEffect(() => {
+    if (pathname === '/') {
+      const logoClick = sessionStorage.getItem('logoClick');
+      if (logoClick === 'true') {
+        // Scroll vers le haut après navigation
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+        // Nettoyer le flag
+        sessionStorage.removeItem('logoClick');
+      }
+    }
+  }, [pathname]);
 
   useEffect(() => {
     // Charger le logo depuis les settings
