@@ -1,11 +1,71 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { RefObject, useEffect, useRef, useState } from 'react';
+
+const techLogos = [
+  { src: '/images/logos/logo_lovable.jpeg', label: 'Lovable', className: 'rounded' },
+  { src: '/images/logos/logo_cursor.jpeg', label: 'Cursor', className: 'rounded' },
+  { src: '/images/logos/logo_next-js.svg', label: 'Next.js', className: 'invert' },
+  { src: '/images/logos/logo_supabase.png', label: 'Supabase' },
+  { src: '/images/logos/logo_Vercel.svg', label: 'Vercel', className: 'invert' },
+  { src: '/images/logos/logo_tailwind.png', label: 'Tailwind' },
+];
+
+const clientLogos = [
+  { src: '/images/logos/Logo_Adeo.png', label: 'Adeo' },
+  { src: '/images/logos/logo_leroymerlin.jpg', label: 'Leroy Merlin', className: 'rounded' },
+  { src: '/images/logos/logo_michel-lafon.png', label: 'Michel Lafon' },
+  { src: '/images/logos/logo_education-nationale.png', label: 'Éducation Nat.' },
+  { src: '/images/logos/logo_Axa.png', label: 'Axa' },
+  { src: '/images/logos/logo_coworkmeet.png', label: 'CoworkMeet', className: 'rounded' },
+];
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const techCarouselRef = useRef<HTMLDivElement>(null);
+  const clientCarouselRef = useRef<HTMLDivElement>(null);
+
+  const useMobileAutoSlide = (ref: RefObject<HTMLDivElement | null>, itemCount: number) => {
+    useEffect(() => {
+      const container = ref.current;
+      if (!container || itemCount <= 1) return;
+
+      const mediaQuery = window.matchMedia('(min-width: 640px)');
+      if (mediaQuery.matches) return; // Pas d'autoplay sur desktop
+
+      const slides = Array.from(container.querySelectorAll<HTMLElement>('[data-slide="true"]'));
+      if (!slides.length) return;
+
+      let index = 0;
+
+      const scrollToIndex = (idx: number) => {
+        const target = slides[idx];
+        if (!target) return;
+        container.scrollTo({
+          left: target.offsetLeft,
+          behavior: 'smooth',
+        });
+      };
+
+      const intervalId = window.setInterval(() => {
+        index = (index + 1) % slides.length;
+        scrollToIndex(index);
+      }, 2200);
+
+      const stopOnTouch = () => window.clearInterval(intervalId);
+      container.addEventListener('touchstart', stopOnTouch, { passive: true });
+
+      return () => {
+        window.clearInterval(intervalId);
+        container.removeEventListener('touchstart', stopOnTouch);
+      };
+    }, [ref, itemCount]);
+  };
+
+  useMobileAutoSlide(techCarouselRef, techLogos.length);
+  useMobileAutoSlide(clientCarouselRef, clientLogos.length);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -147,6 +207,12 @@ export default function About() {
                   transform: scale(1.05);
                 }
               }
+              .logo-track {
+                scrollbar-width: none;
+              }
+              .logo-track::-webkit-scrollbar {
+                display: none;
+              }
             `}</style>
 
             {/* Contenu */}
@@ -171,74 +237,76 @@ export default function About() {
                 {/* Card 1 - Stack Tech */}
                 <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300">
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ma Stack Tech</h4>
-                  <div className="grid grid-cols-3 gap-x-4 gap-y-3 items-center justify-items-center">
-                    {/* Lovable */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_lovable.jpeg" alt="Lovable" className="h-6 group-hover:scale-110 transition-transform rounded" />
-                      <span className="text-[10px] text-white/50">Lovable</span>
+                  <div className="sm:hidden -mx-2">
+                    <div
+                      ref={techCarouselRef}
+                      className="logo-track flex gap-4 overflow-x-auto snap-x snap-mandatory px-2 py-1 touch-pan-x scroll-smooth"
+                    >
+                      {techLogos.map((logo) => (
+                        <div
+                          key={logo.label}
+                          data-slide="true"
+                          className="flex flex-col items-center gap-2 shrink-0 snap-center bg-white/5 rounded-lg px-3 py-3"
+                        >
+                          <img
+                            src={logo.src}
+                            alt={logo.label}
+                            className={`h-12 w-auto object-contain drop-shadow-md ${logo.className ?? ''}`}
+                          />
+                          <span className="text-[11px] text-white/70 font-medium">{logo.label}</span>
+                        </div>
+                      ))}
                     </div>
-                    {/* Cursor */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_cursor.jpeg" alt="Cursor" className="h-6 group-hover:scale-110 transition-transform rounded" />
-                      <span className="text-[10px] text-white/50">Cursor</span>
-                    </div>
-                    {/* Next.js */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_next-js.svg" alt="Next.js" className="h-6 group-hover:scale-110 transition-transform invert" />
-                      <span className="text-[10px] text-white/50">Next.js</span>
-                    </div>
-                    {/* Supabase */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_supabase.png" alt="Supabase" className="h-6 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] text-white/50">Supabase</span>
-                    </div>
-                    {/* Vercel */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_Vercel.svg" alt="Vercel" className="h-6 group-hover:scale-110 transition-transform invert" />
-                      <span className="text-[10px] text-white/50">Vercel</span>
-                    </div>
-                    {/* Tailwind */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_tailwind.png" alt="Tailwind CSS" className="h-6 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] text-white/50">Tailwind</span>
-                    </div>
+                  </div>
+                  <div className="hidden sm:grid grid-cols-3 gap-x-4 gap-y-3 items-center justify-items-center">
+                    {techLogos.map((logo) => (
+                      <div key={logo.label} className="flex flex-col items-center gap-1 group">
+                        <img
+                          src={logo.src}
+                          alt={logo.label}
+                          className={`h-8 md:h-9 group-hover:scale-110 transition-transform ${logo.className ?? ''}`}
+                        />
+                        <span className="text-[10px] text-white/50">{logo.label}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Card 2 - Entreprises */}
                 <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300">
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ils m'ont fait confiance</h4>
-                  <div className="grid grid-cols-3 gap-x-4 gap-y-3 items-center justify-items-center">
-                    {/* Adeo */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/Logo_Adeo.png" alt="Adeo" className="h-8 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] text-white/50">Adeo</span>
+                  <div className="sm:hidden -mx-2">
+                    <div
+                      ref={clientCarouselRef}
+                      className="logo-track flex gap-4 overflow-x-auto snap-x snap-mandatory px-2 py-1 touch-pan-x scroll-smooth"
+                    >
+                      {clientLogos.map((logo) => (
+                        <div
+                          key={logo.label}
+                          data-slide="true"
+                          className="flex flex-col items-center gap-2 shrink-0 snap-center bg-white/5 rounded-lg px-3 py-3"
+                        >
+                          <img
+                            src={logo.src}
+                            alt={logo.label}
+                            className={`h-12 w-auto object-contain drop-shadow-md ${logo.className ?? ''}`}
+                          />
+                          <span className="text-[11px] text-white/70 font-medium">{logo.label}</span>
+                        </div>
+                      ))}
                     </div>
-                    {/* Leroy Merlin */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_leroymerlin.jpg" alt="Leroy Merlin" className="h-8 group-hover:scale-110 transition-transform rounded" />
-                      <span className="text-[10px] text-white/50">Leroy Merlin</span>
-                    </div>
-                    {/* Michel Lafon */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_michel-lafon.png" alt="Editions Michel Lafon" className="h-8 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] text-white/50">Michel Lafon</span>
-                    </div>
-                    {/* Education Nationale */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_education-nationale.png" alt="Education Nationale" className="h-8 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] text-white/50">Éducation Nat.</span>
-                    </div>
-                    {/* Axa */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_Axa.png" alt="Axa" className="h-8 group-hover:scale-110 transition-transform" />
-                      <span className="text-[10px] text-white/50">Axa</span>
-                    </div>
-                    {/* CoworkMeet */}
-                    <div className="flex flex-col items-center gap-1 group">
-                      <img src="/images/logos/logo_coworkmeet.png" alt="CoworkMeet" className="h-8 group-hover:scale-110 transition-transform rounded" />
-                      <span className="text-[10px] text-white/50">CoworkMeet</span>
-                    </div>
+                  </div>
+                  <div className="hidden sm:grid grid-cols-3 gap-x-4 gap-y-3 items-center justify-items-center">
+                    {clientLogos.map((logo) => (
+                      <div key={logo.label} className="flex flex-col items-center gap-1 group">
+                        <img
+                          src={logo.src}
+                          alt={logo.label}
+                          className={`h-9 md:h-10 group-hover:scale-110 transition-transform ${logo.className ?? ''}`}
+                        />
+                        <span className="text-[10px] text-white/50">{logo.label}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
