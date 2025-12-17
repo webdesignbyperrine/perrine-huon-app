@@ -1,15 +1,31 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 import { ProjectQualifier } from '@/components/project-qualifier';
 
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
   
   // Mettre à true pour afficher les cercles décoratifs en arrière-plan
   const showBackgroundOrbs = false;
+
+  useEffect(() => {
+    // Charger le logo depuis les settings
+    fetch('/api/site-settings')
+      .then(res => res.json())
+      .then(data => {
+        if (data.logo_url) {
+          setLogoUrl(data.logo_url);
+        }
+      })
+      .catch(error => {
+        console.error('Error loading logo:', error);
+      });
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-900">
@@ -38,8 +54,23 @@ export default function Hero() {
           {/* Vue principale - avant le qualifier */}
           <div className={`transition-all duration-500 ease-out ${showQualifier ? 'opacity-0 scale-95 absolute inset-0 pointer-events-none' : 'opacity-100 scale-100'}`}>
             
-            {/* Header - Titre professionnel - Équidistant header/hero */}
-            <div className="text-center mb-8 pt-[72px] md:pt-[104px]">
+            {/* Logo Perroquet centré */}
+            <div className="text-center pt-[72px] md:pt-[104px] mb-6">
+              <div className="inline-flex items-center justify-center w-28 h-28 rounded-full glass-dark border border-secondary/20">
+                <Image
+                  src={logoUrl}
+                  alt="Perrine Huon Logo"
+                  width={64}
+                  height={64}
+                  className="object-contain brightness-0 invert opacity-90"
+                  key={logoUrl}
+                  style={{ filter: 'brightness(0) invert(1)' }}
+                />
+              </div>
+            </div>
+
+            {/* Header - Titre professionnel */}
+            <div className="text-center mb-8">
               <h2 className="text-lg md:text-xl font-light tracking-[0.4em] uppercase text-white/50">
                 WEB DESIGNER & DEVELOPER
               </h2>
@@ -74,7 +105,15 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 {/* Particules flottantes */}
-                <div className="absolute inset-0 overflow-hidden rounded-3xl p-0 m-0">
+                <div 
+                  className="absolute inset-0 overflow-hidden rounded-3xl p-0 m-0"
+                  style={{
+                    backgroundClip: 'unset',
+                    WebkitBackgroundClip: 'unset',
+                    color: 'rgba(240, 234, 214, 1)',
+                    borderColor: 'rgba(126, 125, 121, 1)'
+                  }}
+                >
                   {[...Array(6)].map((_, i) => (
                     <div
                       key={i}
