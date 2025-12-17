@@ -94,7 +94,7 @@ export default function ContactForm() {
               style={{ fontSize: '42px', fontWeight: 'bold', lineHeight: 1.2 }}
             >
               <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-                Me Contacter
+                Parlons de votre projet
               </span>
               <svg 
                 className="text-secondary flex-shrink-0" 
@@ -107,7 +107,7 @@ export default function ContactForm() {
               </svg>
             </h2>
             <p className="text-lg text-white/60 max-w-lg mx-auto">
-              Une question ? Un projet ? Parlons-en ensemble.
+              Réponse garantie sous 48h
             </p>
           </div>
 
@@ -124,9 +124,9 @@ export default function ContactForm() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-white">Message envoyé !</h3>
+                  <h3 className="text-2xl font-bold mb-4 text-white">Bien reçu !</h3>
                   <p className="text-white/60 mb-8">
-                    Merci pour votre message. Je vous réponds sous 24h.
+                    Merci pour votre message. Je vous réponds sous 48h.
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
@@ -151,7 +151,7 @@ export default function ContactForm() {
                         value={formData.name}
                         onChange={handleChange}
                         className={inputStyles}
-                        placeholder="Votre nom"
+                        placeholder="Harry Potter"
                       />
                     </div>
 
@@ -167,7 +167,7 @@ export default function ContactForm() {
                         value={formData.email}
                         onChange={handleChange}
                         className={inputStyles}
-                        placeholder="votre@email.com"
+                        placeholder="harry@poudlard.fr"
                       />
                     </div>
                   </div>
@@ -184,7 +184,7 @@ export default function ContactForm() {
                       value={formData.company}
                       onChange={handleChange}
                       className={inputStyles}
-                      placeholder="Nom de votre entreprise"
+                        placeholder="Maison Gryffondor"
                     />
                   </div>
 
@@ -202,7 +202,7 @@ export default function ContactForm() {
                       value={formData.message}
                       onChange={handleChange}
                       className={`${inputStyles} resize-none`}
-                      placeholder="Décrivez votre projet, vos besoins, vos objectifs..."
+                      placeholder="Je jure solennellement que j'ai un projet..."
                     />
                   </div>
 

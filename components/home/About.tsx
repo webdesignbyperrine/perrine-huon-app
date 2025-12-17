@@ -15,9 +15,8 @@ export default function About() {
             <div className="inline-block">
               <h2 className="text-6xl md:text-7xl font-bold mt-4">
                 <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-                  Perrine Huon
+                  Derrière l'écran
                 </span>
-                <span className="text-secondary"> ?</span>
               </h2>
               <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
             </div>
@@ -64,17 +63,16 @@ export default function About() {
             <div className="space-y-8">
               <div className="space-y-6">
                 <p className="text-2xl md:text-3xl font-light text-white/90 leading-relaxed">
-                  Passionnée par le <span className="text-secondary font-normal">design</span> et le{' '}
-                  <span className="text-secondary font-normal">développement web</span>, je crée des expériences digitales uniques.
+                  Je construis des <span className="text-secondary font-normal">projets digitaux</span> avec{' '}
+                  <span className="text-secondary font-normal">rigueur</span>, <span className="text-secondary font-normal">créativité</span>, et beaucoup d'écoute.
                 </p>
 
                 <div className="w-16 h-[1px] bg-secondary/50" />
 
                 <p className="text-lg text-white/60 leading-relaxed font-light">
-                  Ma spécialité : concevoir des sites et applications qui ne se contentent pas d'être beaux, 
-                  mais qui <span className="text-white/90">performent</span> et{' '}
-                  <span className="text-white/90">convertissent</span>, avec un{' '}
-                  <span className="text-accent-orange">SEO local ultra-ciblé</span>.
+                  Un beau site, c'est bien. Un site qui vous rapporte des clients, <span className="text-white/90">c'est mieux</span>.
+                  Mon objectif ? Que votre site travaille pour vous. Qu'il <span className="text-white/90">attire</span>,{' '}
+                  <span className="text-white/90">convainque</span>, et <span className="text-accent-orange">convertisse</span>.
                 </p>
               </div>
 
