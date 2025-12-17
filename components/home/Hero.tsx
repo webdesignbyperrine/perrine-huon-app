@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ProjectQualifier } from '@/components/project-qualifier';
 
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
+  const qualifierRef = useRef<HTMLDivElement>(null);
   
   // Mettre à true pour afficher les cercles décoratifs en arrière-plan
   const showBackgroundOrbs = false;
@@ -26,6 +27,21 @@ export default function Hero() {
         console.error('Error loading logo:', error);
       });
   }, []);
+
+  // Scroll vers le haut du qualifier quand il s'ouvre
+  useEffect(() => {
+    if (showQualifier && qualifierRef.current) {
+      // Attendre un peu pour que le DOM soit mis à jour
+      setTimeout(() => {
+        const yOffset = -80; // Offset pour le header fixe
+        const element = qualifierRef.current;
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, [showQualifier]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-900 pb-32">
@@ -245,7 +261,7 @@ export default function Hero() {
           {/* ============================================ */}
           {/* Project Qualifier - Mode actif */}
           {/* ============================================ */}
-          <div className={`transition-all duration-500 ease-out ${showQualifier ? 'opacity-100 scale-100' : 'opacity-0 scale-95 absolute inset-0 pointer-events-none'}`}>
+          <div ref={qualifierRef} className={`transition-all duration-500 ease-out ${showQualifier ? 'opacity-100 scale-100' : 'opacity-0 scale-95 absolute inset-0 pointer-events-none'}`}>
             {showQualifier && (
               <div className="py-4">
                 {/* Bouton retour */}
