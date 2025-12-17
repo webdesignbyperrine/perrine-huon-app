@@ -91,15 +91,6 @@ export default function CalendlySection() {
             </div>
           </div>
 
-          {/* Bouton alternatif */}
-          <div className="mt-8 text-center">
-            <a
-              href="mailto:contact@perrinehuon.com"
-              className="text-secondary hover:text-accent-orange transition-colors text-sm uppercase tracking-wider"
-            >
-              Ou contactez-moi par email →
-            </a>
-          </div>
         </div>
       </div>
     </section>
