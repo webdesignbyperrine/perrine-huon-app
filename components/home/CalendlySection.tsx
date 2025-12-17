@@ -19,7 +19,7 @@ export default function CalendlySection() {
               style={{ fontSize: '46px', fontWeight: 'bold', lineHeight: 1.2 }}
             >
               <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-                Réserver un Appel
+                Discutons en visio
               </span>
               {/* Icône visio à droite */}
               <svg 
@@ -38,7 +38,7 @@ export default function CalendlySection() {
               </svg>
             </h2>
             <p className="text-xl text-white/70 max-w-3xl mx-auto mt-6">
-              Choisissez un créneau directement dans le calendrier ci-dessous. C'est gratuit et sans engagement.
+              Pour parler tranquillement de votre projet.
             </p>
           </div>
 
@@ -56,7 +56,7 @@ export default function CalendlySection() {
             />
             
             <p className="text-white/40 text-sm mt-4 text-center">
-              ✨ Première consultation offerte • Sans engagement • Réponse sous 24h
+              ✨ Première consultation offerte • Sans engagement • Réponse sous 48h
             </p>
           </div>
 

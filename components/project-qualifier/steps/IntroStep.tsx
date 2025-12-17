@@ -25,7 +25,7 @@ export default function IntroStep() {
       {/* Titre */}
       <h2 className="text-4xl md:text-5xl font-bold mb-4">
         <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-          Donnez vie à votre projet
+          Parlons de votre projet
         </span>
         <br />
         <span className="bg-gradient-to-r from-secondary via-accent-orange to-accent-red bg-clip-text text-transparent text-glow">

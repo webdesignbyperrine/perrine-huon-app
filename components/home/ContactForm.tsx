@@ -38,7 +38,7 @@ export default function ContactForm() {
 
     if (!formData.consent) {
       setStatus('error');
-      setErrorMessage('Vous devez accepter la politique de confidentialité');
+      setErrorMessage('N\'oubliez pas de cocher la case pour que je puisse vous répondre 😉');
       return;
     }
 
@@ -57,7 +57,7 @@ export default function ContactForm() {
 
     if (error) {
       setStatus('error');
-      setErrorMessage('Une erreur est survenue. Veuillez réessayer ou m\'envoyer un email directement.');
+      setErrorMessage('Aïe, ça n\'a pas marché ! Réessayez, ou contactez-moi via WhatsApp.');
       console.error('Error:', error);
     } else {
       setStatus('success');
@@ -132,7 +132,7 @@ export default function ContactForm() {
                     onClick={() => setStatus('idle')}
                     className="px-8 py-3 bg-secondary/20 hover:bg-secondary/30 text-secondary border border-secondary/30 rounded-xl transition-all duration-300"
                   >
-                    Envoyer un autre message
+                    Nouveau message
                   </button>
                 </div>
               ) : (
@@ -218,7 +218,7 @@ export default function ContactForm() {
                       className="mt-0.5 w-5 h-5 rounded-md border-2 border-primary-400/30 bg-transparent text-secondary focus:ring-secondary focus:ring-offset-0 cursor-pointer"
                     />
                     <label htmlFor="consent" className="text-white/50 text-sm leading-relaxed cursor-pointer">
-                      J'accepte que mes données soient utilisées pour me recontacter.{' '}
+                      J'accepte d'être recontacté(e) par Perrine.{' '}
                       <a href="/politique-confidentialite" className="text-secondary hover:underline">
                         Politique de confidentialité
                       </a>

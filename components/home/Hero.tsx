@@ -144,7 +144,7 @@ export default function Hero() {
                   {/* Titre principal */}
                   <h1 className="text-3xl md:text-5xl font-bold mb-4">
                     <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-                      Votre site web,
+                      Votre projet web
                     </span>
                     <br />
                     <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
@@ -154,7 +154,7 @@ export default function Hero() {
 
                   {/* Sous-titre */}
                   <p className="text-white/50 text-base md:text-lg mb-8 max-w-md mx-auto">
-                    2 minutes pour découvrir le site idéal pour vous
+                    On fait le point en 2 min ?
                   </p>
 
                   {/* CTA Button - Effet tube en verre avec liquide animé au hover */}
