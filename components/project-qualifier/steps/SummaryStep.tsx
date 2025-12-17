@@ -246,28 +246,92 @@ export default function SummaryStep() {
               }, 500);
             }
           }}
-          className="group relative px-10 py-4 overflow-hidden"
+          className="group/cta relative transition-transform duration-300 hover:scale-[1.02]"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-accent-red to-accent-orange opacity-100 group-hover:opacity-90 transition-opacity" />
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-accent-red to-accent-orange blur-xl opacity-50 group-hover:opacity-70 transition-opacity" />
-          <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm flex items-center gap-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-            Obtenir un devis adapté à vos choix
-          </span>
+          {/* Tube en verre (conteneur) */}
+          <div 
+            className="relative flex items-center gap-3 px-10 py-5 rounded-full transition-transform duration-300"
+            style={{
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+              border: '1px solid rgba(255,255,255,0.15)'
+            }}
+          >
+            {/* Reflet du verre en haut */}
+            <span 
+              className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
+              style={{
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)'
+              }}
+            />
+            
+            {/* Liquide VERT */}
+            <span 
+              className="absolute inset-1 rounded-full pointer-events-none overflow-hidden liquid-container"
+              style={{
+                background: 'linear-gradient(180deg, #22A06B 0%, #1B8A5A 50%, #14694A 100%)',
+                boxShadow: '0 0 25px rgba(27, 138, 90, 0.4), inset 0 2px 4px rgba(255,255,255,0.25), inset 0 -2px 4px rgba(0,0,0,0.2)'
+              }}
+            >
+              {/* Vague animée au hover */}
+              <span className="liquid-wave-green absolute inset-0 rounded-full opacity-0 group-hover/cta:opacity-100" />
+              
+              {/* Reflet sur le liquide */}
+              <span 
+                className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2"
+                style={{
+                  background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)'
+                }}
+              />
+              
+              {/* Bulles animées */}
+              <span 
+                className="absolute w-2 h-2 rounded-full bg-white/30 bubble-green-1"
+                style={{ right: '12%', bottom: '25%' }}
+              />
+              <span 
+                className="absolute w-1.5 h-1.5 rounded-full bg-white/20 bubble-green-2"
+                style={{ right: '30%', bottom: '30%' }}
+              />
+              <span 
+                className="absolute w-1 h-1 rounded-full bg-white/25 bubble-green-3"
+                style={{ left: '15%', bottom: '20%' }}
+              />
+              <span 
+                className="absolute w-1.5 h-1.5 rounded-full bg-white/20 bubble-green-4"
+                style={{ left: '35%', bottom: '35%' }}
+              />
+              
+              {/* Shimmer effect au hover */}
+              <span className="liquid-shimmer-green absolute inset-0 rounded-full opacity-0 group-hover/cta:opacity-100" />
+            </span>
+            
+            {/* Texte par-dessus */}
+            <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">
+              Obtenir un devis gratuit adapté à vos choix
+            </span>
+          </div>
+          
+          {/* Glow effect */}
+          <div 
+            className="absolute inset-0 rounded-full opacity-40 group-hover/cta:opacity-60 transition-opacity duration-300 pointer-events-none"
+            style={{
+              background: 'radial-gradient(ellipse at center, rgba(27, 138, 90, 0.5) 0%, transparent 70%)',
+              filter: 'blur(20px)'
+            }}
+          />
         </a>
 
-        {/* CTA Secondaire - Recommencer */}
+        {/* CTA Secondaire - Modifier */}
         <button
           onClick={resetQualifier}
-          className="group px-6 py-4 glass-dark hover:bg-white/5 transition-all duration-300"
+          className="group px-6 py-4 glass-dark hover:bg-white/5 transition-all duration-300 rounded-full"
         >
           <span className="text-white/60 group-hover:text-white text-sm font-medium transition-colors flex items-center gap-2">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
             </svg>
-            Recommencer
+            Modifier mes choix
           </span>
         </button>
       </div>
@@ -282,6 +346,117 @@ export default function SummaryStep() {
           Modifier mes choix
         </button>
       </div>
+
+      {/* Styles pour les animations du bouton vert */}
+      <style jsx>{`
+        /* Bulles vertes avec animation de base */
+        .bubble-green-1 {
+          animation: bubble-float-green 2s ease-in-out infinite;
+        }
+        .bubble-green-2 {
+          animation: bubble-float-green 2.5s ease-in-out infinite 0.3s;
+        }
+        .bubble-green-3 {
+          animation: bubble-float-green 3s ease-in-out infinite 0.6s;
+        }
+        .bubble-green-4 {
+          animation: bubble-float-green 2.2s ease-in-out infinite 0.9s;
+        }
+        
+        /* Animation des bulles accélérée au hover */
+        .group\\/cta:hover .bubble-green-1 {
+          animation: bubble-active-green 0.6s ease-in-out infinite;
+        }
+        .group\\/cta:hover .bubble-green-2 {
+          animation: bubble-active-green 0.8s ease-in-out infinite 0.1s;
+        }
+        .group\\/cta:hover .bubble-green-3 {
+          animation: bubble-active-green 0.7s ease-in-out infinite 0.2s;
+        }
+        .group\\/cta:hover .bubble-green-4 {
+          animation: bubble-active-green 0.5s ease-in-out infinite 0.15s;
+        }
+        
+        @keyframes bubble-float-green {
+          0%, 100% {
+            transform: translateY(0) scale(1);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translateY(-4px) scale(1.2);
+            opacity: 0.5;
+          }
+        }
+        
+        @keyframes bubble-active-green {
+          0% {
+            transform: translateY(0) translateX(0) scale(1);
+            opacity: 0.4;
+          }
+          25% {
+            transform: translateY(-8px) translateX(3px) scale(1.3);
+            opacity: 0.7;
+          }
+          50% {
+            transform: translateY(-12px) translateX(-2px) scale(1.1);
+            opacity: 0.5;
+          }
+          75% {
+            transform: translateY(-6px) translateX(4px) scale(1.4);
+            opacity: 0.8;
+          }
+          100% {
+            transform: translateY(0) translateX(0) scale(1);
+            opacity: 0.4;
+          }
+        }
+        
+        /* Vague liquide verte */
+        .liquid-wave-green {
+          background: linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255,255,255,0.1) 25%,
+            rgba(255,255,255,0.2) 50%,
+            rgba(255,255,255,0.1) 75%,
+            transparent 100%
+          );
+          animation: wave-move-green 1.5s ease-in-out infinite;
+          transition: opacity 0.3s ease;
+        }
+        
+        @keyframes wave-move-green {
+          0% {
+            transform: translateX(-100%) skewX(-15deg);
+          }
+          100% {
+            transform: translateX(100%) skewX(-15deg);
+          }
+        }
+        
+        /* Shimmer effect vert */
+        .liquid-shimmer-green {
+          background: linear-gradient(
+            110deg,
+            transparent 20%,
+            rgba(255,255,255,0.15) 40%,
+            rgba(255,255,255,0.25) 50%,
+            rgba(255,255,255,0.15) 60%,
+            transparent 80%
+          );
+          animation: shimmer-move-green 2s ease-in-out infinite;
+          transition: opacity 0.3s ease;
+        }
+        
+        @keyframes shimmer-move-green {
+          0% {
+            transform: translateX(-150%);
+          }
+          100% {
+            transform: translateX(150%);
+          }
+        }
+      `}</style>
     </div>
   );
 }

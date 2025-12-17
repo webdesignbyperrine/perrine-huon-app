@@ -183,30 +183,62 @@ export default function InspirationsStep() {
                   </div>
                 </div>
 
-                {/* Checkbox pour sélectionner */}
+                {/* Checkbox tube en verre */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     toggleSite(site.name);
                   }}
-                  className={`
-                    absolute top-2 right-2 w-6 h-6 rounded-md flex items-center justify-center
-                    transition-all duration-200 z-10
-                    ${isSelected 
-                      ? 'bg-secondary text-white' 
-                      : 'bg-black/50 text-white/50 hover:bg-black/70 hover:text-white'
-                    }
-                  `}
+                  className="absolute top-2 right-2 z-10 transition-transform duration-200 hover:scale-110"
                 >
-                  {isSelected ? (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                    </svg>
-                  ) : (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                    </svg>
-                  )}
+                  <div 
+                    className="relative w-7 h-7 rounded-lg overflow-hidden"
+                    style={{
+                      background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                      boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                      border: '1px solid rgba(255,255,255,0.2)'
+                    }}
+                  >
+                    {/* Reflet du verre */}
+                    <span 
+                      className="absolute top-0 left-1 right-1 h-1 rounded-t-sm pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 100%)'
+                      }}
+                    />
+                    
+                    {/* Liquide quand sélectionné */}
+                    {isSelected && (
+                      <span 
+                        className="absolute inset-0.5 rounded-md pointer-events-none overflow-hidden"
+                        style={{
+                          background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
+                          boxShadow: '0 0 10px rgba(47, 69, 88, 0.5), inset 0 2px 3px rgba(255,255,255,0.3), inset 0 -2px 3px rgba(0,0,0,0.2)',
+                          animation: 'liquidFill 0.3s ease-out'
+                        }}
+                      >
+                        {/* Reflet sur le liquide */}
+                        <span 
+                          className="absolute top-0.5 left-1 right-1 h-1 rounded-sm"
+                          style={{
+                            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)'
+                          }}
+                        />
+                        {/* Bulle */}
+                        <span 
+                          className="absolute w-1 h-1 rounded-full bg-white/30"
+                          style={{ right: '20%', bottom: '25%', animation: 'bubble-float 2s ease-in-out infinite' }}
+                        />
+                      </span>
+                    )}
+                    
+                    {/* Icône check quand sélectionné */}
+                    {isSelected && (
+                      <svg className="absolute inset-0 m-auto w-4 h-4 text-white z-10 drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </div>
                 </button>
               </div>
             </div>
@@ -256,7 +288,7 @@ export default function InspirationsStep() {
                     </div>
               
               {/* Footer avec actions */}
-              <div className="px-4 py-3 bg-black/50 flex items-center justify-between">
+              <div className="px-4 py-4 bg-black/50 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-4 h-4 rounded-full"
@@ -264,33 +296,95 @@ export default function InspirationsStep() {
                   />
                   <span className="text-white font-semibold">{expandedSiteData.name}</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-3">
+                  {/* Bouton Sélectionner - Style tube en verre avec liquide */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       toggleSite(expandedSiteData.name);
+                      setExpandedSite(null); // Fermer la modal après sélection
                     }}
-                    className={`
-                      px-4 py-2 rounded-lg text-sm font-medium transition-all
-                      ${selectedSites.includes(expandedSiteData.name)
-                        ? 'bg-secondary text-white'
-                        : 'bg-white/10 text-white hover:bg-white/20'
-                      }
-                    `}
+                    className="group/select relative transition-transform duration-300 hover:scale-[1.02]"
                   >
-                    {selectedSites.includes(expandedSiteData.name) ? '✓ Sélectionné' : 'Sélectionner'}
+                    <div 
+                      className="relative flex items-center gap-2 px-6 py-3 rounded-full"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                        border: '1px solid rgba(255,255,255,0.15)'
+                      }}
+                    >
+                      {/* Reflet du verre */}
+                      <span 
+                        className="absolute top-0 left-4 right-4 h-1.5 rounded-t-full pointer-events-none"
+                        style={{
+                          background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)'
+                        }}
+                      />
+                      
+                      {/* Liquide toujours présent */}
+                      <span 
+                        className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
+                        style={{
+                          background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
+                          boxShadow: '0 0 15px rgba(47, 69, 88, 0.5), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
+                        }}
+                      >
+                        {/* Reflet sur le liquide */}
+                        <span 
+                          className="absolute top-0.5 left-4 right-4 h-1.5 rounded-full transition-transform duration-500 group-hover/select:translate-x-2"
+                          style={{
+                            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)'
+                          }}
+                        />
+                        {/* Bulles animées */}
+                        <span 
+                          className="absolute w-1.5 h-1.5 rounded-full bg-white/30"
+                          style={{ right: '15%', bottom: '25%', animation: 'bubble-float 2s ease-in-out infinite' }}
+                        />
+                        <span 
+                          className="absolute w-1 h-1 rounded-full bg-white/20"
+                          style={{ right: '35%', bottom: '30%', animation: 'bubble-float 2.5s ease-in-out infinite 0.3s' }}
+                        />
+                      </span>
+                      
+                      <span className="relative z-10 text-white font-semibold text-sm tracking-wide drop-shadow-lg">
+                        {selectedSites.includes(expandedSiteData.name) ? '✓ Sélectionné' : 'Sélectionner'}
+                      </span>
+                    </div>
                   </button>
+
+                  {/* Bouton Visiter - Style tube en verre */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       openSite(expandedSiteData.url, e);
                     }}
-                    className="px-4 py-2 rounded-lg text-sm font-medium bg-white/10 text-white hover:bg-white/20 transition-all flex items-center gap-2"
+                    className="group/visit relative transition-transform duration-300 hover:scale-[1.02]"
                   >
-                    Visiter
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
+                    <div 
+                      className="relative flex items-center gap-2 px-6 py-3 rounded-full"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                        border: '1px solid rgba(255,255,255,0.15)'
+                      }}
+                    >
+                      {/* Reflet du verre */}
+                      <span 
+                        className="absolute top-0 left-4 right-4 h-1.5 rounded-t-full pointer-events-none"
+                        style={{
+                          background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)'
+                        }}
+                      />
+                      
+                      <span className="relative z-10 text-white/80 group-hover/visit:text-white font-semibold text-sm tracking-wide transition-colors">
+                        Visiter
+                      </span>
+                      <svg className="relative z-10 w-4 h-4 text-white/80 group-hover/visit:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
                   </button>
                 </div>
               </div>
@@ -351,6 +445,28 @@ export default function InspirationsStep() {
           to { 
             opacity: 1; 
             transform: scale(1); 
+          }
+        }
+        @keyframes bubble-float {
+          0%, 100% {
+            transform: translateY(0) scale(1);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translateY(-4px) scale(1.2);
+            opacity: 0.5;
+          }
+        }
+        @keyframes liquidFill {
+          0% {
+            transform: scaleY(0);
+            transform-origin: bottom;
+            opacity: 0;
+          }
+          100% {
+            transform: scaleY(1);
+            transform-origin: bottom;
+            opacity: 1;
           }
         }
       `}</style>

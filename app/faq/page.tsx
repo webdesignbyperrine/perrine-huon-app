@@ -171,15 +171,38 @@ export default function FAQPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contact"
-              className="px-10 py-4 bg-gradient-to-r from-secondary to-accent-red text-white font-semibold tracking-wider uppercase text-sm"
+              className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
             >
-              Me contacter
+              <div 
+                className="relative flex items-center gap-3 px-10 py-4 rounded-full"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                  boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.15)'
+                }}
+              >
+                <span className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }} />
+                <span className="absolute inset-1 rounded-full pointer-events-none overflow-hidden" style={{ background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)', boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)' }}>
+                  <span className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }} />
+                </span>
+                <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">Me contacter</span>
+              </div>
             </Link>
             <Link
               href="/#rdv"
-              className="px-10 py-4 glass-dark text-white/80 hover:text-white font-semibold tracking-wider uppercase text-sm transition-colors"
+              className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
             >
-              Réserver un appel
+              <div 
+                className="relative flex items-center gap-3 px-10 py-4 rounded-full"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                  boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.15)'
+                }}
+              >
+                <span className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }} />
+                <span className="relative z-10 text-white/80 group-hover/cta:text-white font-semibold tracking-wider uppercase text-sm transition-colors">Réserver un appel</span>
+              </div>
             </Link>
           </div>
         </div>

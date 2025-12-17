@@ -232,23 +232,55 @@ export default function ContactForm() {
                     </div>
                   )}
 
-                  {/* Bouton submit */}
+                  {/* Bouton submit - Style tube en verre avec liquide */}
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full py-5 bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 text-white font-semibold text-lg uppercase tracking-wider rounded-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-secondary/20 hover:shadow-xl hover:shadow-secondary/30"
+                    className="group/cta relative w-full transition-transform duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    {status === 'loading' ? (
-                      <span className="flex items-center justify-center gap-3">
-                        <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                        </svg>
-                        Envoi en cours...
+                    <div 
+                      className="relative flex items-center justify-center gap-3 w-full py-4 rounded-full"
+                      style={{
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                        border: '1px solid rgba(255,255,255,0.15)'
+                      }}
+                    >
+                      {/* Reflet du verre */}
+                      <span 
+                        className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
+                        style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
+                      />
+                      
+                      {/* Liquide */}
+                      <span 
+                        className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
+                        style={{
+                          background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
+                          boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
+                        }}
+                      >
+                        <span 
+                          className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2"
+                          style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }}
+                        />
                       </span>
-                    ) : (
-                      'Envoyer →'
-                    )}
+                      
+                      {/* Contenu */}
+                      <span className="relative z-10 text-white font-semibold text-sm uppercase tracking-wider drop-shadow-lg">
+                        {status === 'loading' ? (
+                          <span className="flex items-center justify-center gap-3">
+                            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                            </svg>
+                            Envoi en cours...
+                          </span>
+                        ) : (
+                          'Envoyer ma demande'
+                        )}
+                      </span>
+                    </div>
                   </button>
                 </form>
               )}

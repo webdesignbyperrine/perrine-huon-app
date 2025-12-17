@@ -78,8 +78,7 @@ export default function Hero() {
 
             {/* Sous-titre SEO */}
             <p className="text-center text-base md:text-lg text-white/40 max-w-2xl mx-auto mb-12 font-light">
-              Création de sites web & applications avec
-              <span className="text-secondary/80"> SEO géolocalisé ultra performant</span>
+              Soyez visible là où vos clients vous cherchent
             </p>
 
             {/* ============================================ */}
@@ -145,17 +144,17 @@ export default function Hero() {
                   {/* Titre principal */}
                   <h1 className="text-3xl md:text-5xl font-bold mb-4">
                     <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-                      Donnez vie à
+                      Votre site web,
                     </span>
                     <br />
                     <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
-                      votre projet
+                      conçu sur-mesure
                     </span>
                   </h1>
 
                   {/* Sous-titre */}
                   <p className="text-white/50 text-base md:text-lg mb-8 max-w-md mx-auto">
-                    Répondez à quelques questions et obtenez une vision claire de votre futur site
+                    2 minutes pour découvrir le site idéal pour vous
                   </p>
 
                   {/* CTA Button - Effet tube en verre avec liquide animé au hover */}
@@ -224,31 +223,44 @@ export default function Hero() {
                       
                       {/* Texte par-dessus */}
                       <span className="relative z-10 text-white font-semibold tracking-wide drop-shadow-lg">
-                        Commencer l&apos;expérience
+                        Définir mes besoins
                       </span>
                     </div>
                   </div>
 
-                  {/* Indicateur temps */}
+                  {/* Indicateur réassurance */}
                   <p className="mt-6 text-white/30 text-sm flex items-center justify-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    2 minutes • 100% interactif
+                    Gratuit • Sans engagement
                   </p>
                 </div>
               </button>
 
-              {/* Lien secondaire */}
-              <div className="mt-6 text-center">
+              {/* Lien secondaire - Style tube en verre vide */}
+              <div className="mt-8 text-center">
                 <Link
                   href="#rdv"
-                  className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 transition-colors text-sm"
+                  className="group/rdv relative inline-block transition-transform duration-300 hover:scale-[1.02]"
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  Ou réservez directement un appel
+                  <div 
+                    className="relative flex items-center gap-3 px-8 py-4 rounded-full"
+                    style={{
+                      background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                      boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                      border: '1px solid rgba(255,255,255,0.15)'
+                    }}
+                  >
+                    {/* Reflet du verre */}
+                    <span 
+                      className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
+                      style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
+                    />
+                    <span className="relative z-10 text-white/70 group-hover/rdv:text-white font-medium tracking-wide text-base transition-colors">
+                      On en discute ? ☕
+                    </span>
+                  </div>
                 </Link>
               </div>
             </div>

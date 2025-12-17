@@ -93,16 +93,40 @@ export default function Header() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Style tube en verre avec liquide */}
           <div className="hidden lg:block">
             <Link
               href="#contact"
-              className="relative group px-8 py-3 overflow-hidden"
+              className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-accent-red opacity-100 group-hover:opacity-90 transition-opacity" />
-              <span className="relative z-10 text-white text-sm uppercase tracking-wider font-semibold">
-                Contact
-              </span>
+              <div 
+                className="relative flex items-center px-8 py-3 rounded-full"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                  boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.15)'
+                }}
+              >
+                <span 
+                  className="absolute top-0 left-4 right-4 h-1.5 rounded-t-full pointer-events-none"
+                  style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
+                />
+                <span 
+                  className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
+                    boxShadow: '0 0 15px rgba(47, 69, 88, 0.5), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
+                  }}
+                >
+                  <span 
+                    className="absolute top-0.5 left-4 right-4 h-1.5 rounded-full transition-transform duration-500 group-hover/cta:translate-x-1"
+                    style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }}
+                  />
+                </span>
+                <span className="relative z-10 text-white text-sm uppercase tracking-wider font-semibold drop-shadow-lg">
+                  Contact
+                </span>
+              </div>
             </Link>
           </div>
 
@@ -137,10 +161,37 @@ export default function Header() {
             ))}
             <Link
               href="#contact"
-              className="block w-full text-center bg-gradient-to-r from-secondary to-accent-red px-8 py-3 text-white text-sm uppercase tracking-wider font-semibold mt-4"
+              className="group/cta relative block w-full mt-4 transition-transform duration-300 hover:scale-[1.02]"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Contact
+              <div 
+                className="relative flex items-center justify-center px-8 py-3 rounded-full"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                  boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.15)'
+                }}
+              >
+                <span 
+                  className="absolute top-0 left-4 right-4 h-1.5 rounded-t-full pointer-events-none"
+                  style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
+                />
+                <span 
+                  className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
+                    boxShadow: '0 0 15px rgba(47, 69, 88, 0.5), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
+                  }}
+                >
+                  <span 
+                    className="absolute top-0.5 left-4 right-4 h-1.5 rounded-full"
+                    style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }}
+                  />
+                </span>
+                <span className="relative z-10 text-white text-sm uppercase tracking-wider font-semibold drop-shadow-lg">
+                  Contact
+                </span>
+              </div>
             </Link>
           </div>
         )}

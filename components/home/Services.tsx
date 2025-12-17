@@ -9,7 +9,7 @@ export default function Services() {
       ),
       title: 'Sites Web',
       subtitle: 'Sur Mesure',
-      description: 'Création de sites vitrines, e-commerce et corporate avec design moderne et performances optimales.',
+      description: 'Vitrine, e-commerce ou corporate : un site qui travaille pour vous.',
     },
     {
       number: '02',
@@ -31,7 +31,7 @@ export default function Services() {
       ),
       title: 'SEO Local',
       subtitle: 'Ultra Ciblé',
-      description: 'Stratégie SEO géolocalisé pour dominer les recherches dans votre zone géographique cible.',
+      description: 'Apparaissez en premier quand vos clients cherchent près de chez eux.',
     },
     {
       number: '04',
@@ -42,7 +42,7 @@ export default function Services() {
       ),
       title: 'Performance',
       subtitle: '& Optimisation',
-      description: 'Refonte et optimisation de sites existants pour des performances et un référencement maximaux.',
+      description: 'Votre site est lent ou mal référencé ? Je lui redonne vie.',
     },
     {
       number: '05',
@@ -53,7 +53,7 @@ export default function Services() {
       ),
       title: 'Maintenance',
       subtitle: '& Support',
-      description: 'Accompagnement continu avec mises à jour, sécurité, sauvegardes et support technique réactif.',
+      description: 'Vous gérez votre business, je m\'occupe de votre site.',
     },
     {
       number: '06',
@@ -64,7 +64,7 @@ export default function Services() {
       ),
       title: 'Stratégie',
       subtitle: 'Digitale',
-      description: 'Conseil stratégique, analyse de marché et accompagnement dans votre transformation digitale.',
+      description: 'Pas de recette toute faite. Une stratégie marketing pensée pour vous.',
     },
   ];
 
@@ -87,7 +87,7 @@ export default function Services() {
               </span>
             </h2>
             <p className="text-xl text-white/50 max-w-2xl mx-auto font-light">
-              Une expertise complète pour propulser votre présence digitale
+              Du conseil à la mise en ligne, je m'occupe de tout
             </p>
             <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
           </div>
@@ -128,15 +128,44 @@ export default function Services() {
             ))}
           </div>
 
-          {/* CTA */}
+          {/* CTA - Style tube en verre avec liquide */}
           <div className="text-center mt-20">
             <a
               href="#contact"
-              className="inline-block glass-dark px-12 py-5 hover:bg-white/5 transition-all duration-300"
+              className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
             >
-              <span className="text-white/80 font-semibold tracking-wider uppercase text-sm">
-                Discuter de mon projet
-              </span>
+              <div 
+                className="relative flex items-center gap-3 px-12 py-5 rounded-full"
+                style={{
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
+                  boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
+                  border: '1px solid rgba(255,255,255,0.15)'
+                }}
+              >
+                {/* Reflet du verre */}
+                <span 
+                  className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
+                  style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
+                />
+                
+                {/* Liquide */}
+                <span 
+                  className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
+                    boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
+                  }}
+                >
+                  <span 
+                    className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2"
+                    style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }}
+                  />
+                </span>
+                
+                <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">
+                  Discuter de mon projet
+                </span>
+              </div>
             </a>
           </div>
         </div>
