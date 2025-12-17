@@ -69,7 +69,24 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="relative py-32 bg-primary-900 overflow-hidden">
+    <section id="services" className="relative py-32 bg-[#0d1a2d] overflow-hidden">
+      {/* Motif grille */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px),
+            repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px)
+          `
+        }}
+      />
+      {/* Vaguelettes topographiques */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-48 pointer-events-none opacity-50"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='topographic' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 50 Q 25 30 50 50 T 100 50' fill='none' stroke='rgba(107, 142, 200, 0.15)' stroke-width='1'/%3E%3Cpath d='M0 40 Q 25 20 50 40 T 100 40' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3Cpath d='M0 60 Q 25 40 50 60 T 100 60' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23topographic)'/%3E%3C/svg%3E")`
+        }}
+      />
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-blue/10 rounded-full blur-[120px]" />
@@ -80,8 +97,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto">
           {/* Titre de section */}
           <div className="text-center mb-24">
-            <span className="text-sm uppercase tracking-[0.3em] text-white/40 font-light">02</span>
-            <h2 className="text-6xl md:text-7xl font-bold mt-4 mb-6">
+            <h2 className="text-6xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                 SERVICES
               </span>
@@ -105,15 +121,17 @@ export default function Services() {
                 </div>
 
                 {/* Icône */}
-                <div className="text-secondary/60 group-hover:text-secondary transition-colors duration-500 mb-6">
+                <div className="text-white/50 group-hover:text-white/80 transition-colors duration-500 mb-6">
                   {service.icon}
                 </div>
 
                 {/* Titre */}
-                <h3 className="text-2xl font-bold text-white mb-1">
-                  {service.title}
+                <h3 className="text-2xl font-bold mb-1">
+                  <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                    {service.title}
+                  </span>
                 </h3>
-                <p className="text-sm text-secondary font-light tracking-wider uppercase mb-4">
+                <p className="text-sm text-white/50 font-light tracking-wider uppercase mb-4">
                   {service.subtitle}
                 </p>
 
@@ -169,6 +187,11 @@ export default function Services() {
             </a>
           </div>
         </div>
+      </div>
+      
+      {/* Séparateur animé en bas */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
       </div>
     </section>
   );

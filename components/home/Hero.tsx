@@ -28,7 +28,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-900 pb-32">
       {/* Fond avec grille subtile */}
       <div className="absolute inset-0 grid-background opacity-30" />
       
@@ -143,11 +143,11 @@ export default function Hero() {
 
                   {/* Titre principal */}
                   <h1 className="text-3xl md:text-5xl font-bold mb-4">
-                    <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                       Votre projet web
                     </span>
                     <br />
-                    <span className="bg-gradient-to-r from-white via-white to-white/80 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                       conçu sur-mesure
                     </span>
                   </h1>
@@ -238,47 +238,8 @@ export default function Hero() {
                 </div>
               </button>
 
-              {/* Lien secondaire - Style tube en verre vide */}
-              <div className="mt-8 text-center">
-                <Link
-                  href="#rdv"
-                  className="group/rdv relative inline-block transition-transform duration-300 hover:scale-[1.02]"
-                >
-                  <div 
-                    className="relative flex items-center gap-3 px-8 py-4 rounded-full"
-                    style={{
-                      background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                      boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                      border: '1px solid rgba(255,255,255,0.15)'
-                    }}
-                  >
-                    {/* Reflet du verre */}
-                    <span 
-                      className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
-                      style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
-                    />
-                    <span className="relative z-10 text-white/70 group-hover/rdv:text-white font-medium tracking-wide text-base transition-colors">
-                      On en discute ? ☕
-                    </span>
-                  </div>
-                </Link>
-              </div>
             </div>
 
-            {/* ============================================ */}
-            {/* Signature en bas */}
-            {/* ============================================ */}
-            <div className="mt-16 text-center">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <div className="w-8 h-[1px] bg-gradient-to-r from-transparent to-secondary/30" />
-                <span className="text-white/30 text-xs uppercase tracking-widest">par</span>
-                <div className="w-8 h-[1px] bg-gradient-to-l from-transparent to-secondary/30" />
-              </div>
-              <h3 className="text-2xl md:text-3xl font-bold tracking-tight">
-                <span className="text-white/90">PERRINE </span>
-                <span className="text-secondary text-glow">HUON</span>
-              </h3>
-            </div>
           </div>
 
           {/* ============================================ */}
@@ -443,6 +404,11 @@ export default function Hero() {
           }
         }
       `}</style>
+      
+      {/* Séparateur animé en bas */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
+      </div>
     </section>
   );
 }

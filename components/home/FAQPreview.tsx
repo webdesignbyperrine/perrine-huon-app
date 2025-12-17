@@ -60,11 +60,15 @@ export default function FAQPreview() {
   const displayFaqs = faqs.length > 0 ? faqs : demoFaqs;
 
   return (
-    <section id="faq-preview" className="py-20 bg-primary">
+    <section id="faq-preview" className="relative py-20 bg-primary-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">Questions Fréquentes</h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto mt-4">
+          <h2 className="text-6xl md:text-7xl font-bold mt-4 mb-6">
+            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+              FAQ
+            </span>
+          </h2>
+          <p className="text-xl text-white/50 max-w-2xl mx-auto font-light">
             Les réponses aux questions les plus courantes sur mes services et mon processus de travail.
           </p>
         </div>
@@ -146,6 +150,11 @@ export default function FAQPreview() {
             </div>
           </>
         )}
+      </div>
+      
+      {/* Séparateur animé en bas */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
       </div>
     </section>
   );

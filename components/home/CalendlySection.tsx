@@ -4,7 +4,7 @@ import Script from 'next/script';
 
 export default function CalendlySection() {
   return (
-    <section id="rdv" className="py-20 bg-gradient-to-b from-primary-900 to-primary">
+    <section id="rdv" className="relative py-20 bg-primary-900">
       {/* Script Calendly */}
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
@@ -92,6 +92,11 @@ export default function CalendlySection() {
           </div>
 
         </div>
+      </div>
+      
+      {/* Séparateur animé en bas */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
       </div>
     </section>
   );

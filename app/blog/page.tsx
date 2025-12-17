@@ -32,30 +32,51 @@ export default function BlogPage() {
   const demoPosts = [
     {
       id: '1',
-      title: 'Le SEO Local : Votre Atout pour Dominer Votre Marché',
-      slug: 'seo-local-dominer-marche',
-      excerpt: 'Découvrez comment le référencement géolocalisé peut transformer votre visibilité en ligne et attirer des clients qualifiés dans votre zone.',
-      cover_image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
-      published_at: '2024-12-05T10:00:00Z',
-      seo_city: 'Lyon',
+      title: 'SEO Local 2026 : Comment dominer les recherches géolocalisées',
+      slug: 'seo-local-referencement-geolocalisé-2026',
+      excerpt: 'Google My Business, citations locales, avis clients... Le guide complet pour être visible dans votre ville et attirer des clients qualifiés près de chez vous.',
+      cover_image_url: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
+      published_at: '2025-12-17T10:00:00Z',
     },
     {
       id: '2',
-      title: '10 Tendances Web Design pour 2025',
-      slug: 'tendances-web-design-2025',
-      excerpt: 'Les tendances qui vont marquer le web design en 2025 : minimalisme, 3D, animations et expériences immersives.',
-      cover_image_url: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800',
-      published_at: '2024-12-01T10:00:00Z',
-      seo_city: 'Paris',
+      title: 'Tendances Web Design 2026 : Ce qui va tout changer',
+      slug: 'tendances-web-design-2026',
+      excerpt: 'IA générative, interfaces immersives, micro-interactions... Découvrez les tendances qui vont redéfinir le web design en 2026.',
+      cover_image_url: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800',
+      published_at: '2025-12-15T10:00:00Z',
     },
     {
       id: '3',
-      title: 'Performance Web : Pourquoi Votre Site Doit Être Rapide',
-      slug: 'performance-web-importance',
-      excerpt: 'La vitesse de votre site impacte directement votre SEO, vos conversions et l\'expérience utilisateur. Voici comment l\'optimiser.',
+      title: 'Performance web : Pourquoi la vitesse de votre site impacte vos ventes',
+      slug: 'performance-web-vitesse-site-conversion',
+      excerpt: 'Core Web Vitals, temps de chargement, expérience utilisateur... Chaque seconde compte. Découvrez comment optimiser votre site pour convertir plus.',
       cover_image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-      published_at: '2024-11-28T10:00:00Z',
-      seo_city: 'Marseille',
+      published_at: '2025-12-12T10:00:00Z',
+    },
+    {
+      id: '4',
+      title: 'Vibe Coding : La révolution de 2025 et ce qui nous attend',
+      slug: 'vibe-coding-2025-2026',
+      excerpt: 'Comment le vibe coding a transformé le développement web en 2025, et pourquoi 2026 s\'annonce encore plus disruptif.',
+      cover_image_url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800',
+      published_at: '2025-12-10T10:00:00Z',
+    },
+    {
+      id: '5',
+      title: 'Les événements design majeurs de 2025 : Retour sur une année charnière',
+      slug: 'evenements-design-2025',
+      excerpt: 'De Config Figma à Awwwards, les moments forts qui ont marqué la communauté design cette année.',
+      cover_image_url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
+      published_at: '2025-12-05T10:00:00Z',
+    },
+    {
+      id: '6',
+      title: 'IA et création web : Où en est-on vraiment fin 2025 ?',
+      slug: 'ia-creation-web-2025',
+      excerpt: 'État des lieux de l\'IA dans la création de sites : ce qui fonctionne, ce qui déçoit, et comment l\'utiliser intelligemment.',
+      cover_image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
+      published_at: '2025-12-01T10:00:00Z',
     },
   ];
 
@@ -108,12 +129,6 @@ export default function BlogPage() {
                   {/* Meta */}
                   <div className="flex items-center gap-3 mb-3 text-sm text-white/50">
                     <time>{formatDate(post.published_at || new Date().toISOString())}</time>
-                    {post.seo_city && (
-                      <>
-                        <span>•</span>
-                        <span>📍 {post.seo_city}</span>
-                      </>
-                    )}
                   </div>
 
                   {/* Titre */}

@@ -7,30 +7,32 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
   // Article de démo
   const demoPost = {
-    title: 'Le SEO Local : Votre Atout pour Dominer Votre Marché',
-    slug: 'seo-local-dominer-marche',
+    title: 'Vibe Coding : La révolution de 2025 et ce qui nous attend',
+    slug: 'vibe-coding-2025-2026',
     content: `
-      <h2>Qu'est-ce que le SEO local ?</h2>
-      <p>Le référencement local est une stratégie qui vise à améliorer votre visibilité dans les résultats de recherche géolocalisés. Quand un potentiel client cherche "développeur web Lyon" ou "création site Marseille", c'est le SEO local qui détermine si votre site apparaît en première page.</p>
+      <h2>Le vibe coding, c'est quoi exactement ?</h2>
+      <p>Le terme "vibe coding" a explosé en 2025. L'idée ? Coder en décrivant ce qu'on veut en langage naturel, assisté par l'IA. Fini les heures passées sur la syntaxe : on se concentre sur la vision, l'IA s'occupe de l'exécution.</p>
       
-      <h2>Pourquoi est-ce crucial pour votre business ?</h2>
-      <p>46% des recherches Google ont une intention locale. Si vous n'êtes pas visible localement, vous passez à côté de la moitié de vos clients potentiels.</p>
-      
-      <h2>Les piliers du SEO local</h2>
+      <h2>Ce qui a changé en 2025</h2>
+      <p>Cette année a été un tournant. Des outils comme Cursor, Lovable, et v0 ont démocratisé cette approche. Des projets complets sont désormais réalisables en quelques heures au lieu de plusieurs semaines.</p>
       <ul>
-        <li><strong>Google My Business</strong> : Votre vitrine sur Google Maps</li>
-        <li><strong>Citations locales</strong> : Présence cohérente sur les annuaires</li>
-        <li><strong>Contenu géolocalisé</strong> : Pages optimisées par ville</li>
-        <li><strong>Avis clients</strong> : Votre réputation en ligne</li>
-        <li><strong>Backlinks locaux</strong> : Partenariats avec acteurs locaux</li>
+        <li><strong>Cursor + Claude</strong> : Le duo qui a tout changé pour le développement</li>
+        <li><strong>Lovable</strong> : Du prompt à l'app en quelques minutes</li>
+        <li><strong>v0 by Vercel</strong> : Génération d'interfaces React instantanée</li>
+        <li><strong>Bolt.new</strong> : Prototypage full-stack en temps réel</li>
       </ul>
       
-      <h2>Comment je peux vous aider</h2>
-      <p>J'intègre le SEO local dès la conception de votre site. Chaque page, chaque élément est pensé pour maximiser votre visibilité dans votre zone géographique cible.</p>
+      <h2>Les limites qu'on a découvertes</h2>
+      <p>Tout n'est pas rose. Le vibe coding excelle pour les MVPs et les prototypes, mais les projets complexes nécessitent toujours une expertise technique solide. L'IA génère du code, mais comprendre ce code reste essentiel.</p>
+      
+      <h2>Ce qui nous attend en 2026</h2>
+      <p>Les prédictions sont enthousiasmantes : agents autonomes capables de gérer des projets entiers, meilleure compréhension du contexte métier, et intégration native dans tous les IDE. Le développeur de demain sera avant tout un chef d'orchestre.</p>
+      
+      <h2>Mon approche</h2>
+      <p>J'utilise le vibe coding quotidiennement pour accélérer mes projets. Résultat : des délais divisés par 3, sans compromis sur la qualité. Et vous bénéficiez directement de cette efficacité.</p>
     `,
-    cover_image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200',
-    published_at: '2024-12-05T10:00:00Z',
-    seo_city: 'Lyon',
+    cover_image_url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200',
+    published_at: '2025-12-10T10:00:00Z',
   };
 
   const readingTime = estimateReadingTime(demoPost.content);
@@ -60,12 +62,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               <time>{formatDate(demoPost.published_at)}</time>
               <span>•</span>
               <span>{readingTime} min de lecture</span>
-              {demoPost.seo_city && (
-                <>
-                  <span>•</span>
-                  <span>📍 {demoPost.seo_city}</span>
-                </>
-              )}
             </div>
 
             {/* Titre */}

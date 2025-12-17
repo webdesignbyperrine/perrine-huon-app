@@ -84,7 +84,24 @@ export default function ContactForm() {
   const labelStyles = "block text-white/90 font-medium mb-3 text-sm uppercase tracking-wider";
 
   return (
-    <section id="contact" className="py-24 bg-primary-900">
+    <section id="contact" className="relative py-24 bg-[#0d1a2d] overflow-hidden">
+      {/* Motif grille */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px),
+            repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px)
+          `
+        }}
+      />
+      {/* Vaguelettes topographiques */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-48 pointer-events-none opacity-50"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='topographic' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 50 Q 25 30 50 50 T 100 50' fill='none' stroke='rgba(107, 142, 200, 0.15)' stroke-width='1'/%3E%3Cpath d='M0 40 Q 25 20 50 40 T 100 40' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3Cpath d='M0 60 Q 25 40 50 60 T 100 60' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23topographic)'/%3E%3C/svg%3E")`
+        }}
+      />
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
@@ -288,6 +305,11 @@ export default function ContactForm() {
           </div>
 
         </div>
+      </div>
+      
+      {/* Séparateur animé en bas */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
       </div>
     </section>
   );

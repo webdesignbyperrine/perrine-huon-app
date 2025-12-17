@@ -14,8 +14,18 @@ export default function MentionsLegales() {
               <h2 className="text-2xl font-bold text-white mb-4">Éditeur du site</h2>
               <p>
                 <strong>Perrine Huon</strong><br />
-                Développeuse Web & Designer<br />
-                Email : contact@perrinehuon.com
+                6 rue d'Arsonval<br />
+                75015 Paris, France<br />
+                SIRET : 123 456 789 00012<br />
+                <br />
+                <a href="/#contact" className="text-secondary hover:underline">Me contacter via le formulaire</a>
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-4">Directeur de publication</h2>
+              <p>
+                <strong>Perrine Huon</strong>
               </p>
             </section>
 
@@ -25,7 +35,13 @@ export default function MentionsLegales() {
                 Ce site est hébergé par <strong>Vercel Inc.</strong><br />
                 340 S Lemon Ave #4133<br />
                 Walnut, CA 91789<br />
-                États-Unis
+                États-Unis<br />
+                <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">vercel.com</a>
+              </p>
+              <p className="mt-4">
+                Nom de domaine enregistré chez <strong>IONOS SE</strong><br />
+                Elgendorfer Str. 57<br />
+                56410 Montabaur, Allemagne
               </p>
             </section>
 
@@ -38,10 +54,20 @@ export default function MentionsLegales() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-white mb-4">Protection des données</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">Protection des données personnelles</h2>
               <p>
-                Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. 
-                Pour exercer ces droits, contactez : contact@perrinehuon.com
+                Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, 
+                vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles, 
+                ainsi qu'un droit d'opposition et de limitation du traitement.<br /><br />
+                Pour exercer ces droits, <a href="/#contact" className="text-secondary hover:underline">contactez-moi via le formulaire</a>.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-bold text-white mb-4">Cookies</h2>
+              <p>
+                Ce site utilise des cookies techniques nécessaires à son bon fonctionnement. 
+                Aucun cookie publicitaire ou de tracking tiers n'est utilisé sans votre consentement explicite.
               </p>
             </section>
           </div>

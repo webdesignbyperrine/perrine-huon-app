@@ -33,41 +33,83 @@ export default function BlogPreview() {
   const demoPosts = [
     {
       id: '1',
-      title: 'Comment le SEO local peut booster votre visibilité',
-      slug: 'seo-local-visibilite',
-      excerpt: 'Découvrez les techniques essentielles pour dominer les recherches locales dans votre zone géographique.',
-      cover_image_url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
-      published_at: '2024-12-01T10:00:00Z',
-      seo_city: 'Lyon',
+      title: 'SEO Local 2026 : Comment dominer les recherches géolocalisées',
+      slug: 'seo-local-referencement-geolocalisé-2026',
+      excerpt: 'Google My Business, citations locales, avis clients... Le guide complet pour être visible dans votre ville et attirer des clients qualifiés près de chez vous.',
+      cover_image_url: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
+      published_at: '2025-12-17T10:00:00Z',
     },
     {
       id: '2',
-      title: '10 tendances web design pour 2025',
-      slug: 'tendances-web-design-2025',
-      excerpt: 'Les tendances qui vont marquer le web design cette année : minimalisme, animations, et expériences immersives.',
-      cover_image_url: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800',
-      published_at: '2024-11-28T10:00:00Z',
-      seo_city: 'Paris',
+      title: 'Tendances Web Design 2026 : Ce qui va tout changer',
+      slug: 'tendances-web-design-2026',
+      excerpt: 'IA générative, interfaces immersives, micro-interactions... Découvrez les tendances qui vont redéfinir le web design en 2026.',
+      cover_image_url: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800',
+      published_at: '2025-12-15T10:00:00Z',
     },
     {
       id: '3',
-      title: 'Pourquoi votre site doit être rapide',
-      slug: 'performance-web-importance',
-      excerpt: 'La performance web impacte directement votre SEO, vos conversions et l\'expérience utilisateur.',
+      title: 'Performance web : Pourquoi la vitesse de votre site impacte vos ventes',
+      slug: 'performance-web-vitesse-site-conversion',
+      excerpt: 'Core Web Vitals, temps de chargement, expérience utilisateur... Chaque seconde compte. Découvrez comment optimiser votre site pour convertir plus.',
       cover_image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-      published_at: '2024-11-25T10:00:00Z',
-      seo_city: 'Marseille',
+      published_at: '2025-12-12T10:00:00Z',
+    },
+    {
+      id: '4',
+      title: 'Vibe Coding : La révolution de 2025 et ce qui nous attend',
+      slug: 'vibe-coding-2025-2026',
+      excerpt: 'Comment le vibe coding a transformé le développement web en 2025, et pourquoi 2026 s\'annonce encore plus disruptif.',
+      cover_image_url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800',
+      published_at: '2025-12-10T10:00:00Z',
+    },
+    {
+      id: '5',
+      title: 'Les événements design majeurs de 2025 : Retour sur une année charnière',
+      slug: 'evenements-design-2025',
+      excerpt: 'De Config Figma à Awwwards, les moments forts qui ont marqué la communauté design cette année.',
+      cover_image_url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
+      published_at: '2025-12-05T10:00:00Z',
+    },
+    {
+      id: '6',
+      title: 'IA et création web : Où en est-on vraiment fin 2025 ?',
+      slug: 'ia-creation-web-2025',
+      excerpt: 'État des lieux de l\'IA dans la création de sites : ce qui fonctionne, ce qui déçoit, et comment l\'utiliser intelligemment.',
+      cover_image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
+      published_at: '2025-12-01T10:00:00Z',
     },
   ];
 
   const displayPosts = posts.length > 0 ? posts : demoPosts;
 
   return (
-    <section id="blog-preview" className="py-20 bg-primary-900">
+    <section id="blog-preview" className="relative py-20 bg-[#0d1a2d] overflow-hidden">
+      {/* Motif grille */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-30"
+        style={{
+          backgroundImage: `
+            repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px),
+            repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px)
+          `
+        }}
+      />
+      {/* Vaguelettes topographiques */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-48 pointer-events-none opacity-50"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='topographic' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 50 Q 25 30 50 50 T 100 50' fill='none' stroke='rgba(107, 142, 200, 0.15)' stroke-width='1'/%3E%3Cpath d='M0 40 Q 25 20 50 40 T 100 40' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3Cpath d='M0 60 Q 25 40 50 60 T 100 60' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23topographic)'/%3E%3C/svg%3E")`
+        }}
+      />
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">Blog</h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto mt-4">
+          <h2 className="text-6xl md:text-7xl font-bold mt-4 mb-6">
+            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+              Blog
+            </span>
+          </h2>
+          <p className="text-xl text-white/50 max-w-2xl mx-auto font-light">
             Conseils, astuces et actualités sur le web design, le développement et le SEO local.
           </p>
         </div>
@@ -108,12 +150,6 @@ export default function BlogPreview() {
                   {/* Meta */}
                   <div className="flex items-center gap-3 mb-3 text-sm text-white/50">
                     <time>{formatDate(post.published_at || new Date().toISOString())}</time>
-                    {post.seo_city && (
-                      <>
-                        <span>•</span>
-                        <span>📍 {post.seo_city}</span>
-                      </>
-                    )}
                   </div>
 
                   {/* Contenu */}
@@ -170,6 +206,11 @@ export default function BlogPreview() {
             </div>
           </>
         )}
+      </div>
+      
+      {/* Séparateur animé en bas */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
       </div>
     </section>
   );

@@ -12,12 +12,12 @@ export default function Home() {
     <div className="min-h-screen">
       <Hero />
       <Services />
+      <About />
       <PortfolioPreview />
-      <BlogPreview />
-      <FAQPreview />
       <CalendlySection />
       <ContactForm />
-      <About />
+      <FAQPreview />
+      <BlogPreview />
     </div>
   );
 }
