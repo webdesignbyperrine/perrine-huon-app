@@ -34,18 +34,23 @@ export default function About() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Titre de section */}
-          <div className="text-center mb-24">
+          <div className="text-center mb-16 sm:mb-24">
             <div className="inline-block">
-              <h2 className="text-6xl md:text-7xl font-bold mt-4">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4">
                 <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                   Derrière l'écran
                 </span>
               </h2>
               <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
+              {/* Nom avec même typo que le header */}
+              <p className="text-2xl sm:text-3xl md:text-4xl font-light tracking-wider mt-8">
+                <span className="text-white">PERRINE</span>
+                <span className="text-white/40 ml-2 sm:ml-3">HUON</span>
+              </p>
             </div>
           </div>
 
-          <div ref={sectionRef} className="grid lg:grid-cols-2 gap-20 items-center">
+          <div ref={sectionRef} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Photo avec écran d'ordi */}
             <div className="relative group">
               <div className="relative max-w-lg mx-auto photo-container">
@@ -62,22 +67,16 @@ export default function About() {
                     </div>
                     
                     {/* Zone d'affichage */}
-                    <div className="mt-5 bg-primary-900 rounded-[1.5rem] overflow-hidden aspect-[4/3]">
-                      {/* Photo avec bords courbes */}
-                      <div className="relative w-full h-full flex items-center justify-center p-4">
-                        <div className="relative w-[90%] h-[95%] overflow-hidden"
-                          style={{
-                            borderRadius: '45% 45% 45% 45% / 20% 20% 20% 20%',
-                          }}
-                        >
-                          <Image
-                            src="/images/perrine-huon-creation.webp"
-                            alt="Perrine Huon"
-                            fill
-                            className="object-cover"
-                            priority
-                          />
-                        </div>
+                    <div className="mt-5 bg-primary-900 rounded-t-[1.25rem] rounded-b-[1.5rem] overflow-hidden aspect-[4/3]">
+                      {/* Photo plein écran avec bords droits */}
+                      <div className="relative w-full h-full overflow-hidden">
+                        <Image
+                          src="/images/perrine-huon-creation.webp"
+                          alt="Perrine Huon"
+                          fill
+                          className="object-cover mt-2 mb-2"
+                          priority
+                        />
                       </div>
                     </div>
                   </div>

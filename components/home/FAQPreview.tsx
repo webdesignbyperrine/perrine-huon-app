@@ -63,7 +63,7 @@ export default function FAQPreview() {
     <section id="faq-preview" className="relative py-20 bg-primary-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold mt-4 mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6">
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               FAQ
             </span>

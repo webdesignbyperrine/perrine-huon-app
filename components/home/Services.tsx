@@ -97,7 +97,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto">
           {/* Titre de section */}
           <div className="text-center mb-24">
-            <h2 className="text-6xl md:text-7xl font-bold mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                 SERVICES
               </span>
@@ -109,11 +109,11 @@ export default function Services() {
           </div>
 
           {/* Grille de services */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative glass-dark p-8 rounded-2xl hover:bg-white/5 transition-all duration-500"
+                className="group relative glass-dark p-5 sm:p-6 lg:p-8 rounded-2xl hover:bg-white/5 transition-all duration-500"
               >
                 {/* Numéro */}
                 <div className="text-5xl font-bold text-white/5 absolute top-6 right-6 group-hover:text-secondary/10 transition-colors duration-500">

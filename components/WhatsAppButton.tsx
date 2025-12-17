@@ -17,11 +17,11 @@ export default function WhatsAppButton() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 group transition-transform duration-300 hover:scale-105 sphere-wiggle"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group transition-transform duration-300 hover:scale-105 sphere-wiggle"
         aria-label="Contactez-moi sur WhatsApp"
       >
         <div 
-          className="relative flex flex-col items-center justify-center gap-1 w-28 h-28 rounded-full overflow-hidden backdrop-blur-md"
+          className="relative flex flex-col items-center justify-center gap-1 w-20 h-20 sm:w-28 sm:h-28 rounded-full overflow-hidden backdrop-blur-md"
           style={{
             background: 'radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.2) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(0,0,0,0.2) 0%, transparent 50%), linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
             boxShadow: 'inset 0 -8px 20px rgba(0,0,0,0.3), inset 0 8px 20px rgba(255,255,255,0.15), 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.2)',
@@ -58,7 +58,7 @@ export default function WhatsAppButton() {
           {/* Icône WhatsApp */}
           <div className="relative z-10">
             <svg
-              className="w-9 h-9 text-[#25D366] group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+              className="w-7 h-7 sm:w-9 sm:h-9 text-[#25D366] group-hover:scale-110 transition-transform duration-300 drop-shadow-lg"
               fill="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -69,8 +69,8 @@ export default function WhatsAppButton() {
             <div className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-[#25D366] border-2 border-primary-900 rounded-full animate-pulse" />
           </div>
           
-          {/* Texte */}
-          <span className="relative z-10 text-white/80 group-hover:text-white font-medium tracking-wide text-xs transition-colors whitespace-nowrap">
+          {/* Texte - masqué sur mobile */}
+          <span className="relative z-10 text-white/80 group-hover:text-white font-medium tracking-wide text-xs transition-colors whitespace-nowrap hidden sm:block">
             On en parle ?
           </span>
           

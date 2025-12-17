@@ -74,9 +74,9 @@ export default function Header() {
                 />
               </div>
             </div>
-            <span className="text-xl font-light tracking-wider hidden sm:block">
+            <span className="text-base sm:text-xl font-light tracking-wider">
               <span className="text-white">PERRINE</span>
-              <span className="text-white/40 ml-2">HUON</span>
+              <span className="text-white/40 ml-1 sm:ml-2">HUON</span>
             </span>
           </Link>
 

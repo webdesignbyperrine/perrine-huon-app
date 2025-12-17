@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { QualifierProvider, useQualifier } from './context';
 import { CloseIcon } from './icons';
 
@@ -21,11 +21,22 @@ function QualifierContent({ onClose }: { onClose?: () => void }) {
   const { currentStep } = useQualifier();
   const [isAnimating, setIsAnimating] = useState(false);
   const [prevStep, setPrevStep] = useState(currentStep);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Animation de transition entre étapes
+  // Animation de transition entre étapes + scroll vers le haut
   useEffect(() => {
     if (currentStep !== prevStep) {
       setIsAnimating(true);
+      
+      // Scroll vers le haut du questionnaire sur mobile
+      if (containerRef.current) {
+        const yOffset = -100; // Offset pour le header fixe
+        const element = containerRef.current;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      }
+      
       const timer = setTimeout(() => {
         setIsAnimating(false);
         setPrevStep(currentStep);
@@ -63,7 +74,7 @@ function QualifierContent({ onClose }: { onClose?: () => void }) {
   };
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto">
+    <div ref={containerRef} className="relative w-full max-w-5xl mx-auto">
       {/* Bouton fermer (optionnel) */}
       {onClose && (
         <button

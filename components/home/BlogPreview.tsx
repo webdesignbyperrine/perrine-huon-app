@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/utils';
 import type { BlogPost } from '@/types/database.types';
 
-export default function BlogPreview() {
+function BlogPreview() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -104,7 +104,7 @@ export default function BlogPreview() {
       />
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-6xl md:text-7xl font-bold mt-4 mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6">
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               Blog
             </span>
@@ -216,3 +216,4 @@ export default function BlogPreview() {
   );
 }
 
+export default BlogPreview;
