@@ -6,12 +6,18 @@ import { createClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/utils';
 import type { BlogPost } from '@/types/database.types';
 import SectionDivider from './SectionDivider';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 function BlogPreview() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
+  
+  // Animations au scroll
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [carouselContainerRef, carouselVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
 
   useEffect(() => {
     async function fetchPosts() {
@@ -140,13 +146,13 @@ function BlogPreview() {
         }}
       />
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               Blog
             </span>
           </h2>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto font-light">
+          <p className={`text-xl text-white/50 max-w-2xl mx-auto font-light transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Conseils, astuces et actualités sur le web design, le développement et le SEO local.
           </p>
         </div>
@@ -158,7 +164,7 @@ function BlogPreview() {
         ) : (
           <>
             {/* Carousel Container */}
-            <div className="relative max-w-7xl mx-auto">
+            <div ref={carouselContainerRef} className={`relative max-w-7xl mx-auto transition-all duration-700 ${carouselVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               {/* Boutons de navigation */}
               <button
                 onClick={goToPrevious}
@@ -257,7 +263,7 @@ function BlogPreview() {
               </div>
             </div>
 
-            <div className="text-center mt-12">
+            <div ref={ctaRef} className={`text-center mt-12 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               <Link 
                 href="/blog" 
                 className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"

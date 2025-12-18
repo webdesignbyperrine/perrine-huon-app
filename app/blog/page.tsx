@@ -6,10 +6,16 @@ import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/utils';
 import type { BlogPost } from '@/types/database.types';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  // Animation au montage - contenu visible par défaut
+  const [isPageMounted, setIsPageMounted] = useState(true);
+  
+  // Animation au scroll
+  const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
 
   useEffect(() => {
     async function fetchPosts() {
@@ -87,15 +93,15 @@ export default function BlogPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-7xl md:text-8xl font-bold mb-6">
+          <h1 className={`text-7xl md:text-8xl font-bold mb-6 transition-all duration-700 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               BLOG
             </span>
           </h1>
-          <p className="text-xl text-white/50 max-w-3xl mx-auto font-light">
+          <p className={`text-xl text-white/50 max-w-3xl mx-auto font-light transition-all duration-700 delay-100 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Conseils, astuces et actualités sur le web design, le développement et le SEO local
           </p>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
+          <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-200 ${isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
         </div>
 
         {loading ? (
@@ -103,12 +109,13 @@ export default function BlogPage() {
             <div className="inline-block w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {displayPosts.map((post) => (
+          <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {displayPosts.map((post, index) => (
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="group glass-dark rounded-2xl overflow-hidden hover:bg-white/5 transition-all duration-500"
+                className={`group glass-dark rounded-2xl overflow-hidden hover:bg-white/5 hover:-translate-y-2 transition-all duration-500 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">

@@ -4,12 +4,19 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { FAQ } from '@/types/database.types';
 import Link from 'next/link';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function FAQPage() {
   const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  // Animation au montage - on utilise un petit délai pour l'effet d'entrée
+  const [isPageMounted, setIsPageMounted] = useState(true);
+  
+  // Animation au scroll
+  const [faqsRef, faqsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
+  const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   useEffect(() => {
     async function fetchFAQs() {
@@ -91,24 +98,24 @@ export default function FAQPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-7xl md:text-8xl font-bold mb-6">
+          <h1 className={`text-7xl md:text-8xl font-bold mb-6 transition-all duration-700 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               FAQ
             </span>
           </h1>
-          <p className="text-xl text-white/50 max-w-3xl mx-auto font-light">
+          <p className={`text-xl text-white/50 max-w-3xl mx-auto font-light transition-all duration-700 delay-100 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Les réponses à vos questions sur mes services, mon processus de travail et le SEO local
           </p>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
+          <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-200 ${isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
         </div>
 
         {/* Filtres par catégorie */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className={`flex flex-wrap justify-center gap-3 mb-12 transition-all duration-700 delay-300 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat as string)}
-              className={`px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 ${
                 selectedCategory === cat
                   ? 'bg-gradient-to-r from-secondary to-accent-red text-white'
                   : 'glass-dark text-white/60 hover:text-white'
@@ -125,9 +132,13 @@ export default function FAQPage() {
             <div className="inline-block w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
           </div>
         ) : (
-          <div className="max-w-4xl mx-auto space-y-4">
+          <div ref={faqsRef} className="max-w-4xl mx-auto space-y-4">
             {filteredFaqs.map((faq, index) => (
-              <div key={faq.id} className="glass-dark rounded-2xl p-6">
+              <div 
+                key={faq.id} 
+                className={`glass-dark rounded-2xl p-6 hover:-translate-y-1 transition-all duration-500 ${faqsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full flex items-start justify-between text-left group"
@@ -161,7 +172,7 @@ export default function FAQPage() {
         )}
 
         {/* CTA */}
-        <div className="text-center mt-16 glass-dark rounded-2xl p-12 max-w-3xl mx-auto">
+        <div ref={ctaRef} className={`text-center mt-16 glass-dark rounded-2xl p-12 max-w-3xl mx-auto hover:bg-white/5 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-2xl font-bold mb-4 text-white">
             Vous n'avez pas trouvé votre réponse ?
           </h3>

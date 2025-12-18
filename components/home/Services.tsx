@@ -1,6 +1,13 @@
+'use client';
+
 import SectionDivider from './SectionDivider';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Services() {
+  // Animations au scroll
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
   const services = [
     {
       number: '01',
@@ -101,24 +108,25 @@ export default function Services() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Titre de section */}
-          <div className="text-center mb-24">
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6">
+          <div ref={titleRef} className="text-center mb-24">
+            <h2 className={`text-4xl sm:text-5xl md:text-7xl font-bold mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                 SERVICES
               </span>
             </h2>
-            <p className="text-xl text-white/50 max-w-2xl mx-auto font-light">
+            <p className={`text-xl text-white/50 max-w-2xl mx-auto font-light transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               Du conseil à la mise en ligne, je m'occupe de tout
             </p>
-            <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
+            <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-200 ${titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
           </div>
 
           {/* Grille de services */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative glass-dark p-5 sm:p-6 lg:p-8 rounded-2xl hover:bg-white/5 transition-all duration-500"
+                className={`group relative glass-dark p-5 sm:p-6 lg:p-8 rounded-2xl hover:bg-white/5 hover:-translate-y-2 transition-all duration-500 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Numéro */}
                 <div className="text-5xl font-bold text-white/5 absolute top-6 right-6 group-hover:text-secondary/10 transition-colors duration-500">
@@ -152,7 +160,7 @@ export default function Services() {
           </div>
 
           {/* CTA - Style tube en verre avec liquide */}
-          <div className="text-center mt-20">
+          <div ref={ctaRef} className={`text-center mt-20 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             <a
               href="#contact"
               className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"

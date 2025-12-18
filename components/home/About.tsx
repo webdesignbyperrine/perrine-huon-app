@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import SectionDivider from './SectionDivider';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const techLogos = [
   { src: '/images/logos/logo_lovable.jpeg', label: 'Lovable', className: 'rounded' },
@@ -27,6 +28,11 @@ export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const techCarouselRef = useRef<HTMLDivElement>(null);
   const clientCarouselRef = useRef<HTMLDivElement>(null);
+  
+  // Animations au scroll
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [contentRef, contentVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [cardsRef, cardsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   const useMobileAutoSlide = (ref: RefObject<HTMLDivElement | null>, itemCount: number) => {
     useEffect(() => {
@@ -97,16 +103,16 @@ export default function About() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Titre de section */}
-          <div className="text-center mb-12 sm:mb-16">
-            <div className="inline-block">
+          <div ref={titleRef} className="text-center mb-12 sm:mb-16">
+            <div className={`inline-block transition-all duration-700 ease-out ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4">
                 <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                   Derrière l'écran
                 </span>
               </h2>
-              <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
+              <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-300 ${titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
               {/* Nom avec même typo que le header */}
-              <p className="text-2xl sm:text-3xl md:text-4xl font-light tracking-wider mt-8">
+              <p className={`text-2xl sm:text-3xl md:text-4xl font-light tracking-wider mt-8 transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <span className="text-white">PERRINE</span>
                 <span className="text-white/40 ml-2 sm:ml-3">HUON</span>
               </p>
@@ -194,21 +200,21 @@ export default function About() {
             `}</style>
 
             {/* Contenu */}
-            <div className="space-y-8 text-center">
+            <div ref={contentRef} className="space-y-8 text-center">
               <div className="space-y-6">
-                <p className="text-2xl md:text-3xl font-light text-white/90 leading-relaxed">
+                <p className={`text-2xl md:text-3xl font-light text-white/90 leading-relaxed transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
                   Je construis des <span className="text-secondary font-normal">projets digitaux</span> avec{' '}
                   <span className="text-secondary font-normal">rigueur</span>, <span className="text-secondary font-normal">créativité</span>, et beaucoup d'écoute.
                 </p>
 
-                <div className="w-16 h-[1px] bg-secondary/50 mx-auto" />
+                <div className={`w-16 h-[1px] bg-secondary/50 mx-auto transition-all duration-700 delay-150 ${contentVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
 
-                <p className="text-lg text-white/60 leading-relaxed font-light">
+                <p className={`text-lg text-white/60 leading-relaxed font-light transition-all duration-700 delay-200 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
                   Je m'efforce de créer des designs qui ne se démodent pas d'une année sur l'autre. 
                   Je mise sur l'<span className="text-white/90">efficacité</span> et l'optimisation de l'<span className="text-white/90">expérience utilisateur</span>.
                 </p>
 
-                <p className="text-lg text-white/60 leading-relaxed font-light">
+                <p className={`text-lg text-white/60 leading-relaxed font-light transition-all duration-700 delay-300 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
                   Un beau site, c'est bien. Un site qui vous rapporte des clients, <span className="text-white/90">c'est mieux</span>.
                   Mon objectif ? Que votre site travaille pour vous. Qu'il <span className="text-white/90">attire</span>,{' '}
                   <span className="text-white/90">convainque</span>, et <span className="text-accent-orange">convertisse</span>.
@@ -216,9 +222,9 @@ export default function About() {
               </div>
 
               {/* Cards d'information - flex wrap pour prendre tout l'espace */}
-              <div className="flex flex-wrap gap-4 pt-8">
+              <div ref={cardsRef} className="flex flex-wrap gap-4 pt-8">
                 {/* Card 1 - Stack Tech */}
-                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300 flex-1 min-w-[280px]">
+                <div className={`glass-dark p-5 rounded-xl hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 flex-1 min-w-[280px] ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0ms' }}>
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ma stack technique préférée</h4>
                   <div className="sm:hidden -mx-2">
                     <div
@@ -256,7 +262,7 @@ export default function About() {
                 </div>
 
                 {/* Card 2 - Entreprises */}
-                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300 flex-1 min-w-[280px]">
+                <div className={`glass-dark p-5 rounded-xl hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 flex-1 min-w-[280px] ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '100ms' }}>
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ils m'ont fait confiance</h4>
                   <div className="sm:hidden -mx-2">
                     <div
@@ -294,7 +300,7 @@ export default function About() {
                 </div>
 
                 {/* Card 3 - Spécialités */}
-                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300 flex-1 min-w-[280px]">
+                <div className={`glass-dark p-5 rounded-xl hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 flex-1 min-w-[280px] ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-3">Spécialités</h4>
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center gap-2">
@@ -333,7 +339,8 @@ export default function About() {
                   href="https://www.linkedin.com/in/perrinehuon/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-all duration-300 group flex flex-col items-center justify-center flex-1 min-w-[280px]"
+                  className={`glass-dark p-5 rounded-xl hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center flex-1 min-w-[280px] ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: '300ms' }}
                 >
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-3">En savoir plus</h4>
                   <div className="flex items-center gap-2">

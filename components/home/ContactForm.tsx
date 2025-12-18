@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import SectionDivider from './SectionDivider';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,10 @@ export default function ContactForm() {
   });
   
   const messageRef = useRef<HTMLTextAreaElement>(null);
+  
+  // Animations au scroll
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [formRef, formVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   useEffect(() => {
     const textarea = messageRef.current;
@@ -109,16 +114,16 @@ export default function ContactForm() {
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
+          <div ref={titleRef} className="text-center mb-16">
             <h2 
-              className="inline-flex items-center justify-center gap-4 mb-6"
+              className={`inline-flex items-center justify-center gap-4 mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ fontSize: '42px', fontWeight: 'bold', lineHeight: 1.2 }}
             >
               <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                 Une idée ? Écrivez-moi
               </span>
               <svg 
-                className="text-secondary flex-shrink-0" 
+                className={`text-secondary flex-shrink-0 transition-all duration-500 delay-300 ${titleVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
                 style={{ width: '40px', height: '40px' }}
                 fill="none" 
                 stroke="currentColor" 
@@ -127,17 +132,17 @@ export default function ContactForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </h2>
-            <p className="text-lg text-white/60 max-w-lg mx-auto">
+            <p className={`text-lg text-white/60 max-w-lg mx-auto transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
               Réponse garantie sous 48h
             </p>
           </div>
 
           {/* Form Card */}
-          <div className="relative">
+          <div ref={formRef} className={`relative transition-all duration-700 delay-200 ${formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             {/* Glow effect */}
             <div className="absolute -inset-1 bg-gradient-to-r from-secondary/20 via-transparent to-secondary/20 rounded-3xl blur-xl opacity-50" />
             
-            <div className="relative bg-primary-800/20 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12">
+            <div className="relative bg-primary-800/20 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 hover:border-white/15 transition-colors duration-300">
               {status === 'success' ? (
                 <div className="text-center py-8">
                   <div className="w-20 h-20 mx-auto mb-8 bg-green-500/20 rounded-full flex items-center justify-center">

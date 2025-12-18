@@ -5,11 +5,17 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { FAQ } from '@/types/database.types';
 import SectionDivider from './SectionDivider';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function FAQPreview() {
   const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  
+  // Animations au scroll
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [faqsRef, faqsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
 
   useEffect(() => {
     async function fetchFAQs() {
@@ -65,13 +71,13 @@ export default function FAQPreview() {
       {/* Divider en haut - prend la couleur de cette section (#0d1a2d) */}
       <SectionDivider bottomSectionColor="#0d1a2d" position="top" />
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               FAQ
             </span>
           </h2>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto font-light">
+          <p className={`text-xl text-white/50 max-w-2xl mx-auto font-light transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Les réponses aux questions les plus courantes sur mes services et mon processus de travail.
           </p>
         </div>
@@ -82,9 +88,13 @@ export default function FAQPreview() {
           </div>
         ) : (
           <>
-            <div className="max-w-4xl mx-auto space-y-4">
+            <div ref={faqsRef} className="max-w-4xl mx-auto space-y-4">
               {displayFaqs.map((faq, index) => (
-                <div key={faq.id} className="card">
+                <div 
+                  key={faq.id} 
+                  className={`card hover:-translate-y-1 transition-all duration-500 ${faqsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="w-full flex items-center justify-between text-left"
@@ -116,7 +126,7 @@ export default function FAQPreview() {
               ))}
             </div>
 
-            <div className="text-center mt-12">
+            <div ref={ctaRef} className={`text-center mt-12 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               <Link 
                 href="/faq" 
                 className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"

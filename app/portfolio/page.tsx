@@ -6,11 +6,17 @@ import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
 import type { Project } from '@/types/database.types';
 import styles from '@/styles/portfolio-grid.module.scss';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function PortfolioPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>('all');
+  // Animation au montage - contenu visible par défaut
+  const [isPageMounted, setIsPageMounted] = useState(true);
+  
+  // Animation au scroll
+  const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
 
   useEffect(() => {
     async function fetchProjects() {
@@ -102,24 +108,24 @@ export default function PortfolioPage() {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-7xl md:text-8xl font-bold mb-6">
+          <h1 className={`text-7xl md:text-8xl font-bold mb-6 transition-all duration-700 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               PORTFOLIO
             </span>
           </h1>
-          <p className="text-xl text-white/50 max-w-3xl mx-auto font-light">
+          <p className={`text-xl text-white/50 max-w-3xl mx-auto font-light transition-all duration-700 delay-100 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Une sélection de mes projets récents, optimisés pour le référencement local
           </p>
-          <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8" />
+          <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-200 ${isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
         </div>
 
         {/* Filtres par ville */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
-          {cities.map((city) => (
+        <div className={`flex flex-wrap justify-center gap-3 mb-16 transition-all duration-700 delay-300 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          {cities.map((city, index) => (
             <button
               key={city}
               onClick={() => setFilter(city)}
-              className={`px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 ${
                 filter === city
                   ? 'bg-gradient-to-r from-secondary to-accent-red text-white'
                   : 'glass-dark text-white/60 hover:text-white'
@@ -136,12 +142,13 @@ export default function PortfolioPage() {
             <div className="inline-block w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
           </div>
         ) : (
-          <div className={styles.grid}>
+          <div ref={gridRef} className={styles.grid}>
             {filteredProjects.map((project: any, index) => (
               <Link
                 key={project.id}
                 href={`/portfolio/${project.slug}`}
-                className={`${styles.projectCard} ${project.featured ? styles.featured : ''}`}
+                className={`${styles.projectCard} ${project.featured ? styles.featured : ''} transition-all duration-700 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {project.featured ? (
                   <div className={styles.featuredCard}>

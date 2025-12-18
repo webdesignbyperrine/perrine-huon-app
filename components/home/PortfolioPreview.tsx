@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import styles from '@/styles/portfolio-grid.module.scss';
 import SectionDivider from './SectionDivider';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 type ProjectData = {
   id: string;
@@ -19,6 +20,10 @@ type ProjectData = {
 export default function PortfolioPreview() {
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [loading, setLoading] = useState(true);
+  
+  // Animations au scroll
+  const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   useEffect(() => {
     async function fetchProjects() {
@@ -120,22 +125,23 @@ export default function PortfolioPreview() {
       <SectionDivider bottomSectionColor="#0d433e" position="top" />
       <div className={styles.container}>
         {/* Titre */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
               Portfolio
             </span>
           </h2>
-          <p className="text-xl text-white/50 max-w-2xl mx-auto font-light">
+          <p className={`text-xl text-white/50 max-w-2xl mx-auto font-light transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Une sélection de mes réalisations récentes
           </p>
         </div>
-        <div className={styles.grid}>
-          {displayProjects.map((project: any) => (
+        <div ref={gridRef} className={styles.grid}>
+          {displayProjects.map((project: any, index: number) => (
             <Link
               key={project.id}
               href={`/portfolio/${project.slug}`}
-              className={styles.projectCard}
+              className={`${styles.projectCard} transition-all duration-700 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Image de preview qui apparaît au survol */}
               <div className={styles.previewImageWrapper}>
