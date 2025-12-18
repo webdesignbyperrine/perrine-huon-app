@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/utils';
 import type { BlogPost } from '@/types/database.types';
@@ -10,6 +10,8 @@ import SectionDivider from './SectionDivider';
 function BlogPreview() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchPosts() {
@@ -19,7 +21,7 @@ function BlogPreview() {
         .select('*')
         .eq('is_published', true)
         .order('published_at', { ascending: false })
-        .limit(3);
+        .limit(6);
 
       if (!error && data) {
         setPosts(data);
@@ -29,6 +31,37 @@ function BlogPreview() {
 
     fetchPosts();
   }, []);
+
+  // Navigation du carousel
+  const scrollToIndex = (index: number) => {
+    if (carouselRef.current) {
+      const cardWidth = carouselRef.current.offsetWidth;
+      carouselRef.current.scrollTo({
+        left: index * cardWidth * 0.85,
+        behavior: 'smooth'
+      });
+      setCurrentIndex(index);
+    }
+  };
+
+  const handleScroll = () => {
+    if (carouselRef.current) {
+      const scrollLeft = carouselRef.current.scrollLeft;
+      const cardWidth = carouselRef.current.offsetWidth * 0.85;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      setCurrentIndex(newIndex);
+    }
+  };
+
+  const goToPrevious = () => {
+    const newIndex = Math.max(0, currentIndex - 1);
+    scrollToIndex(newIndex);
+  };
+
+  const goToNext = (maxIndex: number) => {
+    const newIndex = Math.min(maxIndex, currentIndex + 1);
+    scrollToIndex(newIndex);
+  };
 
   // Articles de démo
   const demoPosts = [
@@ -124,53 +157,104 @@ function BlogPreview() {
           </div>
         ) : (
           <>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {displayPosts.map((post) => (
-                <Link
-                  key={post.id}
-                  href={`/blog/${post.slug}`}
-                  className="card group overflow-hidden"
-                >
-                  {/* Image */}
-                  <div className="relative h-48 -mx-6 -mt-6 mb-6 overflow-hidden rounded-t-2xl">
-                    <div 
-                      className="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500"
-                      style={{ 
-                        backgroundImage: post.cover_image_url 
-                          ? `url(${post.cover_image_url})` 
-                          : undefined 
-                      }}
-                    >
-                      {!post.cover_image_url && (
-                        <div className="w-full h-full flex items-center justify-center">
-                          <svg className="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg>
-                        </div>
-                      )}
+            {/* Carousel Container */}
+            <div className="relative max-w-7xl mx-auto">
+              {/* Boutons de navigation */}
+              <button
+                onClick={goToPrevious}
+                disabled={currentIndex === 0}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed -translate-x-1/2 lg:-translate-x-6"
+                aria-label="Article précédent"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              <button
+                onClick={() => goToNext(displayPosts.length - 1)}
+                disabled={currentIndex >= displayPosts.length - 1}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed translate-x-1/2 lg:translate-x-6"
+                aria-label="Article suivant"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Carousel */}
+              <div
+                ref={carouselRef}
+                onScroll={handleScroll}
+                className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide px-4 pb-4"
+                style={{
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                }}
+              >
+                {displayPosts.map((post, index) => (
+                  <Link
+                    key={post.id}
+                    href={`/blog/${post.slug}`}
+                    className="card group overflow-hidden flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[30%] snap-center"
+                  >
+                    {/* Image */}
+                    <div className="relative h-48 -mx-6 -mt-6 mb-6 overflow-hidden rounded-t-2xl">
+                      <div 
+                        className="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500"
+                        style={{ 
+                          backgroundImage: post.cover_image_url 
+                            ? `url(${post.cover_image_url})` 
+                            : undefined 
+                        }}
+                      >
+                        {!post.cover_image_url && (
+                          <div className="w-full h-full flex items-center justify-center">
+                            <svg className="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Meta */}
-                  <div className="flex items-center gap-3 mb-3 text-sm text-white/50">
-                    <time>{formatDate(post.published_at || new Date().toISOString())}</time>
-                  </div>
+                    {/* Meta */}
+                    <div className="flex items-center gap-3 mb-3 text-sm text-white/50">
+                      <time>{formatDate(post.published_at || new Date().toISOString())}</time>
+                    </div>
 
-                  {/* Contenu */}
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-secondary transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-white/70 mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center text-secondary font-semibold group-hover:gap-2 transition-all">
-                    Lire l'article
-                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
+                    {/* Contenu */}
+                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-secondary transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-white/70 mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center text-secondary font-semibold group-hover:gap-2 transition-all">
+                      Lire l&apos;article
+                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Indicateurs (dots) */}
+              <div className="flex justify-center gap-2 mt-6">
+                {displayPosts.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollToIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentIndex 
+                        ? 'bg-secondary w-6' 
+                        : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                    aria-label={`Aller à l'article ${index + 1}`}
+                  />
+                ))}
+              </div>
             </div>
 
             <div className="text-center mt-12">
@@ -209,6 +293,13 @@ function BlogPreview() {
                 </div>
               </Link>
             </div>
+
+            {/* Style pour cacher la scrollbar */}
+            <style jsx>{`
+              .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
           </>
         )}
       </div>
