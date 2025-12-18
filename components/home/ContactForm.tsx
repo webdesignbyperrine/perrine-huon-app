@@ -115,7 +115,7 @@ export default function ContactForm() {
               style={{ fontSize: '42px', fontWeight: 'bold', lineHeight: 1.2 }}
             >
               <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-                Parlons de votre projet
+                Une idée ? Écrivez-moi
               </span>
               <svg 
                 className="text-secondary flex-shrink-0" 
@@ -172,7 +172,7 @@ export default function ContactForm() {
                         value={formData.name}
                         onChange={handleChange}
                         className={inputStyles}
-                        placeholder="Harry Potter"
+                        placeholder="Jon Snow"
                       />
                     </div>
 
@@ -188,7 +188,7 @@ export default function ContactForm() {
                         value={formData.email}
                         onChange={handleChange}
                         className={inputStyles}
-                        placeholder="harry@poudlard.fr"
+                        placeholder="jon@winterfell.got"
                       />
                     </div>
                   </div>
@@ -205,7 +205,7 @@ export default function ContactForm() {
                       value={formData.company}
                       onChange={handleChange}
                       className={inputStyles}
-                        placeholder="Maison Gryffondor"
+                        placeholder="Maison Stark"
                     />
                   </div>
 
@@ -223,7 +223,7 @@ export default function ContactForm() {
                       value={formData.message}
                       onChange={handleChange}
                       className={`${inputStyles} resize-none`}
-                      placeholder="Je jure solennellement que j'ai un projet..."
+                      placeholder="Winter is coming... et mon projet aussi !"
                     />
                   </div>
 
