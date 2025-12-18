@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import SectionDivider from './SectionDivider';
+import AnimatedLogoWrapper from '@/components/AnimatedLogoWrapper';
 
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);
@@ -91,19 +91,13 @@ export default function Hero() {
           {/* Vue principale - avant le qualifier */}
           <div className={`transition-all duration-500 ease-out ${showQualifier ? 'opacity-0 scale-95 absolute inset-0 pointer-events-none' : 'opacity-100 scale-100'}`}>
             
-            {/* Logo Perroquet centré */}
+            {/* Logo Perroquet avec arcs animés */}
             <div className="text-center pt-[72px] md:pt-[104px] mb-6">
-              <div className="inline-flex items-center justify-center w-28 h-28 rounded-full glass-dark border border-secondary/20">
-                <Image
-                  src={logoUrl}
-                  alt="Perrine Huon Logo"
-                  width={64}
-                  height={64}
-                  className="object-contain brightness-0 invert opacity-90"
-                  key={logoUrl}
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
-              </div>
+              <AnimatedLogoWrapper 
+                logoUrl={logoUrl}
+                size={100}
+                animate={true}
+              />
             </div>
 
             {/* Header - Titre professionnel */}
@@ -126,148 +120,112 @@ export default function Hero() {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              {/* Card interactive principale */}
+              {/* Card interactive principale - Style carte sombre avec bordure fine */}
               <button
                 onClick={() => setShowQualifier(true)}
-                className="group relative w-full p-8 md:p-12 rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02]"
+                className="group relative w-full p-8 md:p-12 lg:p-16 rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 hover:scale-[1.02]"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(13, 26, 45, 0.95) 0%, rgba(15, 27, 46, 0.98) 50%, rgba(10, 22, 40, 0.95) 100%)',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(107, 142, 200, 0.15)'
+                }}
               >
-                {/* Fond glassmorphism */}
-                <div className="absolute inset-0 glass-dark" />
-                
-                {/* Bordure animée */}
-                <div className="absolute inset-0 rounded-3xl border border-secondary/20 group-hover:border-secondary/40 transition-colors duration-500" />
-                
-                {/* Glow effect au hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                {/* Particules flottantes */}
+                {/* Reflet supérieur subtil */}
                 <div 
-                  className="absolute inset-0 overflow-hidden rounded-3xl p-0 m-0"
+                  className="absolute top-0 left-0 right-0 h-24 pointer-events-none"
                   style={{
-                    backgroundClip: 'unset',
-                    WebkitBackgroundClip: 'unset',
-                    color: 'rgba(240, 234, 214, 1)',
-                    borderColor: 'rgba(126, 125, 121, 1)'
+                    background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%)',
+                    borderRadius: '1rem 1rem 0 0'
                   }}
-                >
-                  {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-2 h-2 bg-secondary/30 rounded-full"
-                      style={{
-                        left: `${15 + i * 15}%`,
-                        top: `${20 + (i % 3) * 25}%`,
-                        animation: `float-particle ${3 + i * 0.5}s ease-in-out infinite`,
-                        animationDelay: `${i * 0.3}s`
-                      }}
-                    />
-                  ))}
-                </div>
+                />
 
                 {/* Contenu */}
                 <div className="relative z-10 text-center">
-                  {/* Icône animée */}
-                  <div className="mb-6 inline-flex items-center justify-center">
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-secondary/20 rounded-full blur-xl group-hover:bg-secondary/40 transition-all duration-500" style={{ transform: 'scale(2)' }} />
-                      <div className="relative w-20 h-20 rounded-full bg-gradient-to-br from-secondary/20 to-secondary/5 border border-secondary/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                        <svg className="w-10 h-10 text-secondary group-hover:rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                        </svg>
-                      </div>
-                    </div>
+                  {/* Icône décorative - Style cercle sombre */}
+                  <div 
+                    className="w-20 h-20 mx-auto mb-8 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-500"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(15, 27, 46, 0.9) 0%, rgba(10, 22, 40, 0.95) 100%)',
+                      boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.3)',
+                      border: '1px solid rgba(107, 142, 200, 0.2)'
+                    }}
+                  >
+                    <svg className="w-10 h-10 text-white/80 group-hover:rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
                   </div>
 
                   {/* Titre principal */}
-                  <h1 className="text-3xl md:text-5xl font-bold mb-4">
-                    <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                    <span className="bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
                       Votre projet web
                     </span>
                     <br />
-                    <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-white/90 to-white/60 bg-clip-text text-transparent">
                       conçu sur-mesure
                     </span>
                   </h1>
 
                   {/* Sous-titre */}
-                  <p className="text-white/50 text-base md:text-lg mb-8 max-w-md mx-auto">
+                  <p className="text-lg md:text-xl text-white/50 mb-10 max-w-xl mx-auto font-light">
                     On fait le point en 2 min ?
                   </p>
 
-                  {/* CTA Button - Effet tube en verre avec liquide animé au hover */}
-                  <div className="relative inline-block group/btn">
-                    {/* Tube en verre (conteneur) */}
+                  {/* CTA Button - Effet tube en verre avec liquide */}
+                  <div className="relative inline-block group/btn transition-transform duration-300 hover:scale-[1.03]">
                     <div 
-                      className="relative inline-flex items-center gap-3 px-10 py-5 rounded-full transition-transform duration-300 group-hover/btn:scale-[1.02]"
+                      className="relative flex items-center gap-4 px-10 md:px-14 py-5 md:py-6 rounded-full"
                       style={{
-                        background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                        border: '1px solid rgba(255,255,255,0.15)'
+                        background: 'linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 50%, rgba(0,0,0,0.15) 100%)',
+                        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 4px 20px rgba(0,0,0,0.3)',
+                        border: '1px solid rgba(255,255,255,0.18)'
                       }}
                     >
-                      {/* Reflet du verre en haut */}
+                      {/* Reflet du verre */}
                       <span 
-                        className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
-                        style={{
-                          background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)'
-                        }}
+                        className="absolute top-0 left-8 right-8 h-3 rounded-t-full pointer-events-none"
+                        style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.25) 0%, transparent 100%)' }}
                       />
                       
-                      {/* Liquide (fond) avec animation de vague au hover - Couleur verte du site */}
+                      {/* Liquide - Dégradé vert */}
                       <span 
-                        className="absolute inset-1 rounded-full pointer-events-none overflow-hidden liquid-container"
+                        className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
                         style={{
                           background: 'linear-gradient(180deg, #1a6b5a 0%, #0d433e 50%, #082b27 100%)',
                           boxShadow: '0 0 20px rgba(13, 67, 62, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
                         }}
                       >
-                        {/* Vague animée au hover */}
-                        <span className="liquid-wave absolute inset-0 rounded-full opacity-0 group-hover/btn:opacity-100" />
+                        {/* Petites bulles décoratives */}
+                        <span className="absolute bottom-3 left-1/4 w-1.5 h-1.5 rounded-full bg-white/20 bubble-1" />
+                        <span className="absolute bottom-4 left-1/2 w-1 h-1 rounded-full bg-white/15 bubble-2" />
+                        <span className="absolute bottom-2 right-1/3 w-1.5 h-1.5 rounded-full bg-white/20 bubble-3" />
                         
-                        {/* Reflet sur le liquide - bouge au hover */}
+                        {/* Reflet animé dans le liquide */}
                         <span 
-                          className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/btn:translate-x-2"
-                          style={{
-                            background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)'
-                          }}
+                          className="absolute top-1 left-8 right-8 h-3 rounded-full transition-transform duration-500 group-hover/btn:translate-x-3"
+                          style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 30%, rgba(255,255,255,0.35) 70%, transparent 100%)' }}
                         />
-                        
-                        {/* Bulles animées - plus actives au hover */}
-                        <span 
-                          className="absolute w-2 h-2 rounded-full bg-white/30 bubble-1"
-                          style={{ right: '12%', bottom: '25%' }}
-                        />
-                        <span 
-                          className="absolute w-1.5 h-1.5 rounded-full bg-white/20 bubble-2"
-                          style={{ right: '30%', bottom: '30%' }}
-                        />
-                        <span 
-                          className="absolute w-1 h-1 rounded-full bg-white/25 bubble-3"
-                          style={{ left: '15%', bottom: '20%' }}
-                        />
-                        <span 
-                          className="absolute w-1.5 h-1.5 rounded-full bg-white/20 bubble-4"
-                          style={{ left: '35%', bottom: '35%' }}
-                        />
-                        <span 
-                          className="absolute w-1 h-1 rounded-full bg-white/30 bubble-5"
-                          style={{ right: '50%', bottom: '20%' }}
-                        />
-                        
-                        {/* Shimmer effect au hover */}
-                        <span className="liquid-shimmer absolute inset-0 rounded-full opacity-0 group-hover/btn:opacity-100" />
                       </span>
                       
-                      {/* Texte par-dessus */}
-                      <span className="relative z-10 text-white font-semibold tracking-wide drop-shadow-lg">
+                      <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm md:text-base drop-shadow-lg">
                         Définir mes besoins
                       </span>
+
+                      {/* Flèche */}
+                      <svg 
+                        className="relative z-10 w-5 h-5 text-white/80 transition-transform duration-300 group-hover/btn:translate-x-1 drop-shadow-lg" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
                     </div>
                   </div>
 
-                  {/* Indicateur réassurance */}
-                  <p className="mt-6 text-white/30 text-sm flex items-center justify-center gap-2">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* Badge gratuit */}
+                  <p className="mt-8 text-white/40 text-sm flex items-center justify-center gap-2">
+                    <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     Gratuit • Sans engagement

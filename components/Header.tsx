@@ -3,14 +3,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
   const pathname = usePathname();
-  const router = useRouter();
 
   const handleLogoClick = (e: React.MouseEvent) => {
     // Marquer qu'on vient d'un clic sur le logo
@@ -65,12 +64,32 @@ export default function Header() {
   }, []);
 
   const navigation = [
-    { name: 'À propos', href: '#about' },
-    { name: 'Services', href: '#services' },
     { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Services', href: '/#services' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
+    { name: 'À propos', href: '/#about' },
   ];
+
+  // Gérer le clic sur les liens avec ancres
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setMobileMenuOpen(false);
+    
+    // Si c'est un lien avec ancre
+    if (href.includes('#')) {
+      const anchor = href.split('#')[1];
+      
+      // Si on est déjà sur la page d'accueil, scroll direct
+      if (pathname === '/') {
+        e.preventDefault();
+        const element = document.getElementById(anchor);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+      // Sinon, laisser la navigation se faire vers /#anchor
+    }
+  };
 
   return (
     <header
@@ -108,6 +127,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-white/60 hover:text-white transition-colors duration-300 text-sm uppercase tracking-wider font-light"
               >
                 {item.name}
@@ -118,7 +138,8 @@ export default function Header() {
           {/* CTA Button - Style tube en verre avec liquide */}
           <div className="hidden lg:block">
             <Link
-              href="#contact"
+              href="/#rdv"
+              onClick={(e) => handleNavClick(e, '/#rdv')}
               className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
             >
               <div 
@@ -146,7 +167,7 @@ export default function Header() {
                   />
                 </span>
                 <span className="relative z-10 text-white text-sm uppercase tracking-wider font-semibold drop-shadow-lg">
-                  Contact
+                  On s'appelle ?
                 </span>
               </div>
             </Link>
@@ -176,15 +197,15 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 className="block text-white/60 hover:text-white transition-colors duration-300 text-sm uppercase tracking-wider font-light py-2"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
               >
                 {item.name}
               </Link>
             ))}
             <Link
-              href="#contact"
+              href="/#rdv"
               className="group/cta relative block w-full mt-4 transition-transform duration-300 hover:scale-[1.02]"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, '/#rdv')}
             >
               <div 
                 className="relative flex items-center justify-center px-8 py-3 rounded-full"
@@ -211,7 +232,7 @@ export default function Header() {
                   />
                 </span>
                 <span className="relative z-10 text-white text-sm uppercase tracking-wider font-semibold drop-shadow-lg">
-                  Contact
+                  On s'appelle ?
                 </span>
               </div>
             </Link>

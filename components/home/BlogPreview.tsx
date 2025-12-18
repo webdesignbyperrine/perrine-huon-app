@@ -132,7 +132,7 @@ function BlogPreview() {
                   className="card group overflow-hidden"
                 >
                   {/* Image */}
-                  <div className="relative h-48 -mx-6 -mt-6 mb-6 overflow-hidden">
+                  <div className="relative h-48 -mx-6 -mt-6 mb-6 overflow-hidden rounded-t-2xl">
                     <div 
                       className="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500"
                       style={{ 

@@ -14,7 +14,6 @@ import BudgetStep from './steps/BudgetStep';
 import DeadlineStep from './steps/DeadlineStep';
 import AccompagnementStep from './steps/AccompagnementStep';
 import InspirationsStep from './steps/InspirationsStep';
-import SummaryStep from './steps/SummaryStep';
 
 // Composant interne qui utilise le contexte
 function QualifierContent({ onClose }: { onClose?: () => void }) {
@@ -66,8 +65,6 @@ function QualifierContent({ onClose }: { onClose?: () => void }) {
         return <AccompagnementStep />;
       case 'inspirations':
         return <InspirationsStep />;
-      case 'summary':
-        return <SummaryStep />;
       default:
         return <IntroStep />;
     }

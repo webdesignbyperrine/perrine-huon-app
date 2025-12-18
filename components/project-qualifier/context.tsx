@@ -232,7 +232,7 @@ export function QualifierProvider({ children }: { children: ReactNode }) {
   }, [currentStep]);
 
   const getTotalSteps = useCallback(() => {
-    return STEPS_ORDER.length - 2; // Exclude intro and summary
+    return STEPS_ORDER.length - 1; // Exclude intro only
   }, []);
 
   return (

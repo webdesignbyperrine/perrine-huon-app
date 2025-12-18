@@ -70,8 +70,7 @@ export type Step =
   | 'budget'
   | 'deadline'
   | 'accompagnement'
-  | 'inspirations'
-  | 'summary';
+  | 'inspirations';
 
 export const STEPS_ORDER: Step[] = [
   'intro',
@@ -82,8 +81,7 @@ export const STEPS_ORDER: Step[] = [
   'budget',
   'deadline',
   'accompagnement',
-  'inspirations',
-  'summary'
+  'inspirations'
 ];
 
 export const STEP_LABELS: Record<Step, string> = {
@@ -95,8 +93,7 @@ export const STEP_LABELS: Record<Step, string> = {
   'budget': 'Budget',
   'deadline': 'Délais',
   'accompagnement': 'Accompagnement',
-  'inspirations': 'Inspirations',
-  'summary': 'Récapitulatif'
+  'inspirations': 'Inspirations'
 };
 
 // Options de configuration

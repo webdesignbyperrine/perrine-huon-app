@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group transition-transform duration-300 hover:scale-105 sphere-wiggle"
+        className="fixed bottom-0 right-4 sm:right-6 z-50 group transition-transform duration-300 hover:scale-105 sphere-wiggle"
         aria-label="Contactez-moi sur WhatsApp"
       >
         <div 
@@ -191,13 +191,13 @@ export default function WhatsAppButton() {
             transform: translateY(0) rotate(0deg);
           }
           25% {
-            transform: translateY(-3px) rotate(1deg);
+            transform: translateY(-15px) rotate(2deg);
           }
           50% {
             transform: translateY(0) rotate(0deg);
           }
           75% {
-            transform: translateY(-2px) rotate(-1deg);
+            transform: translateY(-10px) rotate(-2deg);
           }
         }
       `}</style>
