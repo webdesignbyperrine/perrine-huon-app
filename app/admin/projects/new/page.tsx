@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import ImageUploader from '@/components/admin/ImageUploader';
+import ImageCropper, { CropSettings } from '@/components/admin/ImageCropper';
 
 type UploadedImage = {
   id: string;
@@ -28,6 +29,7 @@ export default function NewProjectPage() {
     year: new Date().getFullYear(),
     short_description: '',
     long_description: '',
+    image_crop: null as CropSettings | null,
     published: false,
   });
 
@@ -62,6 +64,7 @@ export default function NewProjectPage() {
     const projectData = {
       ...formData,
       featured_image: mainImage?.url || images[0]?.url || null,
+      image_crop: formData.image_crop,
     };
 
     const { data: project, error: insertError } = await supabase
@@ -246,6 +249,21 @@ export default function NewProjectPage() {
                 La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
               </p>
             </div>
+
+            {/* Recadrage de l'image d'aperçu */}
+            {images.length > 0 && (
+              <div>
+                <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
+                  Recadrer l'image d'aperçu
+                </label>
+                <ImageCropper
+                  imageUrl={images.find(img => img.is_main)?.url || images[0]?.url}
+                  initialCrop={formData.image_crop || undefined}
+                  onCropChange={(crop) => setFormData({ ...formData, image_crop: crop })}
+                  aspectRatio={16 / 9}
+                />
+              </div>
+            )}
 
             {/* Publié */}
             <div className="flex items-center gap-3">

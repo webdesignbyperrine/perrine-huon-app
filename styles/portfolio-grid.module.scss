@@ -228,9 +228,9 @@ $accent-blue: #6b8ec8;
   margin: 20px 0;
   
   h3 {
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.3em;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
     color: $text-primary;
     text-transform: uppercase;
     margin: 0;
@@ -238,10 +238,16 @@ $accent-blue: #6b8ec8;
   }
   
   .subtitle {
-    font-size: 11px;
-    color: $text-secondary;
-    letter-spacing: 0.2em;
-    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba($text-primary, 0.7);
+    letter-spacing: 0.02em;
+    line-height: 1.6;
+    margin-top: 12px;
+    text-transform: none;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

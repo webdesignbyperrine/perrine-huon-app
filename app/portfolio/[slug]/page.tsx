@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/server';
 import ImageCarousel from '@/components/ImageCarousel';
 import CalendlyButton from '@/components/CalendlyButton';
 
-export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
+export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   
   const supabase = await createClient();

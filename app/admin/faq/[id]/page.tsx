@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, use } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
@@ -14,7 +14,8 @@ type FAQ = {
   published: boolean;
 };
 
-export default function EditFAQPage({ params }: { params: { id: string } }) {
+export default function EditFAQPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -25,14 +26,14 @@ export default function EditFAQPage({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     fetchFAQ();
-  }, [params.id]);
+  }, [id]);
 
   async function fetchFAQ() {
     const supabase = createClient();
     const { data, error } = await supabase
       .from('faqs')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
 
     if (error) {
@@ -61,7 +62,7 @@ export default function EditFAQPage({ params }: { params: { id: string } }) {
         order_position: faq.order_position,
         published: faq.published,
       })
-      .eq('id', params.id);
+      .eq('id', id);
 
     if (updateError) {
       setError(updateError.message);

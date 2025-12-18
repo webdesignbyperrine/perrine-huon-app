@@ -61,6 +61,8 @@ const config: Config = {
         'blur-in': 'blurIn 0.8s ease-out forwards',
         'slide-rotate-in': 'slideRotateIn 0.7s ease-out forwards',
         'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+        'bounce-slow': 'bounceSlow 1.5s ease-in-out infinite',
+        'float-up': 'floatUp 2s ease-in-out infinite',
       },
       keyframes: {
         fadeInUp: {
@@ -94,6 +96,14 @@ const config: Config = {
         pulseSoft: {
           '0%, 100%': { transform: 'scale(1)', opacity: '1' },
           '50%': { transform: 'scale(1.02)', opacity: '0.9' },
+        },
+        bounceSlow: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+        floatUp: {
+          '0%, 100%': { transform: 'translateY(0)', opacity: '1' },
+          '50%': { transform: 'translateY(-8px)', opacity: '0.8' },
         },
       },
       transitionTimingFunction: {

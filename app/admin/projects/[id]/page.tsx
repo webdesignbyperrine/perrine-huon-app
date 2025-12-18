@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, use } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import ImageUploader from '@/components/admin/ImageUploader';
+import ImageCropper, { CropSettings } from '@/components/admin/ImageCropper';
 
 type Project = {
   id: string;
@@ -16,6 +17,7 @@ type Project = {
   short_description: string | null;
   long_description: string | null;
   featured_image: string | null;
+  image_crop: CropSettings | null;
   published: boolean;
 };
 
@@ -27,7 +29,8 @@ type UploadedImage = {
   is_main?: boolean;
 };
 
-export default function EditProjectPage({ params }: { params: { id: string } }) {
+export default function EditProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -38,7 +41,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
 
   useEffect(() => {
     fetchProject();
-  }, [params.id]);
+  }, [id]);
 
   async function fetchProject() {
     const supabase = createClient();
@@ -47,7 +50,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
     const { data: projectData, error: projectError } = await supabase
       .from('projects')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
 
     if (projectError) {
@@ -72,7 +75,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
           file_size
         )
       `)
-      .eq('project_id', params.id)
+      .eq('project_id', id)
       .order('sort_order', { ascending: true });
 
     if (!mediaError && mediaData) {
@@ -114,9 +117,10 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
         short_description: project.short_description,
         long_description: project.long_description,
         featured_image: mainImage?.url || images[0]?.url || null,
+        image_crop: project.image_crop || null,
         published: project.published,
       })
-      .eq('id', params.id);
+      .eq('id', id);
 
     if (updateError) {
       setError(updateError.message);
@@ -126,14 +130,14 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
 
     // Gérer les images
     const currentImageIds = images.map(img => img.id);
-    const removedImageIds = initialImageIds.filter(id => !currentImageIds.includes(id));
+    const removedImageIds = initialImageIds.filter(imgId => !currentImageIds.includes(imgId));
 
     // Supprimer les relations des images retirées
     if (removedImageIds.length > 0) {
       await supabase
         .from('project_media')
         .delete()
-        .eq('project_id', params.id)
+        .eq('project_id', id)
         .in('media_id', removedImageIds);
     }
 
@@ -141,12 +145,12 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
     await supabase
       .from('project_media')
       .delete()
-      .eq('project_id', params.id);
+      .eq('project_id', id);
 
     // Créer les nouvelles relations
     if (images.length > 0) {
       const projectMedia = images.map((img, index) => ({
-        project_id: params.id,
+        project_id: id,
         media_id: img.id,
         sort_order: index,
         is_main: img.is_main || false,
@@ -322,6 +326,21 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
                 La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
               </p>
             </div>
+
+            {/* Recadrage de l'image d'aperçu */}
+            {(images.length > 0 || project.featured_image) && (
+              <div>
+                <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
+                  Recadrer l'image d'aperçu
+                </label>
+                <ImageCropper
+                  imageUrl={images.find(img => img.is_main)?.url || images[0]?.url || project.featured_image!}
+                  initialCrop={project.image_crop || undefined}
+                  onCropChange={(crop) => setProject({ ...project, image_crop: crop })}
+                  aspectRatio={16 / 9}
+                />
+              </div>
+            )}
 
             {/* Publié */}
             <div className="flex items-center gap-3">

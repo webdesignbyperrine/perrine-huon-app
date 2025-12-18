@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { formatDate, estimateReadingTime } from '@/lib/utils';
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
   // Article de démo

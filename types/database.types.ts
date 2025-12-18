@@ -8,6 +8,24 @@ export type Profile = {
   created_at: string;
 };
 
+export type ImagePosition = 
+  | 'center'
+  | 'top'
+  | 'bottom'
+  | 'left'
+  | 'right'
+  | 'top left'
+  | 'top right'
+  | 'bottom left'
+  | 'bottom right';
+
+export type ImageCropSettings = {
+  x: number;      // Position X en % (0-100)
+  y: number;      // Position Y en % (0-100)
+  width: number;  // Largeur en % (0-100)
+  height: number; // Hauteur en % (0-100)
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -15,6 +33,8 @@ export type Project = {
   short_description: string | null;
   long_description: string | null;
   main_image_url: string | null;
+  image_position: ImagePosition | null;
+  image_crop: ImageCropSettings | null;
   seo_title: string | null;
   seo_description: string | null;
   seo_city: string | null;

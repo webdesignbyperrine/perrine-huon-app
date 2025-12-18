@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, use } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
@@ -18,7 +18,8 @@ type BlogPost = {
   published_at: string | null;
 };
 
-export default function EditBlogPostPage({ params }: { params: { id: string } }) {
+export default function EditBlogPostPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -28,14 +29,14 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
 
   useEffect(() => {
     fetchPost();
-  }, [params.id]);
+  }, [id]);
 
   async function fetchPost() {
     const supabase = createClient();
     const { data, error } = await supabase
       .from('blog_posts')
       .select('*')
-      .eq('id', params.id)
+      .eq('id', id)
       .single();
 
     if (error) {
@@ -104,7 +105,7 @@ export default function EditBlogPostPage({ params }: { params: { id: string } })
     const { error: updateError } = await supabase
       .from('blog_posts')
       .update(updates)
-      .eq('id', params.id);
+      .eq('id', id);
 
     if (updateError) {
       setError(updateError.message);

@@ -178,7 +178,24 @@ export default function PortfolioPage() {
                   <div className={styles.projectContent}>
                     <div className={styles.triangleIndicator} />
                     <div className={styles.projectIcon}>
-                      <span style={{ fontSize: '4rem', color: '#6b8ec8' }}>{project.icon || '◯'}</span>
+                      {/* Flèche animée avec effet bounce */}
+                      <div className="relative w-14 h-14 rounded-full bg-gradient-to-b from-[#1a3a4a] to-[#0d2530] border border-secondary/30 flex items-center justify-center shadow-lg shadow-secondary/20 transition-all duration-300 group-hover:border-secondary/60 group-hover:shadow-xl group-hover:shadow-secondary/40">
+                        {/* Icône Chevron animée */}
+                        <svg 
+                          viewBox="0 0 24 24" 
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="w-5 h-5 text-secondary animate-bounce-slow transition-all duration-300 group-hover:text-[#7dd3c0] group-hover:scale-110"
+                          style={{ animationDuration: '1.5s' }}
+                        >
+                          <polyline points="18 15 12 9 6 15"/>
+                        </svg>
+                        {/* Effet de brillance */}
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-t from-transparent via-transparent to-white/10 pointer-events-none" />
+                      </div>
                     </div>
                     <div className={styles.projectTitle}>
                       <h3>{project.title}</h3>
