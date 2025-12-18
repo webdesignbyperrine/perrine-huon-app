@@ -1,7 +1,8 @@
 'use client';
 
 import { useQualifier } from '../context';
-import { SparklesIcon, ArrowRightIcon } from '../icons';
+import { ArrowRightIcon } from '../icons';
+import Image from 'next/image';
 
 export default function IntroStep() {
   const { goNext, getCompletedSteps, resetQualifier } = useQualifier();
@@ -43,7 +44,13 @@ export default function IntroStep() {
               border: '1px solid rgba(107, 142, 200, 0.2)'
             }}
           >
-            <SparklesIcon className="w-10 h-10 text-white/80" />
+            <Image 
+              src="/images/aiguille.png" 
+              alt="Aiguille" 
+              width={40} 
+              height={40}
+              className="w-10 h-10 brightness-0 invert opacity-80"
+            />
           </div>
 
           {/* Titre */}

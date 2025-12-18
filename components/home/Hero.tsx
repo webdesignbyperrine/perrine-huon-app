@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import SectionDivider from './SectionDivider';
@@ -150,9 +151,13 @@ export default function Hero() {
                       border: '1px solid rgba(107, 142, 200, 0.2)'
                     }}
                   >
-                    <svg className="w-10 h-10 text-white/80 group-hover:rotate-12 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
+<Image 
+                      src="/images/aiguille.png" 
+                      alt="Aiguille" 
+                      width={40} 
+                      height={40}
+                      className="w-10 h-10 brightness-0 invert opacity-80 group-hover:rotate-12 transition-transform duration-500"
+                    />
                   </div>
 
                   {/* Titre principal */}
