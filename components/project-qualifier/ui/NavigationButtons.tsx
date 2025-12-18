@@ -29,8 +29,8 @@ export default function NavigationButtons({
   const totalSteps = getTotalSteps();
   const isLastStep = stepNumber === totalSteps;
   
-  // Ne pas afficher sur l'intro et le summary
-  if (currentStep === 'intro' || currentStep === 'summary') {
+  // Ne pas afficher sur l'intro
+  if (currentStep === 'intro') {
     return null;
   }
 
@@ -42,7 +42,7 @@ export default function NavigationButtons({
     }
   };
 
-  const buttonLabel = nextLabel || (isLastStep ? 'Voir mon récapitulatif' : 'Continuer');
+  const buttonLabel = nextLabel || 'Continuer';
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pt-6 border-t border-white/10">
