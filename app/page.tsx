@@ -6,10 +6,12 @@ import BlogPreview from '@/components/home/BlogPreview';
 import FAQPreview from '@/components/home/FAQPreview';
 import CalendlySection from '@/components/home/CalendlySection';
 import ContactForm from '@/components/home/ContactForm';
+import ScrollToAnchor from '@/components/ScrollToAnchor';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <ScrollToAnchor />
       <Hero />
       <Services />
       <About />

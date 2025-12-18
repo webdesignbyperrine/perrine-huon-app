@@ -234,7 +234,7 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
               </p>
             </div>
 
-            {/* Client et Localisation */}
+            {/* Client et Type de projet */}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
@@ -250,14 +250,22 @@ export default function EditProjectPage({ params }: { params: { id: string } }) 
 
               <div>
                 <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                  Localisation
+                  Type de projet
                 </label>
-                <input
-                  type="text"
+                <select
                   value={project.location || ''}
                   onChange={(e) => setProject({ ...project, location: e.target.value })}
-                  className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                />
+                  className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-secondary transition-colors"
+                >
+                  <option value="">Sélectionner un type</option>
+                  <option value="Site vitrine">Site vitrine</option>
+                  <option value="Site multi-pages">Site multi-pages</option>
+                  <option value="SaaS / Application web">SaaS / Application web</option>
+                  <option value="E-commerce">E-commerce</option>
+                  <option value="Landing page">Landing page</option>
+                  <option value="Refonte de site">Refonte de site</option>
+                  <option value="Autre">Autre</option>
+                </select>
               </div>
             </div>
 

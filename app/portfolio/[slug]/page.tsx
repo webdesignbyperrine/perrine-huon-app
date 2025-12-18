@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/server';
+import ImageCarousel from '@/components/ImageCarousel';
+import CalendlyButton from '@/components/CalendlyButton';
 
 export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = await params;
@@ -49,11 +51,11 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
         )}
 
         <div className="container mx-auto px-4 relative z-10 text-center pt-32">
-          {/* Badge ville */}
+          {/* Badge type de projet */}
           {project.location && (
-            <div className="inline-block px-6 py-2 glass-dark rounded-full mb-6">
-              <span className="text-secondary text-sm uppercase tracking-wider">
-                📍 {project.location}
+            <div className="inline-block px-6 py-2 glass-light rounded-full mb-6">
+              <span className="text-white text-sm uppercase tracking-wider">
+                {project.location}
               </span>
             </div>
           )}
@@ -73,7 +75,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
           )}
 
           {/* CTAs fixes */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 pb-16">
             <Link
               href="#contact"
               className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
@@ -118,21 +120,21 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
         <div className="container mx-auto px-4 max-w-5xl">
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {project.client && (
-              <div className="glass-dark p-6 rounded-xl text-center">
+              <div className="glass-light p-6 rounded-xl text-center">
                 <h3 className="text-white/60 text-sm uppercase tracking-wider mb-2">Client</h3>
                 <p className="text-white text-xl font-semibold">{project.client}</p>
               </div>
             )}
             
             {project.location && (
-              <div className="glass-dark p-6 rounded-xl text-center">
-                <h3 className="text-white/60 text-sm uppercase tracking-wider mb-2">Localisation</h3>
+              <div className="glass-light p-6 rounded-xl text-center">
+                <h3 className="text-white/60 text-sm uppercase tracking-wider mb-2">Catégorie</h3>
                 <p className="text-white text-xl font-semibold">{project.location}</p>
               </div>
             )}
             
             {project.year && (
-              <div className="glass-dark p-6 rounded-xl text-center">
+              <div className="glass-light p-6 rounded-xl text-center">
                 <h3 className="text-white/60 text-sm uppercase tracking-wider mb-2">Année</h3>
                 <p className="text-white text-xl font-semibold">{project.year}</p>
               </div>
@@ -141,7 +143,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
 
           {/* Description longue */}
           {project.long_description && (
-            <div className="glass-dark p-8 rounded-xl mb-12">
+            <div className="glass-dark p-8 rounded-xl">
               <h2 className="text-3xl font-bold mb-6 text-white">À propos du projet</h2>
               <div className="text-white/80 text-lg leading-relaxed whitespace-pre-wrap">
                 {project.long_description}
@@ -151,31 +153,17 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
         </div>
       </section>
 
-      {/* Galerie d'images */}
+      {/* Galerie d'images - Carousel */}
       {projectImages.length > 0 && (
-        <section className="py-20 bg-primary-800/30">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-center mb-12">
+        <section className="py-8">
+          <div className="mb-8">
+            <h2 className="text-4xl font-bold text-center">
               <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                 GALERIE
               </span>
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {projectImages.map((media: any) => (
-                <div key={media.id} className="aspect-video glass-dark rounded-xl overflow-hidden group">
-                  <div className="relative w-full h-full">
-                    <Image
-                      src={media.file_url}
-                      alt={media.alt_text || project.title}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      className="group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
+          <ImageCarousel images={projectImages} projectTitle={project.title} />
         </section>
       )}
 
@@ -184,10 +172,7 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
         <h3 className="text-3xl font-bold mb-6 text-white">
           Un projet similaire en tête ?
         </h3>
-        <Link
-          href="/#rdv"
-          className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
-        >
+        <CalendlyButton className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]">
           <div 
             className="relative flex items-center gap-3 px-12 py-5 rounded-full"
             style={{
@@ -197,12 +182,12 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
             }}
           >
             <span className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }} />
-            <span className="absolute inset-1 rounded-full pointer-events-none overflow-hidden" style={{ background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)', boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)' }}>
+            <span className="absolute inset-1 rounded-full pointer-events-none overflow-hidden" style={{ background: 'linear-gradient(180deg, #5A8F6A 0%, #4A7C59 50%, #3A6347 100%)', boxShadow: '0 0 20px rgba(74, 124, 89, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)' }}>
               <span className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }} />
             </span>
             <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">Réserver un appel</span>
           </div>
-        </Link>
+        </CalendlyButton>
       </section>
     </div>
   );

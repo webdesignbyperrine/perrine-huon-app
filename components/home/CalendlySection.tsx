@@ -6,7 +6,7 @@ export default function CalendlySection() {
   const calendlyUrl = "https://calendly.com/prne-hn/30min";
 
   return (
-    <section id="rdv" className="relative py-20 pb-32 bg-primary-900">
+    <section id="rdv" className="relative py-20 pb-32 bg-primary-900 scroll-mt-24">
       {/* Divider en haut - prend la couleur de cette section (#0d1a2d) */}
       <SectionDivider bottomSectionColor="#0d1a2d" position="top" />
 
@@ -31,7 +31,7 @@ export default function CalendlySection() {
             />
 
             {/* Contenu */}
-            <div className="relative z-10 p-8 md:p-12 lg:p-16 text-center">
+            <div id="calendly" className="relative z-10 p-8 md:p-12 lg:p-16 text-center scroll-mt-32">
               {/* Icône visio - Style identique au Hero */}
               <div 
                 className="w-20 h-20 mx-auto mb-8 rounded-full flex items-center justify-center"
