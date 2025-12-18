@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0e1a;
+  --background: #0d1a2d;
   --foreground: #F0EAD6;
   --white: #F0EAD6;
   --primary: #00264D;
@@ -12,7 +12,7 @@
 
 body {
   color: var(--foreground);
-  background: #0a0e1a;
+  background: #0d1a2d;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -154,7 +154,7 @@ textarea::placeholder {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0e1a;
+  background: #0d1a2d;
 }
 
 ::-webkit-scrollbar-thumb {

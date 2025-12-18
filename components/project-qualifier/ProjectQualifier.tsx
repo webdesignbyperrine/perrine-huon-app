@@ -149,3 +149,4 @@ export default function ProjectQualifier({
 // Export du hook et du provider pour une utilisation externe
 export { useQualifier, QualifierProvider };
 
+

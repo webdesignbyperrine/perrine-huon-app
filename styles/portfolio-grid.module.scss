@@ -1,5 +1,8 @@
 // Variables
-$bg-dark: #0d1a2d;
+// Couleur originale: $bg-dark: #0d1a2d;
+// Test précédent: $bg-dark: #2b6379, #72b8af, #ea5c7a;
+// Test actuel: 
+$bg-dark: #0d433e;
 $bg-card: #0f1b2e;
 $border-color: rgba(100, 120, 180, 0.3);
 $text-primary: #F0EAD6; // Couleur coquille d'œuf
@@ -9,7 +12,7 @@ $accent-blue: #6b8ec8;
 
 .portfolioSection {
   position: relative;
-  padding: 120px 0;
+  padding: 120px 0 160px 0;
   background: $bg-dark;
   overflow: hidden;
 
@@ -108,7 +111,7 @@ $accent-blue: #6b8ec8;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, lighten($bg-dark, 5%) 0%, $bg-dark 100%);
+    background: linear-gradient(135deg, #0f1f35 0%, $bg-dark 100%);
     
     svg {
       color: rgba($accent-blue, 0.3);
@@ -279,5 +282,6 @@ $accent-blue: #6b8ec8;
   );
   opacity: 0.4;
 }
+
 
 

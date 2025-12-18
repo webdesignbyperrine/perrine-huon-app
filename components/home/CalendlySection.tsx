@@ -1,10 +1,13 @@
 'use client';
 
 import Script from 'next/script';
+import SectionDivider from './SectionDivider';
 
 export default function CalendlySection() {
   return (
-    <section id="rdv" className="relative py-20 bg-primary-900">
+    <section id="rdv" className="relative py-20 pb-32 bg-primary-900">
+      {/* Divider en haut - prend la couleur de cette section (#0d1a2d) */}
+      <SectionDivider bottomSectionColor="#0d1a2d" position="top" />
       {/* Script Calendly */}
       <Script
         src="https://assets.calendly.com/assets/external/widget.js"
@@ -94,10 +97,8 @@ export default function CalendlySection() {
         </div>
       </div>
       
-      {/* Séparateur animé en bas */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
-      </div>
+      {/* Divider en bas - prend la couleur de la section suivante (#0d433e) */}
+      <SectionDivider bottomSectionColor="#0d433e" position="bottom" />
     </section>
   );
 }

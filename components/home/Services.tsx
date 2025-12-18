@@ -1,3 +1,5 @@
+import SectionDivider from './SectionDivider';
+
 export default function Services() {
   const services = [
     {
@@ -68,8 +70,11 @@ export default function Services() {
     },
   ];
 
+  // Couleur originale: bg-[#0d1a2d] - Test précédent: bg-[#2b6379], bg-[#72b8af], bg-[#ea5c7a] - Test actuel: bg-[#0d433e]
   return (
-    <section id="services" className="relative py-32 bg-[#0d1a2d] overflow-hidden">
+    <section id="services" className="relative py-32 pb-40 bg-[#0d433e] overflow-hidden">
+      {/* Divider en haut - prend la couleur de cette section (#0d433e) */}
+      <SectionDivider bottomSectionColor="#0d433e" position="top" />
       {/* Motif grille */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-30"
@@ -166,11 +171,11 @@ export default function Services() {
                   style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
                 />
                 
-                {/* Liquide */}
+                {/* Liquide - Couleur bleue pour contraster avec le fond vert */}
                 <span 
                   className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
                   style={{
-                    background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
+                    background: 'linear-gradient(180deg, #476787 0%, #2F4558 50%, #1C2A35 100%)',
                     boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
                   }}
                 >
@@ -189,10 +194,8 @@ export default function Services() {
         </div>
       </div>
       
-      {/* Séparateur animé en bas */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
-      </div>
+      {/* Divider en bas - prend la couleur de la section suivante (#0d1a2d) */}
+      <SectionDivider bottomSectionColor="#0d1a2d" position="bottom" />
     </section>
   );
 }

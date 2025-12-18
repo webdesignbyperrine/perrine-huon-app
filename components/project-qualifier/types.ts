@@ -180,3 +180,4 @@ export const ENCOURAGEMENT_MESSAGES: string[] = [
   'Beau projet en perspective ! 🌟',
 ];
 
+

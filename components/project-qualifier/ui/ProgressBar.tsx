@@ -41,14 +41,14 @@ export default function ProgressBar() {
           }}
         />
         
-        {/* Liquide rose qui remplit */}
+        {/* Liquide vert qui remplit - Couleur verte du site */}
         <div 
           className="absolute inset-y-1 left-1 rounded-full transition-all duration-700 ease-out"
           style={{ 
             width: `calc(${fillPercentage}% - 8px)`,
             minWidth: fillPercentage > 0 ? '20px' : '0',
-            background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
-            boxShadow: '0 0 10px rgba(47, 69, 88, 0.5), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
+            background: 'linear-gradient(180deg, #1a6b5a 0%, #0d433e 50%, #082b27 100%)',
+            boxShadow: '0 0 10px rgba(13, 67, 62, 0.5), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
           }}
         >
           {/* Reflet sur le liquide */}
@@ -133,4 +133,5 @@ export default function ProgressBar() {
     </div>
   );
 }
+
 

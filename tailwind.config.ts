@@ -12,7 +12,7 @@ const config: Config = {
         // Blanc coquille d'œuf - doux et chaleureux
         white: '#F0EAD6',
         primary: {
-          DEFAULT: '#0a0e1a',
+          DEFAULT: '#0d1a2d',
           50: '#f0f1f5',
           100: '#e1e3eb',
           200: '#c3c7d7',
@@ -22,7 +22,7 @@ const config: Config = {
           600: '#545c7c',
           700: '#3f455d',
           800: '#2a2e3e',
-          900: '#0a0e1a',
+          900: '#0d1a2d',
         },
         secondary: {
           DEFAULT: '#2F4558',
@@ -45,8 +45,8 @@ const config: Config = {
         }
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['var(--font-outfit)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-outfit)', 'monospace'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

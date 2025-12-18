@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { RefObject, useEffect, useRef, useState } from 'react';
+import SectionDivider from './SectionDivider';
 
 const techLogos = [
   { src: '/images/logos/logo_lovable.jpeg', label: 'Lovable', className: 'rounded' },
@@ -14,7 +15,7 @@ const techLogos = [
 
 const clientLogos = [
   { src: '/images/logos/Logo_Adeo.png', label: 'Adeo' },
-  { src: '/images/logos/logo_leroymerlin.jpg', label: 'Leroy Merlin', className: 'rounded' },
+  { src: '/images/logos/logo_leroymerlin.jpg', label: 'Leroy Merlin', className: 'rounded bg-white p-1' },
   { src: '/images/logos/logo_michel-lafon.png', label: 'Michel Lafon' },
   { src: '/images/logos/logo_education-nationale.png', label: 'Éducation Nat.' },
   { src: '/images/logos/logo_Axa.png', label: 'Axa' },
@@ -85,7 +86,9 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="relative py-32 bg-primary-900 overflow-hidden">
+    <section id="about" className="relative py-32 pb-40 bg-primary-900 overflow-hidden">
+      {/* Divider en haut - prend la couleur de cette section (#0d1a2d) */}
+      <SectionDivider bottomSectionColor="#0d1a2d" position="top" />
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] animate-glow" />
@@ -94,7 +97,7 @@ export default function About() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
           {/* Titre de section */}
-          <div className="text-center mb-16 sm:mb-24">
+          <div className="text-center mb-12 sm:mb-16">
             <div className="inline-block">
               <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4">
                 <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
@@ -108,55 +111,30 @@ export default function About() {
                 <span className="text-white/40 ml-2 sm:ml-3">HUON</span>
               </p>
             </div>
-          </div>
-
-          <div ref={sectionRef} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Photo avec écran d'ordi */}
-            <div className="relative group">
-              <div className="relative max-w-lg mx-auto photo-container">
+            
+            {/* Photo arrondie centrée */}
+            <div ref={sectionRef} className="relative group mt-12">
+              <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto photo-container">
                 {/* Glow effect animé */}
                 <div className="absolute -inset-8 bg-gradient-to-br from-secondary via-accent-red to-accent-orange opacity-30 blur-[80px] group-hover:opacity-40 transition-opacity duration-500 blob-glow" />
                 
-                {/* Cadre d'écran MacBook */}
-                <div className={`relative transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                  {/* Écran */}
-                  <div className="relative bg-gray-900 rounded-[2rem] p-3 shadow-2xl border border-gray-700">
-                    {/* Barre du haut avec caméra */}
-                    <div className="absolute top-0 left-0 right-0 h-7 bg-gray-800 rounded-t-[2rem] flex items-center justify-center">
-                      <div className="w-2.5 h-2.5 rounded-full bg-gray-600" />
-                    </div>
-                    
-                    {/* Zone d'affichage */}
-                    <div className="mt-5 bg-primary-900 rounded-t-[1.25rem] rounded-b-[1.5rem] overflow-hidden aspect-[4/3]">
-                      {/* Photo plein écran avec bords droits */}
-                      <div className="relative w-full h-full overflow-hidden">
-                        <Image
-                          src="/images/perrine-huon-creation.webp"
-                          alt="Perrine Huon"
-                          fill
-                          className="object-cover mt-2 mb-2"
-                          priority
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Pied du MacBook */}
-                  <div className={`relative mx-auto transition-all duration-700 delay-300 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-                    {/* Charnière */}
-                    <div className="h-3 bg-gradient-to-b from-gray-700 to-gray-800 rounded-b-sm mx-8" />
-                    {/* Base */}
-                    <div className="h-2 bg-gradient-to-b from-gray-600 to-gray-700 rounded-b-lg mx-4" 
-                      style={{ 
-                        clipPath: 'polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%)',
-                      }} 
+                {/* Photo arrondie avec bordure subtile */}
+                <div className={`relative w-full h-full transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
+                    <Image
+                      src="/images/perrine-huon-creation.webp"
+                      alt="Perrine Huon"
+                      fill
+                      className="object-cover"
+                      priority
                     />
-                    {/* Encoche */}
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-20 h-1 bg-gray-500 rounded-t-full" />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
             
             <style jsx>{`
               .photo-container {
@@ -216,14 +194,19 @@ export default function About() {
             `}</style>
 
             {/* Contenu */}
-            <div className="space-y-8">
+            <div className="space-y-8 text-center">
               <div className="space-y-6">
                 <p className="text-2xl md:text-3xl font-light text-white/90 leading-relaxed">
                   Je construis des <span className="text-secondary font-normal">projets digitaux</span> avec{' '}
                   <span className="text-secondary font-normal">rigueur</span>, <span className="text-secondary font-normal">créativité</span>, et beaucoup d'écoute.
                 </p>
 
-                <div className="w-16 h-[1px] bg-secondary/50" />
+                <div className="w-16 h-[1px] bg-secondary/50 mx-auto" />
+
+                <p className="text-lg text-white/60 leading-relaxed font-light">
+                  Je m'efforce de créer des designs qui ne se démodent pas d'une année sur l'autre. 
+                  Je mise sur l'<span className="text-white/90">efficacité</span> et l'optimisation de l'<span className="text-white/90">expérience utilisateur</span>.
+                </p>
 
                 <p className="text-lg text-white/60 leading-relaxed font-light">
                   Un beau site, c'est bien. Un site qui vous rapporte des clients, <span className="text-white/90">c'est mieux</span>.
@@ -232,11 +215,11 @@ export default function About() {
                 </p>
               </div>
 
-              {/* Cards d'information */}
-              <div className="grid grid-cols-2 gap-4 pt-8">
+              {/* Cards d'information - flex wrap pour prendre tout l'espace */}
+              <div className="flex flex-wrap gap-4 pt-8">
                 {/* Card 1 - Stack Tech */}
-                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300">
-                  <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ma Stack Tech</h4>
+                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300 flex-1 min-w-[280px]">
+                  <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ma stack technique préférée</h4>
                   <div className="sm:hidden -mx-2">
                     <div
                       ref={techCarouselRef}
@@ -273,7 +256,7 @@ export default function About() {
                 </div>
 
                 {/* Card 2 - Entreprises */}
-                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300 flex-1 min-w-[280px]">
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ils m'ont fait confiance</h4>
                   <div className="sm:hidden -mx-2">
                     <div
@@ -311,7 +294,7 @@ export default function About() {
                 </div>
 
                 {/* Card 3 - Spécialités */}
-                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300">
+                <div className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-colors duration-300 flex-1 min-w-[280px]">
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-3">Spécialités</h4>
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center gap-2">
@@ -350,7 +333,7 @@ export default function About() {
                   href="https://www.linkedin.com/in/perrinehuon/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-all duration-300 group flex flex-col items-center justify-center"
+                  className="glass-dark p-5 rounded-xl hover:bg-white/5 transition-all duration-300 group flex flex-col items-center justify-center flex-1 min-w-[280px]"
                 >
                   <h4 className="text-xs text-white/40 uppercase tracking-wider mb-3">En savoir plus</h4>
                   <div className="flex items-center gap-2">
@@ -366,10 +349,8 @@ export default function About() {
         </div>
       </div>
       
-      {/* Séparateur animé en bas */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
-      </div>
+      {/* Divider en bas - prend la couleur de la section suivante (#0d433e) */}
+      <SectionDivider bottomSectionColor="#0d433e" position="bottom" />
     </section>
   );
 }

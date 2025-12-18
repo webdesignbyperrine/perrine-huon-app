@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { ProjectQualifier } from '@/components/project-qualifier';
+import SectionDivider from './SectionDivider';
 
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);
@@ -64,7 +65,7 @@ export default function Hero() {
   }, [showQualifier]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-900 pb-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary-900 pb-40">
       {/* Fond avec grille subtile */}
       <div className="absolute inset-0 grid-background opacity-30" />
       
@@ -212,12 +213,12 @@ export default function Hero() {
                         }}
                       />
                       
-                      {/* Liquide (fond) avec animation de vague au hover */}
+                      {/* Liquide (fond) avec animation de vague au hover - Couleur verte du site */}
                       <span 
                         className="absolute inset-1 rounded-full pointer-events-none overflow-hidden liquid-container"
                         style={{
-                          background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
-                          boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
+                          background: 'linear-gradient(180deg, #1a6b5a 0%, #0d433e 50%, #082b27 100%)',
+                          boxShadow: '0 0 20px rgba(13, 67, 62, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
                         }}
                       >
                         {/* Vague animée au hover */}
@@ -441,10 +442,8 @@ export default function Hero() {
         }
       `}</style>
       
-      {/* Séparateur animé en bas */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
-      </div>
+      {/* Divider en bas - prend la couleur de la section suivante (#0d433e) */}
+      <SectionDivider bottomSectionColor="#0d433e" position="bottom" />
     </section>
   );
 }

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import styles from '@/styles/portfolio-grid.module.scss';
+import SectionDivider from './SectionDivider';
 
 type ProjectData = {
   id: string;
@@ -115,6 +116,8 @@ export default function PortfolioPreview() {
 
   return (
     <section className={styles.portfolioSection}>
+      {/* Divider en haut - prend la couleur de cette section (#0d433e) */}
+      <SectionDivider bottomSectionColor="#0d433e" position="top" />
       <div className={styles.container}>
         {/* Titre */}
         <div className="text-center mb-16">
@@ -191,10 +194,8 @@ export default function PortfolioPreview() {
         }
       `}</style>
       
-      {/* Séparateur animé en bas */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-10">
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
-      </div>
+      {/* Divider en bas - prend la couleur de la section suivante (#0d1a2d) */}
+      <SectionDivider bottomSectionColor="#0d1a2d" position="bottom" />
     </section>
   );
 }

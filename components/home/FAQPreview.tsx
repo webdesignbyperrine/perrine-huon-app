@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { FAQ } from '@/types/database.types';
+import SectionDivider from './SectionDivider';
 
 export default function FAQPreview() {
   const [faqs, setFaqs] = useState<FAQ[]>([]);
@@ -60,7 +61,9 @@ export default function FAQPreview() {
   const displayFaqs = faqs.length > 0 ? faqs : demoFaqs;
 
   return (
-    <section id="faq-preview" className="relative py-20 bg-primary-900">
+    <section id="faq-preview" className="relative py-20 pb-32 bg-primary-900">
+      {/* Divider en haut - prend la couleur de cette section (#0d1a2d) */}
+      <SectionDivider bottomSectionColor="#0d1a2d" position="top" />
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6">
@@ -130,11 +133,12 @@ export default function FAQPreview() {
                     className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
                     style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
                   />
+                  {/* Liquide - Couleur verte pour contraster avec le fond bleu */}
                   <span 
                     className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
                     style={{
-                      background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
-                      boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
+                      background: 'linear-gradient(180deg, #1a6b5a 0%, #0d433e 50%, #082b27 100%)',
+                      boxShadow: '0 0 20px rgba(13, 67, 62, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
                     }}
                   >
                     <span 
@@ -152,13 +156,12 @@ export default function FAQPreview() {
         )}
       </div>
       
-      {/* Séparateur animé en bas */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
-        <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white/30 to-white/10 animate-pulse" />
-      </div>
+      {/* Divider en bas - prend la couleur de la section suivante (#0d433e) */}
+      <SectionDivider bottomSectionColor="#0d433e" position="bottom" />
     </section>
   );
 }
+
 
 
 
