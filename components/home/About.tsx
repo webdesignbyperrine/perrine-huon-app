@@ -90,32 +90,22 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-primary section-dark overflow-hidden">
-      {/* Transition ondulée en haut - beige vers bleu */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none">
-        <svg 
-          className="w-full h-20 lg:h-28" 
-          preserveAspectRatio="none"
-          viewBox="0 0 1600 100"
-        >
-          <path d="M0 100 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 100 Z" fill="#2B5B8A"/>
-          <path d="M0 0 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 0 Z" fill="#D4C4A8"/>
-        </svg>
-      </div>
+    <section id="about" className="relative pt-8 lg:pt-12 pb-32 lg:pb-40 bg-primary section-dark overflow-hidden">
+      {/* Transition ondulée en haut - supprimée car Services gère cette transition */}
       
       {/* Fond avec grain */}
-      <div className="absolute inset-0 bg-paper-texture opacity-10" />
+      <div className="absolute inset-0 bg-paper-texture opacity-10 z-0" />
       
-      {/* Éléments décoratifs */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
+      <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-0 right-0 w-96 h-96 bg-paper/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[100px]" />
         
-        {/* Formes décoratives */}
-        <svg className="absolute top-20 left-10 w-8 h-8 text-paper/10" viewBox="0 0 32 32">
+        {/* Formes décoratives subtiles */}
+        <svg className="absolute top-32 left-10 w-8 h-8 text-paper/10" viewBox="0 0 32 32">
           <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
         </svg>
-        <svg className="absolute bottom-40 right-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
+        <svg className="absolute bottom-48 right-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
           <polygon points="12,4 20,20 4,20" fill="none" stroke="currentColor" strokeWidth="2"/>
         </svg>
       </div>
@@ -368,17 +358,6 @@ export default function About() {
         </div>
       </div>
       
-      {/* Transition ondulée en bas - bleu vers beige */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg 
-          className="w-full h-20 lg:h-28" 
-          preserveAspectRatio="none"
-          viewBox="0 0 1600 100"
-        >
-          <path d="M0 0 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 0 Z" fill="#2B5B8A"/>
-          <path d="M0 100 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 100 Z" fill="#D4C4A8"/>
-        </svg>
-      </div>
     </section>
   );
 }

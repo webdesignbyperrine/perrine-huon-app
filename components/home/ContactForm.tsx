@@ -84,18 +84,39 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="relative py-24 lg:py-32 bg-paper overflow-hidden">
-      {/* Fond avec texture */}
-      <div className="absolute inset-0 bg-paper-texture opacity-50" />
+    <section id="contact" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-paper overflow-hidden">
+      {/* Transition ondulée en haut - depuis section bleue */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none z-20">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 0 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 0 Z" fill="#2B5B8A"/>
+        </svg>
+      </div>
       
-      {/* Éléments décoratifs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-20 -right-20 w-64 h-64 border-2 border-primary/5 rounded-full" />
-        <div className="absolute bottom-20 -left-32 w-96 h-96 border-2 border-primary/5 rounded-full" />
-        
-        {/* Vague décorative */}
-        <svg className="absolute bottom-0 left-0 w-full h-20 text-primary/5" viewBox="0 0 1200 100" preserveAspectRatio="none">
-          <path d="M0 50 Q 300 0 600 50 T 1200 50 V 100 H 0 Z" fill="currentColor"/>
+      {/* Fond avec texture */}
+      <div className="absolute inset-0 bg-paper-texture opacity-50 z-0" />
+      
+      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <svg className="absolute top-40 right-20 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
+          <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        <svg className="absolute bottom-48 left-20 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      </div>
+      
+      {/* Transition ondulée en bas - vers beige-light */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-20">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 100 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 100 Z" fill="#D4C4A8"/>
         </svg>
       </div>
 

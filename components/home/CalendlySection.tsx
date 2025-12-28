@@ -10,28 +10,18 @@ export default function CalendlySection() {
   const [benefitsRef, benefitsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   return (
-    <section id="rdv" className="relative py-24 lg:py-32 bg-primary section-dark scroll-mt-24 overflow-hidden">
-      {/* Transition ondulée en haut - beige vers bleu */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none">
-        <svg 
-          className="w-full h-20 lg:h-28" 
-          preserveAspectRatio="none"
-          viewBox="0 0 1600 100"
-        >
-          <path d="M0 100 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 100 Z" fill="#2B5B8A"/>
-          <path d="M0 0 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 0 Z" fill="#D4C4A8"/>
-        </svg>
-      </div>
+    <section id="rdv" className="relative pt-8 lg:pt-12 pb-32 lg:pb-40 bg-primary section-dark scroll-mt-24 overflow-hidden">
+      {/* Transition ondulée en haut - supprimée car PortfolioPreview gère cette transition */}
       
       {/* Fond avec grain */}
-      <div className="absolute inset-0 bg-paper-texture opacity-10" />
+      <div className="absolute inset-0 bg-paper-texture opacity-10 z-0" />
       
-      {/* Éléments décoratifs */}
-      <div className="absolute inset-0 pointer-events-none">
+      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
+      <div className="absolute inset-0 pointer-events-none z-0">
         <svg className="absolute top-40 right-20 w-8 h-8 text-paper/10" viewBox="0 0 32 32">
           <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
         </svg>
-        <svg className="absolute bottom-40 left-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
+        <svg className="absolute bottom-48 left-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
         </svg>
       </div>
@@ -197,17 +187,6 @@ export default function CalendlySection() {
         </div>
       </div>
       
-      {/* Transition ondulée en bas - bleu vers beige */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg 
-          className="w-full h-20 lg:h-28" 
-          preserveAspectRatio="none"
-          viewBox="0 0 1600 100"
-        >
-          <path d="M0 0 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 0 Z" fill="#2B5B8A"/>
-          <path d="M0 100 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 100 Z" fill="#D4C4A8"/>
-        </svg>
-      </div>
     </section>
   );
 }

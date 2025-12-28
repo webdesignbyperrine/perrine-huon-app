@@ -2,15 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
 import type { Project } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import LaptopMockup from '@/components/LaptopMockup';
 
 export default function PortfolioPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState<string>('all');
   const [isPageMounted, setIsPageMounted] = useState(true);
   
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
@@ -87,10 +86,6 @@ export default function PortfolioPage() {
 
   const displayProjects = projects.length > 0 ? projects : demoProjects;
 
-  const cities = ['all', ...Array.from(new Set(displayProjects.map((p: any) => p.seo_city).filter(Boolean)))];
-  const filteredProjects = filter === 'all' 
-    ? displayProjects 
-    : displayProjects.filter((p: any) => p.seo_city === filter);
 
   return (
     <div className="min-h-screen bg-paper-light grain-overlay pt-32 pb-20">
@@ -127,22 +122,6 @@ export default function PortfolioPage() {
           />
         </div>
 
-        {/* Filtres par ville */}
-        <div className={`flex flex-wrap justify-center gap-3 mb-16 transition-all duration-700 delay-300 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          {cities.map((city) => (
-            <button
-              key={city}
-              onClick={() => setFilter(city)}
-              className={`px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 ${
-                filter === city
-                  ? 'bg-accent text-white'
-                  : 'bg-primary/5 border-2 border-primary/10 text-primary/60 hover:text-primary hover:border-primary/30'
-              }`}
-            >
-              {city === 'all' ? 'Tous' : `📍 ${city}`}
-            </button>
-          ))}
-        </div>
 
         {/* Grille de projets */}
         {loading ? (
@@ -150,8 +129,8 @@ export default function PortfolioPage() {
             <div className="inline-block w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
           </div>
         ) : (
-          <div ref={gridRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {filteredProjects.map((project: any, index) => (
+          <div ref={gridRef} className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+            {displayProjects.map((project: any, index) => (
               <Link
                 key={project.id}
                 href={`/portfolio/${project.slug}`}
@@ -160,40 +139,21 @@ export default function PortfolioPage() {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                {/* Image */}
-                <div className="relative h-56 lg:h-64 overflow-hidden">
+                {/* Laptop Mockup */}
+                <div className="relative p-6 pt-8 pb-4 bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
                   {project.featured_image ? (
-                    <Image
+                    <LaptopMockup
                       src={project.featured_image}
                       alt={project.title}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      className="transform group-hover:scale-110 transition-transform duration-500"
+                      className="w-full max-w-[280px] transform group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <div className="w-full h-full bg-primary/5 flex items-center justify-center">
+                    <div className="w-full h-48 bg-primary/5 flex items-center justify-center rounded-lg">
                       <svg className="w-16 h-16 text-primary/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                         <rect x="3" y="3" width="18" height="18" rx="2"/>
                         <circle cx="8.5" cy="8.5" r="1.5"/>
                         <polyline points="21 15 16 10 5 21"/>
                       </svg>
-                    </div>
-                  )}
-                  
-                  {/* Overlay au hover */}
-                  <div className="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="flex items-center gap-2 text-paper font-medium">
-                      Voir le projet
-                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="9 18 15 12 9 6"/>
-                      </svg>
-                    </span>
-                  </div>
-                  
-                  {/* Badge ville */}
-                  {project.seo_city && (
-                    <div className="absolute top-4 left-4 px-3 py-1 bg-paper/90 rounded-full text-xs font-medium text-primary">
-                      📍 {project.seo_city}
                     </div>
                   )}
                 </div>

@@ -4,14 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import CroppedImage from '@/components/CroppedImage';
-
-type CropSettings = {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-};
+import LaptopMockup from '@/components/LaptopMockup';
 
 type ProjectData = {
   id: string;
@@ -19,7 +12,6 @@ type ProjectData = {
   slug: string;
   short_description: string | null;
   featured_image: string | null;
-  image_crop: CropSettings | null;
   published: boolean;
 };
 
@@ -66,7 +58,6 @@ export default function PortfolioPreview() {
     ...project,
     number: String(index + 1).padStart(2, '0'),
     previewImage: project.featured_image,
-    imageCrop: project.image_crop,
   }));
 
   if (loading) {
@@ -102,25 +93,44 @@ export default function PortfolioPreview() {
   }
 
   return (
-    <section className="relative py-24 lg:py-32 bg-paper overflow-hidden">
-      {/* Fond avec texture */}
-      <div className="absolute inset-0 bg-paper-texture opacity-50" />
+    <section className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-paper overflow-hidden">
+      {/* Transition ondulée en haut - depuis section bleue */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none z-20">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 0 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 0 Z" fill="#2B5B8A"/>
+        </svg>
+      </div>
       
-      {/* Éléments décoratifs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-20 -left-20 w-64 h-64 border-2 border-primary/5 rounded-full" />
-        <div className="absolute bottom-20 right-10 w-48 h-48 border-2 border-primary/5 rounded-full" />
-        
+      {/* Fond avec texture */}
+      <div className="absolute inset-0 bg-paper-texture opacity-50 z-0" />
+      
+      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
+      <div className="absolute inset-0 pointer-events-none z-0">
         <svg className="absolute top-40 right-20 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
           <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
         </svg>
-        <svg className="absolute bottom-40 left-1/4 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
+        <svg className="absolute bottom-48 left-1/4 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      </div>
+      
+      {/* Transition ondulée en bas - vers bleu */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-20">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 100 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 100 Z" fill="#2B5B8A"/>
         </svg>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
+        <div className="w-full">
           
           {/* Titre */}
           <div ref={titleRef} className="text-center mb-12 lg:mb-16">
@@ -158,17 +168,16 @@ export default function PortfolioPreview() {
                 }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                {/* Image */}
-                <div className="relative h-56 lg:h-64 overflow-hidden">
+                {/* Laptop Mockup */}
+                <div className="relative p-6 pt-8 pb-4 bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
                   {project.previewImage ? (
-                    <CroppedImage
+                    <LaptopMockup
                       src={project.previewImage}
                       alt={`Preview ${project.title}`}
-                      crop={project.imageCrop}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full max-w-[280px] transform group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
-                    <div className="w-full h-full bg-primary/5 flex items-center justify-center">
+                    <div className="w-full h-48 bg-primary/5 flex items-center justify-center rounded-lg">
                       <svg className="w-16 h-16 text-primary/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                         <rect x="3" y="3" width="18" height="18" rx="2"/>
                         <circle cx="8.5" cy="8.5" r="1.5"/>
@@ -177,18 +186,8 @@ export default function PortfolioPreview() {
                     </div>
                   )}
                   
-                  {/* Overlay au hover */}
-                  <div className="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="flex items-center gap-2 text-paper font-medium">
-                      Voir le projet
-                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="9 18 15 12 9 6"/>
-                      </svg>
-                    </span>
-                  </div>
-                  
                   {/* Numéro */}
-                  <div className="absolute top-4 right-4 text-4xl font-bold text-primary/10 group-hover:text-paper/20 transition-colors">
+                  <div className="absolute top-4 right-4 text-4xl font-bold text-primary/10 group-hover:text-accent/20 transition-colors">
                     {project.number}
                   </div>
                 </div>

@@ -78,23 +78,30 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="relative py-24 lg:py-32 bg-paper-light grain-overlay overflow-hidden">
-      {/* Éléments décoratifs */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Cercles décoratifs */}
-        <div className="absolute -top-20 -right-20 w-64 h-64 border-2 border-primary/5 rounded-full" />
-        <div className="absolute bottom-20 -left-32 w-96 h-96 border-2 border-primary/5 rounded-full" />
-        
-        {/* Formes géométriques */}
-        <svg className="absolute top-20 left-10 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
+    <section id="services" className="relative pt-24 lg:pt-32 pb-32 lg:pb-40 bg-paper-light grain-overlay overflow-hidden">
+      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {/* Formes géométriques subtiles - entièrement visibles */}
+        <svg className="absolute top-32 left-10 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
           <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
         </svg>
-        <svg className="absolute bottom-40 right-20 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
+        <svg className="absolute bottom-48 right-20 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
           <polygon points="12,4 20,20 4,20" fill="none" stroke="currentColor" strokeWidth="2"/>
         </svg>
       </div>
+      
+      {/* Transition ondulée en bas - vers bleu */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none z-20">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 100 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 100 Z" fill="#2B5B8A"/>
+        </svg>
+      </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 pb-8">
         <div className="max-w-7xl mx-auto">
           {/* Titre de section */}
           <div ref={titleRef} className="text-center mb-16 lg:mb-20">
