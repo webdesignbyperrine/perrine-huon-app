@@ -22,3 +22,5 @@ INSERT INTO public.media_assets (type, url, title, alt_text) VALUES
 
 
 
+
+

@@ -5,17 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
 import type { Project } from '@/types/database.types';
-import styles from '@/styles/portfolio-grid.module.scss';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function PortfolioPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>('all');
-  // Animation au montage - contenu visible par défaut
   const [isPageMounted, setIsPageMounted] = useState(true);
   
-  // Animation au scroll
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
 
   useEffect(() => {
@@ -36,7 +33,7 @@ export default function PortfolioPage() {
     fetchProjects();
   }, []);
 
-  // Données de démo complètes
+  // Données de démo
   const demoProjects = [
     {
       id: '1',
@@ -44,8 +41,7 @@ export default function PortfolioPage() {
       slug: 'studio-74',
       short_description: 'Site vitrine premium pour studio créatif à Lyon',
       seo_city: 'Lyon',
-      number: '01',
-      icon: '///',
+      featured_image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800',
     },
     {
       id: '2',
@@ -53,19 +49,15 @@ export default function PortfolioPage() {
       slug: 'gloster',
       short_description: 'E-commerce moderne avec paiement sécurisé',
       seo_city: 'Paris',
-      number: '02',
-      icon: '◎',
+      featured_image: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800',
     },
     {
       id: '3',
       title: 'LINEA',
-      subtitle: 'VOL.1',
       slug: 'linea-vol1',
       short_description: 'Application SaaS pour gestion de projets',
       seo_city: 'Marseille',
-      number: '03',
-      featured: true,
-      image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&q=80',
+      featured_image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
     },
     {
       id: '4',
@@ -73,8 +65,7 @@ export default function PortfolioPage() {
       slug: 'cube-20',
       short_description: 'Portfolio 3D interactif pour architecte',
       seo_city: 'Bordeaux',
-      number: '04',
-      icon: '◇',
+      featured_image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800',
     },
     {
       id: '5',
@@ -82,8 +73,7 @@ export default function PortfolioPage() {
       slug: 'nexus',
       short_description: 'Plateforme collaborative pour équipes',
       seo_city: 'Toulouse',
-      number: '05',
-      icon: '⬡',
+      featured_image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
     },
     {
       id: '6',
@@ -91,8 +81,7 @@ export default function PortfolioPage() {
       slug: 'aurora',
       short_description: 'Site e-learning avec vidéos interactives',
       seo_city: 'Nantes',
-      number: '06',
-      icon: '◐',
+      featured_image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
     },
   ];
 
@@ -104,31 +93,50 @@ export default function PortfolioPage() {
     : displayProjects.filter((p: any) => p.seo_city === filter);
 
   return (
-    <div className="min-h-screen bg-primary-900 pt-32 pb-20">
+    <div className="min-h-screen bg-paper-light grain-overlay pt-32 pb-20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className={`text-7xl md:text-8xl font-bold mb-6 transition-all duration-700 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              PORTFOLIO
-            </span>
+          <span 
+            className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            Mes réalisations
+          </span>
+          <h1 
+            className={`text-5xl sm:text-6xl lg:text-7xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            Portfolio
           </h1>
-          <p className={`text-xl text-white/50 max-w-3xl mx-auto font-light transition-all duration-700 delay-100 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <p 
+            className={`text-lg text-primary/60 max-w-3xl mx-auto transition-all duration-700 delay-200 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
             Une sélection de mes projets récents, optimisés pour le référencement local
           </p>
-          <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-200 ${isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
+          
+          {/* Ligne décorative */}
+          <div 
+            className={`w-24 h-0.5 bg-primary/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
+              isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+            }`}
+          />
         </div>
 
         {/* Filtres par ville */}
         <div className={`flex flex-wrap justify-center gap-3 mb-16 transition-all duration-700 delay-300 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          {cities.map((city, index) => (
+          {cities.map((city) => (
             <button
               key={city}
               onClick={() => setFilter(city)}
               className={`px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 ${
                 filter === city
-                  ? 'bg-gradient-to-r from-secondary to-accent-red text-white'
-                  : 'glass-dark text-white/60 hover:text-white'
+                  ? 'bg-accent text-white'
+                  : 'bg-primary/5 border-2 border-primary/10 text-primary/60 hover:text-primary hover:border-primary/30'
               }`}
             >
               {city === 'all' ? 'Tous' : `📍 ${city}`}
@@ -139,118 +147,94 @@ export default function PortfolioPage() {
         {/* Grille de projets */}
         {loading ? (
           <div className="text-center py-20">
-            <div className="inline-block w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
+            <div className="inline-block w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
           </div>
         ) : (
-          <div ref={gridRef} className={styles.grid}>
+          <div ref={gridRef} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filteredProjects.map((project: any, index) => (
               <Link
                 key={project.id}
                 href={`/portfolio/${project.slug}`}
-                className={`${styles.projectCard} ${project.featured ? styles.featured : ''} transition-all duration-700 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`group relative bg-paper border-2 border-primary/10 rounded-sketch-lg overflow-hidden hover:border-primary/30 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500 ${
+                  gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                {project.featured ? (
-                  <div className={styles.featuredCard}>
-                    {project.image && (
-                      <div className={styles.featuredImage}>
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          style={{ objectFit: 'cover' }}
-                        />
-                      </div>
-                    )}
-                    <div className={styles.projectContent}>
-                      <div className={styles.triangleIndicator} />
-                      <div className={styles.projectTitle}>
-                        <h3>{project.title}</h3>
-                        {project.subtitle && (
-                          <div className={styles.subtitle}>{project.subtitle}</div>
-                        )}
-                      </div>
-                      <div className={styles.projectNumber}>{project.number}</div>
-                      <div className={styles.progressLine} />
+                {/* Image */}
+                <div className="relative h-56 lg:h-64 overflow-hidden">
+                  {project.featured_image ? (
+                    <Image
+                      src={project.featured_image}
+                      alt={project.title}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      className="transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-primary/5 flex items-center justify-center">
+                      <svg className="w-16 h-16 text-primary/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                      </svg>
                     </div>
+                  )}
+                  
+                  {/* Overlay au hover */}
+                  <div className="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="flex items-center gap-2 text-paper font-medium">
+                      Voir le projet
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6"/>
+                      </svg>
+                    </span>
                   </div>
-                ) : (
-                  <div className={styles.projectContent}>
-                    <div className={styles.triangleIndicator} />
-                    <div className={styles.projectIcon}>
-                      {/* Flèche animée avec effet bounce */}
-                      <div className="relative w-14 h-14 rounded-full bg-gradient-to-b from-[#1a3a4a] to-[#0d2530] border border-secondary/30 flex items-center justify-center shadow-lg shadow-secondary/20 transition-all duration-300 group-hover:border-secondary/60 group-hover:shadow-xl group-hover:shadow-secondary/40">
-                        {/* Icône Chevron animée */}
-                        <svg 
-                          viewBox="0 0 24 24" 
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="3"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="w-5 h-5 text-secondary animate-bounce-slow transition-all duration-300 group-hover:text-[#7dd3c0] group-hover:scale-110"
-                          style={{ animationDuration: '1.5s' }}
-                        >
-                          <polyline points="18 15 12 9 6 15"/>
-                        </svg>
-                        {/* Effet de brillance */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-t from-transparent via-transparent to-white/10 pointer-events-none" />
-                      </div>
+                  
+                  {/* Badge ville */}
+                  {project.seo_city && (
+                    <div className="absolute top-4 left-4 px-3 py-1 bg-paper/90 rounded-full text-xs font-medium text-primary">
+                      📍 {project.seo_city}
                     </div>
-                    <div className={styles.projectTitle}>
-                      <h3>{project.title}</h3>
-                    </div>
-                    <div className={styles.projectNumber}>{project.number}</div>
-                    <div className={styles.progressLine} />
-                  </div>
-                )}
+                  )}
+                </div>
+                
+                {/* Contenu */}
+                <div className="p-6">
+                  <h2 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+                    {project.title}
+                  </h2>
+                  {project.short_description && (
+                    <p className="text-primary/60 text-sm line-clamp-2">
+                      {project.short_description}
+                    </p>
+                  )}
+                </div>
+                
+                {/* Barre de progression au hover */}
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-accent group-hover:w-full transition-all duration-500" />
               </Link>
             ))}
           </div>
         )}
 
-        {/* CTA - Style tube en verre avec liquide */}
+        {/* CTA */}
         <div className="text-center mt-20">
           <Link
-            href="#contact"
-            className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
+            href="/#contact"
+            className="btn-cta group inline-flex items-center gap-3"
           >
-            <div 
-              className="relative flex items-center gap-3 px-12 py-5 rounded-full"
-              style={{
-                background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                border: '1px solid rgba(255,255,255,0.15)'
-              }}
+            <span>Discuter de mon projet</span>
+            <svg 
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
             >
-              {/* Reflet du verre */}
-              <span 
-                className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
-                style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
-              />
-              
-              {/* Liquide */}
-              <span 
-                className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
-                style={{
-                  background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)',
-                  boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
-                }}
-              >
-                <span 
-                  className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2"
-                  style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }}
-                />
-              </span>
-              
-              <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">
-                Discuter de mon projet
-              </span>
-            </div>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
           </Link>
         </div>
       </div>
     </div>
   );
 }
-

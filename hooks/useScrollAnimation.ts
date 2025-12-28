@@ -180,3 +180,5 @@ export function getAnimationClass(
 
   return `${transitionClass} ${isVisible ? animationClasses.visible : hiddenClass}`;
 }
+
+

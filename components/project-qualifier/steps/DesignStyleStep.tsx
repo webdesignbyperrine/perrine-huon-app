@@ -21,12 +21,10 @@ export default function DesignStyleStep() {
       
       {/* Titre */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">
-          <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            Quel style de design vous attire ?
-          </span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
+          Quel style de design vous attire ?
         </h2>
-        <p className="text-white/50 font-light">
+        <p className="text-primary/50 font-light">
           Choisissez l&apos;ambiance visuelle qui vous correspond
         </p>
       </div>
@@ -50,5 +48,6 @@ export default function DesignStyleStep() {
     </div>
   );
 }
+
 
 

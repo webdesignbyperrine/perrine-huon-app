@@ -7,3 +7,5 @@ ADD COLUMN IF NOT EXISTS image_crop JSONB DEFAULT NULL;
 
 -- Commentaire sur la colonne
 COMMENT ON COLUMN projects.image_crop IS 'Paramètres de recadrage de l''image d''aperçu (x, y, zoom)';
+
+

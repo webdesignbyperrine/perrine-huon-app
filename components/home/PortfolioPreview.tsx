@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import styles from '@/styles/portfolio-grid.module.scss';
-import SectionDivider from './SectionDivider';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import CroppedImage from '@/components/CroppedImage';
 
@@ -29,15 +27,14 @@ export default function PortfolioPreview() {
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [loading, setLoading] = useState(true);
   
-  // Animations au scroll
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
 
   useEffect(() => {
     async function fetchProjects() {
       const supabase = createClient();
       
-      // Requête simple - récupérer tous les projets publiés
       const { data, error } = await supabase
         .from('projects')
         .select('*')
@@ -45,22 +42,18 @@ export default function PortfolioPreview() {
         .order('created_at', { ascending: false })
         .limit(4);
 
-      console.log('Supabase response:', { data, error });
-
       if (!error && data) {
-        setProjects(data as any[]);
+        setProjects(data as ProjectData[]);
       } else if (error) {
         console.error('Error loading projects:', error);
-        // En cas d'erreur, essayer sans filtre published
         const { data: allData } = await supabase
           .from('projects')
           .select('*')
           .order('created_at', { ascending: false })
           .limit(4);
         
-        console.log('All projects (no filter):', allData);
         if (allData) {
-          setProjects(allData as any[]);
+          setProjects(allData as ProjectData[]);
         }
       }
       setLoading(false);
@@ -69,58 +62,38 @@ export default function PortfolioPreview() {
     fetchProjects();
   }, []);
 
-  // Projets de démo (affichés uniquement si aucun projet publié en DB)
-  const demoProjects: any[] = [];
-
-  // Transformer les projets de la DB
-  const formattedProjects = projects.map((project: any, index: number) => ({
+  const formattedProjects = projects.map((project, index) => ({
     ...project,
     number: String(index + 1).padStart(2, '0'),
     previewImage: project.featured_image,
     imageCrop: project.image_crop,
   }));
 
-  const displayProjects = formattedProjects.length > 0 ? formattedProjects : demoProjects;
-
   if (loading) {
     return (
-      <section className={styles.portfolioSection}>
-        <div className={styles.container}>
-          <div style={{ textAlign: 'center', padding: '80px 0', color: '#6b8ec8' }}>
-            <div style={{ 
-              width: '40px', 
-              height: '40px', 
-              border: '2px solid rgba(107, 142, 200, 0.3)',
-              borderTopColor: '#6b8ec8',
-              borderRadius: '50%',
-              margin: '0 auto',
-              animation: 'spin 1s linear infinite'
-            }} />
+      <section className="relative py-24 lg:py-32 bg-paper overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center py-12">
+            <div className="inline-block w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
           </div>
         </div>
       </section>
     );
   }
 
-  // Si aucun projet, afficher un message
-  if (displayProjects.length === 0) {
+  if (formattedProjects.length === 0) {
     return (
-      <section className={styles.portfolioSection}>
-        <div className={styles.container}>
-          <div style={{ textAlign: 'center', padding: '80px 0' }}>
-            <p style={{ color: '#6b8ec8', fontSize: '18px' }}>
+      <section className="relative py-24 lg:py-32 bg-paper overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="text-center py-12">
+            <p className="text-primary/60 text-lg mb-4">
               Aucun projet publié pour le moment
             </p>
-            <Link 
-              href="/portfolio" 
-              style={{ 
-                color: '#ff9a5c', 
-                marginTop: '16px', 
-                display: 'inline-block',
-                textDecoration: 'underline'
-              }}
-            >
-              Voir tous les projets →
+            <Link href="/portfolio" className="btn-sketch group inline-flex items-center gap-2">
+              <span>Voir tous les projets</span>
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
             </Link>
           </div>
         </div>
@@ -129,101 +102,132 @@ export default function PortfolioPreview() {
   }
 
   return (
-    <section className={styles.portfolioSection}>
-      {/* Divider en haut - prend la couleur de cette section (#0d433e) */}
-      <SectionDivider bottomSectionColor="#0d433e" position="top" />
-      <div className={styles.container}>
-        {/* Titre */}
-        <div ref={titleRef} className="text-center mb-16">
-          <h2 className={`text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              Portfolio
-            </span>
-          </h2>
-          <p className={`text-xl text-white/50 max-w-2xl mx-auto font-light transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            Une sélection de mes réalisations récentes
-          </p>
-        </div>
-        <div ref={gridRef} className={styles.grid}>
-          {displayProjects.map((project: any, index: number) => (
-            <Link
-              key={project.id}
-              href={`/portfolio/${project.slug}`}
-              className={`${styles.projectCard} transition-all duration-700 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-              style={{ transitionDelay: `${index * 100}ms` }}
-            >
-              {/* Image de preview qui apparaît au survol */}
-              <div className={styles.previewImageWrapper}>
-                {project.previewImage ? (
-                  <CroppedImage
-                    src={project.previewImage}
-                    alt={`Preview ${project.title}`}
-                    crop={project.imageCrop}
-                  />
-                ) : (
-                  <div className={styles.placeholderImage}>
-                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                      <circle cx="8.5" cy="8.5" r="1.5"/>
-                      <polyline points="21 15 16 10 5 21"/>
-                    </svg>
-                  </div>
-                )}
-                <div className={styles.viewProjectLabel}>
-                  <span>Voir le projet</span>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                  </svg>
-                </div>
-              </div>
-              
-              {/* Carte avec icône - slide vers le haut au hover */}
-              <div className={styles.cardSlider}>
-                <div className={styles.projectContent}>
-                  <div className={styles.triangleIndicator} />
-                  <div className={styles.projectIcon}>
-                    {/* Flèche animée avec effet bounce */}
-                    <div className="relative w-14 h-14 rounded-full bg-gradient-to-b from-[#1a3a4a] to-[#0d2530] border border-secondary/30 flex items-center justify-center shadow-lg shadow-secondary/20 transition-all duration-300 group-hover:border-secondary/60 group-hover:shadow-xl group-hover:shadow-secondary/40">
-                      {/* Icône Chevron animée */}
-                      <svg 
-                        viewBox="0 0 24 24" 
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="w-5 h-5 text-secondary animate-bounce-slow transition-all duration-300 group-hover:text-[#7dd3c0] group-hover:scale-110"
-                        style={{ animationDuration: '1.5s' }}
-                      >
-                        <polyline points="18 15 12 9 6 15"/>
-                      </svg>
-                      {/* Effet de brillance */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-t from-transparent via-transparent to-white/10 pointer-events-none" />
-                    </div>
-                  </div>
-                  <div className={styles.projectTitle}>
-                    <h3>{project.title}</h3>
-                    {project.short_description && (
-                      <div className={styles.subtitle}>{project.short_description}</div>
-                    )}
-                  </div>
-                  <div className={styles.projectNumber}>{project.number}</div>
-                  <div className={styles.progressLine} />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+    <section className="relative py-24 lg:py-32 bg-paper overflow-hidden">
+      {/* Fond avec texture */}
+      <div className="absolute inset-0 bg-paper-texture opacity-50" />
+      
+      {/* Éléments décoratifs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-20 -left-20 w-64 h-64 border-2 border-primary/5 rounded-full" />
+        <div className="absolute bottom-20 right-10 w-48 h-48 border-2 border-primary/5 rounded-full" />
+        
+        <svg className="absolute top-40 right-20 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
+          <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        <svg className="absolute bottom-40 left-1/4 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
       </div>
 
-      <style jsx>{`
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-      `}</style>
-      
-      {/* Divider en bas - prend la couleur de la section suivante (#0d1a2d) */}
-      <SectionDivider bottomSectionColor="#0d1a2d" position="bottom" />
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          
+          {/* Titre */}
+          <div ref={titleRef} className="text-center mb-12 lg:mb-16">
+            <span 
+              className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              Réalisations récentes
+            </span>
+            <h2 
+              className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              Portfolio
+            </h2>
+            <p 
+              className={`text-lg text-primary/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              Une sélection de mes réalisations récentes
+            </p>
+          </div>
+
+          {/* Grille de projets */}
+          <div ref={gridRef} className="grid sm:grid-cols-2 gap-6 lg:gap-8">
+            {formattedProjects.map((project, index) => (
+              <Link
+                key={project.id}
+                href={`/portfolio/${project.slug}`}
+                className={`group relative bg-paper-light border-2 border-primary/10 rounded-sketch-lg overflow-hidden hover:border-primary/30 hover:shadow-card-hover transition-all duration-500 ${
+                  gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                {/* Image */}
+                <div className="relative h-56 lg:h-64 overflow-hidden">
+                  {project.previewImage ? (
+                    <CroppedImage
+                      src={project.previewImage}
+                      alt={`Preview ${project.title}`}
+                      crop={project.imageCrop}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-primary/5 flex items-center justify-center">
+                      <svg className="w-16 h-16 text-primary/20" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                      </svg>
+                    </div>
+                  )}
+                  
+                  {/* Overlay au hover */}
+                  <div className="absolute inset-0 bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="flex items-center gap-2 text-paper font-medium">
+                      Voir le projet
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polyline points="9 18 15 12 9 6"/>
+                      </svg>
+                    </span>
+                  </div>
+                  
+                  {/* Numéro */}
+                  <div className="absolute top-4 right-4 text-4xl font-bold text-primary/10 group-hover:text-paper/20 transition-colors">
+                    {project.number}
+                  </div>
+                </div>
+                
+                {/* Contenu */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.short_description && (
+                    <p className="text-primary/60 text-sm line-clamp-2">
+                      {project.short_description}
+                    </p>
+                  )}
+                </div>
+                
+                {/* Barre de progression au hover */}
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-accent group-hover:w-full transition-all duration-500" />
+              </Link>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div 
+            ref={ctaRef} 
+            className={`text-center mt-12 transition-all duration-700 ${
+              ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+          >
+            <Link href="/portfolio" className="btn-sketch group inline-flex items-center gap-2">
+              <span>Voir tous les projets</span>
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </Link>
+          </div>
+
+        </div>
+      </div>
     </section>
   );
 }

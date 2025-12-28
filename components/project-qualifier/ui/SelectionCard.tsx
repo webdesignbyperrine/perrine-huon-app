@@ -24,22 +24,16 @@ export default function SelectionCard({
       onClick={onClick}
       className={`
         group relative text-left w-full p-6 
-        rounded-2xl
+        rounded-sketch-lg
         border-2 transition-all duration-300
-        hover:scale-[1.02]
-        focus:outline-none focus:ring-2 focus:ring-secondary/50
+        hover:scale-[1.02] hover:-translate-y-1
+        focus:outline-none focus:ring-2 focus:ring-accent/30
+        ${selected 
+          ? 'bg-primary/5 border-primary/30' 
+          : 'bg-paper border-primary/10 hover:border-primary/20'
+        }
         ${className}
       `}
-      style={{
-        background: selected 
-          ? 'linear-gradient(135deg, rgba(47, 69, 88, 0.3) 0%, rgba(47, 69, 88, 0.15) 100%)' 
-          : 'rgba(0, 0, 0, 0.4)',
-        backdropFilter: 'blur(30px)',
-        borderColor: selected ? '#2F4558' : 'transparent',
-        boxShadow: selected 
-          ? '0 0 20px rgba(47, 69, 88, 0.4), inset 0 1px 0 rgba(255,255,255,0.1)' 
-          : 'inset 0 1px 0 rgba(255,255,255,0.05)',
-      }}
     >
       {/* Indicateur de sélection */}
       {showCheck && (
@@ -48,8 +42,8 @@ export default function SelectionCard({
           flex items-center justify-center
           transition-all duration-300
           ${selected 
-            ? 'bg-secondary text-white scale-100' 
-            : 'bg-white/10 text-white/30 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100'
+            ? 'bg-accent text-white scale-100' 
+            : 'bg-primary/10 text-primary/30 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100'
           }
         `}>
           <CheckIcon className="w-4 h-4" />
@@ -58,9 +52,9 @@ export default function SelectionCard({
 
       {/* Hover line */}
       <div className={`
-        absolute bottom-0 left-0 h-[2px] 
-        bg-gradient-to-r from-secondary to-accent-orange 
-        transition-all duration-500
+        absolute bottom-0 left-0 h-1 
+        bg-accent 
+        transition-all duration-500 rounded-b-sketch-lg
         ${selected ? 'w-full' : 'w-0 group-hover:w-full'}
       `} />
 
@@ -89,34 +83,31 @@ export function MultiSelectCard({
       onClick={onClick}
       className={`
         group relative text-left w-full p-4 
-        rounded-xl
+        rounded-sketch
         border-2 transition-all duration-300
         hover:scale-[1.01]
-        focus:outline-none focus:ring-2 focus:ring-secondary/50
+        focus:outline-none focus:ring-2 focus:ring-accent/30
+        ${selected 
+          ? 'bg-primary/5 border-primary/30' 
+          : 'bg-paper border-primary/10 hover:border-primary/20'
+        }
         ${className}
       `}
-      style={{
-        background: selected 
-          ? 'linear-gradient(135deg, rgba(47, 69, 88, 0.3) 0%, rgba(47, 69, 88, 0.15) 100%)' 
-          : 'rgba(0, 0, 0, 0.4)',
-        backdropFilter: 'blur(30px)',
-        borderColor: selected ? '#2F4558' : 'transparent',
-        boxShadow: selected 
-          ? '0 0 20px rgba(47, 69, 88, 0.4), inset 0 1px 0 rgba(255,255,255,0.1)' 
-          : 'inset 0 1px 0 rgba(255,255,255,0.05)',
-      }}
     >
-      {/* Checkbox */}
-      <div className={`
-        absolute top-1/2 -translate-y-1/2 right-4 w-5 h-5 rounded
-        flex items-center justify-center
-        transition-all duration-300
-        ${selected 
-          ? 'bg-secondary text-white' 
-          : 'border border-white/30 bg-transparent'
-        }
-      `}>
-        {selected && <CheckIcon className="w-3 h-3" />}
+      {/* Checkbox - fond beige, coche rose */}
+      <div 
+        className={`
+          absolute top-1/2 -translate-y-1/2 right-4 w-5 h-5 rounded
+          flex items-center justify-center
+          transition-all duration-300
+          ${selected 
+            ? 'border-2 border-accent' 
+            : 'border-2 border-primary/30'
+          }
+        `}
+        style={{ backgroundColor: '#e8e2d6' }}
+      >
+        {selected && <CheckIcon className="w-3 h-3" style={{ color: '#ff0f7c' }} />}
       </div>
 
       {children}
@@ -148,21 +139,15 @@ export function MoodboardCard({
       onClick={onClick}
       className={`
         group relative text-left w-full p-6 
-        rounded-2xl
+        rounded-sketch-lg
         border-2 transition-all duration-300
-        hover:scale-[1.02]
-        focus:outline-none focus:ring-2 focus:ring-secondary/50
+        hover:scale-[1.02] hover:-translate-y-1
+        focus:outline-none focus:ring-2 focus:ring-accent/30
+        ${selected 
+          ? 'bg-primary/5 border-primary/30' 
+          : 'bg-paper border-primary/10 hover:border-primary/20'
+        }
       `}
-      style={{
-        background: selected 
-          ? 'linear-gradient(135deg, rgba(47, 69, 88, 0.3) 0%, rgba(47, 69, 88, 0.15) 100%)' 
-          : 'rgba(0, 0, 0, 0.4)',
-        backdropFilter: 'blur(30px)',
-        borderColor: selected ? '#2F4558' : 'transparent',
-        boxShadow: selected 
-          ? '0 0 20px rgba(47, 69, 88, 0.4), inset 0 1px 0 rgba(255,255,255,0.1)' 
-          : 'inset 0 1px 0 rgba(255,255,255,0.05)',
-      }}
     >
       {/* Indicateur de sélection */}
       {showCheck && (
@@ -171,8 +156,8 @@ export function MoodboardCard({
           flex items-center justify-center
           transition-all duration-300
           ${selected 
-            ? 'bg-secondary text-white scale-100' 
-            : 'bg-white/10 text-white/30 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100'
+            ? 'bg-accent text-white scale-100' 
+            : 'bg-primary/10 text-primary/30 scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-100'
           }
         `}>
           <CheckIcon className="w-4 h-4" />
@@ -194,18 +179,16 @@ export function MoodboardCard({
       </div>
 
       {/* Texte */}
-      <h3 className="text-lg font-semibold text-white mb-1">{label}</h3>
-      <p className="text-sm text-white/50">{description}</p>
+      <h3 className="text-lg font-semibold text-primary mb-1">{label}</h3>
+      <p className="text-sm text-primary/50">{description}</p>
 
       {/* Hover line */}
       <div className={`
-        absolute bottom-0 left-0 h-[2px] 
-        bg-gradient-to-r from-secondary to-accent-orange 
-        transition-all duration-500
+        absolute bottom-0 left-0 h-1 
+        bg-accent 
+        transition-all duration-500 rounded-b-sketch-lg
         ${selected ? 'w-full' : 'w-0 group-hover:w-full'}
       `} />
     </button>
   );
 }
-
-

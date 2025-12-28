@@ -14,6 +14,7 @@ import BudgetStep from './steps/BudgetStep';
 import DeadlineStep from './steps/DeadlineStep';
 import AccompagnementStep from './steps/AccompagnementStep';
 import InspirationsStep from './steps/InspirationsStep';
+import QuoteRequestStep from './steps/QuoteRequestStep';
 
 // Composant interne qui utilise le contexte
 function QualifierContent({ onClose }: { onClose?: () => void }) {
@@ -65,6 +66,8 @@ function QualifierContent({ onClose }: { onClose?: () => void }) {
         return <AccompagnementStep />;
       case 'inspirations':
         return <InspirationsStep />;
+      case 'quote-request':
+        return <QuoteRequestStep />;
       default:
         return <IntroStep />;
     }
@@ -130,7 +133,7 @@ export default function ProjectQualifier({
       <div className="fixed inset-0 z-50 flex items-center justify-center">
         {/* Overlay */}
         <div 
-          className="absolute inset-0 bg-primary-900/95 backdrop-blur-xl"
+          className="absolute inset-0 bg-paper-light/95 backdrop-blur-xl"
           onClick={onClose}
         />
         
@@ -145,5 +148,6 @@ export default function ProjectQualifier({
 
 // Export du hook et du provider pour une utilisation externe
 export { useQualifier, QualifierProvider };
+
 
 

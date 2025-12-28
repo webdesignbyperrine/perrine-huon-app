@@ -155,3 +155,4 @@ Le récapitulatif génère automatiquement un message pré-formaté qui est inje
 Le formulaire de contact (`ContactForm.tsx`) écoute cet événement pour mettre à jour son state React.
 
 
+

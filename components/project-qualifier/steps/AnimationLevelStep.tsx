@@ -7,126 +7,45 @@ import NavigationButtons from '../ui/NavigationButtons';
 import ProgressBar from '../ui/ProgressBar';
 
 // ============================================
-// SOBRE : Élégant et raffiné, style cabinet avocat
+// SOBRE : Fond bleu, animations légères mais visibles
 // ============================================
 function SobreAnimation() {
   return (
-    <div className="relative w-full h-36 rounded-lg overflow-hidden flex items-center justify-center"
-      style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)' }}
+    <div 
+      className="relative w-full h-36 rounded-lg overflow-hidden flex items-center justify-center"
+      style={{ background: 'linear-gradient(135deg, #2B5B8A 0%, #1a3a5c 100%)' }}
     >
-      {/* Ligne dorée décorative en haut */}
+      {/* Une seule carte centrale avec hover subtil */}
       <div 
-        className="absolute top-0 left-0 right-0 h-[1px]"
+        className="w-24 h-16 rounded-lg flex flex-col items-center justify-center"
         style={{ 
-          background: 'linear-gradient(90deg, transparent, #c9a962, transparent)',
-          animation: 'shimmerLine 3s ease-in-out infinite'
+          background: 'rgba(255,255,255,0.1)',
+          border: '1px solid rgba(255,255,255,0.2)',
+          animation: 'sobreHover 3s ease-in-out infinite'
         }}
-      />
-      
-      <div className="flex flex-col items-center gap-4">
-        {/* Carte élégante avec bordure dorée subtile */}
-        <div 
-          className="relative w-24 h-28 rounded-sm flex flex-col items-center justify-center p-3"
-          style={{ 
-            background: 'linear-gradient(180deg, rgba(201,169,98,0.08) 0%, rgba(26,26,46,0.9) 100%)',
-            border: '1px solid rgba(201,169,98,0.2)',
-            animation: 'fadeElegant 4s ease-in-out infinite'
-          }}
-        >
-          {/* Forme géométrique élégante - losange */}
-          <div 
-            className="relative w-10 h-10 mb-2"
-            style={{ 
-              animation: 'fadeElegant 4s ease-in-out infinite',
-              animationDelay: '0.5s'
-            }}
-          >
-            <div 
-              className="absolute inset-0 rotate-45 rounded-sm"
-              style={{ 
-                border: '1px solid rgba(201,169,98,0.6)',
-                background: 'linear-gradient(135deg, rgba(201,169,98,0.1), transparent)'
-              }}
-            />
-            <div 
-              className="absolute inset-2 rotate-45 rounded-sm"
-              style={{ 
-                border: '1px solid rgba(201,169,98,0.3)',
-              }}
-            />
-          </div>
-          
-          {/* Lignes de texte élégantes */}
-          <div 
-            className="w-16 h-1 rounded-full mb-1"
-            style={{ 
-              background: 'linear-gradient(90deg, transparent, rgba(201,169,98,0.4), transparent)',
-              animation: 'fadeElegant 4s ease-in-out infinite',
-              animationDelay: '1s'
-            }}
-          />
-          <div 
-            className="w-12 h-1 rounded-full"
-            style={{ 
-              background: 'linear-gradient(90deg, transparent, rgba(201,169,98,0.25), transparent)',
-              animation: 'fadeElegant 4s ease-in-out infinite',
-              animationDelay: '1.5s'
-            }}
-          />
-        </div>
-        
-        {/* Séparateur doré animé */}
-        <div className="flex items-center gap-2">
-          <div 
-            className="w-8 h-[1px]"
-            style={{ 
-              background: 'linear-gradient(90deg, transparent, #c9a962)',
-              animation: 'expandLine 3s ease-in-out infinite'
-            }}
-          />
-          <div 
-            className="w-1.5 h-1.5 rounded-full"
-            style={{ 
-              background: '#c9a962',
-              animation: 'pulseGold 3s ease-in-out infinite'
-            }}
-          />
-          <div 
-            className="w-8 h-[1px]"
-            style={{ 
-              background: 'linear-gradient(90deg, #c9a962, transparent)',
-              animation: 'expandLine 3s ease-in-out infinite'
-            }}
-          />
-        </div>
+      >
+        <div className="w-10 h-10 rounded-full bg-white/20 mb-1" style={{ animation: 'sobrePulse 3s ease-in-out infinite' }} />
+        <div className="w-14 h-1.5 rounded bg-white/30" />
       </div>
       
-      {/* Ligne dorée décorative en bas */}
+      {/* Ligne de séparation qui apparaît doucement */}
       <div 
-        className="absolute bottom-0 left-0 right-0 h-[1px]"
-        style={{ 
-          background: 'linear-gradient(90deg, transparent, #c9a962, transparent)',
-          animation: 'shimmerLine 3s ease-in-out infinite',
-          animationDelay: '1.5s'
-        }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-white/20"
+        style={{ animation: 'sobreLine 3s ease-in-out infinite' }}
       />
       
       <style jsx>{`
-        @keyframes fadeElegant {
-          0%, 100% { opacity: 0.6; }
-          50% { opacity: 1; }
+        @keyframes sobreHover {
+          0%, 100% { transform: translateY(0); opacity: 0.9; }
+          50% { transform: translateY(-3px); opacity: 1; }
         }
-        @keyframes shimmerLine {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.7; }
+        @keyframes sobrePulse {
+          0%, 100% { opacity: 0.2; }
+          50% { opacity: 0.4; }
         }
-        @keyframes expandLine {
-          0%, 100% { transform: scaleX(0.5); opacity: 0.3; }
-          50% { transform: scaleX(1); opacity: 0.8; }
-        }
-        @keyframes pulseGold {
-          0%, 100% { transform: scale(1); opacity: 0.5; }
-          50% { transform: scale(1.3); opacity: 1; }
+        @keyframes sobreLine {
+          0%, 100% { width: 30px; opacity: 0.3; }
+          50% { width: 60px; opacity: 0.5; }
         }
       `}</style>
     </div>
@@ -134,59 +53,68 @@ function SobreAnimation() {
 }
 
 // ============================================
-// MODÉRÉ : Animations fluides et visibles
+// MODÉRÉ : Menu/liste avec éléments qui glissent en cascade
 // ============================================
 function ModereAnimation() {
   return (
-    <div className="relative w-full h-36 bg-primary-800/30 rounded-lg overflow-hidden flex items-center justify-center">
-      <div className="flex gap-3">
-        {/* 3 cartes qui slide up en cascade */}
-        {[0, 1, 2].map((i) => (
+    <div 
+      className="relative w-full h-36 rounded-lg overflow-hidden flex items-center justify-center"
+      style={{ background: 'linear-gradient(135deg, #2B5B8A 0%, #1a3a5c 100%)' }}
+    >
+      {/* Conteneur du menu */}
+      <div className="flex flex-col gap-2 w-32">
+        {/* 4 items de menu qui glissent */}
+        {[0, 1, 2, 3].map((i) => (
           <div
             key={i}
-            className="w-14 h-20 rounded-lg flex flex-col items-center justify-center p-2"
+            className="flex items-center gap-2 px-3 py-1.5 rounded"
             style={{
-              background: `linear-gradient(135deg, ${
-                i === 0 ? 'rgba(221,71,179,0.3)' : 
-                i === 1 ? 'rgba(255,185,124,0.3)' : 
-                'rgba(255,72,85,0.3)'
-              }, transparent)`,
-              border: '1px solid rgba(255,255,255,0.1)',
-              animation: 'slideUpBounce 2s ease-out infinite',
-              animationDelay: `${i * 0.15}s`,
+              background: i === 1 ? 'rgba(255,15,124,0.25)' : 'rgba(255,255,255,0.08)',
+              border: i === 1 ? '1px solid rgba(255,15,124,0.4)' : '1px solid transparent',
+              animation: 'slideIn 2.5s ease-out infinite',
+              animationDelay: `${i * 0.1}s`,
             }}
           >
+            {/* Icône */}
             <div 
-              className="w-8 h-8 rounded-full mb-2"
-              style={{
-                background: i === 0 ? '#2F4558' : i === 1 ? '#FFB97C' : '#FF4855',
-                opacity: 0.6,
+              className="w-3 h-3 rounded-sm"
+              style={{ 
+                background: i === 1 ? 'rgba(255,15,124,0.6)' : 'rgba(255,255,255,0.3)',
               }}
             />
-            <div className="w-10 h-1 bg-white/30 rounded" />
+            {/* Texte simulé */}
+            <div 
+              className="h-1.5 rounded"
+              style={{ 
+                width: `${40 + (i % 2) * 20}px`,
+                background: i === 1 ? 'rgba(255,255,255,0.7)' : 'rgba(255,255,255,0.3)',
+              }}
+            />
           </div>
         ))}
       </div>
       
-      {/* Barre de chargement animée */}
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/10 rounded-full overflow-hidden">
-        <div 
-          className="h-full bg-gradient-to-r from-secondary to-accent-orange rounded-full"
-          style={{ animation: 'loadingBar 1.5s ease-in-out infinite' }}
-        />
-      </div>
+      {/* Indicateur de sélection qui se déplace */}
+      <div 
+        className="absolute left-1/2 -translate-x-[85px] w-1 rounded-full"
+        style={{ 
+          background: '#ff0f7c',
+          animation: 'indicator 2.5s ease-in-out infinite'
+        }}
+      />
       
       <style jsx>{`
-        @keyframes slideUpBounce {
-          0% { transform: translateY(20px); opacity: 0; }
-          40% { transform: translateY(-5px); opacity: 1; }
-          60% { transform: translateY(2px); }
-          80%, 100% { transform: translateY(0); opacity: 1; }
+        @keyframes slideIn {
+          0% { transform: translateX(-20px); opacity: 0; }
+          20% { transform: translateX(0); opacity: 1; }
+          80% { transform: translateX(0); opacity: 1; }
+          100% { transform: translateX(-20px); opacity: 0; }
         }
-        @keyframes loadingBar {
-          0% { width: 0%; transform: translateX(0); }
-          50% { width: 100%; }
-          100% { width: 0%; transform: translateX(128px); }
+        @keyframes indicator {
+          0%, 100% { top: 28px; height: 20px; }
+          25% { top: 52px; height: 20px; }
+          50% { top: 52px; height: 20px; }
+          75% { top: 28px; height: 20px; }
         }
       `}</style>
     </div>
@@ -194,12 +122,15 @@ function ModereAnimation() {
 }
 
 // ============================================
-// IMMERSIF : Animations spectaculaires "WOW"
+// IMMERSIF : Animations spectaculaires "WOW" - Bleu/Rose
 // ============================================
 function ImmersifAnimation() {
   return (
-    <div className="relative w-full h-36 bg-primary-800/30 rounded-lg overflow-hidden flex items-center justify-center">
-      {/* Particules qui volent partout */}
+    <div 
+      className="relative w-full h-36 rounded-lg overflow-hidden flex items-center justify-center"
+      style={{ background: 'linear-gradient(135deg, #1a2a4a 0%, #2B5B8A 50%, #3d1a40 100%)' }}
+    >
+      {/* Particules bleu/rose qui volent */}
       {[...Array(12)].map((_, i) => (
         <div
           key={i}
@@ -207,7 +138,7 @@ function ImmersifAnimation() {
           style={{
             width: `${4 + (i % 3) * 2}px`,
             height: `${4 + (i % 3) * 2}px`,
-            background: i % 3 === 0 ? '#2F4558' : i % 3 === 1 ? '#FFB97C' : '#FF4855',
+            background: i % 3 === 0 ? '#2B5B8A' : i % 3 === 1 ? '#ff0f7c' : '#4A7AA8',
             left: `${10 + (i * 7)}%`,
             top: '60%',
             animation: `flyParticle ${1 + (i % 4) * 0.3}s ease-out infinite`,
@@ -216,21 +147,21 @@ function ImmersifAnimation() {
         />
       ))}
       
-      {/* Élément central avec rotation 3D et glow */}
+      {/* Élément central avec rotation 3D et glow bleu/rose */}
       <div className="relative" style={{ perspective: '500px' }}>
         <div 
           className="relative w-16 h-16 rounded-2xl"
           style={{
-            background: 'linear-gradient(135deg, #2F4558, #FF4855, #FFB97C)',
+            background: 'linear-gradient(135deg, #2B5B8A, #ff0f7c, #4A7AA8)',
             animation: 'rotate3D 3s ease-in-out infinite',
             transformStyle: 'preserve-3d',
           }}
         >
-          {/* Glow pulsant */}
+          {/* Glow pulsant bleu/rose */}
           <div 
             className="absolute inset-0 rounded-2xl"
             style={{
-              background: 'linear-gradient(135deg, #2F4558, #FF4855, #FFB97C)',
+              background: 'linear-gradient(135deg, #2B5B8A, #ff0f7c, #4A7AA8)',
               filter: 'blur(15px)',
               animation: 'pulseGlow 1.5s ease-in-out infinite',
             }}
@@ -250,22 +181,23 @@ function ImmersifAnimation() {
           </div>
         </div>
         
-        {/* Cercles qui s'expandent */}
+        {/* Cercles qui s'expandent - bleu et rose */}
         <div 
-          className="absolute inset-0 rounded-2xl border-2 border-secondary"
-          style={{ animation: 'expandRing 2s ease-out infinite' }}
+          className="absolute inset-0 rounded-2xl"
+          style={{ border: '2px solid #4A7AA8', animation: 'expandRing 2s ease-out infinite' }}
         />
         <div 
-          className="absolute inset-0 rounded-2xl border-2 border-accent-orange"
-          style={{ animation: 'expandRing 2s ease-out infinite', animationDelay: '0.5s' }}
+          className="absolute inset-0 rounded-2xl"
+          style={{ border: '2px solid #ff0f7c', animation: 'expandRing 2s ease-out infinite', animationDelay: '0.5s' }}
         />
       </div>
       
-      {/* Lignes qui traversent */}
+      {/* Ligne qui traverse - rose */}
       <div 
-        className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-secondary to-transparent"
+        className="absolute w-full h-[2px]"
         style={{ 
           top: '30%',
+          background: 'linear-gradient(90deg, transparent, #ff0f7c, transparent)',
           animation: 'scanLine 2s linear infinite',
         }}
       />
@@ -280,7 +212,7 @@ function ImmersifAnimation() {
             opacity: 1;
           }
           100% { 
-            transform: translateY(-60px) translateX(${Math.random() > 0.5 ? '' : '-'}${10 + Math.random() * 20}px) scale(0); 
+            transform: translateY(-60px) translateX(10px) scale(0); 
             opacity: 0;
           }
         }
@@ -349,12 +281,10 @@ export default function AnimationLevelStep() {
       
       {/* Titre */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">
-          <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            Quel niveau d&apos;animation souhaitez-vous ?
-          </span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
+          Quel niveau d&apos;animation souhaitez-vous ?
         </h2>
-        <p className="text-white/50 font-light">
+        <p className="text-primary/50 font-light">
           Comparez les 3 styles en temps réel 👇
         </p>
       </div>
@@ -375,10 +305,10 @@ export default function AnimationLevelStep() {
               </div>
               
               {/* Texte */}
-              <h3 className="text-lg font-semibold text-white mb-1 text-center">
+              <h3 className="text-lg font-semibold text-primary mb-1 text-center">
                 {level.label}
               </h3>
-              <p className="text-sm text-white/50 font-light text-center">
+              <p className="text-sm text-primary/50 font-light text-center">
                 {level.description}
               </p>
             </div>
@@ -390,4 +320,5 @@ export default function AnimationLevelStep() {
     </div>
   );
 }
+
 

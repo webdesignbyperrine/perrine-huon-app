@@ -38,7 +38,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const readingTime = estimateReadingTime(demoPost.content);
 
   return (
-    <div className="min-h-screen bg-primary-900">
+    <div className="min-h-screen bg-paper">
       {/* Hero article */}
       <section className="relative min-h-[60vh] flex items-end overflow-hidden">
         {demoPost.cover_image_url && (
@@ -49,23 +49,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               fill
               style={{ objectFit: 'cover' }}
               priority
-              className="opacity-20"
+              className="opacity-40"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-900 via-primary-900/80 to-primary-900/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-paper via-paper/80 to-paper/40" />
           </div>
         )}
 
         <div className="container mx-auto px-4 relative z-10 pb-16 pt-32">
           <div className="max-w-4xl mx-auto">
             {/* Meta */}
-            <div className="flex flex-wrap items-center gap-4 mb-6 text-white/50 text-sm">
+            <div className="flex flex-wrap items-center gap-4 mb-6 text-primary/50 text-sm">
               <time>{formatDate(demoPost.published_at)}</time>
               <span>•</span>
               <span>{readingTime} min de lecture</span>
             </div>
 
             {/* Titre */}
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-primary leading-tight">
               {demoPost.title}
             </h1>
           </div>
@@ -73,60 +73,37 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </section>
 
       {/* Contenu */}
-      <section className="py-20">
+      <section className="py-20 bg-paper">
         <div className="container mx-auto px-4">
           <article 
-            className="max-w-4xl mx-auto prose prose-invert prose-lg prose-headings:text-white prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-12 prose-p:text-white/70 prose-p:leading-relaxed prose-li:text-white/70 prose-strong:text-white"
+            className="max-w-4xl mx-auto prose prose-lg prose-headings:text-primary prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-12 prose-p:text-primary/70 prose-p:leading-relaxed prose-li:text-primary/70 prose-strong:text-primary prose-ul:text-primary/70"
             dangerouslySetInnerHTML={{ __html: demoPost.content }}
           />
         </div>
       </section>
 
       {/* CTA final */}
-      <section className="py-20 bg-primary-800/30">
+      <section className="py-20 bg-paper-light">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto glass-dark rounded-2xl p-12">
-            <h3 className="text-3xl font-bold mb-4 text-white">
+          <div className="max-w-3xl mx-auto bg-white/60 backdrop-blur-sm rounded-2xl p-12 border border-primary/10 shadow-xl">
+            <h3 className="text-3xl font-bold mb-4 text-primary">
               Prêt à booster votre SEO local ?
             </h3>
-            <p className="text-white/70 mb-8 font-light">
+            <p className="text-primary/60 mb-8 font-light">
               Discutons de votre projet et de votre stratégie de référencement local
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/#rdv"
-                className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
+                className="btn-cta"
               >
-                <div 
-                  className="relative flex items-center gap-3 px-10 py-4 rounded-full"
-                  style={{
-                    background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                    boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                    border: '1px solid rgba(255,255,255,0.15)'
-                  }}
-                >
-                  <span className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }} />
-                  <span className="absolute inset-1 rounded-full pointer-events-none overflow-hidden" style={{ background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)', boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)' }}>
-                    <span className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }} />
-                  </span>
-                  <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">Réserver un appel</span>
-                </div>
+                Réserver un appel
               </Link>
               <Link
                 href="/blog"
-                className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
+                className="btn-sketch"
               >
-                <div 
-                  className="relative flex items-center gap-3 px-10 py-4 rounded-full"
-                  style={{
-                    background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                    boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                    border: '1px solid rgba(255,255,255,0.15)'
-                  }}
-                >
-                  <span className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }} />
-                  <span className="relative z-10 text-white/80 group-hover/cta:text-white font-semibold tracking-wider uppercase text-sm transition-colors">← Tous les articles</span>
-                </div>
+                ← Tous les articles
               </Link>
             </div>
           </div>
@@ -135,6 +112,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     </div>
   );
 }
+
 
 
 

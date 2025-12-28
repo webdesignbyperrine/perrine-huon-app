@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <!-- Fibres du papier -->
+    <filter id="paperFibers" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" seed="15" result="noise"/>
+      <feColorMatrix type="saturate" values="0" result="mono"/>
+      <feComponentTransfer result="fibers">
+        <feFuncR type="linear" slope="0.3" intercept="0.6"/>
+        <feFuncG type="linear" slope="0.25" intercept="0.55"/>
+        <feFuncB type="linear" slope="0.15" intercept="0.4"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <!-- Grain fin -->
+    <filter id="fineGrain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" seed="5" result="grain"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.2" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <!-- Plis marqués - grands plis -->
+    <filter id="bigCreases" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="turbulence" baseFrequency="0.003" numOctaves="2" seed="42" result="crease"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.35" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <!-- Plis moyens -->
+    <filter id="mediumCreases" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="3" seed="123" result="crease"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.25" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <!-- Petits plis / froissements -->
+    <filter id="smallCreases" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="4" seed="77" result="crease"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.15" intercept="0"/>
+      </feComponentTransfer>
+    </filter>
+    
+    <!-- Variations de teinte -->
+    <filter id="colorVariation" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="3" seed="8" result="variation"/>
+      <feColorMatrix type="matrix" values="
+        0.1 0 0 0 0.8
+        0.08 0 0 0 0.72
+        0.03 0 0 0 0.58
+        0 0 0 0.15 0
+      "/>
+    </filter>
+  </defs>
+  
+  <!-- Fond de base kraft -->
+  <rect width="800" height="800" fill="#D4C4A8"/>
+  
+  <!-- Couche de fibres -->
+  <rect width="800" height="800" filter="url(#paperFibers)" opacity="1"/>
+  
+  <!-- Variations de couleur -->
+  <rect width="800" height="800" filter="url(#colorVariation)" opacity="0.6"/>
+  
+  <!-- Grands plis marqués (ombres) -->
+  <rect width="800" height="800" filter="url(#bigCreases)" fill="#5C4A32" opacity="0.5"/>
+  
+  <!-- Grands plis marqués (lumières) -->
+  <rect width="800" height="800" filter="url(#bigCreases)" fill="#FFF8E7" opacity="0.25" style="mix-blend-mode: overlay"/>
+  
+  <!-- Plis moyens (ombres) -->
+  <rect width="800" height="800" filter="url(#mediumCreases)" fill="#6B5940" opacity="0.4"/>
+  
+  <!-- Plis moyens (lumières) -->
+  <rect width="800" height="800" filter="url(#mediumCreases)" fill="#FFFEF5" opacity="0.2" style="mix-blend-mode: soft-light"/>
+  
+  <!-- Petits froissements -->
+  <rect width="800" height="800" filter="url(#smallCreases)" fill="#4A3D2A" opacity="0.3"/>
+  
+  <!-- Grain fin par-dessus -->
+  <rect width="800" height="800" filter="url(#fineGrain)" fill="#000" opacity="0.35"/>
+  
+  <!-- Lignes de plis diagonales visibles -->
+  <line x1="0" y1="200" x2="800" y2="350" stroke="#8B7355" stroke-width="1" opacity="0.15"/>
+  <line x1="100" y1="0" x2="700" y2="800" stroke="#8B7355" stroke-width="0.8" opacity="0.12"/>
+  <line x1="500" y1="0" x2="200" y2="800" stroke="#8B7355" stroke-width="1.2" opacity="0.1"/>
+  <line x1="0" y1="600" x2="800" y2="500" stroke="#8B7355" stroke-width="0.6" opacity="0.13"/>
+  
+  <!-- Highlights sur les plis -->
+  <line x1="0" y1="198" x2="800" y2="348" stroke="#FFF8E7" stroke-width="0.5" opacity="0.2"/>
+  <line x1="102" y1="0" x2="702" y2="800" stroke="#FFF8E7" stroke-width="0.5" opacity="0.15"/>
+</svg>

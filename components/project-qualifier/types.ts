@@ -70,7 +70,8 @@ export type Step =
   | 'budget'
   | 'deadline'
   | 'accompagnement'
-  | 'inspirations';
+  | 'inspirations'
+  | 'quote-request';
 
 export const STEPS_ORDER: Step[] = [
   'intro',
@@ -81,7 +82,8 @@ export const STEPS_ORDER: Step[] = [
   'budget',
   'deadline',
   'accompagnement',
-  'inspirations'
+  'inspirations',
+  'quote-request'
 ];
 
 export const STEP_LABELS: Record<Step, string> = {
@@ -93,7 +95,8 @@ export const STEP_LABELS: Record<Step, string> = {
   'budget': 'Budget',
   'deadline': 'Délais',
   'accompagnement': 'Accompagnement',
-  'inspirations': 'Inspirations'
+  'inspirations': 'Inspirations',
+  'quote-request': 'Demande de devis'
 };
 
 // Options de configuration
@@ -125,19 +128,19 @@ export const DESIGN_STYLES: { value: DesignStyle; label: string; description: st
     value: 'minimaliste', 
     label: 'Minimaliste & élégant', 
     description: 'Épuré, raffiné, focus sur l\'essentiel',
-    colors: ['#f5f5f0', '#d4a574', '#a8b5a0', '#2d3436']
+    colors: ['#2d3436', '#a8b5a0', '#d4a574', '#f5f5f0']
   },
   { 
     value: 'moderne', 
     label: 'Moderne & dynamique', 
     description: 'Audacieux, coloré, tendance',
-    colors: ['#6366f1', '#06b6d4', '#84cc16', '#ec4899']
+    colors: ['#6366f1', '#ec4899', '#06b6d4', '#84cc16']
   },
   { 
     value: 'corporate', 
     label: 'Corporate & professionnel', 
     description: 'Sérieux, rassurant, institutionnel',
-    colors: ['#2c3e50', '#3498db', '#1abc9c', '#d4af37']
+    colors: ['#2D5A4A', '#5A7D8C', '#3498db', '#d4af37']
   },
 ];
 
@@ -176,5 +179,6 @@ export const ENCOURAGEMENT_MESSAGES: string[] = [
   'Très bien, on y est presque ! 💪',
   'Beau projet en perspective ! 🌟',
 ];
+
 
 

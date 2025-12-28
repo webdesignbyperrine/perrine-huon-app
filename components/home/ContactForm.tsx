@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
-import SectionDivider from './SectionDivider';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function ContactForm() {
@@ -16,8 +15,6 @@ export default function ContactForm() {
   });
   
   const messageRef = useRef<HTMLTextAreaElement>(null);
-  
-  // Animations au scroll
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [formRef, formVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
@@ -86,88 +83,99 @@ export default function ContactForm() {
     }));
   };
 
-  const inputStyles = "w-full px-5 py-4 bg-primary-800/30 border-2 border-primary-400/20 rounded-2xl text-white placeholder-white/30 focus:outline-none focus:border-secondary/60 focus:bg-primary-800/50 transition-all duration-300";
-  const labelStyles = "block text-white/90 font-medium mb-3 text-sm uppercase tracking-wider";
-
-  // Couleur originale: bg-[#0d1a2d] - Test précédent: bg-[#2b6379], bg-[#72b8af], bg-[#ea5c7a] - Test actuel: bg-[#0d433e]
   return (
-    <section id="contact" className="relative py-24 pb-40 bg-[#0d433e] overflow-hidden">
-      {/* Divider en haut - prend la couleur de cette section (#0d433e) */}
-      <SectionDivider bottomSectionColor="#0d433e" position="top" />
-      {/* Motif grille */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-30"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px),
-            repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px)
-          `
-        }}
-      />
-      {/* Vaguelettes topographiques */}
-      <div 
-        className="absolute top-0 left-0 right-0 h-48 pointer-events-none opacity-50"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='topographic' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 50 Q 25 30 50 50 T 100 50' fill='none' stroke='rgba(107, 142, 200, 0.15)' stroke-width='1'/%3E%3Cpath d='M0 40 Q 25 20 50 40 T 100 40' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3Cpath d='M0 60 Q 25 40 50 60 T 100 60' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23topographic)'/%3E%3C/svg%3E")`
-        }}
-      />
-      <div className="container mx-auto px-4">
+    <section id="contact" className="relative py-24 lg:py-32 bg-paper overflow-hidden">
+      {/* Fond avec texture */}
+      <div className="absolute inset-0 bg-paper-texture opacity-50" />
+      
+      {/* Éléments décoratifs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-20 -right-20 w-64 h-64 border-2 border-primary/5 rounded-full" />
+        <div className="absolute bottom-20 -left-32 w-96 h-96 border-2 border-primary/5 rounded-full" />
+        
+        {/* Vague décorative */}
+        <svg className="absolute bottom-0 left-0 w-full h-20 text-primary/5" viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <path d="M0 50 Q 300 0 600 50 T 1200 50 V 100 H 0 Z" fill="currentColor"/>
+        </svg>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl mx-auto">
+          
           {/* Header */}
-          <div ref={titleRef} className="text-center mb-16">
-            <h2 
-              className={`inline-flex items-center justify-center gap-4 mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-              style={{ fontSize: '42px', fontWeight: 'bold', lineHeight: 1.2 }}
+          <div ref={titleRef} className="text-center mb-12 lg:mb-16">
+            <span 
+              className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             >
-              <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-                Une idée ? Écrivez-moi
-              </span>
+              Parlons de votre projet
+            </span>
+            <h2 
+              className={`flex items-center justify-center gap-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 transition-all duration-700 delay-100 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <span>Une idée ? Écrivez-moi</span>
               <svg 
-                className={`text-secondary flex-shrink-0 transition-all duration-500 delay-300 ${titleVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
-                style={{ width: '40px', height: '40px' }}
+                className={`w-8 h-8 lg:w-10 lg:h-10 text-accent flex-shrink-0 transition-all duration-500 delay-300 ${
+                  titleVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                }`}
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7l-10 6L2 7"/>
               </svg>
             </h2>
-            <p className={`text-lg text-white/60 max-w-lg mx-auto transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <p 
+              className={`text-lg text-primary/60 transition-all duration-700 delay-200 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
               Réponse garantie sous 48h
             </p>
           </div>
 
           {/* Form Card */}
-          <div ref={formRef} className={`relative transition-all duration-700 delay-200 ${formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            {/* Glow effect */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-secondary/20 via-transparent to-secondary/20 rounded-3xl blur-xl opacity-50" />
-            
-            <div className="relative bg-primary-800/20 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 hover:border-white/15 transition-colors duration-300">
+          <div 
+            ref={formRef} 
+            className={`relative transition-all duration-700 delay-200 ${
+              formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+          >
+            <div className="relative bg-paper-light border-2 border-primary/10 rounded-sketch-xl p-8 lg:p-10 shadow-sketch hover:border-primary/20 transition-colors duration-300">
+              
               {status === 'success' ? (
                 <div className="text-center py-8">
-                  <div className="w-20 h-20 mx-auto mb-8 bg-green-500/20 rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 border-2 border-green-500/30 rounded-full flex items-center justify-center">
+                    <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-white">Bien reçu !</h3>
-                  <p className="text-white/60 mb-8">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">Bien reçu !</h3>
+                  <p className="text-primary/60 mb-8">
                     Merci pour votre message. Je vous réponds sous 48h.
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
-                    className="px-8 py-3 bg-secondary/20 hover:bg-secondary/30 text-secondary border border-secondary/30 rounded-xl transition-all duration-300"
+                    className="btn-sketch"
                   >
                     Nouveau message
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-8">
-                  {/* Nom & Email en grid */}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  
+                  {/* Nom & Email */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className={labelStyles}>
-                        Nom complet <span className="text-secondary">*</span>
+                      <label htmlFor="name" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
+                        Nom complet <span className="text-accent">*</span>
                       </label>
                       <input
                         type="text"
@@ -176,14 +184,14 @@ export default function ContactForm() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className={inputStyles}
+                        className="input-sketch w-full"
                         placeholder="Jon Snow"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email" className={labelStyles}>
-                        Email <span className="text-secondary">*</span>
+                      <label htmlFor="email" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
+                        Email <span className="text-accent">*</span>
                       </label>
                       <input
                         type="email"
@@ -192,7 +200,7 @@ export default function ContactForm() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className={inputStyles}
+                        className="input-sketch w-full"
                         placeholder="jon@winterfell.got"
                       />
                     </div>
@@ -200,8 +208,8 @@ export default function ContactForm() {
 
                   {/* Entreprise */}
                   <div>
-                    <label htmlFor="company" className={labelStyles}>
-                      Entreprise <span className="text-white/30">(optionnel)</span>
+                    <label htmlFor="company" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
+                      Entreprise <span className="text-primary/30">(optionnel)</span>
                     </label>
                     <input
                       type="text"
@@ -209,15 +217,15 @@ export default function ContactForm() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className={inputStyles}
-                        placeholder="Maison Stark"
+                      className="input-sketch w-full"
+                      placeholder="Maison Stark"
                     />
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className={labelStyles}>
-                      Votre message <span className="text-secondary">*</span>
+                    <label htmlFor="message" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
+                      Votre message <span className="text-accent">*</span>
                     </label>
                     <textarea
                       ref={messageRef}
@@ -227,13 +235,13 @@ export default function ContactForm() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      className={`${inputStyles} resize-none`}
+                      className="input-sketch w-full resize-none"
                       placeholder="Winter is coming... et mon projet aussi !"
                     />
                   </div>
 
                   {/* Consentement RGPD */}
-                  <div className="flex items-start gap-4 p-4 bg-primary-800/30 rounded-xl border border-primary-400/10">
+                  <div className="flex items-start gap-4 p-4 bg-primary/5 rounded-sketch border-2 border-primary/10">
                     <input
                       type="checkbox"
                       id="consent"
@@ -241,11 +249,11 @@ export default function ContactForm() {
                       required
                       checked={formData.consent}
                       onChange={handleChange}
-                      className="mt-0.5 w-5 h-5 rounded-md border-2 border-primary-400/30 bg-transparent text-secondary focus:ring-secondary focus:ring-offset-0 cursor-pointer"
+                      className="mt-0.5 w-5 h-5 rounded border-2 border-primary/30 bg-transparent text-accent focus:ring-accent focus:ring-offset-0 cursor-pointer"
                     />
-                    <label htmlFor="consent" className="text-white/50 text-sm leading-relaxed cursor-pointer">
+                    <label htmlFor="consent" className="text-primary/50 text-sm leading-relaxed cursor-pointer">
                       J'accepte d'être recontacté(e) par Perrine.{' '}
-                      <a href="/politique-confidentialite" className="text-secondary hover:underline">
+                      <a href="/politique-confidentialite" className="text-accent hover:underline">
                         Politique de confidentialité
                       </a>
                     </label>
@@ -253,60 +261,36 @@ export default function ContactForm() {
 
                   {/* Message d'erreur */}
                   {status === 'error' && (
-                    <div className="p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-300 text-sm">
+                    <div className="p-4 bg-red-50 border-2 border-red-200 rounded-sketch text-red-600 text-sm">
                       {errorMessage}
                     </div>
                   )}
 
-                  {/* Bouton submit - Style tube en verre avec liquide */}
+                  {/* Bouton submit */}
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="group/cta relative w-full transition-transform duration-300 hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                    className="btn-cta btn-cta-pulse w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <div 
-                      className="relative flex items-center justify-center gap-3 w-full py-4 rounded-full"
-                      style={{
-                        background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                        boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                        border: '1px solid rgba(255,255,255,0.15)'
-                      }}
-                    >
-                      {/* Reflet du verre */}
-                      <span 
-                        className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
-                        style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
-                      />
-                      
-                      {/* Liquide - Couleur bleue pour contraster avec le fond vert */}
-                      <span 
-                        className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
-                        style={{
-                          background: 'linear-gradient(180deg, #476787 0%, #2F4558 50%, #1C2A35 100%)',
-                          boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
-                        }}
-                      >
-                        <span 
-                          className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2"
-                          style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }}
-                        />
+                    {status === 'loading' ? (
+                      <span className="flex items-center justify-center gap-3">
+                        <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        Envoi en cours...
                       </span>
-                      
-                      {/* Contenu */}
-                      <span className="relative z-10 text-white font-semibold text-sm uppercase tracking-wider drop-shadow-lg">
-                        {status === 'loading' ? (
-                          <span className="flex items-center justify-center gap-3">
-                            <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                            </svg>
-                            Envoi en cours...
-                          </span>
-                        ) : (
-                          'Envoyer ma demande'
-                        )}
+                    ) : (
+                      <span className="flex items-center gap-2 group">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                        Envoyer ma demande
+                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
                       </span>
-                    </div>
+                    )}
                   </button>
                 </form>
               )}
@@ -315,11 +299,6 @@ export default function ContactForm() {
 
         </div>
       </div>
-      
-      {/* Divider en bas - prend la couleur de la section suivante (#0d1a2d) */}
-      <SectionDivider bottomSectionColor="#0d1a2d" position="bottom" />
     </section>
   );
 }
-
-

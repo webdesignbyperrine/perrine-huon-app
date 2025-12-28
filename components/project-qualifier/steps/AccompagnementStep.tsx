@@ -43,12 +43,10 @@ export default function AccompagnementStep() {
       
       {/* Titre */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">
-          <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            Quel niveau d&apos;accompagnement souhaitez-vous ?
-          </span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
+          Quel niveau d&apos;accompagnement souhaitez-vous ?
         </h2>
-        <p className="text-white/50 font-light">
+        <p className="text-primary/50 font-light">
           Je m&apos;adapte à vos besoins après la livraison
         </p>
       </div>
@@ -67,8 +65,8 @@ export default function AccompagnementStep() {
               <div className={`
                 flex-shrink-0 mt-1 transition-colors duration-300
                 ${data.accompagnement === option.value 
-                  ? 'text-secondary' 
-                  : 'text-white/30 group-hover:text-secondary/60'
+                  ? 'text-accent' 
+                  : 'text-primary/30 group-hover:text-accent/60'
                 }
               `}>
                 {accompagnementIcons[option.value]}
@@ -76,10 +74,10 @@ export default function AccompagnementStep() {
               
               {/* Texte */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-1">
+                <h3 className="text-lg font-semibold text-primary mb-1">
                   {option.label}
                 </h3>
-                <p className="text-sm text-white/50 font-light">
+                <p className="text-sm text-primary/50 font-light">
                   {option.description}
                 </p>
               </div>
@@ -92,5 +90,6 @@ export default function AccompagnementStep() {
     </div>
   );
 }
+
 
 

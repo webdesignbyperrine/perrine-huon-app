@@ -5,7 +5,6 @@ import { useEffect, useState, useRef } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/utils';
 import type { BlogPost } from '@/types/database.types';
-import SectionDivider from './SectionDivider';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 function BlogPreview() {
@@ -123,43 +122,68 @@ function BlogPreview() {
 
   const displayPosts = posts.length > 0 ? posts : demoPosts;
 
-  // Couleur originale: bg-[#0d1a2d] - Test précédent: bg-[#2b6379], bg-[#72b8af], bg-[#ea5c7a] - Test actuel: bg-[#0d433e]
   return (
-    <section id="blog-preview" className="relative py-20 pb-32 bg-[#0d433e] overflow-hidden">
-      {/* Divider en haut - prend la couleur de cette section (#0d433e) */}
-      <SectionDivider bottomSectionColor="#0d433e" position="top" />
-      {/* Motif grille */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-30"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(0deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px),
-            repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(107, 142, 200, 0.05) 50px, rgba(107, 142, 200, 0.05) 51px)
-          `
-        }}
-      />
-      {/* Vaguelettes topographiques */}
-      <div 
-        className="absolute top-0 left-0 right-0 h-48 pointer-events-none opacity-50"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='topographic' x='0' y='0' width='100' height='100' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0 50 Q 25 30 50 50 T 100 50' fill='none' stroke='rgba(107, 142, 200, 0.15)' stroke-width='1'/%3E%3Cpath d='M0 40 Q 25 20 50 40 T 100 40' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3Cpath d='M0 60 Q 25 40 50 60 T 100 60' fill='none' stroke='rgba(107, 142, 200, 0.1)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23topographic)'/%3E%3C/svg%3E")`
-        }}
-      />
-      <div className="container mx-auto px-4">
+    <section id="blog-preview" className="relative py-24 lg:py-32 bg-primary section-dark overflow-hidden">
+      {/* Transition ondulée en haut - beige vers bleu */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 100 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 100 Z" fill="#2B5B8A"/>
+          <path d="M0 0 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 0 Z" fill="#D4C4A8"/>
+        </svg>
+      </div>
+      
+      {/* Fond avec grain */}
+      <div className="absolute inset-0 bg-paper-texture opacity-10" />
+      
+      {/* Éléments décoratifs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <svg className="absolute top-40 right-20 w-8 h-8 text-paper/10" viewBox="0 0 32 32">
+          <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        <svg className="absolute bottom-40 left-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      </div>
+      
+      <div className="container mx-auto px-4 pt-8">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className={`text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              Blog
-            </span>
+          <span 
+            className={`inline-block text-sm font-medium text-paper/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            Actualités & Conseils
+          </span>
+          <h2 
+            className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-paper mb-6 transition-all duration-700 delay-100 ${
+              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            Blog
           </h2>
-          <p className={`text-xl text-white/50 max-w-2xl mx-auto font-light transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <p 
+            className={`text-lg text-paper/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
+              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
             Conseils, astuces et actualités sur le web design, le développement et le SEO local.
           </p>
+          
+          {/* Ligne décorative */}
+          <div 
+            className={`w-24 h-0.5 bg-paper/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
+              titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+            }`}
+          />
         </div>
 
         {loading ? (
           <div className="text-center py-12">
-            <div className="inline-block w-12 h-12 border-4 border-secondary border-t-transparent rounded-full animate-spin" />
+            <div className="inline-block w-12 h-12 border-4 border-paper/20 border-t-paper rounded-full animate-spin" />
           </div>
         ) : (
           <>
@@ -169,7 +193,7 @@ function BlogPreview() {
               <button
                 onClick={goToPrevious}
                 disabled={currentIndex === 0}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed -translate-x-1/2 lg:-translate-x-6"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-paper/10 backdrop-blur-sm border border-paper/20 flex items-center justify-center text-paper hover:bg-paper/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed -translate-x-1/2 lg:-translate-x-6"
                 aria-label="Article précédent"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +204,7 @@ function BlogPreview() {
               <button
                 onClick={() => goToNext(displayPosts.length - 1)}
                 disabled={currentIndex >= displayPosts.length - 1}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed translate-x-1/2 lg:translate-x-6"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-paper/10 backdrop-blur-sm border border-paper/20 flex items-center justify-center text-paper hover:bg-paper/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed translate-x-1/2 lg:translate-x-6"
                 aria-label="Article suivant"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -202,10 +226,10 @@ function BlogPreview() {
                   <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
-                    className="card group overflow-hidden flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[30%] snap-center"
+                    className="group overflow-hidden flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[30%] snap-center bg-paper/5 border border-paper/10 rounded-sketch-lg hover:bg-paper/10 hover:border-paper/20 transition-all duration-300"
                   >
                     {/* Image */}
-                    <div className="relative h-48 -mx-6 -mt-6 mb-6 overflow-hidden rounded-t-2xl">
+                    <div className="relative h-48 overflow-hidden rounded-t-sketch-lg">
                       <div 
                         className="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500"
                         style={{ 
@@ -216,7 +240,7 @@ function BlogPreview() {
                       >
                         {!post.cover_image_url && (
                           <div className="w-full h-full flex items-center justify-center">
-                            <svg className="w-16 h-16 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-16 h-16 text-paper/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
                           </div>
@@ -224,23 +248,26 @@ function BlogPreview() {
                       </div>
                     </div>
 
-                    {/* Meta */}
-                    <div className="flex items-center gap-3 mb-3 text-sm text-white/50">
-                      <time>{formatDate(post.published_at || new Date().toISOString())}</time>
-                    </div>
-
                     {/* Contenu */}
-                    <h3 className="text-xl font-bold mb-3 text-white group-hover:text-secondary transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-white/70 mb-4 line-clamp-3">
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center text-secondary font-semibold group-hover:gap-2 transition-all">
-                      Lire l&apos;article
-                      <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                    <div className="p-6">
+                      {/* Meta */}
+                      <div className="flex items-center gap-3 mb-3 text-sm text-paper/40">
+                        <time>{formatDate(post.published_at || new Date().toISOString())}</time>
+                      </div>
+
+                      {/* Titre */}
+                      <h3 className="text-lg font-bold mb-3 text-paper group-hover:text-accent transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="text-paper/60 mb-4 line-clamp-3 text-sm">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 transition-all">
+                        Lire l&apos;article
+                        <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
                     </div>
                   </Link>
                 ))}
@@ -254,8 +281,8 @@ function BlogPreview() {
                     onClick={() => scrollToIndex(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentIndex 
-                        ? 'bg-secondary w-6' 
-                        : 'bg-white/30 hover:bg-white/50'
+                        ? 'bg-accent w-6' 
+                        : 'bg-paper/30 hover:bg-paper/50'
                     }`}
                     aria-label={`Aller à l'article ${index + 1}`}
                   />
@@ -266,51 +293,29 @@ function BlogPreview() {
             <div ref={ctaRef} className={`text-center mt-12 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               <Link 
                 href="/blog" 
-                className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
+                className="btn-sketch group inline-flex items-center gap-2 !border-paper/30 !text-paper hover:!bg-paper hover:!text-primary"
               >
-                <div 
-                  className="relative flex items-center gap-3 px-10 py-4 rounded-full"
-                  style={{
-                    background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                    boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                    border: '1px solid rgba(255,255,255,0.15)'
-                  }}
-                >
-                  <span 
-                    className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
-                    style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
-                  />
-                  {/* Liquide - Couleur bleue pour contraster avec le fond vert */}
-                  <span 
-                    className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
-                    style={{
-                      background: 'linear-gradient(180deg, #476787 0%, #2F4558 50%, #1C2A35 100%)',
-                      boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
-                    }}
-                  >
-                    <span 
-                      className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2"
-                      style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }}
-                    />
-                  </span>
-                  <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">
-                    Voir tous les articles
-                  </span>
-                </div>
+                <span>Voir tous les articles</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
-
-            {/* Style pour cacher la scrollbar */}
-            <style jsx>{`
-              .scrollbar-hide::-webkit-scrollbar {
-                display: none;
-              }
-            `}</style>
           </>
         )}
       </div>
       
-      {/* Divider en bas - BlogPreview est la dernière section, donc pas de divider en bas */}
+      {/* Transition ondulée en bas - bleu vers beige */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 0 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 0 Z" fill="#2B5B8A"/>
+          <path d="M0 100 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 100 Z" fill="#D4C4A8"/>
+        </svg>
+      </div>
     </section>
   );
 }

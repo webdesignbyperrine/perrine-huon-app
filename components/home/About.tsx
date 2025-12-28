@@ -2,15 +2,14 @@
 
 import Image from 'next/image';
 import { RefObject, useEffect, useRef, useState } from 'react';
-import SectionDivider from './SectionDivider';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const techLogos = [
   { src: '/images/logos/logo_lovable.jpeg', label: 'Lovable', className: 'rounded' },
   { src: '/images/logos/logo_cursor.jpeg', label: 'Cursor', className: 'rounded' },
-  { src: '/images/logos/logo_next-js.svg', label: 'Next.js', className: 'invert' },
+  { src: '/images/logos/logo_next-js.svg', label: 'Next.js', className: '' },
   { src: '/images/logos/logo_supabase.png', label: 'Supabase' },
-  { src: '/images/logos/logo_Vercel.svg', label: 'Vercel', className: 'invert' },
+  { src: '/images/logos/logo_Vercel.svg', label: 'Vercel', className: '' },
   { src: '/images/logos/logo_tailwind.png', label: 'Tailwind' },
 ];
 
@@ -29,7 +28,6 @@ export default function About() {
   const techCarouselRef = useRef<HTMLDivElement>(null);
   const clientCarouselRef = useRef<HTMLDivElement>(null);
   
-  // Animations au scroll
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [contentRef, contentVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [cardsRef, cardsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
@@ -40,7 +38,7 @@ export default function About() {
       if (!container || itemCount <= 1) return;
 
       const mediaQuery = window.matchMedia('(min-width: 640px)');
-      if (mediaQuery.matches) return; // Pas d'autoplay sur desktop
+      if (mediaQuery.matches) return;
 
       const slides = Array.from(container.querySelectorAll<HTMLElement>('[data-slide="true"]'));
       if (!slides.length) return;
@@ -92,272 +90,295 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="relative py-32 pb-40 bg-primary-900 overflow-hidden">
-      {/* Divider en haut - prend la couleur de cette section (#0d1a2d) */}
-      <SectionDivider bottomSectionColor="#0d1a2d" position="top" />
-      {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] animate-glow" />
+    <section id="about" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-primary section-dark overflow-hidden">
+      {/* Transition ondulée en haut - beige vers bleu */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 100 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 100 Z" fill="#2B5B8A"/>
+          <path d="M0 0 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 0 Z" fill="#D4C4A8"/>
+        </svg>
+      </div>
+      
+      {/* Fond avec grain */}
+      <div className="absolute inset-0 bg-paper-texture opacity-10" />
+      
+      {/* Éléments décoratifs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-paper/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[100px]" />
+        
+        {/* Formes décoratives */}
+        <svg className="absolute top-20 left-10 w-8 h-8 text-paper/10" viewBox="0 0 32 32">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        <svg className="absolute bottom-40 right-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
+          <polygon points="12,4 20,20 4,20" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl mx-auto">
+          
           {/* Titre de section */}
-          <div ref={titleRef} className="text-center mb-12 sm:mb-16">
-            <div className={`inline-block transition-all duration-700 ease-out ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mt-4">
-                <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-                  Derrière l'écran
-                </span>
-              </h2>
-              <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-300 ${titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
-              {/* Nom avec même typo que le header */}
-              <p className={`text-2xl sm:text-3xl md:text-4xl font-light tracking-wider mt-8 transition-all duration-700 delay-200 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                <span className="text-white">PERRINE</span>
-                <span className="text-white/40 ml-2 sm:ml-3">HUON</span>
-              </p>
-            </div>
+          <div ref={titleRef} className="text-center mb-12 lg:mb-16">
+            <span 
+              className={`inline-block text-sm font-medium text-paper/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              Qui suis-je
+            </span>
+            <h2 
+              className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-paper mb-6 transition-all duration-700 delay-100 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              Derrière l'écran
+            </h2>
             
-            {/* Photo arrondie centrée */}
-            <div ref={sectionRef} className="relative group mt-12">
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 mx-auto photo-container">
-                {/* Glow effect animé */}
-                <div className="absolute -inset-8 bg-gradient-to-br from-secondary via-accent-red to-accent-orange opacity-30 blur-[80px] group-hover:opacity-40 transition-opacity duration-500 blob-glow" />
-                
-                {/* Photo arrondie avec bordure subtile */}
-                <div className={`relative w-full h-full transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
-                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/10 shadow-2xl">
-                    <Image
-                      src="/images/perrine-huon-creation.webp"
-                      alt="Perrine Huon"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                </div>
+            {/* Ligne décorative */}
+            <div 
+              className={`w-24 h-0.5 bg-paper/20 mx-auto mt-6 transition-all duration-1000 delay-200 ${
+                titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+              }`}
+            />
+            
+            {/* Nom */}
+            <p 
+              className={`text-2xl sm:text-3xl font-light tracking-wider mt-6 transition-all duration-700 delay-300 ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <span className="text-paper">PERRINE</span>
+              <span className="text-paper/40 ml-2">HUON</span>
+            </p>
+          </div>
+
+          {/* Photo */}
+          <div ref={sectionRef} className="relative mb-12 lg:mb-16">
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 mx-auto">
+              {/* Cercle décoratif */}
+              <div className="absolute -inset-4 border-2 border-paper/10 rounded-full" />
+              <div className="absolute -inset-8 border-2 border-paper/5 rounded-full" />
+              
+              {/* Photo */}
+              <div 
+                className={`relative w-full h-full rounded-full overflow-hidden border-4 border-paper/20 shadow-2xl transition-all duration-1000 ${
+                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+                }`}
+              >
+                <Image
+                  src="/images/perrine-huon-creation.webp"
+                  alt="Perrine Huon"
+                  fill
+                  className="object-cover"
+                  priority
+                />
               </div>
             </div>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          {/* Contenu */}
+          <div ref={contentRef} className="max-w-3xl mx-auto text-center space-y-8">
+            <p 
+              className={`text-xl lg:text-2xl font-light text-paper/90 leading-relaxed transition-all duration-700 ${
+                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+            >
+              Je construis des <span className="text-accent font-medium">projets digitaux</span> avec{' '}
+              rigueur, créativité, et beaucoup d'écoute.
+            </p>
+
+            <div 
+              className={`w-16 h-0.5 bg-paper/20 mx-auto transition-all duration-700 delay-150 ${
+                contentVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+              }`}
+            />
+
+            <p 
+              className={`text-lg text-paper/60 leading-relaxed transition-all duration-700 delay-200 ${
+                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+            >
+              Je m'efforce de créer des designs qui ne se démodent pas. 
+              Je mise sur l'<span className="text-paper/90">efficacité</span> et l'optimisation de l'<span className="text-paper/90">expérience utilisateur</span>.
+            </p>
+
+            <p 
+              className={`text-lg text-paper/60 leading-relaxed transition-all duration-700 delay-300 ${
+                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+            >
+              Un beau site, c'est bien. Un site qui vous rapporte des clients, <span className="text-paper/90">c'est mieux</span>.
+              Mon objectif ? Que votre site <span className="text-paper/90">attire</span>,{' '}
+              <span className="text-paper/90">convainque</span>, et <span className="text-accent">convertisse</span>.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div ref={cardsRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12 lg:mt-16">
             
-            <style jsx>{`
-              .photo-container {
-                animation: photo-float 8s ease-in-out infinite;
-              }
-              @keyframes photo-float {
-                0%, 100% {
-                  transform: translateY(0px);
-                }
-                50% {
-                  transform: translateY(-6px);
-                }
-              }
-              .blob-mask {
-                border-radius: 50% 50% 45% 55% / 45% 55% 50% 50%;
-                animation: heartbeat 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-                overflow: hidden;
-              }
-              @keyframes heartbeat {
-                0%, 100% {
-                  border-radius: 50% 50% 45% 55% / 45% 55% 50% 50%;
-                  transform: scale(1);
-                }
-                25% {
-                  border-radius: 45% 55% 50% 50% / 50% 50% 55% 45%;
-                  transform: scale(1.02);
-                }
-                50% {
-                  border-radius: 55% 45% 55% 45% / 55% 45% 50% 50%;
-                  transform: scale(1);
-                }
-                75% {
-                  border-radius: 50% 50% 45% 55% / 50% 55% 45% 50%;
-                  transform: scale(1.01);
-                }
-              }
-              .blob-glow {
-                border-radius: 50%;
-                animation: glow-pulse 4s ease-in-out infinite;
-              }
-              @keyframes glow-pulse {
-                0%, 100% {
-                  opacity: 0.2;
-                  transform: scale(1);
-                }
-                50% {
-                  opacity: 0.35;
-                  transform: scale(1.05);
-                }
-              }
-              .logo-track {
-                scrollbar-width: none;
-              }
-              .logo-track::-webkit-scrollbar {
-                display: none;
-              }
-            `}</style>
-
-            {/* Contenu */}
-            <div ref={contentRef} className="space-y-8 text-center">
-              <div className="space-y-6">
-                <p className={`text-2xl md:text-3xl font-light text-white/90 leading-relaxed transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-                  Je construis des <span className="text-secondary font-normal">projets digitaux</span> avec{' '}
-                  <span className="text-secondary font-normal">rigueur</span>, <span className="text-secondary font-normal">créativité</span>, et beaucoup d'écoute.
-                </p>
-
-                <div className={`w-16 h-[1px] bg-secondary/50 mx-auto transition-all duration-700 delay-150 ${contentVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
-
-                <p className={`text-lg text-white/60 leading-relaxed font-light transition-all duration-700 delay-200 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-                  Je m'efforce de créer des designs qui ne se démodent pas d'une année sur l'autre. 
-                  Je mise sur l'<span className="text-white/90">efficacité</span> et l'optimisation de l'<span className="text-white/90">expérience utilisateur</span>.
-                </p>
-
-                <p className={`text-lg text-white/60 leading-relaxed font-light transition-all duration-700 delay-300 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-                  Un beau site, c'est bien. Un site qui vous rapporte des clients, <span className="text-white/90">c'est mieux</span>.
-                  Mon objectif ? Que votre site travaille pour vous. Qu'il <span className="text-white/90">attire</span>,{' '}
-                  <span className="text-white/90">convainque</span>, et <span className="text-accent-orange">convertisse</span>.
-                </p>
-              </div>
-
-              {/* Cards d'information - flex wrap pour prendre tout l'espace */}
-              <div ref={cardsRef} className="flex flex-wrap gap-4 pt-8">
-                {/* Card 1 - Stack Tech */}
-                <div className={`glass-dark p-5 rounded-xl hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 flex-1 min-w-[280px] ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '0ms' }}>
-                  <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ma stack technique préférée</h4>
-                  <div className="sm:hidden -mx-2">
-                    <div
-                      ref={techCarouselRef}
-                      className="logo-track flex gap-4 overflow-x-auto snap-x snap-mandatory px-2 py-1 touch-pan-x scroll-smooth"
-                    >
-                      {techLogos.map((logo) => (
-                        <div
-                          key={logo.label}
-                          data-slide="true"
-                          className="flex flex-col items-center gap-2 shrink-0 snap-center bg-white/5 rounded-lg px-3 py-3"
-                        >
-                          <img
-                            src={logo.src}
-                            alt={logo.label}
-                            className={`h-12 w-auto object-contain drop-shadow-md ${logo.className ?? ''}`}
-                          />
-                          <span className="text-[11px] text-white/70 font-medium">{logo.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="hidden sm:grid grid-cols-3 gap-x-4 gap-y-3 items-center justify-items-center">
-                    {techLogos.map((logo) => (
-                      <div key={logo.label} className="flex flex-col items-center gap-1 group">
-                        <img
-                          src={logo.src}
-                          alt={logo.label}
-                          className={`h-8 md:h-9 group-hover:scale-110 transition-transform ${logo.className ?? ''}`}
-                        />
-                        <span className="text-[10px] text-white/50">{logo.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Card 2 - Entreprises */}
-                <div className={`glass-dark p-5 rounded-xl hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 flex-1 min-w-[280px] ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '100ms' }}>
-                  <h4 className="text-xs text-white/40 uppercase tracking-wider mb-4">Ils m'ont fait confiance</h4>
-                  <div className="sm:hidden -mx-2">
-                    <div
-                      ref={clientCarouselRef}
-                      className="logo-track flex gap-4 overflow-x-auto snap-x snap-mandatory px-2 py-1 touch-pan-x scroll-smooth"
-                    >
-                      {clientLogos.map((logo) => (
-                        <div
-                          key={logo.label}
-                          data-slide="true"
-                          className="flex flex-col items-center gap-2 shrink-0 snap-center bg-white/5 rounded-lg px-3 py-3"
-                        >
-                          <img
-                            src={logo.src}
-                            alt={logo.label}
-                            className={`h-12 w-auto object-contain drop-shadow-md ${logo.className ?? ''}`}
-                          />
-                          <span className="text-[11px] text-white/70 font-medium">{logo.label}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="hidden sm:grid grid-cols-3 gap-x-4 gap-y-3 items-center justify-items-center">
-                    {clientLogos.map((logo) => (
-                      <div key={logo.label} className="flex flex-col items-center gap-1 group">
-                        <img
-                          src={logo.src}
-                          alt={logo.label}
-                          className={`h-9 md:h-10 group-hover:scale-110 transition-transform ${logo.className ?? ''}`}
-                        />
-                        <span className="text-[10px] text-white/50">{logo.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Card 3 - Spécialités */}
-                <div className={`glass-dark p-5 rounded-xl hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 flex-1 min-w-[280px] ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
-                  <h4 className="text-xs text-white/40 uppercase tracking-wider mb-3">Spécialités</h4>
-                  <div className="flex flex-col gap-3">
-                    <div className="flex items-center gap-2">
-                      {/* Icône Vibe Coding - ondes/vibrations */}
-                      <svg className="w-5 h-5 text-secondary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M2 12h2c1-3 2-5 4-5s3 4 4 5 2 5 4 5 3-2 4-5h2" />
-                        <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
-                      </svg>
-                      <span className="text-white/80 text-sm font-medium">Vibe Coding</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {/* Icône Low/No Code - blocs/puzzle */}
-                      <svg className="w-5 h-5 text-accent-orange flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="3" width="7" height="7" rx="1" />
-                        <rect x="14" y="3" width="7" height="7" rx="1" />
-                        <rect x="3" y="14" width="7" height="7" rx="1" />
-                        <path d="M14 17.5h7M17.5 14v7" />
-                      </svg>
-                      <span className="text-white/80 text-sm font-medium">Low Code & No Code</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      {/* Icône MVP/SaaS/CRM - fusée */}
-                      <svg className="w-5 h-5 text-accent-red flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-                        <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-                        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-                        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-                      </svg>
-                      <span className="text-white/80 text-sm font-medium">MVP / SaaS / CRM</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 4 - LinkedIn */}
-                <a 
-                  href="https://www.linkedin.com/in/perrinehuon/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className={`glass-dark p-5 rounded-xl hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 group flex flex-col items-center justify-center flex-1 min-w-[280px] ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-                  style={{ transitionDelay: '300ms' }}
+            {/* Card Stack Tech */}
+            <div 
+              className={`p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
+                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <h4 className="text-xs text-paper/40 uppercase tracking-wider mb-4">Stack technique</h4>
+              <div className="sm:hidden -mx-2">
+                <div
+                  ref={techCarouselRef}
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-2 py-1 touch-pan-x scroll-smooth scrollbar-hide"
                 >
-                  <h4 className="text-xs text-white/40 uppercase tracking-wider mb-3">En savoir plus</h4>
-                  <div className="flex items-center gap-2">
-                    <svg className="w-6 h-6 text-[#0A66C2] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor" aria-label="LinkedIn">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                    </svg>
-                    <span className="text-white/70 group-hover:text-white text-sm font-medium transition-colors">LinkedIn</span>
+                  {techLogos.map((logo) => (
+                    <div
+                      key={logo.label}
+                      data-slide="true"
+                      className="flex flex-col items-center gap-2 shrink-0 snap-center bg-paper/5 rounded-lg px-3 py-3"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.label}
+                        className={`h-10 w-auto object-contain ${logo.className ?? ''}`}
+                      />
+                      <span className="text-[11px] text-paper/60 font-medium">{logo.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="hidden sm:grid grid-cols-3 gap-3 items-center justify-items-center">
+                {techLogos.map((logo) => (
+                  <div key={logo.label} className="flex flex-col items-center gap-1 group">
+                    <img
+                      src={logo.src}
+                      alt={logo.label}
+                      className={`h-7 group-hover:scale-110 transition-transform ${logo.className ?? ''}`}
+                    />
+                    <span className="text-[10px] text-paper/40">{logo.label}</span>
                   </div>
-                </a>
+                ))}
               </div>
             </div>
+
+            {/* Card Clients */}
+            <div 
+              className={`p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
+                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: '100ms' }}
+            >
+              <h4 className="text-xs text-paper/40 uppercase tracking-wider mb-4">Ils m'ont fait confiance</h4>
+              <div className="sm:hidden -mx-2">
+                <div
+                  ref={clientCarouselRef}
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-2 py-1 touch-pan-x scroll-smooth scrollbar-hide"
+                >
+                  {clientLogos.map((logo) => (
+                    <div
+                      key={logo.label}
+                      data-slide="true"
+                      className="flex flex-col items-center gap-2 shrink-0 snap-center bg-paper/5 rounded-lg px-3 py-3"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.label}
+                        className={`h-10 w-auto object-contain ${logo.className ?? ''}`}
+                      />
+                      <span className="text-[11px] text-paper/60 font-medium">{logo.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="hidden sm:grid grid-cols-3 gap-3 items-center justify-items-center">
+                {clientLogos.map((logo) => (
+                  <div key={logo.label} className="flex flex-col items-center gap-1 group">
+                    <img
+                      src={logo.src}
+                      alt={logo.label}
+                      className={`h-8 group-hover:scale-110 transition-transform ${logo.className ?? ''}`}
+                    />
+                    <span className="text-[10px] text-paper/40">{logo.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Card Spécialités */}
+            <div 
+              className={`p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
+                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: '200ms' }}
+            >
+              <h4 className="text-xs text-paper/40 uppercase tracking-wider mb-4">Spécialités</h4>
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-accent flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M2 12h2c1-3 2-5 4-5s3 4 4 5 2 5 4 5 3-2 4-5h2" />
+                    <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
+                  </svg>
+                  <span className="text-paper/80 text-sm font-medium">Vibe Coding</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-paper/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <path d="M14 17.5h7M17.5 14v7" />
+                  </svg>
+                  <span className="text-paper/80 text-sm font-medium">Low Code & No Code</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <svg className="w-5 h-5 text-paper/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
+                    <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                  </svg>
+                  <span className="text-paper/80 text-sm font-medium">MVP / SaaS / CRM</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card LinkedIn */}
+            <a 
+              href="https://www.linkedin.com/in/perrinehuon/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={`p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-accent/30 hover:bg-paper/10 transition-all duration-300 group flex flex-col items-center justify-center ${
+                cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
+              <h4 className="text-xs text-paper/40 uppercase tracking-wider mb-4">En savoir plus</h4>
+              <div className="flex items-center gap-3">
+                <svg className="w-8 h-8 text-[#0A66C2] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                <span className="text-paper/70 group-hover:text-paper text-sm font-medium transition-colors">LinkedIn</span>
+              </div>
+            </a>
+
           </div>
+
         </div>
       </div>
       
-      {/* Divider en bas - prend la couleur de la section suivante (#0d433e) */}
-      <SectionDivider bottomSectionColor="#0d433e" position="bottom" />
+      {/* Transition ondulée en bas - bleu vers beige */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 0 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 0 Z" fill="#2B5B8A"/>
+          <path d="M0 100 L0 40 Q 200 70 400 40 T 800 40 T 1200 40 T 1600 40 L1600 100 Z" fill="#D4C4A8"/>
+        </svg>
+      </div>
     </section>
   );
 }

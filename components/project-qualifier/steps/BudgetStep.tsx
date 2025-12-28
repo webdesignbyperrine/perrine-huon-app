@@ -30,12 +30,10 @@ export default function BudgetStep() {
       
       {/* Titre */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">
-          <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            Quel est votre budget estimé ?
-          </span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
+          Quel est votre budget estimé ?
         </h2>
-        <p className="text-white/50 font-light">
+        <p className="text-primary/50 font-light">
           Cette information m&apos;aide à adapter ma proposition à vos moyens
         </p>
       </div>
@@ -57,27 +55,27 @@ export default function BudgetStep() {
                     key={i} 
                     className={`w-5 h-5 ${
                       data.budget === budget.value 
-                        ? 'text-secondary' 
-                        : 'text-white/30 group-hover:text-secondary/60'
+                        ? 'text-accent' 
+                        : 'text-primary/30 group-hover:text-accent/60'
                     } transition-colors duration-300`}
                   />
                 ))}
                 {Array.from({ length: 4 - euroCount[budget.value] }).map((_, i) => (
                   <EuroIcon 
                     key={i + euroCount[budget.value]} 
-                    className="w-5 h-5 text-white/10" 
+                    className="w-5 h-5 text-primary/10" 
                   />
                 ))}
               </div>
               
               {/* Texte */}
-              <h3 className="text-lg font-semibold text-white mb-1">
+              <h3 className="text-lg font-semibold text-primary mb-1">
                 {budget.label}
               </h3>
-              <p className="text-secondary text-sm font-medium mb-2">
+              <p className="text-accent text-sm font-medium mb-2">
                 {budget.range}
               </p>
-              <p className="text-sm text-white/40 font-light">
+              <p className="text-sm text-primary/40 font-light">
                 {budget.description}
               </p>
             </div>
@@ -87,7 +85,7 @@ export default function BudgetStep() {
 
       {/* Note de confidentialité */}
       <div className="text-center mt-6">
-        <p className="text-xs text-white/30">
+        <p className="text-xs text-primary/30">
           🔒 Ces informations restent confidentielles et servent uniquement à personnaliser ma proposition
         </p>
       </div>
@@ -96,5 +94,6 @@ export default function BudgetStep() {
     </div>
   );
 }
+
 
 

@@ -18,10 +18,10 @@ export default function DeadlineStep() {
 
   // Couleurs selon l'urgence
   const urgencyColors: Record<Deadline, string> = {
-    urgent: 'text-accent-red',
-    standard: 'text-accent-orange',
-    flexible: 'text-secondary',
-    'pas-contrainte': 'text-accent-blue',
+    urgent: 'text-accent',
+    standard: 'text-accent/80',
+    flexible: 'text-primary',
+    'pas-contrainte': 'text-primary/60',
   };
 
   return (
@@ -30,12 +30,10 @@ export default function DeadlineStep() {
       
       {/* Titre */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-3">
-          <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-            Quels sont vos délais ?
-          </span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
+          Quels sont vos délais ?
         </h2>
-        <p className="text-white/50 font-light">
+        <p className="text-primary/50 font-light">
           Une deadline réaliste permet un travail de qualité
         </p>
       </div>
@@ -55,7 +53,7 @@ export default function DeadlineStep() {
                 flex-shrink-0 transition-colors duration-300
                 ${data.deadline === deadline.value 
                   ? urgencyColors[deadline.value] 
-                  : 'text-white/30 group-hover:text-white/50'
+                  : 'text-primary/30 group-hover:text-primary/50'
                 }
               `}>
                 <ClockIcon className="w-8 h-8" />
@@ -63,10 +61,10 @@ export default function DeadlineStep() {
               
               {/* Texte */}
               <div>
-                <h3 className="text-lg font-semibold text-white mb-1">
+                <h3 className="text-lg font-semibold text-primary mb-1">
                   {deadline.label}
                 </h3>
-                <p className="text-sm text-white/50 font-light">
+                <p className="text-sm text-primary/50 font-light">
                   {deadline.description}
                 </p>
               </div>
@@ -79,5 +77,6 @@ export default function DeadlineStep() {
     </div>
   );
 }
+
 
 

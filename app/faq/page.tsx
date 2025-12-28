@@ -11,10 +11,8 @@ export default function FAQPage() {
   const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  // Animation au montage - on utilise un petit délai pour l'effet d'entrée
   const [isPageMounted, setIsPageMounted] = useState(true);
   
-  // Animation au scroll
   const [faqsRef, faqsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
   const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
@@ -94,19 +92,38 @@ export default function FAQPage() {
     : displayFaqs.filter(f => f.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-primary-900 pt-32 pb-20">
+    <div className="min-h-screen bg-paper-light grain-overlay pt-32 pb-20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className={`text-7xl md:text-8xl font-bold mb-6 transition-all duration-700 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              FAQ
-            </span>
+          <span 
+            className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            Questions fréquentes
+          </span>
+          <h1 
+            className={`text-5xl sm:text-6xl lg:text-7xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            FAQ
           </h1>
-          <p className={`text-xl text-white/50 max-w-3xl mx-auto font-light transition-all duration-700 delay-100 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <p 
+            className={`text-lg text-primary/60 max-w-3xl mx-auto transition-all duration-700 delay-200 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
             Les réponses à vos questions sur mes services, mon processus de travail et le SEO local
           </p>
-          <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-200 ${isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
+          
+          {/* Ligne décorative */}
+          <div 
+            className={`w-24 h-0.5 bg-primary/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
+              isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+            }`}
+          />
         </div>
 
         {/* Filtres par catégorie */}
@@ -117,8 +134,8 @@ export default function FAQPage() {
               onClick={() => setSelectedCategory(cat as string)}
               className={`px-6 py-2 rounded-full text-sm uppercase tracking-wider transition-all duration-300 hover:scale-105 ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-secondary to-accent-red text-white'
-                  : 'glass-dark text-white/60 hover:text-white'
+                  ? 'bg-accent text-white'
+                  : 'bg-primary/5 border-2 border-primary/10 text-primary/60 hover:text-primary hover:border-primary/30'
               }`}
             >
               {cat === 'all' ? 'Toutes' : cat}
@@ -129,25 +146,27 @@ export default function FAQPage() {
         {/* Liste des FAQs */}
         {loading ? (
           <div className="text-center py-20">
-            <div className="inline-block w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
+            <div className="inline-block w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
           </div>
         ) : (
           <div ref={faqsRef} className="max-w-4xl mx-auto space-y-4">
             {filteredFaqs.map((faq, index) => (
               <div 
                 key={faq.id} 
-                className={`glass-dark rounded-2xl p-6 hover:-translate-y-1 transition-all duration-500 ${faqsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`bg-paper border-2 border-primary/10 rounded-sketch-lg p-6 hover:border-primary/20 hover:-translate-y-1 transition-all duration-500 ${
+                  faqsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <button
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                   className="w-full flex items-start justify-between text-left group"
                 >
-                  <h3 className="text-lg md:text-xl font-semibold text-white pr-4 group-hover:text-secondary transition-colors">
+                  <h3 className="text-lg md:text-xl font-semibold text-primary pr-4 group-hover:text-accent transition-colors">
                     {faq.question}
                   </h3>
                   <svg
-                    className={`w-6 h-6 flex-shrink-0 text-secondary transition-transform duration-300 ${
+                    className={`w-6 h-6 flex-shrink-0 text-accent transition-transform duration-300 ${
                       openIndex === index ? 'rotate-180' : ''
                     }`}
                     fill="none"
@@ -162,7 +181,7 @@ export default function FAQPage() {
                     openIndex === index ? 'max-h-96 mt-4' : 'max-h-0'
                   }`}
                 >
-                  <p className="text-white/70 leading-relaxed font-light">
+                  <p className="text-primary/60 leading-relaxed font-light">
                     {faq.answer}
                   </p>
                 </div>
@@ -172,48 +191,36 @@ export default function FAQPage() {
         )}
 
         {/* CTA */}
-        <div ref={ctaRef} className={`text-center mt-16 glass-dark rounded-2xl p-12 max-w-3xl mx-auto hover:bg-white/5 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-2xl font-bold mb-4 text-white">
+        <div 
+          ref={ctaRef} 
+          className={`text-center mt-16 bg-paper border-2 border-primary/10 rounded-sketch-xl p-12 max-w-3xl mx-auto hover:border-primary/20 transition-all duration-700 ${
+            ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
+          <h3 className="text-2xl font-bold mb-4 text-primary">
             Vous n'avez pas trouvé votre réponse ?
           </h3>
-          <p className="text-white/60 mb-8">
+          <p className="text-primary/60 mb-8">
             Contactez-moi directement et je vous répondrai dans les 24h
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contact"
-              className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
+              className="btn-cta group inline-flex items-center gap-2"
             >
-              <div 
-                className="relative flex items-center gap-3 px-10 py-4 rounded-full"
-                style={{
-                  background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                  boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                  border: '1px solid rgba(255,255,255,0.15)'
-                }}
-              >
-                <span className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }} />
-                <span className="absolute inset-1 rounded-full pointer-events-none overflow-hidden" style={{ background: 'linear-gradient(180deg, #476787 0%, var(--secondary) 50%, #1C2A35 100%)', boxShadow: '0 0 20px rgba(47, 69, 88, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)' }}>
-                  <span className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }} />
-                </span>
-                <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">Me contacter</span>
-              </div>
+              <span>Me contacter</span>
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
             </Link>
             <Link
               href="/#rdv"
-              className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
+              className="btn-sketch group inline-flex items-center gap-2"
             >
-              <div 
-                className="relative flex items-center gap-3 px-10 py-4 rounded-full"
-                style={{
-                  background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                  boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                  border: '1px solid rgba(255,255,255,0.15)'
-                }}
-              >
-                <span className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }} />
-                <span className="relative z-10 text-white/80 group-hover/cta:text-white font-semibold tracking-wider uppercase text-sm transition-colors">Réserver un appel</span>
-              </div>
+              <span>Réserver un appel</span>
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
             </Link>
           </div>
         </div>
@@ -221,4 +228,3 @@ export default function FAQPage() {
     </div>
   );
 }
-

@@ -11,10 +11,8 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  // Animation au montage - contenu visible par défaut
   const [isPageMounted, setIsPageMounted] = useState(true);
   
-  // Animation au scroll
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
 
   useEffect(() => {
@@ -89,32 +87,53 @@ export default function BlogPage() {
   const displayPosts = posts.length > 0 ? posts : demoPosts;
 
   return (
-    <div className="min-h-screen bg-primary-900 pt-32 pb-20">
+    <div className="min-h-screen bg-paper-light grain-overlay pt-32 pb-20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className={`text-7xl md:text-8xl font-bold mb-6 transition-all duration-700 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              BLOG
-            </span>
+          <span 
+            className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            Actualités & Conseils
+          </span>
+          <h1 
+            className={`text-5xl sm:text-6xl lg:text-7xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            Blog
           </h1>
-          <p className={`text-xl text-white/50 max-w-3xl mx-auto font-light transition-all duration-700 delay-100 ${isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <p 
+            className={`text-lg text-primary/60 max-w-3xl mx-auto transition-all duration-700 delay-200 ${
+              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
             Conseils, astuces et actualités sur le web design, le développement et le SEO local
           </p>
-          <div className={`w-24 h-[1px] bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto mt-8 transition-all duration-1000 delay-200 ${isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'}`} />
+          
+          {/* Ligne décorative */}
+          <div 
+            className={`w-24 h-0.5 bg-primary/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
+              isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+            }`}
+          />
         </div>
 
         {loading ? (
           <div className="text-center py-20">
-            <div className="inline-block w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
+            <div className="inline-block w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
           </div>
         ) : (
-          <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
             {displayPosts.map((post, index) => (
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className={`group glass-dark rounded-2xl overflow-hidden hover:bg-white/5 hover:-translate-y-2 transition-all duration-500 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`group bg-paper border-2 border-primary/10 rounded-sketch-lg overflow-hidden hover:border-primary/30 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-500 ${
+                  gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Image */}
@@ -128,34 +147,37 @@ export default function BlogPage() {
                       className="transform group-hover:scale-110 transition-transform duration-500"
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-900 to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-paper to-transparent opacity-60" />
                 </div>
 
                 {/* Contenu */}
                 <div className="p-6">
                   {/* Meta */}
-                  <div className="flex items-center gap-3 mb-3 text-sm text-white/50">
+                  <div className="flex items-center gap-3 mb-3 text-sm text-primary/40">
                     <time>{formatDate(post.published_at || new Date().toISOString())}</time>
                   </div>
 
                   {/* Titre */}
-                  <h2 className="text-xl font-bold mb-3 text-white group-hover:text-secondary transition-colors">
+                  <h2 className="text-xl font-bold mb-3 text-primary group-hover:text-accent transition-colors">
                     {post.title}
                   </h2>
 
                   {/* Extrait */}
-                  <p className="text-white/60 text-sm leading-relaxed line-clamp-3">
+                  <p className="text-primary/60 text-sm leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
 
                   {/* Lire plus */}
-                  <div className="flex items-center text-secondary font-semibold mt-4 text-sm group-hover:gap-2 transition-all">
+                  <div className="flex items-center text-accent font-semibold mt-4 text-sm group-hover:gap-2 transition-all">
                     Lire l'article
                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
                 </div>
+                
+                {/* Barre de progression au hover */}
+                <div className="absolute bottom-0 left-0 w-0 h-1 bg-accent group-hover:w-full transition-all duration-500" />
               </Link>
             ))}
           </div>
@@ -163,30 +185,22 @@ export default function BlogPage() {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <a
-            href="/#calendly"
-            className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
+          <Link
+            href="/#rdv"
+            className="btn-cta group inline-flex items-center gap-3"
           >
-            <div 
-              className="relative flex items-center gap-3 px-12 py-5 rounded-full"
-              style={{
-                background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                border: '1px solid rgba(255,255,255,0.15)'
-              }}
+            <span>Parlons de votre projet</span>
+            <svg 
+              className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
             >
-              <span className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }} />
-              <span className="absolute inset-1 rounded-full pointer-events-none overflow-hidden" style={{ background: 'linear-gradient(180deg, #5A8F6A 0%, #4A7C59 50%, #3A6347 100%)', boxShadow: '0 0 20px rgba(74, 124, 89, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)' }}>
-                <span className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }} />
-              </span>
-              <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">Parlons de votre projet</span>
-            </div>
-          </a>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </div>
   );
 }
-
-
-

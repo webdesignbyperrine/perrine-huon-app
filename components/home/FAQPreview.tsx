@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { FAQ } from '@/types/database.types';
-import SectionDivider from './SectionDivider';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function FAQPreview() {
@@ -67,24 +66,55 @@ export default function FAQPreview() {
   const displayFaqs = faqs.length > 0 ? faqs : demoFaqs;
 
   return (
-    <section id="faq-preview" className="relative py-20 pb-32 bg-primary-900">
-      {/* Divider en haut - prend la couleur de cette section (#0d1a2d) */}
-      <SectionDivider bottomSectionColor="#0d1a2d" position="top" />
-      <div className="container mx-auto px-4">
+    <section id="faq-preview" className="relative py-24 lg:py-32 bg-paper-light grain-overlay overflow-hidden">
+      {/* Éléments décoratifs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-20 -right-20 w-64 h-64 border-2 border-primary/5 rounded-full" />
+        <div className="absolute bottom-20 -left-32 w-96 h-96 border-2 border-primary/5 rounded-full" />
+        
+        <svg className="absolute top-20 left-10 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
+          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+        <svg className="absolute bottom-40 right-20 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
+          <polygon points="12,4 20,20 4,20" fill="none" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div ref={titleRef} className="text-center mb-16">
-          <h2 className={`text-4xl sm:text-5xl md:text-7xl font-bold mt-4 mb-6 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-              FAQ
-            </span>
+          <span 
+            className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
+            Questions fréquentes
+          </span>
+          <h2 
+            className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
+              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            FAQ
           </h2>
-          <p className={`text-xl text-white/50 max-w-2xl mx-auto font-light transition-all duration-700 delay-100 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <p 
+            className={`text-lg text-primary/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
+              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+          >
             Les réponses aux questions les plus courantes sur mes services et mon processus de travail.
           </p>
+          
+          {/* Ligne décorative */}
+          <div 
+            className={`w-24 h-0.5 bg-primary/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
+              titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+            }`}
+          />
         </div>
 
         {loading ? (
           <div className="text-center py-12">
-            <div className="inline-block w-12 h-12 border-4 border-secondary border-t-transparent rounded-full animate-spin" />
+            <div className="inline-block w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
           </div>
         ) : (
           <>
@@ -92,18 +122,20 @@ export default function FAQPreview() {
               {displayFaqs.map((faq, index) => (
                 <div 
                   key={faq.id} 
-                  className={`card hover:-translate-y-1 transition-all duration-500 ${faqsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  className={`bg-paper border-2 border-primary/10 rounded-sketch-lg p-6 hover:border-primary/20 hover:-translate-y-1 transition-all duration-500 ${
+                    faqsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <button
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    className="w-full flex items-center justify-between text-left"
+                    className="w-full flex items-center justify-between text-left group"
                   >
-                    <h3 className="text-lg md:text-xl font-semibold text-white pr-4">
+                    <h3 className="text-lg md:text-xl font-semibold text-primary pr-4 group-hover:text-accent transition-colors">
                       {faq.question}
                     </h3>
                     <svg
-                      className={`w-6 h-6 flex-shrink-0 text-secondary transition-transform duration-300 ${
+                      className={`w-6 h-6 flex-shrink-0 text-accent transition-transform duration-300 ${
                         openIndex === index ? 'rotate-180' : ''
                       }`}
                       fill="none"
@@ -118,7 +150,7 @@ export default function FAQPreview() {
                       openIndex === index ? 'max-h-96 mt-4' : 'max-h-0'
                     }`}
                   >
-                    <p className="text-white/70 leading-relaxed">
+                    <p className="text-primary/60 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -129,49 +161,17 @@ export default function FAQPreview() {
             <div ref={ctaRef} className={`text-center mt-12 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               <Link 
                 href="/faq" 
-                className="group/cta relative inline-block transition-transform duration-300 hover:scale-[1.02]"
+                className="btn-sketch group inline-flex items-center gap-2"
               >
-                <div 
-                  className="relative flex items-center gap-3 px-10 py-4 rounded-full"
-                  style={{
-                    background: 'linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.1) 100%)',
-                    boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.3), inset 0 -1px 2px rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.2)',
-                    border: '1px solid rgba(255,255,255,0.15)'
-                  }}
-                >
-                  <span 
-                    className="absolute top-0 left-6 right-6 h-2 rounded-t-full pointer-events-none"
-                    style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.2) 0%, transparent 100%)' }}
-                  />
-                  {/* Liquide - Couleur verte pour contraster avec le fond bleu */}
-                  <span 
-                    className="absolute inset-1 rounded-full pointer-events-none overflow-hidden"
-                    style={{
-                      background: 'linear-gradient(180deg, #1a6b5a 0%, #0d433e 50%, #082b27 100%)',
-                      boxShadow: '0 0 20px rgba(13, 67, 62, 0.6), inset 0 2px 4px rgba(255,255,255,0.3), inset 0 -2px 4px rgba(0,0,0,0.2)'
-                    }}
-                  >
-                    <span 
-                      className="absolute top-1 left-6 right-6 h-2 rounded-full transition-transform duration-500 group-hover/cta:translate-x-2"
-                      style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 30%, rgba(255,255,255,0.4) 70%, transparent 100%)' }}
-                    />
-                  </span>
-                  <span className="relative z-10 text-white font-semibold tracking-wider uppercase text-sm drop-shadow-lg">
-                    Voir toutes les questions
-                  </span>
-                </div>
+                <span>Voir toutes les questions</span>
+                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </Link>
             </div>
           </>
         )}
       </div>
-      
-      {/* Divider en bas - prend la couleur de la section suivante (#0d433e) */}
-      <SectionDivider bottomSectionColor="#0d433e" position="bottom" />
     </section>
   );
 }
-
-
-
-
