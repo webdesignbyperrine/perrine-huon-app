@@ -107,7 +107,7 @@ export function MultiSelectCard({
         `}
         style={{ backgroundColor: '#e8e2d6' }}
       >
-        {selected && <CheckIcon className="w-3 h-3" style={{ color: '#ff0f7c' }} />}
+        {selected && <CheckIcon className="w-3 h-3 text-accent" />}
       </div>
 
       {children}
