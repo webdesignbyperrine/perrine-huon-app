@@ -16,9 +16,6 @@ const techLogos = [
 const clientLogos = [
   { src: '/images/logos/Logo_Adeo.png', label: 'Adeo' },
   { src: '/images/logos/logo_leroymerlin.jpg', label: 'Leroy Merlin', className: 'rounded bg-white p-1' },
-  { src: '/images/logos/logo_michel-lafon.png', label: 'Michel Lafon' },
-  { src: '/images/logos/logo_education-nationale.png', label: 'Éducation Nat.' },
-  { src: '/images/logos/logo_Axa.png', label: 'Axa' },
   { src: '/images/logos/logo_coworkmeet.png', label: 'CoworkMeet', className: 'rounded' },
 ];
 
