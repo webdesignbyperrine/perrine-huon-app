@@ -108,14 +108,33 @@ export default function PortfolioPreview() {
       {/* Fond avec texture */}
       <div className="absolute inset-0 bg-paper-texture opacity-50 z-0" />
       
-      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <svg className="absolute top-40 right-20 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
-          <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-        <svg className="absolute bottom-48 left-1/4 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
+      {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Grande forme floue - extrême haut gauche (déborde) */}
+        <div 
+          className="absolute -top-40 -left-40 w-[380px] h-[380px] rounded-full opacity-[0.08]"
+          style={{
+            background: 'radial-gradient(circle, var(--primary-blue) 0%, transparent 65%)',
+          }}
+        />
+        
+        {/* Forme floue accent - extrême bas droite (déborde) */}
+        <div 
+          className="absolute bottom-[5%] -right-36 w-72 h-72 rounded-full opacity-[0.07]"
+          style={{
+            background: 'radial-gradient(circle, var(--accent-pink) 0%, transparent 60%)',
+          }}
+        />
+        
+        {/* Cercle contour - extrême droite (majoritairement caché) */}
+        <div 
+          className="absolute top-[30%] -right-32 w-44 h-44 rounded-full border-2 border-primary/10"
+        />
+        
+        {/* Cercle contour - extrême gauche bas (majoritairement caché) */}
+        <div 
+          className="absolute bottom-[20%] -left-24 w-32 h-32 rounded-full border border-primary/8"
+        />
       </div>
       
       {/* Transition ondulée en bas - vers bleu */}

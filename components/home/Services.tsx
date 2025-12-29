@@ -79,15 +79,28 @@ export default function Services() {
 
   return (
     <section id="services" className="relative pt-24 lg:pt-32 pb-32 lg:pb-40 bg-paper-light grain-overlay overflow-hidden">
-      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Formes géométriques subtiles - entièrement visibles */}
-        <svg className="absolute top-32 left-10 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
-          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-        <svg className="absolute bottom-48 right-20 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
-          <polygon points="12,4 20,20 4,20" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
+      {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Grande forme circulaire floue - extrême gauche (déborde) */}
+        <div 
+          className="absolute top-[10%] -left-48 w-[400px] h-[400px] rounded-full opacity-[0.08]"
+          style={{
+            background: 'radial-gradient(circle, var(--primary-blue) 0%, transparent 65%)',
+          }}
+        />
+        
+        {/* Cercle contour - extrême droite haut (majoritairement caché) */}
+        <div 
+          className="absolute top-24 -right-32 w-40 h-40 rounded-full border-2 border-primary/12"
+        />
+        
+        {/* Forme floue accent - extrême droite bas (déborde) */}
+        <div 
+          className="absolute bottom-[20%] -right-40 w-72 h-72 rounded-full opacity-[0.06]"
+          style={{
+            background: 'radial-gradient(circle, var(--accent-pink) 0%, transparent 60%)',
+          }}
+        />
       </div>
       
       {/* Transition ondulée en bas - vers bleu */}
@@ -183,7 +196,7 @@ export default function Services() {
           >
             <a
               href="#contact"
-              className="btn-cta group inline-flex items-center gap-3"
+              className="btn-cta btn-cta-pulse group inline-flex items-center gap-3"
             >
               <span>Discuter de mon projet</span>
               <svg 

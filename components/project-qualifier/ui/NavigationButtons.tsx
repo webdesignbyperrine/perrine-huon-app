@@ -72,7 +72,7 @@ export default function NavigationButtons({
         {canGoNext() && (
           <button
             onClick={handleNext}
-            className="btn-cta group inline-flex items-center gap-2"
+            className="btn-cta btn-cta-pulse group inline-flex items-center gap-2"
           >
             <span>{buttonLabel}</span>
             <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

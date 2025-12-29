@@ -240,7 +240,7 @@ export default function QuoteRequestStep() {
                 }
               }}
               disabled={!email}
-              className="w-full btn-cta py-4 text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed group"
+              className="w-full btn-cta btn-cta-pulse py-4 text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed group"
             >
               <span>Continuer</span>
               <svg className="w-5 h-5 inline-block ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -401,7 +401,7 @@ export default function QuoteRequestStep() {
           <button
             onClick={handleSubmit}
             disabled={!firstName || !lastName || isSubmitting}
-            className="w-full btn-cta py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full btn-cta btn-cta-pulse py-4 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center gap-2">

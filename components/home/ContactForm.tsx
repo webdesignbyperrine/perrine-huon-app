@@ -99,14 +99,33 @@ export default function ContactForm() {
       {/* Fond avec texture */}
       <div className="absolute inset-0 bg-paper-texture opacity-50 z-0" />
       
-      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <svg className="absolute top-40 right-20 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
-          <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-        <svg className="absolute bottom-48 left-20 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
+      {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Grande forme floue - extrême droite (déborde) */}
+        <div 
+          className="absolute top-[20%] -right-40 w-[350px] h-[350px] rounded-full opacity-[0.1]"
+          style={{
+            background: 'radial-gradient(circle, var(--primary-blue) 0%, transparent 65%)',
+          }}
+        />
+        
+        {/* Forme floue accent - extrême gauche (déborde) */}
+        <div 
+          className="absolute bottom-[15%] -left-36 w-64 h-64 rounded-full opacity-[0.08]"
+          style={{
+            background: 'radial-gradient(circle, var(--accent-pink) 0%, transparent 60%)',
+          }}
+        />
+        
+        {/* Cercle contour - extrême gauche haut (majoritairement caché) */}
+        <div 
+          className="absolute top-[25%] -left-28 w-36 h-36 rounded-full border-2 border-primary/12"
+        />
+        
+        {/* Cercle contour - extrême droite bas (majoritairement caché) */}
+        <div 
+          className="absolute bottom-[30%] -right-20 w-28 h-28 rounded-full border border-primary/10"
+        />
       </div>
       
       {/* Transition ondulée en bas - vers beige-light */}

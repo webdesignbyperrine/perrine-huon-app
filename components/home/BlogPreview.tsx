@@ -129,14 +129,23 @@ function BlogPreview() {
       {/* Fond avec grain */}
       <div className="absolute inset-0 bg-paper-texture opacity-10 z-0" />
       
-      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <svg className="absolute top-40 right-20 w-8 h-8 text-paper/10" viewBox="0 0 32 32">
-          <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-        <svg className="absolute bottom-48 left-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
+      {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Grande forme floue - extrême gauche (déborde) */}
+        <div className="absolute top-[10%] -left-40 w-80 h-80 bg-paper/8 rounded-full blur-[80px]" />
+        
+        {/* Forme floue accent - extrême droite (déborde) */}
+        <div className="absolute bottom-[15%] -right-36 w-64 h-64 bg-accent/8 rounded-full blur-[70px]" />
+        
+        {/* Cercle contour - extrême droite (majoritairement caché) */}
+        <div 
+          className="absolute top-[20%] -right-32 w-40 h-40 rounded-full border-2 border-paper/10"
+        />
+        
+        {/* Cercle contour - extrême gauche bas (majoritairement caché) */}
+        <div 
+          className="absolute bottom-[20%] -left-24 w-32 h-32 rounded-full border border-paper/10"
+        />
       </div>
       
       <div className="container mx-auto px-4 pt-8">

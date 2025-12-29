@@ -67,11 +67,33 @@ export default function FAQPreview() {
 
   return (
     <section id="faq-preview" className="relative pt-24 lg:pt-32 pb-32 lg:pb-40 bg-paper-light grain-overlay overflow-hidden">
-      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <svg className="absolute top-32 left-10 w-8 h-8 text-primary/10" viewBox="0 0 32 32">
-          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
+      {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Grande forme floue - extrême droite (déborde) */}
+        <div 
+          className="absolute top-[15%] -right-40 w-[380px] h-[380px] rounded-full opacity-[0.09]"
+          style={{
+            background: 'radial-gradient(circle, var(--primary-blue) 0%, transparent 65%)',
+          }}
+        />
+        
+        {/* Forme floue accent - extrême bas gauche (déborde) */}
+        <div 
+          className="absolute bottom-[5%] -left-36 w-64 h-64 rounded-full opacity-[0.07]"
+          style={{
+            background: 'radial-gradient(circle, var(--accent-pink) 0%, transparent 60%)',
+          }}
+        />
+        
+        {/* Cercle contour - extrême gauche (majoritairement caché) */}
+        <div 
+          className="absolute top-[25%] -left-32 w-40 h-40 rounded-full border-2 border-primary/12"
+        />
+        
+        {/* Cercle contour - extrême droite bas (majoritairement caché) */}
+        <div 
+          className="absolute bottom-[20%] -right-28 w-36 h-36 rounded-full border border-primary/10"
+        />
         <svg className="absolute bottom-48 right-20 w-6 h-6 text-primary/10" viewBox="0 0 24 24">
           <polygon points="12,4 20,20 4,20" fill="none" stroke="currentColor" strokeWidth="2"/>
         </svg>

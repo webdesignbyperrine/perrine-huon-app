@@ -16,14 +16,23 @@ export default function CalendlySection() {
       {/* Fond avec grain */}
       <div className="absolute inset-0 bg-paper-texture opacity-10 z-0" />
       
-      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <svg className="absolute top-40 right-20 w-8 h-8 text-paper/10" viewBox="0 0 32 32">
-          <polygon points="16,4 28,28 4,28" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-        <svg className="absolute bottom-48 left-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
+      {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Grande forme floue - extrême droite (déborde) */}
+        <div className="absolute -top-20 -right-40 w-80 h-80 bg-paper/8 rounded-full blur-[80px]" />
+        
+        {/* Forme floue accent - extrême gauche (déborde) */}
+        <div className="absolute bottom-[10%] -left-36 w-64 h-64 bg-accent/8 rounded-full blur-[70px]" />
+        
+        {/* Cercle contour - extrême gauche (majoritairement caché) */}
+        <div 
+          className="absolute top-[20%] -left-28 w-36 h-36 rounded-full border-2 border-paper/10"
+        />
+        
+        {/* Cercle contour - extrême droite (majoritairement caché) */}
+        <div 
+          className="absolute bottom-[30%] -right-20 w-28 h-28 rounded-full border border-paper/8"
+        />
       </div>
 
       <div className="container mx-auto px-4 pt-8">
@@ -99,21 +108,19 @@ export default function CalendlySection() {
               href={calendlyUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-cta btn-cta-pulse group inline-flex items-center gap-3"
+              className="btn-cta btn-cta-ring group inline-flex items-center gap-3"
             >
-              {/* Icône calendrier */}
+              {/* Icône téléphone animée */}
               <svg 
-                className="w-5 h-5" 
+                className="w-5 h-5 icon-ring" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
+                strokeWidth={2}
+                strokeLinecap="round" 
+                strokeLinejoin="round"
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" 
-                />
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
               </svg>
               
               <span>Réserver un créneau</span>

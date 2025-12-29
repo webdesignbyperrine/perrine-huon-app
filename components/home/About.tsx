@@ -93,18 +93,23 @@ export default function About() {
       {/* Fond avec grain */}
       <div className="absolute inset-0 bg-paper-texture opacity-10 z-0" />
       
-      {/* Éléments décoratifs - z-index 0 pour rester en arrière-plan */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-paper/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-[100px]" />
+      {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Grande forme floue - extrême haut droite (déborde) */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-paper/8 rounded-full blur-[100px]" />
         
-        {/* Formes décoratives subtiles */}
-        <svg className="absolute top-32 left-10 w-8 h-8 text-paper/10" viewBox="0 0 32 32">
-          <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-        <svg className="absolute bottom-48 right-20 w-6 h-6 text-paper/10" viewBox="0 0 24 24">
-          <polygon points="12,4 20,20 4,20" fill="none" stroke="currentColor" strokeWidth="2"/>
-        </svg>
+        {/* Grande forme floue accent - extrême bas gauche (déborde) */}
+        <div className="absolute -bottom-48 -left-48 w-80 h-80 bg-accent/8 rounded-full blur-[90px]" />
+        
+        {/* Cercle contour - extrême gauche (majoritairement caché) */}
+        <div 
+          className="absolute top-[15%] -left-32 w-40 h-40 rounded-full border-2 border-paper/10"
+        />
+        
+        {/* Cercle contour - extrême droite (majoritairement caché) */}
+        <div 
+          className="absolute top-[40%] -right-24 w-28 h-28 rounded-full border border-paper/8"
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

@@ -41,8 +41,32 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen bg-paper-light grain-overlay overflow-hidden">
+      {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+        {/* Grande forme circulaire floue - extrême haut droite (déborde largement) */}
+        <div 
+          className="absolute -top-40 -right-40 w-[450px] h-[450px] rounded-full opacity-[0.12]"
+          style={{
+            background: 'radial-gradient(circle, var(--primary-blue) 0%, transparent 70%)',
+          }}
+        />
+        
+        {/* Cercle contour - extrême gauche (majorité cachée) */}
+        <div 
+          className="absolute top-[25%] -left-36 w-48 h-48 rounded-full border-2 border-primary/15"
+        />
+        
+        {/* Forme floue accent - extrême bas gauche (déborde largement) */}
+        <div 
+          className="absolute -bottom-40 -left-32 w-64 h-64 rounded-full opacity-[0.08]"
+          style={{
+            background: 'radial-gradient(circle, var(--accent-pink) 0%, transparent 60%)',
+          }}
+        />
+      </div>
+
       {/* Lignes décoratives - courbe de transition */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
         <svg 
           className="absolute left-0 w-full h-32 text-primary lg:bottom-[5vh] bottom-0" 
           preserveAspectRatio="none"
