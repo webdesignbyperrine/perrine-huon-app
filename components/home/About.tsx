@@ -212,15 +212,15 @@ export default function About() {
           </div>
 
           {/* Cards */}
-          <div ref={cardsRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12 lg:mt-16">
+          <div ref={cardsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-12 lg:mt-16">
             
             {/* Card Stack Tech */}
             <div 
-              className={`p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
+              className={`col-span-2 sm:col-span-1 p-4 sm:p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
                 cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h4 className="text-xs text-paper/40 uppercase tracking-wider mb-4">Stack technique</h4>
+              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">Stack technique</h4>
               <div className="sm:hidden -mx-2">
                 <div
                   ref={techCarouselRef}
@@ -258,12 +258,12 @@ export default function About() {
 
             {/* Card Clients */}
             <div 
-              className={`p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
+              className={`col-span-2 sm:col-span-1 p-4 sm:p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
                 cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              <h4 className="text-xs text-paper/40 uppercase tracking-wider mb-4">Ils m'ont fait confiance</h4>
+              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">Ils m'ont fait confiance</h4>
               <div className="sm:hidden -mx-2">
                 <div
                   ref={clientCarouselRef}
@@ -301,37 +301,37 @@ export default function About() {
 
             {/* Card Spécialités */}
             <div 
-              className={`p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
+              className={`p-4 sm:p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-paper/20 hover:bg-paper/10 transition-all duration-300 ${
                 cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: '200ms' }}
             >
-              <h4 className="text-xs text-paper/40 uppercase tracking-wider mb-4">Spécialités</h4>
-              <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-accent flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">Spécialités</h4>
+              <div className="flex flex-col gap-2 sm:gap-3">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 12h2c1-3 2-5 4-5s3 4 4 5 2 5 4 5 3-2 4-5h2" />
                     <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
                   </svg>
-                  <span className="text-paper/80 text-sm font-medium">Vibe Coding</span>
+                  <span className="text-paper/80 text-xs sm:text-sm font-medium">Vibe Coding</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-paper/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-paper/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="7" height="7" rx="1" />
                     <rect x="14" y="3" width="7" height="7" rx="1" />
                     <rect x="3" y="14" width="7" height="7" rx="1" />
                     <path d="M14 17.5h7M17.5 14v7" />
                   </svg>
-                  <span className="text-paper/80 text-sm font-medium">Low Code & No Code</span>
+                  <span className="text-paper/80 text-xs sm:text-sm font-medium">Low Code & No Code</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-paper/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-paper/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
                     <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
                     <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
                     <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
                   </svg>
-                  <span className="text-paper/80 text-sm font-medium">MVP / SaaS / CRM</span>
+                  <span className="text-paper/80 text-xs sm:text-sm font-medium">MVP / SaaS / CRM</span>
                 </div>
               </div>
             </div>
@@ -341,17 +341,17 @@ export default function About() {
               href="https://www.linkedin.com/in/perrinehuon/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-accent/30 hover:bg-paper/10 transition-all duration-300 group flex flex-col items-center justify-center ${
+              className={`p-4 sm:p-6 bg-paper/5 border-2 border-paper/10 rounded-sketch-lg hover:border-accent/30 hover:bg-paper/10 transition-all duration-300 group flex flex-col items-center justify-center ${
                 cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: '300ms' }}
             >
-              <h4 className="text-xs text-paper/40 uppercase tracking-wider mb-4">En savoir plus</h4>
-              <div className="flex items-center gap-3">
-                <svg className="w-8 h-8 text-[#0A66C2] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
+              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">En savoir plus</h4>
+              <div className="flex items-center gap-2 sm:gap-3">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#0A66C2] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                 </svg>
-                <span className="text-paper/70 group-hover:text-paper text-sm font-medium transition-colors">LinkedIn</span>
+                <span className="text-paper/70 group-hover:text-paper text-xs sm:text-sm font-medium transition-colors">LinkedIn</span>
               </div>
             </a>
 
