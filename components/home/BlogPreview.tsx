@@ -24,7 +24,7 @@ function BlogPreview() {
       const { data, error } = await supabase
         .from('blog_posts')
         .select('*')
-        .eq('is_published', true)
+        .eq('published', true)
         .order('published_at', { ascending: false })
         .limit(6);
 
@@ -75,6 +75,7 @@ function BlogPreview() {
       title: 'SEO Local 2026 : Comment dominer les recherches géolocalisées',
       slug: 'seo-local-referencement-geolocalisé-2026',
       excerpt: 'Google My Business, citations locales, avis clients... Le guide complet pour être visible dans votre ville et attirer des clients qualifiés près de chez vous.',
+      featured_image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
       published_at: '2025-12-17T10:00:00Z',
     },
@@ -83,6 +84,7 @@ function BlogPreview() {
       title: 'Tendances Web Design 2026 : Ce qui va tout changer',
       slug: 'tendances-web-design-2026',
       excerpt: 'IA générative, interfaces immersives, micro-interactions... Découvrez les tendances qui vont redéfinir le web design en 2026.',
+      featured_image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800',
       published_at: '2025-12-15T10:00:00Z',
     },
@@ -91,6 +93,7 @@ function BlogPreview() {
       title: 'Performance web : Pourquoi la vitesse de votre site impacte vos ventes',
       slug: 'performance-web-vitesse-site-conversion',
       excerpt: 'Core Web Vitals, temps de chargement, expérience utilisateur... Chaque seconde compte. Découvrez comment optimiser votre site pour convertir plus.',
+      featured_image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
       published_at: '2025-12-12T10:00:00Z',
     },
@@ -99,6 +102,7 @@ function BlogPreview() {
       title: 'Vibe Coding : La révolution de 2025 et ce qui nous attend',
       slug: 'vibe-coding-2025-2026',
       excerpt: 'Comment le vibe coding a transformé le développement web en 2025, et pourquoi 2026 s\'annonce encore plus disruptif.',
+      featured_image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800',
       published_at: '2025-12-10T10:00:00Z',
     },
@@ -107,6 +111,7 @@ function BlogPreview() {
       title: 'Les événements design majeurs de 2025 : Retour sur une année charnière',
       slug: 'evenements-design-2025',
       excerpt: 'De Config Figma à Awwwards, les moments forts qui ont marqué la communauté design cette année.',
+      featured_image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
       published_at: '2025-12-05T10:00:00Z',
     },
@@ -115,6 +120,7 @@ function BlogPreview() {
       title: 'IA et création web : Où en est-on vraiment fin 2025 ?',
       slug: 'ia-creation-web-2025',
       excerpt: 'État des lieux de l\'IA dans la création de sites : ce qui fonctionne, ce qui déçoit, et comment l\'utiliser intelligemment.',
+      featured_image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
       published_at: '2025-12-01T10:00:00Z',
     },
@@ -232,12 +238,12 @@ function BlogPreview() {
                       <div 
                         className="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500"
                         style={{ 
-                          backgroundImage: post.cover_image_url 
-                            ? `url(${post.cover_image_url})` 
+                          backgroundImage: (post.featured_image || post.cover_image_url)
+                            ? `url(${post.featured_image || post.cover_image_url})` 
                             : undefined 
                         }}
                       >
-                        {!post.cover_image_url && (
+                        {!(post.featured_image || post.cover_image_url) && (
                           <div className="w-full h-full flex items-center justify-center">
                             <svg className="w-16 h-16 text-paper/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

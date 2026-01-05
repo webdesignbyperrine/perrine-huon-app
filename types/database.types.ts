@@ -51,10 +51,12 @@ export type BlogPost = {
   excerpt: string | null;
   content: string | null;
   cover_image_url: string | null;
+  featured_image: string | null;
   seo_title: string | null;
   seo_description: string | null;
   seo_city: string | null;
   is_published: boolean;
+  published: boolean;
   published_at: string | null;
   created_at: string;
   updated_at: string;
