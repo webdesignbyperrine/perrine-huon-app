@@ -54,7 +54,7 @@ const nextConfig: NextConfig = {
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
           "font-src 'self' https://fonts.gstatic.com",
           "img-src 'self' data: blob: https: http:",
-          "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.openai.com https://va.vercel-scripts.com https://lottie.host https://*.lottiefiles.com blob:",
+          "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.openai.com https://va.vercel-scripts.com https://lottie.host https://*.lottiefiles.com https://cdn.jsdelivr.net https://unpkg.com blob:",
           "frame-src 'self' https://calendly.com",
           "frame-ancestors 'self'",
           "worker-src 'self' blob:",
