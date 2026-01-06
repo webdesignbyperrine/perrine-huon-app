@@ -47,37 +47,30 @@ export default function BudgetStep() {
             onClick={() => handleSelect(budget.value)}
             showCheck={false}
           >
-            <div className="pr-8">
-              {/* Indicateur visuel */}
-              <div className="flex gap-1 mb-4">
+            <div className="flex flex-col items-start gap-4">
+              {/* Indicateur visuel - Pictos euros */}
+              <div className="flex gap-2">
                 {Array.from({ length: euroCount[budget.value] }).map((_, i) => (
                   <EuroIcon 
                     key={i} 
-                    className={`w-5 h-5 ${
+                    className={`w-8 h-8 ${
                       data.budget === budget.value 
                         ? 'text-accent' 
-                        : 'text-primary/30 group-hover:text-accent/60'
+                        : 'text-primary/40 group-hover:text-accent/60'
                     } transition-colors duration-300`}
-                  />
-                ))}
-                {Array.from({ length: 4 - euroCount[budget.value] }).map((_, i) => (
-                  <EuroIcon 
-                    key={i + euroCount[budget.value]} 
-                    className="w-5 h-5 text-primary/10" 
                   />
                 ))}
               </div>
               
               {/* Texte */}
-              <h3 className="text-lg font-semibold text-primary mb-1">
-                {budget.label}
-              </h3>
-              <p className="text-accent text-sm font-medium mb-2">
-                {budget.range}
-              </p>
-              <p className="text-sm text-primary/40 font-light">
-                {budget.description}
-              </p>
+              <div>
+                <p className="text-accent text-lg font-semibold mb-1">
+                  {budget.range}
+                </p>
+                <p className="text-sm text-primary/50 font-light">
+                  {budget.description}
+                </p>
+              </div>
             </div>
           </SelectionCard>
         ))}

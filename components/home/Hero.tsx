@@ -96,44 +96,48 @@ export default function Hero() {
 
                   {/* Titre principal */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 animate-fade-in-up">
-                Soyez visible où
+                Vous bossez.
                 <br />
-                <span className="text-primary/60">vos clients vous cherchent.</span>
+                <span className="text-primary/60">Votre site web aussi.</span>
               </h1>
 
               {/* Sous-titre */}
               <p className="text-xl lg:text-2xl text-primary/60 mb-8 animate-fade-in-up animation-delay-200">
-                Votre site web conçu sur mesure.
+                Pensé pour être trouvé.
                 <br />
-                Sites web, applications & SEO géolocalisé.
+                Conçu pour convertir.
               </p>
 
               {/* CTA Principal */}
               <div className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up animation-delay-300">
                 <button
                   onClick={() => setShowQualifier(true)}
-                  className="btn-cta btn-cta-pulse group w-full sm:w-auto"
+                  className="btn-cta-hero group w-full sm:w-auto"
                 >
-                  <span className="flex items-center justify-center gap-3">
-                    {/* Icône stylo/aiguille */}
-                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-                      <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-                      <path d="M2 2l7.586 7.586"/>
-                      <circle cx="11" cy="11" r="2"/>
-                    </svg>
-                    <span>Définir mes besoins</span>
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  {/* Effet shimmer */}
+                  <span className="btn-shimmer"></span>
+                  
+                  <span className="relative flex items-center justify-center gap-3">
+                    {/* Icône play/rocket */}
+                    <span className="btn-icon-bounce">
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </span>
+                    <span className="font-semibold">C&apos;est parti !</span>
+                    <svg className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </span>
               </button>
                 
-                <span className="text-sm text-primary/40 flex items-center gap-2">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <span className="text-sm text-primary/50 flex items-center gap-2">
+                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                   </svg>
-                  Gratuit • 2 min
+                  <span>Gratuit</span>
+                  <span className="text-primary/30">•</span>
+                  <span>2 min chrono</span>
                 </span>
               </div>
 
