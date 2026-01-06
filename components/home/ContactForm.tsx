@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { createClient } from '@/lib/supabase/client';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function ContactForm() {
@@ -45,24 +44,31 @@ export default function ContactForm() {
       return;
     }
 
-    const supabase = createClient();
-    const { error } = await supabase.from('contact_messages').insert([
-      {
-        name: formData.name,
-        email: formData.email,
-        company: formData.company || null,
-        city: null,
-        message: formData.message,
-        source: formData.source,
-        status: 'new',
-      },
-    ]);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || null,
+          message: formData.message,
+          source: formData.source,
+        }),
+      });
 
-    if (error) {
-      setStatus('error');
-      setErrorMessage('Aïe, ça n\'a pas marché ! Réessayez, ou contactez-moi via WhatsApp.');
-      console.error('Error:', error);
-    } else {
+      const data = await response.json();
+
+      if (!response.ok) {
+        setStatus('error');
+        if (response.status === 429) {
+          setErrorMessage('Trop de messages envoyés. Patientez une minute avant de réessayer.');
+        } else {
+          setErrorMessage(data.error || 'Aïe, ça n\'a pas marché ! Réessayez, ou contactez-moi via WhatsApp.');
+        }
+        return;
+      }
+
       setStatus('success');
       setFormData({
         name: '',
@@ -72,6 +78,9 @@ export default function ContactForm() {
         source: 'form_home',
         consent: false,
       });
+    } catch {
+      setStatus('error');
+      setErrorMessage('Erreur de connexion. Vérifiez votre connexion internet.');
     }
   };
 

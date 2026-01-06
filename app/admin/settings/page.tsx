@@ -83,7 +83,6 @@ export default function SettingsPage() {
 
     try {
       // 1. Optimiser l'image avec le preset "logo"
-      console.log('🎨 Optimisation du logo en cours...');
       const optimizedFile = await optimizeImageWithPreset(file, 'logo');
 
       // 2. Upload vers Supabase Storage

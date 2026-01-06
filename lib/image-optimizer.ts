@@ -27,7 +27,6 @@ export async function optimizeImage(
 ): Promise<File> {
   // Vérification côté client
   if (typeof window === 'undefined') {
-    console.warn('Image optimization is only available on client side');
     return file;
   }
 
@@ -83,18 +82,6 @@ export async function optimizeImage(
             `${originalName}-optimized.${extension}`,
             { type: mimeType }
           );
-
-          // Afficher les statistiques de compression
-          const originalSize = (file.size / 1024).toFixed(2);
-          const optimizedSize = (optimizedFile.size / 1024).toFixed(2);
-          const reduction = (((file.size - optimizedFile.size) / file.size) * 100).toFixed(1);
-          
-          console.log(`📊 Optimisation d'image:`);
-          console.log(`   Original: ${originalSize} KB`);
-          console.log(`   Optimisé: ${optimizedSize} KB`);
-          console.log(`   Réduction: ${reduction}%`);
-          console.log(`   Format: ${format.toUpperCase()}`);
-          console.log(`   Dimensions: ${width}x${height}px`);
 
           resolve(optimizedFile);
         },

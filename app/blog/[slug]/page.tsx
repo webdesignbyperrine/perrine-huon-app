@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { formatDate, estimateReadingTime } from '@/lib/utils';
 import { createClient } from '@/lib/supabase/server';
+import SafeHTML from '@/components/SafeHTML';
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -68,9 +69,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Contenu */}
       <section className="py-20 bg-paper">
         <div className="container mx-auto px-4">
-          <article 
+          <SafeHTML 
+            html={post.content || ''} 
             className="max-w-4xl mx-auto prose prose-lg prose-headings:text-primary prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-12 prose-p:text-primary/70 prose-p:leading-relaxed prose-li:text-primary/70 prose-strong:text-primary prose-ul:text-primary/70"
-            dangerouslySetInnerHTML={{ __html: post.content || '' }}
           />
         </div>
       </section>

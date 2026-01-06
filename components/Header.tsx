@@ -159,7 +159,9 @@ export default function Header() {
             type="button"
             className="lg:hidden p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menu"
+            aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               {mobileMenuOpen ? (
@@ -177,7 +179,11 @@ export default function Header() {
 
         {/* Mobile Navigation - Style carte dessinée */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-4 p-6 bg-paper-light border-2 border-primary/20 rounded-sketch-lg shadow-sketch animate-fade-in-down">
+          <nav 
+            id="mobile-navigation" 
+            className="lg:hidden mt-4 p-6 bg-paper-light border-2 border-primary/20 rounded-sketch-lg shadow-sketch animate-fade-in-down"
+            aria-label="Navigation mobile"
+          >
             <div className="space-y-1">
               {navigation.map((item, index) => (
                 <Link
@@ -215,7 +221,7 @@ export default function Header() {
                 </span>
               </Link>
             </div>
-          </div>
+          </nav>
         )}
       </nav>
     </header>

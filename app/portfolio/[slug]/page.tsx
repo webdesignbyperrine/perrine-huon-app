@@ -2,6 +2,11 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import ImageCarousel from '@/components/ImageCarousel';
+import type { MediaAsset, ProjectMedia } from '@/types/database.types';
+
+type ProjectMediaWithMedia = ProjectMedia & {
+  media: MediaAsset;
+};
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -27,7 +32,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   }
 
   // Extraire les images du projet
-  const projectImages = project.project_media?.map((pm: any) => pm.media) || [];
+  const projectImages = (project.project_media as ProjectMediaWithMedia[] | undefined)?.map(pm => pm.media) || [];
 
   return (
     <div className="min-h-screen bg-paper-light grain-overlay">

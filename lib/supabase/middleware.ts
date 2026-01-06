@@ -27,31 +27,34 @@ export async function updateSession(request: NextRequest) {
     }
   )
 
-  // IMPORTANT: Avoid writing any logic between createServerClient and
-  // supabase.auth.getUser(). A simple mistake could make it very hard to debug
-  // issues with users being randomly logged out.
-
   const {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // You can add protection for specific routes here
-  // if (!user && !request.nextUrl.pathname.startsWith('/login')) {
-  //   return NextResponse.redirect(new URL('/login', request.url))
-  // }
+  // Protection des routes admin
+  const isAdminRoute = request.nextUrl.pathname.startsWith('/admin')
+  const isLoginPage = request.nextUrl.pathname === '/admin/login'
 
-  // IMPORTANT: You *must* return the supabaseResponse object as it is. If you're
-  // creating a new response object with NextResponse.next() make sure to:
-  // 1. Pass the request in it, like so:
-  //    const myNewResponse = NextResponse.next({ request })
-  // 2. Copy over the cookies, like so:
-  //    myNewResponse.cookies.setAll(supabaseResponse.cookies.getAll())
-  // 3. Change the myNewResponse object to fit your needs, but avoid changing
-  //    the cookies!
-  // 4. Finally:
-  //    return myNewResponse
-  // If this is not done, you may be causing the browser and server to go out
-  // of sync and terminate the user's session prematurely.
+  if (isAdminRoute && !isLoginPage) {
+    // Rediriger vers login si non authentifié
+    if (!user) {
+      const redirectUrl = new URL('/admin/login', request.url)
+      return NextResponse.redirect(redirectUrl)
+    }
+
+    // Vérifier le rôle admin
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+
+    if (profile?.role !== 'admin') {
+      // Rediriger vers l'accueil si non admin
+      const redirectUrl = new URL('/', request.url)
+      return NextResponse.redirect(redirectUrl)
+    }
+  }
 
   return supabaseResponse
 }

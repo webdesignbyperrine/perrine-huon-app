@@ -3,6 +3,31 @@ import { createClient } from '@/lib/supabase/server';
 
 export async function POST(request: NextRequest) {
   try {
+    // Vérification authentification admin
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    if (!user) {
+      return NextResponse.json(
+        { error: 'Non autorisé. Veuillez vous connecter.' },
+        { status: 401 }
+      );
+    }
+
+    // Vérifier le rôle admin
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single();
+
+    if (profile?.role !== 'admin') {
+      return NextResponse.json(
+        { error: 'Accès refusé. Droits administrateur requis.' },
+        { status: 403 }
+      );
+    }
+
     const { title, style = 'professional', customPrompt } = await request.json();
 
     if (!title && !customPrompt) {
@@ -27,7 +52,6 @@ export async function POST(request: NextRequest) {
     // Si un prompt personnalisé est fourni, l'utiliser directement
     if (customPrompt && customPrompt.trim()) {
       prompt = customPrompt.trim();
-      console.log('Using custom prompt:', prompt);
     } else {
       // Sinon, générer un prompt optimisé basé sur le titre et le style
       const stylePrompts: Record<string, string> = {
@@ -43,8 +67,6 @@ export async function POST(request: NextRequest) {
 Style: ${styleDescription}. 
 The image should be visually appealing, relevant to the topic, and suitable as a blog header. 
 No text or typography in the image.`;
-
-      console.log('Generating image with auto prompt:', prompt);
     }
 
     // Appeler DALL-E 3
@@ -76,8 +98,6 @@ No text or typography in the image.`;
     const dalleData = await dalleResponse.json();
     const imageUrl = dalleData.data[0].url;
 
-    console.log('Image generated:', imageUrl);
-
     // Télécharger l'image depuis l'URL temporaire OpenAI
     const imageResponse = await fetch(imageUrl);
     const imageBlob = await imageResponse.blob();
@@ -86,8 +106,6 @@ No text or typography in the image.`;
     // Upload vers Supabase Storage
     const fileName = `blog-cover-${Date.now()}-${Math.random().toString(36).substring(2)}.png`;
     const filePath = `blog/covers/${fileName}`;
-
-    const supabase = await createClient();
     
     const { error: uploadError } = await supabase.storage
       .from('assets')
@@ -108,8 +126,6 @@ No text or typography in the image.`;
     const { data: { publicUrl } } = supabase.storage
       .from('assets')
       .getPublicUrl(filePath);
-
-    console.log('Image uploaded to:', publicUrl);
 
     return NextResponse.json({ 
       imageUrl: publicUrl,

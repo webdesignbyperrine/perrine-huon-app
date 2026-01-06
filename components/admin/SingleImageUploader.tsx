@@ -31,7 +31,6 @@ export default function SingleImageUploader({ imageUrl, onImageChange, label = '
 
     try {
       // 1. Optimiser l'image automatiquement
-      console.log('🎨 Optimisation de l\'image en cours...');
       const optimizedFile = await optimizeImageWithPreset(file, 'cover');
 
       // 2. Upload vers Supabase

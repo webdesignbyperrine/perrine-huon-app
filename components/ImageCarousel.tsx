@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 type MediaItem = {
   id: string;
-  file_url: string;
-  alt_text?: string;
+  url: string;
+  alt_text?: string | null;
 };
 
 type ImageCarouselProps = {
@@ -225,7 +225,7 @@ export default function ImageCarousel({ images, projectTitle }: ImageCarouselPro
             >
               <div className="relative w-full h-full">
                 <Image
-                  src={media.file_url}
+                  src={media.url}
                   alt={media.alt_text || `${projectTitle} - Image ${index + 1}`}
                   fill
                   style={{ objectFit: 'cover' }}
@@ -339,7 +339,7 @@ export default function ImageCarousel({ images, projectTitle }: ImageCarouselPro
               }}
             >
               <Image
-                src={images[lightboxIndex].file_url}
+                src={images[lightboxIndex].url}
                 alt={images[lightboxIndex].alt_text || `${projectTitle} - Image ${lightboxIndex + 1}`}
                 fill
                 style={{ objectFit: 'contain' }}
@@ -397,4 +397,5 @@ export default function ImageCarousel({ images, projectTitle }: ImageCarouselPro
     </>
   );
 }
+
 
