@@ -4,8 +4,8 @@
   "description": "Création de sites web et applications avec SEO géolocalisé performant",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2DD4BF",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
   "orientation": "portrait-primary",
   "icons": [
     {
