@@ -44,7 +44,7 @@ const nextConfig: NextConfig = {
       },
     ];
 
-    // CSP uniquement en production (cause des problèmes avec Lottie WASM en dev)
+    // CSP uniquement en production
     if (!isDev) {
       securityHeaders.push({
         key: 'Content-Security-Policy',
@@ -54,10 +54,11 @@ const nextConfig: NextConfig = {
           "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
           "font-src 'self' https://fonts.gstatic.com",
           "img-src 'self' data: blob: https: http:",
-          "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.openai.com https://va.vercel-scripts.com https://lottie.host blob:",
+          "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.openai.com https://va.vercel-scripts.com https://lottie.host https://*.lottiefiles.com blob:",
           "frame-src 'self' https://calendly.com",
           "frame-ancestors 'self'",
           "worker-src 'self' blob:",
+          "child-src 'self' blob:",
         ].join('; ')
       });
     }
