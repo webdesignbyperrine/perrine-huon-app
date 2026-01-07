@@ -916,15 +916,15 @@ html.dark .handwriting-animate.with-cursor::after {
     font-size: 14px;
   }
   
-  /* Animation écriture - responsive mobile */
+  /* Animation écriture - responsive mobile (texte peut passer à la ligne, sans curseur) */
   .handwriting-animate {
     white-space: normal;
-    max-width: 100%;
-    animation: none;
+    border-right: none !important;
   }
   
+  /* Cacher le curseur clignotant sur mobile */
   .handwriting-animate.with-cursor::after {
-    display: none;
+    display: none !important;
   }
   
   /* Theme toggle - responsive mobile */
@@ -1406,4 +1406,100 @@ html.dark .theme-toggle .moon-icon {
 
 html.dark .theme-toggle:hover .moon-icon {
   animation: moon-glow 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   BOUTON TÉLÉPHONE MOBILE
+   ======================================== */
+
+.phone-cta-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--accent-pink);
+  color: white;
+  animation: phone-ring-mobile 2.5s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(255, 15, 124, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.phone-cta-mobile:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 15, 124, 0.5);
+}
+
+.phone-cta-mobile:active {
+  transform: scale(0.95);
+}
+
+/* Animation sonnerie téléphone mobile */
+@keyframes phone-ring-mobile {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  4% {
+    transform: rotate(-15deg);
+  }
+  8% {
+    transform: rotate(15deg);
+  }
+  12% {
+    transform: rotate(-15deg);
+  }
+  16% {
+    transform: rotate(15deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  24% {
+    transform: rotate(10deg);
+  }
+  28% {
+    transform: rotate(-5deg);
+  }
+  32% {
+    transform: rotate(5deg);
+  }
+  36%, 100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Icône à l'intérieur qui vibre aussi */
+.phone-cta-mobile svg {
+  animation: phone-icon-shake 2.5s ease-in-out infinite;
+}
+
+@keyframes phone-icon-shake {
+  0%, 36%, 100% {
+    transform: rotate(0deg);
+  }
+  4% {
+    transform: rotate(10deg);
+  }
+  8% {
+    transform: rotate(-10deg);
+  }
+  12% {
+    transform: rotate(10deg);
+  }
+  16% {
+    transform: rotate(-10deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  24% {
+    transform: rotate(-5deg);
+  }
+  28% {
+    transform: rotate(3deg);
+  }
+  32% {
+    transform: rotate(-3deg);
+  }
 }
