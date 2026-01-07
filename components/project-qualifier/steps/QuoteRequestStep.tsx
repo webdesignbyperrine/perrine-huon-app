@@ -512,7 +512,7 @@ export default function QuoteRequestStep() {
         <p className="text-primary/70 italic">
           « Merci pour votre confiance ! J&apos;ai hâte de découvrir votre projet et de vous proposer la meilleure solution. À très vite ! »
         </p>
-        <p className="text-primary font-semibold mt-2">— Perrine 💜</p>
+        <p className="text-primary font-semibold mt-2">Perrine</p>
       </div>
     </div>
   );
