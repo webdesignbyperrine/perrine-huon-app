@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useQualifier } from '../context';
-import { createClient } from '@/lib/supabase/client';
 import { ArrowLeftIcon } from '../icons';
 import { 
   PROJECT_TYPES, 
@@ -150,21 +149,35 @@ export default function QuoteRequestStep() {
     setError('');
 
     try {
-      const supabase = createClient();
-      const { error: supabaseError } = await supabase.from('contact_messages').insert([
-        {
-          name: `${firstName} ${lastName}`,
-          email: email,
-          company: company || null,
-          city: null,
-          message: prepareProjectSummary(),
-          source: 'qualifier_express',
-          status: 'new',
+      const response = await fetch('/api/send-quote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      ]);
+        body: JSON.stringify({
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim(),
+          company: company?.trim() || null,
+          projectSummary: prepareProjectSummary(),
+          projectData: {
+            projectType: data.projectType,
+            features: data.features,
+            featureOther: data.featureOther,
+            designStyle: data.designStyle,
+            animationLevel: data.animationLevel,
+            budget: data.budget,
+            deadline: data.deadline,
+            accompagnement: data.accompagnement,
+            inspirations: data.inspirations,
+          },
+        }),
+      });
 
-      if (supabaseError) {
-        throw supabaseError;
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Erreur lors de l\'envoi');
       }
 
       setFormStep('success');
