@@ -108,7 +108,7 @@ export default function Hero() {
                 Conçu pour convertir.
               </p>
               <p className="text-2xl lg:text-3xl text-primary/70 mb-8 animate-fade-in-up animation-delay-200" style={{ fontFamily: 'var(--font-caveat)' }}>
-                Construisons ensemble votre présence en ligne.
+                Construisons ensemble votre succès digital.
               </p>
 
               {/* CTA Principal */}
