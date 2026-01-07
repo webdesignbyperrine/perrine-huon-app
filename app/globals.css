@@ -945,3 +945,41 @@ body {
   background: linear-gradient(to bottom, var(--background-light), transparent);
   pointer-events: none;
 }
+
+/* ========================================
+   ANIMATION ENVOL DU LOGO (PERROQUET)
+   ======================================== */
+
+/* Le logo qui s'échappe de sa cage */
+.logo-escaped {
+  position: fixed !important;
+  z-index: 9999 !important;
+  pointer-events: none;
+  transition: none;
+}
+
+/* Animation de battement d'ailes pendant le vol */
+@keyframes wing-flap {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.9); }
+}
+
+.logo-escaped img {
+  animation: wing-flap 0.15s ease-in-out infinite;
+}
+
+/* Cercle qui clignote quand l'oiseau est parti */
+@keyframes cage-pulse {
+  0%, 100% { 
+    border-color: rgba(43, 91, 138, 0.2);
+    box-shadow: none;
+  }
+  50% { 
+    border-color: rgba(255, 15, 124, 0.5);
+    box-shadow: 0 0 10px rgba(255, 15, 124, 0.3);
+  }
+}
+
+.cage-waiting {
+  animation: cage-pulse 0.5s ease-in-out infinite;
+}

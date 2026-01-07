@@ -3,10 +3,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import HeroIllustration from '@/components/illustrations/HeroIllustration';
+import { useSound } from '@/hooks/useSound';
 
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);
   const qualifierRef = useRef<HTMLDivElement>(null);
+  
+  // Son au clic sur "C'est parti" 🎮
+  const { play: playRaceStartSound } = useSound('/sounds/race-start.wav', { volume: 0.5 });
 
   // Scroll vers le haut du qualifier quand il s'ouvre
   useEffect(() => {
@@ -114,7 +118,10 @@ export default function Hero() {
               {/* CTA Principal */}
               <div className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up animation-delay-300">
                 <button
-                  onClick={() => setShowQualifier(true)}
+                  onClick={() => {
+                    playRaceStartSound();
+                    setShowQualifier(true);
+                  }}
                   className="btn-cta-hero group w-full sm:w-auto"
                 >
                   {/* Effet shimmer */}

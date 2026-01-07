@@ -2,22 +2,267 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
+  const [isFlying, setIsFlying] = useState(false);
+  const logoContainerRef = useRef<HTMLDivElement>(null);
+  const cageRef = useRef<HTMLDivElement>(null);
+  const birdRef = useRef<HTMLDivElement>(null);
+  const letterRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
   const handleLogoClick = (e: React.MouseEvent) => {
+    if (isFlying) return; // Empêcher de cliquer pendant l'animation
+    
+    // Jouer le son d'oiseau au clic
+    try {
+      const audio = new Audio('/sounds/parrot.wav');
+      audio.volume = 0.5;
+      audio.play();
+    } catch (err) {
+      // Fallback silencieux
+    }
+    
+    // Déclencher l'animation d'envol
+    animateParrotFlight();
+    
     sessionStorage.setItem('logoClick', 'true');
     window.dispatchEvent(new CustomEvent('closeQualifier'));
     
     if (pathname === '/') {
       e.preventDefault();
     }
+  };
+
+  const animateParrotFlight = () => {
+    if (!logoContainerRef.current || !cageRef.current || !birdRef.current || !letterRef.current) return;
+    
+    setIsFlying(true);
+    
+    const container = logoContainerRef.current;
+    const cage = cageRef.current;
+    const bird = birdRef.current;
+    const letter = letterRef.current;
+    const rect = container.getBoundingClientRect();
+    const startX = rect.left;
+    const startY = rect.top;
+    const logoWidth = rect.width;
+    const logoHeight = rect.height;
+    
+    // Hauteur du viewport
+    const viewportHeight = window.innerHeight;
+    const bottomY = viewportHeight - 80;
+    const fallDistance = bottomY - startY;
+    
+    // Cacher le container original et montrer les parties séparées
+    container.style.opacity = '0';
+    cage.classList.add('cage-waiting');
+    
+    // Configurer l'oiseau (partie gauche - tête et corps du perroquet)
+    // Le clip coupe juste avant le H en bas à droite
+    bird.style.cssText = `
+      position: fixed;
+      left: ${startX}px;
+      top: ${startY}px;
+      width: ${logoWidth}px;
+      height: ${logoHeight}px;
+      z-index: 9999;
+      pointer-events: none;
+      clip-path: polygon(0 0, 100% 0, 100% 45%, 55% 45%, 55% 100%, 0 100%);
+    `;
+    bird.classList.add('logo-escaped');
+    
+    // Configurer la lettre H (partie droite en bas)
+    letter.style.cssText = `
+      position: fixed;
+      left: ${startX}px;
+      top: ${startY}px;
+      width: ${logoWidth}px;
+      height: ${logoHeight}px;
+      z-index: 9999;
+      pointer-events: none;
+      clip-path: polygon(55% 45%, 100% 45%, 100% 100%, 55% 100%);
+    `;
+    letter.classList.add('logo-escaped');
+    
+    // Durées (plus rapide)
+    const fallDuration = 1000;
+    const bounceDuration = 280;
+    const returnDuration = 900;
+    
+    // Positions finales de chute
+    let birdLastX = startX;
+    let birdLastY = startY;
+    let letterLastX = startX;
+    let letterLastY = startY;
+    
+    const startTime = performance.now();
+    
+    // Fonctions d'easing
+    const easeInOutCubic = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const easeInQuad = (t: number) => t * t;
+    const easeOutQuad = (t: number) => 1 - (1 - t) * (1 - t);
+    
+    // Phase 1: Dislocation et chute
+    const animateFall = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / fallDuration, 1);
+      const easeProgress = easeInQuad(progress);
+      
+      // L'oiseau tombe vers la gauche avec oscillation
+      const birdY = startY + (fallDistance * easeProgress);
+      const birdOscillation = Math.sin(progress * Math.PI * 3) * 60 * (1 - progress * 0.3);
+      const birdX = startX - (progress * 120) + birdOscillation; // Dérive vers la gauche
+      const birdRotation = Math.sin(progress * Math.PI * 2.5) * 25 - progress * 15;
+      
+      // L'oiseau grossit x2 au début puis reste à x2
+      const birdScale = 1 + Math.min(progress * 2, 1); // De 1 à 2 pendant la première moitié
+      
+      // La lettre H tombe vers la droite avec oscillation différente
+      const letterY = startY + (fallDistance * easeProgress * 0.95); // Légèrement plus lent
+      const letterOscillation = Math.sin(progress * Math.PI * 2.5 + 1) * 50 * (1 - progress * 0.3);
+      const letterX = startX + (progress * 100) + letterOscillation; // Dérive vers la droite
+      const letterRotation = Math.sin(progress * Math.PI * 2) * 20 + progress * 20;
+      
+      birdLastX = birdX;
+      birdLastY = birdY;
+      letterLastX = letterX;
+      letterLastY = letterY;
+      
+      bird.style.left = `${birdX}px`;
+      bird.style.top = `${birdY}px`;
+      bird.style.transform = `rotate(${birdRotation}deg) scale(${birdScale})`;
+      
+      letter.style.left = `${letterX}px`;
+      letter.style.top = `${letterY}px`;
+      letter.style.transform = `rotate(${letterRotation}deg)`;
+      
+      if (progress < 1) {
+        requestAnimationFrame(animateFall);
+      } else {
+        animateBounce(0);
+      }
+    };
+    
+    // Phase 2: Rebonds séparés
+    const animateBounce = (bounceIndex: number) => {
+      const bounceHeights = [80, 35, 12];
+      const bounceDurations = [bounceDuration, bounceDuration * 0.75, bounceDuration * 0.5];
+      
+      if (bounceIndex >= bounceHeights.length) {
+        setTimeout(() => animateReturn(), 150);
+        return;
+      }
+      
+      const bounceHeight = bounceHeights[bounceIndex];
+      const bounceStartTime = performance.now();
+      const thisBounce = bounceDurations[bounceIndex];
+      
+      const birdBounceStartX = birdLastX;
+      const birdBounceStartY = birdLastY;
+      const letterBounceStartX = letterLastX;
+      const letterBounceStartY = letterLastY;
+      
+      // Direction de rapprochement progressif
+      const approachFactor = bounceIndex * 0.15;
+      
+      const bounce = (currentTime: number) => {
+        const elapsed = currentTime - bounceStartTime;
+        const progress = Math.min(elapsed / thisBounce, 1);
+        const bounceProgress = Math.sin(progress * Math.PI);
+        
+        // Oiseau rebondit et dérive légèrement vers le centre
+        const birdY = bottomY - (bounceHeight * bounceProgress);
+        const birdX = birdBounceStartX + (startX - birdBounceStartX) * approachFactor * easeOutQuad(progress);
+        const birdRotation = Math.sin(progress * Math.PI) * 10 * (1 - bounceIndex * 0.3);
+        
+        // Lettre rebondit avec décalage et dérive vers le centre
+        const letterY = bottomY - (bounceHeight * 0.85 * bounceProgress);
+        const letterX = letterBounceStartX + (startX - letterBounceStartX) * approachFactor * easeOutQuad(progress);
+        const letterRotation = -Math.sin(progress * Math.PI) * 8 * (1 - bounceIndex * 0.3);
+        
+        birdLastX = birdX;
+        birdLastY = birdY;
+        letterLastX = letterX;
+        letterLastY = letterY;
+        
+        bird.style.left = `${birdX}px`;
+        bird.style.top = `${birdY}px`;
+        bird.style.transform = `rotate(${birdRotation}deg) scale(2)`;
+        
+        letter.style.left = `${letterX}px`;
+        letter.style.top = `${letterY}px`;
+        letter.style.transform = `rotate(${letterRotation}deg)`;
+        
+        if (progress < 1) {
+          requestAnimationFrame(bounce);
+        } else {
+          animateBounce(bounceIndex + 1);
+        }
+      };
+      
+      requestAnimationFrame(bounce);
+    };
+    
+    // Phase 3: Retour et rassemblement
+    const animateReturn = () => {
+      const returnStartTime = performance.now();
+      const birdReturnStartX = birdLastX;
+      const birdReturnStartY = birdLastY;
+      const letterReturnStartX = letterLastX;
+      const letterReturnStartY = letterLastY;
+      
+      const animateUp = (currentTime: number) => {
+        const elapsed = currentTime - returnStartTime;
+        const progress = Math.min(elapsed / returnDuration, 1);
+        const easeProgress = easeInOutCubic(progress);
+        
+        // L'oiseau remonte en arc vers la gauche puis rejoint le centre
+        const birdArc = Math.sin(progress * Math.PI) * 80;
+        const birdX = birdReturnStartX + (startX - birdReturnStartX) * easeProgress - birdArc * (1 - progress);
+        const birdY = birdReturnStartY + (startY - birdReturnStartY) * easeProgress;
+        const birdRotation = Math.sin(progress * Math.PI * 1.5) * 20 * (1 - easeProgress);
+        
+        // L'oiseau revient à sa taille normale (de 2 à 1)
+        const birdScale = 2 - easeProgress; // De 2 à 1
+        
+        // La lettre remonte en arc vers la droite puis rejoint le centre
+        const letterArc = Math.sin(progress * Math.PI) * 60;
+        const letterX = letterReturnStartX + (startX - letterReturnStartX) * easeProgress + letterArc * (1 - progress);
+        const letterY = letterReturnStartY + (startY - letterReturnStartY) * easeProgress;
+        const letterRotation = -Math.sin(progress * Math.PI * 1.5) * 15 * (1 - easeProgress);
+        
+        bird.style.left = `${birdX}px`;
+        bird.style.top = `${birdY}px`;
+        bird.style.transform = `rotate(${birdRotation}deg) scale(${birdScale})`;
+        
+        letter.style.left = `${letterX}px`;
+        letter.style.top = `${letterY}px`;
+        letter.style.transform = `rotate(${letterRotation}deg)`;
+        
+        if (progress < 1) {
+          requestAnimationFrame(animateUp);
+        } else {
+          // Animation terminée - tout remettre en place
+          bird.style.cssText = '';
+          bird.classList.remove('logo-escaped');
+          letter.style.cssText = '';
+          letter.classList.remove('logo-escaped');
+          container.style.opacity = '1';
+          cage.classList.remove('cage-waiting');
+          setIsFlying(false);
+        }
+      };
+      
+      requestAnimationFrame(animateUp);
+    };
+    
+    requestAnimationFrame(animateFall);
   };
 
   useEffect(() => {
@@ -90,9 +335,16 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" onClick={handleLogoClick} className="flex items-center space-x-3 group">
             <div className="relative">
-              {/* Cercle décoratif */}
-              <div className="absolute -inset-2 border-2 border-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="relative w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center">
+              {/* Cercle décoratif - la "cage" (visible seulement pendant l'animation) */}
+              <div 
+                ref={cageRef}
+                className={`absolute -inset-2 border-2 border-primary/20 rounded-full transition-all duration-300 ${isFlying ? 'opacity-100' : 'opacity-0'}`}
+              />
+              {/* Logo principal (visible normalement) */}
+              <div 
+                ref={logoContainerRef}
+                className="relative w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center transition-opacity duration-200"
+              >
                 <Image
                   src={logoUrl}
                   alt="Perrine Huon Logo"
@@ -100,6 +352,42 @@ export default function Header() {
                   height={48}
                   className="object-contain group-hover:scale-110 transition-transform duration-300"
                   key={logoUrl}
+                  style={{ 
+                    filter: 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
+                  }}
+                />
+              </div>
+              
+              {/* Partie oiseau (pour l'animation de dislocation) */}
+              <div 
+                ref={birdRef}
+                className="hidden"
+                style={{ display: isFlying ? 'block' : 'none' }}
+              >
+                <Image
+                  src={logoUrl}
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                  style={{ 
+                    filter: 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
+                  }}
+                />
+              </div>
+              
+              {/* Partie lettre H (pour l'animation de dislocation) */}
+              <div 
+                ref={letterRef}
+                className="hidden"
+                style={{ display: isFlying ? 'block' : 'none' }}
+              >
+                <Image
+                  src={logoUrl}
+                  alt=""
+                  width={48}
+                  height={48}
+                  className="object-contain"
                   style={{ 
                     filter: 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
                   }}

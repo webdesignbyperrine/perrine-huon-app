@@ -143,8 +143,20 @@ export default function QuoteRequestStep() {
     return encodeURIComponent(message);
   };
 
+  // Jouer le son sparkle
+  const playSparkleSound = () => {
+    try {
+      const audio = new Audio('/sounds/sparkle.wav');
+      audio.volume = 0.5;
+      audio.play();
+    } catch (err) {
+      // Fallback silencieux
+    }
+  };
+
   // Soumettre le formulaire
   const handleSubmit = async () => {
+    playSparkleSound();
     setIsSubmitting(true);
     setError('');
 
