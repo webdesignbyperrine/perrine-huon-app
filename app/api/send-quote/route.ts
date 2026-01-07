@@ -102,8 +102,8 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         sender: { 
-          name: 'Site Perrine Huon', 
-          email: 'webdesignbyperrine@gmail.com' // Email du compte Brevo
+          name: 'Perrine Huon', 
+          email: 'contact@perrinehuon.com' // Expéditeur vérifié dans Brevo
         },
         to: [{ email: 'contact@perrinehuon.com', name: 'Perrine Huon' }],
         replyTo: { email: email.trim(), name: `${firstName.trim()} ${lastName.trim()}` },
