@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -8,6 +8,13 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const outfit = Outfit({
   variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
@@ -44,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth">
       <body
-        className={`${outfit.variable} antialiased`}
+        className={`${outfit.variable} ${caveat.variable} antialiased`}
       >
         <Header />
         <main className="pt-20">

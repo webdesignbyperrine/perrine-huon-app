@@ -102,10 +102,13 @@ export default function Hero() {
               </h1>
 
               {/* Sous-titre */}
-              <p className="text-xl lg:text-2xl text-primary/60 mb-8 animate-fade-in-up animation-delay-200">
+              <p className="text-xl lg:text-2xl text-primary/60 mb-2 animate-fade-in-up animation-delay-200">
                 Pensé pour être trouvé.
                 <br />
                 Conçu pour convertir.
+              </p>
+              <p className="text-2xl lg:text-3xl text-primary/70 mb-8 animate-fade-in-up animation-delay-200" style={{ fontFamily: 'var(--font-caveat)' }}>
+                Construisons ensemble votre présence en ligne.
               </p>
 
               {/* CTA Principal */}
