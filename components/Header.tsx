@@ -4,6 +4,44 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import { useTheme } from '@/contexts/ThemeContext';
+
+// Icônes Soleil et Lune
+const SunIcon = () => (
+  <svg 
+    className="sun-icon" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="5" />
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </svg>
+);
+
+const MoonIcon = () => (
+  <svg 
+    className="moon-icon" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+);
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,6 +53,7 @@ export default function Header() {
   const birdRef = useRef<HTMLDivElement>(null);
   const letterRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogoClick = (e: React.MouseEvent) => {
     if (isFlying) return; // Empêcher de cliquer pendant l'animation
@@ -353,7 +392,9 @@ export default function Header() {
                   className="object-contain group-hover:scale-110 transition-transform duration-300"
                   key={logoUrl}
                   style={{ 
-                    filter: 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
+                    filter: theme === 'dark' 
+                      ? 'brightness(0) invert(1)' 
+                      : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
                   }}
                 />
               </div>
@@ -371,7 +412,9 @@ export default function Header() {
                   height={48}
                   className="object-contain"
                   style={{ 
-                    filter: 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
+                    filter: theme === 'dark' 
+                      ? 'brightness(0) invert(1)' 
+                      : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
                   }}
                 />
               </div>
@@ -389,7 +432,9 @@ export default function Header() {
                   height={48}
                   className="object-contain"
                   style={{ 
-                    filter: 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
+                    filter: theme === 'dark' 
+                      ? 'brightness(0) invert(1)' 
+                      : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
                   }}
                 />
               </div>
@@ -415,8 +460,19 @@ export default function Header() {
             ))}
           </div>
 
-          {/* CTA Button - Style ligne claire avec accent rose */}
-          <div className="hidden lg:block">
+          {/* Theme Toggle + CTA Button */}
+          <div className="hidden lg:flex items-center gap-4">
+            {/* Bouton Dark Mode */}
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle"
+              aria-label={theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair'}
+              title={theme === 'light' ? 'Mode sombre' : 'Mode clair'}
+            >
+              <SunIcon />
+              <MoonIcon />
+            </button>
+            
             <Link
               href="/#rdv"
               onClick={(e) => handleNavClick(e, '/#rdv')}
@@ -442,27 +498,41 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile menu button - Style ligne claire */}
-          <button
-            type="button"
-            className="lg:hidden p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-navigation"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              {mobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <>
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </>
-              )}
-            </svg>
-          </button>
+          {/* Mobile: Theme Toggle + Menu button */}
+          <div className="flex lg:hidden items-center gap-2">
+            {/* Bouton Dark Mode Mobile */}
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle !w-10 !h-10"
+              aria-label={theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair'}
+              title={theme === 'light' ? 'Mode sombre' : 'Mode clair'}
+            >
+              <SunIcon />
+              <MoonIcon />
+            </button>
+            
+            {/* Mobile menu button - Style ligne claire */}
+            <button
+              type="button"
+              className="p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                {mobileMenuOpen ? (
+                  <path d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <>
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                  </>
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation - Style carte dessinée */}

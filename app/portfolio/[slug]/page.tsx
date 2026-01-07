@@ -2,10 +2,19 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import ImageCarousel from '@/components/ImageCarousel';
-import type { MediaAsset, ProjectMedia } from '@/types/database.types';
+import type { ProjectMedia } from '@/types/database.types';
+
+// Type pour les médias tels qu'ils sont stockés dans Supabase
+type MediaAssetDB = {
+  id: string;
+  file_url: string;
+  file_name: string | null;
+  file_size: number | null;
+  alt_text: string | null;
+};
 
 type ProjectMediaWithMedia = ProjectMedia & {
-  media: MediaAsset;
+  media_assets: MediaAssetDB;
 };
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -20,19 +29,31 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       *,
       project_media (
         *,
-        media:media_assets (*)
+        media_assets (
+          id,
+          file_url,
+          file_name,
+          alt_text
+        )
       )
     `)
     .eq('slug', slug)
     .eq('published', true)
+    .order('sort_order', { referencedTable: 'project_media', ascending: true })
     .single();
 
   if (error || !project) {
     notFound();
   }
 
-  // Extraire les images du projet
-  const projectImages = (project.project_media as ProjectMediaWithMedia[] | undefined)?.map(pm => pm.media) || [];
+  // Extraire les images du projet et les transformer pour le carousel
+  const projectImages = (project.project_media as ProjectMediaWithMedia[] | undefined)
+    ?.filter(pm => pm.media_assets && pm.media_assets.file_url)
+    .map(pm => ({
+      id: pm.media_assets.id,
+      url: pm.media_assets.file_url,
+      alt_text: pm.media_assets.alt_text,
+    })) || [];
 
   return (
     <div className="min-h-screen bg-paper-light grain-overlay">

@@ -99,10 +99,10 @@ export default function Hero() {
                   </div>
 
                   {/* Titre principal */}
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 animate-fade-in-up">
-                Vous bossez.
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
+                <span className="text-primary/60">Vous bossez.</span>
                 <br />
-                <span className="text-primary/60">Votre site web aussi.</span>
+                <span className="text-primary">Votre site web aussi.</span>
               </h1>
 
               {/* Sous-titre */}
@@ -111,8 +111,8 @@ export default function Hero() {
                 <br />
                 Conçu pour convertir.
               </p>
-              <p className="text-2xl lg:text-3xl text-primary/70 mb-8 animate-fade-in-up animation-delay-200" style={{ fontFamily: 'var(--font-caveat)' }}>
-                Construisons ensemble votre succès digital.
+              <p className="text-2xl lg:text-3xl text-primary/70 mb-8" style={{ fontFamily: 'var(--font-caveat)' }}>
+                <span className="handwriting-animate with-cursor">Construisons ensemble votre succès digital.</span>
               </p>
 
               {/* CTA Principal */}
