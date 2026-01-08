@@ -101,7 +101,7 @@ export default function Hero() {
 
                   {/* Titre principal */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
-                <span className="text-primary/60">Vous bossez.</span>
+                <span className="text-primary">Vous bossez.</span>
                 <br />
                 <span className="text-primary">Votre site web aussi.</span>
               </h1>
