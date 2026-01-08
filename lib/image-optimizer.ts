@@ -180,4 +180,3 @@ export async function optimizeImageWithPreset(
 ): Promise<File> {
   return optimizeImage(file, OPTIMIZATION_PRESETS[preset]);
 }
-

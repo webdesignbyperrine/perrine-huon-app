@@ -87,4 +87,3 @@ export function useSound(soundUrl: string, options: UseSoundOptions = {}) {
 
   return { play, stop, isLoaded };
 }
-

@@ -149,4 +149,3 @@ export default function SafeHTML({ html, className }: SafeHTMLProps) {
     />
   );
 }
-
