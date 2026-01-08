@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useEffect } from 'react';
+import { useCallback, useRef, useEffect, useState } from 'react';
 
 interface UseSoundOptions {
   volume?: number;
@@ -8,63 +8,83 @@ interface UseSoundOptions {
   preload?: boolean;
 }
 
+// Cache global pour les audios préchargés (persiste entre les re-renders)
+const audioCache = new Map<string, HTMLAudioElement>();
+
 export function useSound(soundUrl: string, options: UseSoundOptions = {}) {
   const { volume = 0.5, playbackRate = 1, preload = true } = options;
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const isLoadedRef = useRef(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Précharger l'audio au montage pour une lecture instantanée
   useEffect(() => {
-    if (preload && typeof window !== 'undefined') {
-      const audio = new Audio();
-      audio.preload = 'auto';
-      audio.src = soundUrl;
-      audio.volume = Math.max(0, Math.min(1, volume));
-      audio.playbackRate = playbackRate;
-      
-      // Précharger le fichier audio
-      audio.load();
-      audioRef.current = audio;
-      
-      audio.addEventListener('canplaythrough', () => {
-        isLoadedRef.current = true;
-      });
+    if (!preload || typeof window === 'undefined') return;
+    
+    // Vérifier si déjà dans le cache global
+    if (audioCache.has(soundUrl)) {
+      audioRef.current = audioCache.get(soundUrl)!;
+      audioRef.current.volume = Math.max(0, Math.min(1, volume));
+      setIsLoaded(true);
+      return;
     }
     
+    // Créer et précharger le nouvel audio
+    const audio = new Audio();
+    audio.preload = 'auto';
+    audio.src = soundUrl;
+    audio.volume = Math.max(0, Math.min(1, volume));
+    audio.playbackRate = playbackRate;
+    
+    const handleCanPlay = () => {
+      setIsLoaded(true);
+    };
+    
+    audio.addEventListener('canplaythrough', handleCanPlay);
+    
+    // Déclencher le chargement immédiatement
+    audio.load();
+    
+    // Stocker dans le cache global et la ref
+    audioCache.set(soundUrl, audio);
+    audioRef.current = audio;
+    
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
+      audio.removeEventListener('canplaythrough', handleCanPlay);
     };
   }, [soundUrl, volume, playbackRate, preload]);
 
   const play = useCallback(() => {
-    // Créer si pas encore créé (fallback)
-    if (!audioRef.current) {
-      audioRef.current = new Audio(soundUrl);
-      audioRef.current.volume = Math.max(0, Math.min(1, volume));
-      audioRef.current.playbackRate = playbackRate;
+    // Utiliser le cache global si disponible
+    let audio = audioRef.current || audioCache.get(soundUrl);
+    
+    // Fallback: créer à la volée si nécessaire
+    if (!audio) {
+      audio = new Audio(soundUrl);
+      audio.volume = Math.max(0, Math.min(1, volume));
+      audio.playbackRate = playbackRate;
+      audioRef.current = audio;
     }
     
-    const audio = audioRef.current;
-    
-    // Remettre au début si déjà en cours de lecture
+    // Remettre au début pour lecture immédiate
     audio.currentTime = 0;
     
-    // Jouer le son immédiatement (avec gestion des erreurs silencieuse)
-    audio.play().catch(() => {
-      // Certains navigateurs bloquent l'autoplay - on ignore silencieusement
-    });
+    // Jouer le son immédiatement
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Navigateurs stricts - ignore silencieusement
+      });
+    }
   }, [soundUrl, volume, playbackRate]);
 
   const stop = useCallback(() => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+    const audio = audioRef.current || audioCache.get(soundUrl);
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
     }
-  }, []);
+  }, [soundUrl]);
 
-  return { play, stop, isLoaded: isLoadedRef.current };
+  return { play, stop, isLoaded };
 }
 

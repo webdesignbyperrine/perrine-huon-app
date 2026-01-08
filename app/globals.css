@@ -604,6 +604,11 @@ html.dark .bg-paper {
   }
 }
 
+/* Classe utilitaire pour le curseur clignotant */
+.animate-cursor-blink {
+  animation: cursor-blink-real 0.6s infinite;
+}
+
 .handwriting-animate {
   display: inline-block;
   overflow: hidden;

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import HeroIllustration from '@/components/illustrations/HeroIllustration';
 import { useSound } from '@/hooks/useSound';
+import TypewriterText from '@/components/TypewriterText';
 
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);
@@ -111,8 +112,13 @@ export default function Hero() {
                 <br />
                 Conçu pour convertir.
               </p>
-              <p className="text-2xl lg:text-3xl text-primary/70 mb-8" style={{ fontFamily: 'var(--font-caveat)' }}>
-                <span className="handwriting-animate with-cursor">Construisons ensemble votre succès digital.</span>
+              <p className="text-2xl lg:text-3xl text-accent mb-8" style={{ fontFamily: 'var(--font-caveat)' }}>
+                <TypewriterText 
+                  text="Construisons ensemble votre succès digital."
+                  delay={60}
+                  startDelay={800}
+                  showCursor={true}
+                />
               </p>
 
               {/* CTA Principal */}
