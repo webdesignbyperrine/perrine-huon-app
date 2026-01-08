@@ -13,11 +13,11 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('dark');
+  const [theme, setThemeState] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);
 
   // Charger le thème depuis localStorage au montage
-  // Dark mode par défaut pour les nouveaux utilisateurs
+  // Light mode par défaut pour les nouveaux utilisateurs
   useEffect(() => {
     setMounted(true);
     const savedTheme = localStorage.getItem('theme') as Theme | null;
@@ -26,8 +26,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       // Utiliser le thème sauvegardé si l'utilisateur en a choisi un
       setThemeState(savedTheme);
     } else {
-      // Dark mode par défaut pour les nouveaux utilisateurs
-      setThemeState('dark');
+      // Light mode par défaut pour les nouveaux utilisateurs
+      setThemeState('light');
     }
   }, []);
 
@@ -66,7 +66,7 @@ export function useTheme() {
   if (context === undefined) {
     // Retourner des valeurs par défaut si utilisé en dehors du provider (SSR)
     return {
-      theme: 'dark' as Theme,
+      theme: 'light' as Theme,
       toggleTheme: () => {},
       setTheme: () => {},
     };
