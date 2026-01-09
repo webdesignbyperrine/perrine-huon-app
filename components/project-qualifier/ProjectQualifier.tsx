@@ -17,7 +17,7 @@ import InspirationsStep from './steps/InspirationsStep';
 import QuoteRequestStep from './steps/QuoteRequestStep';
 
 // Composant interne qui utilise le contexte
-function QualifierContent({ onClose }: { onClose?: () => void }) {
+function QualifierContent({ onClose, onBack }: { onClose?: () => void; onBack?: () => void }) {
   const { currentStep } = useQualifier();
   const [isAnimating, setIsAnimating] = useState(false);
   const [prevStep, setPrevStep] = useState(currentStep);
@@ -75,15 +75,34 @@ function QualifierContent({ onClose }: { onClose?: () => void }) {
 
   return (
     <div ref={containerRef} className="relative w-full max-w-5xl mx-auto">
-      {/* Bouton fermer (optionnel) */}
-      {onClose && (
-        <button
-          onClick={onClose}
-          className="absolute top-0 right-0 p-2 text-white/40 hover:text-white transition-colors z-20"
-          aria-label="Fermer"
-        >
-          <CloseIcon className="w-6 h-6" />
-        </button>
+      {/* Bouton retour aux options en haut (si onBack est fourni) */}
+      {(onBack || (onClose && !onBack)) && (
+        <div className="flex items-center justify-between mb-6">
+          {onBack ? (
+            <button
+              onClick={onBack}
+              className="inline-flex items-center gap-2 text-primary/50 hover:text-primary transition-colors group text-sm"
+            >
+              <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Retour aux options
+            </button>
+          ) : (
+            <div /> /* Spacer */
+          )}
+
+          {/* Bouton fermer (pour le mode modal) */}
+          {onClose && !onBack && (
+            <button
+              onClick={onClose}
+              className="p-2 text-primary/40 hover:text-primary transition-colors"
+              aria-label="Fermer"
+            >
+              <CloseIcon className="w-6 h-6" />
+            </button>
+          )}
+        </div>
       )}
 
       {/* Container avec animation */}
@@ -105,6 +124,8 @@ interface ProjectQualifierProps {
   mode?: 'inline' | 'modal';
   /** Callback quand on ferme le modal */
   onClose?: () => void;
+  /** Callback pour revenir en arrière (vers les options de contact) */
+  onBack?: () => void;
   /** Afficher le composant */
   isOpen?: boolean;
 }
@@ -112,6 +133,7 @@ interface ProjectQualifierProps {
 export default function ProjectQualifier({ 
   mode = 'inline', 
   onClose,
+  onBack,
   isOpen = true 
 }: ProjectQualifierProps) {
   // Mode inline : affichage direct
@@ -119,7 +141,7 @@ export default function ProjectQualifier({
     return (
       <QualifierProvider>
         <div className="w-full px-4">
-          <QualifierContent />
+          <QualifierContent onBack={onBack} />
         </div>
       </QualifierProvider>
     );
@@ -139,7 +161,7 @@ export default function ProjectQualifier({
         
         {/* Container */}
         <div className="relative w-full max-h-[90vh] overflow-y-auto py-8 px-4">
-          <QualifierContent onClose={onClose} />
+          <QualifierContent onClose={onClose} onBack={onBack} />
         </div>
       </div>
     </QualifierProvider>

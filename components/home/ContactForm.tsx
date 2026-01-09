@@ -2,8 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import ProjectQualifier from '@/components/project-qualifier/ProjectQualifier';
+
+type ContactView = 'choice' | 'form' | 'qualifier';
 
 export default function ContactForm() {
+  const [view, setView] = useState<ContactView>('choice');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,7 +44,7 @@ export default function ContactForm() {
 
     if (!formData.consent) {
       setStatus('error');
-      setErrorMessage('N\'oubliez pas de cocher la case pour que je puisse vous répondre 😉');
+      setErrorMessage('N\'oubliez pas de cocher la case pour que je puisse vous répondre !');
       return;
     }
 
@@ -91,6 +95,390 @@ export default function ContactForm() {
       [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value,
     }));
   };
+
+  const handleBackToChoice = () => {
+    setView('choice');
+    setStatus('idle');
+  };
+
+  // Rendu de la vue "Choix" - 2 options
+  const renderChoiceView = () => (
+    <div className="max-w-4xl mx-auto">
+      {/* Header */}
+      <div ref={titleRef} className="text-center mb-10 lg:mb-14">
+        <span 
+          className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          Prêt·e à démarrer ?
+        </span>
+        <h2 
+          className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 transition-all duration-700 delay-100 ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          Donnons vie à votre projet
+        </h2>
+        <p 
+          className={`text-lg text-primary/60 max-w-xl mx-auto transition-all duration-700 delay-200 ${
+            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}
+        >
+          Comment souhaitez-vous me contacter ?
+        </p>
+      </div>
+
+      {/* Cartes de choix */}
+      <div 
+        ref={formRef}
+        className={`grid md:grid-cols-2 gap-6 lg:gap-8 transition-all duration-700 delay-200 ${
+          formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
+        {/* Option 1 : Message libre */}
+        <button
+          onClick={() => setView('form')}
+          className="group flex flex-col items-center text-center bg-paper-light border-2 border-primary/15 rounded-sketch-xl p-8 lg:p-10 hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+        >
+          {/* Badge */}
+          <div className="mb-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-xs font-semibold text-primary/70 uppercase tracking-wider">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              Rapide
+            </span>
+          </div>
+
+          {/* Icône - style header mobile (fond bleu, icône blanche) */}
+          <div 
+            className="w-14 h-14 mb-6 rounded-full flex items-center justify-center shadow-md group-hover:scale-105 transition-all duration-300"
+            style={{ backgroundColor: '#2B5B8A' }}
+          >
+            <svg className="w-7 h-7" fill="none" stroke="white" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M22 7l-10 6L2 7"/>
+            </svg>
+          </div>
+
+          {/* Contenu */}
+          <div className="flex-1">
+            <h3 className="text-xl lg:text-2xl font-bold text-primary mb-3">
+              J&apos;ai une idée précise
+            </h3>
+            <p className="text-primary/60 leading-relaxed">
+              Vous savez ce que vous voulez ? Écrivez-moi directement ! Je vous réponds sous 48h.
+            </p>
+          </div>
+
+          {/* CTA - trait bleu */}
+          <div 
+            className="flex items-center justify-center gap-2 text-accent font-semibold group-hover:gap-3 transition-all duration-300 mt-6 pt-6 border-t-2 w-full"
+            style={{ borderColor: 'rgba(43, 91, 138, 0.2)' }}
+          >
+            <span>Écrire mon message</span>
+            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        </button>
+
+        {/* Option 2 : Questionnaire guidé */}
+        <button
+          onClick={() => setView('qualifier')}
+          className="group flex flex-col items-center text-center bg-paper-light border-2 border-primary/15 rounded-sketch-xl p-8 lg:p-10 hover:border-accent/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+        >
+          {/* Badge recommandé */}
+          <div className="mb-6">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-accent/10 border border-accent/30 rounded-full text-xs font-semibold text-accent uppercase tracking-wider">
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              Recommandé
+            </span>
+          </div>
+
+          {/* Icône - style header mobile (fond rose, icône blanche) */}
+          <div 
+            className="w-14 h-14 mb-6 rounded-full flex items-center justify-center shadow-md group-hover:scale-105 transition-all duration-300"
+            style={{ backgroundColor: '#ff0f7c' }}
+          >
+            <svg className="w-7 h-7" fill="none" stroke="white" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+
+          {/* Contenu */}
+          <div className="flex-1">
+            <h3 className="text-xl lg:text-2xl font-bold text-primary mb-3">
+              Aidez-moi à définir mon besoin
+            </h3>
+            <p className="text-primary/60 leading-relaxed">
+              Pas encore sûr·e de ce qu&apos;il vous faut ? Répondez à quelques questions et recevez une estimation personnalisée.
+            </p>
+          </div>
+
+          {/* CTA + Info - trait bleu */}
+          <div 
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6 pt-6 border-t-2 w-full"
+            style={{ borderColor: 'rgba(43, 91, 138, 0.2)' }}
+          >
+            <div className="flex items-center gap-2 text-accent font-semibold group-hover:gap-3 transition-all duration-300">
+              <span>Commencer le quiz</span>
+              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+            <span className="text-xs text-primary/40 flex items-center gap-1.5 bg-primary/5 px-2 py-1 rounded-full">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              2 min
+            </span>
+          </div>
+        </button>
+      </div>
+
+      {/* Reassurance */}
+      <div 
+        className={`flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-10 text-primary/50 text-sm transition-all duration-700 delay-400 ${
+          formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`}
+      >
+        <span className="flex items-center gap-1.5">
+          <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+          </svg>
+          Gratuit
+        </span>
+        <span className="flex items-center gap-1.5">
+          <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+          </svg>
+          Sans engagement
+        </span>
+        <span className="flex items-center gap-1.5">
+          <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+          </svg>
+          Réponse sous 48h
+        </span>
+      </div>
+    </div>
+  );
+
+  // Rendu du formulaire classique
+  const renderFormView = () => (
+    <div className="max-w-2xl mx-auto">
+      {/* Header avec bouton retour */}
+      <div ref={titleRef} className="text-center mb-10 lg:mb-14">
+        <button
+          onClick={handleBackToChoice}
+          className="inline-flex items-center gap-2 text-primary/50 hover:text-primary mb-6 transition-colors group"
+        >
+          <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+          Retour aux options
+        </button>
+        <h2 className="flex items-center justify-center gap-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <span>Écrivez-moi</span>
+          <svg 
+            className="w-8 h-8 lg:w-10 lg:h-10 text-accent flex-shrink-0"
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M22 7l-10 6L2 7"/>
+          </svg>
+        </h2>
+        <p className="text-lg text-primary/60 flex items-center justify-center gap-2">
+          <span>Parlez-moi de votre projet, je vous réponds sous 48h</span>
+          <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+          </svg>
+        </p>
+      </div>
+
+      {/* Form Card */}
+      <div 
+        ref={formRef} 
+        className={`relative transition-all duration-700 ${
+          formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <div className="relative bg-paper-light border-2 border-primary/10 rounded-sketch-xl p-8 lg:p-10 shadow-sketch hover:border-primary/20 transition-colors duration-300">
+          
+          {status === 'success' ? (
+            <div className="text-center py-8">
+              <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 border-2 border-green-500/30 rounded-full flex items-center justify-center">
+                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="flex items-center justify-center gap-2 text-2xl font-bold mb-4 text-primary">
+                <span>Bien reçu !</span>
+                {/* Picto confetti/célébration */}
+                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+                </svg>
+              </h3>
+              <p className="text-primary/60 mb-8">
+                Merci pour votre message. Je vous réponds sous 48h, promis !
+              </p>
+              <button
+                onClick={handleBackToChoice}
+                className="btn-sketch"
+              >
+                Retour à l&apos;accueil
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              
+              {/* Nom & Email */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
+                    Nom complet <span className="text-accent">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="input-sketch w-full"
+                    placeholder="Jon Snow"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
+                    Email <span className="text-accent">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="input-sketch w-full"
+                    placeholder="jon@winterfell.got"
+                  />
+                </div>
+              </div>
+
+              {/* Entreprise */}
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
+                  Entreprise <span className="text-primary/30">(optionnel)</span>
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="input-sketch w-full"
+                  placeholder="Maison Stark"
+                />
+              </div>
+
+              {/* Message */}
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
+                  Votre message <span className="text-accent">*</span>
+                </label>
+                <textarea
+                  ref={messageRef}
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="input-sketch w-full resize-none"
+                  placeholder="Parlez-moi de votre projet, vos idées, vos envies... Je suis tout ouïe !"
+                />
+              </div>
+
+              {/* Consentement RGPD */}
+              <div className="flex items-start gap-4 p-4 bg-primary/5 rounded-sketch border-2 border-primary/10">
+                <input
+                  type="checkbox"
+                  id="consent"
+                  name="consent"
+                  required
+                  checked={formData.consent}
+                  onChange={handleChange}
+                  className="mt-0.5 w-5 h-5 rounded border-2 border-primary/30 bg-transparent text-accent focus:ring-accent focus:ring-offset-0 cursor-pointer"
+                />
+                <label htmlFor="consent" className="text-primary/50 text-sm leading-relaxed cursor-pointer">
+                  J&apos;accepte d&apos;être recontacté(e) par Perrine.{' '}
+                  <a href="/politique-confidentialite" className="text-accent hover:underline">
+                    Politique de confidentialité
+                  </a>
+                </label>
+              </div>
+
+              {/* Message d'erreur */}
+              {status === 'error' && (
+                <div className="p-4 bg-red-50 border-2 border-red-200 rounded-sketch text-red-600 text-sm">
+                  {errorMessage}
+                </div>
+              )}
+
+              {/* Bouton submit */}
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                className="btn-cta btn-cta-pulse w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status === 'loading' ? (
+                  <span className="flex items-center justify-center gap-3">
+                    <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Envoi en cours...
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2 group">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                    </svg>
+                    Envoyer mon message
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                )}
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
+  // Rendu du qualifier
+  const renderQualifierView = () => (
+    <div className="max-w-5xl mx-auto">
+      {/* Qualifier avec bouton retour intégré */}
+      <ProjectQualifier mode="inline" onBack={handleBackToChoice} />
+    </div>
+  );
 
   return (
     <section id="contact" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-paper overflow-hidden">
@@ -149,204 +537,9 @@ export default function ContactForm() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-2xl mx-auto">
-          
-          {/* Header */}
-          <div ref={titleRef} className="text-center mb-12 lg:mb-16">
-            <span 
-              className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              Parlons de votre projet
-            </span>
-            <h2 
-              className={`flex items-center justify-center gap-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4 transition-all duration-700 delay-100 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <span>Une idée ? Écrivez-moi</span>
-              <svg 
-                className={`w-8 h-8 lg:w-10 lg:h-10 text-accent flex-shrink-0 transition-all duration-500 delay-300 ${
-                  titleVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-                }`}
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="M22 7l-10 6L2 7"/>
-              </svg>
-            </h2>
-            <p 
-              className={`text-lg text-primary/60 transition-all duration-700 delay-200 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              Réponse garantie sous 48h
-            </p>
-          </div>
-
-          {/* Form Card */}
-          <div 
-            ref={formRef} 
-            className={`relative transition-all duration-700 delay-200 ${
-              formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-            }`}
-          >
-            <div className="relative bg-paper-light border-2 border-primary/10 rounded-sketch-xl p-8 lg:p-10 shadow-sketch hover:border-primary/20 transition-colors duration-300">
-              
-              {status === 'success' ? (
-                <div className="text-center py-8">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-green-500/10 border-2 border-green-500/30 rounded-full flex items-center justify-center">
-                    <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 text-primary">Bien reçu !</h3>
-                  <p className="text-primary/60 mb-8">
-                    Merci pour votre message. Je vous réponds sous 48h.
-                  </p>
-                  <button
-                    onClick={() => setStatus('idle')}
-                    className="btn-sketch"
-                  >
-                    Nouveau message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  
-                  {/* Nom & Email */}
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
-                        Nom complet <span className="text-accent">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="input-sketch w-full"
-                        placeholder="Jon Snow"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
-                        Email <span className="text-accent">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="input-sketch w-full"
-                        placeholder="jon@winterfell.got"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Entreprise */}
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
-                      Entreprise <span className="text-primary/30">(optionnel)</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="input-sketch w-full"
-                      placeholder="Maison Stark"
-                    />
-                  </div>
-
-                  {/* Message */}
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-primary/70 uppercase tracking-wider mb-2">
-                      Votre message <span className="text-accent">*</span>
-                    </label>
-                    <textarea
-                      ref={messageRef}
-                      id="message"
-                      name="message"
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
-                      className="input-sketch w-full resize-none"
-                      placeholder="Winter is coming... et mon projet aussi !"
-                    />
-                  </div>
-
-                  {/* Consentement RGPD */}
-                  <div className="flex items-start gap-4 p-4 bg-primary/5 rounded-sketch border-2 border-primary/10">
-                    <input
-                      type="checkbox"
-                      id="consent"
-                      name="consent"
-                      required
-                      checked={formData.consent}
-                      onChange={handleChange}
-                      className="mt-0.5 w-5 h-5 rounded border-2 border-primary/30 bg-transparent text-accent focus:ring-accent focus:ring-offset-0 cursor-pointer"
-                    />
-                    <label htmlFor="consent" className="text-primary/50 text-sm leading-relaxed cursor-pointer">
-                      J'accepte d'être recontacté(e) par Perrine.{' '}
-                      <a href="/politique-confidentialite" className="text-accent hover:underline">
-                        Politique de confidentialité
-                      </a>
-                    </label>
-                  </div>
-
-                  {/* Message d'erreur */}
-                  {status === 'error' && (
-                    <div className="p-4 bg-red-50 border-2 border-red-200 rounded-sketch text-red-600 text-sm">
-                      {errorMessage}
-                    </div>
-                  )}
-
-                  {/* Bouton submit */}
-                  <button
-                    type="submit"
-                    disabled={status === 'loading'}
-                    className="btn-cta btn-cta-pulse w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {status === 'loading' ? (
-                      <span className="flex items-center justify-center gap-3">
-                        <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                        </svg>
-                        Envoi en cours...
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2 group">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
-                        </svg>
-                        Envoyer ma demande
-                        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </span>
-                    )}
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
-
-        </div>
+        {view === 'choice' && renderChoiceView()}
+        {view === 'form' && renderFormView()}
+        {view === 'qualifier' && renderQualifierView()}
       </div>
     </section>
   );
