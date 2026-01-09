@@ -1421,14 +1421,21 @@ html.dark .theme-toggle:hover .moon-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-full);
   background: var(--accent-pink);
   color: white;
   animation: phone-ring-mobile 2.5s ease-in-out infinite;
   box-shadow: 0 4px 15px rgba(255, 15, 124, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .phone-cta-mobile {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 .phone-cta-mobile:hover {
@@ -1507,4 +1514,168 @@ html.dark .theme-toggle:hover .moon-icon {
   32% {
     transform: rotate(-3deg);
   }
+}
+
+/* ========================================
+   BOUTON CONTACT (ENVELOPPE)
+   ======================================== */
+
+.contact-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 2px solid var(--border-light);
+  color: var(--primary-blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-icon-btn:hover {
+  border-color: var(--primary-blue);
+  background: rgba(43, 91, 138, 0.08);
+  transform: scale(1.05);
+}
+
+.contact-icon-btn:hover svg {
+  animation: envelope-bounce 0.6s ease;
+}
+
+html.dark .contact-icon-btn {
+  color: var(--foreground-dark);
+  border-color: var(--foreground-dark-muted);
+}
+
+html.dark .contact-icon-btn:hover {
+  border-color: var(--foreground-dark);
+  background: rgba(232, 220, 196, 0.1);
+}
+
+/* Animation de rebond pour l'enveloppe */
+@keyframes envelope-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1.1);
+  }
+  30% {
+    transform: translateY(-4px) scale(1.1);
+  }
+  50% {
+    transform: translateY(0) scale(1.1);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.1);
+  }
+}
+
+/* Version mobile */
+.contact-icon-btn-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--primary-blue);
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(43, 91, 138, 0.35);
+}
+
+@media (min-width: 640px) {
+  .contact-icon-btn-mobile {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.contact-icon-btn-mobile:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(43, 91, 138, 0.45);
+}
+
+.contact-icon-btn-mobile:active {
+  transform: scale(0.95);
+}
+
+html.dark .contact-icon-btn-mobile {
+  background: var(--foreground-dark);
+  color: var(--background-dark);
+  box-shadow: 0 4px 12px rgba(232, 220, 196, 0.25);
+}
+
+html.dark .contact-icon-btn-mobile:hover {
+  box-shadow: 0 6px 18px rgba(232, 220, 196, 0.35);
+}
+
+/* ========================================
+   THEME TOGGLE MOBILE
+   ======================================== */
+
+.theme-toggle-mobile {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 2px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .theme-toggle-mobile {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.theme-toggle-mobile:hover {
+  border-color: var(--accent-pink);
+  background: rgba(255, 15, 124, 0.05);
+}
+
+html.dark .theme-toggle-mobile:hover {
+  background: rgba(244, 114, 182, 0.1);
+}
+
+.theme-toggle-mobile svg {
+  width: 18px;
+  height: 18px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@media (min-width: 640px) {
+  .theme-toggle-mobile svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Animation soleil -> lune */
+.theme-toggle-mobile .sun-icon {
+  color: #f59e0b;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle-mobile .moon-icon {
+  color: #60a5fa;
+  position: absolute;
+  transform: rotate(-90deg) scale(0);
+}
+
+html.dark .theme-toggle-mobile .sun-icon {
+  transform: rotate(90deg) scale(0);
+}
+
+html.dark .theme-toggle-mobile .moon-icon {
+  transform: rotate(0deg) scale(1);
 }

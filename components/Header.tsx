@@ -336,11 +336,11 @@ export default function Header() {
   }, []);
 
   const navigation = [
-    { name: 'Portfolio', href: '/portfolio' },
     { name: 'Services', href: '/#services' },
+    { name: 'À propos', href: '/#about' },
+    { name: 'Portfolio', href: '/portfolio' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
-    { name: 'À propos', href: '/#about' },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -367,10 +367,10 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-4 py-4 lg:py-5">
+      <nav className="container mx-auto px-4 py-4 xl:py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" onClick={handleLogoClick} className="flex items-center space-x-3 group">
+          <Link href="/" onClick={handleLogoClick} className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0">
             <div className="relative">
               {/* Cercle décoratif - la "cage" (visible seulement pendant l'animation) */}
               <div 
@@ -380,7 +380,7 @@ export default function Header() {
               {/* Logo principal (visible normalement) */}
               <div 
                 ref={logoContainerRef}
-                className="relative w-10 h-10 lg:w-12 lg:h-12 flex items-center justify-center transition-opacity duration-200"
+                className="relative w-9 h-9 sm:w-10 sm:h-10 xl:w-12 xl:h-12 flex items-center justify-center transition-opacity duration-200"
               >
                 <Image
                   src={logoUrl}
@@ -437,14 +437,14 @@ export default function Header() {
                 />
               </div>
             </div>
-            <span className="text-base lg:text-xl font-medium tracking-wide">
+            <span className="text-sm sm:text-base xl:text-xl font-medium tracking-wide whitespace-nowrap">
               <span className="text-primary">PERRINE</span>
-              <span className="text-primary/40 ml-1 lg:ml-2">HUON</span>
+              <span className="text-primary/40 ml-1 sm:ml-1.5 xl:ml-2 hidden min-[400px]:inline">HUON</span>
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-10">
+          <div className="hidden xl:flex items-center space-x-6 2xl:space-x-10">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -458,8 +458,8 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Theme Toggle + CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Theme Toggle + Contact + CTA Button */}
+          <div className="hidden xl:flex items-center gap-3 flex-shrink-0">
             {/* Bouton Dark Mode */}
             <button
               onClick={toggleTheme}
@@ -470,6 +470,28 @@ export default function Header() {
               <SunIcon />
               <MoonIcon />
             </button>
+            
+            {/* Bouton Contact - Enveloppe */}
+            <Link
+              href="/#contact"
+              onClick={(e) => handleNavClick(e, '/#contact')}
+              className="contact-icon-btn group"
+              aria-label="Formulaire de contact"
+              title="Écrivez-moi"
+            >
+              <svg 
+                className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2"
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7l-10 6L2 7"/>
+              </svg>
+            </Link>
             
             <Link
               href="/#rdv"
@@ -496,8 +518,29 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile: Phone CTA + Theme Toggle + Menu button */}
-          <div className="flex lg:hidden items-center gap-2">
+          {/* Mobile: Contact + Phone CTA + Theme Toggle + Menu button */}
+          <div className="flex xl:hidden items-center gap-2 sm:gap-3">
+            {/* Bouton Contact Mobile - Enveloppe */}
+            <Link
+              href="/#contact"
+              onClick={(e) => handleNavClick(e, '/#contact')}
+              className="contact-icon-btn-mobile"
+              aria-label="Formulaire de contact"
+            >
+              <svg 
+                className="w-[18px] h-[18px] sm:w-5 sm:h-5" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2"
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="M22 7l-10 6L2 7"/>
+              </svg>
+            </Link>
+            
             {/* Bouton Téléphone Mobile - Rose animé */}
             <Link
               href="/#rdv"
@@ -506,7 +549,7 @@ export default function Header() {
               aria-label="Réserver un appel"
             >
               <svg 
-                className="w-5 h-5" 
+                className="w-[18px] h-[18px] sm:w-5 sm:h-5" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
@@ -521,7 +564,7 @@ export default function Header() {
             {/* Bouton Dark Mode Mobile */}
             <button
               onClick={toggleTheme}
-              className="theme-toggle !w-10 !h-10"
+              className="theme-toggle-mobile"
               aria-label={theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair'}
               title={theme === 'light' ? 'Mode sombre' : 'Mode clair'}
             >
@@ -532,13 +575,13 @@ export default function Header() {
             {/* Mobile menu button - Style ligne claire */}
             <button
               type="button"
-              className="p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
+              className="p-1.5 sm:p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 {mobileMenuOpen ? (
                   <path d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -557,7 +600,7 @@ export default function Header() {
         {mobileMenuOpen && (
           <nav 
             id="mobile-navigation" 
-            className="lg:hidden mt-4 p-6 bg-paper-light border-2 border-primary/20 rounded-sketch-lg shadow-sketch animate-fade-in-down"
+            className="xl:hidden mt-4 p-6 bg-paper-light border-2 border-primary/20 rounded-sketch-lg shadow-sketch animate-fade-in-down"
             aria-label="Navigation mobile"
           >
             <div className="space-y-1">
