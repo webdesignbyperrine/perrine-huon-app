@@ -202,28 +202,14 @@ const EMAIL_STYLES = {
   white: '#ffffff',
 };
 
-// Header commun avec logo
+// Header commun
 function getEmailHeader(): string {
   return `
     <tr>
       <td style="background-color: ${EMAIL_STYLES.bgBeige}; padding: 30px; text-align: center;">
-        <table cellpadding="0" cellspacing="0" border="0" align="center">
-          <tr>
-            <td style="vertical-align: middle; padding-right: 15px;">
-              <!-- Logo perroquet simplifié en SVG -->
-              <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M50 15C45 15 40 20 38 28C36 36 38 45 42 52L40 85C40 88 42 90 45 90H55C58 90 60 88 60 85L58 52C62 45 64 36 62 28C60 20 55 15 50 15Z" stroke="${EMAIL_STYLES.primaryBlue}" stroke-width="3" fill="none"/>
-                <circle cx="45" cy="30" r="3" fill="${EMAIL_STYLES.primaryBlue}"/>
-                <path d="M38 35C32 33 28 38 30 42C32 46 38 45 38 45" stroke="${EMAIL_STYLES.primaryBlue}" stroke-width="2" fill="none"/>
-              </svg>
-            </td>
-            <td style="vertical-align: middle;">
-              <span style="font-family: 'Georgia', serif; font-size: 24px; font-weight: 600; color: ${EMAIL_STYLES.primaryBlue}; letter-spacing: 2px;">
-                PERRINE HUON
-              </span>
-            </td>
-          </tr>
-        </table>
+        <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; font-weight: 400; color: ${EMAIL_STYLES.primaryBlue}; letter-spacing: 3px;">
+          PERRINE HUON
+        </span>
       </td>
     </tr>
   `;
