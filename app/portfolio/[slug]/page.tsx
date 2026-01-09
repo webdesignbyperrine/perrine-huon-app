@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import ImageCarousel from '@/components/ImageCarousel';
+import FormattedDescription from '@/components/FormattedDescription';
 import type { ProjectMedia } from '@/types/database.types';
 
 // Type pour les médias tels qu'ils sont stockés dans Supabase
@@ -168,9 +169,10 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="bg-paper border-2 border-primary/10 p-8 lg:p-10 rounded-sketch-xl">
               <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary">À propos du projet</h2>
-              <div className="text-primary/70 text-lg leading-relaxed whitespace-pre-wrap">
-                {project.long_description}
-              </div>
+              <FormattedDescription 
+                content={project.long_description} 
+                className="text-primary/70 text-lg leading-relaxed whitespace-pre-wrap"
+              />
             </div>
           </div>
         </section>
