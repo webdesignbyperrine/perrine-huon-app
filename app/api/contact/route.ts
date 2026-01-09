@@ -173,6 +173,10 @@ interface ContactEmailData {
 
 function generateContactEmailHtml(data: ContactEmailData): string {
   const { name, email, company, message } = data;
+  
+  // Encoder le sujet pour l'URL mailto
+  const subject = encodeURIComponent('Re: Votre message sur perrinehuon.com');
+  const firstName = name.split(' ')[0];
 
   return `
 <!DOCTYPE html>
@@ -239,8 +243,8 @@ function generateContactEmailHtml(data: ContactEmailData): string {
           <!-- CTA -->
           <tr>
             <td style="padding: 0 30px 30px 30px; text-align: center;">
-              <a href="mailto:${email}?subject=Re: Votre message sur perrinehuon.com" style="display: inline-block; background: linear-gradient(135deg, #E94E8A 0%, #9B59B6 100%); color: #ffffff; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;">
-                📧 Répondre à ${name.split(' ')[0]}
+              <a href="mailto:${email}?subject=${subject}" style="display: inline-block; background: linear-gradient(135deg, #E94E8A 0%, #9B59B6 100%); color: #ffffff; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 16px;">
+                &#9993; Répondre à ${firstName}
               </a>
             </td>
           </tr>
