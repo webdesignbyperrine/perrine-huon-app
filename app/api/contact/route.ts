@@ -89,7 +89,6 @@ export async function POST(request: NextRequest) {
       name: name.trim().slice(0, 100),
       email: email.trim().toLowerCase().slice(0, 255),
       company: company ? String(company).trim().slice(0, 100) : null,
-      city: null,
       message: message.trim().slice(0, 5000),
       source: String(source).slice(0, 50),
       status: 'new' as const,
@@ -102,7 +101,7 @@ export async function POST(request: NextRequest) {
       .insert([sanitizedData]);
 
     if (error) {
-      console.error('Erreur insertion contact:', error);
+      console.error('Erreur insertion contact:', error.message);
       return NextResponse.json(
         { error: 'Erreur lors de l\'envoi du message' },
         { status: 500 }
@@ -127,6 +126,7 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
 
 
 

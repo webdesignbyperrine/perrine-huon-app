@@ -11,3 +11,4 @@ COMMENT ON COLUMN projects.image_crop IS 'Paramètres de recadrage de l''image d
 
 
 
+
