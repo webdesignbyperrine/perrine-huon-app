@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import HeroIllustration from '@/components/illustrations/HeroIllustration';
 import { useSound } from '@/hooks/useSound';
@@ -9,9 +10,28 @@ import TypewriterText from '@/components/TypewriterText';
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);
   const qualifierRef = useRef<HTMLDivElement>(null);
+  const searchParams = useSearchParams();
   
   // Son au clic sur "C'est parti" 🎮
   const { play: playRaceStartSound } = useSound('/sounds/race-start.wav', { volume: 0.5 });
+
+  // Fonction pour ouvrir le qualifier (utilisée par le bouton Hero et le Header)
+  const openQualifier = useCallback(() => {
+    playRaceStartSound();
+    setShowQualifier(true);
+  }, [playRaceStartSound]);
+
+  // Ouvrir le qualifier si le paramètre URL est présent (depuis une autre page)
+  useEffect(() => {
+    if (searchParams.get('openQualifier') === 'true') {
+      // Petit délai pour laisser la page se charger
+      setTimeout(() => {
+        openQualifier();
+        // Nettoyer l'URL
+        window.history.replaceState({}, '', '/');
+      }, 300);
+    }
+  }, [searchParams, openQualifier]);
 
   // Scroll vers le haut du qualifier quand il s'ouvre
   useEffect(() => {
@@ -43,6 +63,16 @@ export default function Hero() {
     window.addEventListener('closeQualifier', handleCloseQualifier);
     return () => window.removeEventListener('closeQualifier', handleCloseQualifier);
   }, [showQualifier]);
+
+  // Écouter l'événement pour ouvrir le qualifier depuis le Header
+  useEffect(() => {
+    const handleOpenQualifier = () => {
+      openQualifier();
+    };
+
+    window.addEventListener('openQualifier', handleOpenQualifier);
+    return () => window.removeEventListener('openQualifier', handleOpenQualifier);
+  }, [openQualifier]);
 
   return (
     <section className="relative min-h-screen bg-paper-light grain-overlay overflow-hidden">
@@ -112,7 +142,9 @@ export default function Hero() {
                 <br />
                 Conçu pour convertir.
               </p>
-              <p className="text-2xl lg:text-3xl text-accent mb-8" style={{ fontFamily: 'var(--font-caveat)' }}>
+              
+              {/* Phrase manuscrite */}
+              <p className="text-2xl lg:text-3xl text-accent mb-6 animate-fade-in-up animation-delay-200" style={{ fontFamily: 'var(--font-caveat)' }}>
                 <TypewriterText 
                   text="Construisons ensemble votre succès digital."
                   delay={60}
@@ -121,40 +153,56 @@ export default function Hero() {
                 />
               </p>
 
-              {/* CTA Principal */}
-              <div className="flex flex-col sm:flex-row items-center gap-4 animate-fade-in-up animation-delay-300">
-                <button
-                  onClick={() => {
-                    playRaceStartSound();
-                    setShowQualifier(true);
-                  }}
-                  className="btn-cta-hero group w-full sm:w-auto"
-                >
-                  {/* Effet shimmer */}
-                  <span className="btn-shimmer"></span>
+              {/* CTA Principal avec badge */}
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 animate-fade-in-up animation-delay-300">
+                {/* Wrapper bouton + flèche pour centrer la flèche sur le bouton */}
+                <div className="flex flex-col items-center">
+                  {/* Flèche animée centrée sur le bouton */}
+                  <svg 
+                    className="w-8 h-8 text-accent animate-bounce-arrow mb-2" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 5v14m0 0l-5-5m5 5l5-5" />
+                  </svg>
                   
-                  <span className="relative flex items-center justify-center gap-3">
-                    {/* Icône play/rocket */}
-                    <span className="btn-icon-bounce">
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
+                  {/* Bouton CTA principal */}
+                  <button
+                    onClick={() => {
+                      openQualifier();
+                    }}
+                    className="btn-cta-hero-enhanced group w-full sm:w-auto"
+                  >
+                    {/* Effet shimmer */}
+                    <span className="btn-shimmer"></span>
+                    
+                    <span className="relative flex items-center justify-center gap-3">
+                      {/* Icône devis/document */}
+                      <span className="btn-icon-bounce">
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                          <polyline points="14 2 14 8 20 8"/>
+                          <line x1="16" y1="13" x2="8" y2="13"/>
+                          <line x1="16" y1="17" x2="8" y2="17"/>
+                          <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                      </span>
+                      <span className="font-bold">Obtenir mon devis gratuit</span>
+                      <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                       </svg>
                     </span>
-                    <span className="font-semibold">C&apos;est parti !</span>
-                    <svg className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </button>
+                  
+                  {/* Badge de confiance - en dessous du bouton, centré */}
+                  <span className="text-sm text-primary/50 flex items-center gap-2 mt-3">
+                    <svg className="w-4 h-4 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
+                    <span>2 min chrono</span>
                   </span>
-              </button>
-                
-                <span className="text-sm text-primary/50 flex items-center gap-2">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Gratuit</span>
-                  <span className="text-primary/30">•</span>
-                  <span>2 min chrono</span>
-                </span>
+                </div>
               </div>
 
             </div>

@@ -194,11 +194,28 @@ export default function Services() {
               ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            <a
-              href="#contact"
+            <button
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent('openQualifier'));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className="btn-cta btn-cta-pulse group inline-flex items-center gap-3"
             >
-              <span>Discuter de mon projet</span>
+              <svg 
+                className="w-4 h-4" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2"
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+              <span>Obtenir mon devis gratuit</span>
               <svg 
                 className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
                 fill="none" 
@@ -207,7 +224,7 @@ export default function Services() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
