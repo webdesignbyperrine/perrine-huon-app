@@ -19,9 +19,11 @@ const EMOJI_REGEX = /^[\p{Emoji}\p{Emoji_Presentation}\p{Extended_Pictographic}�
 const MAIN_TITLES = [
   'vue d\'ensemble',
   'fonctionnalités principales',
+  'fonctionnalités clés',
   'complexité & apprentissages',
   'le brief client',
   'solution technique',
+  'approche créative',
   'résultat',
   'résultats',
   'technologies',
