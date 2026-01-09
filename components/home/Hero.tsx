@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import HeroIllustration from '@/components/illustrations/HeroIllustration';
 import { useSound } from '@/hooks/useSound';
@@ -10,7 +9,6 @@ import TypewriterText from '@/components/TypewriterText';
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);
   const qualifierRef = useRef<HTMLDivElement>(null);
-  const searchParams = useSearchParams();
   
   // Son au clic sur "C'est parti" 🎮
   const { play: playRaceStartSound } = useSound('/sounds/race-start.wav', { volume: 0.5 });
@@ -23,7 +21,8 @@ export default function Hero() {
 
   // Ouvrir le qualifier si le paramètre URL est présent (depuis une autre page)
   useEffect(() => {
-    if (searchParams.get('openQualifier') === 'true') {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('openQualifier') === 'true') {
       // Petit délai pour laisser la page se charger
       setTimeout(() => {
         openQualifier();
@@ -31,7 +30,7 @@ export default function Hero() {
         window.history.replaceState({}, '', '/');
       }, 300);
     }
-  }, [searchParams, openQualifier]);
+  }, [openQualifier]);
 
   // Scroll vers le haut du qualifier quand il s'ouvre
   useEffect(() => {
