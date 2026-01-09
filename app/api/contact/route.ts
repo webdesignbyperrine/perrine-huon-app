@@ -144,7 +144,7 @@ export async function POST(request: NextRequest) {
 
     // 3. Envoyer l'email de confirmation à l'utilisateur
     try {
-      await fetch('https://api.brevo.com/v3/smtp/email', {
+      const confirmResponse = await fetch('https://api.brevo.com/v3/smtp/email', {
         method: 'POST',
         headers: {
           'accept': 'application/json',
@@ -158,12 +158,17 @@ export async function POST(request: NextRequest) {
           },
           to: [{ email: sanitizedData.email, name: sanitizedData.name }],
           replyTo: { email: 'contact@perrinehuon.com', name: 'Perrine Huon' },
-          subject: `Merci pour votre message ! 🙏`,
+          subject: `Merci pour votre message !`,
           htmlContent: generateConfirmationEmailHtml({
             name: sanitizedData.name,
           }),
         }),
       });
+
+      if (!confirmResponse.ok) {
+        const errorData = await confirmResponse.json();
+        console.error('Erreur Brevo (confirmation):', errorData);
+      }
     } catch (emailError) {
       console.error('Erreur envoi email confirmation:', emailError);
     }
@@ -206,10 +211,13 @@ const EMAIL_STYLES = {
 function getEmailHeader(): string {
   return `
     <tr>
-      <td style="background-color: ${EMAIL_STYLES.bgBeige}; padding: 30px; text-align: center;">
-        <span style="font-family: Georgia, 'Times New Roman', serif; font-size: 26px; font-weight: 400; color: ${EMAIL_STYLES.primaryBlue}; letter-spacing: 3px;">
+      <td style="background-color: ${EMAIL_STYLES.bgBeige}; padding: 30px 30px 25px 30px; text-align: center;">
+        <p style="margin: 0; font-family: 'Outfit', Arial, sans-serif; font-size: 24px; font-weight: 600; color: ${EMAIL_STYLES.primaryBlue}; letter-spacing: 2px;">
           PERRINE HUON
-        </span>
+        </p>
+        <p style="margin: 8px 0 0 0; font-family: 'Outfit', Arial, sans-serif; font-size: 13px; font-weight: 400; color: ${EMAIL_STYLES.primaryBlue}; letter-spacing: 1px; opacity: 0.7;">
+          Web designer
+        </p>
       </td>
     </tr>
   `;
@@ -220,10 +228,10 @@ function getEmailFooter(): string {
   return `
     <tr>
       <td style="background-color: ${EMAIL_STYLES.bgPaper}; padding: 20px; text-align: center;">
-        <p style="color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 12px; opacity: 0.7;">
-          Perrine Huon • Webdesign & Développement
+        <p style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 12px; opacity: 0.7;">
+          Perrine Huon • Web designer
         </p>
-        <p style="color: ${EMAIL_STYLES.primaryBlue}; margin: 8px 0 0 0; font-size: 12px; opacity: 0.5;">
+        <p style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 8px 0 0 0; font-size: 12px; opacity: 0.5;">
           <a href="https://perrinehuon.com" style="color: ${EMAIL_STYLES.primaryBlue}; text-decoration: none;">perrinehuon.com</a>
         </p>
       </td>
@@ -252,7 +260,7 @@ function generateNotificationEmailHtml(data: NotificationEmailData): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nouveau message</title>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: ${EMAIL_STYLES.bgBeige};">
+<body style="margin: 0; padding: 0; font-family: 'Outfit', Arial, Helvetica, sans-serif; background-color: ${EMAIL_STYLES.bgBeige};">
   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: ${EMAIL_STYLES.bgBeige}; padding: 20px;">
     <tr>
       <td align="center">
@@ -263,10 +271,10 @@ function generateNotificationEmailHtml(data: NotificationEmailData): string {
           <!-- Titre -->
           <tr>
             <td style="background-color: ${EMAIL_STYLES.bgBeige}; padding: 30px 30px 20px 30px; text-align: center;">
-              <h1 style="color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 28px; font-weight: 600;">
-                📩 Nouveau message
+              <h1 style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 26px; font-weight: 600;">
+                Nouveau message
               </h1>
-              <p style="color: ${EMAIL_STYLES.primaryBlue}; margin: 10px 0 0 0; font-size: 14px; opacity: 0.7;">
+              <p style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 10px 0 0 0; font-size: 14px; opacity: 0.7;">
                 Via le formulaire de contact
               </p>
             </td>
@@ -349,7 +357,7 @@ function generateConfirmationEmailHtml(data: ConfirmationEmailData): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Message bien reçu !</title>
 </head>
-<body style="margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: ${EMAIL_STYLES.bgBeige};">
+<body style="margin: 0; padding: 0; font-family: 'Outfit', Arial, Helvetica, sans-serif; background-color: ${EMAIL_STYLES.bgBeige};">
   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color: ${EMAIL_STYLES.bgBeige}; padding: 20px;">
     <tr>
       <td align="center">
@@ -360,11 +368,10 @@ function generateConfirmationEmailHtml(data: ConfirmationEmailData): string {
           <!-- Contenu principal -->
           <tr>
             <td style="background-color: ${EMAIL_STYLES.bgBeige}; padding: 40px 30px; text-align: center;">
-              <div style="font-size: 50px; margin-bottom: 20px;">🙏</div>
-              <h1 style="color: ${EMAIL_STYLES.primaryBlue}; margin: 0 0 15px 0; font-size: 28px; font-weight: 600;">
+              <h1 style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 0 0 15px 0; font-size: 26px; font-weight: 600;">
                 Merci ${firstName} !
               </h1>
-              <p style="color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 16px; line-height: 1.6; opacity: 0.8;">
+              <p style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 16px; line-height: 1.6; opacity: 0.8;">
                 J'ai bien reçu votre message.
               </p>
             </td>
@@ -374,11 +381,10 @@ function generateConfirmationEmailHtml(data: ConfirmationEmailData): string {
           <tr>
             <td style="padding: 0 30px 30px 30px;">
               <div style="background-color: rgba(255,255,255,0.5); border-radius: 12px; padding: 25px; border: 2px solid ${EMAIL_STYLES.primaryBlue}20; text-align: center;">
-                <div style="font-size: 30px; margin-bottom: 15px;">⏰</div>
-                <h2 style="color: ${EMAIL_STYLES.primaryBlue}; margin: 0 0 10px 0; font-size: 18px; font-weight: 600;">
+                <h2 style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 0 0 10px 0; font-size: 18px; font-weight: 600;">
                   Réponse sous 48h
                 </h2>
-                <p style="color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 14px; line-height: 1.6; opacity: 0.7;">
+                <p style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 14px; line-height: 1.6; opacity: 0.7;">
                   Je prends le temps de lire chaque message avec attention<br>
                   et je vous répondrai dans les plus brefs délais.
                 </p>
@@ -389,7 +395,7 @@ function generateConfirmationEmailHtml(data: ConfirmationEmailData): string {
           <!-- Message personnalisé -->
           <tr>
             <td style="padding: 0 30px 30px 30px; text-align: center;">
-              <p style="color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 15px; line-height: 1.6; font-style: italic; opacity: 0.8;">
+              <p style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 0; font-size: 15px; line-height: 1.6; font-style: italic; opacity: 0.8;">
                 En attendant, n'hésitez pas à explorer mes dernières réalisations<br>
                 sur mon portfolio !
               </p>
@@ -399,8 +405,8 @@ function generateConfirmationEmailHtml(data: ConfirmationEmailData): string {
           <!-- CTA -->
           <tr>
             <td style="padding: 0 30px 40px 30px; text-align: center;">
-              <a href="https://perrinehuon.com/portfolio" style="display: inline-block; background-color: ${EMAIL_STYLES.accentPink}; color: ${EMAIL_STYLES.white}; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px;">
-                🎨 Voir le portfolio
+              <a href="https://perrinehuon.com/portfolio" style="font-family: 'Outfit', Arial, sans-serif; display: inline-block; background-color: ${EMAIL_STYLES.accentPink}; color: ${EMAIL_STYLES.white}; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px;">
+                Voir le portfolio
               </a>
             </td>
           </tr>
