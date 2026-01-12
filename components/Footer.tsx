@@ -106,91 +106,46 @@ export default function Footer() {
               </Link>
             </div>
 
-            {/* ===== Grid : Navigation + LinkedIn ===== */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8">
+            {/* ===== LinkedIn CTA - mis en avant ===== */}
+            <div className={`max-w-md mx-auto transition-all duration-700 delay-100 ${footerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              <h4 className={`font-semibold mb-5 text-center ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>Restons connectés</h4>
               
-              {/* Navigation */}
-              <div className={`text-center lg:text-left transition-all duration-700 delay-100 ${footerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-                <h4 className={`font-semibold mb-5 ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>Navigation</h4>
-                <ul className="space-y-3">
-                  {[
-                    { name: 'Accueil', href: '/' },
-                    { name: 'Portfolio', href: '/portfolio' },
-                    { name: 'Blog', href: '/blog' },
-                    { name: 'FAQ', href: '/faq' },
-                    { name: 'Contact', href: '/#contact' },
-                  ].map((item) => (
-                    <li key={item.name}>
-                      <Link 
-                        href={item.href} 
-                        className={`transition-colors duration-200 ${theme === 'dark' ? 'text-paper/50 hover:text-paper' : 'text-primary/60 hover:text-primary'}`}
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Zones SEO */}
-              <div className={`text-center lg:text-left transition-all duration-700 delay-200 ${footerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-                <h4 className={`font-semibold mb-5 ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>Zones d&apos;intervention</h4>
-                <ul className="space-y-3">
-                  {[
-                    'Paris & Île-de-France',
-                    'Lyon & Rhône-Alpes',
-                    'Lille & Hauts-de-France',
-                    'Bordeaux',
-                    'Toute la France',
-                  ].map((region) => (
-                    <li key={region} className={`text-sm ${theme === 'dark' ? 'text-paper/50' : 'text-primary/60'}`}>
-                      {region}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* LinkedIn CTA - mis en avant */}
-              <div className={`text-center lg:text-left transition-all duration-700 delay-300 ${footerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-                <h4 className={`font-semibold mb-5 ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>Restons connectés</h4>
-                
-                <a
-                  href="https://www.linkedin.com/in/perrinehuon/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group block p-5 rounded-sketch-xl transition-all duration-300 ${
-                    theme === 'dark' 
-                      ? 'bg-paper/5 hover:bg-paper/10 border-2 border-paper/10 hover:border-accent/30' 
-                      : 'bg-primary/5 hover:bg-primary/10 border-2 border-primary/10 hover:border-accent/30'
-                  }`}
-                >
-                  {/* Icône LinkedIn */}
-                  <div className="flex items-center gap-4 mb-3">
-                    <div className="w-12 h-12 bg-[#0077B5] rounded-sketch flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className={`font-semibold text-sm ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>LinkedIn</p>
-                      <p className={`text-xs ${theme === 'dark' ? 'text-paper/40' : 'text-primary/40'}`}>@perrinehuon</p>
-                    </div>
-                  </div>
-                  
-                  {/* Hook */}
-                  <p className={`text-sm leading-relaxed mb-3 ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>
-                    Retrouvez mes conseils web, mes projets récents et un peu de ma vie de freelance ! 
-                  </p>
-                  
-                  {/* CTA */}
-                  <span className="inline-flex items-center gap-2 text-accent text-sm font-medium group-hover:gap-3 transition-all duration-300">
-                    Me suivre sur LinkedIn
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <a
+                href="https://www.linkedin.com/in/perrinehuon/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`group block p-5 rounded-sketch-xl transition-all duration-300 ${
+                  theme === 'dark' 
+                    ? 'bg-paper/5 hover:bg-paper/10 border-2 border-paper/10 hover:border-accent/30' 
+                    : 'bg-primary/5 hover:bg-primary/10 border-2 border-primary/10 hover:border-accent/30'
+                }`}
+              >
+                {/* Icône LinkedIn */}
+                <div className="flex items-center gap-4 mb-3">
+                  <div className="w-12 h-12 bg-[#0077B5] rounded-sketch flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>
-                  </span>
-                </a>
-              </div>
+                  </div>
+                  <div>
+                    <p className={`font-semibold text-sm ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>LinkedIn</p>
+                    <p className={`text-xs ${theme === 'dark' ? 'text-paper/40' : 'text-primary/40'}`}>@perrinehuon</p>
+                  </div>
+                </div>
+                
+                {/* Hook */}
+                <p className={`text-sm leading-relaxed mb-3 ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>
+                  Retrouvez mes conseils web, mes projets récents et un peu de ma vie de freelance ! 
+                </p>
+                
+                {/* CTA */}
+                <span className="inline-flex items-center gap-2 text-accent text-sm font-medium group-hover:gap-3 transition-all duration-300">
+                  Me suivre sur LinkedIn
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -199,6 +154,48 @@ export default function Footer() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className={`h-px ${theme === 'dark' ? 'bg-paper/10' : 'bg-primary/10'}`} />
+          </div>
+        </div>
+
+        {/* ===== Navigation & Zones SEO - Linéaire pour référencement ===== */}
+        <div className="container mx-auto px-4 py-6">
+          <div className="max-w-6xl mx-auto">
+            <div className={`flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-xs ${theme === 'dark' ? 'text-paper/30' : 'text-primary/30'}`}>
+              {/* Navigation */}
+              {[
+                { name: 'Accueil', href: '/' },
+                { name: 'Portfolio', href: '/portfolio' },
+                { name: 'Blog', href: '/blog' },
+                { name: 'FAQ', href: '/faq' },
+                { name: 'Contact', href: '/#contact' },
+              ].map((item, index) => (
+                <span key={item.name} className="flex items-center gap-4">
+                  <Link 
+                    href={item.href} 
+                    className={`transition-colors duration-200 ${theme === 'dark' ? 'hover:text-paper/50' : 'hover:text-primary/50'}`}
+                  >
+                    {item.name}
+                  </Link>
+                  {index < 4 && <span>•</span>}
+                </span>
+              ))}
+              
+              <span className={`mx-2 ${theme === 'dark' ? 'text-paper/20' : 'text-primary/20'}`}>|</span>
+              
+              {/* Zones SEO */}
+              {[
+                'Paris',
+                'Lyon',
+                'Lille',
+                'Bordeaux',
+                'France',
+              ].map((region, index) => (
+                <span key={region} className="flex items-center gap-4">
+                  <span>{region}</span>
+                  {index < 4 && <span>•</span>}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
