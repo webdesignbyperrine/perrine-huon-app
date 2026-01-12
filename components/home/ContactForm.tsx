@@ -185,14 +185,14 @@ export default function ContactForm() {
             </p>
           </div>
 
-          {/* CTA - divider rose corail - en bas */}
-          <div className="w-full pt-5 border-t-2" style={{ borderColor: '#e85d8c' }}>
-            <div className="flex items-center justify-center gap-2 font-semibold group-hover:gap-3 transition-all duration-300" style={{ color: '#e85d8c' }}>
-              <span>Écrire mon message</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
+          {/* CTA bouton avec border rose */}
+          <div className="w-full pt-5">
+            <span 
+              className="inline-flex items-center justify-center w-full px-6 py-3 border-2 rounded-full font-semibold transition-all duration-300 group-hover:scale-105"
+              style={{ borderColor: '#e85d8c', color: '#e85d8c' }}
+            >
+              Écrire mon message
+            </span>
           </div>
         </button>
 
@@ -243,15 +243,14 @@ export default function ContactForm() {
             </p>
           </div>
 
-          {/* CTA + Info - divider rose corail - en bas */}
-          <div className="w-full pt-5 border-t-2" style={{ borderColor: '#e85d8c' }}>
-            <div className="flex items-center justify-center gap-2 font-semibold group-hover:gap-3 transition-all duration-300" style={{ color: '#e85d8c' }}>
-              <span>Commencer le quiz</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
-            <span className="text-xs text-paper/40 flex items-center justify-center gap-1.5 bg-paper/5 px-2 py-1 rounded-full mt-2 mx-auto w-fit">
+          {/* CTA bouton rose */}
+          <div className="w-full pt-5">
+            <span 
+              className="btn-cta w-full justify-center group-hover:scale-105 transition-transform"
+            >
+              Commencer le quiz interactif
+            </span>
+            <span className="text-xs text-paper/40 flex items-center justify-center gap-1.5 mt-3">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -308,14 +307,14 @@ export default function ContactForm() {
             </p>
           </div>
 
-          {/* CTA - divider rose corail - en bas */}
-          <div className="w-full pt-5 border-t-2" style={{ borderColor: '#e85d8c' }}>
-            <div className="flex items-center justify-center gap-2 font-semibold group-hover:gap-3 transition-all duration-300" style={{ color: '#e85d8c' }}>
-              <span>Réserver un créneau</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </div>
+          {/* CTA bouton avec border rose */}
+          <div className="w-full pt-5">
+            <span 
+              className="inline-flex items-center justify-center w-full px-6 py-3 border-2 rounded-full font-semibold transition-all duration-300 group-hover:scale-105"
+              style={{ borderColor: '#e85d8c', color: '#e85d8c' }}
+            >
+              Réserver un créneau
+            </span>
           </div>
         </a>
       </div>
