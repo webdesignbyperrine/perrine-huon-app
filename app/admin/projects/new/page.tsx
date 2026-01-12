@@ -2,10 +2,19 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import ImageUploader from '@/components/admin/ImageUploader';
 import ImageCropper, { CropSettings } from '@/components/admin/ImageCropper';
+import { generateSlug } from '@/lib/utils';
+import {
+  AdminPageLayout,
+  AdminError,
+  AdminInput,
+  AdminTextarea,
+  AdminSelect,
+  AdminCheckbox,
+  AdminFormButtons,
+} from '@/components/admin/ui';
 
 type UploadedImage = {
   id: string;
@@ -14,6 +23,17 @@ type UploadedImage = {
   file_size: number;
   is_main?: boolean;
 };
+
+const PROJECT_TYPES = [
+  { value: '', label: 'Sélectionner un type' },
+  { value: 'Site vitrine', label: 'Site vitrine' },
+  { value: 'Site multi-pages', label: 'Site multi-pages' },
+  { value: 'SaaS / Application web', label: 'SaaS / Application web' },
+  { value: 'E-commerce', label: 'E-commerce' },
+  { value: 'Landing page', label: 'Landing page' },
+  { value: 'Refonte de site', label: 'Refonte de site' },
+  { value: 'Autre', label: 'Autre' },
+];
 
 export default function NewProjectPage() {
   const router = useRouter();
@@ -33,22 +53,12 @@ export default function NewProjectPage() {
     published: false,
   });
 
-  // Générer automatiquement le slug à partir du titre
-  const generateSlug = (title: string) => {
-    return title
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/(^-|-$)/g, '');
+  const updateField = <K extends keyof typeof formData>(key: K, value: typeof formData[K]) => {
+    setFormData(prev => ({ ...prev, [key]: value }));
   };
 
   const handleTitleChange = (title: string) => {
-    setFormData({
-      ...formData,
-      title,
-      slug: generateSlug(title),
-    });
+    setFormData(prev => ({ ...prev, title, slug: generateSlug(title) }));
   };
 
   async function handleSubmit(e: React.FormEvent) {
@@ -57,8 +67,6 @@ export default function NewProjectPage() {
     setError('');
 
     const supabase = createClient();
-    
-    // Récupérer l'URL de l'image principale
     const mainImage = images.find(img => img.is_main);
     
     const projectData = {
@@ -79,7 +87,7 @@ export default function NewProjectPage() {
       return;
     }
 
-    // Créer les relations project_media pour chaque image
+    // Créer les relations project_media
     if (images.length > 0 && project) {
       const projectMedia = images.map((img, index) => ({
         project_id: project.id,
@@ -92,213 +100,113 @@ export default function NewProjectPage() {
         .from('project_media')
         .insert(projectMedia);
 
-      if (mediaError) {
-        console.error('Error linking media:', mediaError);
-      }
+      if (mediaError) console.error('Error linking media:', mediaError);
     }
 
     router.push('/admin/projects');
   }
 
+  const mainImageUrl = images.find(img => img.is_main)?.url || images[0]?.url;
+
   return (
-    <div className="min-h-screen bg-[#1a1a2e] pt-32 pb-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="mb-12">
-            <Link href="/admin/projects" className="text-secondary hover:underline mb-4 inline-block text-sm">
-              ← Retour aux projets
-            </Link>
-            <h1 className="text-5xl font-bold">
-              <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-                NOUVEAU PROJET
-              </span>
-            </h1>
-          </div>
+    <AdminPageLayout backHref="/admin/projects" backLabel="Retour aux projets" title="NOUVEAU PROJET">
+      <AdminError message={error} />
 
-          {error && (
-            <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200">
-              {error}
-            </div>
-          )}
+      <form onSubmit={handleSubmit} className="glass-dark p-8 rounded-xl space-y-6">
+        <AdminInput
+          label="Titre du projet"
+          required
+          value={formData.title}
+          onChange={(e) => handleTitleChange(e.target.value)}
+          placeholder="Ex: Site E-commerce Mode"
+        />
 
-          {/* Formulaire */}
-          <form onSubmit={handleSubmit} className="glass-dark p-8 rounded-xl space-y-6">
-            {/* Titre */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Titre du projet *
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.title}
-                onChange={(e) => handleTitleChange(e.target.value)}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                placeholder="Ex: Site E-commerce Mode"
-              />
-            </div>
+        <AdminInput
+          label="Slug (URL)"
+          required
+          value={formData.slug}
+          onChange={(e) => updateField('slug', e.target.value)}
+          placeholder="site-ecommerce-mode"
+          hint={`Généré automatiquement. URL : /portfolio/${formData.slug}`}
+        />
 
-            {/* Slug */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Slug (URL) *
-              </label>
-              <input
-                type="text"
-                required
-                value={formData.slug}
-                onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                placeholder="site-ecommerce-mode"
-              />
-              <p className="text-white/40 text-xs mt-2">
-                Généré automatiquement. URL : /portfolio/{formData.slug}
-              </p>
-            </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          <AdminInput
+            label="Client"
+            value={formData.client}
+            onChange={(e) => updateField('client', e.target.value)}
+            placeholder="Nom du client"
+          />
 
-            {/* Client et Type de projet */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                  Client
-                </label>
-                <input
-                  type="text"
-                  value={formData.client}
-                  onChange={(e) => setFormData({ ...formData, client: e.target.value })}
-                  className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                  placeholder="Nom du client"
-                />
-              </div>
-
-              <div>
-                <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                  Type de projet
-                </label>
-                <select
-                  value={formData.location}
-                  onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                  className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-secondary transition-colors"
-                >
-                  <option value="">Sélectionner un type</option>
-                  <option value="Site vitrine">Site vitrine</option>
-                  <option value="Site multi-pages">Site multi-pages</option>
-                  <option value="SaaS / Application web">SaaS / Application web</option>
-                  <option value="E-commerce">E-commerce</option>
-                  <option value="Landing page">Landing page</option>
-                  <option value="Refonte de site">Refonte de site</option>
-                  <option value="Autre">Autre</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Année */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Année
-              </label>
-              <input
-                type="number"
-                value={formData.year}
-                onChange={(e) => setFormData({ ...formData, year: parseInt(e.target.value) })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                placeholder="2024"
-              />
-            </div>
-
-            {/* Description courte */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Description courte
-              </label>
-              <input
-                type="text"
-                value={formData.short_description}
-                onChange={(e) => setFormData({ ...formData, short_description: e.target.value })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                placeholder="Une ligne de description"
-              />
-            </div>
-
-            {/* Description longue */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Description détaillée
-              </label>
-              <textarea
-                value={formData.long_description}
-                onChange={(e) => setFormData({ ...formData, long_description: e.target.value })}
-                rows={6}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors resize-none"
-                placeholder="Description complète du projet, technologies utilisées, défis relevés..."
-              />
-            </div>
-
-            {/* Galerie d'images */}
-            <div>
-              <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
-                Galerie d'images du projet
-              </label>
-              <ImageUploader
-                images={images}
-                onImagesChange={setImages}
-                maxImages={10}
-              />
-              <p className="text-white/40 text-xs mt-2">
-                La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
-              </p>
-            </div>
-
-            {/* Recadrage de l'image d'aperçu */}
-            {images.length > 0 && (
-              <div>
-                <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
-                  Recadrer l'image d'aperçu
-                </label>
-                <ImageCropper
-                  imageUrl={images.find(img => img.is_main)?.url || images[0]?.url}
-                  initialCrop={formData.image_crop || undefined}
-                  onCropChange={(crop) => setFormData({ ...formData, image_crop: crop })}
-                  aspectRatio={16 / 9}
-                />
-              </div>
-            )}
-
-            {/* Publié */}
-            <div className="flex items-center gap-3">
-              <input
-                type="checkbox"
-                id="published"
-                checked={formData.published}
-                onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
-                className="w-5 h-5 bg-primary-800/50 border border-white/10 rounded"
-              />
-              <label htmlFor="published" className="text-white/80 text-sm uppercase tracking-wider">
-                Publier immédiatement
-              </label>
-            </div>
-
-            {/* Actions */}
-            <div className="flex gap-4 pt-4">
-              <button
-                type="submit"
-                disabled={loading}
-                className="flex-1 py-4 bg-gradient-to-r from-secondary to-accent-orange text-white font-semibold tracking-wider uppercase text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
-              >
-                {loading ? 'Création...' : 'Créer le projet'}
-              </button>
-              <Link
-                href="/admin/projects"
-                className="px-8 py-4 glass-dark hover:bg-white/5 text-white/80 hover:text-white transition-all text-sm uppercase tracking-wider text-center"
-              >
-                Annuler
-              </Link>
-            </div>
-          </form>
+          <AdminSelect
+            label="Type de projet"
+            value={formData.location}
+            onChange={(e) => updateField('location', e.target.value)}
+            options={PROJECT_TYPES}
+          />
         </div>
-      </div>
-    </div>
+
+        <AdminInput
+          label="Année"
+          type="number"
+          value={formData.year}
+          onChange={(e) => updateField('year', parseInt(e.target.value))}
+          placeholder="2024"
+        />
+
+        <AdminInput
+          label="Description courte"
+          value={formData.short_description}
+          onChange={(e) => updateField('short_description', e.target.value)}
+          placeholder="Une ligne de description"
+        />
+
+        <AdminTextarea
+          label="Description détaillée"
+          value={formData.long_description}
+          onChange={(e) => updateField('long_description', e.target.value)}
+          rows={6}
+          placeholder="Description complète du projet, technologies utilisées, défis relevés..."
+        />
+
+        <div>
+          <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
+            Galerie d'images du projet
+          </label>
+          <ImageUploader images={images} onImagesChange={setImages} maxImages={10} />
+          <p className="text-white/40 text-xs mt-2">
+            La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
+          </p>
+        </div>
+
+        {mainImageUrl && (
+          <div>
+            <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
+              Recadrer l'image d'aperçu
+            </label>
+            <ImageCropper
+              imageUrl={mainImageUrl}
+              initialCrop={formData.image_crop || undefined}
+              onCropChange={(crop) => updateField('image_crop', crop)}
+              aspectRatio={16 / 9}
+            />
+          </div>
+        )}
+
+        <AdminCheckbox
+          id="published"
+          label="Publier immédiatement"
+          checked={formData.published}
+          onChange={(e) => updateField('published', e.target.checked)}
+        />
+
+        <AdminFormButtons
+          loading={loading}
+          submitLabel="Créer le projet"
+          loadingLabel="Création..."
+          cancelHref="/admin/projects"
+        />
+      </form>
+    </AdminPageLayout>
   );
 }
-

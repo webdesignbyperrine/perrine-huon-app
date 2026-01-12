@@ -1,0 +1,344 @@
+/* ========================================
+   BOUTONS
+   ======================================== */
+
+/* ---- Base Button Sketch ---- */
+.btn-sketch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid var(--primary-blue);
+  border-radius: var(--radius-full);
+  color: var(--primary-blue);
+  font-weight: 500;
+  transition: var(--transition-base);
+  cursor: pointer;
+}
+
+.btn-sketch:hover {
+  background: var(--primary-blue);
+  color: var(--background-light);
+}
+
+/* ---- CTA Button (Rose) ---- */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--accent-pink);
+  border: 2px solid var(--accent-pink);
+  border-radius: var(--radius-full);
+  color: white;
+  font-weight: 600;
+  transition: var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cta:hover {
+  background: var(--accent-pink-dark);
+  border-color: var(--accent-pink-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 15, 124, 0.3);
+}
+
+.btn-cta-pulse { animation: cta-pulse 2s ease-in-out infinite; }
+.btn-cta-ring { animation: cta-ring 2.5s ease-in-out infinite; }
+.btn-cta-ring .icon-ring { display: inline-block; animation: icon-shake 2.5s ease-in-out infinite; }
+
+/* ---- Hero Button ---- */
+.btn-cta-hero {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  padding: 18px 36px !important;
+  background: #FF0F7C !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 30px rgba(255, 15, 124, 0.5), 0 0 0 0 rgba(255, 15, 124, 0.6) !important;
+  animation: hero-btn-pulse 2s ease-in-out infinite !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-cta-hero:hover {
+  transform: translateY(-4px) scale(1.05) !important;
+  background: #e00d6e !important;
+  box-shadow: 0 15px 40px rgba(255, 15, 124, 0.6), 0 0 0 0 rgba(255, 15, 124, 0) !important;
+}
+
+.btn-cta-hero:active {
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+@keyframes hero-btn-pulse {
+  0%, 100% {
+    box-shadow: 0 8px 30px rgba(255, 15, 124, 0.5), 0 0 0 0 rgba(255, 15, 124, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 8px 30px rgba(255, 15, 124, 0.5), 0 0 0 15px rgba(255, 15, 124, 0);
+    transform: scale(1.02);
+  }
+}
+
+/* ---- Hero Enhanced Button ---- */
+.btn-cta-hero-enhanced {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  padding: 20px 42px !important;
+  background: linear-gradient(135deg, #FF0F7C 0%, #e00d6e 50%, #FF0F7C 100%) !important;
+  background-size: 200% 200% !important;
+  border: none !important;
+  border-radius: 9999px !important;
+  color: white !important;
+  font-weight: 800 !important;
+  font-size: 1.2rem !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 40px rgba(255, 15, 124, 0.5), 0 0 0 0 rgba(255, 15, 124, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  animation: hero-btn-mega-pulse 2.5s ease-in-out infinite, hero-btn-gradient 3s ease infinite !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-cta-hero-enhanced:hover {
+  transform: translateY(-5px) scale(1.08) !important;
+  box-shadow: 0 18px 50px rgba(255, 15, 124, 0.6), 0 0 0 0 rgba(255, 15, 124, 0), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  animation: none !important;
+}
+
+.btn-cta-hero-enhanced:active {
+  transform: translateY(-2px) scale(1.04) !important;
+}
+
+@media (max-width: 640px) {
+  .btn-cta-hero-enhanced {
+    padding: 18px 32px !important;
+    font-size: 1.1rem !important;
+    gap: 12px !important;
+  }
+}
+
+/* ---- Shimmer Effect ---- */
+.btn-shimmer {
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%) !important;
+  animation: shimmer 2.5s ease-in-out infinite !important;
+}
+
+/* ---- Icon Bounce ---- */
+.btn-icon-bounce {
+  display: inline-flex !important;
+  animation: icon-bounce 1.5s ease-in-out infinite !important;
+}
+
+/* ---- Phone CTA Mobile ---- */
+.phone-cta-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--accent-pink);
+  color: white;
+  animation: bounce-up-down 1.5s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(255, 15, 124, 0.4);
+}
+
+@media (min-width: 640px) {
+  .phone-cta-mobile { width: 40px; height: 40px; }
+}
+
+.phone-cta-mobile:hover { animation-play-state: paused; }
+.phone-cta-mobile:active { transform: scale(0.95); }
+
+/* ---- Contact Icon Button ---- */
+.contact-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 2px solid var(--border-light);
+  color: var(--primary-blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-icon-btn:hover {
+  border-color: var(--primary-blue);
+  background: rgba(43, 91, 138, 0.08);
+  transform: scale(1.05);
+}
+
+.contact-icon-btn:hover svg { animation: envelope-bounce 0.6s ease; }
+
+html.dark .contact-icon-btn {
+  color: var(--foreground-dark);
+  border-color: var(--foreground-dark-muted);
+}
+
+html.dark .contact-icon-btn:hover {
+  border-color: var(--foreground-dark);
+  background: rgba(232, 220, 196, 0.1);
+}
+
+/* ---- Contact Icon Mobile ---- */
+.contact-icon-btn-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--primary-blue);
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(43, 91, 138, 0.35);
+}
+
+@media (min-width: 640px) {
+  .contact-icon-btn-mobile { width: 40px; height: 40px; }
+}
+
+.contact-icon-btn-mobile:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 18px rgba(43, 91, 138, 0.45);
+}
+
+.contact-icon-btn-mobile:active { transform: scale(0.95); }
+
+html.dark .contact-icon-btn-mobile {
+  background: var(--foreground-dark);
+  color: var(--background-dark);
+  box-shadow: 0 4px 12px rgba(232, 220, 196, 0.25);
+}
+
+html.dark .contact-icon-btn-mobile:hover {
+  box-shadow: 0 6px 18px rgba(232, 220, 196, 0.35);
+}
+
+/* ---- Theme Toggle ---- */
+.theme-toggle {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 2px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-pink);
+  background: rgba(255, 15, 124, 0.05);
+  transform: scale(1.05);
+}
+
+html.dark .theme-toggle:hover { background: rgba(244, 114, 182, 0.1); }
+
+.theme-toggle svg {
+  width: 22px;
+  height: 22px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.theme-toggle .sun-icon { color: #f59e0b; transform: rotate(0deg) scale(1); }
+.theme-toggle .moon-icon { color: #60a5fa; position: absolute; transform: rotate(-90deg) scale(0); }
+
+html.dark .theme-toggle .sun-icon { transform: rotate(90deg) scale(0); }
+html.dark .theme-toggle .moon-icon { transform: rotate(0deg) scale(1); }
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent-pink), var(--primary-blue));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.theme-toggle:hover::before { opacity: 0.2; }
+.theme-toggle:hover .sun-icon { animation: sun-rays 1.5s ease-in-out infinite; }
+html.dark .theme-toggle:hover .moon-icon { animation: moon-glow 1.5s ease-in-out infinite; }
+
+/* ---- Theme Toggle Mobile ---- */
+.theme-toggle-mobile {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 2px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .theme-toggle-mobile { width: 40px; height: 40px; }
+}
+
+.theme-toggle-mobile:hover {
+  border-color: var(--accent-pink);
+  background: rgba(255, 15, 124, 0.05);
+}
+
+html.dark .theme-toggle-mobile:hover { background: rgba(244, 114, 182, 0.1); }
+
+.theme-toggle-mobile svg {
+  width: 18px;
+  height: 18px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@media (min-width: 640px) {
+  .theme-toggle-mobile svg { width: 20px; height: 20px; }
+}
+
+.theme-toggle-mobile .sun-icon { color: #f59e0b; transform: rotate(0deg) scale(1); }
+.theme-toggle-mobile .moon-icon { color: #60a5fa; position: absolute; transform: rotate(-90deg) scale(0); }
+
+html.dark .theme-toggle-mobile .sun-icon { transform: rotate(90deg) scale(0); }
+html.dark .theme-toggle-mobile .moon-icon { transform: rotate(0deg) scale(1); }
+
+/* ---- Responsive Button ---- */
+@media (max-width: 768px) {
+  .btn-cta { padding: 12px 20px; font-size: 14px; }
+  .theme-toggle { width: 40px; height: 40px; }
+  .theme-toggle svg { width: 18px; height: 18px; }
+}

@@ -1,0 +1,211 @@
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Fade In Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Float & Bounce */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes bounce-up-down {
+  0%, 100% { transform: translateY(0); }
+  15% { transform: translateY(-12px); }
+  30% { transform: translateY(8px); }
+  45% { transform: translateY(-8px); }
+  60% { transform: translateY(5px); }
+  75% { transform: translateY(-4px); }
+  90% { transform: translateY(2px); }
+}
+
+/* Stroke Draw */
+@keyframes stroke-draw {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 100%; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Typewriter */
+@keyframes typewriter {
+  from { max-width: 0; }
+  to { max-width: 100%; }
+}
+
+@keyframes cursor-blink-real {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+/* Button Pulse */
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 15, 124, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(255, 15, 124, 0); }
+}
+
+@keyframes hero-btn-mega-pulse {
+  0%, 100% {
+    box-shadow: 0 10px 40px rgba(255, 15, 124, 0.5), 0 0 0 0 rgba(255, 15, 124, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 10px 40px rgba(255, 15, 124, 0.5), 0 0 0 20px rgba(255, 15, 124, 0), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes hero-btn-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Ring Animation */
+@keyframes cta-ring {
+  0%, 100% { transform: rotate(0deg); box-shadow: 0 0 0 0 rgba(255, 15, 124, 0.4); }
+  5% { transform: rotate(-8deg); }
+  10% { transform: rotate(8deg); }
+  15% { transform: rotate(-8deg); }
+  20% { transform: rotate(8deg); }
+  25% { transform: rotate(-4deg); }
+  30% { transform: rotate(4deg); }
+  35%, 50% { transform: rotate(0deg); box-shadow: 0 0 0 12px rgba(255, 15, 124, 0); }
+}
+
+@keyframes icon-shake {
+  0%, 35%, 100% { transform: rotate(0deg); }
+  5% { transform: rotate(-15deg); }
+  10% { transform: rotate(15deg); }
+  15% { transform: rotate(-15deg); }
+  20% { transform: rotate(15deg); }
+  25% { transform: rotate(-10deg); }
+  30% { transform: rotate(10deg); }
+}
+
+@keyframes icon-bounce {
+  0%, 100% { transform: translateX(0) scale(1); }
+  50% { transform: translateX(2px) scale(1.1); }
+}
+
+/* Theme Toggle */
+@keyframes sun-rays {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(245, 158, 11, 0.5)); }
+  50% { filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.8)); }
+}
+
+@keyframes moon-glow {
+  0%, 100% { filter: drop-shadow(0 0 3px rgba(96, 165, 250, 0.5)); }
+  50% { filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.8)); }
+}
+
+/* Envelope Bounce */
+@keyframes envelope-bounce {
+  0%, 100% { transform: translateY(0) scale(1.1); }
+  30% { transform: translateY(-4px) scale(1.1); }
+  50% { transform: translateY(0) scale(1.1); }
+  70% { transform: translateY(-2px) scale(1.1); }
+}
+
+/* Arrow Bounce */
+@keyframes bounce-arrow {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.7; }
+}
+
+/* Logo/Parrot Animation */
+@keyframes wing-flap {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.9); }
+}
+
+@keyframes cage-pulse {
+  0%, 100% { border-color: rgba(43, 91, 138, 0.2); box-shadow: none; }
+  50% { border-color: rgba(255, 15, 124, 0.5); box-shadow: 0 0 10px rgba(255, 15, 124, 0.3); }
+}
+
+/* Animation Classes */
+.animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
+.animate-fade-in-down { animation: fadeInDown 0.7s ease-out forwards; }
+.animate-fade-in-left { animation: fadeInLeft 0.7s ease-out forwards; }
+.animate-fade-in-right { animation: fadeInRight 0.7s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-bounce-soft { animation: bounce-soft 2s ease-in-out infinite; }
+.animate-stroke-draw { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: stroke-draw 2s ease-out forwards; }
+.animate-cursor-blink { animation: cursor-blink-real 0.6s infinite; }
+.animate-bounce-icon { animation: bounce-up-down 1.5s ease-in-out infinite; }
+.animate-bounce-icon:hover { animation-play-state: paused; }
+.animate-bounce-arrow { animation: bounce-arrow 1.5s ease-in-out infinite; }
+
+/* Animation Delays */
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+.animation-delay-600 { animation-delay: 600ms; }
+.animation-delay-700 { animation-delay: 700ms; }
+.animation-delay-800 { animation-delay: 800ms; }
+
+/* Scroll Animation States */
+.animate-on-scroll { opacity: 0; }
+
+.line-draw { stroke-dasharray: 100%; stroke-dashoffset: 100%; }
+.line-draw.is-visible { animation: draw-line 1.5s ease-out forwards; }
+
+/* Stagger Children */
+.stagger-children > * { opacity: 0; transform: translateY(20px); }
+.stagger-children.is-visible > *:nth-child(1) { animation: fadeInUp 0.6s ease-out 0ms forwards; }
+.stagger-children.is-visible > *:nth-child(2) { animation: fadeInUp 0.6s ease-out 100ms forwards; }
+.stagger-children.is-visible > *:nth-child(3) { animation: fadeInUp 0.6s ease-out 200ms forwards; }
+.stagger-children.is-visible > *:nth-child(4) { animation: fadeInUp 0.6s ease-out 300ms forwards; }
+.stagger-children.is-visible > *:nth-child(5) { animation: fadeInUp 0.6s ease-out 400ms forwards; }
+.stagger-children.is-visible > *:nth-child(6) { animation: fadeInUp 0.6s ease-out 500ms forwards; }
+.stagger-children.is-visible > *:nth-child(7) { animation: fadeInUp 0.6s ease-out 600ms forwards; }
+.stagger-children.is-visible > *:nth-child(8) { animation: fadeInUp 0.6s ease-out 700ms forwards; }
+
+/* Floating UI Elements */
+.floating-ui { position: absolute; animation: float 3s ease-in-out infinite; }
+.floating-ui:nth-child(2) { animation-delay: 0.5s; }
+.floating-ui:nth-child(3) { animation-delay: 1s; }
+.floating-ui:nth-child(4) { animation-delay: 1.5s; }
+.floating-ui:nth-child(5) { animation-delay: 2s; }

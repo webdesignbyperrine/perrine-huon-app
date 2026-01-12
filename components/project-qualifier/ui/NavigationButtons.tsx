@@ -28,19 +28,10 @@ export default function NavigationButtons({
   const hasProgress = getCompletedSteps() > 0;
   
   // Ne pas afficher sur l'intro
-  if (currentStep === 'intro') {
-    return null;
-  }
+  if (currentStep === 'intro') return null;
 
-  const handleNext = () => {
-    if (onNext) {
-      onNext();
-    } else {
-      goNext();
-    }
-  };
-
-  const buttonLabel = nextLabel || 'Continuer';
+  const handleNext = onNext ?? goNext;
+  const buttonLabel = nextLabel ?? 'Continuer';
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12">

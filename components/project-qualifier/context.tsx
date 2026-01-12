@@ -202,16 +202,16 @@ export function QualifierProvider({ children }: { children: ReactNode }) {
   }, [currentStep]);
 
   const getCompletedSteps = useCallback(() => {
-    let count = 0;
-    if (data.projectType) count++;
-    if (data.features.length > 0) count++;
-    if (data.designStyle) count++;
-    if (data.animationLevel) count++;
-    if (data.budget) count++;
-    if (data.deadline) count++;
-    if (data.accompagnement) count++;
-    if (data.inspirations) count++;
-    return count;
+    return [
+      data.projectType,
+      data.features.length > 0,
+      data.designStyle,
+      data.animationLevel,
+      data.budget,
+      data.deadline,
+      data.accompagnement,
+      data.inspirations,
+    ].filter(Boolean).length;
   }, [data]);
 
   const canGoNext = useCallback(() => {
@@ -272,14 +272,10 @@ export function QualifierProvider({ children }: { children: ReactNode }) {
 
 export function useQualifier() {
   const context = useContext(QualifierContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useQualifier must be used within a QualifierProvider');
   }
   return context;
 }
-
-
-
-
 
 

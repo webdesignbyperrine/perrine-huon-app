@@ -1,9 +1,66 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
 import { formatDate, estimateReadingTime } from '@/lib/utils';
 import { createClient } from '@/lib/supabase/server';
 import SafeHTML from '@/components/SafeHTML';
+import { BreadcrumbJsonLd } from '@/components/JsonLd';
+
+// Génération statique des paramètres pour tous les articles
+export async function generateStaticParams() {
+  const supabase = await createClient();
+  const { data: posts } = await supabase
+    .from('blog_posts')
+    .select('slug')
+    .eq('published', true);
+
+  return (posts || []).map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+// Métadonnées SEO dynamiques
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const supabase = await createClient();
+  
+  const { data: post } = await supabase
+    .from('blog_posts')
+    .select('title, excerpt, seo_title, seo_description, featured_image, seo_city, published_at')
+    .eq('slug', slug)
+    .eq('published', true)
+    .single();
+
+  if (!post) {
+    return {
+      title: 'Article non trouvé',
+    };
+  }
+
+  const title = post.seo_title || `${post.title} | Blog Perrine Huon`;
+  const description = post.seo_description || post.excerpt || `${post.title} - Conseils et actualités web design par Perrine Huon, web designer freelance.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url: `https://perrinehuon.com/blog/${slug}`,
+      publishedTime: post.published_at || undefined,
+      authors: ['Perrine Huon'],
+      images: post.featured_image ? [{ url: post.featured_image }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: post.featured_image ? [post.featured_image] : undefined,
+    },
+  };
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -26,6 +83,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   return (
     <div className="min-h-screen bg-paper">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Accueil', url: 'https://perrinehuon.com' },
+          { name: 'Blog', url: 'https://perrinehuon.com/blog' },
+          { name: post.title, url: `https://perrinehuon.com/blog/${slug}` },
+        ]}
+      />
       {/* Hero article */}
       <section className="relative min-h-[60vh] flex items-end overflow-hidden">
         {post.featured_image && (

@@ -1,8 +1,10 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import ImageCarousel from '@/components/ImageCarousel';
 import FormattedDescription from '@/components/FormattedDescription';
+import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import type { ProjectMedia } from '@/types/database.types';
 
 // Type pour les médias tels qu'ils sont stockés dans Supabase
@@ -17,6 +19,60 @@ type MediaAssetDB = {
 type ProjectMediaWithMedia = ProjectMedia & {
   media_assets: MediaAssetDB;
 };
+
+// Génération statique des paramètres pour toutes les pages de projets
+export async function generateStaticParams() {
+  const supabase = await createClient();
+  const { data: projects } = await supabase
+    .from('projects')
+    .select('slug')
+    .eq('published', true);
+
+  return (projects || []).map((project) => ({
+    slug: project.slug,
+  }));
+}
+
+// Métadonnées SEO dynamiques
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const supabase = await createClient();
+  
+  const { data: project } = await supabase
+    .from('projects')
+    .select('title, short_description, seo_title, seo_description, main_image_url, seo_city')
+    .eq('slug', slug)
+    .eq('published', true)
+    .single();
+
+  if (!project) {
+    return {
+      title: 'Projet non trouvé',
+    };
+  }
+
+  const title = project.seo_title || `${project.title} | Portfolio Perrine Huon`;
+  const description = project.seo_description || project.short_description || `Découvrez le projet ${project.title} réalisé par Perrine Huon, web designer freelance.`;
+  const cityKeywords = project.seo_city ? ` - ${project.seo_city}` : '';
+
+  return {
+    title,
+    description: `${description}${cityKeywords}`,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url: `https://perrinehuon.com/portfolio/${slug}`,
+      images: project.main_image_url ? [{ url: project.main_image_url }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: project.main_image_url ? [project.main_image_url] : undefined,
+    },
+  };
+}
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -58,6 +114,13 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
   return (
     <div className="min-h-screen bg-paper-light grain-overlay">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Accueil', url: 'https://perrinehuon.com' },
+          { name: 'Portfolio', url: 'https://perrinehuon.com/portfolio' },
+          { name: project.title, url: `https://perrinehuon.com/portfolio/${slug}` },
+        ]}
+      />
       {/* Hero du projet */}
       <section 
         className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"

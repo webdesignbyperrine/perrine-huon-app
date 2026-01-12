@@ -1,0 +1,86 @@
+/* ========================================
+   HOVER EFFECTS
+   ======================================== */
+
+/* ---- Lift Effect ---- */
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(43, 91, 138, 0.15);
+}
+
+/* ---- Card Border Animation ---- */
+.card-hover-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-hover-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--accent-pink);
+  transition: width var(--transition-slow);
+}
+
+.card-hover-border:hover::after { width: 100%; }
+
+/* ---- Icon Rotation ---- */
+.icon-hover-rotate { transition: transform var(--transition-base); }
+.icon-hover-rotate:hover { transform: rotate(12deg) scale(1.1); }
+
+/* ---- Text Underline Animation ---- */
+.text-hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.text-hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-blue);
+  transition: width var(--transition-base);
+}
+
+.text-hover-underline:hover::after { width: 100%; }
+
+/* ---- Typewriter/Handwriting Animation ---- */
+.handwriting-animate {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 0;
+  animation: typewriter 2.5s steps(40, end) forwards;
+  animation-delay: 0.6s;
+  padding-right: 2px;
+}
+
+.handwriting-animate.with-cursor::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background-color: var(--accent-pink);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: cursor-blink-real 0.6s infinite;
+}
+
+@media (max-width: 768px) {
+  .handwriting-animate {
+    white-space: normal;
+    border-right: none !important;
+  }
+  
+  .handwriting-animate.with-cursor::after { display: none !important; }
+}

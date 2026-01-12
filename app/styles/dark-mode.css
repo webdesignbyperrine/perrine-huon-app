@@ -1,0 +1,177 @@
+/* ========================================
+   DARK MODE OVERRIDES
+   ======================================== */
+
+/* ---- Header ---- */
+html.dark header { background: var(--header-bg) !important; }
+html.dark header.scrolled,
+html.dark .bg-paper-light\/95 { background: var(--header-bg-scrolled) !important; }
+
+/* ---- Text Colors ---- */
+html.dark .text-primary { color: var(--text-primary) !important; }
+html.dark .text-primary\/60,
+html.dark .text-primary\/70,
+html.dark .text-primary\/40 { color: var(--text-secondary) !important; }
+
+/* ---- Cards ---- */
+html.dark .card-sketch {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+html.dark .card-sketch::before { border-color: rgba(148, 163, 184, 0.2); }
+
+html.dark [class*="bg-white"] {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border-color: rgba(148, 163, 184, 0.3) !important;
+}
+
+html.dark [class*="bg-white"] .text-primary,
+html.dark [class*="bg-white"] [class*="text-primary"] { color: #f1f5f9 !important; }
+
+html.dark [class*="bg-white"] input,
+html.dark [class*="bg-white"] textarea {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border-color: rgba(148, 163, 184, 0.3) !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark [class*="bg-white"] input::placeholder,
+html.dark [class*="bg-white"] textarea::placeholder { color: rgba(148, 163, 184, 0.6) !important; }
+
+/* ---- Inputs ---- */
+html.dark .input-sketch {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+html.dark .input-sketch:focus {
+  border-color: var(--accent-pink);
+  box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.2);
+}
+
+html.dark .input-sketch::placeholder { color: var(--text-muted); }
+
+/* ---- Buttons ---- */
+html.dark .btn-sketch {
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+html.dark .btn-sketch:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+html.dark .btn-cta {
+  background: var(--accent-pink);
+  border-color: var(--accent-pink);
+}
+
+html.dark .btn-cta:hover {
+  background: var(--accent-pink-dark);
+  border-color: var(--accent-pink-dark);
+  box-shadow: 0 8px 25px rgba(244, 114, 182, 0.4);
+}
+
+/* ---- Typography ---- */
+html.dark .heading-sketch { color: var(--text-primary); }
+
+/* ---- Badges & Tags ---- */
+html.dark .badge-sketch {
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
+}
+
+html.dark .tag-sketch {
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--primary-blue-light);
+}
+
+/* ---- Glass Cards ---- */
+html.dark .glass-light {
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(148, 163, 184, 0.1);
+}
+
+html.dark .glass-light:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+/* ---- Dividers ---- */
+html.dark .divider-sketch {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+
+/* ---- Hover Effects ---- */
+html.dark .hover-lift:hover { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+html.dark .card-hover-border::after { background: var(--accent-pink); }
+html.dark .text-hover-underline::after { background: var(--text-primary); }
+
+/* ---- Line Art ---- */
+html.dark .line-art,
+html.dark .line-art-filled { stroke: var(--text-primary); }
+
+/* ---- Decorative Shapes ---- */
+html.dark .deco-circle,
+html.dark .deco-triangle,
+html.dark .deco-cross::before,
+html.dark .deco-cross::after {
+  border-color: var(--text-secondary);
+  background-color: var(--text-secondary);
+}
+
+/* ---- Scrollbar ---- */
+html.dark ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+html.dark ::-webkit-scrollbar-thumb { background: var(--border-color); }
+html.dark ::-webkit-scrollbar-thumb:hover { background: var(--accent-pink); }
+
+/* ---- Mobile Navigation ---- */
+html.dark #mobile-navigation {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-light) !important;
+}
+
+/* ---- Focus States ---- */
+html.dark .focus-ring:focus { box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.4); }
+
+/* ---- Handwriting Animation ---- */
+html.dark .handwriting-animate,
+html.dark .handwriting-animate.with-cursor { color: #f472b6 !important; }
+html.dark .handwriting-animate.with-cursor::after { background-color: #f472b6 !important; }
+
+/* ---- Section Dark ---- */
+.section-dark {
+  background: var(--background-dark);
+  color: var(--foreground-dark);
+}
+
+.section-dark .line-art { stroke: var(--foreground-dark); }
+
+.section-dark .card-sketch {
+  background: rgba(232, 220, 196, 0.05);
+  border-color: rgba(232, 220, 196, 0.2);
+}
+
+.section-dark .card-sketch::before { border-color: rgba(232, 220, 196, 0.1); }
+
+.section-dark .input-sketch {
+  border-color: rgba(232, 220, 196, 0.3);
+  color: var(--foreground-dark);
+}
+
+.section-dark .btn-sketch {
+  border-color: var(--foreground-dark);
+  color: var(--foreground-dark);
+}
+
+.section-dark .btn-sketch:hover {
+  background: var(--foreground-dark);
+  color: var(--background-dark);
+}
+
+.section-dark .heading-sketch { color: var(--foreground-dark); }
+.section-dark .text-hover-underline::after { background: var(--foreground-dark); }

@@ -6,43 +6,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useSound } from '@/hooks/useSound';
-
-// Icônes Soleil et Lune
-const SunIcon = () => (
-  <svg 
-    className="sun-icon" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-  >
-    <circle cx="12" cy="12" r="5" />
-    <line x1="12" y1="1" x2="12" y2="3" />
-    <line x1="12" y1="21" x2="12" y2="23" />
-    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-    <line x1="1" y1="12" x2="3" y2="12" />
-    <line x1="21" y1="12" x2="23" y2="12" />
-    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-  </svg>
-);
-
-const MoonIcon = () => (
-  <svg 
-    className="moon-icon" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-  >
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-  </svg>
-);
+import { SunIcon, MoonIcon, DocumentIcon, EnvelopeIcon, MenuIcon, CloseIcon } from '@/components/icons';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -479,18 +443,7 @@ export default function Header() {
               aria-label="Formulaire de contact"
               title="Écrivez-moi"
             >
-              <svg 
-                className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="M22 7l-10 6L2 7"/>
-              </svg>
+              <EnvelopeIcon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
             </Link>
             
             <button
@@ -504,21 +457,7 @@ export default function Header() {
               className="btn-cta btn-cta-ring group"
             >
               <span className="relative z-10 flex items-center gap-2">
-                {/* Icône document/devis avec animation */}
-                <svg 
-                  className="w-4 h-4 icon-ring" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                </svg>
+                <DocumentIcon className="w-4 h-4 icon-ring" />
                 <span className="text-sm uppercase tracking-wider font-semibold">
                   Devis gratuit
                 </span>
@@ -535,18 +474,7 @@ export default function Header() {
               className="contact-icon-btn-mobile"
               aria-label="Formulaire de contact"
             >
-              <svg 
-                className="w-[18px] h-[18px] sm:w-5 sm:h-5" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <rect x="2" y="4" width="20" height="16" rx="2"/>
-                <path d="M22 7l-10 6L2 7"/>
-              </svg>
+              <EnvelopeIcon className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
             </Link>
             
             {/* Bouton Devis Mobile - Rose animé */}
@@ -561,20 +489,7 @@ export default function Header() {
               className="phone-cta-mobile btn-cta-devis-mobile"
               aria-label="Obtenir mon devis gratuit"
             >
-              <svg 
-                className="w-[18px] h-[18px] sm:w-5 sm:h-5" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-              </svg>
+              <DocumentIcon className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
             </button>
             
             {/* Bouton Dark Mode Mobile */}
@@ -597,17 +512,11 @@ export default function Header() {
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
             >
-              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                {mobileMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <>
-                    <line x1="3" y1="6" x2="21" y2="6" />
-                    <line x1="3" y1="12" x2="21" y2="12" />
-                    <line x1="3" y1="18" x2="21" y2="18" />
-                  </>
-                )}
-              </svg>
+              {mobileMenuOpen ? (
+                <CloseIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+              ) : (
+                <MenuIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -646,20 +555,7 @@ export default function Header() {
                 }}
                 className="btn-cta btn-cta-ring"
               >
-                <svg 
-                  className="w-4 h-4" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                >
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                  <line x1="16" y1="13" x2="8" y2="13"/>
-                  <line x1="16" y1="17" x2="8" y2="17"/>
-                </svg>
+                <DocumentIcon className="w-4 h-4" />
                 <span className="text-sm uppercase tracking-wider font-semibold">
                   Devis gratuit
                 </span>

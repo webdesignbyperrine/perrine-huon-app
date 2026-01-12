@@ -1,0 +1,71 @@
+# Perrine Huon - Web Designer & Développeuse Freelance
+
+## À propos
+Perrine Huon est une web designer et développeuse freelance basée en France, spécialisée dans la création de sites web sur mesure et le SEO géolocalisé.
+
+## Services proposés
+- **Création de sites vitrines** : Sites web professionnels pour présenter une activité
+- **Création de sites e-commerce** : Boutiques en ligne avec paiement sécurisé
+- **Développement d'applications web** : Applications sur mesure avec tableaux de bord
+- **Landing pages** : Pages de conversion optimisées
+- **Refonte de sites web** : Modernisation de sites existants
+- **SEO géolocalisé** : Référencement local pour être visible dans sa zone
+
+## Expertise technique
+- Next.js et React pour des sites ultra-performants
+- TypeScript pour un code robuste et maintenable
+- Tailwind CSS pour un design moderne et responsive
+- Supabase pour la gestion de bases de données
+- Vercel pour l'hébergement et le déploiement
+
+## Zones d'intervention
+- Toute la France en remote
+- Paris et Île-de-France
+- Lyon et région Rhône-Alpes
+- Lille et Hauts-de-France
+- Bordeaux et Nouvelle-Aquitaine
+
+## Contact
+- Site web : https://perrinehuon.com
+- Email : contact@perrinehuon.com
+- LinkedIn : https://www.linkedin.com/in/perrinehuon/
+
+## Points forts
+- Approche centrée sur le SEO dès la conception
+- Sites optimisés pour la conversion
+- Design moderne style "ligne claire"
+- Accompagnement personnalisé
+- Devis gratuit et sans engagement
+
+## Technologies maîtrisées
+Next.js, React, TypeScript, JavaScript, Tailwind CSS, CSS/SCSS, HTML5, Supabase, PostgreSQL, Git, Vercel, Figma, Adobe Creative Suite
+
+## Processus de travail
+1. Découverte du projet via questionnaire interactif
+2. Proposition de devis gratuit personnalisé
+3. Design et maquettes
+4. Développement avec points réguliers
+5. Tests et optimisations
+6. Mise en ligne et formation
+7. Support et maintenance
+
+## FAQ
+
+### Combien coûte un site web ?
+Les tarifs varient selon la complexité du projet :
+- Site vitrine simple : à partir de 1 500€
+- Site vitrine avancé : 1 500€ - 3 000€
+- Site e-commerce : 3 000€ - 6 000€
+- Application web sur mesure : sur devis
+
+### Quels sont les délais de réalisation ?
+- Landing page : 1-2 semaines
+- Site vitrine : 2-4 semaines
+- Site e-commerce : 4-8 semaines
+- Application web : selon spécifications
+
+### Le SEO est-il inclus ?
+Oui, l'optimisation SEO de base est incluse dans tous les projets : structure sémantique, métadonnées, performance, mobile-first.
+
+## Mots-clés
+web designer freelance, développeuse web freelance, création site web sur mesure, création site vitrine, création site e-commerce, SEO local, référencement géolocalisé, Next.js, React, France, Paris, Lyon, Lille, Bordeaux

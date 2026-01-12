@@ -10,9 +10,9 @@ import LaptopMockup from '@/components/LaptopMockup';
 export default function PortfolioPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isPageMounted, setIsPageMounted] = useState(true);
   
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
+  const [headerRef, headerVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   useEffect(() => {
     async function fetchProjects() {
@@ -91,24 +91,24 @@ export default function PortfolioPage() {
     <div className="min-h-screen bg-paper-light grain-overlay pt-32 pb-20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div ref={headerRef} className="text-center mb-16">
           <span 
             className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
-              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             Mes réalisations
           </span>
           <h1 
             className={`text-5xl sm:text-6xl lg:text-7xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
-              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             Portfolio
           </h1>
           <p 
             className={`text-lg text-primary/60 max-w-3xl mx-auto transition-all duration-700 delay-200 ${
-              isPageMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
           >
             Une sélection de mes projets récents, optimisés pour le référencement local
@@ -117,7 +117,7 @@ export default function PortfolioPage() {
           {/* Ligne décorative */}
           <div 
             className={`w-24 h-0.5 bg-primary/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
-              isPageMounted ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+              headerVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
             }`}
           />
         </div>

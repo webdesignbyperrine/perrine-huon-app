@@ -70,6 +70,3 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
   return [ref, hasMounted ? isVisible : true];
 }
 
-
-
-

@@ -2,10 +2,20 @@
 
 import { useEffect, useState, use } from 'react';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import ImageUploader from '@/components/admin/ImageUploader';
 import ImageCropper, { CropSettings } from '@/components/admin/ImageCropper';
+import {
+  AdminPageLayout,
+  AdminLoadingSpinner,
+  AdminNotFound,
+  AdminError,
+  AdminInput,
+  AdminTextarea,
+  AdminSelect,
+  AdminCheckbox,
+  AdminFormButtons,
+} from '@/components/admin/ui';
 
 type Project = {
   id: string;
@@ -29,6 +39,17 @@ type UploadedImage = {
   is_main?: boolean;
 };
 
+const PROJECT_TYPES = [
+  { value: '', label: 'Sélectionner un type' },
+  { value: 'Site vitrine', label: 'Site vitrine' },
+  { value: 'Site multi-pages', label: 'Site multi-pages' },
+  { value: 'SaaS / Application web', label: 'SaaS / Application web' },
+  { value: 'E-commerce', label: 'E-commerce' },
+  { value: 'Landing page', label: 'Landing page' },
+  { value: 'Refonte de site', label: 'Refonte de site' },
+  { value: 'Autre', label: 'Autre' },
+];
+
 export default function EditProjectPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const router = useRouter();
@@ -39,60 +60,57 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
   const [images, setImages] = useState<UploadedImage[]>([]);
   const [initialImageIds, setInitialImageIds] = useState<string[]>([]);
 
+  const updateField = <K extends keyof Project>(key: K, value: Project[K]) => {
+    setProject(prev => prev ? { ...prev, [key]: value } : prev);
+  };
+
   useEffect(() => {
+    async function fetchProject() {
+      const supabase = createClient();
+      
+      const { data: projectData, error: projectError } = await supabase
+        .from('projects')
+        .select('*')
+        .eq('id', id)
+        .single();
+
+      if (projectError) {
+        setError('Projet introuvable');
+        setLoading(false);
+        return;
+      }
+
+      setProject(projectData);
+
+      // Récupérer les images liées
+      const { data: mediaData, error: mediaError } = await supabase
+        .from('project_media')
+        .select(`
+          media_id,
+          is_main,
+          sort_order,
+          media_assets (id, file_url, file_name, file_size)
+        `)
+        .eq('project_id', id)
+        .order('sort_order', { ascending: true });
+
+      if (!mediaError && mediaData) {
+        const loadedImages = mediaData.map((item: any) => ({
+          id: item.media_assets.id,
+          url: item.media_assets.file_url,
+          file_name: item.media_assets.file_name,
+          file_size: item.media_assets.file_size,
+          is_main: item.is_main,
+        }));
+        
+        setImages(loadedImages);
+        setInitialImageIds(loadedImages.map((img: UploadedImage) => img.id));
+      }
+
+      setLoading(false);
+    }
     fetchProject();
   }, [id]);
-
-  async function fetchProject() {
-    const supabase = createClient();
-    
-    // Récupérer le projet
-    const { data: projectData, error: projectError } = await supabase
-      .from('projects')
-      .select('*')
-      .eq('id', id)
-      .single();
-
-    if (projectError) {
-      setError('Projet introuvable');
-      setLoading(false);
-      return;
-    }
-
-    setProject(projectData);
-
-    // Récupérer les images liées au projet
-    const { data: mediaData, error: mediaError } = await supabase
-      .from('project_media')
-      .select(`
-        media_id,
-        is_main,
-        sort_order,
-        media_assets (
-          id,
-          file_url,
-          file_name,
-          file_size
-        )
-      `)
-      .eq('project_id', id)
-      .order('sort_order', { ascending: true });
-
-    if (!mediaError && mediaData) {
-      const loadedImages = mediaData.map((item: any) => ({
-        id: item.media_assets.id,
-        url: item.media_assets.file_url,
-        file_name: item.media_assets.file_name,
-        file_size: item.media_assets.file_size,
-        is_main: item.is_main,
-      }));
-      
-      setImages(loadedImages);
-      setInitialImageIds(loadedImages.map((img: UploadedImage) => img.id));
-    }
-
-    setLoading(false);
-  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -102,8 +120,6 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
     setError('');
 
     const supabase = createClient();
-    
-    // Mettre à jour l'image principale
     const mainImage = images.find(img => img.is_main);
     
     const { error: updateError } = await supabase
@@ -128,11 +144,10 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
       return;
     }
 
-    // Gérer les images
+    // Gérer les images - supprimer et recréer les relations
     const currentImageIds = images.map(img => img.id);
     const removedImageIds = initialImageIds.filter(imgId => !currentImageIds.includes(imgId));
 
-    // Supprimer les relations des images retirées
     if (removedImageIds.length > 0) {
       await supabase
         .from('project_media')
@@ -141,13 +156,8 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
         .in('media_id', removedImageIds);
     }
 
-    // Supprimer toutes les relations existantes et recréer
-    await supabase
-      .from('project_media')
-      .delete()
-      .eq('project_id', id);
+    await supabase.from('project_media').delete().eq('project_id', id);
 
-    // Créer les nouvelles relations
     if (images.length > 0) {
       const projectMedia = images.map((img, index) => ({
         project_id: id,
@@ -155,227 +165,110 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
         sort_order: index,
         is_main: img.is_main || false,
       }));
-
       await supabase.from('project_media').insert(projectMedia);
     }
 
     router.push('/admin/projects');
   }
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#1a1a2e] flex items-center justify-center">
-        <div className="w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
-      </div>
-    );
-  }
+  if (loading) return <AdminLoadingSpinner />;
+  if (!project) return <AdminNotFound message="Projet introuvable" backHref="/admin/projects" backLabel="Retour aux projets" />;
 
-  if (!project) {
-    return (
-      <div className="min-h-screen bg-[#1a1a2e] flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-white/70 mb-4">Projet introuvable</p>
-          <Link href="/admin/projects" className="text-secondary hover:underline">
-            Retour aux projets
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  const mainImageUrl = images.find(img => img.is_main)?.url || images[0]?.url || project.featured_image;
 
   return (
-    <div className="min-h-screen bg-[#1a1a2e] pt-32 pb-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
-          <div className="mb-12">
-            <Link href="/admin/projects" className="text-secondary hover:underline mb-4 inline-block text-sm">
-              ← Retour aux projets
-            </Link>
-            <h1 className="text-5xl font-bold">
-              <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-                MODIFIER LE PROJET
-              </span>
-            </h1>
-          </div>
+    <AdminPageLayout backHref="/admin/projects" backLabel="Retour aux projets" title="MODIFIER LE PROJET">
+      <AdminError message={error} />
 
-          {error && (
-            <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200">
-              {error}
-            </div>
-          )}
+      <form onSubmit={handleSubmit} className="glass-dark p-8 rounded-xl space-y-6">
+        <AdminInput
+          label="Titre du projet"
+          required
+          value={project.title}
+          onChange={(e) => updateField('title', e.target.value)}
+        />
 
-          {/* Formulaire */}
-          <form onSubmit={handleSubmit} className="glass-dark p-8 rounded-xl space-y-6">
-            {/* Titre */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Titre du projet *
-              </label>
-              <input
-                type="text"
-                required
-                value={project.title}
-                onChange={(e) => setProject({ ...project, title: e.target.value })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-              />
-            </div>
+        <AdminInput
+          label="Slug (URL)"
+          required
+          value={project.slug}
+          onChange={(e) => updateField('slug', e.target.value)}
+          hint={`URL : /portfolio/${project.slug}`}
+        />
 
-            {/* Slug */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Slug (URL) *
-              </label>
-              <input
-                type="text"
-                required
-                value={project.slug}
-                onChange={(e) => setProject({ ...project, slug: e.target.value })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-              />
-              <p className="text-white/40 text-xs mt-2">
-                URL : /portfolio/{project.slug}
-              </p>
-            </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          <AdminInput
+            label="Client"
+            value={project.client || ''}
+            onChange={(e) => updateField('client', e.target.value)}
+          />
 
-            {/* Client et Type de projet */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                  Client
-                </label>
-                <input
-                  type="text"
-                  value={project.client || ''}
-                  onChange={(e) => setProject({ ...project, client: e.target.value })}
-                  className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                  Type de projet
-                </label>
-                <select
-                  value={project.location || ''}
-                  onChange={(e) => setProject({ ...project, location: e.target.value })}
-                  className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-secondary transition-colors"
-                >
-                  <option value="">Sélectionner un type</option>
-                  <option value="Site vitrine">Site vitrine</option>
-                  <option value="Site multi-pages">Site multi-pages</option>
-                  <option value="SaaS / Application web">SaaS / Application web</option>
-                  <option value="E-commerce">E-commerce</option>
-                  <option value="Landing page">Landing page</option>
-                  <option value="Refonte de site">Refonte de site</option>
-                  <option value="Autre">Autre</option>
-                </select>
-              </div>
-            </div>
-
-            {/* Année */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Année
-              </label>
-              <input
-                type="number"
-                value={project.year || ''}
-                onChange={(e) => setProject({ ...project, year: parseInt(e.target.value) || null })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-              />
-            </div>
-
-            {/* Description courte */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Description courte
-              </label>
-              <input
-                type="text"
-                value={project.short_description || ''}
-                onChange={(e) => setProject({ ...project, short_description: e.target.value })}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors"
-              />
-            </div>
-
-            {/* Description longue */}
-            <div>
-              <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
-                Description détaillée
-              </label>
-              <textarea
-                value={project.long_description || ''}
-                onChange={(e) => setProject({ ...project, long_description: e.target.value })}
-                rows={6}
-                className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors resize-none"
-              />
-            </div>
-
-            {/* Galerie d'images */}
-            <div>
-              <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
-                Galerie d'images du projet
-              </label>
-              <ImageUploader
-                images={images}
-                onImagesChange={setImages}
-                maxImages={10}
-              />
-              <p className="text-white/40 text-xs mt-2">
-                La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
-              </p>
-            </div>
-
-            {/* Recadrage de l'image d'aperçu */}
-            {(images.length > 0 || project.featured_image) && (
-              <div>
-                <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
-                  Recadrer l'image d'aperçu
-                </label>
-                <ImageCropper
-                  imageUrl={images.find(img => img.is_main)?.url || images[0]?.url || project.featured_image!}
-                  initialCrop={project.image_crop || undefined}
-                  onCropChange={(crop) => setProject({ ...project, image_crop: crop })}
-                  aspectRatio={16 / 9}
-                />
-              </div>
-            )}
-
-            {/* Publié */}
-            <div className="flex items-center gap-3">
-              <input
-                type="checkbox"
-                id="published"
-                checked={project.published}
-                onChange={(e) => setProject({ ...project, published: e.target.checked })}
-                className="w-5 h-5 bg-primary-800/50 border border-white/10 rounded"
-              />
-              <label htmlFor="published" className="text-white/80 text-sm uppercase tracking-wider">
-                Publié
-              </label>
-            </div>
-
-            {/* Actions */}
-            <div className="flex gap-4 pt-4">
-              <button
-                type="submit"
-                disabled={saving}
-                className="flex-1 py-4 bg-gradient-to-r from-secondary to-accent-orange text-white font-semibold tracking-wider uppercase text-sm disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"
-              >
-                {saving ? 'Enregistrement...' : 'Enregistrer les modifications'}
-              </button>
-              <Link
-                href="/admin/projects"
-                className="px-8 py-4 glass-dark hover:bg-white/5 text-white/80 hover:text-white transition-all text-sm uppercase tracking-wider text-center"
-              >
-                Annuler
-              </Link>
-            </div>
-          </form>
+          <AdminSelect
+            label="Type de projet"
+            value={project.location || ''}
+            onChange={(e) => updateField('location', e.target.value)}
+            options={PROJECT_TYPES}
+          />
         </div>
-      </div>
-    </div>
+
+        <AdminInput
+          label="Année"
+          type="number"
+          value={project.year || ''}
+          onChange={(e) => updateField('year', parseInt(e.target.value) || null)}
+        />
+
+        <AdminInput
+          label="Description courte"
+          value={project.short_description || ''}
+          onChange={(e) => updateField('short_description', e.target.value)}
+        />
+
+        <AdminTextarea
+          label="Description détaillée"
+          value={project.long_description || ''}
+          onChange={(e) => updateField('long_description', e.target.value)}
+          rows={6}
+        />
+
+        <div>
+          <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
+            Galerie d'images du projet
+          </label>
+          <ImageUploader images={images} onImagesChange={setImages} maxImages={10} />
+          <p className="text-white/40 text-xs mt-2">
+            La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
+          </p>
+        </div>
+
+        {mainImageUrl && (
+          <div>
+            <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
+              Recadrer l'image d'aperçu
+            </label>
+            <ImageCropper
+              imageUrl={mainImageUrl}
+              initialCrop={project.image_crop || undefined}
+              onCropChange={(crop) => updateField('image_crop', crop)}
+              aspectRatio={16 / 9}
+            />
+          </div>
+        )}
+
+        <AdminCheckbox
+          id="published"
+          label="Publié"
+          checked={project.published}
+          onChange={(e) => updateField('published', e.target.checked)}
+        />
+
+        <AdminFormButtons
+          loading={saving}
+          submitLabel="Enregistrer les modifications"
+          loadingLabel="Enregistrement..."
+          cancelHref="/admin/projects"
+        />
+      </form>
+    </AdminPageLayout>
   );
 }
-

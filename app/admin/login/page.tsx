@@ -17,14 +17,15 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
 
-    const { error } = await signIn(email, password);
+    const result = await signIn(email, password);
 
-    if (error) {
+    if (result.error) {
       setError('Email ou mot de passe incorrect');
       setLoading(false);
-    } else {
-      router.push('/admin');
+      return;
     }
+    
+    router.push('/admin');
   };
 
   return (
@@ -99,10 +100,6 @@ export default function LoginPage() {
     </div>
   );
 }
-
-
-
-
 
 
 

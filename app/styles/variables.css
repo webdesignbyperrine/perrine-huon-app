@@ -1,0 +1,95 @@
+/* ========================================
+   VARIABLES CSS - Système de design
+   ======================================== */
+
+:root {
+  /* Couleurs principales */
+  --primary-blue: #2B5B8A;
+  --primary-blue-light: #4A7AA8;
+  --primary-blue-dark: #1E4A73;
+  --primary-blue-darker: #153A5C;
+  
+  /* Accent rose - usage parcimonieux */
+  --accent-pink: #ff0f7c;
+  --accent-pink-light: #ff4d9a;
+  --accent-pink-dark: #d90066;
+  --accent-pink-muted: #c4366d;
+  
+  /* Fond light - papier kraft */
+  --background-light: #D4C4A8;
+  --background-paper: #CDBF9B;
+  --background-kraft: #C5B590;
+  --foreground-light: #2B5B8A;
+  
+  /* Fond dark - bleu primary */
+  --background-dark: #2B5B8A;
+  --foreground-dark: #E8DCC4;
+  
+  /* Nuances de gris bleuté */
+  --gray-50: #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-300: #CBD5E1;
+  --gray-400: #94A3B8;
+  --gray-500: #64748B;
+  
+  /* Stroke pour illustrations */
+  --stroke-width: 2px;
+  --stroke-color: var(--primary-blue);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Variables dynamiques pour le thème */
+  --bg-primary: var(--background-light);
+  --bg-secondary: var(--background-paper);
+  --bg-tertiary: var(--background-kraft);
+  --text-primary: var(--foreground-light);
+  --text-secondary: var(--primary-blue-light);
+  --text-muted: var(--gray-500);
+  --border-color: var(--primary-blue);
+  --border-light: rgba(43, 91, 138, 0.2);
+  --card-bg: var(--background-paper);
+  --card-border: rgba(43, 91, 138, 0.15);
+  --header-bg: var(--background-light);
+  --header-bg-scrolled: rgba(212, 196, 168, 0.95);
+}
+
+/* Dark Mode Variables */
+html.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: #475569;
+  --border-light: rgba(148, 163, 184, 0.2);
+  --card-bg: #1e293b;
+  --card-border: rgba(148, 163, 184, 0.15);
+  --header-bg: #0f172a;
+  --header-bg-scrolled: rgba(15, 23, 42, 0.95);
+  --stroke-color: #f1f5f9;
+  --primary-blue: #60a5fa;
+  --primary-blue-light: #93c5fd;
+  --primary-blue-dark: #3b82f6;
+  --accent-pink: #f472b6;
+  --accent-pink-light: #f9a8d4;
+  --accent-pink-dark: #ec4899;
+}
+
+/* Responsive stroke */
+@media (max-width: 768px) {
+  :root {
+    --stroke-width: 1.5px;
+  }
+}

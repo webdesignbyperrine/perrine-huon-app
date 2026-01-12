@@ -26,120 +26,65 @@ export default function QuoteRequestStep() {
   const [error, setError] = useState('');
 
   // Validation email
-  const isValidEmail = (email: string) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  // Helper pour récupérer les labels des options sélectionnées
+  const getProjectLabels = () => {
+    const projectType = PROJECT_TYPES.find(p => p.value === data.projectType)?.label;
+    const designStyle = DESIGN_STYLES.find(d => d.value === data.designStyle)?.label;
+    const animation = ANIMATION_LEVELS.find(a => a.value === data.animationLevel)?.label;
+    const budget = BUDGET_OPTIONS.find(b => b.value === data.budget);
+    const deadline = DEADLINE_OPTIONS.find(d => d.value === data.deadline);
+    const accompagnement = ACCOMPAGNEMENT_OPTIONS.find(a => a.value === data.accompagnement)?.label;
+    const features = data.features
+      .filter(f => f !== 'autre')
+      .map(f => FEATURES_OPTIONS.find(fo => fo.value === f)?.label)
+      .filter(Boolean) as string[];
+
+    return { projectType, designStyle, animation, budget, deadline, accompagnement, features };
   };
+
+  // Construire un message en filtrant les valeurs vides
+  const buildMessage = (lines: (string | false | undefined | null)[]): string => 
+    lines.filter(Boolean).join('\n');
 
   // Préparer le résumé du projet pour la BDD
   const prepareProjectSummary = () => {
-    const projectTypeLabel = PROJECT_TYPES.find(p => p.value === data.projectType)?.label;
-    const designStyleLabel = DESIGN_STYLES.find(d => d.value === data.designStyle)?.label;
-    const animationLabel = ANIMATION_LEVELS.find(a => a.value === data.animationLevel)?.label;
-    const budgetInfo = BUDGET_OPTIONS.find(b => b.value === data.budget);
-    const deadlineInfo = DEADLINE_OPTIONS.find(d => d.value === data.deadline);
-    const accompagnementLabel = ACCOMPAGNEMENT_OPTIONS.find(a => a.value === data.accompagnement)?.label;
-    
-    const featuresLabels = data.features
-      .filter(f => f !== 'autre')
-      .map(f => FEATURES_OPTIONS.find(fo => fo.value === f)?.label)
-      .filter(Boolean);
+    const { projectType, designStyle, animation, budget, deadline, accompagnement, features } = getProjectLabels();
 
-    let message = "📋 DEMANDE DE DEVIS EXPRESS\n\n";
-    
-    if (projectTypeLabel) {
-      message += `📌 Type de projet : ${projectTypeLabel}\n`;
-    }
-    
-    if (featuresLabels.length > 0) {
-      message += `⚙️ Fonctionnalités : ${featuresLabels.join(', ')}\n`;
-    }
-    
-    if (data.featureOther) {
-      message += `   Autres besoins : ${data.featureOther}\n`;
-    }
-    
-    if (designStyleLabel) {
-      message += `🎨 Style de design : ${designStyleLabel}\n`;
-    }
-    
-    if (animationLabel) {
-      message += `✨ Animations : ${animationLabel}\n`;
-    }
-    
-    if (budgetInfo) {
-      message += `💰 Budget : ${budgetInfo.label} (${budgetInfo.range})\n`;
-    }
-    
-    if (deadlineInfo) {
-      message += `⏱️ Délais : ${deadlineInfo.label} (${deadlineInfo.description})\n`;
-    }
-    
-    if (accompagnementLabel) {
-      message += `🤝 Accompagnement : ${accompagnementLabel}\n`;
-    }
-    
-    if (data.inspirations) {
-      message += `💡 Inspirations : ${data.inspirations}\n`;
-    }
-    
-    return message;
+    return buildMessage([
+      "📋 DEMANDE DE DEVIS EXPRESS\n",
+      projectType && `📌 Type de projet : ${projectType}`,
+      features.length > 0 && `⚙️ Fonctionnalités : ${features.join(', ')}`,
+      data.featureOther && `   Autres besoins : ${data.featureOther}`,
+      designStyle && `🎨 Style de design : ${designStyle}`,
+      animation && `✨ Animations : ${animation}`,
+      budget && `💰 Budget : ${budget.label} (${budget.range})`,
+      deadline && `⏱️ Délais : ${deadline.label} (${deadline.description})`,
+      accompagnement && `🤝 Accompagnement : ${accompagnement}`,
+      data.inspirations && `💡 Inspirations : ${data.inspirations}`,
+    ]);
   };
 
-  // Préparer le message WhatsApp avec TOUTES les réponses
+  // Préparer le message WhatsApp
   const prepareWhatsAppMessage = () => {
-    const projectTypeLabel = PROJECT_TYPES.find(p => p.value === data.projectType)?.label;
-    const designStyleLabel = DESIGN_STYLES.find(d => d.value === data.designStyle)?.label;
-    const animationLabel = ANIMATION_LEVELS.find(a => a.value === data.animationLevel)?.label;
-    const budgetInfo = BUDGET_OPTIONS.find(b => b.value === data.budget);
-    const deadlineInfo = DEADLINE_OPTIONS.find(d => d.value === data.deadline);
-    const accompagnementLabel = ACCOMPAGNEMENT_OPTIONS.find(a => a.value === data.accompagnement)?.label;
-    
-    const featuresLabels = data.features
-      .filter(f => f !== 'autre')
-      .map(f => FEATURES_OPTIONS.find(fo => fo.value === f)?.label)
-      .filter(Boolean);
+    const { projectType, designStyle, animation, budget, deadline, accompagnement, features } = getProjectLabels();
 
-    let message = "Bonjour Perrine ! 👋\n\n";
-    message += "Je viens de compléter le questionnaire sur votre site. Voici mon projet :\n\n";
-    
-    if (projectTypeLabel) {
-      message += `📌 *Type* : ${projectTypeLabel}\n`;
-    }
-    
-    if (featuresLabels.length > 0) {
-      message += `⚙️ *Fonctionnalités* : ${featuresLabels.join(', ')}\n`;
-    }
-    
-    if (data.featureOther) {
-      message += `   _Autres besoins_ : ${data.featureOther}\n`;
-    }
-    
-    if (designStyleLabel) {
-      message += `🎨 *Design* : ${designStyleLabel}\n`;
-    }
-    
-    if (animationLabel) {
-      message += `✨ *Animations* : ${animationLabel}\n`;
-    }
-    
-    if (budgetInfo) {
-      message += `💰 *Budget* : ${budgetInfo.label} (${budgetInfo.range})\n`;
-    }
-    
-    if (deadlineInfo) {
-      message += `⏱️ *Délais* : ${deadlineInfo.label} (${deadlineInfo.description})\n`;
-    }
-    
-    if (accompagnementLabel) {
-      message += `🤝 *Accompagnement* : ${accompagnementLabel}\n`;
-    }
-    
-    if (data.inspirations) {
-      message += `💡 *Inspirations* : ${data.inspirations}\n`;
-    }
-    
-    message += "\nJ'aimerais en discuter avec vous ! 😊";
-    
+    const message = buildMessage([
+      "Bonjour Perrine ! 👋\n",
+      "Je viens de compléter le questionnaire sur votre site. Voici mon projet :\n",
+      projectType && `📌 *Type* : ${projectType}`,
+      features.length > 0 && `⚙️ *Fonctionnalités* : ${features.join(', ')}`,
+      data.featureOther && `   _Autres besoins_ : ${data.featureOther}`,
+      designStyle && `🎨 *Design* : ${designStyle}`,
+      animation && `✨ *Animations* : ${animation}`,
+      budget && `💰 *Budget* : ${budget.label} (${budget.range})`,
+      deadline && `⏱️ *Délais* : ${deadline.label} (${deadline.description})`,
+      accompagnement && `🤝 *Accompagnement* : ${accompagnement}`,
+      data.inspirations && `💡 *Inspirations* : ${data.inspirations}`,
+      "\nJ'aimerais en discuter avec vous ! 😊",
+    ]);
+
     return encodeURIComponent(message);
   };
 

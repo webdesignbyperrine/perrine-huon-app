@@ -1,11 +1,10 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import Image from 'next/image';
 import { createClient } from '@/lib/supabase/client';
 import { optimizeImageWithPreset } from '@/lib/image-optimizer';
+import { AdminPageLayout, AdminLoadingSpinner, AdminError, AdminInput, AdminTextarea, AdminFormButtons } from '@/components/admin/ui';
 
 type Settings = {
   logo_url: string;
@@ -15,7 +14,6 @@ type Settings = {
 };
 
 export default function SettingsPage() {
-  const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -161,40 +159,17 @@ export default function SettingsPage() {
     setSaving(false);
   }
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-[#1a1a2e] flex items-center justify-center">
-        <div className="w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
-      </div>
-    );
-  }
+  if (loading) return <AdminLoadingSpinner />;
 
   return (
-    <div className="min-h-screen bg-[#1a1a2e] pt-32 pb-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-12">
-            <Link href="/admin" className="text-secondary hover:underline mb-4 inline-block text-sm">
-              ← Retour au dashboard
-            </Link>
-            <h1 className="text-5xl font-bold">
-              <span className="bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
-                PARAMÈTRES DU SITE
-              </span>
-            </h1>
-          </div>
-
-          {error && (
-            <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200">
-              {error}
-            </div>
-          )}
-
-          {success && (
-            <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200">
-              {success}
-            </div>
-          )}
+    <AdminPageLayout backHref="/admin" backLabel="Retour au dashboard" title="PARAMÈTRES DU SITE">
+      <AdminError message={error} />
+      
+      {success && (
+        <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-200">
+          {success}
+        </div>
+      )}
 
           <div className="glass-dark p-8 rounded-xl space-y-8">
             {/* Logo du site */}
@@ -332,17 +307,8 @@ export default function SettingsPage() {
               >
                 {saving ? 'Enregistrement...' : '💾 Enregistrer les paramètres'}
               </button>
-              <Link
-                href="/admin"
-                className="px-8 py-4 glass-dark hover:bg-white/5 text-white/80 hover:text-white transition-all text-sm uppercase tracking-wider text-center rounded-lg flex items-center"
-              >
-                Annuler
-              </Link>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </AdminPageLayout>
   );
 }
-

@@ -56,31 +56,21 @@ const INSPIRATION_SITES = [
 
 export default function InspirationsStep() {
   const { data, setInspirations, goPrevious, goNext } = useQualifier();
-  const [selectedSites, setSelectedSites] = useState<string[]>(() => {
-    if (data.inspirations) {
-      return data.inspirations.split(',').map(s => s.trim()).filter(Boolean);
-    }
-    return [];
-  });
+  const [selectedSites, setSelectedSites] = useState<string[]>(
+    () => data.inspirations?.split(',').map(s => s.trim()).filter(Boolean) ?? []
+  );
   const [expandedSite, setExpandedSite] = useState<string | null>(null);
 
   const toggleSite = (siteName: string) => {
-    let newSelected: string[];
-    if (selectedSites.includes(siteName)) {
-      newSelected = selectedSites.filter(s => s !== siteName);
-    } else {
-      newSelected = [...selectedSites, siteName];
-    }
+    const newSelected = selectedSites.includes(siteName)
+      ? selectedSites.filter(s => s !== siteName)
+      : [...selectedSites, siteName];
     setSelectedSites(newSelected);
     setInspirations(newSelected.join(', '));
   };
 
   const handleCardClick = (siteName: string) => {
-    if (expandedSite === siteName) {
-      setExpandedSite(null);
-    } else {
-      setExpandedSite(siteName);
-    }
+    setExpandedSite(expandedSite === siteName ? null : siteName);
   };
 
   const openSite = (url: string, e: React.MouseEvent) => {

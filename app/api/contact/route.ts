@@ -1,62 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
-
-// Rate limiting simple en mémoire (par IP)
-// Note: En production avec plusieurs instances, utiliser Redis ou similaire
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
-
-const RATE_LIMIT = 5; // Max requêtes
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-
-function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
-  const now = Date.now();
-  const record = rateLimitMap.get(ip);
-  
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
-    return { allowed: true, remaining: RATE_LIMIT - 1 };
-  }
-  
-  if (record.count >= RATE_LIMIT) {
-    return { allowed: false, remaining: 0 };
-  }
-  
-  record.count++;
-  return { allowed: true, remaining: RATE_LIMIT - record.count };
-}
-
-// Nettoyage périodique des entrées expirées
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, record] of rateLimitMap.entries()) {
-    if (now > record.resetTime) {
-      rateLimitMap.delete(ip);
-    }
-  }
-}, 60 * 1000); // Toutes les minutes
+import { checkRateLimit, getClientIP, rateLimitedResponse } from '@/lib/rate-limit';
 
 export async function POST(request: NextRequest) {
   try {
-    // Récupérer l'IP pour le rate limiting
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
-               request.headers.get('x-real-ip') || 
-               'unknown';
-    
     // Vérifier le rate limit
-    const { allowed, remaining } = checkRateLimit(ip);
+    const ip = getClientIP(request);
+    const rateLimit = checkRateLimit(ip, { maxRequests: 5 });
     
-    if (!allowed) {
-      return NextResponse.json(
-        { error: 'Trop de requêtes. Veuillez réessayer dans une minute.' },
-        { 
-          status: 429,
-          headers: {
-            'Retry-After': '60',
-            'X-RateLimit-Remaining': '0',
-          }
-        }
-      );
+    if (!rateLimit.allowed) {
+      return rateLimitedResponse(rateLimit.resetTime);
     }
+    
+    const remaining = rateLimit.remaining;
 
     // Valider les données
     const body = await request.json();
