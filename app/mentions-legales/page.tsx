@@ -12,9 +12,10 @@ export default function MentionsLegales() {
               <h2 className="text-2xl font-bold text-primary mb-4">Éditeur du site</h2>
               <p>
                 <strong className="text-primary">Perrine Huon</strong><br />
+                Micro-entreprise<br />
                 6 rue d'Arsonval<br />
                 75015 Paris, France<br />
-                SIRET : 123 456 789 00012<br />
+                SIRET : En cours d'immatriculation<br />
                 <br />
                 <a href="/#contact" className="text-accent hover:underline">Me contacter via le formulaire</a>
               </p>

@@ -12,6 +12,7 @@ export default function PolitiqueConfidentialite() {
               <h2 className="text-2xl font-bold text-primary mb-4">Responsable de traitement</h2>
               <p>
                 <strong className="text-primary">Perrine Huon</strong><br />
+                Micro-entreprise<br />
                 6 rue d'Arsonval<br />
                 75015 Paris, France<br /><br />
                 <a href="/#contact" className="text-accent hover:underline">Me contacter via le formulaire</a>
