@@ -3,13 +3,13 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { formatDate, estimateReadingTime } from '@/lib/utils';
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createStaticClient } from '@/lib/supabase/server';
 import SafeHTML from '@/components/SafeHTML';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
 
 // Génération statique des paramètres pour tous les articles
 export async function generateStaticParams() {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
   const { data: posts } = await supabase
     .from('blog_posts')
     .select('slug')

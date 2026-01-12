@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { createClient } from '@/lib/supabase/server';
+import { createClient, createStaticClient } from '@/lib/supabase/server';
 import ImageCarousel from '@/components/ImageCarousel';
 import FormattedDescription from '@/components/FormattedDescription';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
@@ -22,7 +22,7 @@ type ProjectMediaWithMedia = ProjectMedia & {
 
 // Génération statique des paramètres pour toutes les pages de projets
 export async function generateStaticParams() {
-  const supabase = await createClient();
+  const supabase = createStaticClient();
   const { data: projects } = await supabase
     .from('projects')
     .select('slug')
