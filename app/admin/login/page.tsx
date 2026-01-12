@@ -28,7 +28,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-primary-900 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#1a1a2e] flex items-center justify-center px-4">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] animate-glow" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-orange/20 rounded-full blur-[120px] animate-glow" style={{ animationDelay: '2s' }} />

@@ -101,7 +101,7 @@ export default function NewProjectPage() {
   }
 
   return (
-    <div className="min-h-screen bg-primary-900 pt-32 pb-20">
+    <div className="min-h-screen bg-[#1a1a2e] pt-32 pb-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}

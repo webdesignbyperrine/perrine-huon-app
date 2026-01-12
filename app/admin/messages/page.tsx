@@ -79,14 +79,14 @@ export default function AdminMessagesPage() {
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen bg-primary-900 flex items-center justify-center">
+      <div className="min-h-screen bg-[#1a1a2e] flex items-center justify-center">
         <div className="w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-primary-900 pt-32 pb-20">
+    <div className="min-h-screen bg-[#1a1a2e] pt-32 pb-20">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}

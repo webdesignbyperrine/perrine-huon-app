@@ -164,7 +164,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-primary-900 flex items-center justify-center">
+      <div className="min-h-screen bg-[#1a1a2e] flex items-center justify-center">
         <div className="w-12 h-12 border-2 border-secondary/30 border-t-secondary rounded-full animate-spin" />
       </div>
     );
@@ -172,7 +172,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
 
   if (!project) {
     return (
-      <div className="min-h-screen bg-primary-900 flex items-center justify-center">
+      <div className="min-h-screen bg-[#1a1a2e] flex items-center justify-center">
         <div className="text-center">
           <p className="text-white/70 mb-4">Projet introuvable</p>
           <Link href="/admin/projects" className="text-secondary hover:underline">
@@ -184,7 +184,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
   }
 
   return (
-    <div className="min-h-screen bg-primary-900 pt-32 pb-20">
+    <div className="min-h-screen bg-[#1a1a2e] pt-32 pb-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
