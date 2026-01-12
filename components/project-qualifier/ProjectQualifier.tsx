@@ -34,7 +34,7 @@ function QualifierContent({ onClose, onBack }: { onClose?: () => void; onBack?: 
         const element = containerRef.current;
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
         
-        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
       }
       
       const timer = setTimeout(() => {

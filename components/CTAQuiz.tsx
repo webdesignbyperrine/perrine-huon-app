@@ -3,7 +3,7 @@
 export default function CTAQuiz() {
   const handleClick = () => {
     window.dispatchEvent(new Event('openQualifier'));
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   return (

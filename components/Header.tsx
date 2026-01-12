@@ -315,7 +315,7 @@ export default function Header() {
       const logoClick = sessionStorage.getItem('logoClick');
       if (logoClick === 'true') {
         setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo({ top: 0, behavior: 'instant' });
         }, 100);
         sessionStorage.removeItem('logoClick');
       }
@@ -353,7 +353,7 @@ export default function Header() {
         e.preventDefault();
         const element = document.getElementById(anchor);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: 'instant' });
         }
       }
     }
