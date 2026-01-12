@@ -55,8 +55,8 @@ export default function Footer() {
             <div className={`text-center mb-16 transition-all duration-700 ${footerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               
               {/* Logo - bleu en light, blanc en dark */}
-              <div className="flex justify-center mb-6">
-                <div className="relative w-20 h-20 lg:w-24 lg:h-24">
+              <div className="flex justify-center mb-4">
+                <div className="relative w-16 h-16 lg:w-20 lg:h-20">
                   <Image
                     src="/images/logo_vert_perrine_huon.png"
                     alt="Perrine Huon - Web Designer & Developer"
@@ -69,6 +69,12 @@ export default function Footer() {
                   />
                 </div>
               </div>
+              
+              {/* Nom - même style que Header */}
+              <h3 className="text-xl lg:text-2xl tracking-wide mb-6">
+                <span className={`font-semibold ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>PERRINE</span>
+                <span className={`ml-2 font-light ${theme === 'dark' ? 'text-paper/40' : 'text-primary/40'}`}>HUON</span>
+              </h3>
               
               {/* Slogan animé - même style que Hero */}
               <p 

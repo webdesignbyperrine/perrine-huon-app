@@ -401,9 +401,9 @@ export default function Header() {
                 />
               </div>
             </div>
-            <span className="text-sm sm:text-base xl:text-xl font-medium tracking-wide whitespace-nowrap">
-              <span className="text-primary">PERRINE</span>
-              <span className="text-primary/40 ml-1 sm:ml-1.5 xl:ml-2 hidden min-[400px]:inline">HUON</span>
+            <span className="text-sm sm:text-base xl:text-xl tracking-wide whitespace-nowrap">
+              <span className="font-semibold text-primary">PERRINE</span>
+              <span className="font-light text-primary/40 ml-1 sm:ml-1.5 xl:ml-2 hidden min-[400px]:inline">HUON</span>
             </span>
           </Link>
 

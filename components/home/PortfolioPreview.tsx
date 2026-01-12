@@ -221,8 +221,8 @@ export default function PortfolioPreview() {
               ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            <CTAQuiz />
             <SectionLink href="/portfolio">Voir tous les projets</SectionLink>
+            <CTAQuiz />
           </div>
 
         </div>
