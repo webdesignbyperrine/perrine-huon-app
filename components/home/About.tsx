@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { CTAQuiz } from '@/components/ui';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const techLogos = [
   { src: '/images/logos/logo_lovable.jpeg', label: 'Lovable', className: 'rounded' },
@@ -25,10 +26,16 @@ export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const techCarouselRef = useRef<HTMLDivElement>(null);
   const clientCarouselRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
   
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [contentRef, contentVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [cardsRef, cardsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  
+  // Image qui change selon le thème : dark en mode light, light en mode dark
+  const aboutImage = theme === 'dark' 
+    ? '/images/perrine-huon-auteur-laptop-light.webp'
+    : '/images/perrine-huon-auteur-laptop-dark.webp';
 
   const useMobileAutoSlide = (ref: RefObject<HTMLDivElement | null>, itemCount: number) => {
     useEffect(() => {
@@ -139,77 +146,128 @@ export default function About() {
                 titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
               }`}
             />
-            
-            {/* Nom */}
-            <p 
-              className={`text-2xl sm:text-3xl font-light tracking-wider mt-6 transition-all duration-700 delay-300 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              <span className="text-paper">PERRINE</span>
-              <span className="text-paper/40 ml-2">HUON</span>
-            </p>
           </div>
 
-          {/* Photo */}
-          <div ref={sectionRef} className="relative mb-12 lg:mb-16">
-            <div className="relative w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 mx-auto">
-              {/* Cercle décoratif */}
-              <div className="absolute -inset-4 border-2 border-paper/10 rounded-full" />
-              <div className="absolute -inset-8 border-2 border-paper/5 rounded-full" />
-              
-              {/* Photo */}
-              <div 
-                className={`relative w-full h-full rounded-full overflow-hidden border-4 border-paper/20 shadow-2xl transition-all duration-1000 ${
-                  isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-                }`}
-              >
-                <Image
-                  src="/images/perrine-huon-creation.webp"
-                  alt="Perrine Huon"
-                  fill
-                  className="object-cover"
-                  priority
-                />
+          {/* Layout centré : Nom + Photo + Texte */}
+          <div ref={sectionRef} className="flex flex-col items-center mb-12 lg:mb-16">
+            
+            {/* Nom + Badge centré */}
+            <div 
+              ref={contentRef}
+              className={`text-center mb-10 lg:mb-12 transition-all duration-700 ${
+                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <p className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-wider mb-6 lg:mb-8">
+                <span className="text-paper font-medium">PERRINE</span>
+                <span className="text-paper/40 ml-3">HUON</span>
+              </p>
+              {/* Badge Web Designer - rose corail visible */}
+              <div className="flex justify-center">
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent border-2 border-[#e85d8c] dark:border-accent-light text-[#e85d8c] dark:text-accent-light text-sm font-semibold tracking-wide rounded-full">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                    <path d="M2 2l7.586 7.586" />
+                    <circle cx="11" cy="11" r="2" />
+                  </svg>
+                  Web Designer
+                </span>
               </div>
             </div>
-          </div>
 
-          {/* Contenu */}
-          <div ref={contentRef} className="max-w-3xl mx-auto text-center space-y-8">
-            <p 
-              className={`text-xl lg:text-2xl font-light text-paper/90 leading-relaxed transition-all duration-700 ${
-                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-            >
-              Je construis des <span className="text-accent font-medium">projets digitaux</span> avec{' '}
-              rigueur, créativité, et beaucoup d'écoute.
-            </p>
+            {/* Photo centrée */}
+            <div className="relative w-full max-w-md lg:max-w-lg mx-auto mb-10 lg:mb-14">
+              {/* Forme blob décorative en arrière-plan */}
+              <div className="absolute -inset-4 lg:-inset-8 z-0">
+                <svg 
+                  viewBox="0 0 500 500" 
+                  className="w-full h-full opacity-20"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450.5Q159,407,99,354Q39,301,27,225.5Q15,150,82,91Q149,32,224,50Q299,68,371,97Q443,126,460,213Q477,300,440.5,320.5Z"
+                    fill="currentColor"
+                    className="text-paper"
+                  />
+                </svg>
+              </div>
+              
+              {/* Conteneur de la photo */}
+              <div 
+                className={`relative z-10 transition-all duration-1000 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+              >
+                {/* Cadre décoratif style "dessiné" */}
+                <div className="absolute -inset-3 lg:-inset-4 border-2 border-paper/20 rounded-3xl transform rotate-2" />
+                <div className="absolute -inset-2 lg:-inset-3 border border-[#e85d8c]/40 dark:border-accent/30 rounded-3xl transform -rotate-1" />
+                
+                {/* Photo principale */}
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-paper/10">
+                  <Image
+                    src={aboutImage}
+                    alt="Perrine Huon - Web Designer & Developer"
+                    fill
+                    className="object-cover object-top transition-opacity duration-500"
+                    priority
+                    sizes="(max-width: 768px) 100vw, 500px"
+                  />
+                  
+                  {/* Overlay gradient subtil */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                </div>
+                
+                {/* Petit élément décoratif */}
+                <div 
+                  className={`absolute -top-3 -left-3 lg:-top-5 lg:-left-5 w-8 h-8 lg:w-12 lg:h-12 bg-paper/20 rounded-full flex items-center justify-center transition-all duration-700 delay-300 ${
+                    isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                  }`}
+                >
+                  <svg className="w-4 h-4 lg:w-6 lg:h-6 text-paper" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
 
-            <div 
-              className={`w-16 h-0.5 bg-paper/20 mx-auto transition-all duration-700 delay-150 ${
-                contentVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-              }`}
-            />
+            {/* Texte descriptif centré sous la photo */}
+            <div className="max-w-2xl mx-auto text-center space-y-6 lg:space-y-8">
+              
+              <p 
+                className={`text-xl lg:text-2xl font-light text-paper/90 leading-relaxed transition-all duration-700 delay-100 ${
+                  contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+              >
+                Je construis des <span className="text-[#e85d8c] dark:text-accent-light font-medium">projets digitaux</span> avec{' '}
+                rigueur, créativité, et beaucoup d'écoute.
+              </p>
 
-            <p 
-              className={`text-lg text-paper/60 leading-relaxed transition-all duration-700 delay-200 ${
-                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-            >
-              Je m'efforce de créer des designs qui ne se démodent pas. 
-              Je mise sur l'<span className="text-paper/90">efficacité</span> et l'optimisation de l'<span className="text-paper/90">expérience utilisateur</span>.
-            </p>
+              <div 
+                className={`w-16 h-0.5 bg-paper/20 mx-auto transition-all duration-700 delay-200 ${
+                  contentVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+                }`}
+              />
 
-            <p 
-              className={`text-lg text-paper/60 leading-relaxed transition-all duration-700 delay-300 ${
-                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-            >
-              Un beau site, c'est bien. Un site qui vous rapporte des clients, <span className="text-paper/90">c'est mieux</span>.
-              Mon objectif ? Que votre site <span className="text-paper/90">attire</span>,{' '}
-              <span className="text-paper/90">convainque</span>, et <span className="text-accent">convertisse</span>.
-            </p>
+              <p 
+                className={`text-base lg:text-lg text-paper/60 leading-relaxed transition-all duration-700 delay-300 ${
+                  contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+              >
+                Je m'efforce de créer des designs qui ne se démodent pas. 
+                Je mise sur l'<span className="text-paper/90">efficacité</span> et l'optimisation de l'<span className="text-paper/90">expérience utilisateur</span>.
+              </p>
+
+              <p 
+                className={`text-base lg:text-lg text-paper/60 leading-relaxed transition-all duration-700 delay-400 ${
+                  contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+              >
+                Un beau site, c'est bien. Un site qui vous rapporte des clients, <span className="text-paper/90">c'est mieux</span>.
+                Mon objectif ? Que votre site <span className="text-paper/90">attire</span>,{' '}
+                <span className="text-paper/90">convainque</span>, et <span className="text-[#e85d8c] dark:text-accent-light font-medium">convertisse</span>.
+              </p>
+            </div>
           </div>
 
           {/* Cards */}
