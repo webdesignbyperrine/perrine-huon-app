@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import LaptopMockup from '@/components/LaptopMockup';
+import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
 
 type ProjectData = {
   id: string;
@@ -64,9 +65,7 @@ export default function PortfolioPreview() {
     return (
       <section className="relative py-24 lg:py-32 bg-paper overflow-hidden">
         <div className="container mx-auto px-4">
-          <div className="text-center py-12">
-            <div className="inline-block w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
-          </div>
+          <LoadingSpinner />
         </div>
       </section>
     );
@@ -152,28 +151,14 @@ export default function PortfolioPreview() {
         <div className="w-full">
           
           {/* Titre */}
-          <div ref={titleRef} className="text-center mb-12 lg:mb-16">
-            <span 
-              className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              Réalisations récentes
-            </span>
-            <h2 
-              className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              Portfolio
-            </h2>
-            <p 
-              className={`text-lg text-primary/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              Une sélection de mes réalisations récentes
-            </p>
+          <div ref={titleRef} className="mb-12 lg:mb-16">
+            <SectionTitle
+              subtitle="Réalisations récentes"
+              title="Portfolio"
+              description="Une sélection de mes réalisations récentes"
+              showLine={false}
+              isVisible={titleVisible}
+            />
           </div>
 
           {/* Grille de projets */}
@@ -232,16 +217,12 @@ export default function PortfolioPreview() {
           {/* CTA */}
           <div 
             ref={ctaRef} 
-            className={`text-center mt-12 transition-all duration-700 ${
+            className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${
               ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            <Link href="/portfolio" className="btn-sketch group inline-flex items-center gap-2">
-              <span>Voir tous les projets</span>
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6"/>
-              </svg>
-            </Link>
+            <CTAQuiz />
+            <SectionLink href="/portfolio">Voir tous les projets</SectionLink>
           </div>
 
         </div>

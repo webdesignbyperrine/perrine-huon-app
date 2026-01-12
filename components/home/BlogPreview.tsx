@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/utils';
 import type { BlogPost } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
 
 function BlogPreview() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -155,41 +156,18 @@ function BlogPreview() {
       </div>
       
       <div className="container mx-auto px-4 pt-8">
-        <div ref={titleRef} className="text-center mb-16">
-          <span 
-            className={`inline-block text-sm font-medium text-paper/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            Actualités & Conseils
-          </span>
-          <h2 
-            className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-paper mb-6 transition-all duration-700 delay-100 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            Blog
-          </h2>
-          <p 
-            className={`text-lg text-paper/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            Conseils, astuces et actualités sur le web design, le développement et le SEO local.
-          </p>
-          
-          {/* Ligne décorative */}
-          <div 
-            className={`w-24 h-0.5 bg-paper/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
-              titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-            }`}
+        <div ref={titleRef} className="mb-16">
+          <SectionTitle
+            subtitle="Actualités & Conseils"
+            title="Blog"
+            description="Conseils, astuces et actualités sur le web design, le développement et le SEO local."
+            theme="dark"
+            isVisible={titleVisible}
           />
         </div>
 
         {loading ? (
-          <div className="text-center py-12">
-            <div className="inline-block w-12 h-12 border-4 border-paper/20 border-t-paper rounded-full animate-spin" />
-          </div>
+          <LoadingSpinner theme="dark" />
         ) : (
           <>
             {/* Carousel Container */}
@@ -295,16 +273,9 @@ function BlogPreview() {
               </div>
             </div>
 
-            <div ref={ctaRef} className={`text-center mt-12 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              <Link 
-                href="/blog" 
-                className="btn-sketch group inline-flex items-center gap-2 !border-paper/30 !text-paper hover:!bg-paper hover:!text-primary"
-              >
-                <span>Voir tous les articles</span>
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
+            <div ref={ctaRef} className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              <SectionLink href="/blog" theme="dark">Voir tous les articles</SectionLink>
+              <CTAQuiz />
             </div>
           </>
         )}

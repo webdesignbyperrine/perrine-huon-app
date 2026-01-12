@@ -1,6 +1,7 @@
 'use client';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { SectionTitle, CTAQuiz } from '@/components/ui';
 
 export default function Services() {
   // Animations au scroll
@@ -117,34 +118,12 @@ export default function Services() {
       <div className="container mx-auto px-4 relative z-10 pb-8">
         <div className="max-w-7xl mx-auto">
           {/* Titre de section */}
-          <div ref={titleRef} className="text-center mb-16 lg:mb-20">
-            <span 
-              className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              Ce que je propose
-            </span>
-            <h2 
-              className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-            >
-              Services
-            </h2>
-            <p 
-              className={`text-lg text-primary/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            >
-              Du conseil à la mise en ligne, je m'occupe de tout
-            </p>
-            
-            {/* Ligne décorative */}
-            <div 
-              className={`w-24 h-0.5 bg-primary/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
-                titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-              }`}
+          <div ref={titleRef} className="mb-16 lg:mb-20">
+            <SectionTitle
+              subtitle="Ce que je propose"
+              title="Services"
+              description="Du conseil à la mise en ligne, je m'occupe de tout"
+              isVisible={titleVisible}
             />
           </div>
 
@@ -194,37 +173,7 @@ export default function Services() {
               ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            <button
-              onClick={() => {
-                window.dispatchEvent(new CustomEvent('openQualifier'));
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="btn-cta btn-cta-pulse group inline-flex items-center gap-3"
-            >
-              <svg 
-                className="w-4 h-4" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              >
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-              </svg>
-              <span>Obtenir mon devis gratuit</span>
-              <svg 
-                className="w-4 h-4 group-hover:translate-x-1 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
+            <CTAQuiz />
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { RefObject, useEffect, useRef, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { CTAQuiz } from '@/components/ui';
 
 const techLogos = [
   { src: '/images/logos/logo_lovable.jpeg', label: 'Lovable', className: 'rounded' },
@@ -355,6 +356,11 @@ export default function About() {
               </div>
             </a>
 
+          </div>
+
+          {/* CTA Quiz */}
+          <div className="text-center mt-16">
+            <CTAQuiz />
           </div>
 
         </div>

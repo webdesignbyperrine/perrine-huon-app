@@ -1,10 +1,10 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import type { FAQ } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
 
 export default function FAQPreview() {
   const [faqs, setFaqs] = useState<FAQ[]>([]);
@@ -111,41 +111,17 @@ export default function FAQPreview() {
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div ref={titleRef} className="text-center mb-16">
-          <span 
-            className={`inline-block text-sm font-medium text-primary/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            Questions fréquentes
-          </span>
-          <h2 
-            className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 transition-all duration-700 delay-100 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
-          >
-            FAQ
-          </h2>
-          <p 
-            className={`text-lg text-primary/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
-              titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            Les réponses aux questions les plus courantes sur mes services et mon processus de travail.
-          </p>
-          
-          {/* Ligne décorative */}
-          <div 
-            className={`w-24 h-0.5 bg-primary/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
-              titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
-            }`}
+        <div ref={titleRef} className="mb-16">
+          <SectionTitle
+            subtitle="Questions fréquentes"
+            title="FAQ"
+            description="Les réponses aux questions les plus courantes sur mes services et mon processus de travail."
+            isVisible={titleVisible}
           />
         </div>
 
         {loading ? (
-          <div className="text-center py-12">
-            <div className="inline-block w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin" />
-          </div>
+          <LoadingSpinner />
         ) : (
           <>
             <div ref={faqsRef} className="max-w-4xl mx-auto space-y-4">
@@ -188,16 +164,9 @@ export default function FAQPreview() {
               ))}
             </div>
 
-            <div ref={ctaRef} className={`text-center mt-12 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              <Link 
-                href="/faq" 
-                className="btn-sketch group inline-flex items-center gap-2"
-              >
-                <span>Voir toutes les questions</span>
-                <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
+            <div ref={ctaRef} className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              <SectionLink href="/faq">Voir toutes les questions</SectionLink>
+              <CTAQuiz />
             </div>
           </>
         )}
