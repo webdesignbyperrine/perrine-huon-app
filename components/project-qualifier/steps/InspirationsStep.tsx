@@ -55,7 +55,7 @@ const INSPIRATION_SITES = [
 ];
 
 export default function InspirationsStep() {
-  const { data, setInspirations, goPrevious, goNext } = useQualifier();
+  const { data, setInspirations, goPrevious, goNext, resetQualifier } = useQualifier();
   const [selectedSites, setSelectedSites] = useState<string[]>(
     () => data.inspirations?.split(',').map(s => s.trim()).filter(Boolean) ?? []
   );
@@ -304,13 +304,13 @@ export default function InspirationsStep() {
       </div>
 
       {/* CTA */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+      <div className="flex flex-col gap-4 justify-center items-center mt-8">
         {/* CTA Principal */}
         <button
           onClick={goNext}
           className="btn-cta btn-cta-pulse group inline-flex items-center gap-3"
         >
-          <span>Dernière étape : obtenir mon devis</span>
+          <span>Dernière étape : obtenir votre estimation</span>
           <svg 
             className="w-5 h-5 group-hover:translate-x-1 transition-transform" 
             fill="none" 
@@ -320,10 +320,27 @@ export default function InspirationsStep() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </button>
+
+        {/* Bouton recommencer */}
+        <button
+          onClick={resetQualifier}
+          className="flex items-center gap-2 text-primary/40 hover:text-accent transition-all duration-300 group text-sm"
+          title="Recommencer à zéro"
+        >
+          <svg 
+            className="w-4 h-4 group-hover:rotate-[-360deg] transition-transform duration-500" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          <span>Recommencer le questionnaire</span>
+        </button>
       </div>
 
       {/* Bouton retour */}
-      <div className="text-center mt-6">
+      <div className="text-center mt-4">
         <button
           onClick={goPrevious}
           className="text-primary/40 hover:text-primary/70 text-sm transition-colors flex items-center gap-2 mx-auto"

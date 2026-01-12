@@ -56,7 +56,7 @@ export default function BudgetStep() {
                     className={`w-8 h-8 ${
                       data.budget === budget.value 
                         ? 'text-accent' 
-                        : 'text-primary/40 group-hover:text-accent/60'
+                        : 'text-[#ff4d9a] group-hover:text-accent'
                     } transition-colors duration-300`}
                   />
                 ))}
@@ -64,10 +64,10 @@ export default function BudgetStep() {
               
               {/* Texte */}
               <div>
-                <p className="text-accent text-lg font-semibold mb-1">
+                <p className="text-accent text-lg font-bold mb-1">
                   {budget.range}
                 </p>
-                <p className="text-sm text-primary/50 font-light">
+                <p className="text-sm text-primary/70 font-medium">
                   {budget.description}
                 </p>
               </div>
@@ -78,7 +78,7 @@ export default function BudgetStep() {
 
       {/* Note de confidentialité */}
       <div className="text-center mt-6">
-        <p className="text-xs text-primary/30">
+        <p className="text-xs text-primary/60 font-medium">
           🔒 Ces informations restent confidentielles et servent uniquement à personnaliser ma proposition
         </p>
       </div>

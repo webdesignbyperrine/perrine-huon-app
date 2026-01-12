@@ -66,7 +66,7 @@ export default function AccompagnementStep() {
                 flex-shrink-0 mt-1 transition-colors duration-300
                 ${data.accompagnement === option.value 
                   ? 'text-accent' 
-                  : 'text-primary/30 group-hover:text-accent/60'
+                  : 'text-[#ff4d9a] group-hover:text-accent'
                 }
               `}>
                 {accompagnementIcons[option.value]}
@@ -74,10 +74,10 @@ export default function AccompagnementStep() {
               
               {/* Texte */}
               <div>
-                <h3 className="text-lg font-semibold text-primary mb-1">
+                <h3 className="text-lg font-bold text-primary mb-1">
                   {option.label}
                 </h3>
-                <p className="text-sm text-primary/50 font-light">
+                <p className="text-sm text-primary/70 font-medium">
                   {option.description}
                 </p>
               </div>

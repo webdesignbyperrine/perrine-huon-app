@@ -43,15 +43,21 @@ export default function ProjectTypeStep() {
             >
               <div className="pr-8">
                 {/* Icône */}
-                <div className="text-accent/60 group-hover:text-accent transition-colors duration-300 mb-4">
+                <div className={`
+                  transition-colors duration-300 mb-4
+                  ${data.projectType === projectType.value 
+                    ? 'text-accent' 
+                    : 'text-[#ff4d9a] group-hover:text-accent'
+                  }
+                `}>
                   {IconComponent && <IconComponent className="w-10 h-10" />}
                 </div>
                 
                 {/* Texte */}
-                <h3 className="text-base font-semibold text-primary mb-1">
+                <h3 className="text-base font-bold text-primary mb-1">
                   {projectType.label}
                 </h3>
-                <p className="text-sm text-primary/40 font-light">
+                <p className="text-sm text-primary/70 font-medium">
                   {projectType.description}
                 </p>
               </div>

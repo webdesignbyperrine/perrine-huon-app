@@ -163,25 +163,25 @@ export default function QuoteRequestStep() {
           </p>
         </div>
 
-        {/* Deux options côte à côte */}
+        {/* Deux options côte à côte - Style dark pour meilleure lisibilité */}
         <div className="grid md:grid-cols-2 gap-6">
           
-          {/* Option 1 : Email */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-primary/10 hover:border-accent/30 transition-all">
+          {/* Option 1 : Email - Fond sombre */}
+          <div className="bg-slate-800/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-slate-600/30 hover:border-accent/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
                 <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <div>
-                <h3 className="font-bold text-primary text-lg">Par email</h3>
-                <p className="text-primary/50 text-sm">Devis détaillé sous 48h</p>
+                <h3 className="font-bold text-white text-lg">Par email</h3>
+                <p className="text-slate-300 text-sm font-medium">Devis détaillé sous 48h</p>
               </div>
             </div>
 
             <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium text-primary/70 mb-2">
+              <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
                 Votre email
               </label>
               <input
@@ -190,13 +190,13 @@ export default function QuoteRequestStep() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="marie@entreprise.fr"
-                className="w-full px-4 py-3 text-base rounded-xl border-2 border-primary/20 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none bg-white"
+                className="w-full px-4 py-3 text-base rounded-xl border-2 border-slate-600 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all outline-none bg-slate-700/80 text-white placeholder:text-slate-400"
                 autoFocus
               />
             </div>
 
             {error && (
-              <p className="text-red-500 text-sm mb-4">{error}</p>
+              <p className="text-red-400 text-sm mb-4">{error}</p>
             )}
 
             {/* CTA Email */}
@@ -219,7 +219,7 @@ export default function QuoteRequestStep() {
             </button>
 
             {/* Timer */}
-            <div className="flex items-center justify-center gap-2 text-primary/40 text-xs mt-3">
+            <div className="flex items-center justify-center gap-2 text-slate-300 text-xs mt-3 font-medium">
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -227,8 +227,8 @@ export default function QuoteRequestStep() {
             </div>
           </div>
 
-          {/* Option 2 : WhatsApp */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-primary/10 hover:border-[#25D366]/30 transition-all">
+          {/* Option 2 : WhatsApp - Fond sombre */}
+          <div className="bg-slate-800/95 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-slate-600/30 hover:border-[#25D366]/50 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-full bg-[#25D366]/20 flex items-center justify-center">
                 <svg className="w-6 h-6 text-[#25D366]" fill="currentColor" viewBox="0 0 24 24">
@@ -236,21 +236,21 @@ export default function QuoteRequestStep() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-bold text-primary text-lg">Par WhatsApp</h3>
-                <p className="text-primary/50 text-sm">Échange direct et rapide</p>
+                <h3 className="font-bold text-white text-lg">Par WhatsApp</h3>
+                <p className="text-slate-300 text-sm font-medium">Échange direct et rapide</p>
               </div>
             </div>
 
-            <p className="text-primary/60 text-sm mb-4 leading-relaxed">
+            <p className="text-slate-200 text-sm mb-4 leading-relaxed">
               Discutez directement avec Perrine ! Votre projet est déjà pré-rempli dans le message.
             </p>
 
             {/* Aperçu du message */}
-            <div className="bg-[#25D366]/5 rounded-lg p-3 mb-4 text-xs text-primary/50 max-h-24 overflow-hidden relative border border-[#25D366]/10">
-              <p className="line-clamp-3">
+            <div className="bg-[#25D366]/15 rounded-lg p-3 mb-4 text-xs text-slate-200 max-h-24 overflow-hidden relative border border-[#25D366]/30">
+              <p className="line-clamp-3 font-medium">
                 📌 Type • ⚙️ Fonctionnalités • 🎨 Design • 💰 Budget • ⏱️ Délais...
               </p>
-              <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#25D366]/5 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#25D366]/15 to-transparent"></div>
             </div>
 
             {/* CTA WhatsApp */}

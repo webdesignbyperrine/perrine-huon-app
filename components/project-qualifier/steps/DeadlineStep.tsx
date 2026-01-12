@@ -5,7 +5,7 @@ import { DEADLINE_OPTIONS, Deadline } from '../types';
 import SelectionCard from '../ui/SelectionCard';
 import NavigationButtons from '../ui/NavigationButtons';
 import ProgressBar from '../ui/ProgressBar';
-import { ClockIcon } from '../icons';
+import { LightningIcon, ClockIcon, LeafIcon, InfinityIcon } from '../icons';
 
 export default function DeadlineStep() {
   const { data, setDeadline, goNext } = useQualifier();
@@ -16,12 +16,12 @@ export default function DeadlineStep() {
     setTimeout(() => goNext(), 150);
   };
 
-  // Couleurs selon l'urgence
-  const urgencyColors: Record<Deadline, string> = {
-    urgent: 'text-accent',
-    standard: 'text-accent/80',
-    flexible: 'text-primary',
-    'pas-contrainte': 'text-primary/60',
+  // Icônes différentes pour chaque délai
+  const deadlineIcons: Record<Deadline, React.ReactNode> = {
+    urgent: <LightningIcon className="w-8 h-8" />,
+    standard: <ClockIcon className="w-8 h-8" />,
+    flexible: <LeafIcon className="w-8 h-8" />,
+    'pas-contrainte': <InfinityIcon className="w-8 h-8" />,
   };
 
   return (
@@ -52,19 +52,19 @@ export default function DeadlineStep() {
               <div className={`
                 flex-shrink-0 transition-colors duration-300
                 ${data.deadline === deadline.value 
-                  ? urgencyColors[deadline.value] 
-                  : 'text-primary/30 group-hover:text-primary/50'
+                  ? 'text-accent' 
+                  : 'text-[#ff4d9a] group-hover:text-accent'
                 }
               `}>
-                <ClockIcon className="w-8 h-8" />
+                {deadlineIcons[deadline.value]}
               </div>
               
               {/* Texte */}
               <div>
-                <h3 className="text-lg font-semibold text-primary mb-1">
+                <h3 className="text-lg font-bold text-primary mb-1">
                   {deadline.label}
                 </h3>
-                <p className="text-sm text-primary/50 font-light">
+                <p className="text-sm text-primary/70 font-medium">
                   {deadline.description}
                 </p>
               </div>

@@ -29,8 +29,8 @@ export default function SelectionCard({
         hover:scale-[1.02] hover:-translate-y-1
         focus:outline-none focus:ring-2 focus:ring-accent/30
         ${selected 
-          ? 'bg-primary/5 border-primary/30' 
-          : 'bg-paper border-primary/10 hover:border-primary/20'
+          ? 'bg-paper-cream/95 border-accent/40 shadow-lg' 
+          : 'bg-paper-cream/80 border-paper-cream/60 hover:border-paper-cream/80 hover:bg-paper-cream/90'
         }
         ${className}
       `}
@@ -88,24 +88,24 @@ export function MultiSelectCard({
         hover:scale-[1.01]
         focus:outline-none focus:ring-2 focus:ring-accent/30
         ${selected 
-          ? 'bg-primary/5 border-primary/30' 
-          : 'bg-paper border-primary/10 hover:border-primary/20'
+          ? 'bg-paper-cream/95 border-accent/40 shadow-md' 
+          : 'bg-paper-cream/80 border-paper-cream/60 hover:border-paper-cream/80 hover:bg-paper-cream/90'
         }
         ${className}
       `}
     >
-      {/* Checkbox - fond beige, coche rose */}
+      {/* Checkbox - fond beige, bordure et coche rose */}
       <div 
         className={`
           absolute top-1/2 -translate-y-1/2 right-4 w-5 h-5 rounded
           flex items-center justify-center
           transition-all duration-300
           ${selected 
-            ? 'border-2 border-accent' 
-            : 'border-2 border-primary/30'
+            ? 'border-2 border-accent bg-accent/10' 
+            : 'border-2 border-[#ff4d9a] group-hover:border-accent'
           }
         `}
-        style={{ backgroundColor: '#e8e2d6' }}
+        style={{ backgroundColor: selected ? undefined : '#e8e2d6' }}
       >
         {selected && <CheckIcon className="w-3 h-3 text-accent" />}
       </div>
@@ -144,8 +144,8 @@ export function MoodboardCard({
         hover:scale-[1.02] hover:-translate-y-1
         focus:outline-none focus:ring-2 focus:ring-accent/30
         ${selected 
-          ? 'bg-primary/5 border-primary/30' 
-          : 'bg-paper border-primary/10 hover:border-primary/20'
+          ? 'bg-paper-cream/95 border-accent/40 shadow-lg' 
+          : 'bg-paper-cream/80 border-paper-cream/60 hover:border-paper-cream/80 hover:bg-paper-cream/90'
         }
       `}
     >

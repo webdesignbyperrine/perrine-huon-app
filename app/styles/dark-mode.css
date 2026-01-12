@@ -175,3 +175,32 @@ html.dark .handwriting-animate.with-cursor::after { background-color: #f472b6 !i
 
 .section-dark .heading-sketch { color: var(--foreground-dark); }
 .section-dark .text-hover-underline::after { background: var(--foreground-dark); }
+
+/* ---- Project Qualifier Cards - fond clair sur section sombre ---- */
+.section-dark [class*="bg-paper-cream"],
+.section-dark button[class*="bg-paper-cream"] {
+  background-color: rgba(232, 220, 196, 0.95) !important;
+}
+
+.section-dark [class*="bg-paper-cream"] .text-primary,
+.section-dark [class*="bg-paper-cream"] h3,
+.section-dark [class*="bg-paper-cream"] span,
+.section-dark [class*="bg-paper-cream"] p {
+  color: var(--primary-blue) !important;
+}
+
+.section-dark [class*="bg-paper-cream"] .text-primary\/50,
+.section-dark [class*="bg-paper-cream"] .text-primary\/40 {
+  color: rgba(43, 91, 138, 0.7) !important;
+}
+
+/* Icônes dans les cartes */
+.section-dark [class*="bg-paper-cream"] [class*="text-primary\/30"],
+.section-dark [class*="bg-paper-cream"] [class*="text-primary\/40"] {
+  color: rgba(43, 91, 138, 0.5) !important;
+}
+
+/* Cartes sélectionnées */
+.section-dark [class*="bg-paper-cream"][class*="border-accent"] {
+  border-color: var(--accent-pink) !important;
+}

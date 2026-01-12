@@ -224,6 +224,42 @@ export function EuroIcon({ className = "w-8 h-8" }: IconProps) {
   );
 }
 
+// Icône éclair (urgent)
+export function LightningIcon({ className = "w-8 h-8" }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+  );
+}
+
+// Icône sablier (standard)
+export function HourglassIcon({ className = "w-8 h-8" }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  );
+}
+
+// Icône feuille/zen (flexible)
+export function LeafIcon({ className = "w-8 h-8" }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+    </svg>
+  );
+}
+
+// Icône infini/pas de contrainte
+export function InfinityIcon({ className = "w-8 h-8" }: IconProps) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 12c2-2.5 4-4 6-4a4 4 0 110 8c-2 0-4-1.5-6-4zm0 0c-2 2.5-4 4-6 4a4 4 0 110-8c2 0 4 1.5 6 4z" />
+    </svg>
+  );
+}
+
 // Map des icônes par nom
 export const ICON_MAP: Record<string, React.ComponentType<IconProps>> = {
   'page': PageIcon,
