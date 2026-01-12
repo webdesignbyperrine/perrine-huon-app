@@ -15,6 +15,8 @@
   --accent-pink: #ff0f7c;
   --accent-pink-light: #ff4d9a;
   --accent-pink-dark: #d90066;
+  /* Rose plus doux pour texte sur fond clair (accessibilité) */
+  --accent-pink-muted: #c4366d;
   
   /* Fond light - papier kraft */
   --background-light: #D4C4A8;
@@ -453,6 +455,10 @@ html.dark .bg-paper {
 .text-primary-dark { color: var(--primary-blue-dark); }
 .text-accent { color: var(--accent-pink); }
 .text-paper { color: var(--background-light); }
+
+/* Rose doux pour meilleure lisibilité sur fond sombre (section About en light mode) */
+.text-accent-readable { color: var(--accent-pink-muted); }
+html.dark .text-accent-readable { color: var(--accent-pink-light); }
 
 /* Titres avec style ligne claire */
 .heading-sketch {
@@ -1469,6 +1475,15 @@ html.dark .theme-toggle:hover .moon-icon {
   90% {
     transform: translateY(2px);
   }
+}
+
+/* Animation bounce pour icônes de section */
+.animate-bounce-icon {
+  animation: bounce-up-down 1.5s ease-in-out infinite;
+}
+
+.animate-bounce-icon:hover {
+  animation-play-state: paused;
 }
 
 /* ========================================

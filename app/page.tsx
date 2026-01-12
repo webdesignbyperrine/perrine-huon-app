@@ -4,7 +4,6 @@ import Services from '@/components/home/Services';
 import PortfolioPreview from '@/components/home/PortfolioPreview';
 import BlogPreview from '@/components/home/BlogPreview';
 import FAQPreview from '@/components/home/FAQPreview';
-import CalendlySection from '@/components/home/CalendlySection';
 import ContactForm from '@/components/home/ContactForm';
 import ScrollToAnchor from '@/components/ScrollToAnchor';
 
@@ -16,7 +15,6 @@ export default function Home() {
       <Services />
       <About />
       <PortfolioPreview />
-      <CalendlySection />
       <ContactForm />
       <FAQPreview />
       <BlogPreview />

@@ -66,7 +66,18 @@ export default function FAQPreview() {
   const displayFaqs = faqs.length > 0 ? faqs : demoFaqs;
 
   return (
-    <section id="faq-preview" className="relative pt-24 lg:pt-32 pb-32 lg:pb-40 bg-paper-light grain-overlay overflow-hidden">
+    <section id="faq-preview" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-paper-light grain-overlay overflow-hidden">
+      {/* Transition ondulée en haut - depuis section bleue (ContactForm) */}
+      <div className="absolute top-0 left-0 right-0 pointer-events-none z-20">
+        <svg 
+          className="w-full h-20 lg:h-28" 
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 100"
+        >
+          <path d="M0 0 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 0 Z" fill="#2B5B8A"/>
+        </svg>
+      </div>
+      
       {/* Formes géométriques circulaires décoratives - arrière-plan (desktop uniquement) */}
       <div className="hidden lg:block absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Grande forme floue - extrême droite (déborde) */}
