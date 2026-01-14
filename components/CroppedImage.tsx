@@ -24,7 +24,7 @@ export default function CroppedImage({
   className = '',
   priority = false,
 }: CroppedImageProps) {
-  // Si pas de crop, afficher normalement
+  // Si pas de crop, afficher normalement avec optimisation Next.js
   if (!crop) {
     return (
       <Image
@@ -33,7 +33,8 @@ export default function CroppedImage({
         fill
         className={`object-cover ${className}`}
         priority={priority}
-        unoptimized
+        sizes="100vw"
+        quality={85}
       />
     );
   }
@@ -63,6 +64,9 @@ export default function CroppedImage({
           transformOrigin: `${crop.x + crop.width / 2}% ${crop.y + crop.height / 2}%`,
         }}
         priority={priority}
+        sizes="100vw"
+        quality={85}
+        // Garde unoptimized pour le crop car le transform personnalisé peut causer des problèmes avec l'optimisation Next.js
         unoptimized
       />
     </div>

@@ -1,10 +1,20 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { ProjectQualifier } from '@/components/project-qualifier';
-import HeroIllustration from '@/components/illustrations/HeroIllustration';
 import { useSound } from '@/hooks/useSound';
 import TypewriterText from '@/components/TypewriterText';
+
+// Lazy load de l'illustration Lottie (composant lourd) avec placeholder pour éviter le layout shift
+const HeroIllustration = dynamic(() => import('@/components/illustrations/HeroIllustration'), {
+  loading: () => (
+    <div className="w-full max-w-none lg:scale-110 xl:scale-125 origin-center" style={{ minHeight: '400px', minWidth: '400px' }}>
+      <div className="w-full h-full bg-primary/5 animate-pulse rounded-lg" />
+    </div>
+  ),
+  ssr: false, // Désactiver SSR pour les animations Lottie (améliore les performances)
+});
 
 export default function Hero() {
   const [showQualifier, setShowQualifier] = useState(false);

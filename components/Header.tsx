@@ -353,6 +353,8 @@ export default function Header() {
                   height={48}
                   className="object-contain group-hover:scale-110 transition-transform duration-300"
                   key={logoUrl}
+                  priority
+                  sizes="48px"
                   style={{ 
                     filter: theme === 'dark' 
                       ? 'brightness(0) invert(1)' 
@@ -373,6 +375,7 @@ export default function Header() {
                   width={48}
                   height={48}
                   className="object-contain"
+                  unoptimized
                   style={{ 
                     filter: theme === 'dark' 
                       ? 'brightness(0) invert(1)' 
@@ -393,6 +396,7 @@ export default function Header() {
                   width={48}
                   height={48}
                   className="object-contain"
+                  unoptimized
                   style={{ 
                     filter: theme === 'dark' 
                       ? 'brightness(0) invert(1)' 

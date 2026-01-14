@@ -295,6 +295,8 @@ export default function About() {
                         src={logo.src}
                         alt={logo.label}
                         className={`h-10 w-auto object-contain ${logo.className ?? ''}`}
+                        loading="lazy"
+                        decoding="async"
                       />
                       <span className="text-[11px] text-paper/60 font-medium">{logo.label}</span>
                     </div>
@@ -308,6 +310,8 @@ export default function About() {
                       src={logo.src}
                       alt={logo.label}
                       className={`h-7 group-hover:scale-110 transition-transform ${logo.className ?? ''}`}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span className="text-[10px] text-paper/40">{logo.label}</span>
                   </div>
@@ -338,6 +342,8 @@ export default function About() {
                         src={logo.src}
                         alt={logo.label}
                         className={`h-10 w-auto object-contain ${logo.className ?? ''}`}
+                        loading="lazy"
+                        decoding="async"
                       />
                       <span className="text-[11px] text-paper/60 font-medium">{logo.label}</span>
                     </div>
@@ -351,6 +357,8 @@ export default function About() {
                       src={logo.src}
                       alt={logo.label}
                       className={`h-8 group-hover:scale-110 transition-transform ${logo.className ?? ''}`}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span className="text-[10px] text-paper/40">{logo.label}</span>
                   </div>

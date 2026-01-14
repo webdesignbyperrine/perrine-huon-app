@@ -12,15 +12,19 @@ import { MainJsonLd } from "@/components/JsonLd";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"], // Réduit de 4 à 3 poids pour améliorer les performances
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 const caveat = Caveat({
   variable: "--font-caveat",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600"], // Réduit de 4 à 2 poids (cette police est moins utilisée)
   display: "swap",
+  preload: false, // Ne pas précharger car moins critique
+  fallback: ['cursive'],
 });
 
 const siteUrl = 'https://perrinehuon.com'
@@ -147,6 +151,8 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <MainJsonLd />
+        {/* Preload des ressources critiques */}
+        <link rel="preload" href="/images/logo_vert_perrine_huon.png" as="image" />
       </head>
       <body
         className={`${outfit.variable} ${caveat.variable} antialiased`}
