@@ -134,7 +134,7 @@ export default function Hero() {
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border-2 border-primary/20 rounded-full mb-6 animate-fade-in-down">
                 <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                 <span className="text-sm font-medium text-primary/70 uppercase tracking-wider">
-                  Web Designer & Developer
+                  Création de sites & applications web
                 </span>
                   </div>
 

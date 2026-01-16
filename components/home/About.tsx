@@ -7,8 +7,6 @@ import { CTAQuiz } from '@/components/ui';
 import { useTheme } from '@/contexts/ThemeContext';
 
 const techLogos = [
-  { src: '/images/logos/logo_lovable.jpeg', label: 'Lovable', className: 'rounded' },
-  { src: '/images/logos/logo_cursor.jpeg', label: 'Cursor', className: 'rounded' },
   { src: '/images/logos/logo_next-js.svg', label: 'Next.js', className: '' },
   { src: '/images/logos/logo_supabase.png', label: 'Supabase' },
   { src: '/images/logos/logo_Vercel.svg', label: 'Vercel', className: '' },
