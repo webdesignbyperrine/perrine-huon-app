@@ -17,6 +17,8 @@ export function OrganizationJsonLd() {
     description: "Web designer et développeuse freelance spécialisée en création de sites web sur mesure, applications web et SEO géolocalisé.",
     sameAs: [
       "https://www.linkedin.com/in/perrinehuon/",
+      "https://www.instagram.com/perrinehuon.web",
+      "https://www.facebook.com/profile.php?id=61586560335973",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -50,6 +52,8 @@ export function PersonJsonLd() {
     image: "https://perrinehuon.com/images/perrine-huon-creation.webp",
     sameAs: [
       "https://www.linkedin.com/in/perrinehuon/",
+      "https://www.instagram.com/perrinehuon.web",
+      "https://www.facebook.com/profile.php?id=61586560335973",
     ],
     worksFor: {
       "@type": "Organization",
