@@ -248,7 +248,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             Un projet similaire en tête ?
           </h3>
           <a
-            href="https://calendly.com/prne-hn/30min"
+            href="https://calendly.com/perrinehuon/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-cta btn-cta-pulse group inline-flex items-center gap-3"

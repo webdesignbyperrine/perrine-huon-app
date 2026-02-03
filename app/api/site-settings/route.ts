@@ -15,7 +15,7 @@ export async function GET() {
       logo_url: '/images/logo_vert_perrine_huon.png',
       site_title: 'Perrine Huon',
       site_description: 'Web Designer & Développeuse Front-End',
-      calendly_url: 'https://calendly.com/prne-hn/30min',
+      calendly_url: 'https://calendly.com/perrinehuon/30min',
     };
 
     if (profiles && profiles.length > 0) {
@@ -36,7 +36,7 @@ export async function GET() {
       logo_url: '/images/logo_vert_perrine_huon.png',
       site_title: 'Perrine Huon',
       site_description: 'Web Designer & Développeuse Front-End',
-      calendly_url: 'https://calendly.com/prne-hn/30min',
+      calendly_url: 'https://calendly.com/perrinehuon/30min',
     });
   }
 }

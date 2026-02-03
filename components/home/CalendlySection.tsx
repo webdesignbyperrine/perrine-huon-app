@@ -3,7 +3,7 @@
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function CalendlySection() {
-  const calendlyUrl = "https://calendly.com/prne-hn/30min";
+  const calendlyUrl = "https://calendly.com/perrinehuon/30min";
   
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [cardRef, cardVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
