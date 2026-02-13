@@ -51,19 +51,3 @@ export async function getSiteSettings(): Promise<SiteSettings> {
   }
 }
 
-/**
- * Version client-side des settings
- */
-export async function getSiteSettingsClient(): Promise<SiteSettings> {
-  try {
-    const response = await fetch('/api/site-settings');
-    if (response.ok) {
-      return await response.json();
-    }
-    return DEFAULT_SETTINGS;
-  } catch (error) {
-    console.error('Error fetching site settings:', error);
-    return DEFAULT_SETTINGS;
-  }
-}
-
