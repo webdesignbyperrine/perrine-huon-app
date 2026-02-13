@@ -176,25 +176,10 @@ export default function About() {
 
             {/* Photo centrée */}
             <div className="relative w-full max-w-md lg:max-w-lg mx-auto mb-10 lg:mb-14">
-              {/* Forme blob décorative en arrière-plan */}
-              <div className="absolute -inset-4 lg:-inset-8 z-0">
-                <svg 
-                  viewBox="0 0 500 500" 
-                  className="w-full h-full opacity-20"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M440.5,320.5Q418,391,355.5,442.5Q293,494,226,450.5Q159,407,99,354Q39,301,27,225.5Q15,150,82,91Q149,32,224,50Q299,68,371,97Q443,126,460,213Q477,300,440.5,320.5Z"
-                    fill="currentColor"
-                    className="text-paper"
-                  />
-                </svg>
-              </div>
-              
               {/* Conteneur de la photo */}
               <div 
-                className={`relative z-10 transition-all duration-1000 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                className={`relative z-10 transition-all duration-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
               >
                 {/* Cadre décoratif style "dessiné" */}

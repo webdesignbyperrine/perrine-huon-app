@@ -11,8 +11,10 @@ import { SunIcon, MoonIcon, DocumentIcon, EnvelopeIcon, MenuIcon, CloseIcon } fr
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [onDarkSection, setOnDarkSection] = useState(false);
   const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
   const [isFlying, setIsFlying] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const logoContainerRef = useRef<HTMLDivElement>(null);
   const cageRef = useRef<HTMLDivElement>(null);
   const birdRef = useRef<HTMLDivElement>(null);
@@ -269,8 +271,32 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Détecter si le header chevauche une section sombre (fond bleu)
+      const headerEl = headerRef.current;
+      if (headerEl) {
+        const headerHeight = headerEl.getBoundingClientRect().height;
+        // Position du milieu du header dans le viewport (le header est fixed top:0)
+        const headerMidInViewport = headerHeight / 2;
+        
+        const darkSections = document.querySelectorAll('.section-dark');
+        let isOnDark = false;
+        
+        darkSections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          // La section est visible derrière le header si son top est au-dessus du milieu du header
+          // et son bottom est en dessous du milieu du header
+          // Buffer de 80px pour la vague SVG de transition au-dessus de la section
+          if (rect.top - 80 <= headerMidInViewport && rect.bottom >= headerMidInViewport) {
+            isOnDark = true;
+          }
+        });
+        
+        setOnDarkSection(isOnDark);
+      }
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Vérification initiale
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -325,9 +351,14 @@ export default function Header() {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        onDarkSection ? 'header-on-dark' : ''
+      } ${
         scrolled 
-          ? 'bg-paper-light/95 backdrop-blur-md border-b-2 border-primary/10 shadow-sm' 
+          ? onDarkSection
+            ? 'bg-primary/85 backdrop-blur-md border-b-2 border-paper-cream/10 shadow-sm' 
+            : 'bg-paper-light/95 backdrop-blur-md border-b-2 border-primary/10 shadow-sm' 
           : 'bg-transparent'
       }`}
     >
@@ -339,7 +370,7 @@ export default function Header() {
               {/* Cercle décoratif - la "cage" (visible seulement pendant l'animation) */}
               <div 
                 ref={cageRef}
-                className={`absolute -inset-2 border-2 border-primary/20 rounded-full transition-all duration-300 ${isFlying ? 'opacity-100' : 'opacity-0'}`}
+                className={`absolute -inset-2 border-2 rounded-full transition-all duration-300 ${isFlying ? 'opacity-100' : 'opacity-0'} ${onDarkSection ? 'border-paper-cream/20' : 'border-primary/20'}`}
               />
               {/* Logo principal (visible normalement) */}
               <div 
@@ -358,7 +389,10 @@ export default function Header() {
                   style={{ 
                     filter: theme === 'dark' 
                       ? 'brightness(0) invert(1)' 
-                      : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
+                      : onDarkSection
+                        ? 'brightness(0) invert(1) brightness(0.76) sepia(0.55)'
+                        : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)',
+                    transition: 'filter 0.3s ease'
                   }}
                 />
               </div>
@@ -379,7 +413,10 @@ export default function Header() {
                   style={{ 
                     filter: theme === 'dark' 
                       ? 'brightness(0) invert(1)' 
-                      : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
+                      : onDarkSection
+                        ? 'brightness(0) invert(1) brightness(0.76) sepia(0.55)'
+                        : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)',
+                    transition: 'filter 0.3s ease'
                   }}
                 />
               </div>
@@ -400,14 +437,23 @@ export default function Header() {
                   style={{ 
                     filter: theme === 'dark' 
                       ? 'brightness(0) invert(1)' 
-                      : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)'
+                      : onDarkSection
+                        ? 'brightness(0) invert(1) brightness(0.76) sepia(0.55)'
+                        : 'brightness(0) saturate(100%) invert(30%) sepia(50%) saturate(600%) hue-rotate(175deg) brightness(90%) contrast(90%)',
+                    transition: 'filter 0.3s ease'
                   }}
                 />
               </div>
             </div>
             <span className="text-sm sm:text-base xl:text-xl tracking-wide whitespace-nowrap">
-              <span className="font-semibold text-primary">PERRINE</span>
-              <span className="font-light text-primary/40 ml-1 sm:ml-1.5 xl:ml-2 hidden min-[400px]:inline">HUON</span>
+              <span 
+                className="font-semibold transition-colors duration-300"
+                style={{ color: onDarkSection ? '#E8DCC4' : '#2B5B8A' }}
+              >PERRINE</span>
+              <span 
+                className="font-light ml-1 sm:ml-1.5 xl:ml-2 hidden min-[400px]:inline transition-colors duration-300"
+                style={{ color: onDarkSection ? 'rgba(232, 220, 196, 0.8)' : 'rgba(43, 91, 138, 0.7)' }}
+              >HUON</span>
             </span>
           </Link>
 
@@ -418,10 +464,16 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="relative text-primary/60 hover:text-primary transition-colors duration-300 text-sm uppercase tracking-wider font-medium group"
+                className="relative transition-colors duration-300 text-sm uppercase tracking-wider font-medium group"
+                style={{ color: onDarkSection ? 'rgba(232, 220, 196, 0.8)' : 'rgba(43, 91, 138, 0.7)' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = onDarkSection ? '#E8DCC4' : '#2B5B8A'}
+                onMouseLeave={(e) => e.currentTarget.style.color = onDarkSection ? 'rgba(232, 220, 196, 0.8)' : 'rgba(43, 91, 138, 0.7)'}
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-300" />
+                <span 
+                  className="absolute -bottom-1 left-0 w-0 h-[2px] group-hover:w-full transition-all duration-300"
+                  style={{ backgroundColor: onDarkSection ? '#E8DCC4' : '#2B5B8A' }}
+                />
               </Link>
             ))}
           </div>
@@ -510,7 +562,8 @@ export default function Header() {
             {/* Mobile menu button - Style ligne claire */}
             <button
               type="button"
-              className="p-1.5 sm:p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"
+              className="p-1.5 sm:p-2 rounded-lg transition-colors"
+              style={{ color: onDarkSection ? '#E8DCC4' : '#2B5B8A' }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={mobileMenuOpen}

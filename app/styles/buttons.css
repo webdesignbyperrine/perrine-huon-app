@@ -342,3 +342,37 @@ html.dark .theme-toggle-mobile .moon-icon { transform: rotate(0deg) scale(1); }
   .theme-toggle { width: 40px; height: 40px; }
   .theme-toggle svg { width: 18px; height: 18px; }
 }
+
+/* ---- Header sur section sombre (fond bleu) ---- */
+.header-on-dark .contact-icon-btn {
+  color: var(--foreground-dark);
+  border-color: rgba(232, 220, 196, 0.3);
+}
+
+.header-on-dark .contact-icon-btn:hover {
+  border-color: var(--foreground-dark);
+  background: rgba(232, 220, 196, 0.1);
+}
+
+.header-on-dark .theme-toggle {
+  border-color: rgba(232, 220, 196, 0.3);
+}
+
+.header-on-dark .theme-toggle:hover {
+  border-color: var(--accent-pink);
+  background: rgba(255, 15, 124, 0.08);
+}
+
+.header-on-dark .contact-icon-btn-mobile {
+  background: var(--foreground-dark);
+  color: var(--primary-blue);
+  box-shadow: 0 4px 12px rgba(232, 220, 196, 0.3);
+}
+
+.header-on-dark .contact-icon-btn-mobile:hover {
+  box-shadow: 0 6px 18px rgba(232, 220, 196, 0.4);
+}
+
+.header-on-dark .theme-toggle-mobile {
+  border-color: rgba(232, 220, 196, 0.3);
+}
