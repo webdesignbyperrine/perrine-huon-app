@@ -20,6 +20,11 @@ export default function ContactForm() {
   const messageRef = useRef<HTMLTextAreaElement>(null);
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [formRef, formVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const textarea = messageRef.current;
@@ -111,21 +116,21 @@ export default function ContactForm() {
       <div ref={titleRef} className="text-center mb-10 lg:mb-14">
         <span 
           className={`inline-block text-sm font-medium text-paper/40 uppercase tracking-widest mb-4 transition-all duration-700 ${
-            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            isMounted && titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
           Prêt·e à démarrer ?
         </span>
         <h2 
           className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-paper mb-4 transition-all duration-700 delay-100 ${
-            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            isMounted && titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
           Donnons vie à votre projet
         </h2>
         <p 
           className={`text-lg text-paper/60 max-w-xl mx-auto transition-all duration-700 delay-200 ${
-            titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            isMounted && titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
           Comment souhaitez-vous me contacter ?
@@ -134,7 +139,7 @@ export default function ContactForm() {
         {/* Ligne décorative */}
         <div 
           className={`w-24 h-0.5 bg-paper/20 mx-auto mt-8 transition-all duration-1000 delay-300 ${
-            titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
+            isMounted && titleVisible ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0'
           }`}
         />
       </div>
@@ -143,7 +148,7 @@ export default function ContactForm() {
       <div 
         ref={formRef}
         className={`grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch transition-all duration-700 delay-200 ${
-          formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          isMounted && formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
         {/* Option 1 : Message libre */}
@@ -326,7 +331,7 @@ export default function ContactForm() {
       {/* Reassurance */}
       <div 
         className={`flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-10 text-paper/50 text-sm transition-all duration-700 delay-400 ${
-          formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          isMounted && formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}
       >
         <span className="flex items-center gap-1.5">
