@@ -107,7 +107,7 @@ export default function ContactForm() {
   };
 
   // URL Calendly
-  const calendlyUrl = "https://calendly.com/perrinehuon/30min";
+  const calendlyUrl = "https://calendly.com/perrine-huon/30min";
 
   // Rendu de la vue "Choix" - 3 options
   const renderChoiceView = () => (
@@ -146,6 +146,7 @@ export default function ContactForm() {
 
       {/* Cartes de choix - 3 colonnes avec alignement CSS Grid */}
       <div 
+        id="contact"
         ref={formRef}
         className={`grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch transition-all duration-700 delay-200 ${
           isMounted && formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -566,7 +567,7 @@ export default function ContactForm() {
   );
 
   return (
-    <section id="contact" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-primary section-dark overflow-hidden">
+    <section className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-primary section-dark overflow-hidden">
       {/* Transition ondulée en haut - depuis section beige (PortfolioPreview) */}
       <div className="absolute top-0 left-0 right-0 pointer-events-none z-20">
         <svg 
