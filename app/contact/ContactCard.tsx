@@ -11,7 +11,7 @@ export default function ContactCard() {
     setMounted(true);
   }, []);
 
-  const calendlyUrl = "https://calendly.com/perrine-huon/30min";
+  const calendlyUrl = "https://calendly.com/perrinehuon/30min";
 
   return (
     <>

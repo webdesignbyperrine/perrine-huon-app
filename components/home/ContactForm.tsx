@@ -107,7 +107,7 @@ export default function ContactForm() {
   };
 
   // URL Calendly
-  const calendlyUrl = "https://calendly.com/perrine-huon/30min";
+  const calendlyUrl = "https://calendly.com/perrinehuon/30min";
 
   // Rendu de la vue "Choix" - 3 options
   const renderChoiceView = () => (
