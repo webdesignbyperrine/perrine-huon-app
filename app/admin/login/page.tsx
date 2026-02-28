@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useAuth } from '@/hooks/useAuth';
 
 export default function LoginPage() {
@@ -91,9 +92,9 @@ export default function LoginPage() {
           </button>
 
           <div className="text-center pt-4">
-            <a href="/" className="text-white/50 hover:text-secondary transition-colors text-sm">
+            <Link href="/" className="text-white/50 hover:text-secondary transition-colors text-sm">
               ← Retour au site
-            </a>
+            </Link>
           </div>
         </form>
       </div>

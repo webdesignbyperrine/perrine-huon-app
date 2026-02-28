@@ -79,7 +79,7 @@ function sanitizeHTML(html: string): string {
         
         // Vérifier si l'attribut est autorisé
         if (allowedForTag.has(attrName) || allowedGlobal.has(attrName)) {
-          let value = attr.value;
+          const value = attr.value;
           
           // Validation spéciale pour href et src
           if (attrName === 'href' || attrName === 'src') {

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function PolitiqueConfidentialite() {
   return (
     <div className="min-h-screen bg-paper pt-32 pb-20">
@@ -15,7 +17,7 @@ export default function PolitiqueConfidentialite() {
                 Micro-entreprise<br />
                 6 rue d'Arsonval<br />
                 75015 Paris, France<br /><br />
-                <a href="/#contact" className="text-accent hover:underline">Me contacter via le formulaire</a>
+                <Link href="/#contact" className="text-accent hover:underline">Me contacter via le formulaire</Link>
               </p>
             </section>
 
@@ -107,7 +109,7 @@ export default function PolitiqueConfidentialite() {
                 <li><strong className="text-primary">Droit de retirer votre consentement</strong> à tout moment</li>
               </ul>
               <p className="mt-4">
-                Pour exercer ces droits, <a href="/#contact" className="text-accent hover:underline">contactez-moi via le formulaire</a>.
+                Pour exercer ces droits, <Link href="/#contact" className="text-accent hover:underline">contactez-moi via le formulaire</Link>.
               </p>
             </section>
 
@@ -136,7 +138,7 @@ export default function PolitiqueConfidentialite() {
               <h2 className="text-2xl font-bold text-primary mb-4">Contact</h2>
               <p>
                 Pour toute question concernant cette politique de confidentialité :<br /><br />
-                <a href="/#contact" className="text-accent hover:underline">Me contacter via le formulaire</a>
+                <Link href="/#contact" className="text-accent hover:underline">Me contacter via le formulaire</Link>
               </p>
             </section>
 

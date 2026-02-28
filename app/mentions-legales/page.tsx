@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function MentionsLegales() {
   return (
     <div className="min-h-screen bg-paper pt-32 pb-20">
@@ -17,7 +19,7 @@ export default function MentionsLegales() {
                 75015 Paris, France<br />
                 SIRET : En cours d'immatriculation<br />
                 <br />
-                <a href="/#contact" className="text-accent hover:underline">Me contacter via le formulaire</a>
+                <Link href="/#contact" className="text-accent hover:underline">Me contacter via le formulaire</Link>
               </p>
             </section>
 
@@ -58,7 +60,7 @@ export default function MentionsLegales() {
                 Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, 
                 vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles, 
                 ainsi qu'un droit d'opposition et de limitation du traitement.<br /><br />
-                Pour exercer ces droits, <a href="/#contact" className="text-accent hover:underline">contactez-moi via le formulaire</a>.
+                Pour exercer ces droits, <Link href="/#contact" className="text-accent hover:underline">contactez-moi via le formulaire</Link>.
               </p>
             </section>
 

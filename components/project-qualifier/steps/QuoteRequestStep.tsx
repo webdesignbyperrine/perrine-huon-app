@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useQualifier } from '../context';
 import { ArrowLeftIcon } from '../icons';
 import { 
@@ -450,12 +451,12 @@ export default function QuoteRequestStep() {
 
       {/* Actions */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
+        <Link
           href="/"
           className="btn-sketch px-6 py-3 font-semibold"
         >
           Retour à l&apos;accueil
-        </a>
+        </Link>
         <button
           onClick={resetQualifier}
           className="text-primary/50 hover:text-primary/70 text-sm transition-colors underline"
