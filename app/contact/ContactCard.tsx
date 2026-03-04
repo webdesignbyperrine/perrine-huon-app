@@ -9,16 +9,27 @@ export default function ContactCard() {
 
   useEffect(() => {
     setMounted(true);
+    
+    // Force le mode light pour cette page
+    document.documentElement.classList.remove('dark');
+    
+    // Nettoyer en restaurant le mode précédent au démontage
+    return () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    };
   }, []);
 
   const calendlyUrl = "https://calendly.com/perrinehuon/30min";
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-[#D4C4A8] via-[#CDBF9B] to-[#C5B590] dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 flex items-center justify-center p-4 sm:p-6 md:p-8">
+      <div className="min-h-screen bg-gradient-to-br from-[#D4C4A8] via-[#CDBF9B] to-[#C5B590] flex items-center justify-center p-4 sm:p-6 md:p-8">
         <div className={`w-full max-w-4xl transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-white/95 dark:bg-slate-800/95 backdrop-blur-lg rounded-3xl shadow-2xl border-2 border-[#2B5B8A]/20 dark:border-[#4A7AA8]/30 overflow-hidden">
-            <div className="bg-gradient-to-r from-[#2B5B8A] to-[#1E4A73] dark:from-[#1E4A73] dark:to-[#2B5B8A] p-8 sm:p-12 text-center relative overflow-hidden">
+          <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl border-2 border-[#2B5B8A]/20 overflow-hidden">
+            <div className="bg-gradient-to-r from-[#2B5B8A] to-[#1E4A73] p-8 sm:p-12 text-center relative overflow-hidden">
               <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 left-0 w-32 h-32 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
                 <div className="absolute bottom-0 right-0 w-40 h-40 bg-white rounded-full translate-x-1/3 translate-y-1/3"></div>
@@ -37,23 +48,23 @@ export default function ContactCard() {
             <div className="p-6 sm:p-8 md:p-10 space-y-8">
               <div className="text-center space-y-4">
                 <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-                  <span className="px-5 py-2.5 bg-[#2B5B8A]/10 dark:bg-[#4A7AA8]/20 text-[#2B5B8A] dark:text-[#4A7AA8] rounded-full text-sm sm:text-base font-semibold border border-[#2B5B8A]/20 dark:border-[#4A7AA8]/30 flex items-center gap-2">
+                  <span className="px-5 py-2.5 bg-[#2B5B8A]/10 text-[#2B5B8A] rounded-full text-sm sm:text-base font-semibold border border-[#2B5B8A]/20 flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                     Web Developer
                   </span>
-                  <span className="px-5 py-2.5 bg-[#2B5B8A]/10 dark:bg-[#4A7AA8]/20 text-[#2B5B8A] dark:text-[#4A7AA8] rounded-full text-sm sm:text-base font-semibold border border-[#2B5B8A]/20 dark:border-[#4A7AA8]/30 flex items-center gap-2">
+                  <span className="px-5 py-2.5 bg-[#2B5B8A]/10 text-[#2B5B8A] rounded-full text-sm sm:text-base font-semibold border border-[#2B5B8A]/20 flex items-center gap-2">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                     </svg>
                     UX Designer
                   </span>
                 </div>
-                <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 font-medium max-w-2xl mx-auto leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-700 font-medium max-w-2xl mx-auto leading-relaxed">
                   Créatrice de sites et apps web sur mesure
                 </p>
-                <p className="text-base sm:text-lg text-[#2B5B8A] dark:text-[#4A7AA8] font-semibold flex items-center justify-center gap-2">
+                <p className="text-base sm:text-lg text-[#2B5B8A] font-semibold flex items-center justify-center gap-2">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path fillRule="evenodd" d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
                   </svg>
@@ -108,11 +119,11 @@ export default function ContactCard() {
 
               <div className="relative py-4">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t-2 border-[#2B5B8A]/20 dark:border-[#4A7AA8]/20"></div>
+                  <div className="w-full border-t-2 border-[#2B5B8A]/20"></div>
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="bg-white dark:bg-slate-800 px-4">
-                    <svg className="w-6 h-6 text-[#2B5B8A] dark:text-[#4A7AA8]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                  <span className="bg-white px-4">
+                    <svg className="w-6 h-6 text-[#2B5B8A]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </span>
@@ -121,7 +132,7 @@ export default function ContactCard() {
 
               {/* Section RDV - AVANT les activités */}
               <div className="space-y-4">
-                <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-6">
                   Prenons rendez-vous
                 </h3>
                 
@@ -146,7 +157,7 @@ export default function ContactCard() {
 
                   <Link
                     href="/#contact"
-                    className="group relative bg-gradient-to-r from-[#2B5B8A] to-[#1E4A73] hover:from-[#1E4A73] hover:to-[#2B5B8A] dark:from-[#4A7AA8] dark:to-[#2B5B8A] dark:hover:from-[#2B5B8A] dark:hover:to-[#4A7AA8] text-white p-6 rounded-2xl font-semibold text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden"
+                    className="group relative bg-gradient-to-r from-[#2B5B8A] to-[#1E4A73] hover:from-[#1E4A73] hover:to-[#2B5B8A] text-white p-6 rounded-2xl font-semibold text-center transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-hidden"
                   >
                     <div className="relative z-10 space-y-2">
                       <div className="flex justify-center mb-2">
@@ -164,10 +175,10 @@ export default function ContactCard() {
 
               <div className="relative py-4">
                 <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t-2 border-[#2B5B8A]/20 dark:border-[#4A7AA8]/20"></div>
+                  <div className="w-full border-t-2 border-[#2B5B8A]/20"></div>
                 </div>
                 <div className="relative flex justify-center">
-                  <span className="bg-white dark:bg-slate-800 px-4">
+                  <span className="bg-white px-4">
                     <svg className="w-6 h-6 text-[#ff0f7c]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
                     </svg>
@@ -177,7 +188,7 @@ export default function ContactCard() {
 
               {/* Activités - APRÈS la section RDV */}
               <div className="space-y-6">
-                <div className="bg-gradient-to-br from-[#ff0f7c]/5 to-[#2B5B8A]/5 dark:from-[#ff0f7c]/10 dark:to-[#2B5B8A]/10 p-6 rounded-2xl border-2 border-[#ff0f7c]/20 dark:border-[#ff0f7c]/30">
+                <div className="bg-gradient-to-br from-[#ff0f7c]/5 to-[#2B5B8A]/5 p-6 rounded-2xl border-2 border-[#ff0f7c]/20">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
                       <div className="w-12 h-12 bg-[#ff0f7c] rounded-full flex items-center justify-center">
@@ -187,10 +198,10 @@ export default function ContactCard() {
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white mb-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
                         Fondatrice de CoworkMeet
                       </h3>
-                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">
+                      <p className="text-sm sm:text-base text-gray-600 mb-4">
                         Communauté de freelances pour se rencontrer et collaborer
                       </p>
                       <a
@@ -208,27 +219,27 @@ export default function ContactCard() {
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-br from-[#2B5B8A]/5 to-[#ff0f7c]/5 dark:from-[#2B5B8A]/10 dark:to-[#ff0f7c]/10 p-6 rounded-2xl border-2 border-[#2B5B8A]/20 dark:border-[#2B5B8A]/30">
+                <div className="bg-gradient-to-br from-[#2B5B8A]/5 to-[#ff0f7c]/5 p-6 rounded-2xl border-2 border-[#2B5B8A]/20">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-[#2B5B8A] dark:bg-[#4A7AA8] rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-[#2B5B8A] rounded-full flex items-center justify-center">
                         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white mb-2">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">
                         Auteure publiée
                       </h3>
-                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">
+                      <p className="text-sm sm:text-base text-gray-600 mb-4">
                         Deux livres publiés aux Éditions Michel Lafon
                       </p>
                       <a
                         href="https://www.amazon.fr/stores/Perrine-Huon/author/B004MZ3BJQ?ref=sr_ntt_srch_lnk_1&qid=1772301859&sr=8-1&shoppingPortalEnabled=true"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#2B5B8A] hover:bg-[#1E4A73] dark:bg-[#4A7AA8] dark:hover:bg-[#2B5B8A] text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#2B5B8A] hover:bg-[#1E4A73] text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       >
                         Voir mes livres
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,10 +251,10 @@ export default function ContactCard() {
                 </div>
               </div>
 
-              <div className="pt-6 border-t-2 border-[#2B5B8A]/10 dark:border-[#4A7AA8]/20">
+              <div className="pt-6 border-t-2 border-[#2B5B8A]/10">
                 <Link
                   href="/"
-                  className="group flex items-center justify-center gap-3 w-full py-4 px-6 bg-gray-100 dark:bg-slate-700 hover:bg-[#2B5B8A]/10 dark:hover:bg-[#4A7AA8]/20 rounded-2xl font-semibold text-[#2B5B8A] dark:text-[#4A7AA8] transition-all duration-300 hover:scale-[1.02]"
+                  className="group flex items-center justify-center gap-3 w-full py-4 px-6 bg-gray-100 hover:bg-[#2B5B8A]/10 rounded-2xl font-semibold text-[#2B5B8A] transition-all duration-300 hover:scale-[1.02]"
                 >
                   <svg className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -254,7 +265,7 @@ export default function ContactCard() {
             </div>
           </div>
 
-          <div className="text-center mt-8 text-sm text-gray-600 dark:text-gray-400">
+          <div className="text-center mt-8 text-sm text-gray-600">
             <p>Cette page est accessible uniquement via le lien direct</p>
           </div>
         </div>
