@@ -134,6 +134,15 @@
   }
 }
 
+/* Petits écrans Android (< 400px) */
+@media (max-width: 400px) {
+  .btn-cta-hero-enhanced {
+    padding: 14px 24px !important;
+    font-size: 0.95rem !important;
+    gap: 10px !important;
+  }
+}
+
 /* ---- Shimmer Effect ---- */
 .btn-shimmer {
   position: absolute !important;

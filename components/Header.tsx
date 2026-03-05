@@ -524,7 +524,7 @@ export default function Header() {
           </div>
 
           {/* Mobile: Contact + Phone CTA + Theme Toggle + Menu button */}
-          <div className="flex xl:hidden items-center gap-2 sm:gap-3">
+          <div className="flex xl:hidden items-center gap-1 min-[375px]:gap-2 sm:gap-3">
             {/* Bouton Contact Mobile - Enveloppe */}
             <Link
               href="/#contact"
