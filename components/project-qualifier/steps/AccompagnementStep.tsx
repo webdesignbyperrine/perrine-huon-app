@@ -66,7 +66,7 @@ export default function AccompagnementStep() {
                 flex-shrink-0 mt-1 transition-colors duration-300
                 ${data.accompagnement === option.value 
                   ? 'text-accent' 
-                  : 'text-[#ff4d9a] group-hover:text-accent'
+                  : 'text-accent-light group-hover:text-accent'
                 }
               `}>
                 {accompagnementIcons[option.value]}

@@ -102,7 +102,7 @@ export function MultiSelectCard({
           transition-all duration-300
           ${selected 
             ? 'border-2 border-accent bg-accent/10' 
-            : 'border-2 border-[#ff4d9a] group-hover:border-accent'
+            : 'border-2 border-accent-light group-hover:border-accent'
           }
         `}
         style={{ backgroundColor: selected ? undefined : '#e8e2d6' }}

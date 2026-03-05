@@ -36,12 +36,25 @@
     "sass": "^1.95.0",
     "tailwind-merge": "^3.4.0"
   },
+  "browserslist": [
+    "last 3 versions",
+    "Firefox ESR",
+    "Safari >= 12",
+    "iOS >= 12",
+    "Chrome >= 80",
+    "Edge >= 80",
+    "Samsung >= 10",
+    "Opera >= 60",
+    "not dead",
+    "not ie 11"
+  ],
   "devDependencies": {
     "@playwright/test": "^1.58.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.27",
     "eslint": "^9",
     "eslint-config-next": "^16.1.6",
     "tailwindcss": "^4",

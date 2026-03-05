@@ -40,7 +40,7 @@ export default function FeaturesStep() {
                 {/* Icône */}
                 <div className={`
                   flex-shrink-0 transition-colors duration-300
-                  ${isSelected ? 'text-accent' : 'text-[#ff4d9a] group-hover:text-accent'}
+                  ${isSelected ? 'text-accent' : 'text-accent-light group-hover:text-accent'}
                 `}>
                   {IconComponent && <IconComponent className="w-6 h-6" />}
                 </div>

@@ -64,8 +64,8 @@ export function SeoIcon({ className = 'w-16 h-16', animate = false }: IconProps)
       <line x1="8" y1="32" x2="56" y2="32" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.6"/>
       <path d="M12 22 Q32 18 52 22" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.6" fill="none"/>
       <path d="M12 42 Q32 46 52 42" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.6" fill="none"/>
-      <circle cx="48" cy="18" r="8" fill="white" stroke="#ff0f7c" strokeWidth="2"/>
-      <path d="M45 18 L47 20 L51 16" stroke="#ff0f7c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="48" cy="18" r="8" fill="white" stroke="var(--accent-pink)" strokeWidth="2"/>
+      <path d="M45 18 L47 20 L51 16" stroke="var(--accent-pink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
@@ -95,9 +95,9 @@ export function PerformanceIcon({ className = 'w-16 h-16', animate = false }: Ic
       <circle cx="20" cy="34" r="3" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.5"/>
       <circle cx="32" cy="26" r="3" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.5"/>
       <circle cx="44" cy="18" r="3" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.5"/>
-      <circle cx="56" cy="24" r="4" fill="#ff0f7c" fillOpacity="0.2" stroke="#ff0f7c" strokeWidth="2"/>
-      <path d="M52 12 L56 8 L60 12" stroke="#ff0f7c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-      <line x1="56" y1="8" x2="56" y2="18" stroke="#ff0f7c" strokeWidth="2" strokeLinecap="round"/>
+      <circle cx="56" cy="24" r="4" fill="var(--accent-pink)" fillOpacity="0.2" stroke="var(--accent-pink)" strokeWidth="2"/>
+      <path d="M52 12 L56 8 L60 12" stroke="var(--accent-pink)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      <line x1="56" y1="8" x2="56" y2="18" stroke="var(--accent-pink)" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   );
 }
@@ -153,10 +153,10 @@ export function StrategyIcon({ className = 'w-16 h-16', animate = false }: IconP
       <line x1="20" y1="8" x2="20" y2="56" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5"/>
       <line x1="32" y1="8" x2="32" y2="56" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5"/>
       <line x1="44" y1="8" x2="44" y2="56" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.5"/>
-      <circle cx="14" cy="26" r="3" fill="#ff0f7c" fillOpacity="0.3" stroke="#ff0f7c" strokeWidth="1.5"/>
+      <circle cx="14" cy="26" r="3" fill="var(--accent-pink)" fillOpacity="0.3" stroke="var(--accent-pink)" strokeWidth="1.5"/>
       <circle cx="26" cy="38" r="3" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.5"/>
       <circle cx="38" cy="26" r="3" fill="currentColor" fillOpacity="0.3" stroke="currentColor" strokeWidth="1.5"/>
-      <circle cx="50" cy="50" r="3" fill="#ff0f7c" fillOpacity="0.3" stroke="#ff0f7c" strokeWidth="1.5"/>
+      <circle cx="50" cy="50" r="3" fill="var(--accent-pink)" fillOpacity="0.3" stroke="var(--accent-pink)" strokeWidth="1.5"/>
       <path d="M14 26 L26 38 L38 26 L50 50" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="4 2"/>
     </svg>
   );

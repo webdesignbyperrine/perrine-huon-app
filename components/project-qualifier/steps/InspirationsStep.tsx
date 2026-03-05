@@ -155,13 +155,13 @@ export default function InspirationsStep() {
                     className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center transition-all duration-300"
                     style={{
                       background: isSelected 
-                        ? '#ff0f7c'
+                        ? 'var(--accent-pink)'
                         : '#e8e2d6',
                       boxShadow: isSelected 
-                        ? '0 2px 10px rgba(255, 15, 124, 0.4)'
+                        ? '0 2px 10px rgba(var(--accent-pink-rgb), 0.4)'
                         : '0 2px 6px rgba(0,0,0,0.1)',
                       border: isSelected 
-                        ? '2px solid #ff0f7c'
+                        ? '2px solid var(--accent-pink)'
                         : '2px solid rgba(43,91,138,0.2)'
                     }}
                   >
@@ -242,7 +242,7 @@ export default function InspirationsStep() {
                         ? 'bg-accent text-white'
                         : 'bg-accent text-white hover:bg-accent/90'
                     }`}
-                    style={{ boxShadow: '0 2px 8px rgba(255, 15, 124, 0.3)' }}
+                    style={{ boxShadow: '0 2px 8px rgba(var(--accent-pink-rgb), 0.3)' }}
                   >
                     {selectedSites.includes(expandedSiteData.name) ? '✓ Sélectionné' : 'Sélectionner'}
                   </button>

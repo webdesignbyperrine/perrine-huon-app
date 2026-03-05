@@ -147,6 +147,9 @@ export default function RootLayout({
   return (
     <html lang="fr" className="scroll-smooth dark" suppressHydrationWarning>
       <head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#D4C4A8" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <MainJsonLd />
         {/* Preload des ressources critiques */}

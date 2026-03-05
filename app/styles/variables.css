@@ -9,11 +9,14 @@
   --primary-blue-dark: #1E4A73;
   --primary-blue-darker: #153A5C;
   
-  /* Accent rose - usage parcimonieux */
-  --accent-pink: #ff0f7c;
-  --accent-pink-light: #ff4d9a;
-  --accent-pink-dark: #d90066;
-  --accent-pink-muted: #c4366d;
+  /* Accent rose - valeur par défaut sRGB-safe (la majorité des écrans) */
+  --accent-pink: #e91e75;
+  --accent-pink-light: #f04d94;
+  --accent-pink-dark: #c90060;
+  --accent-pink-muted: #b8326b;
+  
+  /* Valeurs rgba associées au rose sRGB-safe, utilisées dans box-shadow / glow */
+  --accent-pink-rgb: 233, 30, 117;
   
   /* Fond light - papier kraft */
   --background-light: #D4C4A8;
@@ -64,6 +67,17 @@
   --header-bg-scrolled: rgba(212, 196, 168, 0.95);
 }
 
+/* Display P3 (Apple Mac, iPhone, iPad) : rose original plus riche */
+@media (color-gamut: p3) {
+  :root {
+    --accent-pink: #ff0f7c;
+    --accent-pink-light: #ff4d9a;
+    --accent-pink-dark: #d90066;
+    --accent-pink-muted: #c4366d;
+    --accent-pink-rgb: 255, 15, 124;
+  }
+}
+
 /* Dark Mode Variables */
 html.dark {
   --bg-primary: #0f172a;
@@ -85,6 +99,7 @@ html.dark {
   --accent-pink: #f472b6;
   --accent-pink-light: #f9a8d4;
   --accent-pink-dark: #ec4899;
+  --accent-pink-rgb: 244, 114, 182;
 }
 
 /* Responsive stroke */
@@ -92,4 +107,14 @@ html.dark {
   :root {
     --stroke-width: 1.5px;
   }
+}
+
+/* Firefox scrollbar (non-webkit) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-blue) var(--background-paper);
+}
+
+html.dark * {
+  scrollbar-color: var(--border-color) var(--bg-secondary);
 }

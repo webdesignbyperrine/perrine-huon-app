@@ -222,8 +222,8 @@ export default function ContactForm() {
             <div 
               className="w-14 h-14 rounded-full flex items-center justify-center animate-bounce-icon"
               style={{ 
-                backgroundColor: '#ff0f7c',
-                boxShadow: '0 4px 15px rgba(255, 15, 124, 0.4)'
+                backgroundColor: 'var(--accent-pink)',
+                boxShadow: '0 4px 15px rgba(var(--accent-pink-rgb), 0.4)'
               }}
             >
               <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -254,8 +254,8 @@ export default function ContactForm() {
             <span 
               className="inline-flex items-center justify-center w-full px-6 py-3 rounded-full font-semibold text-white transition-all duration-300 group-hover:scale-105"
               style={{ 
-                backgroundColor: '#ff0f7c',
-                boxShadow: '0 4px 15px rgba(255, 15, 124, 0.3)'
+                backgroundColor: 'var(--accent-pink)',
+                boxShadow: '0 4px 15px rgba(var(--accent-pink-rgb), 0.3)'
               }}
             >
               Commencer le quiz interactif

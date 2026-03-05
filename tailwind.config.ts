@@ -23,21 +23,22 @@ const config: Config = {
           800: '#13283C',
           900: '#0B1722',
         },
-        // Accent Pink - Usage parcimonieux (CTA principaux)
+        // Accent Pink - sRGB-safe, P3 override via CSS variables
         accent: {
-          DEFAULT: '#ff0f7c',
-          light: '#ff4d9a',
-          dark: '#d90066',
+          DEFAULT: 'var(--accent-pink)',
+          light: 'var(--accent-pink-light)',
+          dark: 'var(--accent-pink-dark)',
+          muted: 'var(--accent-pink-muted)',
           50: '#FFF0F6',
           100: '#FFE0ED',
           200: '#FFC2DB',
           300: '#FF94C1',
-          400: '#FF4D9A',
-          500: '#ff0f7c',
-          600: '#d90066',
-          700: '#B30054',
-          800: '#8C0042',
-          900: '#660030',
+          400: '#f04d94',
+          500: '#e91e75',
+          600: '#c90060',
+          700: '#A30050',
+          800: '#7D003D',
+          900: '#57002B',
         },
         // Secondary - Bleu clair pour accents secondaires
         secondary: {
@@ -68,7 +69,7 @@ const config: Config = {
         // Couleurs de remplissage légères pour illustrations
         fill: {
           blue: 'rgba(43, 91, 138, 0.08)',
-          pink: 'rgba(255, 15, 124, 0.08)',
+          pink: 'rgba(var(--accent-pink-rgb), 0.08)',
           light: 'rgba(43, 91, 138, 0.04)',
         }
       },
@@ -84,7 +85,7 @@ const config: Config = {
       boxShadow: {
         'sketch': '0 4px 20px rgba(43, 91, 138, 0.1)',
         'sketch-lg': '0 8px 40px rgba(43, 91, 138, 0.15)',
-        'sketch-accent': '0 8px 25px rgba(255, 15, 124, 0.3)',
+        'sketch-accent': '0 8px 25px rgba(var(--accent-pink-rgb), 0.3)',
         'card': '0 2px 10px rgba(43, 91, 138, 0.08)',
         'card-hover': '0 10px 40px rgba(43, 91, 138, 0.15)',
       },
@@ -139,8 +140,8 @@ const config: Config = {
           '100%': { strokeDashoffset: '0' },
         },
         pulsePink: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(255, 15, 124, 0.4)' },
-          '50%': { boxShadow: '0 0 0 10px rgba(255, 15, 124, 0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(var(--accent-pink-rgb), 0.4)' },
+          '50%': { boxShadow: '0 0 0 10px rgba(var(--accent-pink-rgb), 0)' },
         },
         appear: {
           '0%': { opacity: '0', transform: 'translateY(10px)' },

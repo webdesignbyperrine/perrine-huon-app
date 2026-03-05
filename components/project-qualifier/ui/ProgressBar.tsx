@@ -43,7 +43,7 @@ export default function ProgressBar() {
           style={{ 
             width: `${fillPercentage}%`,
             minWidth: fillPercentage > 0 ? '12px' : '0',
-            background: '#ff0f7c',
+            background: 'var(--accent-pink)',
           }}
         >
           {/* Effet de brillance */}

@@ -125,7 +125,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       <section 
         className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
         style={{
-          background: 'linear-gradient(to bottom right, #2B5B8A 0%, #1E4A73 50%, #2B5B8A 70%, #ff0f7c 100%)'
+          background: 'linear-gradient(to bottom right, #2B5B8A 0%, #1E4A73 50%, #2B5B8A 70%, var(--accent-pink) 100%)'
         }}
       >
 

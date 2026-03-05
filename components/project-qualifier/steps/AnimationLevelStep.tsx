@@ -69,8 +69,8 @@ function ModereAnimation() {
             key={i}
             className="flex items-center gap-2 px-3 py-1.5 rounded"
             style={{
-              background: i === 1 ? 'rgba(255,15,124,0.25)' : 'rgba(255,255,255,0.08)',
-              border: i === 1 ? '1px solid rgba(255,15,124,0.4)' : '1px solid transparent',
+              background: i === 1 ? 'rgba(var(--accent-pink-rgb),0.25)' : 'rgba(255,255,255,0.08)',
+              border: i === 1 ? '1px solid rgba(var(--accent-pink-rgb),0.4)' : '1px solid transparent',
               animation: 'slideIn 2.5s ease-out infinite',
               animationDelay: `${i * 0.1}s`,
             }}
@@ -79,7 +79,7 @@ function ModereAnimation() {
             <div 
               className="w-3 h-3 rounded-sm"
               style={{ 
-                background: i === 1 ? 'rgba(255,15,124,0.6)' : 'rgba(255,255,255,0.3)',
+                background: i === 1 ? 'rgba(var(--accent-pink-rgb),0.6)' : 'rgba(255,255,255,0.3)',
               }}
             />
             {/* Texte simulé */}
@@ -98,7 +98,7 @@ function ModereAnimation() {
       <div 
         className="absolute left-1/2 -translate-x-[85px] w-1 rounded-full"
         style={{ 
-          background: '#ff0f7c',
+          background: 'var(--accent-pink)',
           animation: 'indicator 2.5s ease-in-out infinite'
         }}
       />
@@ -138,7 +138,7 @@ function ImmersifAnimation() {
           style={{
             width: `${4 + (i % 3) * 2}px`,
             height: `${4 + (i % 3) * 2}px`,
-            background: i % 3 === 0 ? '#2B5B8A' : i % 3 === 1 ? '#ff0f7c' : '#4A7AA8',
+            background: i % 3 === 0 ? '#2B5B8A' : i % 3 === 1 ? 'var(--accent-pink)' : '#4A7AA8',
             left: `${10 + (i * 7)}%`,
             top: '60%',
             animation: `flyParticle ${1 + (i % 4) * 0.3}s ease-out infinite`,
@@ -152,7 +152,7 @@ function ImmersifAnimation() {
         <div 
           className="relative w-16 h-16 rounded-2xl"
           style={{
-            background: 'linear-gradient(135deg, #2B5B8A, #ff0f7c, #4A7AA8)',
+            background: 'linear-gradient(135deg, #2B5B8A, var(--accent-pink), #4A7AA8)',
             animation: 'rotate3D 3s ease-in-out infinite',
             transformStyle: 'preserve-3d',
           }}
@@ -161,7 +161,7 @@ function ImmersifAnimation() {
           <div 
             className="absolute inset-0 rounded-2xl"
             style={{
-              background: 'linear-gradient(135deg, #2B5B8A, #ff0f7c, #4A7AA8)',
+              background: 'linear-gradient(135deg, #2B5B8A, var(--accent-pink), #4A7AA8)',
               filter: 'blur(15px)',
               animation: 'pulseGlow 1.5s ease-in-out infinite',
             }}
@@ -188,7 +188,7 @@ function ImmersifAnimation() {
         />
         <div 
           className="absolute inset-0 rounded-2xl"
-          style={{ border: '2px solid #ff0f7c', animation: 'expandRing 2s ease-out infinite', animationDelay: '0.5s' }}
+          style={{ border: '2px solid var(--accent-pink)', animation: 'expandRing 2s ease-out infinite', animationDelay: '0.5s' }}
         />
       </div>
       
@@ -197,7 +197,7 @@ function ImmersifAnimation() {
         className="absolute w-full h-[2px]"
         style={{ 
           top: '30%',
-          background: 'linear-gradient(90deg, transparent, #ff0f7c, transparent)',
+          background: 'linear-gradient(90deg, transparent, var(--accent-pink), transparent)',
           animation: 'scanLine 2s linear infinite',
         }}
       />

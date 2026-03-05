@@ -48,7 +48,7 @@ html.dark .input-sketch {
 
 html.dark .input-sketch:focus {
   border-color: var(--accent-pink);
-  box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.2);
+  box-shadow: 0 0 0 3px rgba(var(--accent-pink-rgb), 0.2);
 }
 
 html.dark .input-sketch::placeholder { color: var(--text-muted); }
@@ -72,7 +72,7 @@ html.dark .btn-cta {
 html.dark .btn-cta:hover {
   background: var(--accent-pink-dark);
   border-color: var(--accent-pink-dark);
-  box-shadow: 0 8px 25px rgba(244, 114, 182, 0.4);
+  box-shadow: 0 8px 25px rgba(var(--accent-pink-rgb), 0.4);
 }
 
 /* ---- Typography ---- */
@@ -140,8 +140,8 @@ html.dark .focus-ring:focus { box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.4); }
 
 /* ---- Handwriting Animation ---- */
 html.dark .handwriting-animate,
-html.dark .handwriting-animate.with-cursor { color: #f472b6 !important; }
-html.dark .handwriting-animate.with-cursor::after { background-color: #f472b6 !important; }
+html.dark .handwriting-animate.with-cursor { color: var(--accent-pink) !important; }
+html.dark .handwriting-animate.with-cursor::after { background-color: var(--accent-pink) !important; }
 
 /* ---- Section Dark ---- */
 .section-dark {

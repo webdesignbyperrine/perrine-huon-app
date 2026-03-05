@@ -60,7 +60,7 @@ export default function ContactCard() {
             {/* Slogan manuscrit rose avec animation TypewriterText */}
             <div 
               className="text-2xl sm:text-3xl lg:text-4xl mb-4 px-4 min-h-[3rem]" 
-              style={{ fontFamily: 'var(--font-caveat)', color: '#ff0f7c' }}
+              style={{ fontFamily: 'var(--font-caveat)', color: 'var(--accent-pink)' }}
             >
               {mounted && (
                 <TypewriterText 
@@ -124,7 +124,12 @@ export default function ContactCard() {
                 href="https://perrinehuon.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-8 py-4 bg-[#ff0f7c] hover:bg-[#d90066] text-white font-semibold rounded-xl shadow-md active:translate-y-0.5 active:shadow-sm transition-all duration-150"
+                className="flex items-center justify-center gap-2 px-8 py-4 text-white font-semibold rounded-xl shadow-md active:translate-y-0.5 active:shadow-sm transition-all duration-150"
+                style={{
+                  backgroundColor: 'var(--accent-pink)',
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--accent-pink-dark)'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--accent-pink)'}
               >
                 <span>Découvrir mon site</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
@@ -228,7 +233,12 @@ export default function ContactCard() {
                 href="https://perrinehuon.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#ff0f7c] hover:bg-[#d90066] text-white font-semibold rounded-xl shadow-md active:translate-y-0.5 active:shadow-sm transition-all duration-150"
+                className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl shadow-md active:translate-y-0.5 active:shadow-sm transition-all duration-150"
+                style={{
+                  backgroundColor: 'var(--accent-pink)',
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--accent-pink-dark)'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--accent-pink)'}
               >
                 <span>Découvrir mon site</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">

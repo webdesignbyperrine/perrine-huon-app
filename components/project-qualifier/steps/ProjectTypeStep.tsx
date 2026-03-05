@@ -47,7 +47,7 @@ export default function ProjectTypeStep() {
                   transition-colors duration-300 mb-4
                   ${data.projectType === projectType.value 
                     ? 'text-accent' 
-                    : 'text-[#ff4d9a] group-hover:text-accent'
+                    : 'text-accent-light group-hover:text-accent'
                   }
                 `}>
                   {IconComponent && <IconComponent className="w-10 h-10" />}

@@ -56,7 +56,7 @@ export default function BudgetStep() {
                     className={`w-8 h-8 ${
                       data.budget === budget.value 
                         ? 'text-accent' 
-                        : 'text-[#ff4d9a] group-hover:text-accent'
+                        : 'text-accent-light group-hover:text-accent'
                     } transition-colors duration-300`}
                   />
                 ))}

@@ -53,7 +53,7 @@ export default function DeadlineStep() {
                 flex-shrink-0 transition-colors duration-300
                 ${data.deadline === deadline.value 
                   ? 'text-accent' 
-                  : 'text-[#ff4d9a] group-hover:text-accent'
+                  : 'text-accent-light group-hover:text-accent'
                 }
               `}>
                 {deadlineIcons[deadline.value]}

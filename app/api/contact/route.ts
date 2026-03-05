@@ -150,7 +150,7 @@ export async function POST(request: NextRequest) {
 
 // ============================================
 // TEMPLATES EMAIL - Design harmonisé
-// Couleurs : Beige #D4C4A8, Bleu #2B5B8A, Rose #ff0f7c
+// Couleurs : Beige #D4C4A8, Bleu #2B5B8A, Rose #e91e75 (sRGB-safe)
 // ============================================
 
 const EMAIL_STYLES = {
@@ -158,7 +158,7 @@ const EMAIL_STYLES = {
   bgPaper: '#CDBF9B',
   primaryBlue: '#2B5B8A',
   primaryBlueDark: '#1E4A73',
-  accentPink: '#ff0f7c',
+  accentPink: '#e91e75',
   textLight: '#E8DCC4',
   white: '#ffffff',
 };
