@@ -50,7 +50,7 @@ export default function Hero() {
         const element = qualifierRef.current;
         if (element) {
           const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+          window.scrollTo({ top: Math.max(0, y), behavior: 'auto' });
         }
       }, 100);
     }
@@ -62,10 +62,10 @@ export default function Hero() {
       if (showQualifier) {
         setShowQualifier(false);
         setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'instant' });
+          window.scrollTo({ top: 0, behavior: 'auto' });
         }, 300);
       } else {
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        window.scrollTo({ top: 0, behavior: 'auto' });
       }
     };
 

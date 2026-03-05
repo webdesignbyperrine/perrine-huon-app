@@ -51,12 +51,13 @@ export default function TypewriterText({
       {displayedText}
       {showCursor && (
         <span 
-          className={`inline-block w-[3px] h-[1em] ml-1 align-text-bottom ${
+          className={`inline-block w-[3px] h-[1em] ml-1 relative ${
             isComplete ? 'animate-cursor-blink' : ''
           } ${cursorClassName}`}
           style={{ 
             backgroundColor: 'var(--accent-pink)',
             opacity: isTyping ? 1 : 0,
+            top: '0.15em',
           }}
         />
       )}

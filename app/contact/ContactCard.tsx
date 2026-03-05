@@ -59,7 +59,7 @@ export default function ContactCard() {
             
             {/* Slogan manuscrit rose avec animation TypewriterText */}
             <div 
-              className="text-2xl sm:text-3xl lg:text-4xl mb-4 px-4 min-h-[3rem]" 
+              className="text-2xl sm:text-3xl lg:text-4xl mb-4 px-4 min-h-[3rem] leading-snug" 
               style={{ fontFamily: 'var(--font-caveat)', color: 'var(--accent-pink)' }}
             >
               {mounted && (
@@ -250,30 +250,6 @@ export default function ContactCard() {
           </div>
         </div>
       </div>
-
-      {/* Styles pour l'animation sphere-wiggle */}
-      <style jsx>{`
-        .sphere-wiggle {
-          animation: sphere-wiggle 3s ease-in-out infinite;
-        }
-        .sphere-wiggle:hover {
-          animation: none;
-        }
-        @keyframes sphere-wiggle {
-          0%, 100% {
-            transform: translateY(0) rotate(0deg);
-          }
-          25% {
-            transform: translateY(-12px) rotate(3deg);
-          }
-          50% {
-            transform: translateY(0) rotate(0deg);
-          }
-          75% {
-            transform: translateY(-8px) rotate(-3deg);
-          }
-        }
-      `}</style>
     </>
   );
 }

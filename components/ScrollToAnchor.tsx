@@ -17,7 +17,7 @@ export default function ScrollToAnchor() {
 
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'instant'
+            behavior: 'auto'
           });
         }
       }, 100);

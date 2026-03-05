@@ -110,11 +110,12 @@ html.dark {
 }
 
 /* Firefox scrollbar (non-webkit) */
-* {
+html, body {
   scrollbar-width: thin;
   scrollbar-color: var(--primary-blue) var(--background-paper);
 }
 
-html.dark * {
+html.dark,
+html.dark body {
   scrollbar-color: var(--border-color) var(--bg-secondary);
 }

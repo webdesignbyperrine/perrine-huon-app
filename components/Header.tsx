@@ -76,6 +76,7 @@ export default function Header() {
       height: ${logoHeight}px;
       z-index: 9999;
       pointer-events: none;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 45%, 55% 45%, 55% 100%, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 45%, 55% 45%, 55% 100%, 0 100%);
     `;
     bird.classList.add('logo-escaped');
@@ -89,6 +90,7 @@ export default function Header() {
       height: ${logoHeight}px;
       z-index: 9999;
       pointer-events: none;
+      -webkit-clip-path: polygon(55% 45%, 100% 45%, 100% 100%, 55% 100%);
       clip-path: polygon(55% 45%, 100% 45%, 100% 100%, 55% 100%);
     `;
     letter.classList.add('logo-escaped');
@@ -305,7 +307,7 @@ export default function Header() {
       const logoClick = sessionStorage.getItem('logoClick');
       if (logoClick === 'true') {
         setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'instant' });
+          window.scrollTo({ top: 0, behavior: 'auto' });
         }, 100);
         sessionStorage.removeItem('logoClick');
       }
@@ -343,7 +345,7 @@ export default function Header() {
         e.preventDefault();
         const element = document.getElementById(anchor);
         if (element) {
-          element.scrollIntoView({ behavior: 'instant' });
+          element.scrollIntoView({ behavior: 'auto' });
         }
       }
     }
