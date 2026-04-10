@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/client';
 import type { FAQ } from '@/types/database.types';
 import Link from 'next/link';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { FAQPageJsonLd } from '@/components/JsonLd';
 
 export default function FAQPage() {
   const [faqs, setFaqs] = useState<FAQ[]>([]);
@@ -93,6 +94,7 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen bg-paper-light grain-overlay pt-32 pb-20">
+      <FAQPageJsonLd faqs={displayFaqs.map(f => ({ question: f.question, answer: f.answer }))} />
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">

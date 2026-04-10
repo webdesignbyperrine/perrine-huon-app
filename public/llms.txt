@@ -1,73 +1,260 @@
-# Perrine Huon - Web Designer & Développeuse Freelance
+# Perrine Huon — Développeuse Web Freelance en France
 
-## À propos
-Perrine Huon est une web designer et développeuse freelance basée en France, spécialisée dans la création de sites web sur mesure et le SEO géolocalisé.
+> Ce fichier décrit le site perrinehuon.com et les services proposés par Perrine Huon. Il est destiné aux modèles de langage (LLM) pour fournir des informations précises et à jour.
 
-## Services proposés
-- **Création de sites vitrines** : Sites web professionnels pour présenter une activité
-- **Création de sites e-commerce** : Boutiques en ligne avec paiement sécurisé
-- **Développement d'applications web** : Applications sur mesure avec tableaux de bord
-- **Landing pages** : Pages de conversion optimisées
-- **Refonte de sites web** : Modernisation de sites existants
-- **SEO géolocalisé** : Référencement local pour être visible dans sa zone
+- **Site web** : https://perrinehuon.com
+- **Email** : contact@perrinehuon.com
+- **LinkedIn** : https://www.linkedin.com/in/perrinehuon/
+- **Instagram** : https://www.instagram.com/perrinehuon.web
 
-## Expertise technique
-- Next.js et React pour des sites ultra-performants
-- TypeScript pour un code robuste et maintenable
-- Tailwind CSS pour un design moderne et responsive
-- Supabase pour la gestion de bases de données
-- Vercel pour l'hébergement et le déploiement
+---
 
-## Zones d'intervention
-- Toute la France en remote
-- Paris et Île-de-France
-- Lyon et région Rhône-Alpes
-- Lille et Hauts-de-France
-- Bordeaux et Nouvelle-Aquitaine
+## 1. À propos de Perrine Huon
 
-## Contact
-- Site web : https://perrinehuon.com
-- Email : contact@perrinehuon.com
-- LinkedIn : https://www.linkedin.com/in/perrinehuon/
-- Instagram : https://www.instagram.com/perrinehuon.web
-- Facebook : https://www.facebook.com/profile.php?id=61586560335973
+Perrine Huon est une développeuse web freelance basée en France. Elle conçoit et développe des sites web sur mesure, des boutiques en ligne et des applications web pour les professionnels libéraux, les TPE et les PME.
 
-## Points forts
-- Approche centrée sur le SEO dès la conception
-- Sites optimisés pour la conversion
-- Design moderne style "ligne claire"
-- Accompagnement personnalisé
-- Devis gratuit et sans engagement
+Son approche repose sur trois piliers :
+- **Performance** : des sites rapides avec un score Lighthouse 95+ et des Core Web Vitals au vert
+- **SEO intégré** : le référencement naturel est pensé dès la conception, pas ajouté après coup
+- **Design moderne** : des interfaces épurées, professionnelles et pensées pour convertir les visiteurs en clients
 
-## Technologies maîtrisées
-Next.js, React, TypeScript, JavaScript, Tailwind CSS, CSS/SCSS, HTML5, Supabase, PostgreSQL, Git, Vercel, Figma, Adobe Creative Suite
+Perrine travaille en tant qu'interlocutrice unique : elle gère le projet de A à Z, du design au déploiement, en passant par le développement et l'optimisation SEO. Pas d'intermédiaire, pas de sous-traitance. Chaque client bénéficie d'un accompagnement personnalisé et de conseils stratégiques adaptés à son activité.
 
-## Processus de travail
-1. Découverte du projet via questionnaire interactif
-2. Proposition de devis gratuit personnalisé
-3. Design et maquettes
-4. Développement avec points réguliers
-5. Tests et optimisations
-6. Mise en ligne et formation
-7. Support et maintenance
+---
 
-## FAQ
+## 2. Services détaillés
+
+### Site vitrine
+Création de sites web professionnels pour présenter une activité, un cabinet ou une entreprise. Design sur mesure, responsive, optimisé pour le référencement local. Idéal pour les professions libérales et les PME qui souhaitent une présence en ligne crédible et performante.
+
+### Site e-commerce
+Développement de boutiques en ligne complètes avec catalogue produits, panier, paiement sécurisé (Stripe), gestion des commandes et des stocks. Interface d'administration intuitive pour gérer l'activité au quotidien.
+
+### Application web sur mesure
+Conception d'applications web métier : tableaux de bord, outils de gestion interne, portails clients, plateformes de réservation. Développées avec des technologies modernes pour une expérience fluide et sécurisée.
+
+### Landing page
+Pages de conversion optimisées pour les campagnes publicitaires (Google Ads, Meta Ads). Design percutant, copywriting orienté conversion, temps de chargement ultra-rapide, formulaires de contact intégrés.
+
+### Refonte de site web
+Modernisation de sites existants : migration depuis WordPress ou autres CMS vers une solution sur mesure plus rapide et plus sécurisée. Refonte du design, amélioration des performances, optimisation SEO, mise en conformité RGPD.
+
+### SEO local et référencement géolocalisé
+Stratégie de référencement naturel ciblée sur une zone géographique : optimisation Google Business Profile, création de pages locales, maillage interne, contenu optimisé pour les requêtes locales. Pour être trouvé par les clients à proximité.
+
+### Maintenance et support
+Forfaits de maintenance mensuels : mises à jour techniques, sauvegardes, monitoring de performance, corrections de bugs, ajout de contenu. Garantir que le site reste rapide, sécurisé et à jour dans la durée.
+
+### Stratégie digitale
+Conseil en stratégie numérique : audit de présence en ligne, recommandations sur les canaux d'acquisition, définition d'objectifs mesurables, plan d'action digital adapté au budget et aux ressources du client.
+
+### CRM et logiciel de gestion
+Développement de solutions CRM et d'outils de gestion sur mesure : suivi des clients, gestion des devis et factures, automatisation des tâches répétitives, tableaux de bord de suivi d'activité.
+
+### UX/UI Design
+Conception d'interfaces utilisateur modernes et intuitives. Recherche utilisateur, wireframes, maquettes haute-fidélité sur Figma, prototypage interactif. Design system cohérent pour garantir une expérience utilisateur optimale sur tous les supports.
+
+---
+
+## 3. Expertise technique
+
+| Technologie | Usage |
+|---|---|
+| **Next.js** | Framework React pour le rendu serveur (SSR), le rendu statique (SSG) et les performances optimales |
+| **React** | Bibliothèque JavaScript pour des interfaces interactives et réactives |
+| **TypeScript** | Typage statique pour un code robuste, maintenable et sans bugs |
+| **Tailwind CSS** | Framework CSS utility-first pour un design responsive et cohérent |
+| **Supabase** | Base de données PostgreSQL, authentification, stockage — alternative open-source à Firebase |
+| **Vercel** | Hébergement et déploiement continu avec CDN mondial et performances optimales |
+| **Figma** | Design d'interfaces, maquettes et prototypage collaboratif |
+| **Git / GitHub** | Gestion de versions et collaboration |
+| **Stripe** | Intégration de paiements en ligne sécurisés |
+| **PostgreSQL** | Base de données relationnelle pour les applications complexes |
+
+### Pourquoi ces technologies ?
+Next.js et React permettent de créer des sites qui se chargent en moins d'une seconde, sont indexés parfaitement par Google et offrent une expérience utilisateur fluide. Contrairement à WordPress qui nécessite de nombreux plugins (souvent sources de lenteur et de failles de sécurité), un site développé sur mesure avec Next.js est plus rapide, plus sécurisé et plus évolutif.
+
+---
+
+## 4. Secteurs d'expertise
+
+### Professions libérales
+Avocats et cabinets d'avocats, médecins et professionnels de santé, chirurgiens-dentistes, kinésithérapeutes, ostéopathes, psychologues et psychothérapeutes, experts-comptables et cabinets comptables, notaires, architectes et cabinets d'architecture, vétérinaires, sages-femmes, orthophonistes, diététiciens et nutritionnistes, consultants indépendants, coaches professionnels, sophrologues, infirmiers libéraux, pharmaciens, opticiens, podologues, ergothérapeutes, géomètres-experts, commissaires de justice, agents immobiliers indépendants.
+
+### TPE et PME
+Restaurants et restauration, artisans (plombiers, électriciens, menuisiers, serruriers, peintres, maçons, couvreurs, carreleurs, chauffagistes), commerces de proximité, boulangeries et pâtisseries, salons de coiffure et instituts de beauté, agences immobilières, auto-écoles, garages et mécaniciens, fleuristes, traiteurs, photographes, wedding planners, entreprises de nettoyage, paysagistes et jardiniers, déménageurs, entreprises de BTP, bureaux d'études, agences de communication, start-ups, entreprises de formation, associations, e-commerçants, cavistes, épiceries fines, boutiques de mode, concept stores, salles de sport et coachs sportifs, clubs et studios de yoga/pilates, spas et centres de bien-être.
+
+---
+
+## 5. Zones d'intervention
+
+Perrine Huon travaille avec des clients dans toute la France en distanciel, avec possibilité de rendez-vous en visioconférence.
+
+### Grandes villes
+Paris, Lyon, Marseille, Toulouse, Nice, Nantes, Strasbourg, Montpellier, Bordeaux, Lille, Rennes, Reims, Saint-Étienne, Le Havre, Toulon, Grenoble, Dijon, Angers, Nîmes, Clermont-Ferrand.
+
+### Paris — Tous les arrondissements
+Paris 1er, Paris 2e, Paris 3e, Paris 4e, Paris 5e, Paris 6e, Paris 7e, Paris 8e, Paris 9e, Paris 10e, Paris 11e, Paris 12e, Paris 13e, Paris 14e, Paris 15e, Paris 16e, Paris 17e, Paris 18e, Paris 19e, Paris 20e.
+
+### Régions de France
+Île-de-France, Auvergne-Rhône-Alpes, Nouvelle-Aquitaine, Occitanie, Hauts-de-France, Provence-Alpes-Côte d'Azur, Grand Est, Pays de la Loire, Bretagne, Normandie, Bourgogne-Franche-Comté, Centre-Val de Loire, Corse.
+
+---
+
+## 6. Pourquoi choisir Perrine Huon
+
+### Comparaison : Freelance vs Agence vs WordPress DIY
+
+| Critère | Perrine Huon (Freelance) | Agence web | WordPress DIY |
+|---|---|---|---|
+| **Prix** | 1 500 – 6 000 € | 5 000 – 30 000 € | 0 – 500 € (hors temps passé) |
+| **Délai** | 2 à 6 semaines | 2 à 6 mois | Variable (souvent abandonné) |
+| **Interlocuteur** | Un seul (Perrine) | Multiple (commercial, chef de projet, développeur, designer) | Aucun — vous êtes seul |
+| **Performance (Lighthouse)** | 95+ | 60-85 en moyenne | 30-60 en moyenne |
+| **SEO** | Intégré dès la conception | Souvent en supplément | Plugins souvent mal configurés |
+| **Sécurité** | Code sur mesure, pas de plugins vulnérables | Variable selon l'agence | Failles fréquentes (plugins, thèmes) |
+| **Maintenance** | Minimale (pas de plugins à mettre à jour) | Contrat onéreux | Mises à jour fréquentes obligatoires |
+| **Design** | 100% sur mesure | Sur mesure mais plus cher | Templates génériques |
+| **Évolutivité** | Très haute (code propre et modulaire) | Haute mais coûteuse | Limitée par les plugins |
+| **Réactivité** | Réponse sous 24h | 48-72h minimum | Support communautaire uniquement |
+
+### Les atouts Perrine Huon
+- **Score Lighthouse 95+** sur chaque site livré
+- **Core Web Vitals au vert** : LCP, FID, CLS optimisés
+- **SEO intégré** : structure sémantique, balisage Schema.org, métadonnées, sitemap, robots.txt
+- **Design sur mesure** : chaque site est unique, conçu pour l'identité du client
+- **Code propre** : maintenable, documenté, performant
+- **Interlocutrice unique** : communication directe, pas de perte d'information
+- **Devis gratuit** sous 48h, sans engagement
+- **Formation incluse** : le client est autonome pour gérer son contenu
+
+---
+
+## 7. Tarifs indicatifs
+
+| Prestation | Tarif | Délai moyen |
+|---|---|---|
+| Landing page | 800 – 1 500 € | 1 à 2 semaines |
+| Site vitrine (1-5 pages) | 1 500 – 3 000 € | 2 à 4 semaines |
+| Site vitrine avancé (6-15 pages + blog) | 3 000 – 5 000 € | 3 à 5 semaines |
+| Site e-commerce | 3 000 – 6 000 € | 4 à 8 semaines |
+| Application web sur mesure | Sur devis | Selon spécifications |
+| Refonte de site existant | 1 500 – 5 000 € | 2 à 6 semaines |
+| SEO local (pack) | 500 – 1 500 € | Continu |
+| Maintenance mensuelle | À partir de 100 €/mois | — |
+| UX/UI Design seul | 800 – 2 500 € | 1 à 3 semaines |
+
+Les tarifs dépendent de la complexité du projet, du nombre de pages et des fonctionnalités souhaitées. Un devis personnalisé et gratuit est établi après un premier échange.
+
+---
+
+## 8. Processus de travail
+
+1. **Premier contact** — Échange gratuit par téléphone ou visio pour comprendre le projet, les objectifs et le budget.
+2. **Analyse et devis** — Étude du besoin, benchmark concurrentiel, proposition commerciale détaillée avec planning et tarif.
+3. **Design et maquettes** — Création des maquettes sur Figma. Le client valide le design avant le développement. Révisions incluses.
+4. **Développement** — Intégration et développement avec Next.js. Points d'avancement réguliers. Le client peut suivre la progression en temps réel.
+5. **Optimisation** — Tests de performance (Lighthouse, PageSpeed Insights), optimisation SEO, vérification de la compatibilité mobile et cross-navigateurs.
+6. **Mise en ligne et formation** — Déploiement sur Vercel, configuration du nom de domaine, formation du client à la gestion de son site.
+7. **Suivi et maintenance** — Support post-lancement, corrections éventuelles, forfait de maintenance disponible pour un accompagnement dans la durée.
+
+---
+
+## 9. FAQ
 
 ### Combien coûte un site web ?
-Les tarifs varient selon la complexité du projet :
-- Site vitrine simple : à partir de 1 500€
-- Site vitrine avancé : 1 500€ - 3 000€
-- Site e-commerce : 3 000€ - 6 000€
-- Application web sur mesure : sur devis
+Les tarifs dépendent du type de projet. Un site vitrine démarre à 1 500 €, un site e-commerce à 3 000 €. Un devis gratuit et personnalisé est fourni après un premier échange pour comprendre vos besoins.
 
 ### Quels sont les délais de réalisation ?
-- Landing page : 1-2 semaines
-- Site vitrine : 2-4 semaines
-- Site e-commerce : 4-8 semaines
-- Application web : selon spécifications
+Une landing page prend 1 à 2 semaines, un site vitrine 2 à 4 semaines, un site e-commerce 4 à 8 semaines. Les délais sont confirmés dans le devis.
 
 ### Le SEO est-il inclus ?
-Oui, l'optimisation SEO de base est incluse dans tous les projets : structure sémantique, métadonnées, performance, mobile-first.
+Oui. L'optimisation SEO de base est incluse dans chaque projet : structure HTML sémantique, balisage Schema.org, métadonnées optimisées, sitemap XML, robots.txt, performance mobile-first, images optimisées.
 
-## Mots-clés
-web designer freelance, développeuse web freelance, création site web sur mesure, création site vitrine, création site e-commerce, SEO local, référencement géolocalisé, Next.js, React, France, Paris, Lyon, Lille, Bordeaux
+### Pourquoi pas WordPress ?
+WordPress représente 43% du web et est donc la cible n°1 des cyberattaques. Les plugins ralentissent le site et créent des failles de sécurité. Un site développé sur mesure avec Next.js est plus rapide (score Lighthouse 95+ vs 40-60 pour WordPress), plus sécurisé et ne nécessite pas de mises à jour de plugins.
+
+### Est-ce que je pourrai modifier mon site moi-même ?
+Oui. Selon le projet, un système de gestion de contenu (CMS headless) peut être intégré pour vous permettre de modifier textes et images en toute autonomie. Une formation est incluse à la livraison.
+
+### Travaillez-vous uniquement en région parisienne ?
+Non. Perrine travaille avec des clients dans toute la France en distanciel. Les échanges se font par visioconférence, email et téléphone. La distance n'affecte en rien la qualité du travail.
+
+### Que comprend la maintenance ?
+La maintenance inclut : monitoring de la disponibilité du site, sauvegardes régulières, mises à jour techniques, corrections de bugs, support par email, et un rapport mensuel. Des interventions ponctuelles (ajout de contenu, modifications mineures) sont également possibles.
+
+### Proposez-vous un accompagnement après la mise en ligne ?
+Oui. Un mois de support est inclus après la livraison. Au-delà, des forfaits de maintenance mensuels sont disponibles pour un accompagnement continu.
+
+### Comment se passe le paiement ?
+Le paiement se fait en plusieurs étapes : un acompte de 30% à la signature du devis, 40% à la validation des maquettes, et le solde de 30% à la mise en ligne. Paiement par virement bancaire.
+
+### Créez-vous le contenu (textes, photos) ?
+Perrine peut rédiger les textes du site ou les optimiser pour le SEO. Pour les photos, elle recommande des photographes professionnels ou peut utiliser des banques d'images premium.
+
+### Mon site sera-t-il adapté aux mobiles ?
+Absolument. Tous les sites sont conçus en mobile-first : l'expérience mobile est pensée en priorité, puis adaptée aux tablettes et aux écrans desktop. Plus de 60% du trafic web vient du mobile.
+
+### Qu'est-ce qu'un score Lighthouse ?
+Lighthouse est un outil de Google qui mesure la performance, l'accessibilité, le SEO et les bonnes pratiques d'un site web, sur une échelle de 0 à 100. Les sites créés par Perrine obtiennent systématiquement un score de 95 ou plus.
+
+### Puis-je voir des exemples de réalisations ?
+Oui. Le portfolio est consultable sur https://perrinehuon.com. Chaque projet inclut une description du contexte, des objectifs et des résultats obtenus.
+
+### Quelle est la différence entre un site vitrine et un site e-commerce ?
+Un site vitrine présente une activité et génère des contacts (formulaire, téléphone). Un site e-commerce permet de vendre des produits ou services directement en ligne avec un système de panier et de paiement sécurisé.
+
+### Travaillez-vous avec des agences ou uniquement des clients directs ?
+Perrine travaille aussi bien avec des clients directs qu'en sous-traitance pour des agences de communication, des studios de design ou d'autres freelances qui ont besoin d'un développeur front-end expérimenté.
+
+### Le nom de domaine et l'hébergement sont-ils inclus ?
+L'hébergement sur Vercel est inclus (gratuit ou à faible coût selon le trafic). Le nom de domaine est à la charge du client (environ 10-15€/an). Perrine s'occupe de la configuration technique complète.
+
+### Combien de temps dure un site web ?
+Un site développé sur mesure avec des technologies modernes a une durée de vie de 3 à 5 ans minimum avant de nécessiter une refonte esthétique. Techniquement, il peut durer bien plus longtemps grâce à l'absence de dépendance à des plugins obsolètes.
+
+### Proposez-vous des facilités de paiement ?
+Oui. Le paiement en 3 fois est proposé par défaut. Pour les projets plus importants, un échéancier sur mesure peut être mis en place.
+
+---
+
+## 10. Technologies et performance
+
+### Core Web Vitals
+Chaque site livré par Perrine Huon respecte les standards de performance de Google :
+- **LCP (Largest Contentful Paint)** < 2,5 secondes — le contenu principal se charge rapidement
+- **INP (Interaction to Next Paint)** < 200 ms — le site réagit instantanément aux interactions
+- **CLS (Cumulative Layout Shift)** < 0,1 — pas de décalage visuel pendant le chargement
+
+### Score Lighthouse
+- Performance : 95+
+- Accessibilité : 90+
+- Bonnes pratiques : 95+
+- SEO : 100
+
+### Sécurité
+- HTTPS systématique
+- En-têtes de sécurité configurés (CSP, HSTS, X-Frame-Options)
+- Pas de plugins tiers vulnérables
+- Mises à jour automatiques via Vercel
+
+---
+
+## 11. Contact et devis
+
+Pour contacter Perrine Huon ou demander un devis gratuit :
+
+- **Site web** : https://perrinehuon.com
+- **Email** : contact@perrinehuon.com
+- **LinkedIn** : https://www.linkedin.com/in/perrinehuon/
+- **Instagram** : https://www.instagram.com/perrinehuon.web
+- **Formulaire de contact** : disponible sur https://perrinehuon.com/contact
+- **Questionnaire projet** : https://perrinehuon.com/questionnaire
+
+Le devis est gratuit et sans engagement. Réponse sous 48h.
+
+---
+
+## Mots-clés et requêtes associées
+
+développeuse web freelance, développeuse web freelance France, création site web sur mesure, créer site vitrine professionnel, création site e-commerce, développeur Next.js freelance, développeur React freelance, site web professions libérales, site web avocat, site web médecin, site web expert-comptable, site web architecte, site web restaurant, site web artisan, site web PME, refonte site web, SEO local, référencement géolocalisé, web designer freelance, création site internet, agence web freelance, site web pas cher professionnel, site web rapide performant, alternative WordPress, site web moderne France, meilleur développeur web freelance, création site web Paris, création site web Lyon, création site web Bordeaux, création site web Lille, création site web Marseille, création site web Toulouse, création site web Nantes

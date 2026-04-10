@@ -1,10 +1,19 @@
 import dynamic from 'next/dynamic';
+import type { Metadata } from 'next';
 import Hero from '@/components/home/Hero';
 import About from '@/components/home/About';
 import Services from '@/components/home/Services';
 import ScrollToAnchor from '@/components/ScrollToAnchor';
 
+export const metadata: Metadata = {
+  alternates: { canonical: 'https://perrinehuon.com' },
+};
+
 // Lazy load des composants non critiques (below the fold) pour améliorer les performances
+const Testimonials = dynamic(() => import('@/components/home/Testimonials'), {
+  loading: () => <div className="min-h-[400px]" />,
+});
+
 const PortfolioPreview = dynamic(() => import('@/components/home/PortfolioPreview'), {
   loading: () => <div className="min-h-[400px]" />, // Placeholder pour éviter le layout shift
 });
@@ -28,6 +37,7 @@ export default function Home() {
       <Hero />
       <Services />
       <About />
+      <Testimonials />
       <PortfolioPreview />
       <ContactForm />
       <FAQPreview />

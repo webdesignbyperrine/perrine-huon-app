@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import { useSound } from '@/hooks/useSound';
-import TypewriterText from '@/components/TypewriterText';
+import TypewriterCarousel from '@/components/TypewriterCarousel';
 
 // Lazy load de l'illustration Lottie (composant lourd) avec placeholder pour éviter le layout shift
 const HeroIllustration = dynamic(() => import('@/components/illustrations/HeroIllustration'), {
@@ -134,7 +134,7 @@ export default function Hero() {
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border-2 border-primary/20 rounded-full mb-6 animate-fade-in-down">
                 <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                 <span className="text-sm font-medium text-primary/70 uppercase tracking-wider">
-                  Création de sites & applications web
+                  Développeuse web freelance — Création de sites internet sur mesure
                 </span>
                   </div>
 
@@ -147,16 +147,24 @@ export default function Hero() {
 
               {/* Sous-titre */}
               <p className="text-xl lg:text-2xl text-primary/60 mb-2 animate-fade-in-up animation-delay-200">
-                Pensé pour être trouvé.
+                Sites internet pensés pour être trouvés sur Google.
                 <br />
-                Conçu pour convertir.
+                Conçus pour convertir vos visiteurs en clients.
               </p>
               
               {/* Phrase manuscrite */}
               <p className="text-2xl lg:text-3xl text-accent mb-6 animate-fade-in-up animation-delay-200" style={{ fontFamily: 'var(--font-caveat)' }}>
-                <TypewriterText 
-                  text="Construisons ensemble votre succès digital."
-                  delay={60}
+                <TypewriterCarousel
+                  texts={[
+                    "Construisons ensemble votre succès digital.",
+                    "Sites web pour PME, professions libérales et associations.",
+                    "De Paris à toute la France, votre site sur mesure.",
+                    "Performance, SEO et design : le trio gagnant.",
+                    "Votre prochain client vous cherche sur Google.",
+                  ]}
+                  typeDelay={50}
+                  deleteDelay={25}
+                  pauseDelay={3000}
                   startDelay={800}
                   showCursor={true}
                 />

@@ -93,16 +93,8 @@ export default function PortfolioPreview() {
 
   return (
     <section className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-paper overflow-hidden">
-      {/* Transition ondulée en haut - depuis section bleue */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none z-20">
-        <svg 
-          className="w-full h-20 lg:h-28" 
-          preserveAspectRatio="none"
-          viewBox="0 0 1600 100"
-        >
-          <path d="M0 0 L0 60 Q 200 30 400 60 T 800 60 T 1200 60 T 1600 60 L1600 0 Z" fill="#2B5B8A"/>
-        </svg>
-      </div>
+      {/* Séparateur subtil en haut - depuis section claire (Testimonials) */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent z-20" />
       
       {/* Fond avec texture */}
       <div className="absolute inset-0 bg-paper-texture opacity-50 z-0" />

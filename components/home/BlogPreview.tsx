@@ -74,7 +74,7 @@ function BlogPreview() {
     {
       id: '1',
       title: 'SEO Local 2026 : Comment dominer les recherches géolocalisées',
-      slug: 'seo-local-referencement-geolocalisé-2026',
+      slug: 'seo-local-referencement-geolocalise-2026',
       excerpt: 'Google My Business, citations locales, avis clients... Le guide complet pour être visible dans votre ville et attirer des clients qualifiés près de chez vous.',
       featured_image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',

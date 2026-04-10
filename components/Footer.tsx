@@ -59,7 +59,7 @@ export default function Footer() {
                 <div className="relative w-16 h-16 lg:w-20 lg:h-20">
                   <Image
                     src="/images/logo_vert_perrine_huon.png"
-                    alt="Perrine Huon - Web Designer & Developer"
+                    alt="Perrine Huon - Création de Sites Internet"
                     fill
                     className={`object-contain ${
                       theme === 'dark' 
@@ -92,7 +92,7 @@ export default function Footer() {
               </p>
               
               <p className={`text-sm uppercase tracking-widest mb-6 ${theme === 'dark' ? 'text-paper/50' : 'text-primary/50'}`}>
-                Web Designer & Developer
+                Développeuse Web Freelance — Création de Sites Internet
               </p>
               
               {/* Mini CTA vers le qualifier */}
@@ -226,6 +226,69 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* ===== Liens services & villes pour SEO ===== */}
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>Services</h4>
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                {[
+                  { name: 'Site Vitrine', href: '/creation-site-vitrine' },
+                  { name: 'Site E-commerce', href: '/creation-site-ecommerce' },
+                  { name: 'Application Web', href: '/creation-application-web' },
+                  { name: 'Landing Page', href: '/creation-landing-page' },
+                  { name: 'Refonte', href: '/refonte-site-web' },
+                  { name: 'SEO Local', href: '/seo-local-referencement-geolocalise' },
+                  { name: 'Maintenance', href: '/maintenance-site-web' },
+                  { name: 'CRM Sur Mesure', href: '/creation-crm-logiciel-gestion' },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className={`text-xs transition-colors ${theme === 'dark' ? 'text-paper/30 hover:text-paper/60' : 'text-primary/30 hover:text-primary/60'}`}>
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>Par Métier</h4>
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                {[
+                  { name: 'Avocats', href: '/site-internet-avocat' },
+                  { name: 'Médecins', href: '/site-internet-medecin' },
+                  { name: 'Restaurants', href: '/site-internet-restaurant' },
+                  { name: 'Experts-Comptables', href: '/site-internet-expert-comptable' },
+                  { name: 'Artisans', href: '/site-internet-artisan-batiment' },
+                  { name: 'Associations', href: '/site-internet-association' },
+                  { name: 'Coiffeurs', href: '/site-internet-salon-coiffure' },
+                  { name: 'Architectes', href: '/site-internet-architecte' },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className={`text-xs transition-colors ${theme === 'dark' ? 'text-paper/30 hover:text-paper/60' : 'text-primary/30 hover:text-primary/60'}`}>
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>Par Ville</h4>
+              <div className="flex flex-wrap gap-x-4 gap-y-1">
+                {[
+                  { name: 'Paris', href: '/creation-site-internet-paris' },
+                  { name: 'Lyon', href: '/creation-site-internet-lyon' },
+                  { name: 'Marseille', href: '/creation-site-internet-marseille' },
+                  { name: 'Bordeaux', href: '/creation-site-internet-bordeaux' },
+                  { name: 'Toulouse', href: '/creation-site-internet-toulouse' },
+                  { name: 'Lille', href: '/creation-site-internet-lille' },
+                  { name: 'Nantes', href: '/creation-site-internet-nantes' },
+                  { name: 'Nice', href: '/creation-site-internet-nice' },
+                ].map((item) => (
+                  <Link key={item.href} href={item.href} className={`text-xs transition-colors ${theme === 'dark' ? 'text-paper/30 hover:text-paper/60' : 'text-primary/30 hover:text-primary/60'}`}>
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* ===== Séparateur ===== */}
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -240,8 +303,9 @@ export default function Footer() {
               {/* Navigation */}
               {[
                 { name: 'Accueil', href: '/' },
-                { name: 'Portfolio', href: '/portfolio' },
+                { name: 'Réalisations', href: '/portfolio' },
                 { name: 'Blog', href: '/blog' },
+                { name: 'Tarifs', href: '/tarifs-creation-site-web' },
                 { name: 'FAQ', href: '/faq' },
                 { name: 'Contact', href: '/#contact' },
               ].map((item, index) => (
@@ -252,7 +316,7 @@ export default function Footer() {
                   >
                     {item.name}
                   </Link>
-                  {index < 4 && <span>•</span>}
+                  {index < 5 && <span>•</span>}
                 </span>
               ))}
               
@@ -262,13 +326,19 @@ export default function Footer() {
               {[
                 'Paris',
                 'Lyon',
-                'Lille',
+                'Marseille',
+                'Toulouse',
                 'Bordeaux',
+                'Lille',
+                'Nantes',
+                'Strasbourg',
+                'Nice',
+                'Montpellier',
                 'France',
               ].map((region, index) => (
                 <span key={region} className="flex items-center gap-4">
                   <span>{region}</span>
-                  {index < 4 && <span>•</span>}
+                  {index < 10 && <span>•</span>}
                 </span>
               ))}
             </div>

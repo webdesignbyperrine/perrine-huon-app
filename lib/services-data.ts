@@ -1,0 +1,816 @@
+export interface ServiceFAQ {
+  question: string;
+  answer: string;
+}
+
+export interface Service {
+  slug: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  heroSubtitle: string;
+  content: string;
+  features: string[];
+  faqs: ServiceFAQ[];
+  priceRange: string;
+  ctaText: string;
+}
+
+export const services: Service[] = [
+  {
+    slug: 'creation-site-vitrine',
+    title: 'Création de Site Vitrine Sur Mesure',
+    metaTitle: 'Création de Site Vitrine Sur Mesure | Perrine Huon - Web Designer Freelance',
+    metaDescription: 'Création de site vitrine professionnel et sur mesure pour artisans, PME et indépendants. Design moderne, SEO optimisé, responsive. Devis gratuit.',
+    heroSubtitle: 'Un site qui reflète votre identité et attire vos clients idéaux',
+    priceRange: 'À partir de 1 500€',
+    ctaText: 'Demander un devis pour mon site vitrine',
+    features: [
+      'Design sur mesure adapté à votre identité visuelle',
+      'Responsive : parfait sur mobile, tablette et desktop',
+      'Optimisation SEO intégrée dès la conception',
+      'Temps de chargement ultra-rapide',
+      'Formulaire de contact et appels à l\'action stratégiques',
+      'Formation à la prise en main de votre site',
+      'Hébergement et nom de domaine accompagnés',
+      'Conformité RGPD et mentions légales',
+    ],
+    faqs: [
+      {
+        question: 'Combien de temps faut-il pour créer un site vitrine ?',
+        answer: 'En moyenne, la création d\'un site vitrine sur mesure prend entre 3 et 6 semaines. Ce délai inclut la phase de conception graphique, le développement, l\'intégration de vos contenus et les ajustements après vos retours. Les délais exacts dépendent de la complexité du projet et de votre réactivité sur les validations.',
+      },
+      {
+        question: 'Mon site sera-t-il visible sur Google ?',
+        answer: 'Oui, chaque site vitrine est conçu avec une optimisation SEO technique dès le départ : balises meta, structure sémantique, temps de chargement optimisé, sitemap XML et données structurées. Je vous accompagne également sur le choix des mots-clés et la rédaction de contenus optimisés pour le référencement naturel.',
+      },
+      {
+        question: 'Puis-je modifier le contenu moi-même après la livraison ?',
+        answer: 'Absolument. Selon la technologie choisie, vous disposerez d\'une interface d\'administration intuitive pour modifier vos textes, images et ajouter de nouvelles pages. Une formation complète est incluse à la livraison du site pour vous rendre autonome.',
+      },
+      {
+        question: 'Quelles technologies utilisez-vous pour un site vitrine ?',
+        answer: 'Je travaille principalement avec Next.js et React pour des performances optimales, ou WordPress pour les clients souhaitant une gestion de contenu simplifiée. Le choix technologique dépend de vos besoins, de votre budget et de vos objectifs de croissance.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi créer un site vitrine professionnel ?</h2>
+      <p>Votre site vitrine est la première impression que vos clients potentiels ont de votre activité. Dans un monde où <strong>97% des consommateurs recherchent des entreprises locales en ligne</strong>, un site web professionnel n'est plus une option — c'est une nécessité. Un site vitrine sur mesure vous permet de vous démarquer de la concurrence, de renforcer votre crédibilité et de convertir vos visiteurs en clients.</p>
+      <p>Contrairement aux solutions de création de sites standardisées, un site vitrine conçu par un web designer freelance vous garantit un résultat unique, pensé spécifiquement pour votre activité, votre cible et vos objectifs commerciaux.</p>
+
+      <h2>Mon approche de la création de site vitrine</h2>
+      <p>Je ne crée pas simplement de beaux sites — je conçois des <strong>outils de croissance digitale</strong>. Ma méthode s'appuie sur trois piliers fondamentaux :</p>
+      <ul>
+        <li><strong>L'écoute et la compréhension</strong> : avant de toucher au design, je prends le temps de comprendre votre activité, votre clientèle cible et vos objectifs. Chaque élément du site a une raison d'être.</li>
+        <li><strong>Le design stratégique</strong> : chaque page est structurée pour guider le visiteur vers l'action souhaitée — prise de contact, demande de devis ou visite en boutique.</li>
+        <li><strong>La performance technique</strong> : un site rapide, sécurisé et optimisé pour les moteurs de recherche est la base d'une présence en ligne efficace.</li>
+      </ul>
+
+      <h3>Les étapes de création de votre site vitrine</h3>
+      <p>Mon processus de création est transparent et structuré pour vous offrir une expérience sereine :</p>
+      <ul>
+        <li><strong>Brief et cadrage</strong> — Nous définissons ensemble vos besoins, votre identité visuelle et la structure du site.</li>
+        <li><strong>Maquettage et design</strong> — Je crée des maquettes haute-fidélité que vous validez avant le développement.</li>
+        <li><strong>Développement et intégration</strong> — Votre site prend vie avec un code propre et des technologies modernes.</li>
+        <li><strong>Tests et optimisation</strong> — Je vérifie chaque détail : responsive, vitesse, SEO, accessibilité.</li>
+        <li><strong>Mise en ligne et formation</strong> — Votre site est lancé et je vous forme à sa gestion au quotidien.</li>
+      </ul>
+
+      <h2>Un site vitrine pensé pour le référencement naturel</h2>
+      <p>Chaque site que je crée intègre les <strong>meilleures pratiques SEO</strong> pour maximiser votre visibilité sur Google. Cela inclut une architecture sémantique soignée, des balises meta optimisées, un maillage interne intelligent et des temps de chargement minimaux grâce aux technologies modernes comme Next.js.</p>
+      <p>Résultat : votre site ne sera pas seulement beau, il sera trouvé par les bonnes personnes au bon moment.</p>
+
+      <h2>Technologies utilisées</h2>
+      <p>Selon vos besoins et votre budget, je travaille avec des technologies éprouvées :</p>
+      <ul>
+        <li><strong>Next.js / React</strong> — Pour des sites ultra-performants avec un score Lighthouse proche de 100.</li>
+        <li><strong>WordPress</strong> — Pour une gestion de contenu autonome et accessible.</li>
+        <li><strong>Tailwind CSS</strong> — Un design pixel-perfect et cohérent sur tous les écrans.</li>
+        <li><strong>Vercel / OVH</strong> — Hébergement fiable et rapide adapté à vos besoins.</li>
+      </ul>
+
+      <h2>Pourquoi choisir Perrine Huon pour votre site vitrine ?</h2>
+      <p>En tant que <strong>web designer freelance</strong>, je vous offre un accompagnement personnalisé de A à Z. Pas d'intermédiaire, pas de surprise : vous travaillez directement avec la personne qui conçoit et développe votre site. Je suis investie dans la réussite de chaque projet et disponible pour répondre à toutes vos questions, même après la livraison.</p>
+      <p>Mon objectif ? Que votre site vitrine devienne votre <strong>meilleur commercial</strong> — celui qui travaille 24h/24, 7j/7 pour attirer et convertir vos prospects.</p>
+    `,
+  },
+  {
+    slug: 'creation-site-ecommerce',
+    title: 'Création de Site E-commerce',
+    metaTitle: 'Création de Site E-commerce Sur Mesure | Perrine Huon - Développeuse Web',
+    metaDescription: 'Développement de boutique en ligne performante et sécurisée. Paiement en ligne, gestion des stocks, SEO e-commerce. Accompagnement complet.',
+    heroSubtitle: 'Vendez en ligne avec une boutique qui convertit',
+    priceRange: 'À partir de 3 000€',
+    ctaText: 'Lancer mon projet e-commerce',
+    features: [
+      'Catalogue produits avec filtres et recherche avancée',
+      'Paiement sécurisé (Stripe, PayPal, carte bancaire)',
+      'Gestion des stocks et commandes simplifiée',
+      'Design responsive optimisé pour la conversion',
+      'SEO e-commerce avec données structurées produits',
+      'Intégration transporteurs et suivi de livraison',
+      'Tableau de bord analytique des ventes',
+      'Conformité RGPD et sécurité renforcée',
+    ],
+    faqs: [
+      {
+        question: 'Quelles solutions de paiement intégrez-vous ?',
+        answer: 'J\'intègre les principales solutions de paiement sécurisé : Stripe, PayPal, et les paiements par carte bancaire via des passerelles certifiées PCI-DSS. Les transactions sont sécurisées par chiffrement SSL et 3D Secure pour protéger vos clients et inspirer confiance.',
+      },
+      {
+        question: 'Puis-je gérer ma boutique en ligne de manière autonome ?',
+        answer: 'Oui, votre boutique sera livrée avec un back-office intuitif pour gérer vos produits, commandes, stocks et promotions. Je vous fournis une formation complète et une documentation sur mesure pour vous rendre totalement autonome dans la gestion quotidienne de votre e-commerce.',
+      },
+      {
+        question: 'Combien coûte un site e-commerce sur mesure ?',
+        answer: 'Le prix dépend de la complexité du projet : nombre de produits, fonctionnalités spécifiques (abonnements, marketplace, configurateur), intégrations nécessaires. Un projet e-commerce démarre à partir de 3 000€. Je vous propose un devis détaillé et transparent après étude de vos besoins.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi investir dans un site e-commerce sur mesure ?</h2>
+      <p>Le e-commerce français ne cesse de croître avec <strong>plus de 42 millions d'acheteurs en ligne</strong>. Que vous vendiez des produits artisanaux, des services ou des créations uniques, une boutique en ligne professionnelle est le levier de croissance le plus puissant à votre disposition.</p>
+      <p>Un site e-commerce sur mesure, contrairement aux solutions clé-en-main standardisées, s'adapte parfaitement à votre catalogue, votre processus de vente et l'expérience que vous souhaitez offrir à vos clients.</p>
+
+      <h2>Une boutique en ligne pensée pour la conversion</h2>
+      <p>Chaque élément de votre site e-commerce est optimisé pour transformer les visiteurs en acheteurs :</p>
+      <ul>
+        <li><strong>Fiches produits persuasives</strong> — Des pages structurées avec photos HD, descriptions détaillées, avis clients et suggestions croisées.</li>
+        <li><strong>Parcours d'achat simplifié</strong> — Un tunnel de conversion fluide avec un minimum d'étapes entre la découverte et le paiement.</li>
+        <li><strong>Confiance et réassurance</strong> — Badges de sécurité, politique de retour claire, avis vérifiés et paiement sécurisé mis en avant.</li>
+        <li><strong>Performance mobile</strong> — Plus de 60% des achats en ligne se font sur smartphone. Votre boutique sera parfaite sur tous les écrans.</li>
+      </ul>
+
+      <h3>Fonctionnalités e-commerce avancées</h3>
+      <p>Selon vos besoins, votre boutique peut inclure :</p>
+      <ul>
+        <li>Gestion multi-variantes (tailles, couleurs, options)</li>
+        <li>Codes promotionnels et ventes flash</li>
+        <li>Programme de fidélité et comptes clients</li>
+        <li>Click & Collect pour les commerces physiques</li>
+        <li>Export comptable automatisé</li>
+        <li>Intégration avec vos outils existants (CRM, ERP, logistique)</li>
+      </ul>
+
+      <h2>SEO e-commerce : soyez visible sur Google Shopping</h2>
+      <p>Un site e-commerce bien référencé attire des clients qualifiés en continu. J'optimise chaque fiche produit avec des <strong>données structurées Schema.org</strong> (prix, disponibilité, avis) pour apparaître dans les résultats enrichis de Google et Google Shopping.</p>
+      <p>La structure technique du site, le maillage entre catégories et produits, et les contenus optimisés vous assurent une visibilité durable sur les requêtes commerciales de votre secteur.</p>
+
+      <h2>Technologies e-commerce de pointe</h2>
+      <p>Je choisis la stack technique la plus adaptée à votre projet :</p>
+      <ul>
+        <li><strong>Next.js + Stripe</strong> — Pour une boutique ultra-rapide avec un paiement fluide et sécurisé.</li>
+        <li><strong>WooCommerce (WordPress)</strong> — Solution mature avec un vaste écosystème de plugins.</li>
+        <li><strong>Shopify</strong> — Pour les projets nécessitant une mise en ligne rapide avec un hébergement intégré.</li>
+        <li><strong>Headless Commerce</strong> — Architecture découplée pour les projets ambitieux combinant performance et flexibilité.</li>
+      </ul>
+
+      <h2>Pourquoi me confier votre projet e-commerce ?</h2>
+      <p>En tant que développeuse web freelance spécialisée, je ne me contente pas de construire une boutique en ligne — je crée un <strong>outil de vente performant</strong>. Mon accompagnement inclut le conseil stratégique sur votre catalogue, l'optimisation des parcours utilisateurs et un suivi post-lancement pour analyser vos premières ventes et ajuster si nécessaire.</p>
+      <p>Votre succès est mon succès : je m'investis personnellement dans chaque projet pour vous offrir une boutique qui génère des résultats concrets.</p>
+    `,
+  },
+  {
+    slug: 'creation-application-web',
+    title: 'Développement d\'Application Web Sur Mesure',
+    metaTitle: 'Développement d\'Application Web Sur Mesure | Perrine Huon - Développeuse Freelance',
+    metaDescription: 'Création d\'applications web sur mesure pour digitaliser vos processus métier. React, Next.js, bases de données. Solution adaptée à vos besoins.',
+    heroSubtitle: 'Digitalisez votre activité avec une application taillée pour vous',
+    priceRange: 'À partir de 5 000€',
+    ctaText: 'Discuter de mon projet d\'application',
+    features: [
+      'Analyse fonctionnelle et conception UX approfondie',
+      'Architecture technique scalable et maintenable',
+      'Interface utilisateur intuitive et moderne',
+      'API sécurisée et base de données performante',
+      'Authentification et gestion des rôles utilisateurs',
+      'Tests automatisés et déploiement continu',
+      'Documentation technique et formation équipe',
+    ],
+    faqs: [
+      {
+        question: 'Quelle est la différence entre un site web et une application web ?',
+        answer: 'Un site web présente de l\'information de manière statique ou semi-dynamique. Une application web permet aux utilisateurs d\'interagir, de créer, modifier et gérer des données. Exemples d\'applications web : outil de gestion de projet, plateforme de réservation, CRM, tableau de bord analytique. Si vos utilisateurs doivent se connecter et effectuer des actions, vous avez besoin d\'une application web.',
+      },
+      {
+        question: 'Combien de temps prend le développement d\'une application web ?',
+        answer: 'La durée varie selon la complexité. Un MVP (produit minimum viable) peut être livré en 2 à 3 mois. Une application complète avec fonctionnalités avancées nécessite 4 à 8 mois. Je recommande toujours une approche itérative : livrer un MVP fonctionnel rapidement, puis enrichir les fonctionnalités selon les retours utilisateurs.',
+      },
+      {
+        question: 'Quelles technologies utilisez-vous pour les applications web ?',
+        answer: 'Je développe principalement avec React et Next.js pour le front-end, Node.js pour le back-end, et Supabase ou PostgreSQL pour la base de données. Cette stack moderne garantit des performances excellentes, une maintenance facilitée et une évolutivité optimale pour accompagner la croissance de votre activité.',
+      },
+      {
+        question: 'Assurez-vous la maintenance après le lancement ?',
+        answer: 'Oui, je propose des contrats de maintenance incluant les mises à jour de sécurité, les corrections de bugs, les évolutions fonctionnelles et le monitoring des performances. Vous pouvez aussi opter pour un accompagnement ponctuel selon vos besoins.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi développer une application web sur mesure ?</h2>
+      <p>Les outils génériques ne répondent jamais parfaitement à vos besoins métier. Une <strong>application web sur mesure</strong> est conçue spécifiquement pour votre activité : elle automatise vos processus, centralise vos données et offre à vos équipes et clients une expérience fluide et efficace.</p>
+      <p>Que vous soyez une PME souhaitant digitaliser sa gestion interne, un professionnel libéral ayant besoin d'un espace client, ou une association cherchant à gérer ses adhérents — le développement sur mesure est la solution pérenne.</p>
+
+      <h2>Mon processus de développement</h2>
+      <p>Créer une application web performante demande méthode et rigueur. Voici mon approche :</p>
+      <ul>
+        <li><strong>Phase de découverte</strong> — J'analyse en profondeur vos processus actuels, vos pain points et vos objectifs pour définir le périmètre fonctionnel de l'application.</li>
+        <li><strong>Conception UX/UI</strong> — Wireframes, prototypes interactifs et design final sont validés avant d'écrire la moindre ligne de code.</li>
+        <li><strong>Développement itératif</strong> — Le développement se fait en sprints courts, avec des démos régulières pour valider l'avancement et ajuster les priorités.</li>
+        <li><strong>Tests et qualité</strong> — Tests unitaires, tests d'intégration et tests utilisateurs garantissent la fiabilité de l'application.</li>
+        <li><strong>Déploiement et formation</strong> — Mise en production sécurisée, documentation et formation de vos équipes.</li>
+      </ul>
+
+      <h3>Cas d'usage courants</h3>
+      <p>Voici des exemples d'applications web que j'ai développées ou que je peux créer pour vous :</p>
+      <ul>
+        <li>Plateforme de réservation en ligne avec gestion de planning</li>
+        <li>Tableau de bord de suivi d'activité avec indicateurs clés</li>
+        <li>Espace client sécurisé avec gestion documentaire</li>
+        <li>Outil de gestion de projet collaboratif</li>
+        <li>Système de gestion de stock et facturation</li>
+        <li>Portail intranet pour équipes distribuées</li>
+      </ul>
+
+      <h2>Stack technique moderne et éprouvée</h2>
+      <p>Je m'appuie sur un écosystème technologique robuste et performant :</p>
+      <ul>
+        <li><strong>React / Next.js</strong> — Interface utilisateur réactive et performante avec rendu serveur.</li>
+        <li><strong>TypeScript</strong> — Code typé pour une meilleure maintenabilité et moins de bugs.</li>
+        <li><strong>Supabase / PostgreSQL</strong> — Base de données relationnelle puissante avec authentification intégrée.</li>
+        <li><strong>Vercel</strong> — Déploiement automatisé avec scaling automatique.</li>
+        <li><strong>Tailwind CSS</strong> — Interfaces cohérentes et responsive en un temps record.</li>
+      </ul>
+
+      <h2>Sécurité et performances</h2>
+      <p>La sécurité n'est jamais une option. Chaque application que je développe intègre les bonnes pratiques de sécurité : <strong>authentification robuste</strong>, chiffrement des données sensibles, protection contre les injections SQL et XSS, gestion fine des permissions utilisateurs et conformité RGPD.</p>
+      <p>Côté performances, l'architecture est pensée pour supporter la montée en charge : mise en cache intelligente, optimisation des requêtes et infrastructure cloud scalable.</p>
+
+      <h2>Un accompagnement de bout en bout</h2>
+      <p>Mon rôle ne s'arrête pas à la livraison du code. Je vous accompagne dans la <strong>réflexion stratégique</strong>, le choix des fonctionnalités prioritaires et l'évolution de votre application dans le temps. Un projet digital réussi est un projet qui grandit avec votre activité.</p>
+    `,
+  },
+  {
+    slug: 'creation-landing-page',
+    title: 'Création de Landing Page Optimisée',
+    metaTitle: 'Création de Landing Page Optimisée | Perrine Huon - Conversion & Web Design',
+    metaDescription: 'Landing page professionnelle optimisée pour la conversion. Design persuasif, temps de chargement minimal, A/B testing. Idéale pour vos campagnes.',
+    heroSubtitle: 'Convertissez vos visiteurs en clients avec une page qui performe',
+    priceRange: 'À partir de 800€',
+    ctaText: 'Créer ma landing page',
+    features: [
+      'Design persuasif centré sur la conversion',
+      'Copywriting orienté bénéfices clients',
+      'Temps de chargement inférieur à 1 seconde',
+      'Formulaires optimisés et intégrations CRM',
+      'Version mobile-first parfaitement responsive',
+      'Tracking et analytics de conversion intégrés',
+      'Compatible avec vos campagnes Google Ads et Meta',
+    ],
+    faqs: [
+      {
+        question: 'Quelle est la différence entre un site vitrine et une landing page ?',
+        answer: 'Un site vitrine présente l\'ensemble de votre activité sur plusieurs pages. Une landing page est une page unique avec un seul objectif de conversion (prise de contact, inscription, téléchargement, achat). Elle est conçue pour des campagnes marketing ciblées et offre un taux de conversion bien supérieur à une page classique grâce à son focus sur une seule action.',
+      },
+      {
+        question: 'En combien de temps une landing page est-elle prête ?',
+        answer: 'Une landing page peut être conçue et mise en ligne en 1 à 2 semaines. Ce délai inclut la rédaction du contenu persuasif, le design, le développement, l\'intégration des outils de tracking et les tests sur tous les appareils.',
+      },
+      {
+        question: 'Proposez-vous l\'A/B testing ?',
+        answer: 'Oui, je peux mettre en place des variantes de votre landing page pour tester différents titres, visuels ou appels à l\'action. L\'A/B testing permet d\'identifier objectivement ce qui fonctionne le mieux et d\'améliorer continuellement votre taux de conversion.',
+      },
+    ],
+    content: `
+      <h2>Qu'est-ce qu'une landing page et pourquoi en avez-vous besoin ?</h2>
+      <p>Une landing page — ou page d'atterrissage — est une page web <strong>conçue avec un seul objectif</strong> : convertir vos visiteurs en prospects ou clients. Contrairement à un site classique où le visiteur peut naviguer librement, la landing page canalise toute l'attention vers une action précise.</p>
+      <p>Vous lancez une campagne publicitaire ? Vous proposez un nouveau service ? Vous organisez un événement ? La landing page est l'outil idéal pour maximiser le retour sur investissement de vos actions marketing.</p>
+
+      <h2>Les secrets d'une landing page qui convertit</h2>
+      <p>Créer une landing page efficace est un art qui combine <strong>design, psychologie et technique</strong>. Voici les éléments clés que j'intègre dans chaque création :</p>
+      <ul>
+        <li><strong>Un titre accrocheur</strong> — La promesse de valeur doit être immédiatement comprise en moins de 5 secondes.</li>
+        <li><strong>Une proposition de valeur claire</strong> — Le visiteur doit comprendre ce que vous offrez et pourquoi c'est la meilleure option.</li>
+        <li><strong>La preuve sociale</strong> — Témoignages, logos clients, chiffres clés pour établir la confiance.</li>
+        <li><strong>Un appel à l'action irrésistible</strong> — Bouton visible, texte engageant, friction minimale.</li>
+        <li><strong>La suppression des distractions</strong> — Pas de menu de navigation, pas de liens sortants, focus total sur la conversion.</li>
+      </ul>
+
+      <h3>Optimisation pour vos campagnes publicitaires</h3>
+      <p>Chaque landing page est conçue pour maximiser le <strong>Quality Score</strong> de vos campagnes Google Ads et le score de pertinence de vos publicités Meta (Facebook, Instagram). Cela signifie :</p>
+      <ul>
+        <li>Cohérence parfaite entre l'annonce et le contenu de la page</li>
+        <li>Temps de chargement ultra-rapide (< 1 seconde)</li>
+        <li>Expérience mobile irréprochable</li>
+        <li>Suivi des conversions avec Google Tag Manager et le Pixel Meta</li>
+      </ul>
+
+      <h2>Mon processus de création</h2>
+      <p>La création d'une landing page efficace suit un processus rigoureux :</p>
+      <ul>
+        <li><strong>Analyse de votre offre et de votre cible</strong> — Comprendre les motivations et objections de vos prospects.</li>
+        <li><strong>Rédaction persuasive</strong> — Un copywriting structuré selon la méthode AIDA (Attention, Intérêt, Désir, Action).</li>
+        <li><strong>Design conversion-first</strong> — Chaque pixel est au service de l'objectif de conversion.</li>
+        <li><strong>Développement performant</strong> — Code optimisé pour un chargement instantané.</li>
+        <li><strong>Mise en place du tracking</strong> — Analytics, heatmaps et suivi des conversions pour mesurer les résultats.</li>
+      </ul>
+
+      <h2>Résultats mesurables</h2>
+      <p>Une landing page bien conçue peut atteindre des <strong>taux de conversion de 5 à 15%</strong>, contre 1 à 3% pour une page web classique. Je vous fournis un tableau de bord clair pour suivre les performances : nombre de visiteurs, taux de conversion, coût par lead et retour sur investissement.</p>
+
+      <h2>Pourquoi me choisir pour votre landing page ?</h2>
+      <p>Mon approche combine compétences techniques de développement et sensibilité marketing. Je ne crée pas seulement de belles pages — je crée des <strong>machines à convertir</strong>. Chaque élément est testé, optimisé et pensé pour maximiser vos résultats commerciaux.</p>
+    `,
+  },
+  {
+    slug: 'refonte-site-web',
+    title: 'Refonte de Site Web',
+    metaTitle: 'Refonte de Site Web Professionnelle | Perrine Huon - Web Designer Freelance',
+    metaDescription: 'Refonte complète de votre site web : design moderne, performances améliorées, SEO renforcé. Gardez votre référencement, gagnez en efficacité.',
+    heroSubtitle: 'Donnez une nouvelle vie à votre site sans perdre votre référencement',
+    priceRange: 'À partir de 2 000€',
+    ctaText: 'Planifier la refonte de mon site',
+    features: [
+      'Audit complet de votre site existant (UX, SEO, performances)',
+      'Redesign moderne aligné sur vos objectifs actuels',
+      'Migration SEO sans perte de positionnement',
+      'Amélioration des performances et temps de chargement',
+      'Adaptation responsive pour tous les appareils',
+      'Optimisation du parcours utilisateur et de la conversion',
+      'Redirection 301 et plan de migration complet',
+      'Formation et documentation de prise en main',
+    ],
+    faqs: [
+      {
+        question: 'Vais-je perdre mon référencement Google lors de la refonte ?',
+        answer: 'Non, si la refonte est menée correctement. J\'établis un plan de migration SEO détaillé avec des redirections 301 pour chaque URL modifiée, la conservation de vos balises meta optimisées, et la soumission du nouveau sitemap à Google Search Console. L\'objectif est de préserver, voire améliorer, votre positionnement actuel.',
+      },
+      {
+        question: 'Quand faut-il envisager une refonte de site web ?',
+        answer: 'Plusieurs signes indiquent qu\'une refonte est nécessaire : votre site a plus de 3-4 ans, il n\'est pas responsive, les temps de chargement sont lents, votre taux de rebond est élevé, le design ne reflète plus votre image, ou vous souhaitez ajouter des fonctionnalités impossibles avec votre technologie actuelle.',
+      },
+      {
+        question: 'Puis-je garder mon contenu actuel ?',
+        answer: 'Oui, le contenu existant peut être conservé, retravaillé ou enrichi selon les besoins. Je réalise un audit de contenu pour identifier ce qui fonctionne bien et ce qui mérite d\'être amélioré. C\'est aussi l\'occasion d\'optimiser vos textes pour le SEO et d\'ajouter du contenu stratégique.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi refondre votre site web ?</h2>
+      <p>Un site web vieillissant peut freiner considérablement votre activité. <strong>Les internautes jugent la crédibilité d'une entreprise en moins de 50 millisecondes</strong> en regardant son site. Un design daté, des temps de chargement lents ou une navigation confuse envoient un signal négatif à vos visiteurs — et à Google.</p>
+      <p>La refonte de votre site est l'opportunité de repartir sur des bases solides : un design actuel, des performances optimales et une stratégie digitale alignée avec vos objectifs de croissance.</p>
+
+      <h2>Mon approche de la refonte</h2>
+      <p>Une refonte réussie commence par un <strong>audit approfondi</strong> de l'existant. Avant de proposer des solutions, j'analyse en détail :</p>
+      <ul>
+        <li><strong>L'analyse des performances</strong> — Temps de chargement, Core Web Vitals, score Lighthouse.</li>
+        <li><strong>L'audit SEO</strong> — Positionnement actuel, backlinks, structure technique, opportunités manquées.</li>
+        <li><strong>L'analyse UX</strong> — Parcours utilisateurs, taux de rebond, pages de sortie, heatmaps si disponibles.</li>
+        <li><strong>L'audit de contenu</strong> — Pages performantes à conserver, contenus à optimiser, lacunes à combler.</li>
+      </ul>
+
+      <h3>Migration SEO : zéro perte de visibilité</h3>
+      <p>Le point critique d'une refonte est la <strong>préservation de votre référencement</strong>. Mon plan de migration inclut :</p>
+      <ul>
+        <li>Cartographie complète des URLs existantes</li>
+        <li>Redirections 301 pour chaque page modifiée ou supprimée</li>
+        <li>Conservation des balises meta et données structurées optimisées</li>
+        <li>Soumission du nouveau sitemap à Google Search Console</li>
+        <li>Monitoring post-migration pendant 3 mois</li>
+      </ul>
+
+      <h2>Un nouveau design au service de vos objectifs</h2>
+      <p>La refonte est l'occasion de repenser l'expérience de vos visiteurs. Je conçois un design qui :</p>
+      <ul>
+        <li>Reflète votre image de marque actuelle et vos valeurs</li>
+        <li>Guide naturellement vers les actions que vous souhaitez (contact, achat, inscription)</li>
+        <li>Offre une navigation intuitive sur tous les appareils</li>
+        <li>Intègre les dernières tendances UX/UI tout en restant intemporel</li>
+      </ul>
+
+      <h2>Performances et technologies modernes</h2>
+      <p>Votre site refait bénéficiera des dernières avancées technologiques : <strong>Next.js</strong> pour des temps de chargement éclair, <strong>images optimisées</strong> au format WebP/AVIF, <strong>lazy loading</strong> intelligent et mise en cache stratégique. Résultat : un site qui obtient d'excellents scores Core Web Vitals et ravit aussi bien vos visiteurs que Google.</p>
+
+      <h2>Pourquoi choisir Perrine Huon pour votre refonte ?</h2>
+      <p>Une refonte mal exécutée peut faire perdre des mois de référencement et des clients. En faisant appel à une <strong>professionnelle expérimentée</strong>, vous avez l'assurance d'une transition en douceur, d'un résultat à la hauteur de vos ambitions et d'un accompagnement à chaque étape du processus.</p>
+    `,
+  },
+  {
+    slug: 'seo-local-referencement-geolocalise',
+    title: 'SEO Local & Référencement Géolocalisé',
+    metaTitle: 'SEO Local & Référencement Géolocalisé | Perrine Huon - Experte SEO',
+    metaDescription: 'Boostez votre visibilité locale sur Google. Optimisation Google Business Profile, SEO local, stratégie de mots-clés géolocalisés pour artisans et PME.',
+    heroSubtitle: 'Soyez trouvé par les clients de votre zone géographique',
+    priceRange: 'À partir de 600€/mois',
+    ctaText: 'Booster ma visibilité locale',
+    features: [
+      'Audit et optimisation Google Business Profile',
+      'Stratégie de mots-clés géolocalisés',
+      'Création de pages locales optimisées',
+      'Gestion des avis clients et e-réputation',
+      'Citations NAP cohérentes sur les annuaires',
+      'Données structurées LocalBusiness',
+      'Reporting mensuel de positionnement local',
+    ],
+    faqs: [
+      {
+        question: 'Qu\'est-ce que le SEO local et pourquoi est-ce important ?',
+        answer: 'Le SEO local optimise votre visibilité pour les recherches géolocalisées (ex: "boulangerie Bordeaux", "plombier près de chez moi"). 46% des recherches Google ont une intention locale et 76% des personnes qui effectuent une recherche locale visitent un commerce dans les 24h. C\'est donc essentiel pour les entreprises ayant une zone de chalandise géographique.',
+      },
+      {
+        question: 'En combien de temps voit-on des résultats en SEO local ?',
+        answer: 'Les premiers résultats sont généralement visibles en 2 à 4 mois. L\'optimisation de votre fiche Google Business Profile peut donner des résultats rapides (quelques semaines), tandis que le positionnement organique local demande plus de temps. Le SEO est un investissement à long terme avec des résultats cumulatifs.',
+      },
+      {
+        question: 'Travaillez-vous avec des entreprises multi-sites ?',
+        answer: 'Oui, je gère le SEO local pour des entreprises avec plusieurs établissements. Chaque point de vente bénéficie de sa propre fiche Google Business Profile, de pages locales dédiées et d\'une stratégie de mots-clés adaptée à sa zone géographique.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi le SEO local est essentiel pour votre activité ?</h2>
+      <p>Saviez-vous que <strong>46% de toutes les recherches Google ont une intention locale</strong> ? Quand un client potentiel cherche "coiffeur à Lyon", "restaurant italien Bordeaux" ou "plombier près de chez moi", il est prêt à acheter. Le SEO local vous place exactement là où ces clients vous cherchent.</p>
+      <p>Pour les artisans, commerçants, professions libérales et PME, le référencement local est souvent le levier marketing le plus rentable. Il cible des prospects qualifiés, dans votre zone de chalandise, au moment précis où ils ont besoin de vos services.</p>
+
+      <h2>Ma stratégie de référencement local</h2>
+      <p>Le SEO local repose sur trois piliers que j'optimise en synergie :</p>
+
+      <h3>1. Google Business Profile (ex-Google My Business)</h3>
+      <p>Votre fiche Google Business Profile est souvent le premier point de contact avec vos clients. J'optimise chaque aspect :</p>
+      <ul>
+        <li>Informations complètes et à jour (horaires, services, zone de service)</li>
+        <li>Photos professionnelles et Google Posts réguliers</li>
+        <li>Catégorisation précise et attributs pertinents</li>
+        <li>Stratégie de réponse aux avis clients</li>
+        <li>Q&A proactif pour anticiper les questions fréquentes</li>
+      </ul>
+
+      <h3>2. SEO on-page géolocalisé</h3>
+      <p>Votre site web doit envoyer les bons signaux à Google pour le référencement local :</p>
+      <ul>
+        <li>Pages de service par ville ou zone géographique</li>
+        <li>Balises title et meta description avec ciblage géographique</li>
+        <li>Données structurées LocalBusiness et Service</li>
+        <li>Contenu localisé authentique (pas de texte générique dupliqué)</li>
+        <li>Maillage interne entre vos pages locales</li>
+      </ul>
+
+      <h3>3. Citations et autorité locale</h3>
+      <p>La cohérence de vos informations sur le web renforce votre crédibilité :</p>
+      <ul>
+        <li>Inscription sur les annuaires locaux pertinents (PagesJaunes, Yelp, TripAdvisor...)</li>
+        <li>Cohérence NAP (Nom, Adresse, Téléphone) partout sur le web</li>
+        <li>Backlinks locaux de qualité (partenaires, associations, presse locale)</li>
+        <li>Présence sur les réseaux sociaux avec géolocalisation</li>
+      </ul>
+
+      <h2>Suivi et reporting transparent</h2>
+      <p>Chaque mois, je vous transmets un rapport clair et visuel incluant : l'évolution de votre positionnement sur vos mots-clés cibles, le trafic organique local, les actions réalisées sur votre fiche Google et les performances de vos pages locales. Vous savez exactement où vous en êtes et où nous allons.</p>
+
+      <h2>Pourquoi choisir Perrine Huon pour votre SEO local ?</h2>
+      <p>Le SEO local demande à la fois des <strong>compétences techniques</strong> (données structurées, audit technique) et une <strong>approche marketing terrain</strong> (connaissance du marché local, stratégie de contenu géolocalisé). Mon double profil technique et marketing me permet d'offrir une prestation complète et efficace, adaptée aux réalités des entreprises locales.</p>
+    `,
+  },
+  {
+    slug: 'maintenance-site-web',
+    title: 'Maintenance de Site Web',
+    metaTitle: 'Maintenance de Site Web | Perrine Huon - Sécurité, Mises à Jour & Support',
+    metaDescription: 'Service de maintenance de site web professionnel : mises à jour, sécurité, sauvegardes, monitoring. Gardez votre site performant et sécurisé.',
+    heroSubtitle: 'Un site performant et sécurisé, sans vous en soucier',
+    priceRange: 'À partir de 80€/mois',
+    ctaText: 'Souscrire à la maintenance',
+    features: [
+      'Mises à jour régulières (CMS, plugins, dépendances)',
+      'Sauvegardes automatiques quotidiennes',
+      'Monitoring 24/7 avec alertes en temps réel',
+      'Corrections de bugs et interventions rapides',
+      'Rapports mensuels de performance et sécurité',
+      'Optimisation continue des temps de chargement',
+      'Support technique réactif par email',
+    ],
+    faqs: [
+      {
+        question: 'Pourquoi la maintenance d\'un site web est-elle indispensable ?',
+        answer: 'Un site web sans maintenance est vulnérable aux failles de sécurité, aux pannes et à la dégradation des performances. Les mises à jour régulières corrigent les vulnérabilités connues, les sauvegardes protègent vos données, et le monitoring permet d\'intervenir avant qu\'un problème n\'impacte vos visiteurs. C\'est un investissement bien moindre que la résolution d\'une crise.',
+      },
+      {
+        question: 'Que comprend exactement un contrat de maintenance ?',
+        answer: 'Mon contrat de maintenance inclut : les mises à jour techniques (CMS, plugins, dépendances), les sauvegardes quotidiennes, le monitoring de disponibilité 24/7, les corrections de bugs, un rapport mensuel de performance, et un crédit d\'heures pour les modifications mineures. Plusieurs formules sont disponibles selon vos besoins.',
+      },
+      {
+        question: 'Intervenez-vous en urgence en cas de panne ?',
+        answer: 'Oui, les clients en contrat de maintenance bénéficient d\'une intervention prioritaire. En cas de panne critique, je m\'engage à intervenir dans les 4 heures ouvrées. Pour les incidents non critiques, le délai d\'intervention est de 24 à 48 heures ouvrées.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi la maintenance de votre site web est cruciale</h2>
+      <p>Votre site web est un actif stratégique qui nécessite un entretien régulier. <strong>30 000 sites web sont piratés chaque jour</strong> dans le monde, et la majorité d'entre eux n'étaient pas à jour. Sans maintenance, votre site est exposé aux failles de sécurité, aux temps de chargement dégradés et aux bugs qui font fuir vos visiteurs.</p>
+      <p>Un contrat de maintenance vous offre la <strong>sérénité</strong> : votre site reste performant, sécurisé et à jour pendant que vous vous concentrez sur votre activité.</p>
+
+      <h2>Mes services de maintenance</h2>
+
+      <h3>Sécurité et mises à jour</h3>
+      <p>La sécurité est la priorité numéro un de ma prestation de maintenance :</p>
+      <ul>
+        <li>Mises à jour régulières du CMS, des plugins et des dépendances</li>
+        <li>Veille sur les vulnérabilités et correctifs de sécurité</li>
+        <li>Configuration et monitoring du pare-feu applicatif</li>
+        <li>Certificat SSL vérifié et renouvelé automatiquement</li>
+        <li>Protection anti-spam et anti-brute force</li>
+      </ul>
+
+      <h3>Sauvegardes et récupération</h3>
+      <p>Vos données sont précieuses. Mon système de sauvegarde vous protège contre toute perte :</p>
+      <ul>
+        <li>Sauvegardes automatiques quotidiennes (fichiers et base de données)</li>
+        <li>Conservation des sauvegardes sur 30 jours glissants</li>
+        <li>Stockage sécurisé sur serveur distant</li>
+        <li>Procédure de restauration testée et documentée</li>
+      </ul>
+
+      <h3>Monitoring et performances</h3>
+      <p>Je surveille votre site en continu pour anticiper les problèmes :</p>
+      <ul>
+        <li>Monitoring de disponibilité 24/7 avec alertes instantanées</li>
+        <li>Suivi des temps de chargement et Core Web Vitals</li>
+        <li>Optimisation des images et du cache</li>
+        <li>Nettoyage régulier de la base de données</li>
+        <li>Rapport mensuel détaillé sur la santé de votre site</li>
+      </ul>
+
+      <h2>Formules adaptées à vos besoins</h2>
+      <p>Je propose plusieurs niveaux de maintenance pour s'adapter à tous les budgets :</p>
+      <ul>
+        <li><strong>Essentiel</strong> — Mises à jour, sauvegardes et monitoring de base. Idéal pour les sites vitrines simples.</li>
+        <li><strong>Confort</strong> — Tout l'essentiel + support prioritaire + modifications mineures incluses. Le choix le plus populaire.</li>
+        <li><strong>Premium</strong> — Accompagnement complet avec évolutions mensuelles, audit SEO trimestriel et reporting avancé. Pour les sites critiques.</li>
+      </ul>
+
+      <h2>Pourquoi choisir Perrine Huon pour la maintenance ?</h2>
+      <p>En confiant la maintenance à la personne qui a conçu votre site (ou qui le connaît en profondeur après un audit), vous bénéficiez d'une <strong>expertise technique pointue</strong> et d'une réactivité maximale. Pas de call center, pas d'intermédiaire : un contact direct avec une professionnelle investie dans la santé de votre site web.</p>
+    `,
+  },
+  {
+    slug: 'strategie-digitale-pme',
+    title: 'Stratégie Digitale pour PME',
+    metaTitle: 'Stratégie Digitale pour PME & Indépendants | Perrine Huon - Conseil Web',
+    metaDescription: 'Accompagnement stratégique digital pour PME et indépendants. Audit, plan d\'action, outils et formation pour développer votre présence en ligne.',
+    heroSubtitle: 'Une feuille de route claire pour développer votre présence digitale',
+    priceRange: 'À partir de 1 200€',
+    ctaText: 'Définir ma stratégie digitale',
+    features: [
+      'Audit complet de votre présence digitale actuelle',
+      'Analyse concurrentielle et positionnement',
+      'Définition de vos personas et parcours clients',
+      'Plan d\'action digital priorisé et chiffré',
+      'Recommandations d\'outils et de technologies',
+      'Accompagnement à la mise en œuvre',
+      'Formation de vos équipes aux bonnes pratiques',
+      'Indicateurs de performance et tableaux de bord',
+    ],
+    faqs: [
+      {
+        question: 'Qu\'est-ce qu\'une stratégie digitale concrètement ?',
+        answer: 'Une stratégie digitale est un plan d\'action structuré pour développer votre activité en ligne. Elle définit vos objectifs (visibilité, leads, ventes), identifie les canaux les plus pertinents pour votre cible (site web, SEO, réseaux sociaux, emailing), priorise les actions à mener et fixe des indicateurs de performance mesurables. C\'est votre feuille de route pour investir intelligemment dans le digital.',
+      },
+      {
+        question: 'Combien de temps dure l\'accompagnement stratégique ?',
+        answer: 'La phase d\'audit et de recommandation dure généralement 2 à 4 semaines. L\'accompagnement à la mise en œuvre peut s\'étendre de 3 à 12 mois selon vos besoins et votre rythme. Je m\'adapte à votre planning et à vos ressources internes.',
+      },
+      {
+        question: 'Cette prestation est-elle adaptée aux très petites entreprises ?',
+        answer: 'Absolument. Ma spécialité est justement d\'accompagner les TPE, PME, artisans et indépendants qui n\'ont pas de service marketing interne. Je traduis les concepts du marketing digital en actions concrètes, pragmatiques et adaptées à votre budget et à vos contraintes de temps.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi votre PME a besoin d'une stratégie digitale</h2>
+      <p>Le digital n'est plus réservé aux grandes entreprises. Aujourd'hui, <strong>70% des parcours d'achat démarrent par une recherche en ligne</strong>, même pour les commerces et services de proximité. Sans stratégie digitale, vous laissez des clients potentiels aller chez vos concurrents.</p>
+      <p>Mais "être sur internet" ne suffit pas. Avoir un site web sans stratégie, c'est comme ouvrir une boutique dans une rue déserte. La stratégie digitale donne du sens et de la direction à chacune de vos actions en ligne.</p>
+
+      <h2>Mon approche stratégique</h2>
+      <p>Je vous propose un accompagnement en quatre phases concrètes :</p>
+
+      <h3>Phase 1 : Audit et diagnostic</h3>
+      <p>Avant de construire, il faut comprendre. J'analyse en profondeur :</p>
+      <ul>
+        <li>Votre présence digitale actuelle (site, réseaux sociaux, avis en ligne)</li>
+        <li>Votre positionnement par rapport à la concurrence</li>
+        <li>Le comportement digital de vos clients cibles</li>
+        <li>Vos ressources internes (budget, temps, compétences)</li>
+        <li>Vos objectifs business à court et moyen terme</li>
+      </ul>
+
+      <h3>Phase 2 : Stratégie et plan d'action</h3>
+      <p>Sur la base de l'audit, je construis votre feuille de route digitale :</p>
+      <ul>
+        <li>Définition de vos personas (portraits-robots de vos clients idéaux)</li>
+        <li>Choix des canaux prioritaires (SEO, SEA, réseaux sociaux, emailing...)</li>
+        <li>Calendrier éditorial et plan de contenu</li>
+        <li>Budget prévisionnel et ROI estimé</li>
+        <li>KPIs (indicateurs de performance) pour chaque action</li>
+      </ul>
+
+      <h3>Phase 3 : Mise en œuvre accompagnée</h3>
+      <p>La stratégie ne vaut rien sans exécution. Je vous accompagne dans la mise en place :</p>
+      <ul>
+        <li>Création ou refonte de votre site web</li>
+        <li>Mise en place de votre référencement naturel</li>
+        <li>Configuration de vos outils (analytics, CRM, email marketing)</li>
+        <li>Formation de votre équipe à l'autonomie digitale</li>
+      </ul>
+
+      <h3>Phase 4 : Suivi et optimisation</h3>
+      <p>Le digital évolue en permanence. Je réalise un suivi régulier pour ajuster la stratégie :</p>
+      <ul>
+        <li>Analyse des performances mensuelles</li>
+        <li>Ajustements des actions selon les résultats</li>
+        <li>Veille concurrentielle et identification de nouvelles opportunités</li>
+      </ul>
+
+      <h2>Des résultats concrets pour votre PME</h2>
+      <p>Mes clients constatent des résultats tangibles : <strong>augmentation du trafic qualifié</strong>, meilleure conversion des visiteurs en prospects, renforcement de la notoriété locale et un retour sur investissement mesurable. Chaque euro investi dans le digital est tracé et optimisé.</p>
+
+      <h2>Pourquoi choisir Perrine Huon ?</h2>
+      <p>Mon avantage ? Je suis à la fois <strong>stratège et exécutante</strong>. Contrairement aux agences qui vendent du conseil puis sous-traitent la mise en œuvre, je maîtrise l'intégralité de la chaîne : de la réflexion stratégique au développement technique. Cela garantit une cohérence parfaite entre la stratégie définie et sa réalisation, sans perte d'information ni surcoût.</p>
+    `,
+  },
+  {
+    slug: 'creation-crm-logiciel-gestion',
+    title: 'CRM & Logiciel de Gestion Sur Mesure',
+    metaTitle: 'CRM & Logiciel de Gestion Sur Mesure | Perrine Huon - Développeuse Web',
+    metaDescription: 'Développement de CRM et logiciels de gestion sur mesure pour PME. Centralisez vos données clients, automatisez vos processus. Solution adaptée.',
+    heroSubtitle: 'Centralisez, automatisez et pilotez votre activité efficacement',
+    priceRange: 'À partir de 4 000€',
+    ctaText: 'Discuter de mon projet CRM',
+    features: [
+      'Gestion centralisée des contacts et entreprises',
+      'Suivi du pipeline commercial et des opportunités',
+      'Automatisation des tâches répétitives',
+      'Tableaux de bord et reporting personnalisés',
+      'Intégration avec vos outils existants (email, facturation)',
+      'Gestion des droits d\'accès multi-utilisateurs',
+      'Application web accessible depuis n\'importe quel appareil',
+    ],
+    faqs: [
+      {
+        question: 'Pourquoi un CRM sur mesure plutôt que Salesforce ou HubSpot ?',
+        answer: 'Les CRM du marché sont puissants mais souvent surdimensionnés et coûteux pour les PME. Un CRM sur mesure intègre exactement les fonctionnalités dont vous avez besoin, s\'adapte à vos processus (et non l\'inverse), ne nécessite pas d\'abonnement mensuel croissant et peut être enrichi au fil du temps selon l\'évolution de votre activité.',
+      },
+      {
+        question: 'Mes données seront-elles sécurisées ?',
+        answer: 'La sécurité est au cœur de chaque développement. Votre CRM intègre une authentification sécurisée, un chiffrement des données sensibles, des sauvegardes automatiques, une gestion fine des droits d\'accès et une conformité totale au RGPD. Vos données vous appartiennent et restent hébergées en France ou en Europe selon votre choix.',
+      },
+      {
+        question: 'Le CRM peut-il se connecter à mes outils actuels ?',
+        answer: 'Oui, je développe des intégrations avec vos outils existants : messagerie (Gmail, Outlook), facturation (Stripe, GoCardless), comptabilité, agenda, outils de marketing automation. L\'objectif est de créer un écosystème fluide où l\'information circule sans ressaisie.',
+      },
+      {
+        question: 'Comment se passe la migration depuis notre système actuel ?',
+        answer: 'Je gère la migration de vos données existantes (tableurs Excel, ancien CRM, base de données) vers votre nouveau système. Un plan de migration est établi pour garantir l\'intégrité des données, et une période de fonctionnement en parallèle est prévue pour une transition en douceur.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi un CRM sur mesure pour votre PME ?</h2>
+      <p>La gestion de la relation client est au cœur de toute entreprise performante. Pourtant, trop de PME jonglent encore entre des <strong>tableurs Excel, des post-it et des emails éparpillés</strong>. Un CRM (Customer Relationship Management) sur mesure centralise toutes vos interactions clients en un seul endroit, accessible à toute votre équipe.</p>
+      <p>Contrairement aux solutions SaaS génériques coûteuses et complexes, un CRM développé sur mesure s'adapte exactement à votre façon de travailler, pas l'inverse.</p>
+
+      <h2>Fonctionnalités de votre CRM personnalisé</h2>
+
+      <h3>Gestion des contacts et entreprises</h3>
+      <p>Centralisez l'ensemble de vos relations commerciales dans une base de données unique :</p>
+      <ul>
+        <li>Fiches contact et entreprise enrichies avec historique complet</li>
+        <li>Tags, catégories et segments personnalisables</li>
+        <li>Recherche et filtrage avancés</li>
+        <li>Import/export facilité depuis vos outils actuels</li>
+      </ul>
+
+      <h3>Pipeline commercial et suivi des opportunités</h3>
+      <p>Visualisez et pilotez votre activité commerciale en temps réel :</p>
+      <ul>
+        <li>Vue kanban du pipeline de vente personnalisable</li>
+        <li>Suivi des opportunités avec probabilité de conversion</li>
+        <li>Rappels et relances automatisées</li>
+        <li>Prévision de chiffre d'affaires</li>
+      </ul>
+
+      <h3>Automatisation et productivité</h3>
+      <p>Libérez du temps en automatisant les tâches à faible valeur ajoutée :</p>
+      <ul>
+        <li>Emails automatiques de suivi et de relance</li>
+        <li>Attribution automatique des leads selon des règles définies</li>
+        <li>Création automatique de devis et factures</li>
+        <li>Notifications et alertes personnalisées</li>
+      </ul>
+
+      <h3>Tableaux de bord et indicateurs</h3>
+      <p>Prenez des décisions éclairées grâce à des données fiables :</p>
+      <ul>
+        <li>Dashboard personnalisé avec vos KPIs clés</li>
+        <li>Rapports d'activité commerciale automatisés</li>
+        <li>Analyse des performances par commercial, produit ou période</li>
+        <li>Export des données pour vos réunions d'équipe</li>
+      </ul>
+
+      <h2>Technologies et architecture</h2>
+      <p>Votre CRM est construit avec des technologies modernes garantissant <strong>performance, sécurité et évolutivité</strong> :</p>
+      <ul>
+        <li><strong>React / Next.js</strong> — Interface réactive et agréable à utiliser au quotidien.</li>
+        <li><strong>Supabase / PostgreSQL</strong> — Base de données relationnelle robuste avec temps réel intégré.</li>
+        <li><strong>API REST</strong> — Architecture ouverte pour les intégrations futures.</li>
+        <li><strong>Hébergement cloud</strong> — Accessible partout, scalable et sauvegardé automatiquement.</li>
+      </ul>
+
+      <h2>Pourquoi choisir Perrine Huon pour votre CRM ?</h2>
+      <p>Développer un CRM demande une <strong>double compétence rare</strong> : comprendre les enjeux business de la gestion commerciale ET maîtriser le développement technique. Mon expérience auprès des PME me permet de concevoir des outils pragmatiques, centrés sur l'usage réel, qui deviennent rapidement indispensables au quotidien de votre équipe.</p>
+    `,
+  },
+  {
+    slug: 'design-ux-ui',
+    title: 'Design UX/UI',
+    metaTitle: 'Design UX/UI Professionnel | Perrine Huon - Web Designer & UX Designer',
+    metaDescription: 'Design d\'interfaces utilisateur intuitives et esthétiques. UX research, wireframes, prototypes interactifs, design system. Pour sites web et applications.',
+    heroSubtitle: 'Des interfaces belles, intuitives et pensées pour vos utilisateurs',
+    priceRange: 'À partir de 1 000€',
+    ctaText: 'Parler de mon projet UX/UI',
+    features: [
+      'Recherche utilisateur et analyse des besoins',
+      'Architecture de l\'information et parcours utilisateur',
+      'Wireframes et prototypes interactifs',
+      'Design d\'interface moderne et accessible',
+      'Design system et bibliothèque de composants',
+      'Tests utilisateurs et itérations',
+      'Livrables Figma prêts pour le développement',
+    ],
+    faqs: [
+      {
+        question: 'Quelle est la différence entre UX et UI design ?',
+        answer: 'L\'UX (User Experience) design se concentre sur l\'expérience globale de l\'utilisateur : facilité d\'utilisation, parcours logique, satisfaction. L\'UI (User Interface) design concerne l\'aspect visuel : couleurs, typographie, espacement, animations. Les deux sont complémentaires et indissociables pour créer un produit digital réussi. Je maîtrise les deux disciplines.',
+      },
+      {
+        question: 'Quels livrables fournissez-vous ?',
+        answer: 'Selon le projet, les livrables incluent : personas et parcours utilisateurs, wireframes basse-fidélité, maquettes haute-fidélité dans Figma, prototype interactif cliquable, design system documenté (couleurs, typographies, composants), spécifications pour les développeurs et guide de style.',
+      },
+      {
+        question: 'Faites-vous aussi le développement des interfaces ?',
+        answer: 'Oui, c\'est justement mon atout principal. En tant que web designer et développeuse, je peux assurer la continuité entre le design et l\'intégration. Le résultat final correspond pixel pour pixel aux maquettes validées, sans les approximations qui surviennent quand designer et développeur sont deux personnes différentes.',
+      },
+    ],
+    content: `
+      <h2>Pourquoi investir dans le design UX/UI ?</h2>
+      <p>Le design UX/UI n'est pas qu'une question d'esthétique — c'est un <strong>investissement stratégique</strong>. Chaque euro investi en UX rapporte en moyenne 100 euros. Pourquoi ? Parce qu'une interface bien pensée réduit les frictions, augmente les conversions et fidélise vos utilisateurs.</p>
+      <p>Un site ou une application mal conçue frustre les utilisateurs et les fait fuir. <strong>88% des internautes ne reviennent pas sur un site après une mauvaise expérience</strong>. Le design UX/UI est votre meilleure assurance contre ce risque.</p>
+
+      <h2>Mon processus de design UX/UI</h2>
+
+      <h3>Recherche et compréhension</h3>
+      <p>Tout bon design commence par une compréhension profonde des utilisateurs :</p>
+      <ul>
+        <li><strong>Entretiens utilisateurs</strong> — Comprendre les besoins réels, frustrations et attentes de vos utilisateurs.</li>
+        <li><strong>Analyse des données</strong> — Étude des analytics, heatmaps et enregistrements de sessions si disponibles.</li>
+        <li><strong>Personas</strong> — Création de profils-types pour guider les décisions de design.</li>
+        <li><strong>Benchmark concurrentiel</strong> — Analyse des bonnes pratiques de votre secteur.</li>
+      </ul>
+
+      <h3>Architecture et wireframes</h3>
+      <p>Avant de penser au visuel, je structure l'expérience :</p>
+      <ul>
+        <li><strong>Architecture de l'information</strong> — Organisation logique du contenu et des fonctionnalités.</li>
+        <li><strong>User flows</strong> — Cartographie des parcours utilisateurs clés.</li>
+        <li><strong>Wireframes</strong> — Schémas structurels pour valider l'ergonomie avant d'investir dans le design visuel.</li>
+        <li><strong>Prototypes interactifs</strong> — Maquettes cliquables pour tester les parcours avec de vrais utilisateurs.</li>
+      </ul>
+
+      <h3>Design d'interface</h3>
+      <p>Le moment où votre produit prend vie visuellement :</p>
+      <ul>
+        <li><strong>Design system</strong> — Un système cohérent de composants, couleurs, typographies et espacements réutilisables.</li>
+        <li><strong>Maquettes haute-fidélité</strong> — Chaque écran dessiné au pixel près dans Figma.</li>
+        <li><strong>Micro-interactions</strong> — Animations subtiles qui rendent l'interface vivante et intuitive.</li>
+        <li><strong>Accessibilité</strong> — Contrastes suffisants, navigation au clavier, compatibilité lecteurs d'écran.</li>
+      </ul>
+
+      <h3>Tests et itérations</h3>
+      <p>Le design n'est jamais terminé à la première version. Je conduis des <strong>tests utilisateurs</strong> pour identifier les points de friction et itérer jusqu'à obtenir une expérience fluide et agréable.</p>
+
+      <h2>Design et développement : un duo gagnant</h2>
+      <p>Mon avantage unique est de maîtriser à la fois le <strong>design et le développement</strong>. Cela signifie que je conçois des interfaces qui sont non seulement belles mais aussi techniquement réalisables, performantes et responsive. Pas de mauvaise surprise au moment de l'intégration : le résultat final correspond exactement à la vision du design.</p>
+
+      <h2>Outils et méthodologie</h2>
+      <p>Je travaille avec les outils de référence du design :</p>
+      <ul>
+        <li><strong>Figma</strong> — Conception collaborative avec composants réutilisables et auto-layout.</li>
+        <li><strong>Principe du mobile-first</strong> — Conception responsive qui part du mobile pour remonter vers le desktop.</li>
+        <li><strong>Design tokens</strong> — Variables de design exportables directement en code (Tailwind CSS).</li>
+        <li><strong>Atomic Design</strong> — Méthodologie de création par composants pour un design scalable.</li>
+      </ul>
+
+      <h2>Pourquoi choisir Perrine Huon pour votre design UX/UI ?</h2>
+      <p>Le design est au cœur de mon identité professionnelle. Chaque projet est l'occasion de créer quelque chose d'<strong>unique, intentionnel et mémorable</strong>. Mon approche combine rigueur méthodologique, sensibilité esthétique et pragmatisme technique pour livrer des interfaces qui font la différence auprès de vos utilisateurs.</p>
+    `,
+  },
+];
+
+export function getServiceBySlug(slug: string): Service | undefined {
+  return services.find((service) => service.slug === slug);
+}
+
+export function getAllServiceSlugs(): string[] {
+  return services.map((service) => service.slug);
+}

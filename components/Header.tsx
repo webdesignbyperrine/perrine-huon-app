@@ -329,9 +329,9 @@ export default function Header() {
 
   const navigation = [
     { name: 'Services', href: '/#services' },
-    { name: 'À propos', href: '/#about' },
-    { name: 'Portfolio', href: '/portfolio' },
+    { name: 'Réalisations', href: '/portfolio' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Tarifs', href: '/tarifs-creation-site-web' },
     { name: 'FAQ', href: '/faq' },
   ];
 

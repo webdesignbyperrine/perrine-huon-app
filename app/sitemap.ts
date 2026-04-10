@@ -1,10 +1,12 @@
 import { MetadataRoute } from 'next'
 import { createClient } from '@/lib/supabase/server'
+import { getAllServiceSlugs } from '@/lib/services-data'
+import { getAllLocationSlugs } from '@/lib/locations-data'
+import { getAllProfessionSlugs } from '@/lib/professions-data'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://perrinehuon.com'
   
-  // Pages statiques principales
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -31,6 +33,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/tarifs-creation-site-web`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/a-propos-perrine-huon-developpeuse-web`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/avis-clients-temoignages`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/freelance-vs-agence-web`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/pourquoi-pas-wordpress`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/mentions-legales`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
@@ -44,7 +76,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // Récupérer les projets publiés
+  // Pages services
+  const servicePages: MetadataRoute.Sitemap = getAllServiceSlugs().map((slug) => ({
+    url: `${baseUrl}/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  // Pages géographiques
+  const locationPages: MetadataRoute.Sitemap = getAllLocationSlugs().map((slug) => ({
+    url: `${baseUrl}/creation-site-internet-${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // Pages niches professionnelles
+  const professionPages: MetadataRoute.Sitemap = getAllProfessionSlugs().map((slug) => ({
+    url: `${baseUrl}/site-internet-${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
+
+  // Projets publiés
   const supabase = await createClient()
   
   const { data: projects } = await supabase
@@ -59,7 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  // Récupérer les articles de blog publiés
+  // Articles de blog
   const { data: posts } = await supabase
     .from('blog_posts')
     .select('slug, updated_at, published_at')
@@ -72,5 +128,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  return [...staticPages, ...projectPages, ...blogPages]
+  return [
+    ...staticPages,
+    ...servicePages,
+    ...locationPages,
+    ...professionPages,
+    ...projectPages,
+    ...blogPages,
+  ]
 }

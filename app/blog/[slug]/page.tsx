@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 import { formatDate, estimateReadingTime } from '@/lib/utils';
 import { createClient, createStaticClient } from '@/lib/supabase/server';
 import SafeHTML from '@/components/SafeHTML';
-import { BreadcrumbJsonLd } from '@/components/JsonLd';
+import { BreadcrumbJsonLd, ArticleJsonLd } from '@/components/JsonLd';
 
 // Génération statique des paramètres pour tous les articles
 export async function generateStaticParams() {
@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title,
     description,
+    alternates: { canonical: `https://perrinehuon.com/blog/${slug}` },
     openGraph: {
       title,
       description,
@@ -89,6 +90,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           { name: 'Blog', url: 'https://perrinehuon.com/blog' },
           { name: post.title, url: `https://perrinehuon.com/blog/${slug}` },
         ]}
+      />
+      <ArticleJsonLd
+        headline={post.title}
+        description={post.excerpt || ''}
+        url={`https://perrinehuon.com/blog/${slug}`}
+        datePublished={post.published_at || post.created_at}
+        dateModified={post.updated_at || post.published_at || post.created_at}
+        image={post.featured_image || undefined}
       />
       {/* Hero article */}
       <section className="relative min-h-[60vh] flex items-end overflow-hidden">

@@ -120,4 +120,15 @@ export type BlogPostWithMedia = BlogPost & {
   })[];
 };
 
-
+export type Testimonial = {
+  id: string;
+  name: string;
+  profession: string | null;
+  company: string | null;
+  city: string | null;
+  content: string;
+  rating: number;
+  is_published: boolean;
+  sort_order: number;
+  created_at: string;
+};
