@@ -4,7 +4,7 @@ import { routing } from './i18n/routing';
 import { updateSession } from './lib/supabase/middleware';
 
 function getLocaleFromRequest(request: NextRequest): string {
-  const country = request.geo?.country || request.headers.get('x-vercel-ip-country');
+  const country = request.headers.get('x-vercel-ip-country');
   
   if (country === 'FR') {
     return 'fr';
