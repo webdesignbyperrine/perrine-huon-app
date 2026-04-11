@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "Mi Trayectoria: 7 Vidas, Una Resiliencia Excepcional — Perrine Huon",
+    "description": "Descubre mi trayectoria única: de la leucemia a los 18 años a desarrolladora web freelance, pasando por la adopción, la depresión y la reconversión en la tecnología. 7 vidas, 2 libros publicados.",
+    "ogTitle": "Mi Trayectoria: 7 Vidas, Una Resiliencia Excepcional — Perrine Huon",
+    "ogDescription": "Descubre mi trayectoria única: de la leucemia a los 18 años a desarrolladora web freelance. 7 vidas, 2 libros publicados por Michel Lafon."
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "biography": "Mi Trayectoria"
+  },
+  "hero": {
+    "backLink": "← Volver al inicio",
+    "title": "¿Vida(s) de mierda?",
+    "subtitle": "He contado, ya he tenido unas 7 vidas"
+  },
+  "intro": "Son muchas 7 vidas. Esta es mi historia.",
+  "lives": [
+    {
+      "title": "La infancia",
+      "content": "<p>Clásica, feliz y sin embargo...</p>"
+    },
+    {
+      "title": "La leucemia y el renacimiento",
+      "content": "<p>...La leucemia vino a acabar con esta primera vida al amanecer de mis 18 años. Viví un martirio, los dolores violentos afectaban todas las partes de mi cuerpo. Ante el fracaso de las quimioterapias me anunciaron mi muerte próxima. Por suerte, me beneficié in extremis de un tratamiento experimental y recibí un trasplante. Estuve postrada en una habitación estéril durante un año, el injerto de médula ósea funcionó y sobreviví.</p><p>Era una nueva vida, empecé de cero, incluso cambié de grupo sanguíneo. Mi cabello volvió a crecer, recuperé peso, pero me llevó 3 años reaprender a beber, comer, caminar, saltar, correr.</p><p>Salí adelante e hice un libro que las <strong>Ediciones Michel Lafon</strong> decidieron publicar. Gracias a <strong>Stéphanie Fugain</strong> que escribió el prefacio. Aparecí por todas partes en los medios, di conferencias, el libro fue un éxito. Tanto mejor porque la gente necesita saber que se puede donar médula ósea y que es la única oportunidad de curación para muchos enfermos de este cáncer de sangre. Me involucré con los pacientes y las asociaciones para que mi lucha fuera útil a otros (<strong>Association Laurette Fugain</strong> 💜). Esta causa será parte de mí hasta mis últimos días.</p>"
+    },
+    {
+      "title": "La adopción",
+      "content": "<p>Al final de mis veintitantos años, viajé al otro lado del mundo para adoptar a mis 2 niños. Cambiaron mi vida y mi visión de la familia. De este camino combativo nació un segundo libro publicado en 2015 por las Ediciones Michel Lafon.</p>"
+    },
+    {
+      "title": "La depresión, la reconstrucción y la enseñanza",
+      "content": "<p>Los treinta: una fuerte depresión que duró 6 años con múltiples hospitalizaciones. Hacía falta al menos eso para asimilar mi pasado. Nunca había llorado y luché con las manos desnudas contra mí misma para dejar salir las emociones. Estaba más bajo que la tierra, lloraba a menudo (¡por fin!). Aprendí a conocerme mejor, a ser feliz, ¡y funcionó!</p><p>Retomé los estudios, obtuve un máster en ciencias de la educación y me convertí en profesora. Finalmente me di cuenta de que sentirme útil es mi Mojo.</p>"
+    },
+    {
+      "title": "El divorcio y la libertad",
+      "content": "<p>Los cuarenta y se avecinaba una nueva prueba: el divorcio. Otro golpe duro. En realidad ya no tengo miedo de nada. Mi armadura es de titanio, sé que puedo superar cualquier cosa. Decidí por una vez escuchar únicamente mi intuición (la intuición es poderosa, no se sospecha su poder), dejé mi vida burguesa y mi gran casa por un pequeño apartamento en Lille. No mucho dinero, sin trabajo, tenía que reconstruirlo todo. Es vertiginoso. Pero soy libre y ahora sé que esa es la clave de la felicidad duradera.</p><p>Me deshice de todo lo material en mi vida y me volví minimalista. Nada me hace finalmente más feliz que esta nueva vida.</p>"
+    },
+    {
+      "title": "La reconversión tecnológica",
+      "content": "<p>Decidí reconvertirme en tecnología, eso es lo mío. Me formé en desarrollo web, finalmente iba a hacer un trabajo que me apasiona. Busqué una alternancia y pensé que no sería fácil a mi edad. Por suerte <strong>ADEO</strong> (holding de Leroy Merlin) me detectó y me dio la oportunidad tomándome durante 2 años.</p><p>Llegué a un universo completamente extraño: el de la gran empresa. Al principio no entendía nada, aún no hablaba su lenguaje corporativo, ni siquiera entendía los títulos de los trabajos. Realmente empecé de cero pero finalmente me integré bien. Aprendí y progresé enormemente en código, en la elaboración de buenas prácticas, agilidad y trabajo en equipo.</p><p>Paralelamente abrí mis chakras continuando viajando por el mundo. Me lancé desafíos: alquilé una furgoneta en la Isla Reunión para un viaje en solitario, fui a la selva amazónica a conocer tribus indígenas y navegar por el río. Estaba en mi elemento.</p>"
+    },
+    {
+      "title": "París y el freelance",
+      "content": "<p>Después de dos años, una oportunidad me permitió mudarme a París. Nueva vida, nuevo mundo. Nada se parece a la vida parisina (¡no es de extrañar que los parisinos estén desconectados del resto de Francia!). Es un pequeño país en sí mismo.</p><p>Llegué en mayo pasado. No conozco a nadie y nunca había vivido allí. Quiero ser freelance pero conozco muy bien mi hiperactividad: trabajar sola en casa va a ser difícil. No importa, voy a recrear colegas y la máquina de café.</p><p>Reuní a otros freelancers lanzando botellas al mar en internet y creé una comunidad de WhatsApp para hacer coworking en los cafés de París. Éramos 6 en junio para el primer coworking, casi 150 en octubre. Tenía problemas para gestionar las sesiones así que decidí desarrollar desde cero una plataforma web de gestión de eventos con base de datos, autenticación, espacio de administración, etc. ¡y así nació <strong>CoworkMeet.fr</strong>!</p><p>Una vez que la comunidad estuvo en su lugar y terminado un bootcamp de un mes sobre emprendimiento, me ocupé de mi propia actividad. ¡Voy a tener que empezar a ganar dinero o todo lo que he emprendido fracasará!</p><p>Así que aquí estamos.</p><p>¡Anuncio que soy oficialmente <strong>desarrolladora web freelance</strong> y que estoy lista para trabajar con ustedes!</p><p>Mi sitio acaba de nacer: <strong>perrinehuon.com</strong></p><p>Trabajar en tecnología me divierte, me deleita y me realiza.</p><p>¿Quieres trabajar con o junto a una persona feliz, sonriente, resiliente y sobre todo competente? ¡Contáctame!</p>"
+    }
+  ],
+  "conclusion": "Casi lo olvido: <strong>Obviamente no tuve una vida de mierda</strong>, tuve una vida rica y única que me aportó habilidades raras, una capacidad de adaptación excepcional y una resiliencia poco común.<br><br>¡Pronto el tercer libro! ✌️",
+  "books": {
+    "title": "Mis libros",
+    "description": "Publiqué dos libros con las Ediciones Michel Lafon que cuentan mi trayectoria y mis luchas.",
+    "cta": "Pedir en Amazon",
+    "editorLink": "Saber más (Ediciones Michel Lafon)"
+  },
+  "linkedinLink": "Leer el artículo original en LinkedIn",
+  "cta": {
+    "title": "¿Quieres trabajar juntos?",
+    "description": "Hablemos de tu proyecto en una primera consulta gratuita y sin compromiso.",
+    "button": "Contáctame"
+  }
+}

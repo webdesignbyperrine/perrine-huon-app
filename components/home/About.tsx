@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { CTAQuiz } from '@/components/ui';
 import { useTheme } from '@/contexts/ThemeContext';
+import { Link } from '@/i18n/routing';
 
 const techLogos = [
   { src: '/images/logos/logo_next-js.svg', label: 'Next.js', className: '' },
@@ -245,6 +246,53 @@ export default function About() {
                 }`}
                 dangerouslySetInnerHTML={{ __html: t.raw('paragraph3') }}
               />
+
+              {/* Bouton Biographie & Livres */}
+              <div 
+                className={`mt-8 lg:mt-10 transition-all duration-700 delay-500 ${
+                  contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
+              >
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  {/* Lien vers la page biographie */}
+                  <Link
+                    href="/mon-parcours"
+                    className="group inline-flex items-center gap-3 px-6 py-3 bg-paper/10 hover:bg-paper/15 border-2 border-paper/20 hover:border-[#e85d8c]/50 dark:hover:border-accent/50 rounded-sketch-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                  >
+                    <svg className="w-5 h-5 text-[#e85d8c] dark:text-accent flex-shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                    </svg>
+                    <div className="flex flex-col items-start">
+                      <span className="text-paper font-medium text-sm lg:text-base">{t('biographyButton')}</span>
+                      <span className="text-paper/50 text-xs">{t('biographySubtext')}</span>
+                    </div>
+                    <svg className="w-4 h-4 text-paper/60 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+
+                  {/* Lien vers Amazon pour les livres */}
+                  <a
+                    href="https://www.amazon.fr/stores/Perrine-Huon/author/B004MZ3BJQ?ref=ap_rdr&shoppingPortalEnabled=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-3 px-6 py-3 bg-paper/10 hover:bg-paper/15 border-2 border-paper/20 hover:border-[#e85d8c]/50 dark:hover:border-accent/50 rounded-sketch-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
+                  >
+                    <svg className="w-5 h-5 text-[#e85d8c] dark:text-accent flex-shrink-0 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                    </svg>
+                    <div className="flex flex-col items-start">
+                      <span className="text-paper font-medium text-sm lg:text-base">{t('booksButton')}</span>
+                      <span className="text-paper/50 text-xs">{t('booksSubtext')}</span>
+                    </div>
+                    <svg className="w-4 h-4 text-paper/60 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 

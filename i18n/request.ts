@@ -11,6 +11,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const common = (await import(`../messages/${locale}/common.json`)).default;
   const tarifs = (await import(`../messages/${locale}/tarifs.json`)).default;
   const about = (await import(`../messages/${locale}/about.json`)).default;
+  const biography = (await import(`../messages/${locale}/biography.json`)).default;
   const testimonialsPage = (await import(`../messages/${locale}/testimonials-page.json`)).default;
   const freelance = (await import(`../messages/${locale}/freelance.json`)).default;
   const wordpress = (await import(`../messages/${locale}/wordpress.json`)).default;
@@ -28,6 +29,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     ...common,
     tarifs,
     about: { ...common.about, ...about },
+    biography,
     'testimonials-page': testimonialsPage,
     freelance,
     wordpress,

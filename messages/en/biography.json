@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "My Journey: 7 Lives, An Exceptional Resilience — Perrine Huon",
+    "description": "Discover my unique journey: from leukemia at 18 to freelance web developer, through adoption, depression, and career change into tech. 7 lives, 2 published books.",
+    "ogTitle": "My Journey: 7 Lives, An Exceptional Resilience — Perrine Huon",
+    "ogDescription": "Discover my unique journey: from leukemia at 18 to freelance web developer. 7 lives, 2 books published by Michel Lafon."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "biography": "My Journey"
+  },
+  "hero": {
+    "backLink": "← Back to home",
+    "title": "Shitty life(ves)?",
+    "subtitle": "I counted, I've already had about 7 lives"
+  },
+  "intro": "That's a lot, 7 lives. Here's my story.",
+  "lives": [
+    {
+      "title": "Childhood",
+      "content": "<p>Classic, happy and yet...</p>"
+    },
+    {
+      "title": "Leukemia and rebirth",
+      "content": "<p>...Leukemia came to end this first life at the dawn of my 18th birthday. I lived through martyrdom, violent pains affecting every part of my body. Faced with chemotherapy failure, I was told I would die soon. By chance, I benefited at the last moment from an experimental treatment and received a transplant. I was bedridden in a sterile room for a year, the bone marrow graft took and I survived.</p><p>It was a new life, I started from scratch, I even changed blood type. My hair grew back, I gained weight, but it took me 3 years to relearn how to drink, eat, walk, jump, run.</p><p>I pulled through and wrote a book that <strong>Editions Michel Lafon</strong> decided to publish. Thanks to <strong>Stéphanie Fugain</strong> who wrote the preface. I appeared everywhere in the media, gave conferences, the book was a success. So much the better because people need to know that bone marrow donation is possible and that it's the only chance of recovery for many blood cancer patients. I got involved with patients and associations so that my fight would be useful to others (<strong>Association Laurette Fugain</strong> 💜). This cause will be part of me until my last days.</p>"
+    },
+    {
+      "title": "Adoption",
+      "content": "<p>In my late twenties, I traveled to the other side of the world to adopt my 2 boys. They changed my life and my vision of family. From this challenging journey came a second book published in 2015 by Editions Michel Lafon.</p>"
+    },
+    {
+      "title": "Depression, reconstruction and teaching",
+      "content": "<p>My thirties: severe depression lasting 6 years with multiple hospitalizations. That's what it took to process my past. I had never cried and I fought bare-handed against myself to let emotions out. I was at rock bottom, I cried often (finally!). I learned to know myself better, to be happy, and it worked!</p><p>I resumed studies, earned a master's degree in education sciences and became a teacher. I finally realized that feeling useful is my Mojo.</p>"
+    },
+    {
+      "title": "Divorce and freedom",
+      "content": "<p>My forties and a new ordeal loomed: divorce. Another blow. In reality, I'm no longer afraid of anything. My armor is titanium, I know I can overcome anything. I decided for once to listen only to my intuition (intuition is powerful, you don't suspect its strength), I left my bourgeois life and large house for a small apartment in Lille. Not much money left, no job, I had to rebuild everything. It's dizzying. But I'm free and I now know that's the key to lasting happiness.</p><p>I got rid of everything material in my life and became a minimalist. Nothing ultimately makes me happier than this new life.</p>"
+    },
+    {
+      "title": "Tech career change",
+      "content": "<p>I decided to retrain in tech, that's my thing. I trained in web development, I was finally going to do a job I'm passionate about. I looked for an apprenticeship and thought it wouldn't be easy at my age. Luckily <strong>ADEO</strong> (Leroy Merlin holding company) spotted me and gave me a chance by taking me on for 2 years.</p><p>I landed in a completely foreign universe: that of large corporations. At first I understood nothing, I didn't yet speak their corporate language, I didn't even understand job titles. I really started from scratch but eventually integrated well. I learned and progressed enormously in coding, developing best practices, agility and teamwork.</p><p>Meanwhile I opened my chakras by continuing to travel the world. I set challenges for myself: I rented a van in Reunion Island for a solo road trip, I went to the Amazon rainforest to meet indigenous tribes and sail on the river. I was in my element.</p>"
+    },
+    {
+      "title": "Paris and freelancing",
+      "content": "<p>After two years, an opportunity allowed me to move to Paris. New life, new world. Nothing resembles Parisian life (no wonder Parisians are disconnected from the rest of France!). It's a small country in itself.</p><p>So I arrived last May. I don't know anyone and I've never lived there. I want to be freelance but I know my hyperactivity well: working alone at home will be difficult. No matter, I'm going to recreate colleagues and the coffee machine.</p><p>I gathered other freelancers by casting bottles into the sea on the internet and created a WhatsApp community to cowork in Paris cafes. We were 6 in June for the 1st coworking session, nearly 150 in October. I had trouble managing the sessions so I decided to develop from scratch an event management web platform with database, authentication, admin space, etc. and that's how <strong>CoworkMeet.fr</strong> was born!</p><p>Once the community was in place and a one-month entrepreneurship bootcamp completed, I took care of my own business. I'll have to start earning money or everything I've undertaken will flop!</p><p>So here we are.</p><p>I announce that I am officially a <strong>freelance web developer</strong> and I'm ready to work with you!</p><p>My website has just been launched: <strong>perrinehuon.com</strong></p><p>Working in tech amuses me, delights me and fulfills me.</p><p>Do you want to work with or alongside a happy, smiling, resilient and above all competent person? Contact me!</p>"
+    }
+  ],
+  "conclusion": "I almost forgot: <strong>I obviously didn't have a shitty life</strong>, I had a rich and unique life that brought me rare skills, an exceptional ability to adapt and uncommon resilience.<br><br>Third book coming soon! ✌️",
+  "books": {
+    "title": "My books",
+    "description": "I published two books with Editions Michel Lafon that tell my journey and my battles.",
+    "cta": "Order on Amazon",
+    "editorLink": "Learn more (Editions Michel Lafon)"
+  },
+  "linkedinLink": "Read the original article on LinkedIn",
+  "cta": {
+    "title": "Want to work together?",
+    "description": "Let's discuss your project over a free initial consultation with no commitment.",
+    "button": "Contact me"
+  }
+}

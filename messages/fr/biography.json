@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "title": "Mon Parcours : 7 Vies, Une Résilience Hors Norme — Perrine Huon",
+    "description": "Découvrez mon parcours singulier : de la leucémie à 18 ans à développeuse web freelance, en passant par l'adoption, la dépression, et la reconversion dans la tech. 7 vies, 2 livres publiés.",
+    "ogTitle": "Mon Parcours : 7 Vies, Une Résilience Hors Norme — Perrine Huon",
+    "ogDescription": "Découvrez mon parcours singulier : de la leucémie à 18 ans à développeuse web freelance. 7 vies, 2 livres publiés aux Éditions Michel Lafon."
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "biography": "Mon Parcours"
+  },
+  "hero": {
+    "backLink": "← Retour à l'accueil",
+    "title": "Vie(s) de merde ?",
+    "subtitle": "J'ai compté, j'ai déjà eu à peu près 7 vies"
+  },
+  "intro": "C'est beaucoup 7 vies. Voici mon histoire.",
+  "lives": [
+    {
+      "title": "L'enfance",
+      "content": "<p>Classique, heureuse et pourtant…</p>"
+    },
+    {
+      "title": "La leucémie et la renaissance",
+      "content": "<p>…La leucémie est venue tuer cette première vie à l'aube de mes 18 ans. Je vis un martyre, les violentes douleurs touchent toutes les parties de mon corps. Devant l'échec des chimios on m'annonce ma mort prochaine. Par chance, je bénéficie in extremis d'un traitement à l'essai et je suis greffée. Je suis alitée dans une chambre stérile pendant un an, la greffe de moelle osseuse prend et je survis.</p><p>C'est une nouvelle vie, je repars de zéro, je change même de groupe sanguin. Mes cheveux repoussent, je reprends du poids mais il me faudra 3 ans pour réapprendre à boire, manger, marcher, sauter, courir.</p><p>Je m'en sors et j'en fais un livre que les <strong>Editions Michel Lafon</strong> décident de publier. Merci à <strong>Stéphanie Fugain</strong> qui en écrira la préface. Je passe partout dans les médias, je donne des conférences, le livre est un succès. Tant mieux car il faut que les gens sachent que l'on peut donner sa moelle osseuse et que c'est la seule chance de guérison pour beaucoup de malades de ce cancer du sang. Je m'investis auprès des malades et des associations pour que mon combat soit utile aux autres (<strong>Association Laurette Fugain</strong> 💜). Cette cause me sera chevillée au corps jusqu'à mes derniers jours.</p>"
+    },
+    {
+      "title": "L'adoption",
+      "content": "<p>Fin de la vingtaine, je pars à l'autre bout du monde adopter mes 2 garçons. Ils changent ma vie et ma vision de la famille. De ce parcours du combattant naîtra un second livre publié en 2015 aux Editions Michel Lafon.</p>"
+    },
+    {
+      "title": "La dépression, la reconstruction et l'enseignement",
+      "content": "<p>La trentaine : grosse dépression qui dure 6 ans avec de multiples hospitalisations. Il fallait au moins ça pour encaisser mon passé. J'avais jamais pleuré et je me bats à mains nues contre moi-même pour laisser sortir les émotions. Je suis plus bas que terre, je pleure souvent (enfin !). J'apprends à mieux me connaître, à être heureuse, et ça marche !</p><p>Je reprends des études, passe un master en sciences de l'éducation et deviens enseignante. Je remarque finalement que me sentir utile est mon Mojo.</p>"
+    },
+    {
+      "title": "Le divorce et la liberté",
+      "content": "<p>La quarantaine et une nouvelle épreuve s'annonce : le divorce. Encore un coup de massue. En réalité je n'ai plus peur de rien. Mon armure est en titane, je sais que je peux tout surmonter. Je décide pour une fois d'écouter uniquement mon intuition (c'est fort l'intuition, on ne soupçonne pas sa puissance), je largue ma vie bourgeoise et ma grande maison pour un petit appartement à Lille. Plus trop d'argent, plus de boulot, j'ai tout à reconstruire. C'est vertigineux. Mais je suis libre et je sais maintenant que c'est la clé du bonheur durable.</p><p>Je me débarrasse de tout ce qui était matériel dans ma vie et deviens minimaliste. Rien ne me rend finalement plus heureuse que cette nouvelle vie.</p>"
+    },
+    {
+      "title": "La reconversion tech",
+      "content": "<p>Je décide de me reconvertir dans la tech, c'est mon truc la tech. Je me forme au développement web, je vais enfin faire un métier passion. Je cherche une alternance et je me dis que cela ne va pas être facile à mon âge. Par chance <strong>ADEO</strong> (holding de Leroy Merlin) me repère et me donne ma chance en me prenant 2 ans.</p><p>Je débarque dans un univers complètement étranger : celui de la grande entreprise. Au début je ne comprends rien, je ne parle pas encore leur langage corporate, je ne pige même pas l'intitulé des jobs. Je pars vraiment de zéro mais finalement je m'intègre bien. J'apprends et progresse énormément en code, sur l'élaboration des bonnes pratiques, l'agilité et le travail en équipe.</p><p>Parallèlement j'ouvre mes chakras en continuant de voyager à travers le monde. Je me lance des défis : je loue un Van à La Réunion pour un road trip solo, je pars dans la forêt Amazonienne rencontrer les tribus indigènes et voguer sur le fleuve. Je suis dans mon élément.</p>"
+    },
+    {
+      "title": "Paris et le freelance",
+      "content": "<p>Au bout de deux ans, une opportunité me permet de déménager à Paris. Nouvelle vie, nouveau monde. Rien ne ressemble à la vie parisienne (pas étonnant que les Parisiens soient déconnectés du reste de la France !). C'est un petit pays à part entière.</p><p>J'arrive donc en mai dernier. Je ne connais personne et je n'y ai jamais vécu. Je veux être freelance mais connais très bien mon hyperactivité : travailler seule chez moi va être difficile. Qu'à cela ne tienne, je vais me recréer des collègues et la machine à café.</p><p>Je rassemble d'autres freelances en lançant des bouteilles à la mer sur le net et crée une communauté WhatsApp pour coworker dans les cafés de Paris. Nous sommes 6 en juin pour le 1er coworking, presque 150 en octobre. J'ai du mal à gérer les sessions alors je décide de développer from scratch une plateforme web de gestion d'événements avec BDD, authentification, espace admin etc. et c'est ainsi que <strong>CoworkMeet.fr</strong> est né !</p><p>Une fois la communauté en place et un bootcamp d'un mois sur l'entrepreneuriat terminé, je m'occupe de ma propre activité. Il va falloir que je commence à gagner des sous sinon tout ce que j'ai entrepris va faire un flop !</p><p>Alors voilà, on y est.</p><p>Je vous annonce que je suis officiellement <strong>développeuse web freelance</strong> et que je suis prête à travailler avec vous !</p><p>Mon site vient de voir le jour : <strong>perrinehuon.com</strong></p><p>Travailler dans la tech m'amuse, me régale et m'épanouit.</p><p>Vous voulez travailler avec ou aux côtés d'une personne heureuse, souriante, résiliente et surtout compétente ? Contactez-moi !</p>"
+    }
+  ],
+  "conclusion": "J'oubliais : <strong>J'ai pas eu une vie de merde évidemment</strong>, j'ai eu une vie riche et singulière qui m'a apporté des compétences rares, une capacité d'adaptation hors norme et une résilience peu commune.<br><br>Bientôt le 3e livre ! ✌️",
+  "books": {
+    "title": "Mes livres",
+    "description": "J'ai publié deux livres aux Éditions Michel Lafon qui racontent mon parcours et mes combats.",
+    "cta": "Commander sur Amazon",
+    "editorLink": "En savoir plus (Éditions Michel Lafon)"
+  },
+  "linkedinLink": "Lire l'article original sur LinkedIn",
+  "cta": {
+    "title": "Envie de travailler ensemble ?",
+    "description": "Discutons de votre projet autour d'un premier échange gratuit et sans engagement.",
+    "button": "Contactez-moi"
+  }
+}
