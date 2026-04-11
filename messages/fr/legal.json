@@ -1,0 +1,54 @@
+{
+  "title": "MENTIONS LÉGALES",
+  "publisher": {
+    "title": "Éditeur du site",
+    "business_type": "Entrepreneur individuel (EI)",
+    "activity": "Conception, développement et maintenance de sites internet",
+    "start_date": "Date de début d'activité : 19/01/2026",
+    "contact_link": "Me contacter via le formulaire"
+  },
+  "insurance": {
+    "title": "Responsabilité civile professionnelle",
+    "text": "est couverte par une assurance Responsabilité Civile Professionnelle.",
+    "policy_number": "Numéro de police :"
+  },
+  "mediation": {
+    "title": "Médiateur de la consommation",
+    "intro": "Conformément à l'article L.616-1 du Code de la consommation, en cas de litige, vous pouvez recourir gratuitement à un médiateur de la consommation :"
+  },
+  "ip_rights": {
+    "title": "Droits de propriété intellectuelle",
+    "text": "Conformément à l'article L.111-1 du Code de la propriété intellectuelle, Perrine Huon est titulaire des droits de propriété intellectuelle et détient les droits d'usage sur tous les éléments accessibles sur le site, notamment les textes, images, graphismes, logos, vidéos, architecture, icônes et sons.",
+    "text2": "Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de Perrine Huon."
+  },
+  "hosting": {
+    "title": "Hébergement",
+    "intro": "Ce site est hébergé par",
+    "phone": "Téléphone :",
+    "domain_text": "Nom de domaine enregistré chez"
+  },
+  "data_protection": {
+    "title": "Protection des données personnelles",
+    "intro": "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés du 6 janvier 1978 modifiée, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données personnelles, ainsi qu'un droit d'opposition et de limitation du traitement.",
+    "controller": "Responsable du traitement des données : Perrine Huon",
+    "usage": "Les données collectées via le formulaire de contact sont utilisées uniquement pour répondre à votre demande et ne sont jamais transmises à des tiers.",
+    "exercise_rights": "Pour exercer ces droits ou pour toute question sur le traitement de vos données,",
+    "contact_link": "contactez-moi via le formulaire",
+    "cnil": "Vous pouvez également introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) :"
+  },
+  "cookies": {
+    "title": "Cookies",
+    "text": "Ce site utilise des cookies techniques nécessaires à son bon fonctionnement. Aucun cookie publicitaire ou de tracking tiers n'est utilisé sans votre consentement explicite.",
+    "text2": "Conformément à l'article 82 de la loi Informatique et Libertés et à la directive 2009/136/CE, vous pouvez à tout moment configurer votre navigateur pour refuser les cookies."
+  },
+  "liability": {
+    "title": "Limitations de responsabilité",
+    "paragraph1": "Perrine Huon ne pourra être tenue responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site, et résultant soit de l'utilisation d'un matériel ne répondant pas aux spécifications indiquées, soit de l'apparition d'un bug ou d'une incompatibilité.",
+    "paragraph2": "Perrine Huon ne pourra également être tenue responsable des dommages indirects (tels par exemple qu'une perte de marché ou perte d'une chance) consécutifs à l'utilisation du site.",
+    "paragraph3": "Des espaces interactifs (possibilité de poser des questions dans l'espace contact) sont à la disposition des utilisateurs. Perrine Huon se réserve le droit de supprimer, sans mise en demeure préalable, tout contenu déposé dans cet espace qui contreviendrait à la législation applicable en France, en particulier aux dispositions relatives à la protection des données."
+  },
+  "jurisdiction": {
+    "title": "Droit applicable et juridiction compétente",
+    "text": "Tout litige en relation avec l'utilisation du site est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents de Paris."
+  }
+}

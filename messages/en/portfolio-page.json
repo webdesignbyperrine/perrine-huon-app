@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "title": "Portfolio - My Web Projects",
+    "description": "Discover a selection of my recent web projects, optimized for local SEO"
+  },
+  "header": {
+    "subtitle": "My work",
+    "title": "Portfolio",
+    "description": "A selection of my recent projects, optimized for local SEO"
+  },
+  "demoProjects": {
+    "1": {
+      "short_description": "Premium showcase website for creative studio in Lyon"
+    },
+    "2": {
+      "short_description": "Modern e-commerce with secure payment"
+    },
+    "3": {
+      "short_description": "SaaS application for project management"
+    },
+    "4": {
+      "short_description": "Interactive 3D portfolio for architect"
+    },
+    "5": {
+      "short_description": "Collaborative platform for teams"
+    },
+    "6": {
+      "short_description": "E-learning website with interactive videos"
+    }
+  },
+  "cta": {
+    "button": "Get my free quote"
+  }
+}

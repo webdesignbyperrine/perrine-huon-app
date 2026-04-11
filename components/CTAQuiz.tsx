@@ -1,6 +1,10 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 export default function CTAQuiz() {
+  const t = useTranslations('ctaQuiz');
+
   const handleClick = () => {
     window.dispatchEvent(new Event('openQualifier'));
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -13,7 +17,7 @@ export default function CTAQuiz() {
     >
       <span className="btn-shimmer"></span>
       <span className="relative flex flex-col items-center justify-center gap-1">
-        <span className="text-xs font-medium uppercase tracking-wider opacity-80">Quiz interactif</span>
+        <span className="text-xs font-medium uppercase tracking-wider opacity-80">{t('label')}</span>
         <span className="flex items-center justify-center gap-3">
           <span className="btn-icon-bounce">
             <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -24,7 +28,7 @@ export default function CTAQuiz() {
               <polyline points="10 9 9 9 8 9"/>
             </svg>
           </span>
-          <span className="font-bold">Quel est votre projet ?</span>
+          <span className="font-bold">{t('cta')}</span>
         </span>
       </span>
     </button>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import ProgressBar from '../ui/ProgressBar';
 import { ArrowLeftIcon } from '../icons';
@@ -13,55 +14,60 @@ const getPreviewUrl = (siteUrl: string) => {
 // Liste de 8 sites avec des univers graphiques différents
 const INSPIRATION_SITES = [
   { 
-    name: 'Créatif', 
+    id: 'creative',
     url: 'https://www.figma.com', 
     color: '#a259ff'
   },
   { 
-    name: 'Chaleureux', 
+    id: 'warm',
     url: 'https://www.brasserie-jules.fr/fr', 
     color: '#8b6914'
   },
   { 
-    name: 'Sobre', 
+    id: 'sober',
     url: 'https://solwos.com/', 
     color: '#1a365d'
   },
   { 
-    name: 'Immersif', 
+    id: 'immersive',
     url: 'https://www.ferrari.com', 
     color: '#dc0000'
   },
   { 
-    name: 'Raffiné', 
+    id: 'refined',
     url: 'https://www.voyageursdumonde.fr/voyage-sur-mesure', 
     color: '#c9a040'
   },
   { 
-    name: 'Coloré', 
+    id: 'colorful',
     url: 'https://www.joinflowparty.com', 
     color: '#ff6b9d'
   },
   { 
-    name: 'Gradient', 
+    id: 'gradient',
     url: 'https://stripe.com/fr', 
     color: '#635bff'
   },
   { 
-    name: 'Clair', 
+    id: 'light',
     url: 'https://www.who.int', 
     color: '#009edb'
   },
 ];
 
 export default function InspirationsStep() {
+  const t = useTranslations('qualifier.inspirations');
+  const tRoot = useTranslations('qualifier');
   const { data, setInspirations, goPrevious, goNext, resetQualifier } = useQualifier();
   const [selectedSites, setSelectedSites] = useState<string[]>(
     () => data.inspirations?.split(',').map(s => s.trim()).filter(Boolean) ?? []
   );
   const [expandedSite, setExpandedSite] = useState<string | null>(null);
 
-  const toggleSite = (siteName: string) => {
+  const getSiteName = (siteId: string) => t(`styles.${siteId}`);
+
+  const toggleSite = (siteId: string) => {
+    const siteName = getSiteName(siteId);
     const newSelected = selectedSites.includes(siteName)
       ? selectedSites.filter(s => s !== siteName)
       : [...selectedSites, siteName];
@@ -69,8 +75,8 @@ export default function InspirationsStep() {
     setInspirations(newSelected.join(', '));
   };
 
-  const handleCardClick = (siteName: string) => {
-    setExpandedSite(expandedSite === siteName ? null : siteName);
+  const handleCardClick = (siteId: string) => {
+    setExpandedSite(expandedSite === siteId ? null : siteId);
   };
 
   const openSite = (url: string, e: React.MouseEvent) => {
@@ -78,7 +84,7 @@ export default function InspirationsStep() {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const expandedSiteData = INSPIRATION_SITES.find(s => s.name === expandedSite);
+  const expandedSiteData = INSPIRATION_SITES.find(s => s.id === expandedSite);
 
   return (
     <div className="py-4">
@@ -87,10 +93,10 @@ export default function InspirationsStep() {
       {/* Titre */}
       <div className="text-center mb-6">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-          Quels univers vous inspirent ?
+          {t('title')}
         </h2>
         <p className="text-primary/50 font-light">
-          Cliquez sur une carte pour l&apos;agrandir • Cochez pour sélectionner
+          {t('subtitle')}
         </p>
       </div>
 
@@ -98,16 +104,17 @@ export default function InspirationsStep() {
       {/* Grille de sites avec miniatures */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
         {INSPIRATION_SITES.map((site) => {
-          const isSelected = selectedSites.includes(site.name);
+          const siteName = getSiteName(site.id);
+          const isSelected = selectedSites.includes(siteName);
           
           return (
             <div
-              key={site.name}
+              key={site.id}
               className="relative group"
             >
               {/* Card avec miniature */}
               <div
-                onClick={() => handleCardClick(site.name)}
+                onClick={() => handleCardClick(site.id)}
                 className={`
                   relative w-full rounded-xl overflow-hidden cursor-pointer transition-all duration-300
                   ${isSelected 
@@ -120,14 +127,14 @@ export default function InspirationsStep() {
                 <div className="relative h-28 overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
                   <img
                     src={getPreviewUrl(site.url)}
-                    alt={`Aperçu ${site.name}`}
+                    alt={t('preview', { name: siteName })}
                     className="w-full h-full object-cover object-top"
                     loading="eager"
                   />
                   {/* Overlay au hover */}
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white text-xs bg-black/50 px-2 py-1 rounded">
-                      Cliquez pour agrandir
+                      {t('clickToEnlarge')}
                     </span>
                   </div>
                 </div>
@@ -139,7 +146,7 @@ export default function InspirationsStep() {
                       className="w-3 h-3 rounded-full flex-shrink-0"
                       style={{ backgroundColor: site.color }}
                     />
-                    <span className="font-semibold text-primary text-sm truncate">{site.name}</span>
+                    <span className="font-semibold text-primary text-sm truncate">{siteName}</span>
                   </div>
                 </div>
 
@@ -147,7 +154,7 @@ export default function InspirationsStep() {
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    toggleSite(site.name);
+                    toggleSite(site.id);
                   }}
                   className="absolute top-2 right-2 z-10 transition-transform duration-200 hover:scale-110"
                 >
@@ -215,7 +222,7 @@ export default function InspirationsStep() {
                     <div className="relative h-96 overflow-hidden bg-gradient-to-br from-primary-800 to-primary-900">
                       <img
                         src={getPreviewUrl(expandedSiteData.url)}
-                        alt={`Aperçu ${expandedSiteData.name}`}
+                        alt={t('preview', { name: getSiteName(expandedSiteData.id) })}
                         className="w-full h-full object-cover object-top"
                       />
                     </div>
@@ -227,24 +234,24 @@ export default function InspirationsStep() {
                     className="w-4 h-4 rounded-full"
                     style={{ backgroundColor: expandedSiteData.color }}
                   />
-                  <span className="text-primary font-semibold">{expandedSiteData.name}</span>
+                  <span className="text-primary font-semibold">{getSiteName(expandedSiteData.id)}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   {/* Bouton Sélectionner - btn-cta */}
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      toggleSite(expandedSiteData.name);
+                      toggleSite(expandedSiteData.id);
                       setExpandedSite(null);
                     }}
                     className={`px-5 py-2.5 rounded-sketch text-sm font-semibold transition-all duration-300 ${
-                      selectedSites.includes(expandedSiteData.name)
+                      selectedSites.includes(getSiteName(expandedSiteData.id))
                         ? 'bg-accent text-white'
                         : 'bg-accent text-white hover:bg-accent/90'
                     }`}
                     style={{ boxShadow: '0 2px 8px rgba(var(--accent-pink-rgb), 0.3)' }}
                   >
-                    {selectedSites.includes(expandedSiteData.name) ? '✓ Sélectionné' : 'Sélectionner'}
+                    {selectedSites.includes(getSiteName(expandedSiteData.id)) ? t('selected') : t('select')}
                   </button>
 
                   {/* Bouton Visiter - btn-sketch style */}
@@ -255,7 +262,7 @@ export default function InspirationsStep() {
                     }}
                     className="group px-5 py-2.5 rounded-sketch text-sm font-semibold bg-paper-light text-primary border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 flex items-center gap-2"
                   >
-                    <span>Visiter</span>
+                    <span>{t('visit')}</span>
                     <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -266,7 +273,7 @@ export default function InspirationsStep() {
             
             {/* Instruction */}
             <p className="text-center text-white/40 text-sm mt-4">
-              Cliquez n&apos;importe où pour fermer
+              {t('clickToClose')}
             </p>
           </div>
         </div>
@@ -276,11 +283,11 @@ export default function InspirationsStep() {
       <div className="mt-6 max-w-2xl mx-auto">
         <div className="bg-primary/5 border-2 border-primary/10 rounded-sketch-lg p-4">
           <label className="block text-sm text-primary/50 mb-2">
-            💡 Autre inspiration ? Ajoutez un site ou une marque :
+            {t('otherLabel')}
           </label>
           <input
             type="text"
-            placeholder="Ex: Le site de mon concurrent, une boutique que j'aime..."
+            placeholder={t('otherPlaceholder')}
             className="input-sketch w-full text-sm"
             onBlur={(e) => {
               if (e.target.value) {
@@ -310,7 +317,7 @@ export default function InspirationsStep() {
           onClick={goNext}
           className="btn-cta btn-cta-pulse group inline-flex items-center gap-3"
         >
-          <span>Dernière étape : obtenir votre estimation</span>
+          <span>{t('lastStep')}</span>
           <svg 
             className="w-5 h-5 group-hover:translate-x-1 transition-transform" 
             fill="none" 
@@ -325,7 +332,7 @@ export default function InspirationsStep() {
         <button
           onClick={resetQualifier}
           className="flex items-center gap-2 text-primary/40 hover:text-accent transition-all duration-300 group text-sm"
-          title="Recommencer à zéro"
+          title={t('restart')}
         >
           <svg 
             className="w-4 h-4 group-hover:rotate-[-360deg] transition-transform duration-500" 
@@ -335,7 +342,7 @@ export default function InspirationsStep() {
           >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
           </svg>
-          <span>Recommencer le questionnaire</span>
+          <span>{t('restart')}</span>
         </button>
       </div>
 
@@ -346,7 +353,7 @@ export default function InspirationsStep() {
           className="text-primary/40 hover:text-primary/70 text-sm transition-colors flex items-center gap-2 mx-auto"
         >
           <ArrowLeftIcon className="w-4 h-4" />
-          Retour
+          {tRoot('back')}
         </button>
       </div>
 

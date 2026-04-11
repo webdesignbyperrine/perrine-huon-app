@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { DESIGN_STYLES } from '../types';
 import { MoodboardCard } from '../ui/SelectionCard';
@@ -7,6 +8,7 @@ import NavigationButtons from '../ui/NavigationButtons';
 import ProgressBar from '../ui/ProgressBar';
 
 export default function DesignStyleStep() {
+  const t = useTranslations('qualifier.designStyle');
   const { data, setDesignStyle, goNext } = useQualifier();
 
   const handleSelect = (style: typeof data.designStyle) => {
@@ -22,10 +24,10 @@ export default function DesignStyleStep() {
       {/* Titre */}
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-          Quel style de design vous attire ?
+          {t('title')}
         </h2>
         <p className="text-primary/50 font-light">
-          Choisissez l&apos;ambiance visuelle qui vous correspond
+          {t('subtitle')}
         </p>
       </div>
 
@@ -36,8 +38,8 @@ export default function DesignStyleStep() {
             key={style.value}
             selected={data.designStyle === style.value}
             onClick={() => handleSelect(style.value)}
-            label={style.label}
-            description={style.description}
+            label={t(`options.${style.value}.label`)}
+            description={t(`options.${style.value}.description`)}
             colors={style.colors}
             showCheck={false}
           />

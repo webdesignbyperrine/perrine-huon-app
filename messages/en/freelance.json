@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "title": "Freelance vs Web Agency: How to Choose in 2026",
+    "description": "Freelance or web agency? Compare advantages, disadvantages, and pricing to make the right choice for your website. Complete 2026 guide.",
+    "ogTitle": "Freelance vs Web Agency: How to Choose in 2026",
+    "ogDescription": "Freelance or web agency? Compare advantages, disadvantages, and pricing to make the right choice for your website."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Freelance vs Agency"
+  },
+  "hero": {
+    "backToHome": "Back to home",
+    "title": "Freelance vs Web Agency",
+    "subtitle": "How to choose the right partner for creating your website? Objective comparison to help you decide."
+  },
+  "comparisonTable": {
+    "title": "Detailed Comparison",
+    "headers": {
+      "criterion": "Criterion",
+      "freelance": "Freelance",
+      "agency": "Agency",
+      "diy": "WordPress DIY"
+    },
+    "rows": [
+      {
+        "criterion": "Average showcase website price",
+        "freelance": "$1,800 – $4,800",
+        "agency": "$6,000 – $18,000",
+        "diy": "$0 – $600"
+      },
+      {
+        "criterion": "Delivery time",
+        "freelance": "2 – 6 weeks",
+        "agency": "6 – 16 weeks",
+        "diy": "1 – 4 weeks"
+      },
+      {
+        "criterion": "Single point of contact",
+        "freelance": "✓",
+        "agency": "✗ (multiple team)",
+        "diy": "✓ (yourself)"
+      },
+      {
+        "criterion": "Customization",
+        "freelance": "Complete",
+        "agency": "Complete",
+        "diy": "Limited (templates)"
+      },
+      {
+        "criterion": "Performance & SEO",
+        "freelance": "Excellent",
+        "agency": "Excellent",
+        "diy": "Variable"
+      },
+      {
+        "criterion": "Responsiveness",
+        "freelance": "Very fast",
+        "agency": "Average",
+        "diy": "N/A"
+      },
+      {
+        "criterion": "Maintenance",
+        "freelance": "Included or optional",
+        "agency": "Annual contract",
+        "diy": "Your responsibility"
+      },
+      {
+        "criterion": "Scalability",
+        "freelance": "Good",
+        "agency": "Excellent",
+        "diy": "Limited"
+      }
+    ]
+  },
+  "whenChooseFreelance": {
+    "title": "When to choose a freelance?",
+    "subtitle": "Freelance is the ideal choice for most web projects for SMEs, liberal professions, and associations.",
+    "advantages": [
+      {
+        "title": "Unbeatable value for money",
+        "description": "Without an agency's structural costs, a freelance offers rates 40 to 60% lower for equivalent quality."
+      },
+      {
+        "title": "Direct communication",
+        "description": "No intermediary. You communicate directly with the person who designs and develops your site, reducing misunderstandings."
+      },
+      {
+        "title": "Flexibility & responsiveness",
+        "description": "A freelance adapts to your schedule and can respond quickly to modification requests, without the heavy processes of an agency."
+      },
+      {
+        "title": "Personal commitment",
+        "description": "Your project isn't just another file among dozens. The freelance is personally committed to your website's success."
+      }
+    ]
+  },
+  "whenChooseAgency": {
+    "title": "When to choose an agency?",
+    "subtitle": "An agency can be relevant in certain specific cases.",
+    "advantages": [
+      {
+        "title": "Multiple resources",
+        "description": "An agency has various specialists (designer, developer, writer, SEO) who can work in parallel."
+      },
+      {
+        "title": "Large-scale projects",
+        "description": "For very complex projects requiring multiple simultaneous expertise, an agency can mobilize a complete team."
+      },
+      {
+        "title": "Service continuity",
+        "description": "In case of absence of a collaborator, the agency ensures project continuity thanks to its team."
+      }
+    ]
+  },
+  "whyPerrine": {
+    "title": "The advantages of working with Perrine",
+    "subtitle": "The best of both worlds: an agency's technical expertise with a freelance's proximity and rates.",
+    "benefits": [
+      {
+        "title": "Premium technologies, freelance rate",
+        "description": "Next.js, React, Tailwind CSS: the same tools as the best agencies, without structural costs."
+      },
+      {
+        "title": "SEO integrated from the start",
+        "description": "Natural SEO is considered from the design phase, not added as an expensive afterthought."
+      },
+      {
+        "title": "Personalized support from A to Z",
+        "description": "From strategy to launch, tailored support at every stage of your project."
+      },
+      {
+        "title": "Measurable performance",
+        "description": "Websites that score 95+ on Google PageSpeed, with concrete results in visibility and conversions."
+      },
+      {
+        "title": "Total transparency",
+        "description": "Detailed quote, clear timeline, regular communication. You always know where your project stands."
+      }
+    ]
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Can a freelance handle a complex project as well as an agency?",
+        "answer": "Absolutely. An experienced freelance masters the entire creation chain (design, development, SEO) and can mobilize specialized collaborators if necessary. For most SME and liberal profession projects, a freelance is not only sufficient but often preferable for client relationship quality."
+      },
+      {
+        "question": "What happens if the freelance is no longer available?",
+        "answer": "Clean and well-documented code ensures that any competent developer can take over the project. That's why I use standard technologies (Next.js, React) and provide complete documentation. Your site never depends on a single person."
+      },
+      {
+        "question": "How to choose between freelance and agency for my project?",
+        "answer": "If your budget is under $12,000 and you want a single point of contact with a trust relationship, freelance is ideal. If your project requires more than 5 different trades simultaneously (e.g., mobile app + web + marketing), an agency may be relevant."
+      },
+      {
+        "question": "Why not simply create my site myself with WordPress?",
+        "answer": "It's possible for very simple needs, but a homemade site will often lack performance, security, and professional SEO. The time you dedicate to it could be better invested in your core business. A professional saves you time and guarantees a result worthy of your image."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Convinced by freelance?",
+    "description": "Let's discuss your project during a first free and no-obligation exchange. You'll see for yourself the advantages of working directly.",
+    "button": "Discuss my project"
+  }
+}

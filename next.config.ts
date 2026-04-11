@@ -1,9 +1,11 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
 
 const isDev = process.env.NODE_ENV === 'development';
 
 const nextConfig: NextConfig = {
-  // Optimisations de performance
   compress: true,
   poweredByHeader: false,
   
@@ -26,9 +28,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
   },
   
-  // Headers de sécurité (désactivé en dev pour compatibilité Lottie WASM)
   async headers() {
-    // Headers de base (toujours appliqués)
     const securityHeaders = [
       {
         key: 'X-DNS-Prefetch-Control',
@@ -52,7 +52,6 @@ const nextConfig: NextConfig = {
       },
     ];
 
-    // CSP uniquement en production
     if (!isDev) {
       securityHeaders.push({
         key: 'Content-Security-Policy',
@@ -80,4 +79,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

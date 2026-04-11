@@ -1,0 +1,571 @@
+{
+  "metadata": {
+    "title": "Perrine Huon | Custom Website Creation | Freelance Web Developer",
+    "titleTemplate": "%s | Perrine Huon - Website Creation",
+    "description": "Freelance web developer specializing in custom website creation, web applications and local SEO. Showcase sites, e-commerce, landing pages optimized for conversion. Free quote.",
+    "siteName": "Perrine Huon - Website Creation",
+    "ogDescription": "Freelance web developer specializing in custom website creation and local SEO. Showcase sites, e-commerce, web applications. Free quote.",
+    "ogImageAlt": "Perrine Huon - Custom Website Creation",
+    "twitterDescription": "Custom website creation and local SEO. Showcase sites, e-commerce, web applications. Freelance web developer."
+  },
+  "header": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "freeQuote": "Free quote",
+    "darkMode": "Enable dark mode",
+    "lightMode": "Enable light mode",
+    "darkModeShort": "Dark mode",
+    "lightModeShort": "Light mode",
+    "contactForm": "Contact form",
+    "writeMe": "Write to me",
+    "getFreeQuote": "Get my free quote",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "mobileNav": "Mobile navigation"
+  },
+  "footer": {
+    "slogan": "Let's build your digital success together.",
+    "subtitle": "Freelance Web Developer — Custom Website Creation",
+    "whatAreYourNeeds": "What are your needs?",
+    "stayConnected": "Stay connected",
+    "linkedinDesc": "Web tips and freelance life",
+    "instagramDesc": "Behind the scenes and design inspiration",
+    "facebookDesc": "News and web shares",
+    "followMe": "Follow me",
+    "servicesTitle": "Services",
+    "byProfession": "By Profession",
+    "byCity": "By City",
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "legalNotice": "Legal notice",
+    "privacy": "Privacy",
+    "backToHome": "Back to home",
+    "serviceLinks": {
+      "showcase": "Showcase Website",
+      "ecommerce": "E-commerce Website",
+      "webapp": "Web Application",
+      "landing": "Landing Page",
+      "redesign": "Website Redesign",
+      "seo": "Local SEO",
+      "maintenance": "Maintenance",
+      "crm": "Custom CRM"
+    },
+    "professionLinks": {
+      "lawyers": "Lawyers",
+      "doctors": "Doctors",
+      "restaurants": "Restaurants",
+      "accountants": "Accountants",
+      "craftsmen": "Craftsmen",
+      "associations": "Associations",
+      "hairdressers": "Hairdressers",
+      "architects": "Architects"
+    }
+  },
+  "hero": {
+    "badge": "Freelance web developer — Custom website creation",
+    "titleLine1": "You work hard.",
+    "titleLine2": "Your website should too.",
+    "subtitleLine1": "Websites designed to be found on Google.",
+    "subtitleLine2": "Built to convert your visitors into clients.",
+    "typewriter1": "Let's build your digital success together.",
+    "typewriter2": "Websites for SMEs, professionals and associations.",
+    "typewriter3": "From Paris to all of France, your custom website.",
+    "typewriter4": "Performance, SEO and design: the winning trio.",
+    "typewriter5": "Your next client is searching for you on Google.",
+    "quizLabel": "Interactive quiz",
+    "quizCTA": "What's your project?",
+    "quizDuration": "2 min",
+    "backToHome": "Back to home"
+  },
+  "services": {
+    "subtitle": "What I offer",
+    "title": "Services",
+    "description": "From consulting to launch, I take care of everything",
+    "service1Title": "Websites",
+    "service1Subtitle": "Custom Built",
+    "service1Desc": "Showcase, e-commerce or corporate: a website that works for you.",
+    "service2Title": "Applications",
+    "service2Subtitle": "Web & Mobile",
+    "service2Desc": "Development of complex applications, SaaS, dashboards and business tools with modern technologies.",
+    "service3Title": "Local SEO",
+    "service3Subtitle": "Ultra Targeted",
+    "service3Desc": "Appear first when your clients search near them.",
+    "service4Title": "Performance",
+    "service4Subtitle": "& Optimization",
+    "service4Desc": "Your website is slow or poorly ranked? I bring it back to life.",
+    "service5Title": "Maintenance",
+    "service5Subtitle": "& Support",
+    "service5Desc": "You manage your business, I take care of your website.",
+    "service6Title": "Digital",
+    "service6Subtitle": "Strategy",
+    "service6Desc": "No one-size-fits-all recipe. A marketing strategy designed for you."
+  },
+  "about": {
+    "subtitle": "Who am I",
+    "title": "Behind the screen",
+    "badge": "Web Designer",
+    "imageAlt": "Perrine Huon - Web Designer & Developer",
+    "paragraph1": "I build <strong>digital projects</strong> with rigor, creativity, and a lot of listening.",
+    "paragraph2": "My designs are timeless, built to last. Efficiency first, never superfluous. Every pixel has its purpose, every interaction is designed for the user.",
+    "paragraph3": "A beautiful site is great. A site that <strong>attracts</strong>, <strong>convinces</strong> and <strong>converts</strong> is better.",
+    "techStack": "Tech stack",
+    "trustedBy": "They trusted me",
+    "specialties": "Specialties",
+    "vibeCoding": "Vibe Coding",
+    "lowCode": "Low Code & No Code",
+    "mvp": "MVP / SaaS / CRM",
+    "stayConnected": "Stay connected"
+  },
+  "testimonials": {
+    "subtitle": "They trust us",
+    "title": "Testimonials",
+    "description": "Discover what our clients say about their experience and the results achieved.",
+    "ratingAria": "Rating: {rating} out of 5",
+    "demo": {
+      "1": {
+        "content": "My website finally reflects the seriousness of my practice. Perrine perfectly understood my professional ethics constraints and created an elegant site that inspires trust in my clients.",
+        "name": "Marie L.",
+        "profession": "Lawyer"
+      },
+      "2": {
+        "content": "Our online bookings have increased by 40% since the new website. The integration of the interactive menu and booking system is flawless.",
+        "name": "Thomas D.",
+        "profession": "Restaurant Owner"
+      },
+      "3": {
+        "content": "A modern website that sets me apart from other firms. Local SEO has transformed my visibility: I now receive qualified inquiries every week.",
+        "name": "Sophie M.",
+        "profession": "Chartered Accountant"
+      },
+      "4": {
+        "content": "Finally visible on Google! My quote requests have doubled in 3 months. The portfolio showcases my work perfectly. Simple, effective, professional.",
+        "name": "Jean-Pierre R.",
+        "profession": "Cabinetmaker"
+      },
+      "5": {
+        "content": "Tight budget but professional result. Perrine understood our non-profit needs and delivered a website that facilitates our registrations and communication.",
+        "name": "Claire B.",
+        "profession": "Association President"
+      },
+      "6": {
+        "content": "The integrated online appointment booking has changed my daily routine. Fewer phone calls, more time for my patients.",
+        "name": "Karim A.",
+        "profession": "Physiotherapist"
+      }
+    }
+  },
+  "blogPreview": {
+    "subtitle": "News & Tips",
+    "title": "Blog",
+    "description": "Tips, tricks and news about web design, development and local SEO.",
+    "readArticle": "Read article",
+    "previousArticle": "Previous article",
+    "nextArticle": "Next article",
+    "goToArticle": "Go to article {index}",
+    "viewAll": "View all articles",
+    "demoPosts": {
+      "1": {
+        "title": "Local SEO 2026: How to Dominate Geolocated Searches",
+        "excerpt": "Google My Business, local citations, customer reviews... The complete guide to being visible in your city and attracting qualified clients near you."
+      },
+      "2": {
+        "title": "Web Design Trends 2026: What Will Change Everything",
+        "excerpt": "Generative AI, immersive interfaces, micro-interactions... Discover the trends that will redefine web design in 2026."
+      },
+      "3": {
+        "title": "Web Performance: Why Your Site Speed Impacts Your Sales",
+        "excerpt": "Core Web Vitals, loading time, user experience... Every second counts. Discover how to optimize your site to convert more."
+      },
+      "4": {
+        "title": "Vibe Coding: The 2025 Revolution and What's Next",
+        "excerpt": "How vibe coding transformed web development in 2025, and why 2026 promises to be even more disruptive."
+      },
+      "5": {
+        "title": "Major Design Events of 2025: A Year in Review",
+        "excerpt": "From Figma Config to Awwwards, the highlights that shaped the design community this year."
+      },
+      "6": {
+        "title": "AI and Web Creation: Where Do We Really Stand in Late 2025?",
+        "excerpt": "State of AI in website creation: what works, what disappoints, and how to use it wisely."
+      }
+    }
+  },
+  "faqPreview": {
+    "subtitle": "Frequently asked questions",
+    "title": "FAQ",
+    "description": "Answers to the most common questions about my services and work process.",
+    "viewAll": "View all questions",
+    "demoFaqs": {
+      "1": {
+        "question": "How long does it take to create a website?",
+        "answer": "The creation timeline depends on the project's complexity. A simple showcase site can be delivered in 2-3 weeks, while an e-commerce site or custom web application may take 6 to 12 weeks.",
+        "category": "Process"
+      },
+      "2": {
+        "question": "How does local SEO work?",
+        "answer": "Local SEO helps optimize your visibility for specific local searches. I work on content optimization, meta tags, and creating targeted pages by city or geographic area to improve your local rankings.",
+        "category": "SEO"
+      },
+      "3": {
+        "question": "Do you offer maintenance services?",
+        "answer": "Yes, I offer monthly maintenance packages including updates, security, backups and technical support.",
+        "category": "Services"
+      },
+      "4": {
+        "question": "What are your rates?",
+        "answer": "My rates vary depending on the nature and scope of the project. I provide personalized quotes after an initial discussion to fully understand your needs. Feel free to contact me to discuss your project.",
+        "category": "Pricing"
+      }
+    }
+  },
+  "portfolioPreview": {
+    "subtitle": "Recent work",
+    "title": "Portfolio",
+    "description": "A selection of my recent projects",
+    "noProjects": "No published projects yet",
+    "viewAll": "View all projects",
+    "demoProjects": {
+      "1": { "title": "Workflow Automation Lab", "short_description": "Modern showcase site designed to convert visitors into clients — Retro-futuristic design with AI integrations" },
+      "2": { "title": "COWORKMEET", "short_description": "Complete community platform for organizing coworking and networking sessions" },
+      "3": { "title": "Toca do Jaguar", "short_description": "Immersive showcase site for an eco-lodge in the Amazon — Authentic nature experience" },
+      "4": { "title": "Portfolio Digital", "short_description": "Creative portfolio for a freelance designer — Fluid animations and bold layout" }
+    }
+  },
+  "calendly": {
+    "overtitle": "Book a meeting",
+    "title": "Shall we talk?",
+    "intro": "30 minutes to get to know each other, understand your needs and offer you the best solutions.",
+    "discussTitle": "Let's discuss your project",
+    "discussDesc": "Free first consultation, no commitment. I advise you on the best approach for your project.",
+    "bookSlot": "Book a slot",
+    "badge": "Free first consultation • No commitment",
+    "benefit1Title": "30 minutes",
+    "benefit1Desc": "A quick and efficient exchange",
+    "benefit2Title": "100% free",
+    "benefit2Desc": "No fees, open discussion",
+    "benefit3Title": "Personalized advice",
+    "benefit3Desc": "Solutions tailored to your needs"
+  },
+  "contactForm": {
+    "consentError": "Don't forget to check the consent box before sending.",
+    "rateLimitError": "Too many messages sent. Try again in a few minutes.",
+    "sendError": "Oops, that didn't work! Try again or contact me directly.",
+    "connectionError": "Connection error. Check your internet connection.",
+    "readyToStart": "Ready to start?",
+    "letsGo": "Let's bring your project to life",
+    "howToContact": "How would you like to contact me?",
+    "quick": "Quick",
+    "preciseIdea": "I have a precise idea",
+    "response48h": "Detailed response within 48h",
+    "writeMessage": "Write my message",
+    "recommended": "Recommended",
+    "helpDefine": "Help me define my needs",
+    "estimateDesc": "Personalized estimate",
+    "startQuiz": "Start the interactive quiz",
+    "quizDuration": "2 min",
+    "thirtyMin": "30 min",
+    "letsCall": "Shall we talk?",
+    "freeConsultation": "Free consultation, no commitment",
+    "bookSlot": "Book a slot",
+    "free": "Free",
+    "noCommitment": "No commitment",
+    "responseTime": "Response within 48h",
+    "backToOptions": "Back to options",
+    "writeToMe": "Write to me",
+    "tellAboutProject": "Tell me about your project…",
+    "received": "Got it!",
+    "thankYou": "Thank you for your message. I'll reply within 48h.",
+    "backToHome": "Back to home",
+    "fullName": "Full name",
+    "email": "Email",
+    "company": "Company (optional)",
+    "yourMessage": "Your message",
+    "messagePlaceholder": "Describe your project, needs, questions...",
+    "consent": "I agree to be contacted by Perrine Huon regarding my request. See the",
+    "privacyPolicy": "Privacy policy",
+    "sending": "Sending…",
+    "sendMessage": "Send my message"
+  },
+  "ctaQuiz": {
+    "label": "Interactive quiz",
+    "cta": "What's your project?"
+  },
+  "qualifier": {
+    "backToOptions": "Back to options",
+    "close": "Close",
+    "continue": "Continue",
+    "back": "Back",
+    "dontKnow": "I don't know yet",
+    "restartTitle": "Start over",
+    "stepLabels": {
+      "intro": "Introduction",
+      "projectType": "Project type",
+      "features": "Features",
+      "designStyle": "Design style",
+      "animationLevel": "Animations",
+      "budget": "Budget",
+      "deadline": "Timeline",
+      "accompagnement": "Support",
+      "inspirations": "Inspirations",
+      "quoteRequest": "Quote request"
+    },
+    "intro": {
+      "imageAlt": "Needle",
+      "titleLine1": "Your web project",
+      "titleLine2": "custom-made",
+      "subtitle": "Let's review in 2 min?",
+      "stepsCompleted": "{count} step(s) completed",
+      "resume": "Resume",
+      "defineNeeds": "Define my needs",
+      "restartFromZero": "Start over",
+      "badge": "Free • No commitment"
+    },
+    "projectType": {
+      "title": "What type of project do you have in mind?",
+      "subtitle": "Select the one that best fits your needs",
+      "options": {
+        "site-vitrine-onepage": {
+          "label": "One-page showcase site",
+          "description": "Concise and impactful presentation"
+        },
+        "site-vitrine-multipage": {
+          "label": "Multi-page showcase site",
+          "description": "Complete and detailed structure"
+        },
+        "ecommerce": {
+          "label": "E-commerce website",
+          "description": "Online sales and product management"
+        },
+        "landing-page": {
+          "label": "Landing page / Sales page",
+          "description": "Conversion and acquisition"
+        },
+        "application-web": {
+          "label": "Web application (SaaS)",
+          "description": "Business tool or online service"
+        },
+        "mvp-prototype": {
+          "label": "MVP / Prototype",
+          "description": "Quick test of an idea"
+        },
+        "dashboard-crm": {
+          "label": "Dashboard / CRM",
+          "description": "Data management and visualization"
+        },
+        "refonte": {
+          "label": "Existing site redesign",
+          "description": "Modernization and optimization"
+        }
+      }
+    },
+    "features": {
+      "title": "What features interest you?",
+      "subtitle": "Select as many options as you like",
+      "options": {
+        "blog": "Blog / Content system",
+        "espace-membres": "Members area / Authentication",
+        "paiement": "Online payment",
+        "reservation": "Booking / Reservation",
+        "formulaires-avances": "Advanced forms",
+        "multilingue": "Multilingual",
+        "api-integrations": "API / Third-party integrations",
+        "admin-dashboard": "Admin dashboard",
+        "autre": "Other"
+      },
+      "otherLabel": "Specify your other needs:",
+      "otherPlaceholder": "Describe the specific features you need..."
+    },
+    "designStyle": {
+      "title": "What design style appeals to you?",
+      "subtitle": "Choose the visual atmosphere that suits you",
+      "options": {
+        "minimaliste": {
+          "label": "Minimalist & elegant",
+          "description": "Clean, refined, focus on essentials"
+        },
+        "moderne": {
+          "label": "Modern & dynamic",
+          "description": "Bold, colorful, trendy"
+        },
+        "corporate": {
+          "label": "Corporate & professional",
+          "description": "Serious, reassuring, institutional"
+        }
+      }
+    },
+    "animationLevel": {
+      "title": "What level of animation do you want?",
+      "subtitle": "Compare the 3 styles in real time 👇",
+      "options": {
+        "sobre": {
+          "label": "Subtle",
+          "description": "Subtle and discreet animations"
+        },
+        "modere": {
+          "label": "Moderate",
+          "description": "Smooth and engaging interactions"
+        },
+        "immersif": {
+          "label": "Immersive",
+          "description": "Wow and memorable experience"
+        }
+      }
+    },
+    "budget": {
+      "title": "What is your estimated budget?",
+      "subtitle": "This information helps me tailor my proposal to your means",
+      "options": {
+        "petit": {
+          "label": "Small budget",
+          "range": "€1,000 - €3,000",
+          "description": "Simple showcase site, customized template"
+        },
+        "moyen": {
+          "label": "Medium budget",
+          "range": "€3,000 - €8,000",
+          "description": "Custom design, advanced features"
+        },
+        "confortable": {
+          "label": "Comfortable budget",
+          "range": "€8,000 - €15,000",
+          "description": "Complete project, digital strategy included"
+        },
+        "large": {
+          "label": "Large budget",
+          "range": "€15,000+",
+          "description": "Complex application, premium support"
+        }
+      },
+      "confidential": "🔒 This information remains confidential and is only used to personalize my proposal"
+    },
+    "deadline": {
+      "title": "What is your timeline?",
+      "subtitle": "A realistic deadline enables quality work",
+      "options": {
+        "urgent": {
+          "label": "Urgent",
+          "description": "2-4 weeks"
+        },
+        "standard": {
+          "label": "Standard",
+          "description": "1-2 months"
+        },
+        "flexible": {
+          "label": "Flexible",
+          "description": "2-3 months"
+        },
+        "pas-contrainte": {
+          "label": "No constraint",
+          "description": "Let's take the time we need"
+        }
+      }
+    },
+    "accompagnement": {
+      "title": "What level of support do you need?",
+      "subtitle": "I adapt to your needs after delivery",
+      "options": {
+        "autonomie": {
+          "label": "Full autonomy",
+          "description": "Turnkey delivery, you manage afterwards"
+        },
+        "formation": {
+          "label": "Training included",
+          "description": "Guided onboarding of your site"
+        },
+        "maintenance": {
+          "label": "Ongoing maintenance",
+          "description": "Monthly technical support"
+        },
+        "partenariat": {
+          "label": "Long-term partnership",
+          "description": "Continuous evolution and strategy"
+        }
+      }
+    },
+    "inspirations": {
+      "title": "What universes inspire you?",
+      "subtitle": "Click a card to enlarge • Check to select",
+      "clickToEnlarge": "Click to enlarge",
+      "preview": "Preview {name}",
+      "selected": "✓ Selected",
+      "select": "Select",
+      "visit": "Visit",
+      "clickToClose": "Click anywhere to close",
+      "otherLabel": "💡 Other inspiration? Add a website or brand:",
+      "otherPlaceholder": "E.g.: A competitor's site, a shop I like...",
+      "lastStep": "Last step: get your estimate",
+      "restart": "Restart the questionnaire",
+      "styles": {
+        "creative": "Creative",
+        "warm": "Warm",
+        "sober": "Sober",
+        "immersive": "Immersive",
+        "refined": "Refined",
+        "colorful": "Colorful",
+        "gradient": "Gradient",
+        "light": "Light"
+      }
+    },
+    "quoteRequest": {
+      "emailSubject": "EXPRESS QUOTE REQUEST",
+      "greeting": "Hello Perrine!",
+      "projectTypeLabel": "Project type",
+      "featuresLabel": "Features",
+      "otherNeeds": "Other needs",
+      "designLabel": "Design style",
+      "animationsLabel": "Animations",
+      "budgetLabel": "Budget",
+      "deadlineLabel": "Timeline",
+      "accompagnementLabel": "Support",
+      "inspirationsLabel": "Inspirations",
+      "discussMessage": "I just completed the questionnaire on your site. Here's my project:",
+      "sendError": "Error sending",
+      "sendErrorDetail": "Oops! An error occurred. Try again or contact me via WhatsApp.",
+      "greatProject": "Great! Your project is well defined",
+      "howToReceive": "How would you like to receive your quote?",
+      "byEmail": "By email",
+      "emailDelay": "Detailed quote within 48h",
+      "yourEmail": "Your email",
+      "continueBtn": "Continue",
+      "invalidEmail": "Please enter a valid email",
+      "thirtySeconds": "30 seconds is all it takes",
+      "byWhatsApp": "Via WhatsApp",
+      "whatsAppDesc": "Direct and fast exchange",
+      "whatsAppPreview": "Chat directly with Perrine! Your project is already pre-filled in the message.",
+      "openWhatsApp": "Open WhatsApp",
+      "usuallyOnline": "Usually online",
+      "backToInspirations": "Back to inspirations",
+      "helloName": "Nice to meet you {name}!",
+      "personalizeQuote": "A few details to personalize your quote",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "companyOptional": "Company (optional)",
+      "quoteSentTo": "Quote sent to:",
+      "quoteGuarantee": "Quote guaranteed within 48h",
+      "sendingInProgress": "Sending...",
+      "receiveQuote": "Receive my quote ✨",
+      "dataConfidential": "Your data remains confidential",
+      "editEmail": "Edit my email",
+      "sentTitle": "It's sent {name}! 🎉",
+      "sentDescription": "Perrine will get back to you within 48h with a personalized quote.",
+      "quoteSentToEmail": "Your quote will be sent to:",
+      "backToHomeBtn": "Back to home",
+      "restartQuiz": "Restart the questionnaire",
+      "signedBy": "\"Thank you for your trust! I can't wait to discover your project and offer you the best solution. See you soon!\""
+    },
+    "encouragements": {
+      "msg1": "Great choice! 🎯",
+      "msg2": "Excellent! Making progress 🚀",
+      "msg3": "Perfect, let's continue! ✨",
+      "msg4": "Very good, almost there! 💪",
+      "msg5": "Beautiful project ahead! 🌟"
+    }
+  }
+}

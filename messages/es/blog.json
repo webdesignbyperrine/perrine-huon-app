@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "title": "Blog de Diseño y Desarrollo Web",
+    "description": "Consejos, noticias y guías sobre creación de sitios web, desarrollo web, SEO local, IA generativa y marketing digital. Por Perrine Huon, desarrolladora web freelance."
+  },
+  "header": {
+    "subtitle": "Noticias y Consejos",
+    "title": "Blog",
+    "description": "Consejos, trucos y noticias sobre diseño web, desarrollo y SEO local"
+  },
+  "demoPosts": {
+    "1": {
+      "title": "SEO Local 2026: Cómo Dominar las Búsquedas Geolocalizadas",
+      "excerpt": "Google My Business, citas locales, reseñas de clientes... La guía completa para ser visible en tu ciudad y atraer clientes cualificados cerca de ti."
+    },
+    "2": {
+      "title": "Tendencias de Diseño Web 2026: Lo que lo Cambiará Todo",
+      "excerpt": "IA generativa, interfaces inmersivas, micro-interacciones... Descubre las tendencias que redefinirán el diseño web en 2026."
+    },
+    "3": {
+      "title": "Rendimiento Web: Por qué la Velocidad de tu Sitio Impacta tus Ventas",
+      "excerpt": "Core Web Vitals, tiempo de carga, experiencia de usuario... Cada segundo cuenta. Descubre cómo optimizar tu sitio para convertir más."
+    },
+    "4": {
+      "title": "Vibe Coding: La Revolución de 2025 y lo que nos Espera",
+      "excerpt": "Cómo el vibe coding transformó el desarrollo web en 2025, y por qué 2026 promete ser aún más disruptivo."
+    },
+    "5": {
+      "title": "Eventos de Diseño Destacados de 2025: Balance de un Año Crucial",
+      "excerpt": "De Figma Config a Awwwards, los momentos destacados que marcaron la comunidad de diseño este año."
+    },
+    "6": {
+      "title": "IA y Creación Web: ¿Dónde Estamos Realmente a Finales de 2025?",
+      "excerpt": "Estado de la IA en la creación de sitios web: qué funciona, qué decepciona y cómo usarla inteligentemente."
+    }
+  },
+  "readArticle": "Leer artículo",
+  "cta": {
+    "button": "Hablemos de tu proyecto"
+  }
+}

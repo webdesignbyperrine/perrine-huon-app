@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "Avis Clients & Témoignages — Création de Sites Internet",
+    "description": "Découvrez les avis et témoignages de clients satisfaits. Note moyenne 4.9/5. Création de sites internet pour avocats, restaurants, PME et professions libérales."
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "testimonials": "Avis Clients"
+  },
+  "hero": {
+    "back_link": "← Retour à l'accueil",
+    "title": "Avis Clients & Témoignages",
+    "subtitle": "Découvrez ce que mes clients disent de leur expérience et des résultats obtenus après la création de leur site internet.",
+    "rating_based_on": "Basé sur",
+    "rating_reviews": "avis clients"
+  },
+  "rating": {
+    "aria_label": "Note :"
+  },
+  "cta": {
+    "title": "Rejoignez nos clients satisfaits",
+    "description": "Votre projet mérite le même soin et la même attention. Discutons ensemble de vos besoins pour créer le site internet qui fera la différence.",
+    "button": "Démarrer mon projet"
+  }
+}

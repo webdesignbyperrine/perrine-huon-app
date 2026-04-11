@@ -1,13 +1,13 @@
 import { createBrowserClient } from '@supabase/ssr'
 
+/**
+ * Crée un client Supabase pour le navigateur (composants 'use client').
+ * Utilise les cookies SSR gérés automatiquement par @supabase/ssr.
+ * @returns Client Supabase browser-side prêt à l'emploi.
+ */
 export function createClient() {
   return createBrowserClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
   )
 }
-
-
-
-
-

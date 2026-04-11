@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "Client Reviews & Testimonials — Website Creation",
+    "description": "Discover reviews and testimonials from satisfied clients. Average rating 4.9/5. Website creation for lawyers, restaurants, SMEs and professionals."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "testimonials": "Client Reviews"
+  },
+  "hero": {
+    "back_link": "← Back to home",
+    "title": "Client Reviews & Testimonials",
+    "subtitle": "Discover what my clients say about their experience and the results achieved after creating their website.",
+    "rating_based_on": "Based on",
+    "rating_reviews": "client reviews"
+  },
+  "rating": {
+    "aria_label": "Rating:"
+  },
+  "cta": {
+    "title": "Join our satisfied clients",
+    "description": "Your project deserves the same care and attention. Let's discuss your needs together to create the website that will make a difference.",
+    "button": "Start my project"
+  }
+}

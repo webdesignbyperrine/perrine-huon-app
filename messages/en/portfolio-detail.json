@@ -1,0 +1,27 @@
+{
+  "notFound": "Project not found",
+  "metadataFallback": "Discover the {title} project created by Perrine Huon, freelance web designer.",
+  "breadcrumb": {
+    "home": "Home",
+    "portfolio": "Portfolio"
+  },
+  "hero": {
+    "similarProject": "Similar project?",
+    "allProjects": "All projects"
+  },
+  "info": {
+    "client": "Client",
+    "category": "Category",
+    "year": "Year"
+  },
+  "gallery": {
+    "title": "Gallery"
+  },
+  "about": {
+    "title": "About the project"
+  },
+  "finalCta": {
+    "title": "Have a similar project in mind?",
+    "button": "Book a call"
+  }
+}

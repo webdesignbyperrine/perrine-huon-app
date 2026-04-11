@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "title": "Tarifs Création de Site Internet 2026 — Devis Gratuit",
+    "description": "Découvrez les tarifs de création de site internet : site vitrine à partir de 1 500€, e-commerce à partir de 3 000€, application web sur devis. Tarifs transparents, devis gratuit.",
+    "ogTitle": "Tarifs Création de Site Internet 2026 — Devis Gratuit",
+    "ogDescription": "Découvrez les tarifs de création de site internet : site vitrine à partir de 1 500€, e-commerce à partir de 3 000€, application web sur devis."
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "pricing": "Tarifs"
+  },
+  "hero": {
+    "backLink": "Retour à l'accueil",
+    "title": "Tarifs Création de Site Internet",
+    "description": "Des tarifs transparents adaptés à chaque projet. Du site vitrine à l'application web sur mesure, trouvez la formule qui vous correspond.",
+    "cta": "Obtenir un devis gratuit"
+  },
+  "plans": {
+    "vitrine": {
+      "name": "Site Vitrine",
+      "price": "À partir de 1 500 €",
+      "description": "Idéal pour présenter votre activité et attirer des clients locaux.",
+      "popular": false,
+      "popularBadge": "Populaire",
+      "cta": "Demander un devis",
+      "features": [
+        "Design sur mesure et responsive",
+        "3 à 7 pages optimisées",
+        "Optimisation SEO de base",
+        "Formulaire de contact",
+        "Intégration Google Maps",
+        "Hébergement & mise en ligne",
+        "Formation à la gestion du contenu",
+        "Support 30 jours après livraison"
+      ]
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "price": "À partir de 3 000 €",
+      "description": "Boutique en ligne performante avec paiement sécurisé et gestion des stocks.",
+      "popular": true,
+      "features": [
+        "Tout le pack Site Vitrine",
+        "Catalogue produits illimité",
+        "Paiement sécurisé (Stripe, PayPal)",
+        "Gestion des stocks & commandes",
+        "Pages produits optimisées SEO",
+        "Emails transactionnels automatiques",
+        "Tableau de bord de gestion",
+        "Formation complète à la boutique"
+      ]
+    },
+    "webapp": {
+      "name": "Application Web",
+      "price": "Sur devis",
+      "description": "Solution sur mesure pour vos besoins métier : CRM, dashboard, outil interne.",
+      "popular": false,
+      "features": [
+        "Analyse fonctionnelle complète",
+        "Architecture sur mesure",
+        "Interface utilisateur intuitive",
+        "Base de données optimisée",
+        "Authentification & sécurité",
+        "API & intégrations tierces",
+        "Tests & recette",
+        "Documentation technique"
+      ]
+    },
+    "maintenance": {
+      "name": "Maintenance",
+      "price": "À partir de 80 €/mois",
+      "description": "Gardez votre site performant, sécurisé et à jour en toute sérénité.",
+      "popular": false,
+      "features": [
+        "Mises à jour de sécurité",
+        "Sauvegardes automatiques",
+        "Monitoring des performances",
+        "Corrections de bugs prioritaires",
+        "Optimisation SEO continue",
+        "Support technique par email",
+        "Rapport mensuel de performances",
+        "Modifications mineures incluses"
+      ]
+    }
+  },
+  "inclusions": {
+    "title": "Ce qui est inclus dans chaque prestation",
+    "items": [
+      {
+        "title": "SEO Optimisé",
+        "description": "Chaque page est optimisée pour le référencement naturel : balises meta, structure sémantique, performances et SEO local."
+      },
+      {
+        "title": "Design Responsive",
+        "description": "Votre site s'adapte parfaitement à tous les écrans : mobile, tablette et desktop. Testé sur tous les navigateurs."
+      },
+      {
+        "title": "Performance Maximale",
+        "description": "Score Google PageSpeed supérieur à 90. Temps de chargement optimisé pour une expérience utilisateur fluide."
+      },
+      {
+        "title": "Conseil Hébergement",
+        "description": "Recommandation et mise en place de la solution d'hébergement la plus adaptée à votre projet et votre budget."
+      },
+      {
+        "title": "RGPD & Mentions Légales",
+        "description": "Conformité RGPD, politique de confidentialité et mentions légales incluses pour être en règle dès le lancement."
+      },
+      {
+        "title": "Formation & Autonomie",
+        "description": "Formation personnalisée pour gérer votre contenu en toute autonomie. Documentation et tutoriels vidéo inclus."
+      }
+    ]
+  },
+  "faqs": {
+    "title": "Questions fréquentes sur les tarifs",
+    "items": [
+      {
+        "question": "Comment est calculé le prix final de mon site internet ?",
+        "answer": "Le tarif dépend de plusieurs facteurs : le nombre de pages, les fonctionnalités souhaitées (formulaires, réservation, paiement en ligne…), la complexité du design et le volume de contenu à intégrer. Après notre premier échange, je vous fournis un devis détaillé et transparent."
+      },
+      {
+        "question": "Y a-t-il des coûts cachés ou des frais supplémentaires ?",
+        "answer": "Non, je pratique une politique de transparence totale. Le devis inclut l'ensemble de la prestation. Seuls l'hébergement (environ 10-30€/mois selon la solution) et le nom de domaine (environ 10-15€/an) sont des frais récurrents que vous payez directement au fournisseur."
+      },
+      {
+        "question": "Proposez-vous des facilités de paiement ?",
+        "answer": "Oui, le paiement se fait généralement en 3 fois : un acompte de 30% à la commande, 40% à la validation du design, et 30% à la livraison. Pour les projets importants, un échéancier personnalisé peut être mis en place."
+      },
+      {
+        "question": "Combien de temps faut-il pour créer mon site ?",
+        "answer": "Les délais varient selon la complexité : 2 à 4 semaines pour un site vitrine, 4 à 8 semaines pour un e-commerce, et 6 à 12 semaines pour une application web sur mesure. Un planning précis est défini ensemble dès le début du projet."
+      },
+      {
+        "question": "Que se passe-t-il après la livraison du site ?",
+        "answer": "Après la livraison, vous bénéficiez de 30 jours de support gratuit pour toute question ou ajustement mineur. Ensuite, je propose des formules de maintenance mensuelles pour assurer la pérennité et les performances de votre site."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à lancer votre projet ?",
+    "description": "Obtenez un devis personnalisé et gratuit en quelques minutes. Décrivez votre projet et recevez une proposition adaptée à vos besoins et votre budget.",
+    "button": "Obtenir mon devis gratuit"
+  }
+}

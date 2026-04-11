@@ -1,6 +1,7 @@
 'use client';
 
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useTranslations } from 'next-intl';
 import { SectionTitle, CTAQuiz } from '@/components/ui';
 
 export default function Services() {
@@ -8,6 +9,7 @@ export default function Services() {
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
+  const t = useTranslations('services');
   
   const services = [
     {
@@ -17,9 +19,9 @@ export default function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
-      title: 'Sites Web',
-      subtitle: 'Sur Mesure',
-      description: 'Vitrine, e-commerce ou corporate : un site qui travaille pour vous.',
+      title: t('service1Title'),
+      subtitle: t('service1Subtitle'),
+      description: t('service1Desc'),
     },
     {
       number: '02',
@@ -28,9 +30,9 @@ export default function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
         </svg>
       ),
-      title: 'Applications',
-      subtitle: 'Web & Mobile',
-      description: 'Développement d\'applications complexes, SaaS, dashboards et outils métiers avec technologies modernes.',
+      title: t('service2Title'),
+      subtitle: t('service2Subtitle'),
+      description: t('service2Desc'),
     },
     {
       number: '03',
@@ -39,9 +41,9 @@ export default function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
         </svg>
       ),
-      title: 'SEO Local',
-      subtitle: 'Ultra Ciblé',
-      description: 'Apparaissez en premier quand vos clients cherchent près de chez eux.',
+      title: t('service3Title'),
+      subtitle: t('service3Subtitle'),
+      description: t('service3Desc'),
     },
     {
       number: '04',
@@ -50,9 +52,9 @@ export default function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
-      title: 'Performance',
-      subtitle: '& Optimisation',
-      description: 'Votre site est lent ou mal référencé ? Je lui redonne vie.',
+      title: t('service4Title'),
+      subtitle: t('service4Subtitle'),
+      description: t('service4Desc'),
     },
     {
       number: '05',
@@ -61,9 +63,9 @@ export default function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
-      title: 'Maintenance',
-      subtitle: '& Support',
-      description: 'Vous gérez votre business, je m\'occupe de votre site.',
+      title: t('service5Title'),
+      subtitle: t('service5Subtitle'),
+      description: t('service5Desc'),
     },
     {
       number: '06',
@@ -72,9 +74,9 @@ export default function Services() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       ),
-      title: 'Stratégie',
-      subtitle: 'Digitale',
-      description: 'Pas de recette toute faite. Une stratégie marketing pensée pour vous.',
+      title: t('service6Title'),
+      subtitle: t('service6Subtitle'),
+      description: t('service6Desc'),
     },
   ];
 
@@ -120,9 +122,9 @@ export default function Services() {
           {/* Titre de section */}
           <div ref={titleRef} className="mb-16 lg:mb-20">
             <SectionTitle
-              subtitle="Ce que je propose"
-              title="Services"
-              description="Du conseil à la mise en ligne, je m'occupe de tout"
+              subtitle={t('subtitle')}
+              title={t('title')}
+              description={t('description')}
               isVisible={titleVisible}
             />
           </div>

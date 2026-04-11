@@ -1,11 +1,13 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { createClient } from '@/lib/supabase/client';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import LaptopMockup from '@/components/LaptopMockup';
 import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
+import { getLocalizedField } from '@/lib/i18n-helpers';
 
 type ProjectData = {
   id: string;
@@ -17,6 +19,8 @@ type ProjectData = {
 };
 
 export default function PortfolioPreview() {
+  const t = useTranslations('portfolioPreview');
+  const locale = useLocale() as 'fr' | 'en' | 'es';
   const [projects, setProjects] = useState<ProjectData[]>([]);
   const [loading, setLoading] = useState(true);
   
@@ -55,7 +59,17 @@ export default function PortfolioPreview() {
     fetchProjects();
   }, []);
 
-  const formattedProjects = projects.map((project, index) => ({
+  const supabaseHasTranslations = locale === 'fr' || (projects.length > 0 && `title_${locale}` in projects[0]);
+
+  const displayProjects = projects.length > 0 && supabaseHasTranslations
+    ? projects
+    : projects.map((project, index) => ({
+        ...project,
+        title: t.has(`demoProjects.${index + 1}.title`) ? t(`demoProjects.${index + 1}.title`) : project.title,
+        short_description: t.has(`demoProjects.${index + 1}.short_description`) ? t(`demoProjects.${index + 1}.short_description`) : project.short_description,
+      }));
+
+  const formattedProjects = displayProjects.map((project, index) => ({
     ...project,
     number: String(index + 1).padStart(2, '0'),
     previewImage: project.featured_image,
@@ -77,10 +91,10 @@ export default function PortfolioPreview() {
         <div className="container mx-auto px-4">
           <div className="text-center py-12">
             <p className="text-primary/60 text-lg mb-4">
-              Aucun projet publié pour le moment
+              {t('noProjects')}
             </p>
             <Link href="/portfolio" className="btn-sketch group inline-flex items-center gap-2">
-              <span>Voir tous les projets</span>
+              <span>{t('viewAll')}</span>
               <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="9 18 15 12 9 6"/>
               </svg>
@@ -145,9 +159,9 @@ export default function PortfolioPreview() {
           {/* Titre */}
           <div ref={titleRef} className="mb-12 lg:mb-16">
             <SectionTitle
-              subtitle="Réalisations récentes"
-              title="Portfolio"
-              description="Une sélection de mes réalisations récentes"
+              subtitle={t('subtitle')}
+              title={t('title')}
+              description={t('description')}
               showLine={false}
               isVisible={titleVisible}
             />
@@ -169,7 +183,7 @@ export default function PortfolioPreview() {
                   {project.previewImage ? (
                     <LaptopMockup
                       src={project.previewImage}
-                      alt={`Preview ${project.title}`}
+                      alt={`Preview ${getLocalizedField(project, 'title', locale)}`}
                       className="w-full max-w-[280px] transform group-hover:scale-105 transition-transform duration-500"
                     />
                   ) : (
@@ -191,11 +205,11 @@ export default function PortfolioPreview() {
                 {/* Contenu */}
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
-                    {project.title}
+                    {getLocalizedField(project, 'title', locale)}
                   </h3>
                   {project.short_description && (
                     <p className="text-primary/60 text-sm line-clamp-2">
-                      {project.short_description}
+                      {getLocalizedField(project, 'short_description', locale)}
                     </p>
                   )}
                 </div>
@@ -213,7 +227,7 @@ export default function PortfolioPreview() {
               ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
-            <SectionLink href="/portfolio">Voir tous les projets</SectionLink>
+            <SectionLink href="/portfolio">{t('viewAll')}</SectionLink>
             <CTAQuiz />
           </div>
 

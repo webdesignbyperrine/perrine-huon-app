@@ -1,22 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useQualifier } from '../context';
 import { ArrowLeftIcon } from '../icons';
-import { 
-  PROJECT_TYPES, 
-  FEATURES_OPTIONS, 
-  DESIGN_STYLES, 
-  ANIMATION_LEVELS, 
-  BUDGET_OPTIONS, 
-  DEADLINE_OPTIONS, 
-  ACCOMPAGNEMENT_OPTIONS 
-} from '../types';
 
 type FormStep = 'email' | 'details' | 'success';
 
 export default function QuoteRequestStep() {
+  const t = useTranslations('qualifier.quoteRequest');
+  const tRoot = useTranslations('qualifier');
   const { data, goPrevious, resetQualifier } = useQualifier();
   const [formStep, setFormStep] = useState<FormStep>('email');
   const [email, setEmail] = useState('');
@@ -29,18 +23,22 @@ export default function QuoteRequestStep() {
   // Validation email
   const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  // Helper pour récupérer les labels des options sélectionnées
   const getProjectLabels = () => {
-    const projectType = PROJECT_TYPES.find(p => p.value === data.projectType)?.label;
-    const designStyle = DESIGN_STYLES.find(d => d.value === data.designStyle)?.label;
-    const animation = ANIMATION_LEVELS.find(a => a.value === data.animationLevel)?.label;
-    const budget = BUDGET_OPTIONS.find(b => b.value === data.budget);
-    const deadline = DEADLINE_OPTIONS.find(d => d.value === data.deadline);
-    const accompagnement = ACCOMPAGNEMENT_OPTIONS.find(a => a.value === data.accompagnement)?.label;
+    const projectType = data.projectType ? tRoot(`projectType.options.${data.projectType}.label`) : undefined;
+    const designStyle = data.designStyle ? tRoot(`designStyle.options.${data.designStyle}.label`) : undefined;
+    const animation = data.animationLevel ? tRoot(`animationLevel.options.${data.animationLevel}.label`) : undefined;
+    const budget = data.budget ? {
+      label: tRoot(`budget.options.${data.budget}.label`),
+      range: tRoot(`budget.options.${data.budget}.range`),
+    } : undefined;
+    const deadline = data.deadline ? {
+      label: tRoot(`deadline.options.${data.deadline}.label`),
+      description: tRoot(`deadline.options.${data.deadline}.description`),
+    } : undefined;
+    const accompagnement = data.accompagnement ? tRoot(`accompagnement.options.${data.accompagnement}.label`) : undefined;
     const features = data.features
       .filter(f => f !== 'autre')
-      .map(f => FEATURES_OPTIONS.find(fo => fo.value === f)?.label)
-      .filter(Boolean) as string[];
+      .map(f => tRoot(`features.options.${f}`));
 
     return { projectType, designStyle, animation, budget, deadline, accompagnement, features };
   };
@@ -54,16 +52,16 @@ export default function QuoteRequestStep() {
     const { projectType, designStyle, animation, budget, deadline, accompagnement, features } = getProjectLabels();
 
     return buildMessage([
-      "📋 DEMANDE DE DEVIS EXPRESS\n",
-      projectType && `📌 Type de projet : ${projectType}`,
-      features.length > 0 && `⚙️ Fonctionnalités : ${features.join(', ')}`,
-      data.featureOther && `   Autres besoins : ${data.featureOther}`,
-      designStyle && `🎨 Style de design : ${designStyle}`,
-      animation && `✨ Animations : ${animation}`,
-      budget && `💰 Budget : ${budget.label} (${budget.range})`,
-      deadline && `⏱️ Délais : ${deadline.label} (${deadline.description})`,
-      accompagnement && `🤝 Accompagnement : ${accompagnement}`,
-      data.inspirations && `💡 Inspirations : ${data.inspirations}`,
+      `📋 ${t('emailSubject')}\n`,
+      projectType && `📌 ${t('projectTypeLabel')} : ${projectType}`,
+      features.length > 0 && `⚙️ ${t('featuresLabel')} : ${features.join(', ')}`,
+      data.featureOther && `   ${t('otherNeeds')} : ${data.featureOther}`,
+      designStyle && `🎨 ${t('designLabel')} : ${designStyle}`,
+      animation && `✨ ${t('animationsLabel')} : ${animation}`,
+      budget && `💰 ${t('budgetLabel')} : ${budget.label} (${budget.range})`,
+      deadline && `⏱️ ${t('deadlineLabel')} : ${deadline.label} (${deadline.description})`,
+      accompagnement && `🤝 ${t('accompagnementLabel')} : ${accompagnement}`,
+      data.inspirations && `💡 ${t('inspirationsLabel')} : ${data.inspirations}`,
     ]);
   };
 
@@ -72,18 +70,17 @@ export default function QuoteRequestStep() {
     const { projectType, designStyle, animation, budget, deadline, accompagnement, features } = getProjectLabels();
 
     const message = buildMessage([
-      "Bonjour Perrine ! 👋\n",
-      "Je viens de compléter le questionnaire sur votre site. Voici mon projet :\n",
-      projectType && `📌 *Type* : ${projectType}`,
-      features.length > 0 && `⚙️ *Fonctionnalités* : ${features.join(', ')}`,
-      data.featureOther && `   _Autres besoins_ : ${data.featureOther}`,
-      designStyle && `🎨 *Design* : ${designStyle}`,
-      animation && `✨ *Animations* : ${animation}`,
-      budget && `💰 *Budget* : ${budget.label} (${budget.range})`,
-      deadline && `⏱️ *Délais* : ${deadline.label} (${deadline.description})`,
-      accompagnement && `🤝 *Accompagnement* : ${accompagnement}`,
-      data.inspirations && `💡 *Inspirations* : ${data.inspirations}`,
-      "\nJ'aimerais en discuter avec vous ! 😊",
+      `${t('greeting')} 👋\n`,
+      `${t('discussMessage')}\n`,
+      projectType && `📌 *${t('projectTypeLabel')}* : ${projectType}`,
+      features.length > 0 && `⚙️ *${t('featuresLabel')}* : ${features.join(', ')}`,
+      data.featureOther && `   _${t('otherNeeds')}_ : ${data.featureOther}`,
+      designStyle && `🎨 *${t('designLabel')}* : ${designStyle}`,
+      animation && `✨ *${t('animationsLabel')}* : ${animation}`,
+      budget && `💰 *${t('budgetLabel')}* : ${budget.label} (${budget.range})`,
+      deadline && `⏱️ *${t('deadlineLabel')}* : ${deadline.label} (${deadline.description})`,
+      accompagnement && `🤝 *${t('accompagnementLabel')}* : ${accompagnement}`,
+      data.inspirations && `💡 *${t('inspirationsLabel')}* : ${data.inspirations}`,
     ]);
 
     return encodeURIComponent(message);
@@ -135,13 +132,13 @@ export default function QuoteRequestStep() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || 'Erreur lors de l\'envoi');
+        throw new Error(result.error || t('sendError'));
       }
 
       setFormStep('success');
     } catch (err) {
       console.error('Erreur:', err);
-      setError('Oups ! Une erreur est survenue. Réessayez ou contactez-moi via WhatsApp.');
+      setError(t('sendErrorDetail'));
     } finally {
       setIsSubmitting(false);
     }
@@ -157,10 +154,10 @@ export default function QuoteRequestStep() {
             <span className="text-4xl">🎉</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-            Super ! Votre projet est bien défini
+            {t('greatProject')}
           </h2>
           <p className="text-primary/60 text-lg">
-            Comment souhaitez-vous recevoir votre devis ?
+            {t('howToReceive')}
           </p>
         </div>
 
@@ -176,14 +173,14 @@ export default function QuoteRequestStep() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-bold text-white text-lg">Par email</h3>
-                <p className="text-slate-300 text-sm font-medium">Devis détaillé sous 48h</p>
+                <h3 className="font-bold text-white text-lg">{t('byEmail')}</h3>
+                <p className="text-slate-300 text-sm font-medium">{t('emailDelay')}</p>
               </div>
             </div>
 
             <div className="mb-4">
               <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
-                Votre email
+                {t('yourEmail')}
               </label>
               <input
                 type="email"
@@ -207,13 +204,13 @@ export default function QuoteRequestStep() {
                   setFormStep('details');
                   setError('');
                 } else {
-                  setError('Veuillez entrer un email valide');
+                  setError(t('invalidEmail'));
                 }
               }}
               disabled={!email}
               className="w-full btn-cta btn-cta-pulse py-4 text-base font-semibold disabled:opacity-50 disabled:cursor-not-allowed group"
             >
-              <span>Continuer</span>
+              <span>{t('continueBtn')}</span>
               <svg className="w-5 h-5 inline-block ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -224,7 +221,7 @@ export default function QuoteRequestStep() {
               <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span>30 secondes suffisent</span>
+              <span>{t('thirtySeconds')}</span>
             </div>
           </div>
 
@@ -237,19 +234,19 @@ export default function QuoteRequestStep() {
                 </svg>
               </div>
               <div>
-                <h3 className="font-bold text-white text-lg">Par WhatsApp</h3>
-                <p className="text-slate-300 text-sm font-medium">Échange direct et rapide</p>
+                <h3 className="font-bold text-white text-lg">{t('byWhatsApp')}</h3>
+                <p className="text-slate-300 text-sm font-medium">{t('whatsAppDesc')}</p>
               </div>
             </div>
 
             <p className="text-slate-200 text-sm mb-4 leading-relaxed">
-              Discutez directement avec Perrine ! Votre projet est déjà pré-rempli dans le message.
+              {t('whatsAppPreview')}
             </p>
 
             {/* Aperçu du message */}
             <div className="bg-[#25D366]/15 rounded-lg p-3 mb-4 text-xs text-slate-200 max-h-24 overflow-hidden relative border border-[#25D366]/30">
               <p className="line-clamp-3 font-medium">
-                📌 Type • ⚙️ Fonctionnalités • 🎨 Design • 💰 Budget • ⏱️ Délais...
+                📌 {t('projectTypeLabel')} • ⚙️ {t('featuresLabel')} • 🎨 {t('designLabel')} • 💰 {t('budgetLabel')} • ⏱️ {t('deadlineLabel')}...
               </p>
               <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-[#25D366]/15 to-transparent"></div>
             </div>
@@ -264,13 +261,13 @@ export default function QuoteRequestStep() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
               </svg>
-              <span>Ouvrir WhatsApp</span>
+              <span>{t('openWhatsApp')}</span>
             </a>
 
             {/* Badge réponse rapide */}
             <div className="flex items-center justify-center gap-2 text-[#25D366] text-xs mt-3 font-medium">
               <span className="w-2 h-2 bg-[#25D366] rounded-full animate-pulse"></span>
-              <span>Généralement en ligne</span>
+              <span>{t('usuallyOnline')}</span>
             </div>
           </div>
         </div>
@@ -282,7 +279,7 @@ export default function QuoteRequestStep() {
             className="text-primary/40 hover:text-primary/70 text-sm transition-colors flex items-center gap-2 mx-auto"
           >
             <ArrowLeftIcon className="w-4 h-4" />
-            Retour aux inspirations
+            {t('backToInspirations')}
           </button>
         </div>
       </div>
@@ -299,10 +296,10 @@ export default function QuoteRequestStep() {
             <span className="text-3xl">✨</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-            Enchantée{firstName ? ` ${firstName}` : ''} !
+            {t('helloName', { name: firstName || '' })}
           </h2>
           <p className="text-primary/60 text-lg">
-            Quelques infos pour personnaliser votre devis
+            {t('personalizeQuote')}
           </p>
         </div>
 
@@ -311,7 +308,7 @@ export default function QuoteRequestStep() {
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-primary/70 mb-2">
-                Prénom
+                {t('firstName')}
               </label>
               <input
                 type="text"
@@ -325,7 +322,7 @@ export default function QuoteRequestStep() {
             </div>
             <div>
               <label htmlFor="lastName" className="block text-sm font-medium text-primary/70 mb-2">
-                Nom
+                {t('lastName')}
               </label>
               <input
                 type="text"
@@ -340,7 +337,7 @@ export default function QuoteRequestStep() {
 
           <div className="mb-6">
             <label htmlFor="company" className="block text-sm font-medium text-primary/70 mb-2">
-              Entreprise <span className="text-primary/40">(optionnel)</span>
+              {t('companyOptional')}
             </label>
             <input
               type="text"
@@ -357,7 +354,7 @@ export default function QuoteRequestStep() {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span>Devis envoyé à : <strong className="text-primary">{email}</strong></span>
+            <span>{t('quoteSentTo')} <strong className="text-primary">{email}</strong></span>
           </div>
 
           {/* Badge 48h */}
@@ -365,7 +362,7 @@ export default function QuoteRequestStep() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span className="font-medium">Devis garanti sous 48h</span>
+            <span className="font-medium">{t('quoteGuarantee')}</span>
           </div>
 
           {/* CTA */}
@@ -380,10 +377,10 @@ export default function QuoteRequestStep() {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Envoi en cours...
+                {t('sendingInProgress')}
               </span>
             ) : (
-              <span>Recevoir mon devis ✨</span>
+              <span>{t('receiveQuote')}</span>
             )}
           </button>
 
@@ -396,7 +393,7 @@ export default function QuoteRequestStep() {
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            Vos données restent confidentielles
+            {t('dataConfidential')}
           </p>
         </div>
 
@@ -407,7 +404,7 @@ export default function QuoteRequestStep() {
             className="text-primary/40 hover:text-primary/70 text-sm transition-colors flex items-center gap-2 mx-auto"
           >
             <ArrowLeftIcon className="w-4 h-4" />
-            Modifier mon email
+            {t('editEmail')}
           </button>
         </div>
       </div>
@@ -435,16 +432,16 @@ export default function QuoteRequestStep() {
 
       {/* Message */}
       <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-        C&apos;est envoyé {firstName} ! 🎉
+        {t('sentTitle', { name: firstName })}
       </h2>
       <p className="text-lg text-primary/60 mb-8">
-        Perrine vous répond sous <strong className="text-accent">48h</strong> avec un devis personnalisé.
+        {t('sentDescription')}
       </p>
 
       {/* Card récapitulatif */}
       <div className="bg-gradient-to-br from-accent/10 to-secondary/10 rounded-2xl p-6 mb-8 text-left">
         <h3 className="font-semibold text-primary mb-3 flex items-center gap-2">
-          <span>📬</span> Votre devis sera envoyé à :
+          <span>📬</span> {t('quoteSentToEmail')}
         </h3>
         <p className="text-primary/80 font-medium">{email}</p>
       </div>
@@ -455,20 +452,20 @@ export default function QuoteRequestStep() {
           href="/"
           className="btn-sketch px-6 py-3 font-semibold"
         >
-          Retour à l&apos;accueil
+          {t('backToHomeBtn')}
         </Link>
         <button
           onClick={resetQualifier}
           className="text-primary/50 hover:text-primary/70 text-sm transition-colors underline"
         >
-          Recommencer le questionnaire
+          {t('restartQuiz')}
         </button>
       </div>
 
       {/* Petit message personnel */}
       <div className="mt-12 p-6 bg-white/60 rounded-xl border border-primary/10">
         <p className="text-primary/70 italic">
-          « Merci pour votre confiance ! J&apos;ai hâte de découvrir votre projet et de vous proposer la meilleure solution. À très vite ! »
+          {t('signedBy')}
         </p>
         <p className="text-primary font-semibold mt-2">Perrine</p>
       </div>

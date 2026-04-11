@@ -1,0 +1,571 @@
+{
+  "metadata": {
+    "title": "Perrine Huon | Création de Sites Internet Sur Mesure | Développeuse Web Freelance",
+    "titleTemplate": "%s | Perrine Huon - Création de Sites Internet",
+    "description": "Développeuse web freelance spécialisée en création de sites internet sur mesure, applications web et SEO géolocalisé. Sites vitrines, e-commerce, landing pages optimisés pour la conversion. Devis gratuit.",
+    "siteName": "Perrine Huon - Création de Sites Internet",
+    "ogDescription": "Développeuse web freelance spécialisée en création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Devis gratuit.",
+    "ogImageAlt": "Perrine Huon - Création de Sites Internet Sur Mesure",
+    "twitterDescription": "Création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Développeuse web freelance."
+  },
+  "header": {
+    "services": "Services",
+    "portfolio": "Réalisations",
+    "blog": "Blog",
+    "pricing": "Tarifs",
+    "faq": "FAQ",
+    "freeQuote": "Devis gratuit",
+    "darkMode": "Activer le mode sombre",
+    "lightMode": "Activer le mode clair",
+    "darkModeShort": "Mode sombre",
+    "lightModeShort": "Mode clair",
+    "contactForm": "Formulaire de contact",
+    "writeMe": "Écrivez-moi",
+    "getFreeQuote": "Obtenir mon devis gratuit",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "mobileNav": "Navigation mobile"
+  },
+  "footer": {
+    "slogan": "Construisons ensemble votre succès digital.",
+    "subtitle": "Développeuse Web Freelance — Création de Sites Internet",
+    "whatAreYourNeeds": "Quels sont vos besoins ?",
+    "stayConnected": "Restons connectés",
+    "linkedinDesc": "Conseils web et vie de freelance",
+    "instagramDesc": "Coulisses et inspirations design",
+    "facebookDesc": "Actualités et partages web",
+    "followMe": "Me suivre",
+    "servicesTitle": "Services",
+    "byProfession": "Par Métier",
+    "byCity": "Par Ville",
+    "home": "Accueil",
+    "portfolio": "Réalisations",
+    "blog": "Blog",
+    "pricing": "Tarifs",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "legalNotice": "Mentions légales",
+    "privacy": "Confidentialité",
+    "backToHome": "Revenir à l'accueil",
+    "serviceLinks": {
+      "showcase": "Site Vitrine",
+      "ecommerce": "Site E-commerce",
+      "webapp": "Application Web",
+      "landing": "Landing Page",
+      "redesign": "Refonte",
+      "seo": "SEO Local",
+      "maintenance": "Maintenance",
+      "crm": "CRM Sur Mesure"
+    },
+    "professionLinks": {
+      "lawyers": "Avocats",
+      "doctors": "Médecins",
+      "restaurants": "Restaurants",
+      "accountants": "Experts-Comptables",
+      "craftsmen": "Artisans",
+      "associations": "Associations",
+      "hairdressers": "Coiffeurs",
+      "architects": "Architectes"
+    }
+  },
+  "hero": {
+    "badge": "Développeuse web freelance — Création de sites internet sur mesure",
+    "titleLine1": "Vous bossez.",
+    "titleLine2": "Votre site web aussi.",
+    "subtitleLine1": "Sites internet pensés pour être trouvés sur Google.",
+    "subtitleLine2": "Conçus pour convertir vos visiteurs en clients.",
+    "typewriter1": "Construisons ensemble votre succès digital.",
+    "typewriter2": "Sites web pour PME, professions libérales et associations.",
+    "typewriter3": "De Paris à toute la France, votre site sur mesure.",
+    "typewriter4": "Performance, SEO et design : le trio gagnant.",
+    "typewriter5": "Votre prochain client vous cherche sur Google.",
+    "quizLabel": "Quiz interactif",
+    "quizCTA": "Quel est votre projet ?",
+    "quizDuration": "2 min chrono",
+    "backToHome": "Retour à l'accueil"
+  },
+  "services": {
+    "subtitle": "Ce que je propose",
+    "title": "Services",
+    "description": "Du conseil à la mise en ligne, je m'occupe de tout",
+    "service1Title": "Sites Web",
+    "service1Subtitle": "Sur Mesure",
+    "service1Desc": "Vitrine, e-commerce ou corporate : un site qui travaille pour vous.",
+    "service2Title": "Applications",
+    "service2Subtitle": "Web & Mobile",
+    "service2Desc": "Développement d'applications complexes, SaaS, dashboards et outils métiers avec technologies modernes.",
+    "service3Title": "SEO Local",
+    "service3Subtitle": "Ultra Ciblé",
+    "service3Desc": "Apparaissez en premier quand vos clients cherchent près de chez eux.",
+    "service4Title": "Performance",
+    "service4Subtitle": "& Optimisation",
+    "service4Desc": "Votre site est lent ou mal référencé ? Je lui redonne vie.",
+    "service5Title": "Maintenance",
+    "service5Subtitle": "& Support",
+    "service5Desc": "Vous gérez votre business, je m'occupe de votre site.",
+    "service6Title": "Stratégie",
+    "service6Subtitle": "Digitale",
+    "service6Desc": "Pas de recette toute faite. Une stratégie marketing pensée pour vous."
+  },
+  "about": {
+    "subtitle": "Qui suis-je",
+    "title": "Derrière l'écran",
+    "badge": "Web Designer",
+    "imageAlt": "Perrine Huon - Web Designer & Developer",
+    "paragraph1": "Je construis des <strong>projets digitaux</strong> avec rigueur, créativité, et beaucoup d'écoute.",
+    "paragraph2": "Mes designs sont intemporels, pensés pour durer. L'efficacité d'abord, le superflu jamais. Chaque pixel a sa raison d'être, chaque interaction est pensée pour l'utilisateur.",
+    "paragraph3": "Un beau site, c'est bien. Un site qui <strong>attire</strong>, <strong>convainc</strong> et <strong>convertit</strong>, c'est mieux.",
+    "techStack": "Stack technique",
+    "trustedBy": "Ils m'ont fait confiance",
+    "specialties": "Spécialités",
+    "vibeCoding": "Vibe Coding",
+    "lowCode": "Low Code & No Code",
+    "mvp": "MVP / SaaS / CRM",
+    "stayConnected": "Restons connectés"
+  },
+  "testimonials": {
+    "subtitle": "Ils nous font confiance",
+    "title": "Témoignages",
+    "description": "Découvrez ce que nos clients disent de leur expérience et des résultats obtenus.",
+    "ratingAria": "Note : {rating} sur 5",
+    "demo": {
+      "1": {
+        "content": "Mon site reflète enfin le sérieux de mon cabinet. Perrine a parfaitement compris mes contraintes déontologiques et a créé un site élégant qui inspire confiance à mes clients.",
+        "name": "Marie L.",
+        "profession": "Avocate"
+      },
+      "2": {
+        "content": "Nos réservations en ligne ont augmenté de 40% depuis le nouveau site. L'intégration du menu interactif et du système de réservation est impeccable.",
+        "name": "Thomas D.",
+        "profession": "Restaurateur"
+      },
+      "3": {
+        "content": "Un site moderne qui me démarque des autres cabinets. Le SEO local a transformé ma visibilité : je reçois maintenant des demandes qualifiées chaque semaine.",
+        "name": "Sophie M.",
+        "profession": "Expert-Comptable"
+      },
+      "4": {
+        "content": "Enfin visible sur Google ! Mes demandes de devis ont doublé en 3 mois. Le portfolio met parfaitement en valeur mon travail. Simple, efficace, professionnel.",
+        "name": "Jean-Pierre R.",
+        "profession": "Menuisier ébéniste"
+      },
+      "5": {
+        "content": "Budget serré mais résultat professionnel. Perrine a compris nos besoins associatifs et a livré un site qui facilite nos inscriptions et notre communication.",
+        "name": "Claire B.",
+        "profession": "Présidente d'association"
+      },
+      "6": {
+        "content": "La prise de rendez-vous en ligne intégrée au site a changé mon quotidien. Moins d'appels téléphoniques, plus de temps pour mes patients.",
+        "name": "Karim A.",
+        "profession": "Kinésithérapeute"
+      }
+    }
+  },
+  "blogPreview": {
+    "subtitle": "Actualités & Conseils",
+    "title": "Blog",
+    "description": "Conseils, astuces et actualités sur le web design, le développement et le SEO local.",
+    "readArticle": "Lire l'article",
+    "previousArticle": "Article précédent",
+    "nextArticle": "Article suivant",
+    "goToArticle": "Aller à l'article {index}",
+    "viewAll": "Voir tous les articles",
+    "demoPosts": {
+      "1": {
+        "title": "SEO Local 2026 : Comment dominer les recherches géolocalisées",
+        "excerpt": "Google My Business, citations locales, avis clients... Le guide complet pour être visible dans votre ville et attirer des clients qualifiés près de chez vous."
+      },
+      "2": {
+        "title": "Tendances Web Design 2026 : Ce qui va tout changer",
+        "excerpt": "IA générative, interfaces immersives, micro-interactions... Découvrez les tendances qui vont redéfinir le web design en 2026."
+      },
+      "3": {
+        "title": "Performance web : Pourquoi la vitesse de votre site impacte vos ventes",
+        "excerpt": "Core Web Vitals, temps de chargement, expérience utilisateur... Chaque seconde compte. Découvrez comment optimiser votre site pour convertir plus."
+      },
+      "4": {
+        "title": "Vibe Coding : La révolution de 2025 et ce qui nous attend",
+        "excerpt": "Comment le vibe coding a transformé le développement web en 2025, et pourquoi 2026 s'annonce encore plus disruptif."
+      },
+      "5": {
+        "title": "Les événements design majeurs de 2025 : Retour sur une année charnière",
+        "excerpt": "De Config Figma à Awwwards, les moments forts qui ont marqué la communauté design cette année."
+      },
+      "6": {
+        "title": "IA et création web : Où en est-on vraiment fin 2025 ?",
+        "excerpt": "État des lieux de l'IA dans la création de sites : ce qui fonctionne, ce qui déçoit, et comment l'utiliser intelligemment."
+      }
+    }
+  },
+  "faqPreview": {
+    "subtitle": "Questions fréquentes",
+    "title": "FAQ",
+    "description": "Les réponses aux questions les plus courantes sur mes services et mon processus de travail.",
+    "viewAll": "Voir toutes les questions",
+    "demoFaqs": {
+      "1": {
+        "question": "Combien de temps faut-il pour créer un site web ?",
+        "answer": "Le délai de création dépend de la complexité du projet. Un site vitrine simple peut être livré en 2-3 semaines, tandis qu'un site e-commerce ou une application web sur mesure peut prendre 6 à 12 semaines.",
+        "category": "Process"
+      },
+      "2": {
+        "question": "Comment fonctionne le SEO géolocalisé ?",
+        "answer": "Le SEO géolocalisé permet d'optimiser votre visibilité sur des recherches locales spécifiques. Je travaille sur l'optimisation des contenus, des balises meta, et la création de pages ciblées par ville ou zone géographique pour améliorer votre positionnement local.",
+        "category": "SEO"
+      },
+      "3": {
+        "question": "Proposez-vous un service de maintenance ?",
+        "answer": "Oui, je propose des formules de maintenance mensuelles incluant les mises à jour, la sécurité, les sauvegardes et le support technique.",
+        "category": "Services"
+      },
+      "4": {
+        "question": "Quels sont vos tarifs ?",
+        "answer": "Mes tarifs varient selon la nature et l'ampleur du projet. Je propose des devis personnalisés après un premier échange pour bien comprendre vos besoins. N'hésitez pas à me contacter pour discuter de votre projet.",
+        "category": "Tarifs"
+      }
+    }
+  },
+  "portfolioPreview": {
+    "subtitle": "Réalisations récentes",
+    "title": "Portfolio",
+    "description": "Une sélection de mes réalisations récentes",
+    "noProjects": "Aucun projet publié pour le moment",
+    "viewAll": "Voir tous les projets",
+    "demoProjects": {
+      "1": { "title": "Workflow Automation Lab", "short_description": "Site vitrine moderne conçu pour convertir les visiteurs en clients — Design rétro-futuriste avec intégrations IA" },
+      "2": { "title": "COWORKMEET", "short_description": "Plateforme communautaire complète pour organiser des sessions de coworking et networking" },
+      "3": { "title": "Toca do Jaguar", "short_description": "Site vitrine immersif pour un éco-lodge en Amazonie — Expérience nature authentique" },
+      "4": { "title": "Portfolio Digital", "short_description": "Portfolio créatif pour un designer freelance — Animations fluides et mise en page audacieuse" }
+    }
+  },
+  "calendly": {
+    "overtitle": "Prendre rendez-vous",
+    "title": "On s'appelle ?",
+    "intro": "30 minutes pour faire connaissance, comprendre vos besoins et vous proposer les meilleures solutions.",
+    "discussTitle": "Discutons de votre projet",
+    "discussDesc": "Première consultation offerte, sans engagement. Je vous conseille sur la meilleure approche pour votre projet.",
+    "bookSlot": "Réserver un créneau",
+    "badge": "Première consultation offerte • Sans engagement",
+    "benefit1Title": "30 minutes",
+    "benefit1Desc": "Un échange rapide et efficace",
+    "benefit2Title": "100% gratuit",
+    "benefit2Desc": "Aucun frais, discussion libre",
+    "benefit3Title": "Conseils personnalisés",
+    "benefit3Desc": "Solutions adaptées à vos besoins"
+  },
+  "contactForm": {
+    "consentError": "N'oubliez pas de cocher la case de consentement avant d'envoyer.",
+    "rateLimitError": "Trop de messages envoyés. Réessayez dans quelques minutes.",
+    "sendError": "Aïe, ça n'a pas marché ! Réessayez ou contactez-moi directement.",
+    "connectionError": "Erreur de connexion. Vérifiez votre connexion internet.",
+    "readyToStart": "Prêt·e à démarrer ?",
+    "letsGo": "Donnons vie à votre projet",
+    "howToContact": "Comment souhaitez-vous me contacter ?",
+    "quick": "Rapide",
+    "preciseIdea": "J'ai une idée précise",
+    "response48h": "Réponse détaillée sous 48h",
+    "writeMessage": "Écrire mon message",
+    "recommended": "Recommandé",
+    "helpDefine": "Aidez-moi à définir mon besoin",
+    "estimateDesc": "Estimation personnalisée",
+    "startQuiz": "Commencer le quiz interactif",
+    "quizDuration": "2 min",
+    "thirtyMin": "30 min",
+    "letsCall": "On s'appelle ?",
+    "freeConsultation": "Consultation gratuite sans engagement",
+    "bookSlot": "Réserver un créneau",
+    "free": "Gratuit",
+    "noCommitment": "Sans engagement",
+    "responseTime": "Réponse sous 48h",
+    "backToOptions": "Retour aux options",
+    "writeToMe": "Écrivez-moi",
+    "tellAboutProject": "Parlez-moi de votre projet…",
+    "received": "Bien reçu !",
+    "thankYou": "Merci pour votre message. Je vous réponds sous 48h.",
+    "backToHome": "Retour à l'accueil",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "company": "Entreprise (optionnel)",
+    "yourMessage": "Votre message",
+    "messagePlaceholder": "Décrivez votre projet, vos besoins, vos questions...",
+    "consent": "J'accepte d'être recontacté(e) par Perrine Huon concernant ma demande. Voir la",
+    "privacyPolicy": "Politique de confidentialité",
+    "sending": "Envoi en cours…",
+    "sendMessage": "Envoyer mon message"
+  },
+  "ctaQuiz": {
+    "label": "Quiz interactif",
+    "cta": "Quel est votre projet ?"
+  },
+  "qualifier": {
+    "backToOptions": "Retour aux options",
+    "close": "Fermer",
+    "continue": "Continuer",
+    "back": "Retour",
+    "dontKnow": "Je ne sais pas encore",
+    "restartTitle": "Recommencer à zéro",
+    "stepLabels": {
+      "intro": "Introduction",
+      "projectType": "Type de projet",
+      "features": "Fonctionnalités",
+      "designStyle": "Style de design",
+      "animationLevel": "Animations",
+      "budget": "Budget",
+      "deadline": "Délais",
+      "accompagnement": "Accompagnement",
+      "inspirations": "Inspirations",
+      "quoteRequest": "Demande de devis"
+    },
+    "intro": {
+      "imageAlt": "Aiguille",
+      "titleLine1": "Votre projet web",
+      "titleLine2": "conçu sur-mesure",
+      "subtitle": "On fait le point en 2 min ?",
+      "stepsCompleted": "{count} étape(s) complétée(s)",
+      "resume": "Reprendre",
+      "defineNeeds": "Définir mes besoins",
+      "restartFromZero": "Recommencer à zéro",
+      "badge": "Gratuit • Sans engagement"
+    },
+    "projectType": {
+      "title": "Quel type de projet avez-vous en tête ?",
+      "subtitle": "Sélectionnez celui qui correspond le mieux à vos besoins",
+      "options": {
+        "site-vitrine-onepage": {
+          "label": "Site vitrine one-page",
+          "description": "Présentation concise et percutante"
+        },
+        "site-vitrine-multipage": {
+          "label": "Site vitrine multipage",
+          "description": "Structure complète et détaillée"
+        },
+        "ecommerce": {
+          "label": "Site e-commerce",
+          "description": "Vente en ligne et gestion produits"
+        },
+        "landing-page": {
+          "label": "Landing page / Page de vente",
+          "description": "Conversion et acquisition"
+        },
+        "application-web": {
+          "label": "Application web (SaaS)",
+          "description": "Outil métier ou service en ligne"
+        },
+        "mvp-prototype": {
+          "label": "MVP / Prototype",
+          "description": "Test rapide d'une idée"
+        },
+        "dashboard-crm": {
+          "label": "Tableau de bord / CRM",
+          "description": "Gestion et visualisation de données"
+        },
+        "refonte": {
+          "label": "Refonte de site existant",
+          "description": "Modernisation et optimisation"
+        }
+      }
+    },
+    "features": {
+      "title": "Quelles fonctionnalités vous intéressent ?",
+      "subtitle": "Sélectionnez autant d'options que vous le souhaitez",
+      "options": {
+        "blog": "Blog / Système de contenu",
+        "espace-membres": "Espace membres / Authentification",
+        "paiement": "Paiement en ligne",
+        "reservation": "Réservation / Booking",
+        "formulaires-avances": "Formulaires avancés",
+        "multilingue": "Multilingue",
+        "api-integrations": "API / Intégrations tierces",
+        "admin-dashboard": "Tableau de bord admin",
+        "autre": "Autre"
+      },
+      "otherLabel": "Précisez vos autres besoins :",
+      "otherPlaceholder": "Décrivez les fonctionnalités spécifiques dont vous avez besoin..."
+    },
+    "designStyle": {
+      "title": "Quel style de design vous attire ?",
+      "subtitle": "Choisissez l'ambiance visuelle qui vous correspond",
+      "options": {
+        "minimaliste": {
+          "label": "Minimaliste & élégant",
+          "description": "Épuré, raffiné, focus sur l'essentiel"
+        },
+        "moderne": {
+          "label": "Moderne & dynamique",
+          "description": "Audacieux, coloré, tendance"
+        },
+        "corporate": {
+          "label": "Corporate & professionnel",
+          "description": "Sérieux, rassurant, institutionnel"
+        }
+      }
+    },
+    "animationLevel": {
+      "title": "Quel niveau d'animation souhaitez-vous ?",
+      "subtitle": "Comparez les 3 styles en temps réel 👇",
+      "options": {
+        "sobre": {
+          "label": "Sobre",
+          "description": "Animations subtiles et discrètes"
+        },
+        "modere": {
+          "label": "Modéré",
+          "description": "Interactions fluides et engageantes"
+        },
+        "immersif": {
+          "label": "Immersif",
+          "description": "Expérience wow et mémorable"
+        }
+      }
+    },
+    "budget": {
+      "title": "Quel est votre budget estimé ?",
+      "subtitle": "Cette information m'aide à adapter ma proposition à vos moyens",
+      "options": {
+        "petit": {
+          "label": "Petit budget",
+          "range": "1 000€ - 3 000€",
+          "description": "Site vitrine simple, template personnalisé"
+        },
+        "moyen": {
+          "label": "Budget moyen",
+          "range": "3 000€ - 8 000€",
+          "description": "Design sur mesure, fonctionnalités avancées"
+        },
+        "confortable": {
+          "label": "Budget confortable",
+          "range": "8 000€ - 15 000€",
+          "description": "Projet complet, stratégie digitale incluse"
+        },
+        "large": {
+          "label": "Budget large",
+          "range": "15 000€+",
+          "description": "Application complexe, accompagnement premium"
+        }
+      },
+      "confidential": "🔒 Ces informations restent confidentielles et servent uniquement à personnaliser ma proposition"
+    },
+    "deadline": {
+      "title": "Quels sont vos délais ?",
+      "subtitle": "Une deadline réaliste permet un travail de qualité",
+      "options": {
+        "urgent": {
+          "label": "Urgent",
+          "description": "2-4 semaines"
+        },
+        "standard": {
+          "label": "Standard",
+          "description": "1-2 mois"
+        },
+        "flexible": {
+          "label": "Flexible",
+          "description": "2-3 mois"
+        },
+        "pas-contrainte": {
+          "label": "Pas de contrainte",
+          "description": "Prenons le temps qu'il faut"
+        }
+      }
+    },
+    "accompagnement": {
+      "title": "Quel niveau d'accompagnement souhaitez-vous ?",
+      "subtitle": "Je m'adapte à vos besoins après la livraison",
+      "options": {
+        "autonomie": {
+          "label": "Autonomie totale",
+          "description": "Livraison clé en main, vous gérez ensuite"
+        },
+        "formation": {
+          "label": "Formation incluse",
+          "description": "Prise en main guidée de votre site"
+        },
+        "maintenance": {
+          "label": "Maintenance continue",
+          "description": "Support technique mensuel"
+        },
+        "partenariat": {
+          "label": "Partenariat long terme",
+          "description": "Évolution continue et stratégie"
+        }
+      }
+    },
+    "inspirations": {
+      "title": "Quels univers vous inspirent ?",
+      "subtitle": "Cliquez sur une carte pour l'agrandir • Cochez pour sélectionner",
+      "clickToEnlarge": "Cliquez pour agrandir",
+      "preview": "Aperçu {name}",
+      "selected": "✓ Sélectionné",
+      "select": "Sélectionner",
+      "visit": "Visiter",
+      "clickToClose": "Cliquez n'importe où pour fermer",
+      "otherLabel": "💡 Autre inspiration ? Ajoutez un site ou une marque :",
+      "otherPlaceholder": "Ex: Le site de mon concurrent, une boutique que j'aime...",
+      "lastStep": "Dernière étape : obtenir votre estimation",
+      "restart": "Recommencer le questionnaire",
+      "styles": {
+        "creative": "Créatif",
+        "warm": "Chaleureux",
+        "sober": "Sobre",
+        "immersive": "Immersif",
+        "refined": "Raffiné",
+        "colorful": "Coloré",
+        "gradient": "Gradient",
+        "light": "Clair"
+      }
+    },
+    "quoteRequest": {
+      "emailSubject": "DEMANDE DE DEVIS EXPRESS",
+      "greeting": "Bonjour Perrine !",
+      "projectTypeLabel": "Type de projet",
+      "featuresLabel": "Fonctionnalités",
+      "otherNeeds": "Autres besoins",
+      "designLabel": "Style de design",
+      "animationsLabel": "Animations",
+      "budgetLabel": "Budget",
+      "deadlineLabel": "Délais",
+      "accompagnementLabel": "Accompagnement",
+      "inspirationsLabel": "Inspirations",
+      "discussMessage": "Je viens de compléter le questionnaire sur votre site. Voici mon projet :",
+      "sendError": "Erreur lors de l'envoi",
+      "sendErrorDetail": "Oups ! Une erreur est survenue. Réessayez ou contactez-moi via WhatsApp.",
+      "greatProject": "Super ! Votre projet est bien défini",
+      "howToReceive": "Comment souhaitez-vous recevoir votre devis ?",
+      "byEmail": "Par email",
+      "emailDelay": "Devis détaillé sous 48h",
+      "yourEmail": "Votre email",
+      "continueBtn": "Continuer",
+      "invalidEmail": "Veuillez entrer un email valide",
+      "thirtySeconds": "30 secondes suffisent",
+      "byWhatsApp": "Par WhatsApp",
+      "whatsAppDesc": "Échange direct et rapide",
+      "whatsAppPreview": "Discutez directement avec Perrine ! Votre projet est déjà pré-rempli dans le message.",
+      "openWhatsApp": "Ouvrir WhatsApp",
+      "usuallyOnline": "Généralement en ligne",
+      "backToInspirations": "Retour aux inspirations",
+      "helloName": "Enchantée {name} !",
+      "personalizeQuote": "Quelques infos pour personnaliser votre devis",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "companyOptional": "Entreprise (optionnel)",
+      "quoteSentTo": "Devis envoyé à :",
+      "quoteGuarantee": "Devis garanti sous 48h",
+      "sendingInProgress": "Envoi en cours...",
+      "receiveQuote": "Recevoir mon devis ✨",
+      "dataConfidential": "Vos données restent confidentielles",
+      "editEmail": "Modifier mon email",
+      "sentTitle": "C'est envoyé {name} ! 🎉",
+      "sentDescription": "Perrine vous répond sous 48h avec un devis personnalisé.",
+      "quoteSentToEmail": "Votre devis sera envoyé à :",
+      "backToHomeBtn": "Retour à l'accueil",
+      "restartQuiz": "Recommencer le questionnaire",
+      "signedBy": "« Merci pour votre confiance ! J'ai hâte de découvrir votre projet et de vous proposer la meilleure solution. À très vite ! »"
+    },
+    "encouragements": {
+      "msg1": "Super choix ! 🎯",
+      "msg2": "Excellent ! On avance bien 🚀",
+      "msg3": "Parfait, continuons ! ✨",
+      "msg4": "Très bien, on y est presque ! 💪",
+      "msg5": "Beau projet en perspective ! 🌟"
+    }
+  }
+}

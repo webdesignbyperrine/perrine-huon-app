@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { ArrowLeftIcon, ArrowRightIcon } from '../icons';
 
@@ -14,6 +15,7 @@ export default function NavigationButtons({
   nextLabel,
   onNext 
 }: NavigationButtonsProps) {
+  const t = useTranslations('qualifier');
   const { 
     currentStep, 
     canGoNext, 
@@ -31,7 +33,7 @@ export default function NavigationButtons({
   if (currentStep === 'intro') return null;
 
   const handleNext = onNext ?? goNext;
-  const buttonLabel = nextLabel ?? 'Continuer';
+  const buttonLabel = nextLabel ?? t('continue');
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12">
@@ -44,7 +46,7 @@ export default function NavigationButtons({
           className="btn-sketch group disabled:opacity-30 disabled:cursor-not-allowed"
         >
           <ArrowLeftIcon className="w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
-          <span>Retour</span>
+          <span>{t('back')}</span>
         </button>
 
         {/* Bouton recommencer (icône seule) */}
@@ -52,8 +54,8 @@ export default function NavigationButtons({
           <button
             onClick={resetQualifier}
             className="p-3 rounded-full border-2 border-primary/20 text-primary/40 hover:text-accent hover:border-accent/30 transition-all duration-300 group"
-            title="Recommencer à zéro"
-            aria-label="Recommencer à zéro"
+            title={t('restartTitle')}
+            aria-label={t('restartTitle')}
           >
             <svg 
               className="w-5 h-5 group-hover:rotate-[-360deg] transition-transform duration-500" 
@@ -75,7 +77,7 @@ export default function NavigationButtons({
             onClick={skipStep}
             className="px-4 py-3 text-primary/40 hover:text-primary/70 text-sm transition-colors"
           >
-            Je ne sais pas encore
+            {t('dontKnow')}
           </button>
         )}
 

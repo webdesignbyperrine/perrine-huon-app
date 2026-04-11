@@ -1,0 +1,93 @@
+{
+  "title": "PRIVACY POLICY",
+  "data_controller": {
+    "title": "Data Controller",
+    "business_type": "Sole Proprietorship",
+    "contact_link": "Contact me via the form"
+  },
+  "data_collected": {
+    "title": "Data Collected",
+    "intro": "I only collect data that you voluntarily provide via the contact form:",
+    "items": {
+      "name": "First and last name",
+      "email": "Email address",
+      "company": "Company name (optional)",
+      "message": "Message"
+    }
+  },
+  "legal_basis": {
+    "title": "Legal Basis and Purposes",
+    "consent": "The processing of your data is based on",
+    "consent_bold": "your consent",
+    "consent_end": ", given when submitting the contact form.",
+    "usage_intro": "Your data is used only for:",
+    "purposes": {
+      "reply": "Responding to your contact request",
+      "quote": "Providing you with a personalized quote",
+      "support": "Supporting you in your project"
+    },
+    "no_sharing": "I do not sell, rent or share your data with third parties."
+  },
+  "recipients": {
+    "title": "Data Recipients",
+    "text": "Only Perrine Huon has access to your personal data. No third party has access to it, except by legal obligation."
+  },
+  "hosting": {
+    "title": "Hosting and Transfers",
+    "intro": "Your data is securely stored with:",
+    "supabase": "(database) — Secure servers",
+    "vercel": "(hosting) — United States",
+    "gdpr_compliance": "These providers comply with GDPR and have signed standard contractual clauses approved by the European Commission to regulate data transfers outside the EU."
+  },
+  "security": {
+    "title": "Data Security",
+    "intro": "I implement technical and organizational measures to protect your data:",
+    "measures": {
+      "https": "Secure HTTPS connection",
+      "restricted": "Restricted data access (myself only)",
+      "certified": "Certified and secure hosting providers"
+    }
+  },
+  "retention": {
+    "title": "Retention Period",
+    "text": "Your data is kept for",
+    "duration": "a maximum of 3 years",
+    "after": "after our last exchange, then deleted."
+  },
+  "rights": {
+    "title": "Your Rights (GDPR)",
+    "intro": "In accordance with the General Data Protection Regulation (GDPR), you have the following rights:",
+    "list": {
+      "access": "Right of access",
+      "access_desc": ": obtain a copy of your data",
+      "rectification": "Right to rectification",
+      "rectification_desc": ": correct inaccurate data",
+      "erasure": "Right to erasure",
+      "erasure_desc": ": delete your data",
+      "portability": "Right to portability",
+      "portability_desc": ": retrieve your data in a usable format",
+      "objection": "Right to object",
+      "objection_desc": ": object to the processing of your data",
+      "withdraw": "Right to withdraw your consent",
+      "withdraw_desc": "at any time"
+    },
+    "exercise": "To exercise these rights,",
+    "contact_link": "contact me via the form"
+  },
+  "complaint": {
+    "title": "Complaint",
+    "text": "If you believe that the processing of your data does not comply with regulations, you can file a complaint with the",
+    "cnil": "CNIL",
+    "cnil_full": "(French Data Protection Authority):"
+  },
+  "cookies": {
+    "title": "Cookies",
+    "text": "This site only uses technical cookies necessary for its operation. No tracking or advertising cookies are used without your consent."
+  },
+  "contact": {
+    "title": "Contact",
+    "text": "For any questions regarding this privacy policy:",
+    "link": "Contact me via the form"
+  },
+  "last_update": "Last updated: January 2026"
+}

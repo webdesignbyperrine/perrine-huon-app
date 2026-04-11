@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { DEADLINE_OPTIONS, Deadline } from '../types';
 import SelectionCard from '../ui/SelectionCard';
@@ -8,6 +9,7 @@ import ProgressBar from '../ui/ProgressBar';
 import { LightningIcon, ClockIcon, LeafIcon, InfinityIcon } from '../icons';
 
 export default function DeadlineStep() {
+  const t = useTranslations('qualifier.deadline');
   const { data, setDeadline, goNext } = useQualifier();
 
   const handleSelect = (deadline: Deadline) => {
@@ -31,10 +33,10 @@ export default function DeadlineStep() {
       {/* Titre */}
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-          Quels sont vos délais ?
+          {t('title')}
         </h2>
         <p className="text-primary/50 font-light">
-          Une deadline réaliste permet un travail de qualité
+          {t('subtitle')}
         </p>
       </div>
 
@@ -62,10 +64,10 @@ export default function DeadlineStep() {
               {/* Texte */}
               <div>
                 <h3 className="text-lg font-bold text-primary mb-1">
-                  {deadline.label}
+                  {t(`options.${deadline.value}.label`)}
                 </h3>
                 <p className="text-sm text-primary/70 font-medium">
-                  {deadline.description}
+                  {t(`options.${deadline.value}.description`)}
                 </p>
               </div>
             </div>

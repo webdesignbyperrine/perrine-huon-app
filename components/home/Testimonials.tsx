@@ -1,47 +1,94 @@
 'use client';
 
 import { useEffect, useState, useRef, useCallback } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import type { Testimonial } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { SectionTitle, LoadingSpinner, CTAQuiz } from '@/components/ui';
+import { getLocalizedField } from '@/lib/i18n-helpers';
 
-const demoTestimonials: Testimonial[] = [
-  {
-    id: '1', name: 'Marie L.', profession: 'Avocate', company: null, city: 'Paris 8e',
-    content: 'Mon site reflète enfin le sérieux de mon cabinet. Perrine a parfaitement compris mes contraintes déontologiques et a créé un site élégant qui inspire confiance à mes clients.',
-    rating: 5.0, is_published: true, sort_order: 1, created_at: '',
-  },
-  {
-    id: '2', name: 'Thomas D.', profession: 'Restaurateur', company: 'Le Comptoir', city: 'Lyon',
-    content: 'Nos réservations en ligne ont augmenté de 40% depuis le nouveau site. L\'intégration du menu interactif et du système de réservation est impeccable.',
-    rating: 5.0, is_published: true, sort_order: 2, created_at: '',
-  },
-  {
-    id: '3', name: 'Sophie M.', profession: 'Expert-Comptable', company: null, city: 'Bordeaux',
-    content: 'Un site moderne qui me démarque des autres cabinets. Le SEO local a transformé ma visibilité : je reçois maintenant des demandes qualifiées chaque semaine.',
-    rating: 5.0, is_published: true, sort_order: 3, created_at: '',
-  },
-  {
-    id: '4', name: 'Jean-Pierre R.', profession: 'Menuisier ébéniste', company: null, city: 'Lille',
-    content: 'Enfin visible sur Google ! Mes demandes de devis ont doublé en 3 mois. Le portfolio met parfaitement en valeur mon travail. Simple, efficace, professionnel.',
-    rating: 5.0, is_published: true, sort_order: 4, created_at: '',
-  },
-  {
-    id: '5', name: 'Claire B.', profession: 'Présidente d\'association', company: null, city: 'Paris 15e',
-    content: 'Budget serré mais résultat professionnel. Perrine a compris nos besoins associatifs et a livré un site qui facilite nos inscriptions et notre communication.',
-    rating: 5.0, is_published: true, sort_order: 5, created_at: '',
-  },
-  {
-    id: '6', name: 'Karim A.', profession: 'Kinésithérapeute', company: null, city: 'Marseille',
-    content: 'La prise de rendez-vous en ligne intégrée au site a changé mon quotidien. Moins d\'appels téléphoniques, plus de temps pour mes patients.',
-    rating: 4.5, is_published: true, sort_order: 6, created_at: '',
-  },
-];
+function getDemoTestimonials(t: any): Testimonial[] {
+  return [
+    {
+      id: '1',
+      name: t('demo.1.name'),
+      profession: t('demo.1.profession'),
+      company: null,
+      city: null,
+      content: t('demo.1.content'),
+      rating: 5,
+      is_published: true,
+      sort_order: 1,
+      created_at: '',
+    },
+    {
+      id: '2',
+      name: t('demo.2.name'),
+      profession: t('demo.2.profession'),
+      company: null,
+      city: null,
+      content: t('demo.2.content'),
+      rating: 5,
+      is_published: true,
+      sort_order: 2,
+      created_at: '',
+    },
+    {
+      id: '3',
+      name: t('demo.3.name'),
+      profession: t('demo.3.profession'),
+      company: null,
+      city: null,
+      content: t('demo.3.content'),
+      rating: 5,
+      is_published: true,
+      sort_order: 3,
+      created_at: '',
+    },
+    {
+      id: '4',
+      name: t('demo.4.name'),
+      profession: t('demo.4.profession'),
+      company: null,
+      city: null,
+      content: t('demo.4.content'),
+      rating: 5,
+      is_published: true,
+      sort_order: 4,
+      created_at: '',
+    },
+    {
+      id: '5',
+      name: t('demo.5.name'),
+      profession: t('demo.5.profession'),
+      company: null,
+      city: null,
+      content: t('demo.5.content'),
+      rating: 5,
+      is_published: true,
+      sort_order: 5,
+      created_at: '',
+    },
+    {
+      id: '6',
+      name: t('demo.6.name'),
+      profession: t('demo.6.profession'),
+      company: null,
+      city: null,
+      content: t('demo.6.content'),
+      rating: 4.5,
+      is_published: true,
+      sort_order: 6,
+      created_at: '',
+    },
+  ];
+}
 
 function StarRating({ rating }: { rating: number }) {
+  const t = useTranslations('testimonials');
   return (
-    <div className="flex gap-1" aria-label={`Note : ${rating} sur 5`}>
+    <div className="flex gap-1" aria-label={t('ratingAria', { rating })}>
       {[1, 2, 3, 4, 5].map((star) => {
         const filled = rating >= star;
         const half = !filled && rating >= star - 0.5;
@@ -82,6 +129,23 @@ function StarRating({ rating }: { rating: number }) {
           </svg>
         );
       })}
+    </div>
+  );
+}
+
+function TestimonialContent({ testimonial, isSecond }: { testimonial: Testimonial, isSecond: boolean }) {
+  const locale = useLocale() as 'fr' | 'en' | 'es';
+  
+  return (
+    <div className={isSecond ? 'border-t border-primary/10 pt-4' : ''}>
+      <StarRating rating={testimonial.rating} />
+      <blockquote className="mt-2 mb-2 text-primary/80 leading-relaxed text-sm italic line-clamp-3">
+        {getLocalizedField(testimonial, 'content', locale)}
+      </blockquote>
+      <p className="font-semibold text-primary text-sm">{testimonial.name}</p>
+      <p className="text-xs text-primary/50">
+        {[getLocalizedField(testimonial, 'profession', locale), testimonial.company].filter(Boolean).join(' · ')}
+      </p>
     </div>
   );
 }
@@ -184,16 +248,7 @@ function PostItStack({ testimonialPairs, delayOffset }: PostItStackProps) {
 
       <div className="relative z-10 flex flex-col h-full gap-4">
         {pair.map((testimonial, idx) => testimonial && (
-          <div key={testimonial.id} className={idx === 1 ? 'border-t border-primary/10 pt-4' : ''}>
-            <StarRating rating={testimonial.rating} />
-            <blockquote className="mt-2 mb-2 text-primary/80 leading-relaxed text-sm italic line-clamp-3">
-              {testimonial.content}
-            </blockquote>
-            <p className="font-semibold text-primary text-sm">{testimonial.name}</p>
-            <p className="text-xs text-primary/50">
-              {[testimonial.profession, testimonial.company].filter(Boolean).join(' · ')}
-            </p>
-          </div>
+          <TestimonialContent key={testimonial.id} testimonial={testimonial} isSecond={idx === 1} />
         ))}
       </div>
     </div>
@@ -223,12 +278,16 @@ function PostItStack({ testimonialPairs, delayOffset }: PostItStackProps) {
 }
 
 export default function Testimonials() {
+  const t = useTranslations('testimonials');
+  const locale = useLocale() as 'fr' | 'en' | 'es';
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
+
+  const demoTestimonials = getDemoTestimonials(t);
 
   useEffect(() => {
     async function fetchTestimonials() {
@@ -248,7 +307,8 @@ export default function Testimonials() {
     fetchTestimonials();
   }, []);
 
-  const displayTestimonials = testimonials.length > 0 ? testimonials : demoTestimonials;
+  const supabaseHasTranslations = locale === 'fr' || (testimonials.length > 0 && `content_${locale}` in testimonials[0]);
+  const displayTestimonials = testimonials.length > 0 && supabaseHasTranslations ? testimonials : demoTestimonials;
 
   const createPairsForStack = useCallback((startIndex: number, totalStacks: number): [Testimonial, Testimonial?][] => {
     const pairs: [Testimonial, Testimonial?][] = [];
@@ -304,9 +364,9 @@ export default function Testimonials() {
       <div className="container mx-auto px-4 relative z-10">
         <div ref={titleRef} className="mb-16">
           <SectionTitle
-            subtitle="Ils nous font confiance"
-            title="Témoignages"
-            description="Découvrez ce que nos clients disent de leur expérience et des résultats obtenus."
+            subtitle={t('subtitle')}
+            title={t('title')}
+            description={t('description')}
             isVisible={titleVisible}
           />
         </div>

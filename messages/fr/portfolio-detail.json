@@ -1,0 +1,27 @@
+{
+  "notFound": "Projet non trouvé",
+  "metadataFallback": "Découvrez le projet {title} réalisé par Perrine Huon, web designer freelance.",
+  "breadcrumb": {
+    "home": "Accueil",
+    "portfolio": "Portfolio"
+  },
+  "hero": {
+    "similarProject": "Un projet similaire ?",
+    "allProjects": "Tous les projets"
+  },
+  "info": {
+    "client": "Client",
+    "category": "Catégorie",
+    "year": "Année"
+  },
+  "gallery": {
+    "title": "Galerie"
+  },
+  "about": {
+    "title": "À propos du projet"
+  },
+  "finalCta": {
+    "title": "Un projet similaire en tête ?",
+    "button": "Réserver un appel"
+  }
+}

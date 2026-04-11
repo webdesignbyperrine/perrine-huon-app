@@ -1,15 +1,17 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import TypewriterText from '@/components/TypewriterText';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [footerRef, footerVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const { theme } = useTheme();
+  const t = useTranslations('footer');
 
   return (
     <footer className="relative bg-primary overflow-hidden">
@@ -83,7 +85,7 @@ export default function Footer() {
               >
                 {footerVisible && (
                   <TypewriterText 
-                    text="Construisons ensemble votre succès digital."
+                    text={t('slogan')}
                     delay={50}
                     startDelay={300}
                     showCursor={true}
@@ -92,7 +94,7 @@ export default function Footer() {
               </p>
               
               <p className={`text-sm uppercase tracking-widest mb-6 ${theme === 'dark' ? 'text-paper/50' : 'text-primary/50'}`}>
-                Développeuse Web Freelance — Création de Sites Internet
+                {t('subtitle')}
               </p>
               
               {/* Mini CTA vers le qualifier */}
@@ -105,7 +107,7 @@ export default function Footer() {
                   <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
                   <line x1="12" y1="17" x2="12.01" y2="17"/>
                 </svg>
-                <span>Quels sont vos besoins ?</span>
+                <span>{t('whatAreYourNeeds')}</span>
                 <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
@@ -114,7 +116,7 @@ export default function Footer() {
 
             {/* ===== Réseaux sociaux - mis en avant ===== */}
             <div className={`max-w-3xl mx-auto transition-all duration-700 delay-100 ${footerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              <h4 className={`font-semibold mb-5 text-center ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>Restons connectés</h4>
+              <h4 className={`font-semibold mb-5 text-center ${theme === 'dark' ? 'text-paper' : 'text-primary'}`}>{t('stayConnected')}</h4>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {/* LinkedIn */}
@@ -141,11 +143,11 @@ export default function Footer() {
                   </div>
                   
                   <p className={`text-xs leading-relaxed mb-3 ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>
-                    Conseils web et vie de freelance
+                    {t('linkedinDesc')}
                   </p>
                   
                   <span className="inline-flex items-center gap-2 text-[#0077B5] text-xs font-medium group-hover:gap-3 transition-all duration-300">
-                    Me suivre
+                    {t('followMe')}
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -176,11 +178,11 @@ export default function Footer() {
                   </div>
                   
                   <p className={`text-xs leading-relaxed mb-3 ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>
-                    Coulisses et inspirations design
+                    {t('instagramDesc')}
                   </p>
                   
                   <span className="inline-flex items-center gap-2 text-[#E4405F] text-xs font-medium group-hover:gap-3 transition-all duration-300">
-                    Me suivre
+                    {t('followMe')}
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -211,11 +213,11 @@ export default function Footer() {
                   </div>
                   
                   <p className={`text-xs leading-relaxed mb-3 ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>
-                    Actualités et partages web
+                    {t('facebookDesc')}
                   </p>
                   
                   <span className="inline-flex items-center gap-2 text-[#1877F2] text-xs font-medium group-hover:gap-3 transition-all duration-300">
-                    Me suivre
+                    {t('followMe')}
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -230,17 +232,17 @@ export default function Footer() {
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>Services</h4>
+              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>{t('servicesTitle')}</h4>
               <div className="flex flex-wrap gap-x-4 gap-y-1">
                 {[
-                  { name: 'Site Vitrine', href: '/creation-site-vitrine' },
-                  { name: 'Site E-commerce', href: '/creation-site-ecommerce' },
-                  { name: 'Application Web', href: '/creation-application-web' },
-                  { name: 'Landing Page', href: '/creation-landing-page' },
-                  { name: 'Refonte', href: '/refonte-site-web' },
-                  { name: 'SEO Local', href: '/seo-local-referencement-geolocalise' },
-                  { name: 'Maintenance', href: '/maintenance-site-web' },
-                  { name: 'CRM Sur Mesure', href: '/creation-crm-logiciel-gestion' },
+                  { name: t('serviceLinks.showcase'), href: '/creation-site-vitrine' },
+                  { name: t('serviceLinks.ecommerce'), href: '/creation-site-ecommerce' },
+                  { name: t('serviceLinks.webapp'), href: '/creation-application-web' },
+                  { name: t('serviceLinks.landing'), href: '/creation-landing-page' },
+                  { name: t('serviceLinks.redesign'), href: '/refonte-site-web' },
+                  { name: t('serviceLinks.seo'), href: '/seo-local-referencement-geolocalise' },
+                  { name: t('serviceLinks.maintenance'), href: '/maintenance-site-web' },
+                  { name: t('serviceLinks.crm'), href: '/creation-crm-logiciel-gestion' },
                 ].map((item) => (
                   <Link key={item.href} href={item.href} className={`text-xs transition-colors ${theme === 'dark' ? 'text-paper/30 hover:text-paper/60' : 'text-primary/30 hover:text-primary/60'}`}>
                     {item.name}
@@ -249,17 +251,17 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>Par Métier</h4>
+              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>{t('byProfession')}</h4>
               <div className="flex flex-wrap gap-x-4 gap-y-1">
                 {[
-                  { name: 'Avocats', href: '/site-internet-avocat' },
-                  { name: 'Médecins', href: '/site-internet-medecin' },
-                  { name: 'Restaurants', href: '/site-internet-restaurant' },
-                  { name: 'Experts-Comptables', href: '/site-internet-expert-comptable' },
-                  { name: 'Artisans', href: '/site-internet-artisan-batiment' },
-                  { name: 'Associations', href: '/site-internet-association' },
-                  { name: 'Coiffeurs', href: '/site-internet-salon-coiffure' },
-                  { name: 'Architectes', href: '/site-internet-architecte' },
+                  { name: t('professionLinks.lawyers'), href: '/site-internet-avocat' },
+                  { name: t('professionLinks.doctors'), href: '/site-internet-medecin' },
+                  { name: t('professionLinks.restaurants'), href: '/site-internet-restaurant' },
+                  { name: t('professionLinks.accountants'), href: '/site-internet-expert-comptable' },
+                  { name: t('professionLinks.craftsmen'), href: '/site-internet-artisan-batiment' },
+                  { name: t('professionLinks.associations'), href: '/site-internet-association' },
+                  { name: t('professionLinks.hairdressers'), href: '/site-internet-salon-coiffure' },
+                  { name: t('professionLinks.architects'), href: '/site-internet-architecte' },
                 ].map((item) => (
                   <Link key={item.href} href={item.href} className={`text-xs transition-colors ${theme === 'dark' ? 'text-paper/30 hover:text-paper/60' : 'text-primary/30 hover:text-primary/60'}`}>
                     {item.name}
@@ -268,7 +270,7 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>Par Ville</h4>
+              <h4 className={`font-semibold mb-3 text-sm uppercase tracking-wider ${theme === 'dark' ? 'text-paper/60' : 'text-primary/60'}`}>{t('byCity')}</h4>
               <div className="flex flex-wrap gap-x-4 gap-y-1">
                 {[
                   { name: 'Paris', href: '/creation-site-internet-paris' },
@@ -302,12 +304,12 @@ export default function Footer() {
             <div className={`flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-xs ${theme === 'dark' ? 'text-paper/30' : 'text-primary/30'}`}>
               {/* Navigation */}
               {[
-                { name: 'Accueil', href: '/' },
-                { name: 'Réalisations', href: '/portfolio' },
-                { name: 'Blog', href: '/blog' },
-                { name: 'Tarifs', href: '/tarifs-creation-site-web' },
-                { name: 'FAQ', href: '/faq' },
-                { name: 'Contact', href: '/#contact' },
+                { name: t('home'), href: '/' },
+                { name: t('portfolio'), href: '/portfolio' },
+                { name: t('blog'), href: '/blog' },
+                { name: t('pricing'), href: '/tarifs-creation-site-web' },
+                { name: t('faq'), href: '/faq' },
+                { name: t('contact'), href: '/#contact' },
               ].map((item, index) => (
                 <span key={item.name} className="flex items-center gap-4">
                   <Link 
@@ -356,14 +358,14 @@ export default function Footer() {
                   href="/mentions-legales" 
                   className={`transition-colors duration-200 ${theme === 'dark' ? 'text-paper/40 hover:text-paper/70' : 'text-primary/40 hover:text-primary/70'}`}
                 >
-                  Mentions légales
+                  {t('legalNotice')}
                 </Link>
                 <span className={`hidden sm:inline ${theme === 'dark' ? 'text-paper/20' : 'text-primary/20'}`}>•</span>
                 <Link 
                   href="/politique-confidentialite" 
                   className={`transition-colors duration-200 ${theme === 'dark' ? 'text-paper/40 hover:text-paper/70' : 'text-primary/40 hover:text-primary/70'}`}
                 >
-                  Confidentialité
+                  {t('privacy')}
                 </Link>
               </div>
               
@@ -380,7 +382,7 @@ export default function Footer() {
                 <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                Revenir à l&apos;accueil
+                {t('backToHome')}
               </Link>
             </div>
           </div>

@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "title": "Freelance vs Agencia Web: Cómo Elegir en 2026",
+    "description": "¿Freelance o agencia web? Compara ventajas, desventajas y precios para tomar la decisión correcta para tu sitio web. Guía completa 2026.",
+    "ogTitle": "Freelance vs Agencia Web: Cómo Elegir en 2026",
+    "ogDescription": "¿Freelance o agencia web? Compara ventajas, desventajas y precios para tomar la decisión correcta para tu sitio web."
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "current": "Freelance vs Agencia"
+  },
+  "hero": {
+    "backToHome": "Volver al inicio",
+    "title": "Freelance vs Agencia Web",
+    "subtitle": "¿Cómo elegir el socio adecuado para la creación de tu sitio web? Comparación objetiva para ayudarte a decidir."
+  },
+  "comparisonTable": {
+    "title": "Comparación Detallada",
+    "headers": {
+      "criterion": "Criterio",
+      "freelance": "Freelance",
+      "agency": "Agencia",
+      "diy": "WordPress DIY"
+    },
+    "rows": [
+      {
+        "criterion": "Precio medio sitio corporativo",
+        "freelance": "1.500 – 4.000 €",
+        "agency": "5.000 – 15.000 €",
+        "diy": "0 – 500 €"
+      },
+      {
+        "criterion": "Plazo de entrega",
+        "freelance": "2 – 6 semanas",
+        "agency": "6 – 16 semanas",
+        "diy": "1 – 4 semanas"
+      },
+      {
+        "criterion": "Interlocutor único",
+        "freelance": "✓",
+        "agency": "✗ (equipo múltiple)",
+        "diy": "✓ (tú mismo)"
+      },
+      {
+        "criterion": "Personalización",
+        "freelance": "Total",
+        "agency": "Total",
+        "diy": "Limitada (plantillas)"
+      },
+      {
+        "criterion": "Rendimiento & SEO",
+        "freelance": "Excelente",
+        "agency": "Excelente",
+        "diy": "Variable"
+      },
+      {
+        "criterion": "Capacidad de respuesta",
+        "freelance": "Muy rápida",
+        "agency": "Media",
+        "diy": "N/A"
+      },
+      {
+        "criterion": "Mantenimiento",
+        "freelance": "Incluido u opcional",
+        "agency": "Contrato anual",
+        "diy": "A tu cargo"
+      },
+      {
+        "criterion": "Escalabilidad",
+        "freelance": "Buena",
+        "agency": "Excelente",
+        "diy": "Limitada"
+      }
+    ]
+  },
+  "whenChooseFreelance": {
+    "title": "¿Cuándo elegir un freelance?",
+    "subtitle": "El freelance es la opción ideal para la mayoría de proyectos web de PYMES, profesiones liberales y asociaciones.",
+    "advantages": [
+      {
+        "title": "Relación calidad-precio inmejorable",
+        "description": "Sin los costos estructurales de una agencia, un freelance ofrece tarifas 40 a 60% más bajas para una calidad equivalente."
+      },
+      {
+        "title": "Comunicación directa",
+        "description": "Sin intermediarios. Te comunicas directamente con la persona que diseña y desarrolla tu sitio, reduciendo malentendidos."
+      },
+      {
+        "title": "Flexibilidad y capacidad de respuesta",
+        "description": "Un freelance se adapta a tu planificación y puede reaccionar rápidamente a solicitudes de modificaciones, sin los procesos pesados de una agencia."
+      },
+      {
+        "title": "Compromiso personal",
+        "description": "Tu proyecto no es un expediente entre docenas. El freelance se compromete personalmente con el éxito de tu sitio."
+      }
+    ]
+  },
+  "whenChooseAgency": {
+    "title": "¿Cuándo elegir una agencia?",
+    "subtitle": "La agencia puede ser pertinente en ciertos casos específicos.",
+    "advantages": [
+      {
+        "title": "Recursos múltiples",
+        "description": "Una agencia dispone de especialistas variados (diseñador, desarrollador, redactor, SEO) que pueden intervenir en paralelo."
+      },
+      {
+        "title": "Proyectos de gran envergadura",
+        "description": "Para proyectos muy complejos que requieren varias experticias simultáneas, una agencia puede movilizar un equipo completo."
+      },
+      {
+        "title": "Continuidad de servicio",
+        "description": "En caso de ausencia de un colaborador, la agencia asegura la continuidad del proyecto gracias a su equipo."
+      }
+    ]
+  },
+  "whyPerrine": {
+    "title": "Las ventajas de trabajar con Perrine",
+    "subtitle": "Lo mejor de ambos mundos: la experiencia técnica de una agencia con la proximidad y las tarifas de un freelance.",
+    "benefits": [
+      {
+        "title": "Tecnologías premium, tarifa freelance",
+        "description": "Next.js, React, Tailwind CSS: las mismas herramientas que las mejores agencias, sin los costos estructurales."
+      },
+      {
+        "title": "SEO integrado desde el inicio",
+        "description": "El posicionamiento orgánico se considera desde el diseño, no se añade como una opción costosa después."
+      },
+      {
+        "title": "Seguimiento personalizado de A a Z",
+        "description": "Desde la estrategia hasta el lanzamiento, un acompañamiento a medida en cada etapa de tu proyecto."
+      },
+      {
+        "title": "Rendimiento medible",
+        "description": "Sitios que obtienen 95+ en Google PageSpeed, con resultados concretos en visibilidad y conversiones."
+      },
+      {
+        "title": "Transparencia total",
+        "description": "Presupuesto detallado, planificación clara, comunicación regular. Siempre sabes en qué punto está tu proyecto."
+      }
+    ]
+  },
+  "faqs": {
+    "title": "Preguntas Frecuentes",
+    "items": [
+      {
+        "question": "¿Puede un freelance gestionar un proyecto complejo tan bien como una agencia?",
+        "answer": "Absolutamente. Un freelance experimentado domina toda la cadena de creación (diseño, desarrollo, SEO) y puede movilizar colaboradores especializados si es necesario. Para la mayoría de proyectos de PYMES y profesiones liberales, un freelance no solo es suficiente sino a menudo preferible por la calidad de la relación con el cliente."
+      },
+      {
+        "question": "¿Qué ocurre si el freelance ya no está disponible?",
+        "answer": "Un código limpio y bien documentado garantiza que cualquier desarrollador competente pueda retomar el proyecto. Por eso utilizo tecnologías estándar (Next.js, React) y proporciono documentación completa. Tu sitio nunca depende de una sola persona."
+      },
+      {
+        "question": "¿Cómo elegir entre freelance y agencia para mi proyecto?",
+        "answer": "Si tu presupuesto es inferior a 10.000€ y deseas un interlocutor único con una relación de confianza, el freelance es ideal. Si tu proyecto requiere más de 5 oficios diferentes en simultáneo (ej: app móvil + web + marketing), una agencia puede ser pertinente."
+      },
+      {
+        "question": "¿Por qué no crear simplemente mi sitio yo mismo con WordPress?",
+        "answer": "Es posible para necesidades muy simples, pero un sitio casero a menudo carecerá de rendimiento, seguridad y SEO profesional. El tiempo que le dediques podría invertirse mejor en tu actividad principal. Un profesional te ahorra tiempo y te garantiza un resultado a la altura de tu imagen."
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Convencido por el freelance?",
+    "description": "Hablemos de tu proyecto en un primer intercambio gratuito y sin compromiso. Verás por ti mismo las ventajas de trabajar directamente.",
+    "button": "Hablar de mi proyecto"
+  }
+}

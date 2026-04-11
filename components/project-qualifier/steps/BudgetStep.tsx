@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { BUDGET_OPTIONS, Budget } from '../types';
 import SelectionCard from '../ui/SelectionCard';
@@ -8,6 +9,7 @@ import ProgressBar from '../ui/ProgressBar';
 import { EuroIcon } from '../icons';
 
 export default function BudgetStep() {
+  const t = useTranslations('qualifier.budget');
   const { data, setBudget, goNext } = useQualifier();
 
   const handleSelect = (budget: Budget) => {
@@ -31,10 +33,10 @@ export default function BudgetStep() {
       {/* Titre */}
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-          Quel est votre budget estimé ?
+          {t('title')}
         </h2>
         <p className="text-primary/50 font-light">
-          Cette information m&apos;aide à adapter ma proposition à vos moyens
+          {t('subtitle')}
         </p>
       </div>
 
@@ -65,10 +67,10 @@ export default function BudgetStep() {
               {/* Texte */}
               <div>
                 <p className="text-accent text-lg font-bold mb-1">
-                  {budget.range}
+                  {t(`options.${budget.value}.range`)}
                 </p>
                 <p className="text-sm text-primary/70 font-medium">
-                  {budget.description}
+                  {t(`options.${budget.value}.description`)}
                 </p>
               </div>
             </div>
@@ -79,7 +81,7 @@ export default function BudgetStep() {
       {/* Note de confidentialité */}
       <div className="text-center mt-6">
         <p className="text-xs text-primary/60 font-medium">
-          🔒 Ces informations restent confidentielles et servent uniquement à personnaliser ma proposition
+          {t('confidential')}
         </p>
       </div>
 

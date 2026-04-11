@@ -1,0 +1,54 @@
+{
+  "title": "LEGAL NOTICE",
+  "publisher": {
+    "title": "Website Publisher",
+    "business_type": "Sole Proprietorship (EI)",
+    "activity": "Design, development and maintenance of websites",
+    "start_date": "Business start date: January 19, 2026",
+    "contact_link": "Contact me via the form"
+  },
+  "insurance": {
+    "title": "Professional Liability Insurance",
+    "text": "is covered by Professional Liability Insurance.",
+    "policy_number": "Policy number:"
+  },
+  "mediation": {
+    "title": "Consumer Mediation",
+    "intro": "In accordance with article L.616-1 of the French Consumer Code, in the event of a dispute, you can use a consumer mediator free of charge:"
+  },
+  "ip_rights": {
+    "title": "Intellectual Property Rights",
+    "text": "In accordance with article L.111-1 of the French Intellectual Property Code, Perrine Huon owns the intellectual property rights and holds the usage rights to all elements accessible on the site, including texts, images, graphics, logos, videos, architecture, icons and sounds.",
+    "text2": "Any reproduction, representation, modification, publication, adaptation of all or part of the site's elements, whatever the means or process used, is prohibited without prior written authorization from Perrine Huon."
+  },
+  "hosting": {
+    "title": "Hosting",
+    "intro": "This site is hosted by",
+    "phone": "Phone:",
+    "domain_text": "Domain name registered with"
+  },
+  "data_protection": {
+    "title": "Personal Data Protection",
+    "intro": "In accordance with the General Data Protection Regulation (GDPR) and the French Data Protection Act of January 6, 1978 as amended, you have the right to access, rectify, delete and port your personal data, as well as the right to object and limit processing.",
+    "controller": "Data controller: Perrine Huon",
+    "usage": "Data collected via the contact form is used solely to respond to your request and is never transmitted to third parties.",
+    "exercise_rights": "To exercise these rights or for any questions about the processing of your data,",
+    "contact_link": "contact me via the form",
+    "cnil": "You can also file a complaint with the French Data Protection Authority (CNIL):"
+  },
+  "cookies": {
+    "title": "Cookies",
+    "text": "This site uses technical cookies necessary for its proper functioning. No advertising or third-party tracking cookies are used without your explicit consent.",
+    "text2": "In accordance with article 82 of the French Data Protection Act and directive 2009/136/EC, you can configure your browser at any time to refuse cookies."
+  },
+  "liability": {
+    "title": "Limitation of Liability",
+    "paragraph1": "Perrine Huon cannot be held responsible for direct and indirect damages caused to the user's equipment when accessing the site, resulting either from the use of equipment that does not meet the specified requirements, or from the occurrence of a bug or incompatibility.",
+    "paragraph2": "Perrine Huon cannot be held responsible for indirect damages (such as loss of market or loss of opportunity) resulting from the use of the site.",
+    "paragraph3": "Interactive spaces (possibility of asking questions in the contact area) are available to users. Perrine Huon reserves the right to delete, without prior notice, any content posted in this space that would violate the legislation applicable in France, particularly provisions relating to data protection."
+  },
+  "jurisdiction": {
+    "title": "Applicable Law and Jurisdiction",
+    "text": "Any dispute related to the use of the site is subject to French law. Exclusive jurisdiction is attributed to the competent courts of Paris."
+  }
+}

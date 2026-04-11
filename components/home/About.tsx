@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { RefObject, useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { CTAQuiz } from '@/components/ui';
 import { useTheme } from '@/contexts/ThemeContext';
@@ -20,6 +21,7 @@ const clientLogos = [
 ];
 
 export default function About() {
+  const t = useTranslations('about');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const techCarouselRef = useRef<HTMLDivElement>(null);
@@ -128,14 +130,14 @@ export default function About() {
                 titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              Qui suis-je
+              {t('subtitle')}
             </span>
             <h2 
               className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-paper mb-6 transition-all duration-700 delay-100 ${
                 titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              Derrière l'écran
+              {t('title')}
             </h2>
             
             {/* Ligne décorative */}
@@ -169,7 +171,7 @@ export default function About() {
                     <path d="M2 2l7.586 7.586" />
                     <circle cx="11" cy="11" r="2" />
                   </svg>
-                  Web Designer
+                  {t('badge')}
                 </span>
               </div>
             </div>
@@ -190,7 +192,7 @@ export default function About() {
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-paper/10">
                   <Image
                     src={aboutImage}
-                    alt="Perrine Huon - Web Designer & Developer"
+                    alt={t('imageAlt')}
                     fill
                     className="object-cover object-top transition-opacity duration-500"
                     priority
@@ -221,10 +223,8 @@ export default function About() {
                 className={`text-xl lg:text-2xl font-light text-paper/90 leading-relaxed transition-all duration-700 delay-100 ${
                   contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-              >
-                Je construis des <span className="text-[#e85d8c] dark:text-accent-light font-medium">projets digitaux</span> avec{' '}
-                rigueur, créativité, et beaucoup d'écoute.
-              </p>
+                dangerouslySetInnerHTML={{ __html: t.raw('paragraph1') }}
+              />
 
               <div 
                 className={`w-16 h-0.5 bg-paper/20 mx-auto transition-all duration-700 delay-200 ${
@@ -236,20 +236,15 @@ export default function About() {
                 className={`text-base lg:text-lg text-paper/60 leading-relaxed transition-all duration-700 delay-300 ${
                   contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-              >
-                Je m'efforce de créer des designs qui ne se démodent pas. 
-                Je mise sur l'<span className="text-paper/90">efficacité</span> et l'optimisation de l'<span className="text-paper/90">expérience utilisateur</span>.
-              </p>
+                dangerouslySetInnerHTML={{ __html: t.raw('paragraph2') }}
+              />
 
               <p 
                 className={`text-base lg:text-lg text-paper/60 leading-relaxed transition-all duration-700 delay-400 ${
                   contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-              >
-                Un beau site, c'est bien. Un site qui vous rapporte des clients, <span className="text-paper/90">c'est mieux</span>.
-                Mon objectif ? Que votre site <span className="text-paper/90">attire</span>,{' '}
-                <span className="text-paper/90">convainque</span>, et <span className="text-[#e85d8c] dark:text-accent-light font-medium">convertisse</span>.
-              </p>
+                dangerouslySetInnerHTML={{ __html: t.raw('paragraph3') }}
+              />
             </div>
           </div>
 
@@ -262,7 +257,7 @@ export default function About() {
                 cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">Stack technique</h4>
+              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('techStack')}</h4>
               <div className="sm:hidden -mx-2">
                 <div
                   ref={techCarouselRef}
@@ -309,7 +304,7 @@ export default function About() {
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">Ils m'ont fait confiance</h4>
+              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('trustedBy')}</h4>
               <div className="sm:hidden -mx-2">
                 <div
                   ref={clientCarouselRef}
@@ -356,14 +351,14 @@ export default function About() {
               }`}
               style={{ transitionDelay: '200ms' }}
             >
-              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">Spécialités</h4>
+              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('specialties')}</h4>
               <div className="flex flex-col gap-2 sm:gap-3">
                 <div className="flex items-center gap-2 sm:gap-3">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M2 12h2c1-3 2-5 4-5s3 4 4 5 2 5 4 5 3-2 4-5h2" />
                     <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
                   </svg>
-                  <span className="text-paper/80 text-xs sm:text-sm font-medium">Vibe Coding</span>
+                  <span className="text-paper/80 text-xs sm:text-sm font-medium">{t('vibeCoding')}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-3">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-paper/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -372,7 +367,7 @@ export default function About() {
                     <rect x="3" y="14" width="7" height="7" rx="1" />
                     <path d="M14 17.5h7M17.5 14v7" />
                   </svg>
-                  <span className="text-paper/80 text-xs sm:text-sm font-medium">Low Code & No Code</span>
+                  <span className="text-paper/80 text-xs sm:text-sm font-medium">{t('lowCode')}</span>
                 </div>
                 <div className="flex items-center gap-2 sm:gap-3">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-paper/60 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -381,7 +376,7 @@ export default function About() {
                     <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
                     <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
                   </svg>
-                  <span className="text-paper/80 text-xs sm:text-sm font-medium">MVP / SaaS / CRM</span>
+                  <span className="text-paper/80 text-xs sm:text-sm font-medium">{t('mvp')}</span>
                 </div>
               </div>
             </div>
@@ -393,7 +388,7 @@ export default function About() {
               }`}
               style={{ transitionDelay: '300ms' }}
             >
-              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">Restons connectés</h4>
+              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('stayConnected')}</h4>
               <div className="flex items-center gap-3 sm:gap-4">
                 {/* LinkedIn */}
                 <a 

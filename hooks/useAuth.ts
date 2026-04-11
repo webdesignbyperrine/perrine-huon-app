@@ -13,17 +13,36 @@ export function useAuth() {
   useEffect(() => {
     const supabase = createClient();
 
-    // Récupérer l'utilisateur initial
-    supabase.auth.getUser().then(({ data: { user } }) => {
-      setUser(user);
-      if (user) {
-        fetchProfile(user.id);
-      } else {
-        setLoading(false);
-      }
-    });
+    async function fetchProfile(userId: string) {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', userId)
+        .single();
 
-    // Écouter les changements d'auth
+      if (error) {
+        console.error('Erreur chargement profil:', error.message);
+      }
+
+      setProfile(data ?? null);
+      setLoading(false);
+    }
+
+    supabase.auth
+      .getUser()
+      .then(({ data: { user: currentUser } }) => {
+        setUser(currentUser);
+        if (currentUser) {
+          fetchProfile(currentUser.id);
+        } else {
+          setLoading(false);
+        }
+      })
+      .catch((err) => {
+        console.error('Erreur getUser:', err);
+        setLoading(false);
+      });
+
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -36,23 +55,12 @@ export function useAuth() {
       }
     });
 
-    async function fetchProfile(userId: string) {
-      const { data } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', userId)
-        .single();
-      
-      setProfile(data);
-      setLoading(false);
-    }
-
     return () => subscription.unsubscribe();
   }, []);
 
   const signIn = async (email: string, password: string) => {
     const supabase = createClient();
-    return await supabase.auth.signInWithPassword({ email, password });
+    return supabase.auth.signInWithPassword({ email, password });
   };
 
   const signOut = async () => {
@@ -67,13 +75,5 @@ export function useAuth() {
 
   const isAdmin = profile?.role === 'admin';
 
-  return {
-    user,
-    profile,
-    loading,
-    isAdmin,
-    signIn,
-    signOut,
-  };
+  return { user, profile, loading, isAdmin, signIn, signOut };
 }
-

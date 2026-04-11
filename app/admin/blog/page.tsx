@@ -24,6 +24,7 @@ export default function AdminBlogPage() {
   const router = useRouter();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [actionError, setActionError] = useState('');
   const [filter, setFilter] = useState<'all' | 'published' | 'draft'>('all');
 
   useEffect(() => {
@@ -53,7 +54,12 @@ export default function AdminBlogPage() {
       query = query.eq('published', false);
     }
 
-    const { data } = await query;
+    const { data, error } = await query;
+    if (error) {
+      setActionError('Erreur lors du chargement des articles.');
+    } else {
+      setActionError('');
+    }
     setPosts(data || []);
     setLoading(false);
   }
@@ -61,7 +67,7 @@ export default function AdminBlogPage() {
   async function togglePublished(id: string, currentStatus: boolean) {
     const supabase = createClient();
     const updates: { published: boolean; published_at?: string } = { published: !currentStatus };
-    
+
     if (!currentStatus) {
       updates.published_at = new Date().toISOString();
     }
@@ -71,7 +77,9 @@ export default function AdminBlogPage() {
       .update(updates)
       .eq('id', id);
 
-    if (!error) {
+    if (error) {
+      setActionError('Erreur lors de la mise à jour du statut.');
+    } else {
       fetchPosts();
     }
   }
@@ -82,7 +90,9 @@ export default function AdminBlogPage() {
     const supabase = createClient();
     const { error } = await supabase.from('blog_posts').delete().eq('id', id);
 
-    if (!error) {
+    if (error) {
+      setActionError('Erreur lors de la suppression.');
+    } else {
       fetchPosts();
     }
   }
@@ -118,6 +128,13 @@ export default function AdminBlogPage() {
               + Nouvel article
             </Link>
           </div>
+
+          {/* Erreur actions */}
+          {actionError && (
+            <div className="mb-6 p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-200 text-sm">
+              {actionError}
+            </div>
+          )}
 
           {/* Filtres */}
           <div className="flex gap-4 mb-8">
@@ -215,10 +232,6 @@ export default function AdminBlogPage() {
     </div>
   );
 }
-
-
-
-
 
 
 

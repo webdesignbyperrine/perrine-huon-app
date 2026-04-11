@@ -13,14 +13,12 @@ type CropSettings = {
 
 type ImageCropperProps = {
   imageUrl: string;
-  initialCrop?: CropSettings;
   onCropChange: (crop: CropSettings) => void;
   aspectRatio?: number;
 };
 
 export default function ImageCropper({
   imageUrl,
-  initialCrop,
   onCropChange,
   aspectRatio = 16 / 9,
 }: ImageCropperProps) {
@@ -28,8 +26,7 @@ export default function ImageCropper({
   const [zoom, setZoom] = useState(1);
 
   const onCropComplete = useCallback(
-    (croppedArea: Area, croppedAreaPixels: Area) => {
-      // Stocker la zone recadrée en pourcentages
+    (croppedArea: Area, _croppedAreaPixels: Area) => {
       onCropChange({
         x: croppedArea.x,
         y: croppedArea.y,
@@ -142,7 +139,4 @@ export default function ImageCropper({
 }
 
 export type { CropSettings };
-
-
-
 

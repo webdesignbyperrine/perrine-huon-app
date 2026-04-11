@@ -1,12 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
 import { createClient } from '@/lib/supabase/client';
 import type { FAQ } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
+import { getLocalizedField } from '@/lib/i18n-helpers';
 
 export default function FAQPreview() {
+  const t = useTranslations('faqPreview');
+  const locale = useLocale() as 'fr' | 'en' | 'es';
   const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -35,35 +39,36 @@ export default function FAQPreview() {
     fetchFAQs();
   }, []);
 
-  // FAQs de démo
+  // FAQs de démo (internationalisées)
   const demoFaqs = [
     {
       id: '1',
-      question: 'Combien de temps faut-il pour créer un site web ?',
-      answer: 'Le délai de création dépend de la complexité du projet. Un site vitrine simple peut être livré en 2-3 semaines, tandis qu\'un site e-commerce ou une application web sur mesure peut prendre 6 à 12 semaines.',
-      category: 'Process',
+      question: t('demoFaqs.1.question'),
+      answer: t('demoFaqs.1.answer'),
+      category: t('demoFaqs.1.category'),
     },
     {
       id: '2',
-      question: 'Comment fonctionne le SEO géolocalisé ?',
-      answer: 'Le SEO géolocalisé permet d\'optimiser votre visibilité sur des recherches locales spécifiques. Je travaille sur l\'optimisation des contenus, des balises meta, et la création de pages ciblées par ville ou zone géographique pour améliorer votre positionnement local.',
-      category: 'SEO',
+      question: t('demoFaqs.2.question'),
+      answer: t('demoFaqs.2.answer'),
+      category: t('demoFaqs.2.category'),
     },
     {
       id: '3',
-      question: 'Proposez-vous un service de maintenance ?',
-      answer: 'Oui, je propose des formules de maintenance mensuelles incluant les mises à jour, la sécurité, les sauvegardes et le support technique.',
-      category: 'Services',
+      question: t('demoFaqs.3.question'),
+      answer: t('demoFaqs.3.answer'),
+      category: t('demoFaqs.3.category'),
     },
     {
       id: '4',
-      question: 'Quels sont vos tarifs ?',
-      answer: 'Mes tarifs varient selon la nature et l\'ampleur du projet. Je propose des devis personnalisés après un premier échange pour bien comprendre vos besoins. N\'hésitez pas à me contacter pour discuter de votre projet.',
-      category: 'Tarifs',
+      question: t('demoFaqs.4.question'),
+      answer: t('demoFaqs.4.answer'),
+      category: t('demoFaqs.4.category'),
     },
   ];
 
-  const displayFaqs = faqs.length > 0 ? faqs : demoFaqs;
+  const supabaseHasTranslations = locale === 'fr' || (faqs.length > 0 && `question_${locale}` in faqs[0]);
+  const displayFaqs = faqs.length > 0 && supabaseHasTranslations ? faqs : demoFaqs;
 
   return (
     <section id="faq-preview" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-paper-light grain-overlay overflow-hidden">
@@ -123,12 +128,12 @@ export default function FAQPreview() {
       
       <div className="container mx-auto px-4 relative z-10">
         <div ref={titleRef} className="mb-16">
-          <SectionTitle
-            subtitle="Questions fréquentes"
-            title="FAQ"
-            description="Les réponses aux questions les plus courantes sur mes services et mon processus de travail."
-            isVisible={titleVisible}
-          />
+            <SectionTitle
+              subtitle={t('subtitle')}
+              title={t('title')}
+              description={t('description')}
+              isVisible={titleVisible}
+            />
         </div>
 
         {loading ? (
@@ -149,7 +154,7 @@ export default function FAQPreview() {
                     className="w-full flex items-center justify-between text-left group"
                   >
                     <h3 className="text-lg md:text-xl font-semibold text-primary pr-4 group-hover:text-accent transition-colors">
-                      {faq.question}
+                      {getLocalizedField(faq, 'question', locale)}
                     </h3>
                     <svg
                       className={`w-6 h-6 flex-shrink-0 text-accent transition-transform duration-300 ${
@@ -168,7 +173,7 @@ export default function FAQPreview() {
                     }`}
                   >
                     <p className="text-primary/60 leading-relaxed">
-                      {faq.answer}
+                      {getLocalizedField(faq, 'answer', locale)}
                     </p>
                   </div>
                 </div>
@@ -176,7 +181,7 @@ export default function FAQPreview() {
             </div>
 
             <div ref={ctaRef} className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              <SectionLink href="/faq">Voir toutes les questions</SectionLink>
+              <SectionLink href="/faq">{t('viewAll')}</SectionLink>
               <CTAQuiz />
             </div>
           </>

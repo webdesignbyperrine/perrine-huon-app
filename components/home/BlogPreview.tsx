@@ -1,15 +1,22 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState, useRef } from 'react';
+import { useTranslations, useLocale } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { createClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/utils';
 import type { BlogPost } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
+import { getLocalizedField } from '@/lib/i18n-helpers';
+
+type BlogPostWithCover = BlogPost & { cover_image_url?: string };
 
 function BlogPreview() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const t = useTranslations('blogPreview');
+  const locale = useLocale() as 'fr' | 'en' | 'es';
+  
+  const [posts, setPosts] = useState<BlogPostWithCover[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -69,65 +76,65 @@ function BlogPreview() {
     scrollToIndex(newIndex);
   };
 
-  // Articles de démo
   const demoPosts = [
     {
       id: '1',
-      title: 'SEO Local 2026 : Comment dominer les recherches géolocalisées',
+      title: t('demoPosts.1.title'),
       slug: 'seo-local-referencement-geolocalise-2026',
-      excerpt: 'Google My Business, citations locales, avis clients... Le guide complet pour être visible dans votre ville et attirer des clients qualifiés près de chez vous.',
+      excerpt: t('demoPosts.1.excerpt'),
       featured_image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
       published_at: '2025-12-17T10:00:00Z',
     },
     {
       id: '2',
-      title: 'Tendances Web Design 2026 : Ce qui va tout changer',
+      title: t('demoPosts.2.title'),
       slug: 'tendances-web-design-2026',
-      excerpt: 'IA générative, interfaces immersives, micro-interactions... Découvrez les tendances qui vont redéfinir le web design en 2026.',
+      excerpt: t('demoPosts.2.excerpt'),
       featured_image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800',
       published_at: '2025-12-15T10:00:00Z',
     },
     {
       id: '3',
-      title: 'Performance web : Pourquoi la vitesse de votre site impacte vos ventes',
+      title: t('demoPosts.3.title'),
       slug: 'performance-web-vitesse-site-conversion',
-      excerpt: 'Core Web Vitals, temps de chargement, expérience utilisateur... Chaque seconde compte. Découvrez comment optimiser votre site pour convertir plus.',
+      excerpt: t('demoPosts.3.excerpt'),
       featured_image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
       published_at: '2025-12-12T10:00:00Z',
     },
     {
       id: '4',
-      title: 'Vibe Coding : La révolution de 2025 et ce qui nous attend',
+      title: t('demoPosts.4.title'),
       slug: 'vibe-coding-2025-2026',
-      excerpt: 'Comment le vibe coding a transformé le développement web en 2025, et pourquoi 2026 s\'annonce encore plus disruptif.',
+      excerpt: t('demoPosts.4.excerpt'),
       featured_image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800',
       published_at: '2025-12-10T10:00:00Z',
     },
     {
       id: '5',
-      title: 'Les événements design majeurs de 2025 : Retour sur une année charnière',
+      title: t('demoPosts.5.title'),
       slug: 'evenements-design-2025',
-      excerpt: 'De Config Figma à Awwwards, les moments forts qui ont marqué la communauté design cette année.',
+      excerpt: t('demoPosts.5.excerpt'),
       featured_image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800',
       published_at: '2025-12-05T10:00:00Z',
     },
     {
       id: '6',
-      title: 'IA et création web : Où en est-on vraiment fin 2025 ?',
+      title: t('demoPosts.6.title'),
       slug: 'ia-creation-web-2025',
-      excerpt: 'État des lieux de l\'IA dans la création de sites : ce qui fonctionne, ce qui déçoit, et comment l\'utiliser intelligemment.',
+      excerpt: t('demoPosts.6.excerpt'),
       featured_image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
       cover_image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800',
       published_at: '2025-12-01T10:00:00Z',
     },
   ];
 
-  const displayPosts = posts.length > 0 ? posts : demoPosts;
+  const supabaseHasTranslations = locale === 'fr' || (posts.length > 0 && `title_${locale}` in posts[0]);
+  const displayPosts = posts.length > 0 && supabaseHasTranslations ? posts : demoPosts;
 
   return (
     <section id="blog-preview" className="relative pt-8 lg:pt-12 pb-32 lg:pb-40 bg-primary section-dark overflow-hidden">
@@ -158,9 +165,9 @@ function BlogPreview() {
       <div className="container mx-auto px-4 pt-8">
         <div ref={titleRef} className="mb-16">
           <SectionTitle
-            subtitle="Actualités & Conseils"
-            title="Blog"
-            description="Conseils, astuces et actualités sur le web design, le développement et le SEO local."
+            subtitle={t('subtitle')}
+            title={t('title')}
+            description={t('description')}
             theme="dark"
             isVisible={titleVisible}
           />
@@ -177,7 +184,7 @@ function BlogPreview() {
                 onClick={goToPrevious}
                 disabled={currentIndex === 0}
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-paper/10 backdrop-blur-sm border border-paper/20 flex items-center justify-center text-paper hover:bg-paper/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed -translate-x-1/2 lg:-translate-x-6"
-                aria-label="Article précédent"
+                aria-label={t('previousArticle')}
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -188,7 +195,7 @@ function BlogPreview() {
                 onClick={() => goToNext(displayPosts.length - 1)}
                 disabled={currentIndex >= displayPosts.length - 1}
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-paper/10 backdrop-blur-sm border border-paper/20 flex items-center justify-center text-paper hover:bg-paper/20 transition-all disabled:opacity-30 disabled:cursor-not-allowed translate-x-1/2 lg:translate-x-6"
-                aria-label="Article suivant"
+                aria-label={t('nextArticle')}
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -235,18 +242,18 @@ function BlogPreview() {
                     <div className="p-6">
                       {/* Meta */}
                       <div className="flex items-center gap-3 mb-3 text-sm text-paper/40">
-                        <time>{formatDate(post.published_at || new Date().toISOString())}</time>
+                        <time>{formatDate(post.published_at || new Date().toISOString(), locale)}</time>
                       </div>
 
                       {/* Titre */}
                       <h3 className="text-lg font-bold mb-3 text-paper group-hover:text-accent transition-colors">
-                        {post.title}
+                        {getLocalizedField(post, 'title', locale)}
                       </h3>
                       <p className="text-paper/60 mb-4 line-clamp-3 text-sm">
-                        {post.excerpt}
+                        {getLocalizedField(post, 'excerpt', locale)}
                       </p>
                       <div className="flex items-center text-accent font-semibold text-sm group-hover:gap-2 transition-all">
-                        Lire l&apos;article
+                        {t('readArticle')}
                         <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -267,14 +274,14 @@ function BlogPreview() {
                         ? 'bg-accent w-6' 
                         : 'bg-paper/30 hover:bg-paper/50'
                     }`}
-                    aria-label={`Aller à l'article ${index + 1}`}
+                    aria-label={t('goToArticle', { index: index + 1 })}
                   />
                 ))}
               </div>
             </div>
 
             <div ref={ctaRef} className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              <SectionLink href="/blog" theme="dark">Voir tous les articles</SectionLink>
+              <SectionLink href="/blog" theme="dark">{t('viewAll')}</SectionLink>
               <CTAQuiz />
             </div>
           </>

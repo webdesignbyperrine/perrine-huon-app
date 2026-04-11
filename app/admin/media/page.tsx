@@ -11,6 +11,7 @@ type MediaAsset = {
   id: string;
   file_name: string;
   file_url: string;
+  file_path: string;
   file_type: string;
   file_size: number;
   alt_text: string;
@@ -77,10 +78,11 @@ export default function AdminMediaPage() {
           .from('assets')
           .getPublicUrl(filePath);
 
-        // Créer l'entrée dans la base de données
+        // Stocker le filePath pour une suppression storage fiable
         await supabase.from('media_assets').insert({
           file_name: file.name,
           file_url: publicUrl,
+          file_path: filePath,
           file_type: file.type,
           file_size: file.size,
           alt_text: file.name.split('.')[0],
@@ -95,26 +97,31 @@ export default function AdminMediaPage() {
     e.target.value = '';
   }
 
-  async function deleteMedia(id: string, fileUrl: string) {
+  async function deleteMedia(id: string, asset: MediaAsset) {
     if (!confirm('Êtes-vous sûr de vouloir supprimer ce média ?')) return;
 
     const supabase = createClient();
 
-    // Supprimer le fichier du storage
-    const filePath = fileUrl.split('/').slice(-2).join('/');
-    await supabase.storage.from('assets').remove([filePath]);
+    // Utiliser le filePath stocké pour une suppression fiable
+    const storagePath = asset.file_path || asset.file_url.split('/').slice(-2).join('/');
+    await supabase.storage.from('assets').remove([storagePath]);
 
-    // Supprimer l'entrée de la base de données
     const { error } = await supabase.from('media_assets').delete().eq('id', id);
 
-    if (!error) {
+    if (error) {
+      alert('Erreur lors de la suppression du média.');
+    } else {
       fetchMedia();
     }
   }
 
-  function copyToClipboard(url: string) {
-    navigator.clipboard.writeText(url);
-    alert('URL copiée dans le presse-papiers !');
+  async function copyToClipboard(url: string) {
+    try {
+      await navigator.clipboard.writeText(url);
+      alert('URL copiée dans le presse-papiers !');
+    } catch {
+      alert('Impossible de copier automatiquement. URL : ' + url);
+    }
   }
 
   function formatFileSize(bytes: number): string {
@@ -209,7 +216,7 @@ export default function AdminMediaPage() {
                         </svg>
                       </button>
                       <button
-                        onClick={() => deleteMedia(asset.id, asset.file_url)}
+                        onClick={() => deleteMedia(asset.id, asset)}
                         className="p-3 bg-red-500 hover:bg-red-600 rounded-lg transition-colors"
                         title="Supprimer"
                       >
@@ -236,10 +243,6 @@ export default function AdminMediaPage() {
     </div>
   );
 }
-
-
-
-
 
 
 

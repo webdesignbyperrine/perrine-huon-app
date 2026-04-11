@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "title": "Why Not WordPress? The Advantages of a Custom Website",
+    "description": "WordPress vs custom Next.js website: performance, security, SEO, design. Discover why a custom site surpasses WordPress for your business.",
+    "ogTitle": "Why Not WordPress? The Advantages of a Custom Website",
+    "ogDescription": "WordPress vs custom Next.js website: performance, security, SEO, design."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "current": "Why not WordPress"
+  },
+  "hero": {
+    "backToHome": "Back to home",
+    "title": "Why Not WordPress?",
+    "subtitle": "WordPress dominates the web with 43% market share. But is it really the best choice for your professional website? Honest comparison."
+  },
+  "comparisonTable": {
+    "title": "WordPress vs Custom Website",
+    "headers": {
+      "criterion": "Criterion",
+      "wordpress": "WordPress",
+      "custom": "Custom Site (Next.js)"
+    },
+    "rows": [
+      {
+        "criterion": "Performance (PageSpeed)",
+        "wordpress": "40 – 70 / 100",
+        "custom": "90 – 100 / 100",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Loading time",
+        "wordpress": "2 – 5 seconds",
+        "custom": "< 1 second",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Security",
+        "wordpress": "Frequent vulnerabilities",
+        "custom": "Minimal attack surface",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Technical SEO",
+        "wordpress": "Good (with plugins)",
+        "custom": "Excellent (native)",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Design",
+        "wordpress": "Adaptable templates",
+        "custom": "100% unique",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Initial cost",
+        "wordpress": "Low",
+        "custom": "Medium to high",
+        "winner": "wordpress"
+      },
+      {
+        "criterion": "Annual maintenance cost",
+        "wordpress": "$600 – $2,400 (plugins, themes, security)",
+        "custom": "$0 – $1,200",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Updates",
+        "wordpress": "Frequent and risky",
+        "custom": "Rare and controlled",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Scalability",
+        "wordpress": "Limited by plugins",
+        "custom": "Unlimited",
+        "winner": "custom"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Performance: speed makes the difference",
+      "paragraphs": [
+        "A WordPress site loads on average in 2 to 5 seconds, compared to less than one second for a custom Next.js site. This difference is crucial: 53% of mobile visitors leave a site that takes more than 3 seconds to load.",
+        "With Next.js, each page is pre-generated and served from a global CDN. No database to query, no plugins to load: the page is already ready. The result? Google PageSpeed scores consistently above 90/100."
+      ]
+    },
+    {
+      "title": "Security: less risk, more peace of mind",
+      "paragraphs": [
+        "WordPress represents 43% of the global web, making it the #1 target for hackers. Each plugin, each theme is a potential attack vector. In 2025, more than 4,000 WordPress vulnerabilities were identified.",
+        "A custom Next.js site has a drastically reduced attack surface: no exposed database, no publicly accessible admin panel, no vulnerable third-party plugins. Your site is inherently more secure."
+      ]
+    },
+    {
+      "title": "SEO: a structural advantage",
+      "paragraphs": [
+        "Google favors fast, lightweight, and well-structured sites. A Next.js site generates perfect semantic HTML, with full control over meta tags, structured data, and URL structure.",
+        "Unlike WordPress where SEO depends on plugins (Yoast, RankMath) that add weight and complexity, SEO optimization is native in a custom site. Each page is created with SEO in mind."
+      ]
+    },
+    {
+      "title": "Design: your identity, not a template",
+      "paragraphs": [
+        "With WordPress, even with a premium theme at $70, your site will look like thousands of others. Customizations are limited by the page builder, and going beyond the template framework quickly becomes a technical nightmare.",
+        "A custom site is designed pixel by pixel for your visual identity. Every interaction, every animation, every detail is designed to reflect your brand and offer a unique experience to your visitors."
+      ]
+    },
+    {
+      "title": "Maintenance: long-term peace of mind",
+      "paragraphs": [
+        "A WordPress site requires regular maintenance: WordPress updates, plugin updates (often 15-30 plugins), theme updates, security checks. Each update carries a risk of breaking something.",
+        "A Next.js site has no dependencies to update on the production side. It is deployed as a set of static files on a CDN. No server to maintain, no plugins to monitor: your site runs autonomously."
+      ]
+    }
+  ],
+  "whenWordpressOk": {
+    "title": "When WordPress may be suitable",
+    "subtitle": "To be honest, here are the cases where WordPress remains an acceptable option.",
+    "cases": [
+      "Personal blog without SEO ambitions",
+      "Temporary or event site on a very small budget",
+      "Project requiring hundreds of simultaneous contributors",
+      "Prototype or MVP to quickly validate an idea"
+    ],
+    "disclaimer": "However, if your site is a real business tool that must reflect your professional activity, attract clients via Google and offer a smooth experience, a custom site will always be the best investment."
+  },
+  "cta": {
+    "title": "Ready for a site that reflects you?",
+    "description": "Switch to custom and offer your business a performing, secure, and perfectly optimized website. First exchange free and without commitment.",
+    "button": "Request a free quote"
+  }
+}

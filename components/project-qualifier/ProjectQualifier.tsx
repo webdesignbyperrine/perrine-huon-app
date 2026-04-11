@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import { QualifierProvider, useQualifier } from './context';
 import { CloseIcon } from './icons';
 
@@ -18,6 +19,7 @@ import QuoteRequestStep from './steps/QuoteRequestStep';
 
 // Composant interne qui utilise le contexte
 function QualifierContent({ onClose, onBack }: { onClose?: () => void; onBack?: () => void }) {
+  const t = useTranslations('qualifier');
   const { currentStep } = useQualifier();
   const [isAnimating, setIsAnimating] = useState(false);
   const [prevStep, setPrevStep] = useState(currentStep);
@@ -86,7 +88,7 @@ function QualifierContent({ onClose, onBack }: { onClose?: () => void; onBack?: 
               <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              Retour aux options
+              {t('backToOptions')}
             </button>
           ) : (
             <div /> /* Spacer */
@@ -97,7 +99,7 @@ function QualifierContent({ onClose, onBack }: { onClose?: () => void; onBack?: 
             <button
               onClick={onClose}
               className="p-2 text-primary/40 hover:text-primary transition-colors"
-              aria-label="Fermer"
+              aria-label={t('close')}
             >
               <CloseIcon className="w-6 h-6" />
             </button>

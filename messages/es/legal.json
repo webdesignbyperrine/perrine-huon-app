@@ -1,0 +1,54 @@
+{
+  "title": "AVISO LEGAL",
+  "publisher": {
+    "title": "Editor del sitio",
+    "business_type": "Empresario individual (EI)",
+    "activity": "Diseño, desarrollo y mantenimiento de sitios web",
+    "start_date": "Fecha de inicio de actividad: 19/01/2026",
+    "contact_link": "Contáctame a través del formulario"
+  },
+  "insurance": {
+    "title": "Seguro de Responsabilidad Civil Profesional",
+    "text": "está cubierta por un seguro de Responsabilidad Civil Profesional.",
+    "policy_number": "Número de póliza:"
+  },
+  "mediation": {
+    "title": "Mediación de consumo",
+    "intro": "De conformidad con el artículo L.616-1 del Código del Consumidor francés, en caso de litigio, puede recurrir gratuitamente a un mediador de consumo:"
+  },
+  "ip_rights": {
+    "title": "Derechos de propiedad intelectual",
+    "text": "De conformidad con el artículo L.111-1 del Código de Propiedad Intelectual francés, Perrine Huon es titular de los derechos de propiedad intelectual y posee los derechos de uso sobre todos los elementos accesibles en el sitio, en particular textos, imágenes, gráficos, logotipos, vídeos, arquitectura, iconos y sonidos.",
+    "text2": "Queda prohibida cualquier reproducción, representación, modificación, publicación, adaptación de todo o parte de los elementos del sitio, sea cual sea el medio o procedimiento utilizado, salvo autorización previa por escrito de Perrine Huon."
+  },
+  "hosting": {
+    "title": "Alojamiento",
+    "intro": "Este sitio está alojado por",
+    "phone": "Teléfono:",
+    "domain_text": "Nombre de dominio registrado en"
+  },
+  "data_protection": {
+    "title": "Protección de datos personales",
+    "intro": "De conformidad con el Reglamento General de Protección de Datos (RGPD) y la ley francesa de Informática y Libertades del 6 de enero de 1978 modificada, usted dispone de un derecho de acceso, rectificación, supresión y portabilidad de sus datos personales, así como un derecho de oposición y limitación del tratamiento.",
+    "controller": "Responsable del tratamiento de datos: Perrine Huon",
+    "usage": "Los datos recopilados a través del formulario de contacto se utilizan únicamente para responder a su solicitud y nunca se transmiten a terceros.",
+    "exercise_rights": "Para ejercer estos derechos o para cualquier pregunta sobre el tratamiento de sus datos,",
+    "contact_link": "contácteme a través del formulario",
+    "cnil": "También puede presentar una reclamación ante la Comisión Nacional de Informática y Libertades francesa (CNIL):"
+  },
+  "cookies": {
+    "title": "Cookies",
+    "text": "Este sitio utiliza cookies técnicas necesarias para su correcto funcionamiento. No se utilizan cookies publicitarias o de seguimiento de terceros sin su consentimiento explícito.",
+    "text2": "De conformidad con el artículo 82 de la ley francesa de Informática y Libertades y la directiva 2009/136/CE, puede configurar su navegador en cualquier momento para rechazar las cookies."
+  },
+  "liability": {
+    "title": "Limitaciones de responsabilidad",
+    "paragraph1": "Perrine Huon no podrá ser considerada responsable de los daños directos e indirectos causados al equipo del usuario al acceder al sitio, ya sea por el uso de un equipo que no cumpla con las especificaciones indicadas, o por la aparición de un error o incompatibilidad.",
+    "paragraph2": "Perrine Huon tampoco podrá ser considerada responsable de los daños indirectos (como por ejemplo una pérdida de mercado o pérdida de oportunidad) derivados del uso del sitio.",
+    "paragraph3": "Hay espacios interactivos (posibilidad de hacer preguntas en el espacio de contacto) a disposición de los usuarios. Perrine Huon se reserva el derecho de eliminar, sin previo aviso, cualquier contenido depositado en este espacio que contravenga la legislación aplicable en Francia, en particular las disposiciones relativas a la protección de datos."
+  },
+  "jurisdiction": {
+    "title": "Derecho aplicable y jurisdicción competente",
+    "text": "Todo litigio relacionado con el uso del sitio está sujeto al derecho francés. Se atribuye jurisdicción exclusiva a los tribunales competentes de París."
+  }
+}

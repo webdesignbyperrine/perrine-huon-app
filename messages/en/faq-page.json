@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "title": "FAQ — Frequently Asked Questions | Perrine Huon",
+    "description": "Answers to your questions about website creation, local SEO, my services and working process."
+  },
+  "header": {
+    "subtitle": "Frequently asked questions",
+    "title": "FAQ",
+    "description": "Answers to your questions about my services, working process and local SEO"
+  },
+  "filters": {
+    "all": "All"
+  },
+  "loading": "Loading...",
+  "cta": {
+    "title": "Haven't found your answer?",
+    "description": "Contact me directly and I'll get back to you within 24 hours",
+    "contactButton": "Contact me",
+    "bookCallButton": "Book a call"
+  },
+  "demoFaqs": {
+    "1": {
+      "question": "How long does it take to create a website?",
+      "answer": "The creation time depends on the project's complexity. A simple showcase website can be delivered in 2-3 weeks, while a custom e-commerce site or web application may take 6 to 12 weeks. I always provide a detailed timeline after our initial discussion.",
+      "category": "Process"
+    },
+    "2": {
+      "question": "How does geo-targeted SEO work?",
+      "answer": "Geo-targeted SEO optimizes your visibility for specific local searches. I work on content optimization, meta tags, creating pages targeted by city or geographic area, and integration with Google My Business to improve your local ranking.",
+      "category": "SEO"
+    },
+    "3": {
+      "question": "Do you offer maintenance services?",
+      "answer": "Yes, I offer monthly maintenance packages including security updates, continuous optimization, automatic backups, and priority technical support.",
+      "category": "Services"
+    },
+    "4": {
+      "question": "What are your rates?",
+      "answer": "My rates vary depending on the nature and scope of the project. I provide personalized quotes after an initial discussion to fully understand your needs and objectives. Feel free to contact me to discuss your project.",
+      "category": "Pricing"
+    },
+    "5": {
+      "question": "Do you work with clients outside of France?",
+      "answer": "Yes, I work with clients worldwide. Most exchanges are done online (video calls, email), which facilitates remote collaboration. SEO can be optimized for any geographic area.",
+      "category": "Process"
+    },
+    "6": {
+      "question": "What technologies do you use?",
+      "answer": "I use modern and high-performance technologies like Next.js, React, TypeScript, Tailwind CSS, and Supabase. The choice of technologies is always adapted to your specific needs and project objectives.",
+      "category": "Technical"
+    }
+  }
+}

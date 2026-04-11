@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "title": "¿Por Qué No WordPress? Las Ventajas de un Sitio a Medida",
+    "description": "WordPress vs sitio a medida Next.js: rendimiento, seguridad, SEO, diseño. Descubre por qué un sitio a medida supera a WordPress para tu empresa.",
+    "ogTitle": "¿Por Qué No WordPress? Las Ventajas de un Sitio a Medida",
+    "ogDescription": "WordPress vs sitio a medida Next.js: rendimiento, seguridad, SEO, diseño."
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "current": "Por qué no WordPress"
+  },
+  "hero": {
+    "backToHome": "Volver al inicio",
+    "title": "¿Por Qué No WordPress?",
+    "subtitle": "WordPress domina la web con el 43% de cuota de mercado. ¿Pero es realmente la mejor opción para tu sitio profesional? Comparación honesta."
+  },
+  "comparisonTable": {
+    "title": "WordPress vs Sitio a Medida",
+    "headers": {
+      "criterion": "Criterio",
+      "wordpress": "WordPress",
+      "custom": "Sitio a Medida (Next.js)"
+    },
+    "rows": [
+      {
+        "criterion": "Rendimiento (PageSpeed)",
+        "wordpress": "40 – 70 / 100",
+        "custom": "90 – 100 / 100",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Tiempo de carga",
+        "wordpress": "2 – 5 segundos",
+        "custom": "< 1 segundo",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Seguridad",
+        "wordpress": "Vulnerabilidades frecuentes",
+        "custom": "Superficie de ataque mínima",
+        "winner": "custom"
+      },
+      {
+        "criterion": "SEO técnico",
+        "wordpress": "Bueno (con plugins)",
+        "custom": "Excelente (nativo)",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Diseño",
+        "wordpress": "Plantillas adaptables",
+        "custom": "100% único",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Coste inicial",
+        "wordpress": "Bajo",
+        "custom": "Medio a alto",
+        "winner": "wordpress"
+      },
+      {
+        "criterion": "Coste de mantenimiento anual",
+        "wordpress": "500 – 2.000 € (plugins, temas, seguridad)",
+        "custom": "0 – 1.000 €",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Actualizaciones",
+        "wordpress": "Frecuentes y arriesgadas",
+        "custom": "Raras y controladas",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Escalabilidad",
+        "wordpress": "Limitada por los plugins",
+        "custom": "Ilimitada",
+        "winner": "custom"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Rendimiento: la velocidad marca la diferencia",
+      "paragraphs": [
+        "Un sitio WordPress carga en promedio de 2 a 5 segundos, frente a menos de un segundo para un sitio Next.js a medida. Esta diferencia es crucial: el 53% de los visitantes móviles abandonan un sitio que tarda más de 3 segundos en cargar.",
+        "Con Next.js, cada página está pre-generada y servida desde un CDN global. Sin base de datos que consultar, sin plugins que cargar: la página ya está lista. ¿El resultado? Puntuaciones de Google PageSpeed superiores a 90/100 sistemáticamente."
+      ]
+    },
+    {
+      "title": "Seguridad: menos riesgos, más tranquilidad",
+      "paragraphs": [
+        "WordPress representa el 43% de la web mundial, lo que lo convierte en el objetivo número 1 de los hackers. Cada plugin, cada tema es un vector potencial de ataque. En 2025, se registraron más de 4.000 vulnerabilidades de WordPress.",
+        "Un sitio a medida en Next.js tiene una superficie de ataque drásticamente reducida: sin base de datos expuesta, sin panel de administración accesible públicamente, sin plugins de terceros vulnerables. Tu sitio es intrínsecamente más seguro."
+      ]
+    },
+    {
+      "title": "SEO: una ventaja estructural",
+      "paragraphs": [
+        "Google privilegia los sitios rápidos, ligeros y bien estructurados. Un sitio Next.js genera un HTML semántico perfecto, con control total sobre las etiquetas meta, los datos estructurados y la estructura de las URLs.",
+        "A diferencia de WordPress donde el SEO depende de plugins (Yoast, RankMath) que añaden peso y complejidad, la optimización SEO es nativa en un sitio a medida. Cada página se crea con el posicionamiento en mente."
+      ]
+    },
+    {
+      "title": "Diseño: tu identidad, no una plantilla",
+      "paragraphs": [
+        "Con WordPress, incluso con un tema premium de 60€, tu sitio se parecerá a miles de otros. Las personalizaciones están limitadas por el constructor de páginas, y salir del marco de la plantilla se convierte rápidamente en una pesadilla técnica.",
+        "Un sitio a medida se diseña píxel por píxel para tu identidad visual. Cada interacción, cada animación, cada detalle está pensado para reflejar tu marca y ofrecer una experiencia única a tus visitantes."
+      ]
+    },
+    {
+      "title": "Mantenimiento: tranquilidad a largo plazo",
+      "paragraphs": [
+        "Un sitio WordPress requiere mantenimiento regular: actualizaciones de WordPress, de los plugins (a menudo 15-30 plugins), del tema, verificaciones de seguridad. Cada actualización conlleva un riesgo de romper algo.",
+        "Un sitio Next.js no tiene ninguna dependencia que actualizar en producción. Se despliega como un conjunto de archivos estáticos en un CDN. Sin servidor que mantener, sin plugins que vigilar: tu sitio funciona de manera autónoma."
+      ]
+    }
+  ],
+  "whenWordpressOk": {
+    "title": "Cuándo WordPress puede ser adecuado",
+    "subtitle": "Por honestidad, aquí están los casos donde WordPress sigue siendo una opción aceptable.",
+    "cases": [
+      "Blog personal sin ambición de posicionamiento",
+      "Sitio temporal o de eventos con presupuesto muy reducido",
+      "Proyecto que requiere cientos de colaboradores simultáneos",
+      "Prototipo o MVP para validar rápidamente una idea"
+    ],
+    "disclaimer": "Sin embargo, si tu sitio es una verdadera herramienta comercial que debe reflejar el profesionalismo de tu actividad, atraer clientes a través de Google y ofrecer una experiencia fluida, un sitio a medida será siempre la mejor inversión."
+  },
+  "cta": {
+    "title": "¿Listo para un sitio que te represente?",
+    "description": "Pasa al diseño a medida y ofrece a tu actividad un sitio eficiente, seguro y perfectamente optimizado. Primer intercambio gratuito y sin compromiso.",
+    "button": "Solicitar presupuesto gratuito"
+  }
+}

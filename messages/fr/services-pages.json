@@ -1,0 +1,81 @@
+{
+  "breadcrumb": {
+    "home": "Accueil"
+  },
+  "service": {
+    "backToHome": "← Retour à l'accueil",
+    "featuresTitle": "Ce que comprend cette prestation",
+    "pricing": {
+      "indicative": "Tarif indicatif",
+      "uniqueProject": "Chaque projet est unique. Le tarif final dépend de la complexité, du volume de contenu et des fonctionnalités souhaitées. Demandez un devis personnalisé gratuit.",
+      "getQuote": "Obtenir un devis gratuit"
+    },
+    "faqsTitle": "Questions fréquentes",
+    "readyToStart": "Prêt à démarrer votre projet ?",
+    "discuss": "Discutons de vos besoins et construisons ensemble la solution idéale pour votre activité. Premier échange gratuit et sans engagement."
+  },
+  "location": {
+    "typeLabels": {
+      "city": "Ville",
+      "arrondissement": "Arrondissement",
+      "region": "Région"
+    },
+    "specialist": "Développeuse web freelance spécialisée en création de sites internet sur mesure pour les entreprises de {location}.",
+    "businessTypes": {
+      "title": "Types d'entreprises à {location}",
+      "subtitle": "Je travaille avec tous types de professionnels à {location}, voici les secteurs les plus représentés."
+    },
+    "whyChoose": {
+      "title": "Pourquoi choisir Perrine Huon pour votre site internet à {location} ?",
+      "points": [
+        {
+          "title": "Sites sur mesure, pas de templates",
+          "description": "Chaque site est conçu de zéro avec les technologies les plus modernes (Next.js, React, Tailwind CSS) pour des performances optimales."
+        },
+        {
+          "title": "SEO local intégré dès la conception",
+          "description": "Votre site est optimisé pour apparaître dans les résultats de recherche géolocalisés et attirer la clientèle de votre zone."
+        },
+        {
+          "title": "Design qui convertit les visiteurs en clients",
+          "description": "UX pensée pour guider vos visiteurs vers l'action : appel, formulaire, achat. Chaque élément a un objectif."
+        },
+        {
+          "title": "Performances techniques irréprochables",
+          "description": "Sites ultra-rapides avec un score Google PageSpeed élevé. La vitesse est un critère de référencement et de conversion."
+        },
+        {
+          "title": "Accompagnement de A à Z",
+          "description": "De la conception au lancement et au-delà : je vous accompagne avec un suivi personnalisé et une maintenance proactive."
+        },
+        {
+          "title": "Tarifs transparents, sans surprise",
+          "description": "Devis détaillé et gratuit. Vous savez exactement ce que vous payez, sans coûts cachés ni mauvaises surprises."
+        }
+      ]
+    },
+    "keyStats": "Le chiffre clé",
+    "readyToCreate": "Prêt·e à créer votre site internet à {location} ?",
+    "discuss": "Discutons de votre projet. Je vous propose un échange gratuit et sans engagement pour définir la meilleure solution web pour votre activité à {location}.",
+    "startProject": "Démarrer mon projet",
+    "bookCall": "Réserver un appel gratuit",
+    "jsonLdName": "Perrine Huon - Création de Sites Internet à {location}",
+    "jsonLdDescription": "Développeuse web freelance proposant la création de sites internet sur mesure à {location}.",
+    "breadcrumbPrefix": "Création de site internet à {location}"
+  },
+  "profession": {
+    "categoryLabels": {
+      "profession-liberale": "Profession Libérale",
+      "pme": "PME & Commerce",
+      "association": "Association"
+    },
+    "customSite": "Un site internet sur mesure conçu pour les besoins spécifiques de votre profession, optimisé pour le référencement local et la conversion.",
+    "keyFeatures": "Fonctionnalités clés pour {profession}",
+    "regulations": "Réglementation & conformité",
+    "faqs": "Questions fréquentes",
+    "readyToCreate": "Prêt à créer votre site internet ?",
+    "discuss": "Discutons de votre projet et de vos besoins spécifiques. Je vous propose un accompagnement personnalisé pour créer le site qui fera décoller votre activité.",
+    "startProject": "Démarrer mon projet",
+    "bookCall": "Réserver un appel"
+  }
+}

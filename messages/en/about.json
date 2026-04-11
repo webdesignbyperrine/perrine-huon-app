@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "title": "About — Perrine Huon, Freelance Web Developer",
+    "description": "Discover the journey of Perrine Huon, a freelance web developer specialized in custom website creation. My approach, my values, and why choose me.",
+    "ogTitle": "About — Perrine Huon, Freelance Web Developer",
+    "ogDescription": "Discover the journey of Perrine Huon, a freelance web developer specialized in custom website creation."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "about": "About"
+  },
+  "hero": {
+    "backLink": "← Back to home",
+    "name": "Perrine Huon",
+    "title": "Freelance Web Developer",
+    "description": "Passionate about web and design, I create custom websites that combine aesthetics, performance, and SEO. My goal: to give every project an online presence that matches its ambition.",
+    "cta": "Let's discuss your project",
+    "photoPlaceholder": "Photo coming soon"
+  },
+  "parcours": {
+    "title": "My journey",
+    "paragraphs": [
+      "After several years in the professional world, I made the choice to devote myself entirely to my passion: web development. A carefully considered career change, driven by the desire to create digital tools that have a real impact for my clients.",
+      "Trained in the most modern web technologies (Next.js, React, TypeScript), I specialized in creating custom websites for SMEs, independent professionals, and associations. My approach combines technical rigor with a sensitivity for design and user experience.",
+      "Today, I'm a freelancer and I support my clients from A to Z: from strategic thinking to going live, including design, development, and SEO optimization."
+    ]
+  },
+  "approche": {
+    "title": "My approach",
+    "values": [
+      {
+        "title": "Listening & Understanding",
+        "description": "Every project starts with careful listening to your needs, your business, and your goals. No one-size-fits-all solution: I build with you."
+      },
+      {
+        "title": "Artisanal Quality",
+        "description": "Every line of code is thoughtfully crafted. No generic template or page builder: your site is created custom, pixel by pixel."
+      },
+      {
+        "title": "Total Transparency",
+        "description": "You know exactly where your project stands at every stage. Clear communication, deadlines met, no surprises on the invoice."
+      },
+      {
+        "title": "Performance & SEO",
+        "description": "A beautiful site is not enough, it must be fast and visible. Every project is optimized for Google and to offer the best user experience."
+      }
+    ]
+  },
+  "skills": {
+    "title": "My skills",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "infra": "Infra",
+      "marketing": "Marketing",
+      "design": "Design"
+    }
+  },
+  "differentiators": {
+    "title": "Why choose me",
+    "items": [
+      {
+        "title": "Single point of contact",
+        "description": "One point of contact from start to finish. No salesperson, no intermediate project manager: you speak directly with the person who creates your site."
+      },
+      {
+        "title": "Modern technologies",
+        "description": "Next.js, React, Tailwind CSS: the same technologies used by web giants, adapted to your project for optimal performance."
+      },
+      {
+        "title": "SEO integrated from design",
+        "description": "SEO is not an afterthought. It's considered from the architecture phase and integrated into every page for maximum visibility."
+      },
+      {
+        "title": "Personalized support",
+        "description": "Beyond site delivery, I support you with training, strategic advice, and responsive support for your peace of mind."
+      },
+      {
+        "title": "Transparent pricing",
+        "description": "A clear and detailed quote before starting. No hidden fees or surprises. You know exactly what you're paying for and what you're getting."
+      },
+      {
+        "title": "Measurable results",
+        "description": "Every site is delivered with analytics tools. You can track your visitors, your conversions, and the return on investment of your online presence."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Want to work together?",
+    "description": "Let's discuss your project over a first free consultation with no commitment. I'll be delighted to support you in creating your website.",
+    "button": "Let's talk about your project"
+  }
+}

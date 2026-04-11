@@ -1,0 +1,93 @@
+{
+  "title": "POLÍTICA DE PRIVACIDAD",
+  "data_controller": {
+    "title": "Responsable del tratamiento",
+    "business_type": "Microempresa",
+    "contact_link": "Contáctame a través del formulario"
+  },
+  "data_collected": {
+    "title": "Datos recopilados",
+    "intro": "Solo recopilo los datos que me proporciona voluntariamente a través del formulario de contacto:",
+    "items": {
+      "name": "Nombre y apellidos",
+      "email": "Dirección de correo electrónico",
+      "company": "Nombre de la empresa (opcional)",
+      "message": "Mensaje"
+    }
+  },
+  "legal_basis": {
+    "title": "Base legal y finalidades",
+    "consent": "El tratamiento de sus datos se basa en",
+    "consent_bold": "su consentimiento",
+    "consent_end": ", otorgado al enviar el formulario de contacto.",
+    "usage_intro": "Sus datos se utilizan únicamente para:",
+    "purposes": {
+      "reply": "Responder a su solicitud de contacto",
+      "quote": "Ofrecerle un presupuesto personalizado",
+      "support": "Acompañarle en su proyecto"
+    },
+    "no_sharing": "No vendo, alquilo ni comparto sus datos con terceros."
+  },
+  "recipients": {
+    "title": "Destinatarios de los datos",
+    "text": "Solo Perrine Huon tiene acceso a sus datos personales. Ningún tercero tiene acceso a ellos, salvo obligación legal."
+  },
+  "hosting": {
+    "title": "Alojamiento y transferencias",
+    "intro": "Sus datos se almacenan de forma segura en:",
+    "supabase": "(base de datos) — Servidores seguros",
+    "vercel": "(alojamiento) — Estados Unidos",
+    "gdpr_compliance": "Estos proveedores cumplen con el RGPD y han firmado cláusulas contractuales tipo aprobadas por la Comisión Europea para regular las transferencias de datos fuera de la UE."
+  },
+  "security": {
+    "title": "Seguridad de los datos",
+    "intro": "Implemento medidas técnicas y organizativas para proteger sus datos:",
+    "measures": {
+      "https": "Conexión segura HTTPS",
+      "restricted": "Acceso restringido a los datos (solo yo)",
+      "certified": "Proveedores de alojamiento certificados y seguros"
+    }
+  },
+  "retention": {
+    "title": "Período de conservación",
+    "text": "Sus datos se conservan durante",
+    "duration": "3 años como máximo",
+    "after": "después de nuestro último intercambio, luego se eliminan."
+  },
+  "rights": {
+    "title": "Sus derechos (RGPD)",
+    "intro": "De conformidad con el Reglamento General de Protección de Datos (RGPD), usted dispone de los siguientes derechos:",
+    "list": {
+      "access": "Derecho de acceso",
+      "access_desc": ": obtener una copia de sus datos",
+      "rectification": "Derecho de rectificación",
+      "rectification_desc": ": corregir sus datos inexactos",
+      "erasure": "Derecho de supresión",
+      "erasure_desc": ": eliminar sus datos",
+      "portability": "Derecho a la portabilidad",
+      "portability_desc": ": recuperar sus datos en un formato utilizable",
+      "objection": "Derecho de oposición",
+      "objection_desc": ": oponerse al tratamiento de sus datos",
+      "withdraw": "Derecho a retirar su consentimiento",
+      "withdraw_desc": "en cualquier momento"
+    },
+    "exercise": "Para ejercer estos derechos,",
+    "contact_link": "contácteme a través del formulario"
+  },
+  "complaint": {
+    "title": "Reclamación",
+    "text": "Si considera que el tratamiento de sus datos no cumple con la normativa, puede presentar una reclamación ante la",
+    "cnil": "CNIL",
+    "cnil_full": "(Comisión Nacional de Informática y Libertades francesa):"
+  },
+  "cookies": {
+    "title": "Cookies",
+    "text": "Este sitio solo utiliza cookies técnicas necesarias para su funcionamiento. No se utilizan cookies de seguimiento o publicidad sin su consentimiento."
+  },
+  "contact": {
+    "title": "Contacto",
+    "text": "Para cualquier pregunta sobre esta política de privacidad:",
+    "link": "Contáctame a través del formulario"
+  },
+  "last_update": "Última actualización: Enero 2026"
+}

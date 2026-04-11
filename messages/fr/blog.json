@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "title": "Blog Webdesign & Développement Web",
+    "description": "Conseils, actualités et guides sur la création de sites internet, le développement web, le SEO local, l'IA générative et le marketing digital. Par Perrine Huon, développeuse web freelance."
+  },
+  "header": {
+    "subtitle": "Actualités & Conseils",
+    "title": "Blog",
+    "description": "Conseils, astuces et actualités sur le web design, le développement et le SEO local"
+  },
+  "demoPosts": {
+    "1": {
+      "title": "SEO Local 2026 : Comment dominer les recherches géolocalisées",
+      "excerpt": "Google My Business, citations locales, avis clients... Le guide complet pour être visible dans votre ville et attirer des clients qualifiés près de chez vous."
+    },
+    "2": {
+      "title": "Tendances Web Design 2026 : Ce qui va tout changer",
+      "excerpt": "IA générative, interfaces immersives, micro-interactions... Découvrez les tendances qui vont redéfinir le web design en 2026."
+    },
+    "3": {
+      "title": "Performance web : Pourquoi la vitesse de votre site impacte vos ventes",
+      "excerpt": "Core Web Vitals, temps de chargement, expérience utilisateur... Chaque seconde compte. Découvrez comment optimiser votre site pour convertir plus."
+    },
+    "4": {
+      "title": "Vibe Coding : La révolution de 2025 et ce qui nous attend",
+      "excerpt": "Comment le vibe coding a transformé le développement web en 2025, et pourquoi 2026 s'annonce encore plus disruptif."
+    },
+    "5": {
+      "title": "Les événements design majeurs de 2025 : Retour sur une année charnière",
+      "excerpt": "De Config Figma à Awwwards, les moments forts qui ont marqué la communauté design cette année."
+    },
+    "6": {
+      "title": "IA et création web : Où en est-on vraiment fin 2025 ?",
+      "excerpt": "État des lieux de l'IA dans la création de sites : ce qui fonctionne, ce qui déçoit, et comment l'utiliser intelligemment."
+    }
+  },
+  "readArticle": "Lire l'article",
+  "cta": {
+    "button": "Parlons de votre projet"
+  }
+}

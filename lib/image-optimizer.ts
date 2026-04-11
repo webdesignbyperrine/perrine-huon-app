@@ -1,34 +1,32 @@
 /**
- * Optimiseur d'images - Convertit et compresse les images pour le web
- * - Conversion en WebP (si supporté)
- * - Compression automatique
- * - Redimensionnement intelligent
- * - Optimisation de la taille fichier
- * 
- * IMPORTANT: Ce module doit être utilisé côté client uniquement (composants 'use client')
+ * Optimiseur d'images côté client — Convertit et compresse les images pour le web.
+ * - Conversion en WebP (si supporté par le navigateur)
+ * - Compression automatique avec qualité configurable
+ * - Redimensionnement proportionnel
+ *
+ * IMPORTANT: Ce module doit être utilisé exclusivement côté client (composants 'use client').
  */
 
 export interface ImageOptimizationOptions {
   maxWidth?: number;
   maxHeight?: number;
-  quality?: number; // 0-1
+  /** Qualité de compression entre 0 et 1 (défaut : 0.85). */
+  quality?: number;
   format?: 'webp' | 'jpeg' | 'png';
 }
 
 /**
- * Optimise une image pour le web
- * @param file - Fichier image à optimiser
- * @param options - Options d'optimisation
- * @returns Promise<File> - Fichier optimisé
+ * Optimise une image pour le web en la redimensionnant et en la compressant.
+ * @param file - Fichier image source.
+ * @param options - Options d'optimisation (dimensions, qualité, format).
+ * @returns Fichier optimisé. Retourne l'original si exécuté hors navigateur.
+ * @throws Error si le contexte canvas n'est pas disponible ou si le chargement échoue.
  */
 export async function optimizeImage(
   file: File,
   options: ImageOptimizationOptions = {}
 ): Promise<File> {
-  // Vérification côté client
-  if (typeof window === 'undefined') {
-    return file;
-  }
+  if (typeof window === 'undefined') return file;
 
   const {
     maxWidth = 1920,
@@ -43,12 +41,13 @@ export async function optimizeImage(
     const ctx = canvas.getContext('2d');
 
     if (!ctx) {
-      reject(new Error('Canvas context not available'));
+      reject(new Error('Canvas context non disponible'));
       return;
     }
 
     img.onload = () => {
-      // Calculer les nouvelles dimensions en gardant le ratio
+      URL.revokeObjectURL(img.src);
+
       let { width, height } = img;
 
       if (width > maxWidth || height > maxHeight) {
@@ -57,24 +56,19 @@ export async function optimizeImage(
         height = Math.round(height * ratio);
       }
 
-      // Configurer le canvas
       canvas.width = width;
       canvas.height = height;
-
-      // Dessiner l'image redimensionnée
       ctx.drawImage(img, 0, 0, width, height);
 
-      // Convertir en blob avec le format souhaité
       const mimeType = `image/${format}`;
-      
+
       canvas.toBlob(
         (blob) => {
           if (!blob) {
-            reject(new Error('Image conversion failed'));
+            reject(new Error('Échec de conversion de l\'image'));
             return;
           }
 
-          // Créer un nouveau fichier optimisé
           const originalName = file.name.split('.')[0];
           const extension = format === 'webp' ? 'webp' : format === 'jpeg' ? 'jpg' : 'png';
           const optimizedFile = new File(
@@ -91,92 +85,59 @@ export async function optimizeImage(
     };
 
     img.onerror = () => {
-      reject(new Error('Failed to load image'));
+      URL.revokeObjectURL(img.src);
+      reject(new Error('Échec du chargement de l\'image'));
     };
 
-    // Charger l'image
     img.src = URL.createObjectURL(file);
   });
 }
 
 /**
- * Vérifie si le format WebP est supporté par le navigateur
+ * Vérifie si le format WebP est supporté par le navigateur courant.
+ * @returns `true` si WebP est supporté, `false` sinon ou hors navigateur.
  */
 export function isWebPSupported(): boolean {
   if (typeof window === 'undefined') return false;
-  
   const canvas = document.createElement('canvas');
   canvas.width = 1;
   canvas.height = 1;
-  return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+  return canvas.toDataURL('image/webp').startsWith('data:image/webp');
 }
 
 /**
- * Détecte le meilleur format à utiliser selon le navigateur
+ * Retourne le meilleur format d'image selon le support navigateur.
+ * Doit être appelé uniquement côté client.
+ * @returns 'webp' si supporté, sinon 'jpeg'.
  */
 export function getBestFormat(): 'webp' | 'jpeg' {
   return isWebPSupported() ? 'webp' : 'jpeg';
 }
 
 /**
- * Présets d'optimisation prédéfinis
+ * Présets d'optimisation prédéfinis.
+ * Note : `getBestFormat()` est évalué au moment de l'appel à `optimizeImageWithPreset`,
+ * pas à l'initialisation du module, pour éviter une exécution côté serveur.
  */
-export const OPTIMIZATION_PRESETS = {
-  // Pour les logos (petite taille, haute qualité)
-  logo: {
-    maxWidth: 500,
-    maxHeight: 500,
-    quality: 0.9,
-    format: getBestFormat(),
-  },
-  
-  // Pour les avatars de profil
-  avatar: {
-    maxWidth: 400,
-    maxHeight: 400,
-    quality: 0.85,
-    format: getBestFormat(),
-  },
-  
-  // Pour les images de couverture de blog
-  cover: {
-    maxWidth: 1920,
-    maxHeight: 1080,
-    quality: 0.85,
-    format: getBestFormat(),
-  },
-  
-  // Pour les images dans les galeries de projets
-  gallery: {
-    maxWidth: 1600,
-    maxHeight: 1200,
-    quality: 0.82,
-    format: getBestFormat(),
-  },
-  
-  // Pour les images dans le contenu des articles
-  content: {
-    maxWidth: 1200,
-    maxHeight: 1200,
-    quality: 0.8,
-    format: getBestFormat(),
-  },
-  
-  // Pour les thumbnails
-  thumbnail: {
-    maxWidth: 600,
-    maxHeight: 400,
-    quality: 0.75,
-    format: getBestFormat(),
-  },
-} as const;
+const PRESET_CONFIGS: Record<string, Omit<ImageOptimizationOptions, 'format'>> = {
+  logo:      { maxWidth: 500,  maxHeight: 500,  quality: 0.9  },
+  avatar:    { maxWidth: 400,  maxHeight: 400,  quality: 0.85 },
+  cover:     { maxWidth: 1920, maxHeight: 1080, quality: 0.85 },
+  gallery:   { maxWidth: 1600, maxHeight: 1200, quality: 0.82 },
+  content:   { maxWidth: 1200, maxHeight: 1200, quality: 0.8  },
+  thumbnail: { maxWidth: 600,  maxHeight: 400,  quality: 0.75 },
+};
+
+export type OptimizationPreset = keyof typeof PRESET_CONFIGS;
 
 /**
- * Optimise une image avec un preset prédéfini
+ * Optimise une image avec un preset nommé.
+ * Le format WebP/JPEG est détecté dynamiquement au moment de l'appel.
+ * @param file - Fichier image source.
+ * @param preset - Nom du preset : 'logo', 'avatar', 'cover', 'gallery', 'content', 'thumbnail'.
+ * @returns Fichier optimisé.
  */
-export async function optimizeImageWithPreset(
-  file: File,
-  preset: keyof typeof OPTIMIZATION_PRESETS
-): Promise<File> {
-  return optimizeImage(file, OPTIMIZATION_PRESETS[preset]);
+export function optimizeImageWithPreset(file: File, preset: OptimizationPreset): Promise<File> {
+  const config = PRESET_CONFIGS[preset];
+  return optimizeImage(file, { ...config, format: getBestFormat() });
 }

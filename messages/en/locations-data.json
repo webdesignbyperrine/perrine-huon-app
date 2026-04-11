@@ -1,0 +1,1009 @@
+{
+  "paris": {
+    "name": "Paris",
+    "type": "city",
+    "metaTitle": "Website Creation in Paris | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris",
+    "introduction": "<p>Professional website creation services in Paris.</p>",
+    "localBusinessTypes": [
+      "Startups & Tech",
+      "Restaurants & Gastronomy",
+      "Consulting Firms",
+      "Fashion Boutiques",
+      "Real Estate Agencies",
+      "Law Firms",
+      "Art Galleries",
+      "Hotels & Tourism"
+    ],
+    "keyStats": "72% of Parisians search for a local business on Google before visiting."
+  },
+  "lyon": {
+    "name": "Lyon",
+    "type": "city",
+    "metaTitle": "Website Creation in Lyon | Freelance Web Developer",
+    "metaDescription": "Website creation in Lyon. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Lyon",
+    "introduction": "<p>Professional website creation services in Lyon.</p>",
+    "localBusinessTypes": [
+      "Restaurants & Bouchons Lyonnais",
+      "Laboratories & Biotech",
+      "Accounting Firms",
+      "Presqu\\'île Shops",
+      "Tech Startups",
+      "Textile Industries",
+      "Event Agencies",
+      "Medical Professionals"
+    ],
+    "keyStats": "Lyon has more than 150,000 active businesses, 68% of which don\\'t have a mobile-optimized website."
+  },
+  "marseille": {
+    "name": "Marseille",
+    "type": "city",
+    "metaTitle": "Website Creation in Marseille | Freelance Web Developer",
+    "metaDescription": "Website creation in Marseille. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Marseille",
+    "introduction": "<p>Professional website creation services in Marseille.</p>",
+    "localBusinessTypes": [
+      "Maritime Transport & Logistics",
+      "Restaurants & Bars",
+      "Tourism & Hospitality",
+      "Vieux-Port Shops",
+      "Creative Startups",
+      "Import-Export",
+      "Healthcare Professionals",
+      "Artisans & Food Trades"
+    ],
+    "keyStats": "Euroméditerranée has generated over 7,000 new businesses, 80% of which are seeking to develop their online visibility."
+  },
+  "toulouse": {
+    "name": "Toulouse",
+    "type": "city",
+    "metaTitle": "Website Creation in Toulouse | Freelance Web Developer",
+    "metaDescription": "Website creation in Toulouse. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Toulouse",
+    "introduction": "<p>Professional website creation services in Toulouse.</p>",
+    "localBusinessTypes": [
+      "Aerospace Subcontractors",
+      "Deep Tech Startups",
+      "Downtown Shops",
+      "Engineering Firms",
+      "Restaurants & Caterers",
+      "Liberal Professions",
+      "Communication Agencies",
+      "Winemakers & Producers"
+    ],
+    "keyStats": "Toulouse is the 4th largest city in France and 63% of its SMEs consider their website their primary acquisition channel."
+  },
+  "bordeaux": {
+    "name": "Bordeaux",
+    "type": "city",
+    "metaTitle": "Website Creation in Bordeaux | Freelance Web Developer",
+    "metaDescription": "Website creation in Bordeaux. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Bordeaux",
+    "introduction": "<p>Professional website creation services in Bordeaux.</p>",
+    "localBusinessTypes": [
+      "Châteaux & Wine Estates",
+      "Wine Merchants",
+      "Restaurants & Wine Bars",
+      "Wine Tourism",
+      "Architecture Firms",
+      "Real Estate Agencies",
+      "Neighborhood Shops",
+      "Aeronautical Industries"
+    ],
+    "keyStats": "Bordeaux wine e-commerce has grown 45% in 3 years, with 60% of estates still without an online shop."
+  },
+  "lille": {
+    "name": "Lille",
+    "type": "city",
+    "metaTitle": "Website Creation in Lille | Freelance Web Developer",
+    "metaDescription": "Website creation in Lille. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Lille",
+    "introduction": "<p>Professional website creation services in Lille.</p>",
+    "localBusinessTypes": [
+      "E-commerce & Retail",
+      "Tech Startups (EuraTechnologies)",
+      "Estaminets & Restaurants",
+      "Textile Industries",
+      "Wholesalers & Distribution",
+      "Communication Agencies",
+      "Healthcare Professionals",
+      "Old Lille Shops"
+    ],
+    "keyStats": "EuraTechnologies hosts over 300 startups, and 55% of Lille businesses plan to invest in their website this year."
+  },
+  "nantes": {
+    "name": "Nantes",
+    "type": "city",
+    "metaTitle": "Website Creation in Nantes | Freelance Web Developer",
+    "metaDescription": "Website creation in Nantes. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Nantes",
+    "introduction": "<p>Professional website creation services in Nantes.</p>",
+    "localBusinessTypes": [
+      "Creative Industries",
+      "Food Processing",
+      "Digital Startups",
+      "Shipbuilding",
+      "Restaurants & Crêperies",
+      "Consulting Firms",
+      "Tourism & Culture",
+      "Bouffay Shops"
+    ],
+    "keyStats": "Nantes has over 4,000 digital companies, and 71% of Nantes consumers check the web before a local purchase."
+  },
+  "strasbourg": {
+    "name": "Strasbourg",
+    "type": "city",
+    "metaTitle": "Website Creation in Strasbourg | Freelance Web Developer",
+    "metaDescription": "Website creation in Strasbourg. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Strasbourg",
+    "introduction": "<p>Professional website creation services in Strasbourg.</p>",
+    "localBusinessTypes": [
+      "European Institutions",
+      "Breweries & Winstubs",
+      "Alsatian Winemakers",
+      "Biotech Startups",
+      "Petite France Artisans",
+      "Automotive Industries",
+      "Tourism & Hospitality",
+      "Cross-border Commerce"
+    ],
+    "keyStats": "40% of Strasbourg businesses\\' revenue comes from cross-border customers, 85% of whom use the internet to plan their visit."
+  },
+  "nice": {
+    "name": "Nice",
+    "type": "city",
+    "metaTitle": "Website Creation in Nice | Freelance Web Developer",
+    "metaDescription": "Website creation in Nice. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Nice",
+    "introduction": "<p>Professional website creation services in Nice.</p>",
+    "localBusinessTypes": [
+      "Hotels & Palaces",
+      "Provençal Restaurants",
+      "Luxury Real Estate",
+      "Tech Companies (Sophia)",
+      "Water Sports & Leisure",
+      "Old Nice Shops",
+      "Event Agencies",
+      "Medical Practices"
+    ],
+    "keyStats": "Nice welcomes 5 million tourists per year, 89% of whom organize their stay online."
+  },
+  "montpellier": {
+    "name": "Montpellier",
+    "type": "city",
+    "metaTitle": "Website Creation in Montpellier | Freelance Web Developer",
+    "metaDescription": "Website creation in Montpellier. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Montpellier",
+    "introduction": "<p>Professional website creation services in Montpellier.</p>",
+    "localBusinessTypes": [
+      "Digital Startups",
+      "Laboratories & Healthcare",
+      "Languedoc Winemakers",
+      "Mediterranean Restaurants",
+      "Schools & Training",
+      "Real Estate Agencies",
+      "Seaside Tourism",
+      "Écusson Shops"
+    ],
+    "keyStats": "Montpellier is France\\'s fastest growing city: +1.5% per year, creating a constantly expanding digital market."
+  },
+  "rennes": {
+    "name": "Rennes",
+    "type": "city",
+    "metaTitle": "Website Creation in Rennes | Freelance Web Developer",
+    "metaDescription": "Website creation in Rennes. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Rennes",
+    "introduction": "<p>Professional website creation services in Rennes.</p>",
+    "localBusinessTypes": [
+      "Cybersecurity Startups",
+      "Breton Food Processing",
+      "Crêperies & Restaurants",
+      "Engineering Firms",
+      "Downtown Shops",
+      "Schools & Universities",
+      "Automotive Industries",
+      "Breton Tourism"
+    ],
+    "keyStats": "Rennes is France\\'s leading cybersecurity hub and 74% of its tech companies plan to redesign their website within 2 years."
+  },
+  "grenoble": {
+    "name": "Grenoble",
+    "type": "city",
+    "metaTitle": "Website Creation in Grenoble | Freelance Web Developer",
+    "metaDescription": "Website creation in Grenoble. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Grenoble",
+    "introduction": "<p>Professional website creation services in Grenoble.</p>",
+    "localBusinessTypes": [
+      "Laboratories & Nanotech",
+      "Ski Resorts & Mountain",
+      "Deeptech Startups",
+      "Sports Stores",
+      "Engineering Firms",
+      "Mountain Restaurants",
+      "Medical Professionals",
+      "Energy Industries"
+    ],
+    "keyStats": "Grenoble ranks 5th most innovative city in the world and 82% of its tech companies consider their website a strategic tool."
+  },
+  "rouen": {
+    "name": "Rouen",
+    "type": "city",
+    "metaTitle": "Website Creation in Rouen | Freelance Web Developer",
+    "metaDescription": "Website creation in Rouen. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Rouen",
+    "introduction": "<p>Professional website creation services in Rouen.</p>",
+    "localBusinessTypes": [
+      "Port Industries",
+      "Historic Center Shops",
+      "Norman Restaurants",
+      "Chemical Industries",
+      "Tourism Agencies",
+      "Consulting Firms",
+      "Art Artisans",
+      "Liberal Professions"
+    ],
+    "keyStats": "65% of Rouen businesses haven\\'t updated their website in over 3 years, losing an average of 35% organic traffic."
+  },
+  "toulon": {
+    "name": "Toulon",
+    "type": "city",
+    "metaTitle": "Website Creation in Toulon | Freelance Web Developer",
+    "metaDescription": "Website creation in Toulon. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Toulon",
+    "introduction": "<p>Professional website creation services in Toulon.</p>",
+    "localBusinessTypes": [
+      "Naval & Defense Industries",
+      "Restaurants & Terraces",
+      "Boating & Yachting",
+      "Downtown Shops",
+      "Tourism & Rentals",
+      "Healthcare Professionals",
+      "Artisans & Sea Trades",
+      "Real Estate Agencies"
+    ],
+    "keyStats": "Var welcomes 8 million tourists per year and 76% of them book their activities online."
+  },
+  "clermont-ferrand": {
+    "name": "Clermont-Ferrand",
+    "type": "city",
+    "metaTitle": "Website Creation in Clermont-Ferrand | Freelance Web Developer",
+    "metaDescription": "Website creation in Clermont-Ferrand. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Clermont-Ferrand",
+    "introduction": "<p>Professional website creation services in Clermont-Ferrand.</p>",
+    "localBusinessTypes": [
+      "Tire Industries",
+      "PDO Cheese Producers",
+      "Auvergne Restaurants",
+      "Startups & Incubators",
+      "Spas & Wellness",
+      "Volcanic Tourism",
+      "Jaude Shops",
+      "Liberal Professions"
+    ],
+    "keyStats": "Clermont-Ferrand has seen business creation increase by 18% in 3 years, with a growing need for websites."
+  },
+  "dijon": {
+    "name": "Dijon",
+    "type": "city",
+    "metaTitle": "Website Creation in Dijon | Freelance Web Developer",
+    "metaDescription": "Website creation in Dijon. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Dijon",
+    "introduction": "<p>Professional website creation services in Dijon.</p>",
+    "localBusinessTypes": [
+      "Wine Estates",
+      "Mustard Producers",
+      "Gourmet Restaurants",
+      "Rue de la Liberté Shops",
+      "Wine Tourism",
+      "Consulting Firms",
+      "Pharmaceutical Industries",
+      "Food Artisans"
+    ],
+    "keyStats": "Wine tourism in Burgundy generates €800M per year and 73% of bookings are now made online."
+  },
+  "angers": {
+    "name": "Angers",
+    "type": "city",
+    "metaTitle": "Website Creation in Angers | Freelance Web Developer",
+    "metaDescription": "Website creation in Angers. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Angers",
+    "introduction": "<p>Professional website creation services in Angers.</p>",
+    "localBusinessTypes": [
+      "Horticulture & Plant Industry",
+      "Loire Winemakers",
+      "IoT Startups",
+      "Restaurants & Bistros",
+      "Downtown Shops",
+      "Heritage Tourism",
+      "Electronics Industries",
+      "Liberal Professions"
+    ],
+    "keyStats": "Angers is France\\'s plant and IoT capital, with over 500 digital sector companies seeking to strengthen their web presence."
+  },
+  "reims": {
+    "name": "Reims",
+    "type": "city",
+    "metaTitle": "Website Creation in Reims | Freelance Web Developer",
+    "metaDescription": "Website creation in Reims. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Reims",
+    "introduction": "<p>Professional website creation services in Reims.</p>",
+    "localBusinessTypes": [
+      "Champagne Houses",
+      "Gourmet Restaurants",
+      "Tourism & Wine Tourism",
+      "Downtown Shops",
+      "Schools & Universities",
+      "Food Processing Industries",
+      "Consulting Firms",
+      "Food Artisans"
+    ],
+    "keyStats": "Champagne generates €5 billion in annual revenue and 58% of houses still don\\'t have an online shop."
+  },
+  "saint-etienne": {
+    "name": "Saint-Étienne",
+    "type": "city",
+    "metaTitle": "Website Creation in Saint-Étienne | Freelance Web Developer",
+    "metaDescription": "Website creation in Saint-Étienne. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Saint-Étienne",
+    "introduction": "<p>Professional website creation services in Saint-Étienne.</p>",
+    "localBusinessTypes": [
+      "Design Studios",
+      "Mechanical Industries",
+      "Technical Textiles",
+      "Downtown Shops",
+      "Optics & Photonics",
+      "Restaurants & Bistros",
+      "Creative Startups",
+      "Liberal Professions"
+    ],
+    "keyStats": "Saint-Étienne, UNESCO City of Design, has seen a 42% increase in creative business creation in 5 years."
+  },
+  "aix-en-provence": {
+    "name": "Aix-en-Provence",
+    "type": "city",
+    "metaTitle": "Website Creation in Aix-en-Provence | Freelance Web Developer",
+    "metaDescription": "Website creation in Aix-en-Provence. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Aix-en-Provence",
+    "introduction": "<p>Professional website creation services in Aix-en-Provence.</p>",
+    "localBusinessTypes": [
+      "Law Firms & Legal Services",
+      "Cours Mirabeau Boutiques",
+      "Tourism & Accommodation",
+      "Microelectronics & Tech",
+      "Provençal Restaurants",
+      "Art Galleries",
+      "Spas & Wellness",
+      "Wine Estates"
+    ],
+    "keyStats": "Aix-en-Provence welcomes over 4 million visitors per year and 67% of Aix businesses see their digital revenue grow annually."
+  },
+  "paris-2eme-arrondissement": {
+    "name": "Paris 2ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 2ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 2ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 2ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 2ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Tech Startups",
+      "Fintech Companies",
+      "Media & Press",
+      "Montorgueil Shops",
+      "Coworking Spaces",
+      "Restaurants & Wine Merchants",
+      "Digital Agencies",
+      "Financial Firms"
+    ],
+    "keyStats": "Le Sentier concentrates over 1,000 startups in less than 1 km², making the 2nd arrondissement one of the world\\'s most tech-dense areas."
+  },
+  "paris-3eme-arrondissement": {
+    "name": "Paris 3ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 3ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 3ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 3ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 3ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Art Galleries",
+      "Fashion Designers",
+      "Concept Stores",
+      "Bistronomic Restaurants",
+      "Design Studios",
+      "Museums & Culture",
+      "Coffee Shops",
+      "Artists\\' Workshops"
+    ],
+    "keyStats": "The 3rd arrondissement has over 80 art galleries, only 35% of which have a website with online sales."
+  },
+  "paris-4eme-arrondissement": {
+    "name": "Paris 4ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 4ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 4ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 4ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 4ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Marais Fashion Boutiques",
+      "Hotels & Accommodations",
+      "Restaurants & Caterers",
+      "Ice Cream Shops & Pastries",
+      "Bookstores & Culture",
+      "Galleries & Antique Dealers",
+      "Île Saint-Louis Shops",
+      "Tourism Services"
+    ],
+    "keyStats": "Le Marais is Paris\\' 2nd most visited shopping district with 90% of purchases preceded by an online search."
+  },
+  "paris-5eme-arrondissement": {
+    "name": "Paris 5ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 5ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 5ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 5ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 5ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Bookstores & Bouquinistes",
+      "Medical Practices",
+      "Restaurants & Cafés",
+      "Universities & Schools",
+      "Law Firms",
+      "Science Galleries",
+      "Liberal Professions",
+      "Cultural Shops"
+    ],
+    "keyStats": "The Latin Quarter has over 200 bookstores and 45% of medical practices don\\'t have a website with online appointment booking."
+  },
+  "paris-6eme-arrondissement": {
+    "name": "Paris 6ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 6ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 6ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 6ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 6ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Publishing Houses",
+      "Art Galleries",
+      "Prestige Restaurants",
+      "Luxury Boutiques",
+      "Bookstores",
+      "Historic Cafés",
+      "Antique Dealers",
+      "Law Firms"
+    ],
+    "keyStats": "Saint-Germain-des-Prés concentrates 40% of French publishing houses, 52% of which want to modernize their online presence."
+  },
+  "paris-7eme-arrondissement": {
+    "name": "Paris 7ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 7ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 7ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 7ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 7ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Hotels with Eiffel Tower View",
+      "Gourmet Restaurants",
+      "Consulting Firms",
+      "Embassies & Institutions",
+      "Fine Food Shops",
+      "Rue du Bac Antique Dealers",
+      "Museums & Culture",
+      "Liberal Professions"
+    ],
+    "keyStats": "The Eiffel Tower district attracts 7 million annual visitors and hotels in the area make 78% of their bookings online."
+  },
+  "paris-8eme-arrondissement": {
+    "name": "Paris 8ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 8ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 8ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 8ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 8ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Luxury Houses",
+      "Corporate Headquarters",
+      "Audit & Consulting Firms",
+      "Palace Hotels",
+      "Haute Couture",
+      "Investment Banks",
+      "Michelin-Starred Restaurants",
+      "Contemporary Art Galleries"
+    ],
+    "keyStats": "The Golden Triangle concentrates 80% of French luxury\\'s global revenue, with 95% of decision-makers using the web as their primary research channel."
+  },
+  "paris-9eme-arrondissement": {
+    "name": "Paris 9ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 9ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 9ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 9ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 9ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Theaters & Shows",
+      "Department Stores",
+      "Restaurants & Brasseries",
+      "Creative Agencies",
+      "Service Firms",
+      "Rue des Martyrs Boutiques",
+      "Hotels & Accommodations",
+      "Cultural Institutions"
+    ],
+    "keyStats": "Galeries Lafayette attracts 37 million visitors per year and 64% of neighboring businesses benefit from this traffic through their web presence."
+  },
+  "paris-10eme-arrondissement": {
+    "name": "Paris 10ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 10ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 10ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 10ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 10ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Canal Restaurants & Bars",
+      "Train Station Hotels",
+      "Multicultural Shops",
+      "Startups & Coworking",
+      "Artisans & Creators",
+      "Caterers & Grocery Stores",
+      "Performance Venues",
+      "Travel Agencies"
+    ],
+    "keyStats": "Canal Saint-Martin has seen the number of businesses increase by 30% in 5 years, with 83% of newcomers investing in a website."
+  },
+  "paris-11eme-arrondissement": {
+    "name": "Paris 11ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 11ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 11ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 11ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 11ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Furniture Artisans",
+      "Restaurants & Bistros",
+      "Bars & Nightlife",
+      "Startups & Freelancers",
+      "Creative Workshops",
+      "Local Shops",
+      "Independent Galleries",
+      "Creative Studios"
+    ],
+    "keyStats": "The 11th arrondissement has over 1,500 restaurants and 70% of reservations are made via the web or apps."
+  },
+  "paris-12eme-arrondissement": {
+    "name": "Paris 12ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 12ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 12ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 12ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 12ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Viaduc des Arts Artisans",
+      "Marché d\\'Aligre Shops",
+      "Bercy Village Restaurants",
+      "Gare de Lyon Hotels",
+      "Liberal Professions",
+      "Performance Venues",
+      "Sports Clubs",
+      "Local Shops"
+    ],
+    "keyStats": "Gare de Lyon welcomes 90 million travelers per year and Bercy Village attracts 6 million visitors, an audience to capture online."
+  },
+  "paris-13eme-arrondissement": {
+    "name": "Paris 13ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 13ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 13ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 13ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 13ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Startups (Station F)",
+      "Asian Restaurants",
+      "Chinatown Shops",
+      "Tech Companies",
+      "Universities & Schools",
+      "Butte aux Cailles Bistros",
+      "Import-Export",
+      "Liberal Professions"
+    ],
+    "keyStats": "Station F hosts over 1,000 startups and the 13th arrondissement is Paris\\' fastest-growing tech district."
+  },
+  "paris-14eme-arrondissement": {
+    "name": "Paris 14ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 14ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 14ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 14ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 14ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Medical Practices & Specialists",
+      "Rue Daguerre Shops",
+      "Rue d\\'Alésia Fashion Outlets",
+      "Restaurants & Brasseries",
+      "Theaters & Cinemas",
+      "Liberal Professions",
+      "Clinics & Healthcare",
+      "Artisans & Creators"
+    ],
+    "keyStats": "The 14th concentrates one of Paris\\' largest hospital clusters and 72% of patients search for their specialist online."
+  },
+  "paris-15eme-arrondissement": {
+    "name": "Paris 15ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 15ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 15ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 15ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 15ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Rue du Commerce Shops",
+      "Medical & Dental Practices",
+      "Accounting Firms",
+      "Restaurants & Bakeries",
+      "Service SMEs",
+      "Events (Porte de Versailles)",
+      "Real Estate Agencies",
+      "Liberal Professions"
+    ],
+    "keyStats": "The 15th is Paris\\' most populous arrondissement (240,000 residents) and 66% use local search to find a professional."
+  },
+  "paris-16eme-arrondissement": {
+    "name": "Paris 16ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 16ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 16ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 16ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 16ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Luxury Real Estate",
+      "Medical & Aesthetic Practices",
+      "International Schools",
+      "Gourmet Restaurants",
+      "Passy Luxury Boutiques",
+      "Business Law Firms",
+      "Embassies & Institutions",
+      "Expat Services"
+    ],
+    "keyStats": "The 16th arrondissement hosts Paris\\' highest concentration of expats, 91% of whom search for local services online in multiple languages."
+  },
+  "paris-17eme-arrondissement": {
+    "name": "Paris 17ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 17ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 17ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 17ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 17ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Batignolles Shops",
+      "Medical Practices",
+      "Restaurants & Bistros",
+      "Real Estate Agencies",
+      "Service SMEs",
+      "Ternes Boutiques",
+      "Liberal Professions",
+      "Organic & Eco-Friendly Shops"
+    ],
+    "keyStats": "The Clichy-Batignolles district has seen 3,000 new housing units created and a 45% increase in local businesses."
+  },
+  "paris-18eme-arrondissement": {
+    "name": "Paris 18ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 18ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 18ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 18ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 18ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Artists & Art Workshops",
+      "Restaurants & Cafés",
+      "Multicultural Commerce",
+      "Hotels & Hostels",
+      "Cabarets & Nightlife",
+      "Souvenir Shops",
+      "Montmartre Artisans",
+      "Château Rouge Shops"
+    ],
+    "keyStats": "Montmartre is Paris\\' 3rd most visited site and 87% of tourists discover local businesses via online search."
+  },
+  "paris-19eme-arrondissement": {
+    "name": "Paris 19ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 19ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 19ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 19ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 19ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Cultural Institutions",
+      "Canal Restaurants",
+      "Associations & Social Economy",
+      "Local Shops",
+      "Creative Startups",
+      "Performance Venues",
+      "Bars & Guinguettes",
+      "Liberal Professions"
+    ],
+    "keyStats": "Cité des Sciences attracts 3 million visitors per year and Canal de l\\'Ourcq has become Parisians\\' 4th favorite outing spot."
+  },
+  "paris-20eme-arrondissement": {
+    "name": "Paris 20ème Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation in Paris 20ème Arrondissement | Freelance Web Developer",
+    "metaDescription": "Website creation in Paris 20ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Paris 20ème Arrondissement",
+    "introduction": "<p>Professional website creation services in Paris 20ème Arrondissement.</p>",
+    "localBusinessTypes": [
+      "Artists\\' Workshops",
+      "Multicultural Restaurants",
+      "Natural Wine Bars",
+      "Concept Stores",
+      "Alternative Galleries",
+      "Artisans & Creators",
+      "Belleville Shops",
+      "Cultural Spaces"
+    ],
+    "keyStats": "Belleville has seen a 55% increase in micro-business creation in 5 years, making the 20th the most entrepreneurial district in eastern Paris."
+  },
+  "auvergne-rhone-alpes": {
+    "name": "Auvergne-Rhône-Alpes",
+    "type": "region",
+    "metaTitle": "Website Creation in Auvergne-Rhône-Alpes | Freelance Web Developer",
+    "metaDescription": "Website creation in Auvergne-Rhône-Alpes. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Auvergne-Rhône-Alpes",
+    "introduction": "<p>Professional website creation services in Auvergne-Rhône-Alpes.</p>",
+    "localBusinessTypes": [
+      "Pharmaceutical Industries",
+      "Ski Resorts & Tourism",
+      "PDO Cheese Producers",
+      "Industrial SMEs",
+      "Tech & Deeptech Startups",
+      "Rhône Winemakers",
+      "Spas & Wellness",
+      "Artisans & Local Shops"
+    ],
+    "keyStats": "Auvergne-Rhône-Alpes has 700,000 businesses and mountain tourism generates €12 billion, with 90% of bookings made online."
+  },
+  "hauts-de-france": {
+    "name": "Hauts-de-France",
+    "type": "region",
+    "metaTitle": "Website Creation in Hauts-de-France | Freelance Web Developer",
+    "metaDescription": "Website creation in Hauts-de-France. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Hauts-de-France",
+    "introduction": "<p>Professional website creation services in Hauts-de-France.</p>",
+    "localBusinessTypes": [
+      "E-commerce & Retail",
+      "Logistics & Transport",
+      "Food Processing",
+      "Coastal Tourism",
+      "Automotive Industries",
+      "Digital Startups",
+      "Local Producers",
+      "Artisans & Shops"
+    ],
+    "keyStats": "Hauts-de-France is France\\'s leading e-commerce hub outside Paris region, with 25% growth in regional online commerce."
+  },
+  "nouvelle-aquitaine": {
+    "name": "Nouvelle-Aquitaine",
+    "type": "region",
+    "metaTitle": "Website Creation in Nouvelle-Aquitaine | Freelance Web Developer",
+    "metaDescription": "Website creation in Nouvelle-Aquitaine. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Nouvelle-Aquitaine",
+    "introduction": "<p>Professional website creation services in Nouvelle-Aquitaine.</p>",
+    "localBusinessTypes": [
+      "Wine Estates",
+      "Oyster Farmers",
+      "Tourism & Gîtes",
+      "Aeronautics",
+      "Luxury Artisans",
+      "Cognac Producers",
+      "Seaside Shops",
+      "Food Processing Industries"
+    ],
+    "keyStats": "Nouvelle-Aquitaine is France\\'s leading rural tourism region and 77% of accommodations increase bookings through an optimized website."
+  },
+  "occitanie": {
+    "name": "Occitanie",
+    "type": "region",
+    "metaTitle": "Website Creation in Occitanie | Freelance Web Developer",
+    "metaDescription": "Website creation in Occitanie. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Occitanie",
+    "introduction": "<p>Professional website creation services in Occitanie.</p>",
+    "localBusinessTypes": [
+      "Aerospace & Defense",
+      "Winemakers & Cellars",
+      "Seaside Tourism",
+      "E-health Startups",
+      "Regional Producers",
+      "Outdoor Hospitality",
+      "Food Processing Industries",
+      "Shops & Artisans"
+    ],
+    "keyStats": "Occitanie is France\\'s 2nd region for population growth and 69% of new businesses invest in a website from year one."
+  },
+  "provence-alpes-cote-azur": {
+    "name": "Provence-Alpes-Côte d\\",
+    "type": "region",
+    "metaTitle": "Website Creation in Provence-Alpes-Côte d\\ | Freelance Web Developer",
+    "metaDescription": "Website creation in Provence-Alpes-Côte d\\. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Provence-Alpes-Côte d\\",
+    "introduction": "<p>Professional website creation services in Provence-Alpes-Côte d\\.</p>",
+    "localBusinessTypes": [
+      "Luxury Hospitality & Tourism",
+      "Tech Companies (Sophia)",
+      "Provençal Producers",
+      "Mediterranean Restaurants",
+      "Luxury Real Estate",
+      "Port Industries",
+      "Festivals & Events",
+      "Shops & Artisans"
+    ],
+    "keyStats": "PACA welcomes 31 million tourists per year and Sophia Antipolis generates €5.4 billion in revenue, all with 93% of online searches."
+  },
+  "grand-est": {
+    "name": "Grand Est",
+    "type": "region",
+    "metaTitle": "Website Creation in Grand Est | Freelance Web Developer",
+    "metaDescription": "Website creation in Grand Est. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Grand Est",
+    "introduction": "<p>Professional website creation services in Grand Est.</p>",
+    "localBusinessTypes": [
+      "Automotive Industries",
+      "Winemakers (Alsace, Champagne)",
+      "Cross-border Commerce",
+      "Logistics & Transport",
+      "Tourism & Christmas Markets",
+      "Artisans & Traditions",
+      "European Institutions",
+      "Food Processing"
+    ],
+    "keyStats": "Grand Est conducts 30% of its trade with neighboring countries and 62% of cross-border businesses consider a multilingual website essential."
+  },
+  "pays-de-la-loire": {
+    "name": "Pays de la Loire",
+    "type": "region",
+    "metaTitle": "Website Creation in Pays de la Loire | Freelance Web Developer",
+    "metaDescription": "Website creation in Pays de la Loire. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Pays de la Loire",
+    "introduction": "<p>Professional website creation services in Pays de la Loire.</p>",
+    "localBusinessTypes": [
+      "Aeronautics & Naval",
+      "Horticulture & Plant Industry",
+      "Food Processing",
+      "Coastal Tourism",
+      "Automotive Industries",
+      "Loire Winemakers",
+      "Industrial SMEs & Mid-caps",
+      "Shops & Artisans"
+    ],
+    "keyStats": "Pays de la Loire has 250,000 businesses and coastal tourism generates €4 billion, with 85% of bookings made online."
+  },
+  "bretagne": {
+    "name": "Bretagne",
+    "type": "region",
+    "metaTitle": "Website Creation in Bretagne | Freelance Web Developer",
+    "metaDescription": "Website creation in Bretagne. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Bretagne",
+    "introduction": "<p>Professional website creation services in Bretagne.</p>",
+    "localBusinessTypes": [
+      "Food Processing & Canneries",
+      "Fishing & Seafood",
+      "Cybersecurity & Digital",
+      "Coastal Tourism",
+      "Crêperies & Restaurants",
+      "Shipbuilding",
+      "Oyster Farmers",
+      "Artisans & Local Producers"
+    ],
+    "keyStats": "Brittany is France\\'s leading food processing region and 81% of tourists prepare their Breton stay online."
+  },
+  "normandie": {
+    "name": "Normandie",
+    "type": "region",
+    "metaTitle": "Website Creation in Normandie | Freelance Web Developer",
+    "metaDescription": "Website creation in Normandie. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Normandie",
+    "introduction": "<p>Professional website creation services in Normandie.</p>",
+    "localBusinessTypes": [
+      "Port Industries",
+      "Regional Producers (Camembert, Cider)",
+      "Tourism & Memory",
+      "Automotive Industries",
+      "Breeders & Stud Farms",
+      "Restaurants & Bistros",
+      "Renewable Energy",
+      "Shops & Artisans"
+    ],
+    "keyStats": "Normandy welcomes 37 million tourist overnight stays per year and Norman food e-commerce has grown 38% in 2 years."
+  },
+  "bourgogne-franche-comte": {
+    "name": "Bourgogne-Franche-Comté",
+    "type": "region",
+    "metaTitle": "Website Creation in Bourgogne-Franche-Comté | Freelance Web Developer",
+    "metaDescription": "Website creation in Bourgogne-Franche-Comté. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Bourgogne-Franche-Comté",
+    "introduction": "<p>Professional website creation services in Bourgogne-Franche-Comté.</p>",
+    "localBusinessTypes": [
+      "Wine Estates",
+      "Cheese Dairies & Refiners",
+      "Tourism & Wine Tourism",
+      "Microtechnology Industries",
+      "Automotive",
+      "Regional Producers",
+      "Rural Accommodations",
+      "Artisans & Shops"
+    ],
+    "keyStats": "Burgundy wines generate €3 billion in exports and 65% of estates want to develop direct online sales."
+  },
+  "centre-val-de-loire": {
+    "name": "Centre-Val de Loire",
+    "type": "region",
+    "metaTitle": "Website Creation in Centre-Val de Loire | Freelance Web Developer",
+    "metaDescription": "Website creation in Centre-Val de Loire. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Centre-Val de Loire",
+    "introduction": "<p>Professional website creation services in Centre-Val de Loire.</p>",
+    "localBusinessTypes": [
+      "Châteaux & Accommodations",
+      "Cosmetics & Pharmacy",
+      "Loire Winemakers",
+      "Heritage Tourism",
+      "Defense Industries",
+      "Food Processing",
+      "Logistics",
+      "Shops & Artisans"
+    ],
+    "keyStats": "Cosmetic Valley represents 80% of French cosmetics production and Loire châteaux attract 15 million visitors, 88% of whom prepare their visit online."
+  },
+  "corse": {
+    "name": "Corse",
+    "type": "region",
+    "metaTitle": "Website Creation in Corse | Freelance Web Developer",
+    "metaDescription": "Website creation in Corse. Custom showcase sites, e-commerce and web applications. Local SEO included.",
+    "h1": "Website Creation in Corse",
+    "introduction": "<p>Professional website creation services in Corse.</p>",
+    "localBusinessTypes": [
+      "Hotels & Seasonal Rentals",
+      "Restaurants & Guest Houses",
+      "PDO Producers (Cold Cuts, Cheese)",
+      "Wine Estates",
+      "Water Sports & Outdoor Activities",
+      "Art Artisans",
+      "Guides & Tours",
+      "Local Shops"
+    ],
+    "keyStats": "Corsica welcomes 3.5 million tourists per year and 94% of accommodation bookings are made online, with a peak 6 months before the stay."
+  },
+  "ile-de-france": {
+    "name": "Île-de-France",
+    "type": "region",
+    "metaTitle": "Website Creation in Île-de-France | Freelance Web Developer",
+    "metaDescription": "Website creation in Île-de-France. Freelance web developer for companies in the Paris region. Showcase sites, e-commerce, local SEO.",
+    "h1": "Website Creation in Île-de-France",
+    "introduction": "<p>Île-de-France is Europe's leading economic region, concentrating nearly one-third of France's GDP. With 12 million inhabitants and more than 1.2 million companies, the region offers a colossal market but also fierce competition. From La Défense, Europe's premier business district, to the industrial zones of the outer suburbs, every company in the Paris region must stand out in the digital landscape to capture its market share.</p>\n<p>The economic fabric of the Paris region is unmatched in density: multinational headquarters, innovative SMEs, artisans, and local businesses across the region's 1,300 municipalities. Competitiveness clusters (Systematic, Medicen, Cap Digital) drive innovation while suburban shopping centers and prefecture downtowns (Versailles, Évry, Bobigny, Créteil) generate considerable economic activity.</p>\n<p>I develop websites for businesses throughout Île-de-France. My expertise in geolocated SEO allows me to precisely target your catchment area, whether municipal, departmental, or regional. From a showcase site for an artisan in Seine-et-Marne to an e-commerce portal for a business in Yvelines, I create high-performance web solutions tailored to your Paris region market reality.</p>",
+    "localBusinessTypes": [
+      "Corporate headquarters (La Défense)",
+      "Suburban SMEs",
+      "Local artisans & shops",
+      "High-tech industries",
+      "Downtown businesses",
+      "Liberal professions",
+      "Food & hospitality",
+      "Business services"
+    ],
+    "keyStats": "Île-de-France represents 31% of France's GDP and 78% of Paris region companies consider digital as a priority."
+  },
+  "paris-1er-arrondissement": {
+    "name": "Paris 1st Arrondissement",
+    "type": "arrondissement",
+    "metaTitle": "Website Creation Paris 1st | Louvre, Châtelet, Les Halles",
+    "metaDescription": "Website creation in Paris' 1st arrondissement. Custom sites for luxury shops, hotels and businesses in the Louvre district.",
+    "h1": "Website Creation in Paris' 1st Arrondissement",
+    "introduction": "<p>Paris' 1st arrondissement is the historic and cultural heart of the capital. Around the Louvre, the Palais Royal and the Tuileries Garden, this district concentrates exceptional heritage that attracts millions of visitors each year. Luxury shops on Rue Saint-Honoré, art galleries at Palais Royal and prestigious hotels coexist with the commercial dynamism of Les Halles, Europe's largest underground shopping center.</p>\n<p>Businesses in the 1st arrondissement operate in an ultra-premium environment where digital image must reflect the excellence of the district. A jewelry store on Place Vendôme, an antique dealer at Louvre des Antiquaires or a gourmet restaurant at Les Halles need a website that translates their upscale positioning. The district's international clientele also requires multilingual standards and impeccable ergonomics.</p>\n<p>I design websites worthy of the 1st arrondissement's prestige. Refined design, intuitive navigation, multilingual integration and targeted local SEO: every detail is designed to seduce a demanding clientele. My custom approach adapts to your universe, whether jewelry, hospitality or gastronomy, to make your site a true digital showcase.</p>",
+    "localBusinessTypes": [
+      "Jewelry & luxury",
+      "Prestige hotels",
+      "Art galleries",
+      "Gourmet restaurants",
+      "Antique dealers",
+      "Fashion boutiques",
+      "Cultural institutions",
+      "Les Halles shops"
+    ],
+    "keyStats": "The 1st arrondissement welcomes more than 10 million visitors annually to the Louvre, 92% of whom prepare their visit online."
+  }
+}

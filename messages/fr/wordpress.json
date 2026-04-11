@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "title": "Pourquoi Pas WordPress ? Les Avantages d'un Site Sur Mesure",
+    "description": "WordPress vs site sur mesure Next.js : performance, sécurité, SEO, design. Découvrez pourquoi un site sur mesure surpasse WordPress pour votre entreprise.",
+    "ogTitle": "Pourquoi Pas WordPress ? Les Avantages d'un Site Sur Mesure",
+    "ogDescription": "WordPress vs site sur mesure Next.js : performance, sécurité, SEO, design."
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "current": "Pourquoi pas WordPress"
+  },
+  "hero": {
+    "backToHome": "Retour à l'accueil",
+    "title": "Pourquoi Pas WordPress ?",
+    "subtitle": "WordPress domine le web avec 43% de parts de marché. Mais est-ce vraiment le meilleur choix pour votre site professionnel ? Comparaison honnête."
+  },
+  "comparisonTable": {
+    "title": "WordPress vs Site Sur Mesure",
+    "headers": {
+      "criterion": "Critère",
+      "wordpress": "WordPress",
+      "custom": "Site Sur Mesure (Next.js)"
+    },
+    "rows": [
+      {
+        "criterion": "Performance (PageSpeed)",
+        "wordpress": "40 – 70 / 100",
+        "custom": "90 – 100 / 100",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Temps de chargement",
+        "wordpress": "2 – 5 secondes",
+        "custom": "< 1 seconde",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Sécurité",
+        "wordpress": "Vulnérabilités fréquentes",
+        "custom": "Surface d'attaque minimale",
+        "winner": "custom"
+      },
+      {
+        "criterion": "SEO technique",
+        "wordpress": "Bon (avec plugins)",
+        "custom": "Excellent (natif)",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Design",
+        "wordpress": "Templates adaptables",
+        "custom": "100% unique",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Coût initial",
+        "wordpress": "Faible",
+        "custom": "Moyen à élevé",
+        "winner": "wordpress"
+      },
+      {
+        "criterion": "Coût de maintenance annuel",
+        "wordpress": "500 – 2 000 € (plugins, thèmes, sécu)",
+        "custom": "0 – 1 000 €",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Mises à jour",
+        "wordpress": "Fréquentes et risquées",
+        "custom": "Rares et contrôlées",
+        "winner": "custom"
+      },
+      {
+        "criterion": "Évolutivité",
+        "wordpress": "Limitée par les plugins",
+        "custom": "Illimitée",
+        "winner": "custom"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Performance : la vitesse fait la différence",
+      "paragraphs": [
+        "Un site WordPress charge en moyenne 2 à 5 secondes, contre moins d'une seconde pour un site Next.js sur mesure. Cette différence est cruciale : 53% des visiteurs mobiles quittent un site qui met plus de 3 secondes à charger.",
+        "Avec Next.js, chaque page est pré-générée et servie depuis un CDN mondial. Pas de base de données à interroger, pas de plugins à charger : la page est déjà prête. Le résultat ? Des scores Google PageSpeed supérieurs à 90/100 systématiquement."
+      ]
+    },
+    {
+      "title": "Sécurité : moins de risques, plus de sérénité",
+      "paragraphs": [
+        "WordPress représente 43% du web mondial, ce qui en fait la cible n°1 des hackers. Chaque plugin, chaque thème est un vecteur potentiel d'attaque. En 2025, plus de 4 000 vulnérabilités WordPress ont été recensées.",
+        "Un site sur mesure en Next.js a une surface d'attaque drastiquement réduite : pas de base de données exposée, pas de panneau d'administration accessible publiquement, pas de plugins tiers vulnérables. Votre site est intrinsèquement plus sécurisé."
+      ]
+    },
+    {
+      "title": "SEO : un avantage structurel",
+      "paragraphs": [
+        "Google privilégie les sites rapides, légers et bien structurés. Un site Next.js génère un HTML sémantique parfait, avec un contrôle total sur les balises meta, les données structurées et la structure des URLs.",
+        "Contrairement à WordPress où le SEO dépend de plugins (Yoast, RankMath) qui ajoutent du poids et de la complexité, l'optimisation SEO est native dans un site sur mesure. Chaque page est créée avec le référencement en tête."
+      ]
+    },
+    {
+      "title": "Design : votre identité, pas un template",
+      "paragraphs": [
+        "Avec WordPress, même avec un thème premium à 60€, votre site ressemblera à des milliers d'autres. Les personnalisations sont limitées par le constructeur de page, et sortir du cadre du template devient vite un cauchemar technique.",
+        "Un site sur mesure est conçu pixel par pixel pour votre identité visuelle. Chaque interaction, chaque animation, chaque détail est pensé pour refléter votre marque et offrir une expérience unique à vos visiteurs."
+      ]
+    },
+    {
+      "title": "Maintenance : la tranquillité à long terme",
+      "paragraphs": [
+        "Un site WordPress demande une maintenance régulière : mises à jour de WordPress, des plugins (souvent 15-30 plugins), du thème, vérifications de sécurité. Chaque mise à jour comporte un risque de casser quelque chose.",
+        "Un site Next.js n'a aucune dépendance à mettre à jour côté production. Il est déployé comme un ensemble de fichiers statiques sur un CDN. Pas de serveur à maintenir, pas de plugins à surveiller : votre site fonctionne de manière autonome."
+      ]
+    }
+  ],
+  "whenWordpressOk": {
+    "title": "Quand WordPress peut convenir",
+    "subtitle": "Par honnêteté, voici les cas où WordPress reste une option acceptable.",
+    "cases": [
+      "Blog personnel sans ambition de référencement",
+      "Site temporaire ou événementiel à très petit budget",
+      "Projet nécessitant des centaines de contributeurs simultanés",
+      "Prototype ou MVP pour valider rapidement une idée"
+    ],
+    "disclaimer": "En revanche, si votre site est un véritable outil commercial qui doit refléter le professionnalisme de votre activité, attirer des clients via Google et offrir une expérience fluide, un site sur mesure sera toujours le meilleur investissement."
+  },
+  "cta": {
+    "title": "Prêt pour un site qui vous ressemble ?",
+    "description": "Passez au sur mesure et offrez à votre activité un site performant, sécurisé et parfaitement référencé. Premier échange gratuit et sans engagement.",
+    "button": "Demander un devis gratuit"
+  }
+}

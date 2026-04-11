@@ -11,6 +11,14 @@ interface UseSoundOptions {
 // Cache global pour les audios préchargés (persiste entre les re-renders)
 const audioCache = new Map<string, HTMLAudioElement>();
 
+/**
+ * Hook pour charger et jouer un son avec mise en cache globale.
+ * Précharge le fichier audio au montage pour une lecture instantanée sans latence.
+ * Les erreurs de lecture (politiques autoplay strictes) sont ignorées silencieusement.
+ * @param soundUrl - URL du fichier audio (ex. '/sounds/parrot.wav').
+ * @param options - Volume (0-1), vitesse de lecture, et activation du préchargement.
+ * @returns `{ play, stop, isLoaded }` — fonctions de contrôle et état de chargement.
+ */
 export function useSound(soundUrl: string, options: UseSoundOptions = {}) {
   const { volume = 0.5, playbackRate = 1, preload = true } = options;
   const audioRef = useRef<HTMLAudioElement | null>(null);

@@ -1,12 +1,14 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import ProjectQualifier from '@/components/project-qualifier/ProjectQualifier';
 
 type ContactView = 'choice' | 'form' | 'qualifier';
 
 export default function ContactForm() {
+  const t = useTranslations('contactForm');
   const [view, setView] = useState<ContactView>('choice');
   const [formData, setFormData] = useState({
     name: '',
@@ -49,7 +51,7 @@ export default function ContactForm() {
 
     if (!formData.consent) {
       setStatus('error');
-      setErrorMessage('N\'oubliez pas de cocher la case pour que je puisse vous répondre !');
+      setErrorMessage(t('consentError'));
       return;
     }
 
@@ -71,9 +73,9 @@ export default function ContactForm() {
       if (!response.ok) {
         setStatus('error');
         if (response.status === 429) {
-          setErrorMessage('Trop de messages envoyés. Patientez une minute avant de réessayer.');
+          setErrorMessage(t('rateLimitError'));
         } else {
-          setErrorMessage(data.error || 'Aïe, ça n\'a pas marché ! Réessayez, ou contactez-moi via WhatsApp.');
+          setErrorMessage(data.error || t('sendError'));
         }
         return;
       }
@@ -89,7 +91,7 @@ export default function ContactForm() {
       });
     } catch {
       setStatus('error');
-      setErrorMessage('Erreur de connexion. Vérifiez votre connexion internet.');
+      setErrorMessage(t('connectionError'));
     }
   };
 
@@ -119,21 +121,21 @@ export default function ContactForm() {
             isMounted && titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          Prêt·e à démarrer ?
+          {t('readyToStart')}
         </span>
         <h2 
           className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-paper mb-4 transition-all duration-700 delay-100 ${
             isMounted && titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Donnons vie à votre projet
+          {t('letsGo')}
         </h2>
         <p 
           className={`text-lg text-paper/60 max-w-xl mx-auto transition-all duration-700 delay-200 ${
             isMounted && titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          Comment souhaitez-vous me contacter ?
+          {t('howToContact')}
         </p>
         
         {/* Ligne décorative */}
@@ -163,7 +165,7 @@ export default function ContactForm() {
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
-              Rapide
+              {t('quick')}
             </span>
           </div>
 
@@ -180,14 +182,14 @@ export default function ContactForm() {
           {/* Titre - hauteur fixe */}
           <div className="h-[60px] flex items-start justify-center mb-2">
             <h3 className="text-lg lg:text-xl font-bold text-paper">
-              J&apos;ai une idée précise
+              {t('preciseIdea')}
             </h3>
           </div>
 
           {/* Paragraphe - hauteur fixe pour alignement */}
           <div className="min-h-[100px] flex items-start">
             <p className="text-paper/60 text-sm leading-relaxed">
-              Vous savez ce que vous voulez ? Écrivez-moi directement ! Je vous réponds sous 48h.
+              {t('response48h')}
             </p>
           </div>
 
@@ -197,7 +199,7 @@ export default function ContactForm() {
               className="inline-flex items-center justify-center w-full px-6 py-3 border-2 rounded-full font-semibold transition-all duration-300 group-hover:scale-105"
               style={{ borderColor: '#e85d8c', color: '#e85d8c' }}
             >
-              Écrire mon message
+              {t('writeMessage')}
             </span>
           </div>
         </button>
@@ -213,7 +215,7 @@ export default function ContactForm() {
               <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              Recommandé
+              {t('recommended')}
             </span>
           </div>
 
@@ -238,14 +240,14 @@ export default function ContactForm() {
           {/* Titre - hauteur fixe */}
           <div className="h-[60px] flex items-start justify-center mb-2">
             <h3 className="text-lg lg:text-xl font-bold text-paper">
-              Aidez-moi à définir mon besoin
+              {t('helpDefine')}
             </h3>
           </div>
 
           {/* Paragraphe - hauteur fixe pour alignement */}
           <div className="min-h-[100px] flex items-start">
             <p className="text-paper/60 text-sm leading-relaxed">
-              Pas encore sûr·e de ce qu&apos;il vous faut ? Répondez à quelques questions et recevez une estimation personnalisée.
+              {t('estimateDesc')}
             </p>
           </div>
 
@@ -258,13 +260,13 @@ export default function ContactForm() {
                 boxShadow: '0 4px 15px rgba(var(--accent-pink-rgb), 0.3)'
               }}
             >
-              Commencer le quiz interactif
+              {t('startQuiz')}
             </span>
             <span className="text-xs text-paper/40 flex items-center justify-center gap-1.5 mt-3">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              2 min
+              {t('quizDuration')}
             </span>
           </div>
         </button>
@@ -282,7 +284,7 @@ export default function ContactForm() {
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              30 min
+              {t('thirtyMin')}
             </span>
           </div>
 
@@ -306,14 +308,14 @@ export default function ContactForm() {
           {/* Titre - hauteur fixe */}
           <div className="h-[60px] flex items-start justify-center mb-2">
             <h3 className="text-lg lg:text-xl font-bold text-paper">
-              On s&apos;appelle ?
+              {t('letsCall')}
             </h3>
           </div>
 
           {/* Paragraphe - hauteur fixe pour alignement */}
           <div className="min-h-[100px] flex items-start">
             <p className="text-paper/60 text-sm leading-relaxed">
-              Première consultation offerte, sans engagement. Je vous conseille sur la meilleure approche pour votre projet.
+              {t('freeConsultation')}
             </p>
           </div>
 
@@ -323,7 +325,7 @@ export default function ContactForm() {
               className="inline-flex items-center justify-center w-full px-6 py-3 border-2 rounded-full font-semibold transition-all duration-300 group-hover:scale-105"
               style={{ borderColor: '#e85d8c', color: '#e85d8c' }}
             >
-              Réserver un créneau
+              {t('bookSlot')}
             </span>
           </div>
         </a>
@@ -339,19 +341,19 @@ export default function ContactForm() {
           <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
           </svg>
-          Gratuit
+          {t('free')}
         </span>
         <span className="flex items-center gap-1.5">
           <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
           </svg>
-          Sans engagement
+          {t('noCommitment')}
         </span>
         <span className="flex items-center gap-1.5">
           <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
           </svg>
-          Réponse sous 48h
+          {t('responseTime')}
         </span>
       </div>
     </div>
@@ -369,10 +371,10 @@ export default function ContactForm() {
           <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          Retour aux options
+          {t('backToOptions')}
         </button>
         <h2 className="flex items-center justify-center gap-4 text-3xl sm:text-4xl lg:text-5xl font-bold text-paper mb-4">
-          <span>Écrivez-moi</span>
+          <span>{t('writeToMe')}</span>
           <svg 
             className="w-8 h-8 lg:w-10 lg:h-10 text-accent flex-shrink-0"
             fill="none" 
@@ -387,7 +389,7 @@ export default function ContactForm() {
           </svg>
         </h2>
         <p className="text-lg text-paper/60 flex items-center justify-center gap-2">
-          <span>Parlez-moi de votre projet, je vous réponds sous 48h</span>
+          <span>{t('tellAboutProject')}</span>
           <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
           </svg>
@@ -411,20 +413,20 @@ export default function ContactForm() {
                 </svg>
               </div>
               <h3 className="flex items-center justify-center gap-2 text-2xl font-bold mb-4 text-paper">
-                <span>Bien reçu !</span>
+                <span>{t('received')}</span>
                 {/* Picto confetti/célébration */}
                 <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
                 </svg>
               </h3>
               <p className="text-paper/60 mb-8">
-                Merci pour votre message. Je vous réponds sous 48h, promis !
+                {t('thankYou')}
               </p>
               <button
                 onClick={handleBackToChoice}
                 className="btn-cta"
               >
-                Retour à l&apos;accueil
+                {t('backToHome')}
               </button>
             </div>
           ) : (
@@ -434,7 +436,7 @@ export default function ContactForm() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-paper/70 uppercase tracking-wider mb-2">
-                    Nom complet <span className="text-accent">*</span>
+                    {t('fullName')} <span className="text-accent">*</span>
                   </label>
                   <input
                     type="text"
@@ -450,7 +452,7 @@ export default function ContactForm() {
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-paper/70 uppercase tracking-wider mb-2">
-                    Email <span className="text-accent">*</span>
+                    {t('email')} <span className="text-accent">*</span>
                   </label>
                   <input
                     type="email"
@@ -468,7 +470,7 @@ export default function ContactForm() {
               {/* Entreprise */}
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-paper/70 uppercase tracking-wider mb-2">
-                  Entreprise <span className="text-paper/30">(optionnel)</span>
+                  {t('company')} <span className="text-paper/30">(optionnel)</span>
                 </label>
                 <input
                   type="text"
@@ -484,7 +486,7 @@ export default function ContactForm() {
               {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-paper/70 uppercase tracking-wider mb-2">
-                  Votre message <span className="text-accent">*</span>
+                  {t('yourMessage')} <span className="text-accent">*</span>
                 </label>
                 <textarea
                   ref={messageRef}
@@ -495,7 +497,7 @@ export default function ContactForm() {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-paper/10 border-2 border-paper/20 rounded-sketch text-paper placeholder-paper/40 focus:border-accent focus:outline-none transition-colors resize-none"
-                  placeholder="Parlez-moi de votre projet, vos idées, vos envies... Je suis tout ouïe !"
+                  placeholder={t('messagePlaceholder')}
                 />
               </div>
 
@@ -511,9 +513,9 @@ export default function ContactForm() {
                   className="mt-0.5 w-5 h-5 rounded border-2 border-paper/30 bg-transparent text-accent focus:ring-accent focus:ring-offset-0 cursor-pointer"
                 />
                 <label htmlFor="consent" className="text-paper/50 text-sm leading-relaxed cursor-pointer">
-                  J&apos;accepte d&apos;être recontacté(e) par Perrine.{' '}
+                  {t('consent')}{' '}
                   <a href="/politique-confidentialite" className="text-accent hover:underline">
-                    Politique de confidentialité
+                    {t('privacyPolicy')}
                   </a>
                 </label>
               </div>
@@ -537,14 +539,14 @@ export default function ContactForm() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    Envoi en cours...
+                    {t('sending')}
                   </span>
                 ) : (
                   <span className="flex items-center gap-2 group">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
                     </svg>
-                    Envoyer mon message
+                    {t('sendMessage')}
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

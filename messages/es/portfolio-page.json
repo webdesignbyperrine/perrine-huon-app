@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "title": "Portfolio - Mis Proyectos Web",
+    "description": "Descubre una selección de mis proyectos web recientes, optimizados para el SEO local"
+  },
+  "header": {
+    "subtitle": "Mis realizaciones",
+    "title": "Portfolio",
+    "description": "Una selección de mis proyectos recientes, optimizados para el SEO local"
+  },
+  "demoProjects": {
+    "1": {
+      "short_description": "Sitio web premium para estudio creativo en Lyon"
+    },
+    "2": {
+      "short_description": "E-commerce moderno con pago seguro"
+    },
+    "3": {
+      "short_description": "Aplicación SaaS para gestión de proyectos"
+    },
+    "4": {
+      "short_description": "Portfolio 3D interactivo para arquitecto"
+    },
+    "5": {
+      "short_description": "Plataforma colaborativa para equipos"
+    },
+    "6": {
+      "short_description": "Sitio e-learning con videos interactivos"
+    }
+  },
+  "cta": {
+    "button": "Obtener mi presupuesto gratuito"
+  }
+}

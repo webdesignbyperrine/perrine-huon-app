@@ -1,0 +1,338 @@
+{
+  "creation-site-vitrine": {
+    "title": "Custom Showcase Website Creation",
+    "metaTitle": "Custom Showcase Website Creation | Perrine Huon - Freelance Web Designer",
+    "metaDescription": "Professional custom showcase website creation for craftsmen, SMEs and freelancers. Modern design, SEO optimized, responsive. Free quote.",
+    "heroSubtitle": "A website that reflects your identity and attracts your ideal clients",
+    "priceRange": "From €1,500",
+    "ctaText": "Request a quote for my showcase website",
+    "features": [
+      "Custom design tailored to your visual identity",
+      "Responsive: perfect on mobile, tablet and desktop",
+      "SEO optimization integrated from conception",
+      "Ultra-fast loading times",
+      "Contact form and strategic calls to action",
+      "Training for managing your website",
+      "Hosting and domain name support",
+      "GDPR compliance and legal notices"
+    ],
+    "faqs": [
+      {
+        "question": "How long does it take to create a showcase website?",
+        "answer": "On average, creating a custom showcase website takes between 3 and 6 weeks. This timeframe includes the graphic design phase, development, integration of your content, and adjustments after your feedback. Exact timelines depend on project complexity and your responsiveness to validations."
+      },
+      {
+        "question": "Will my website be visible on Google?",
+        "answer": "Yes, every showcase website is designed with technical SEO optimization from the start: meta tags, semantic structure, optimized loading time, XML sitemap and structured data. I also support you in choosing keywords and writing content optimized for natural referencing."
+      },
+      {
+        "question": "Can I modify the content myself after delivery?",
+        "answer": "Absolutely. Depending on the chosen technology, you'll have an intuitive administration interface to modify your texts, images and add new pages. Complete training is included upon website delivery to make you autonomous."
+      },
+      {
+        "question": "What technologies do you use for a showcase website?",
+        "answer": "I primarily work with Next.js and React for optimal performance, or WordPress for clients wanting simplified content management. The technology choice depends on your needs, budget and growth objectives."
+      }
+    ],
+    "content": "\n      <h2>Why create a professional showcase website?</h2>\n      <p>Your showcase website is the first impression potential clients have of your business. In a world where <strong>97% of consumers search for local businesses online</strong>, a professional website is no longer an option — it's a necessity. A custom showcase website allows you to stand out from the competition, strengthen your credibility and convert your visitors into clients.</p>\n      <p>Unlike standardized website creation solutions, a showcase website designed by a freelance web designer guarantees you a unique result, specifically designed for your activity, your target audience and your business objectives.</p>\n\n      <h2>My approach to showcase website creation</h2>\n      <p>I don't simply create beautiful websites — I design <strong>digital growth tools</strong>. My method is based on three fundamental pillars:</p>\n      <ul>\n        <li><strong>Listening and understanding</strong>: before touching design, I take time to understand your business, target clientele and objectives. Every website element has a purpose.</li>\n        <li><strong>Strategic design</strong>: each page is structured to guide the visitor toward the desired action — contact, quote request or store visit.</li>\n        <li><strong>Technical performance</strong>: a fast, secure website optimized for search engines is the foundation of an effective online presence.</li>\n      </ul>\n\n      <h3>The steps to create your showcase website</h3>\n      <p>My creation process is transparent and structured to offer you a serene experience:</p>\n      <ul>\n        <li><strong>Brief and framework</strong> — Together we define your needs, visual identity and site structure.</li>\n        <li><strong>Mockups and design</strong> — I create high-fidelity mockups that you validate before development.</li>\n        <li><strong>Development and integration</strong> — Your site comes to life with clean code and modern technologies.</li>\n        <li><strong>Testing and optimization</strong> — I check every detail: responsive, speed, SEO, accessibility.</li>\n        <li><strong>Launch and training</strong> — Your site is launched and I train you in daily management.</li>\n      </ul>\n\n      <h2>A showcase website designed for natural referencing</h2>\n      <p>Every website I create integrates <strong>SEO best practices</strong> to maximize your visibility on Google. This includes careful semantic architecture, optimized meta tags, intelligent internal linking and minimal loading times thanks to modern technologies like Next.js.</p>\n      <p>Result: your website won't just be beautiful, it will be found by the right people at the right time.</p>\n\n      <h2>Technologies used</h2>\n      <p>According to your needs and budget, I work with proven technologies:</p>\n      <ul>\n        <li><strong>Next.js / React</strong> — For ultra-performant sites with a Lighthouse score close to 100.</li>\n        <li><strong>WordPress</strong> — For autonomous and accessible content management.</li>\n        <li><strong>Tailwind CSS</strong> — Pixel-perfect design consistent across all screens.</li>\n        <li><strong>Vercel / OVH</strong> — Reliable and fast hosting adapted to your needs.</li>\n      </ul>\n\n      <h2>Why choose Perrine Huon for your showcase website?</h2>\n      <p>As a <strong>freelance web designer</strong>, I offer you personalized support from A to Z. No intermediary, no surprise: you work directly with the person who designs and develops your site. I'm invested in the success of each project and available to answer all your questions, even after delivery.</p>\n      <p>My goal? That your showcase website becomes your <strong>best salesperson</strong> — the one working 24/7 to attract and convert your prospects.</p>\n    "
+  },
+  "creation-site-ecommerce": {
+    "title": "E-commerce Website Creation",
+    "metaTitle": "Custom E-commerce Website Creation | Perrine Huon - Web Developer",
+    "metaDescription": "Development of performant and secure online store. Online payment, inventory management, e-commerce SEO. Complete support.",
+    "heroSubtitle": "Sell online with a store that converts",
+    "priceRange": "From €3,000",
+    "ctaText": "Launch my e-commerce project",
+    "features": [
+      "Product catalog with filters and advanced search",
+      "Secure payment (Stripe, PayPal, credit card)",
+      "Simplified inventory and order management",
+      "Responsive design optimized for conversion",
+      "E-commerce SEO with structured product data",
+      "Shipping carrier integration and delivery tracking",
+      "Analytical sales dashboard",
+      "GDPR compliance and enhanced security"
+    ],
+    "faqs": [
+      {
+        "question": "What payment solutions do you integrate?",
+        "answer": "I integrate the main secure payment solutions: Stripe, PayPal, and credit card payments via PCI-DSS certified gateways. Transactions are secured by SSL encryption and 3D Secure to protect your clients and inspire confidence."
+      },
+      {
+        "question": "Can I manage my online store autonomously?",
+        "answer": "Yes, your store will be delivered with an intuitive back-office to manage your products, orders, inventory and promotions. I provide you complete training and custom documentation to make you totally autonomous in the daily management of your e-commerce."
+      },
+      {
+        "question": "How much does a custom e-commerce site cost?",
+        "answer": "The price depends on project complexity: number of products, specific features (subscriptions, marketplace, configurator), necessary integrations. An e-commerce project starts from €3,000. I offer you a detailed and transparent quote after studying your needs."
+      }
+    ],
+    "content": "\n      <h2>Why invest in a custom e-commerce site?</h2>\n      <p>French e-commerce continues to grow with <strong>over 42 million online buyers</strong>. Whether you sell artisanal products, services or unique creations, a professional online store is the most powerful growth lever at your disposal.</p>\n      <p>A custom e-commerce site, unlike standardized turnkey solutions, perfectly adapts to your catalog, sales process and the experience you want to offer your clients.</p>\n\n      <h2>An online store designed for conversion</h2>\n      <p>Every element of your e-commerce site is optimized to turn visitors into buyers:</p>\n      <ul>\n        <li><strong>Persuasive product pages</strong> — Structured pages with HD photos, detailed descriptions, customer reviews and cross-suggestions.</li>\n        <li><strong>Simplified purchase journey</strong> — A fluid conversion funnel with minimum steps between discovery and payment.</li>\n        <li><strong>Trust and reassurance</strong> — Security badges, clear return policy, verified reviews and secure payment highlighted.</li>\n        <li><strong>Mobile performance</strong> — Over 60% of online purchases are made on smartphones. Your store will be perfect on all screens.</li>\n      </ul>\n\n      <h3>Advanced e-commerce features</h3>\n      <p>According to your needs, your store can include:</p>\n      <ul>\n        <li>Multi-variant management (sizes, colors, options)</li>\n        <li>Promotional codes and flash sales</li>\n        <li>Loyalty program and customer accounts</li>\n        <li>Click & Collect for physical stores</li>\n        <li>Automated accounting export</li>\n        <li>Integration with your existing tools (CRM, ERP, logistics)</li>\n      </ul>\n\n      <h2>E-commerce SEO: be visible on Google Shopping</h2>\n      <p>A well-referenced e-commerce site attracts qualified clients continuously. I optimize each product page with <strong>Schema.org structured data</strong> (price, availability, reviews) to appear in Google rich results and Google Shopping.</p>\n      <p>The technical structure of the site, linking between categories and products, and optimized content ensure you lasting visibility on commercial queries in your sector.</p>\n\n      <h2>Cutting-edge e-commerce technologies</h2>\n      <p>I choose the technical stack most suited to your project:</p>\n      <ul>\n        <li><strong>Next.js + Stripe</strong> — For an ultra-fast store with fluid and secure payment.</li>\n        <li><strong>WooCommerce (WordPress)</strong> — Mature solution with a vast plugin ecosystem.</li>\n        <li><strong>Shopify</strong> — For projects requiring rapid online launch with integrated hosting.</li>\n        <li><strong>Headless Commerce</strong> — Decoupled architecture for ambitious projects combining performance and flexibility.</li>\n      </ul>\n\n      <h2>Why entrust me with your e-commerce project?</h2>\n      <p>As a specialized freelance web developer, I don't just build an online store — I create a <strong>performant sales tool</strong>. My support includes strategic advice on your catalog, user journey optimization and post-launch follow-up to analyze your first sales and adjust if necessary.</p>\n      <p>Your success is my success: I personally invest in each project to offer you a store that generates concrete results.</p>\n    "
+  },
+  "creation-application-web": {
+    "title": "Custom Web Application Development",
+    "metaTitle": "Custom Web Application Development | Perrine Huon - Freelance Developer",
+    "metaDescription": "Creation of custom web applications to digitize your business processes. React, Next.js, databases. Solution tailored to your needs.",
+    "heroSubtitle": "Digitize your activity with an application tailored for you",
+    "priceRange": "From €5,000",
+    "ctaText": "Discuss my application project",
+    "features": [
+      "Functional analysis and in-depth UX design",
+      "Scalable and maintainable technical architecture",
+      "Intuitive and modern user interface",
+      "Secure API and performant database",
+      "Authentication and user role management",
+      "Automated testing and continuous deployment",
+      "Technical documentation and team training"
+    ],
+    "faqs": [
+      {
+        "question": "What's the difference between a website and a web application?",
+        "answer": "A website presents information statically or semi-dynamically. A web application allows users to interact, create, modify and manage data. Examples of web applications: project management tool, booking platform, CRM, analytical dashboard. If your users need to log in and perform actions, you need a web application."
+      },
+      {
+        "question": "How long does web application development take?",
+        "answer": "Duration varies according to complexity. An MVP (minimum viable product) can be delivered in 2 to 3 months. A complete application with advanced features requires 4 to 8 months. I always recommend an iterative approach: deliver a functional MVP quickly, then enrich features according to user feedback."
+      },
+      {
+        "question": "What technologies do you use for web applications?",
+        "answer": "I primarily develop with React and Next.js for the front-end, Node.js for the back-end, and Supabase or PostgreSQL for the database. This modern stack guarantees excellent performance, facilitated maintenance and optimal scalability to support your business growth."
+      },
+      {
+        "question": "Do you provide maintenance after launch?",
+        "answer": "Yes, I offer maintenance contracts including security updates, bug fixes, functional evolutions and performance monitoring. You can also opt for occasional support according to your needs."
+      }
+    ],
+    "content": "\n      <h2>Why develop a custom web application?</h2>\n      <p>Generic tools never perfectly meet your business needs. A <strong>custom web application</strong> is specifically designed for your activity: it automates your processes, centralizes your data and offers your teams and clients a fluid and efficient experience.</p>\n      <p>Whether you're an SME wanting to digitize internal management, a professional needing a client space, or an association seeking to manage members — custom development is the lasting solution.</p>\n\n      <h2>My development process</h2>\n      <p>Creating a performant web application requires method and rigor. Here's my approach:</p>\n      <ul>\n        <li><strong>Discovery phase</strong> — I deeply analyze your current processes, pain points and objectives to define the application's functional scope.</li>\n        <li><strong>UX/UI design</strong> — Wireframes, interactive prototypes and final design are validated before writing a single line of code.</li>\n        <li><strong>Iterative development</strong> — Development happens in short sprints, with regular demos to validate progress and adjust priorities.</li>\n        <li><strong>Testing and quality</strong> — Unit tests, integration tests and user tests guarantee application reliability.</li>\n        <li><strong>Deployment and training</strong> — Secure production deployment, documentation and team training.</li>\n      </ul>\n\n      <h3>Common use cases</h3>\n      <p>Here are examples of web applications I've developed or can create for you:</p>\n      <ul>\n        <li>Online booking platform with schedule management</li>\n        <li>Activity tracking dashboard with key indicators</li>\n        <li>Secure client space with document management</li>\n        <li>Collaborative project management tool</li>\n        <li>Inventory and billing management system</li>\n        <li>Intranet portal for distributed teams</li>\n      </ul>\n\n      <h2>Modern and proven technical stack</h2>\n      <p>I rely on a robust and performant technological ecosystem:</p>\n      <ul>\n        <li><strong>React / Next.js</strong> — Reactive and performant user interface with server rendering.</li>\n        <li><strong>TypeScript</strong> — Typed code for better maintainability and fewer bugs.</li>\n        <li><strong>Supabase / PostgreSQL</strong> — Powerful relational database with integrated authentication.</li>\n        <li><strong>Vercel</strong> — Automated deployment with automatic scaling.</li>\n        <li><strong>Tailwind CSS</strong> — Consistent and responsive interfaces in record time.</li>\n      </ul>\n\n      <h2>Security and performance</h2>\n      <p>Security is never optional. Every application I develop integrates security best practices: <strong>robust authentication</strong>, sensitive data encryption, protection against SQL and XSS injections, fine-grained user permission management and GDPR compliance.</p>\n      <p>On the performance side, the architecture is designed to support scaling: intelligent caching, query optimization and scalable cloud infrastructure.</p>\n\n      <h2>End-to-end support</h2>\n      <p>My role doesn't stop at code delivery. I support you in <strong>strategic thinking</strong>, choosing priority features and evolving your application over time. A successful digital project is one that grows with your business.</p>\n    "
+  },
+  "creation-landing-page": {
+    "title": "Optimized Landing Page Creation",
+    "metaTitle": "Optimized Landing Page Creation | Perrine Huon - Conversion & Web Design",
+    "metaDescription": "Professional landing page optimized for conversion. Persuasive design, minimal loading time, A/B testing. Ideal for your campaigns.",
+    "heroSubtitle": "Convert your visitors into clients with a performing page",
+    "priceRange": "From €800",
+    "ctaText": "Create my landing page",
+    "features": [
+      "Persuasive design focused on conversion",
+      "Copywriting oriented toward client benefits",
+      "Loading time under 1 second",
+      "Optimized forms and CRM integrations",
+      "Mobile-first version perfectly responsive",
+      "Integrated conversion tracking and analytics",
+      "Compatible with your Google Ads and Meta campaigns"
+    ],
+    "faqs": [
+      {
+        "question": "What's the difference between a showcase website and a landing page?",
+        "answer": "A showcase website presents your entire activity across multiple pages. A landing page is a single page with one conversion objective (contact, registration, download, purchase). It's designed for targeted marketing campaigns and offers a much higher conversion rate than a classic page thanks to its focus on a single action."
+      },
+      {
+        "question": "How long until a landing page is ready?",
+        "answer": "A landing page can be designed and launched in 1 to 2 weeks. This timeframe includes persuasive content writing, design, development, tracking tool integration and testing on all devices."
+      },
+      {
+        "question": "Do you offer A/B testing?",
+        "answer": "Yes, I can set up variants of your landing page to test different titles, visuals or calls to action. A/B testing allows objective identification of what works best and continuous improvement of your conversion rate."
+      }
+    ],
+    "content": "\n      <h2>What is a landing page and why do you need one?</h2>\n      <p>A landing page — or landing page — is a webpage <strong>designed with one objective</strong>: converting your visitors into prospects or clients. Unlike a classic site where visitors can freely navigate, the landing page channels all attention toward a precise action.</p>\n      <p>Launching an advertising campaign? Offering a new service? Organizing an event? The landing page is the ideal tool to maximize return on investment of your marketing actions.</p>\n\n      <h2>Secrets of a converting landing page</h2>\n      <p>Creating an effective landing page is an art combining <strong>design, psychology and technique</strong>. Here are key elements I integrate in each creation:</p>\n      <ul>\n        <li><strong>A catchy title</strong> — The value proposition must be immediately understood in less than 5 seconds.</li>\n        <li><strong>A clear value proposition</strong> — Visitors must understand what you offer and why it's the best option.</li>\n        <li><strong>Social proof</strong> — Testimonials, client logos, key figures to establish trust.</li>\n        <li><strong>An irresistible call to action</strong> — Visible button, engaging text, minimal friction.</li>\n        <li><strong>Distraction elimination</strong> — No navigation menu, no outgoing links, total focus on conversion.</li>\n      </ul>\n\n      <h3>Optimization for your advertising campaigns</h3>\n      <p>Each landing page is designed to maximize the <strong>Quality Score</strong> of your Google Ads campaigns and the relevance score of your Meta ads (Facebook, Instagram). This means:</p>\n      <ul>\n        <li>Perfect consistency between ad and page content</li>\n        <li>Ultra-fast loading time (< 1 second)</li>\n        <li>Impeccable mobile experience</li>\n        <li>Conversion tracking with Google Tag Manager and Meta Pixel</li>\n      </ul>\n\n      <h2>My creation process</h2>\n      <p>Creating an effective landing page follows a rigorous process:</p>\n      <ul>\n        <li><strong>Analysis of your offer and target</strong> — Understanding motivations and objections of your prospects.</li>\n        <li><strong>Persuasive writing</strong> — Copywriting structured according to the AIDA method (Attention, Interest, Desire, Action).</li>\n        <li><strong>Conversion-first design</strong> — Every pixel serves the conversion objective.</li>\n        <li><strong>Performant development</strong> — Code optimized for instant loading.</li>\n        <li><strong>Tracking setup</strong> — Analytics, heatmaps and conversion tracking to measure results.</li>\n      </ul>\n\n      <h2>Measurable results</h2>\n      <p>A well-designed landing page can achieve <strong>conversion rates of 5 to 15%</strong>, versus 1 to 3% for a classic webpage. I provide you a clear dashboard to track performance: number of visitors, conversion rate, cost per lead and return on investment.</p>\n\n      <h2>Why choose me for your landing page?</h2>\n      <p>My approach combines technical development skills and marketing sensitivity. I don't just create beautiful pages — I create <strong>conversion machines</strong>. Every element is tested, optimized and designed to maximize your business results.</p>\n    "
+  },
+  "refonte-site-web": {
+    "title": "Website Redesign",
+    "metaTitle": "Professional Website Redesign | Perrine Huon - Freelance Web Designer",
+    "metaDescription": "Complete website redesign: modern design, improved performance, enhanced SEO. Keep your referencing, gain efficiency.",
+    "heroSubtitle": "Give new life to your site without losing your referencing",
+    "priceRange": "From €2,000",
+    "ctaText": "Plan my site redesign",
+    "features": [
+      "Complete audit of your existing site (UX, SEO, performance)",
+      "Modern redesign aligned with your current objectives",
+      "SEO migration without positioning loss",
+      "Performance and loading time improvement",
+      "Responsive adaptation for all devices",
+      "User journey and conversion optimization",
+      "301 redirects and complete migration plan",
+      "Training and handling documentation"
+    ],
+    "faqs": [
+      {
+        "question": "Will I lose my Google referencing during redesign?",
+        "answer": "No, if the redesign is done correctly. I establish a detailed SEO migration plan with 301 redirects for each modified URL, conservation of your optimized meta tags, and submission of the new sitemap to Google Search Console. The objective is to preserve, or even improve, your current positioning."
+      },
+      {
+        "question": "When should I consider a website redesign?",
+        "answer": "Several signs indicate a redesign is necessary: your site is over 3-4 years old, it's not responsive, loading times are slow, your bounce rate is high, the design no longer reflects your image, or you want to add features impossible with your current technology."
+      },
+      {
+        "question": "Can I keep my current content?",
+        "answer": "Yes, existing content can be kept, reworked or enriched according to needs. I conduct a content audit to identify what works well and what deserves improvement. It's also an opportunity to optimize your texts for SEO and add strategic content."
+      }
+    ],
+    "content": "\n      <h2>Why redesign your website?</h2>\n      <p>An aging website can significantly slow your business. <strong>Internet users judge a company's credibility in less than 50 milliseconds</strong> by looking at its site. Dated design, slow loading times or confusing navigation send a negative signal to your visitors — and to Google.</p>\n      <p>Redesigning your site is the opportunity to restart on solid foundations: current design, optimal performance and digital strategy aligned with your growth objectives.</p>\n\n      <h2>My redesign approach</h2>\n      <p>A successful redesign begins with a <strong>thorough audit</strong> of the existing. Before proposing solutions, I analyze in detail:</p>\n      <ul>\n        <li><strong>Performance analysis</strong> — Loading time, Core Web Vitals, Lighthouse score.</li>\n        <li><strong>SEO audit</strong> — Current positioning, backlinks, technical structure, missed opportunities.</li>\n        <li><strong>UX analysis</strong> — User journeys, bounce rate, exit pages, heatmaps if available.</li>\n        <li><strong>Content audit</strong> — Performing pages to keep, content to optimize, gaps to fill.</li>\n      </ul>\n\n      <h3>SEO migration: zero visibility loss</h3>\n      <p>The critical point of a redesign is <strong>preserving your referencing</strong>. My migration plan includes:</p>\n      <ul>\n        <li>Complete mapping of existing URLs</li>\n        <li>301 redirects for each modified or deleted page</li>\n        <li>Conservation of optimized meta tags and structured data</li>\n        <li>Submission of new sitemap to Google Search Console</li>\n        <li>Post-migration monitoring for 3 months</li>\n      </ul>\n\n      <h2>New design serving your objectives</h2>\n      <p>Redesign is the opportunity to rethink your visitors' experience. I design a design that:</p>\n      <ul>\n        <li>Reflects your current brand image and values</li>\n        <li>Naturally guides toward actions you want (contact, purchase, registration)</li>\n        <li>Offers intuitive navigation on all devices</li>\n        <li>Integrates latest UX/UI trends while remaining timeless</li>\n      </ul>\n\n      <h2>Performance and modern technologies</h2>\n      <p>Your redesigned site will benefit from the latest technological advances: <strong>Next.js</strong> for lightning-fast loading times, <strong>optimized images</strong> in WebP/AVIF format, intelligent <strong>lazy loading</strong> and strategic caching. Result: a site that obtains excellent Core Web Vitals scores and delights both your visitors and Google.</p>\n\n      <h2>Why choose Perrine Huon for your redesign?</h2>\n      <p>A poorly executed redesign can lose months of referencing and clients. By calling on an <strong>experienced professional</strong>, you have the assurance of a smooth transition, a result up to your ambitions and support at every step of the process.</p>\n    "
+  },
+  "seo-local-referencement-geolocalise": {
+    "title": "Local SEO & Geolocated Referencing",
+    "metaTitle": "Local SEO & Geolocated Referencing | Perrine Huon - SEO Expert",
+    "metaDescription": "Boost your local visibility on Google. Google Business Profile optimization, local SEO, geolocated keyword strategy for craftsmen and SMEs.",
+    "heroSubtitle": "Be found by clients in your geographic area",
+    "priceRange": "From €600/month",
+    "ctaText": "Boost my local visibility",
+    "features": [
+      "Google Business Profile audit and optimization",
+      "Geolocated keyword strategy",
+      "Optimized local page creation",
+      "Customer review management and e-reputation",
+      "Consistent NAP citations on directories",
+      "LocalBusiness structured data",
+      "Monthly local positioning reporting"
+    ],
+    "faqs": [
+      {
+        "question": "What is local SEO and why is it important?",
+        "answer": "Local SEO optimizes your visibility for geolocated searches (e.g.: \"bakery Bordeaux\", \"plumber near me\"). 46% of Google searches have local intent and 76% of people performing a local search visit a business within 24h. It's therefore essential for businesses with a geographic catchment area."
+      },
+      {
+        "question": "How long until we see local SEO results?",
+        "answer": "First results are generally visible in 2 to 4 months. Optimizing your Google Business Profile can give quick results (a few weeks), while local organic positioning requires more time. SEO is a long-term investment with cumulative results."
+      },
+      {
+        "question": "Do you work with multi-location businesses?",
+        "answer": "Yes, I manage local SEO for businesses with multiple locations. Each point of sale benefits from its own Google Business Profile, dedicated local pages and a keyword strategy adapted to its geographic area."
+      }
+    ],
+    "content": "\n      <h2>Why local SEO is essential for your business?</h2>\n      <p>Did you know that <strong>46% of all Google searches have local intent</strong>? When a potential client searches for \"hairdresser in Lyon\", \"Italian restaurant Bordeaux\" or \"plumber near me\", they're ready to buy. Local SEO places you exactly where these clients are looking for you.</p>\n      <p>For craftsmen, merchants, liberal professions and SMEs, local referencing is often the most profitable marketing lever. It targets qualified prospects, in your catchment area, at the precise moment they need your services.</p>\n\n      <h2>My local referencing strategy</h2>\n      <p>Local SEO is based on three pillars that I optimize in synergy:</p>\n\n      <h3>1. Google Business Profile (formerly Google My Business)</h3>\n      <p>Your Google Business Profile is often the first point of contact with your clients. I optimize every aspect:</p>\n      <ul>\n        <li>Complete and updated information (hours, services, service area)</li>\n        <li>Professional photos and regular Google Posts</li>\n        <li>Precise categorization and relevant attributes</li>\n        <li>Customer review response strategy</li>\n        <li>Proactive Q&A to anticipate frequent questions</li>\n      </ul>\n\n      <h3>2. Geolocated on-page SEO</h3>\n      <p>Your website must send the right signals to Google for local referencing:</p>\n      <ul>\n        <li>Service pages by city or geographic area</li>\n        <li>Title and meta description tags with geographic targeting</li>\n        <li>LocalBusiness and Service structured data</li>\n        <li>Authentic localized content (not duplicated generic text)</li>\n        <li>Internal linking between your local pages</li>\n      </ul>\n\n      <h3>3. Citations and local authority</h3>\n      <p>Consistency of your information on the web strengthens your credibility:</p>\n      <ul>\n        <li>Registration on relevant local directories (Yellow Pages, Yelp, TripAdvisor...)</li>\n        <li>NAP consistency (Name, Address, Phone) everywhere on the web</li>\n        <li>Quality local backlinks (partners, associations, local press)</li>\n        <li>Social media presence with geolocation</li>\n      </ul>\n\n      <h2>Transparent tracking and reporting</h2>\n      <p>Each month, I send you a clear and visual report including: evolution of your positioning on target keywords, local organic traffic, actions performed on your Google listing and your local page performance. You know exactly where you are and where we're going.</p>\n\n      <h2>Why choose Perrine Huon for your local SEO?</h2>\n      <p>Local SEO requires both <strong>technical skills</strong> (structured data, technical audit) and a <strong>field marketing approach</strong> (local market knowledge, geolocated content strategy). My dual technical and marketing profile allows me to offer a complete and effective service, adapted to local business realities.</p>\n    "
+  },
+  "maintenance-site-web": {
+    "title": "Website Maintenance",
+    "metaTitle": "Website Maintenance | Perrine Huon - Security, Updates & Support",
+    "metaDescription": "Professional website maintenance service: updates, security, backups, monitoring. Keep your site performant and secure.",
+    "heroSubtitle": "A performant and secure site, without worrying about it",
+    "priceRange": "From €80/month",
+    "ctaText": "Subscribe to maintenance",
+    "features": [
+      "Regular updates (CMS, plugins, dependencies)",
+      "Daily automatic backups",
+      "24/7 monitoring with real-time alerts",
+      "Bug fixes and rapid interventions",
+      "Monthly performance and security reports",
+      "Continuous loading time optimization",
+      "Reactive technical support by email"
+    ],
+    "faqs": [
+      {
+        "question": "Why is website maintenance essential?",
+        "answer": "A website without maintenance is vulnerable to security flaws, failures and performance degradation. Regular updates correct known vulnerabilities, backups protect your data, and monitoring allows intervention before a problem impacts your visitors. It's a much smaller investment than resolving a crisis."
+      },
+      {
+        "question": "What exactly does a maintenance contract include?",
+        "answer": "My maintenance contract includes: technical updates (CMS, plugins, dependencies), daily backups, 24/7 availability monitoring, bug fixes, a monthly performance report, and an hour credit for minor modifications. Several formulas are available according to your needs."
+      },
+      {
+        "question": "Do you intervene urgently in case of failure?",
+        "answer": "Yes, clients with a maintenance contract benefit from priority intervention. In case of critical failure, I commit to intervene within 4 business hours. For non-critical incidents, the intervention timeframe is 24 to 48 business hours."
+      }
+    ],
+    "content": "\n      <h2>Why your website maintenance is crucial</h2>\n      <p>Your website is a strategic asset requiring regular maintenance. <strong>30,000 websites are hacked every day</strong> worldwide, and the majority weren't up to date. Without maintenance, your site is exposed to security flaws, degraded loading times and bugs that drive away your visitors.</p>\n      <p>A maintenance contract offers you <strong>peace of mind</strong>: your site remains performant, secure and up to date while you focus on your business.</p>\n\n      <h2>My maintenance services</h2>\n\n      <h3>Security and updates</h3>\n      <p>Security is the number one priority of my maintenance service:</p>\n      <ul>\n        <li>Regular CMS, plugin and dependency updates</li>\n        <li>Monitoring of vulnerabilities and security patches</li>\n        <li>Configuration and monitoring of application firewall</li>\n        <li>SSL certificate verified and automatically renewed</li>\n        <li>Anti-spam and anti-brute force protection</li>\n      </ul>\n\n      <h3>Backups and recovery</h3>\n      <p>Your data is precious. My backup system protects you against any loss:</p>\n      <ul>\n        <li>Daily automatic backups (files and database)</li>\n        <li>Backup retention over 30 rolling days</li>\n        <li>Secure storage on remote server</li>\n        <li>Tested and documented restoration procedure</li>\n      </ul>\n\n      <h3>Monitoring and performance</h3>\n      <p>I continuously monitor your site to anticipate problems:</p>\n      <ul>\n        <li>24/7 availability monitoring with instant alerts</li>\n        <li>Loading time and Core Web Vitals tracking</li>\n        <li>Image and cache optimization</li>\n        <li>Regular database cleanup</li>\n        <li>Detailed monthly report on your site's health</li>\n      </ul>\n\n      <h2>Formulas adapted to your needs</h2>\n      <p>I offer several maintenance levels to suit all budgets:</p>\n      <ul>\n        <li><strong>Essential</strong> — Updates, backups and basic monitoring. Ideal for simple showcase sites.</li>\n        <li><strong>Comfort</strong> — All essential + priority support + included minor modifications. The most popular choice.</li>\n        <li><strong>Premium</strong> — Complete support with monthly evolutions, quarterly SEO audit and advanced reporting. For critical sites.</li>\n      </ul>\n\n      <h2>Why choose Perrine Huon for maintenance?</h2>\n      <p>By entrusting maintenance to the person who designed your site (or who knows it thoroughly after an audit), you benefit from <strong>expert technical skills</strong> and maximum responsiveness. No call center, no intermediary: direct contact with a professional invested in your website's health.</p>\n    "
+  },
+  "strategie-digitale-pme": {
+    "title": "Digital Strategy for SMEs",
+    "metaTitle": "Digital Strategy for SMEs & Freelancers | Perrine Huon - Web Consulting",
+    "metaDescription": "Strategic digital support for SMEs and freelancers. Audit, action plan, tools and training to develop your online presence.",
+    "heroSubtitle": "A clear roadmap to develop your digital presence",
+    "priceRange": "From €1,200",
+    "ctaText": "Define my digital strategy",
+    "features": [
+      "Complete audit of your current digital presence",
+      "Competitive analysis and positioning",
+      "Definition of your personas and customer journeys",
+      "Prioritized and costed digital action plan",
+      "Tool and technology recommendations",
+      "Implementation support",
+      "Team training in best practices",
+      "Performance indicators and dashboards"
+    ],
+    "faqs": [
+      {
+        "question": "What is a digital strategy concretely?",
+        "answer": "A digital strategy is a structured action plan to develop your online business. It defines your objectives (visibility, leads, sales), identifies the most relevant channels for your target (website, SEO, social media, emailing), prioritizes actions to take and sets measurable performance indicators. It's your roadmap to invest intelligently in digital."
+      },
+      {
+        "question": "How long does strategic support last?",
+        "answer": "The audit and recommendation phase generally lasts 2 to 4 weeks. Implementation support can extend from 3 to 12 months depending on your needs and pace. I adapt to your schedule and internal resources."
+      },
+      {
+        "question": "Is this service suitable for very small businesses?",
+        "answer": "Absolutely. My specialty is precisely supporting micro-enterprises, SMEs, craftsmen and freelancers who don't have an internal marketing service. I translate digital marketing concepts into concrete, pragmatic actions adapted to your budget and time constraints."
+      }
+    ],
+    "content": "\n      <h2>Why your SME needs a digital strategy</h2>\n      <p>Digital is no longer reserved for large companies. Today, <strong>70% of purchase journeys start with an online search</strong>, even for local businesses and services. Without a digital strategy, you're letting potential clients go to your competitors.</p>\n      <p>But \"being on the internet\" is not enough. Having a website without strategy is like opening a shop on a deserted street. Digital strategy gives meaning and direction to each of your online actions.</p>\n\n      <h2>My strategic approach</h2>\n      <p>I offer you support in four concrete phases:</p>\n\n      <h3>Phase 1: Audit and diagnosis</h3>\n      <p>Before building, we must understand. I analyze in depth:</p>\n      <ul>\n        <li>Your current digital presence (site, social media, online reviews)</li>\n        <li>Your positioning relative to competition</li>\n        <li>Digital behavior of your target clients</li>\n        <li>Your internal resources (budget, time, skills)</li>\n        <li>Your short and medium-term business objectives</li>\n      </ul>\n\n      <h3>Phase 2: Strategy and action plan</h3>\n      <p>Based on the audit, I build your digital roadmap:</p>\n      <ul>\n        <li>Definition of your personas (portraits of your ideal clients)</li>\n        <li>Choice of priority channels (SEO, SEA, social media, emailing...)</li>\n        <li>Editorial calendar and content plan</li>\n        <li>Budget forecast and estimated ROI</li>\n        <li>KPIs (performance indicators) for each action</li>\n      </ul>\n\n      <h3>Phase 3: Supported implementation</h3>\n      <p>Strategy is worthless without execution. I support you in setup:</p>\n      <ul>\n        <li>Creation or redesign of your website</li>\n        <li>Setup of your natural referencing</li>\n        <li>Configuration of your tools (analytics, CRM, email marketing)</li>\n        <li>Training your team in digital autonomy</li>\n      </ul>\n\n      <h3>Phase 4: Monitoring and optimization</h3>\n      <p>Digital constantly evolves. I conduct regular monitoring to adjust strategy:</p>\n      <ul>\n        <li>Monthly performance analysis</li>\n        <li>Action adjustments based on results</li>\n        <li>Competitive watch and identification of new opportunities</li>\n      </ul>\n\n      <h2>Concrete results for your SME</h2>\n      <p>My clients see tangible results: <strong>increased qualified traffic</strong>, better visitor-to-prospect conversion, strengthened local awareness and measurable return on investment. Every euro invested in digital is tracked and optimized.</p>\n\n      <h2>Why choose Perrine Huon?</h2>\n      <p>My advantage? I'm both <strong>strategist and executor</strong>. Unlike agencies that sell consulting then subcontract implementation, I master the entire chain: from strategic thinking to technical development. This guarantees perfect consistency between defined strategy and its realization, without information loss or extra cost.</p>\n    "
+  },
+  "creation-crm-logiciel-gestion": {
+    "title": "Custom CRM & Management Software",
+    "metaTitle": "Custom CRM & Management Software | Perrine Huon - Web Developer",
+    "metaDescription": "Development of custom CRM and management software for SMEs. Centralize your customer data, automate your processes. Tailored solution.",
+    "heroSubtitle": "Centralize, automate and manage your business efficiently",
+    "priceRange": "From €4,000",
+    "ctaText": "Discuss my CRM project",
+    "features": [
+      "Centralized contact and company management",
+      "Sales pipeline and opportunity tracking",
+      "Repetitive task automation",
+      "Customized dashboards and reporting",
+      "Integration with your existing tools (email, billing)",
+      "Multi-user access rights management",
+      "Web application accessible from any device"
+    ],
+    "faqs": [
+      {
+        "question": "Why custom CRM rather than Salesforce or HubSpot?",
+        "answer": "Market CRMs are powerful but often oversized and costly for SMEs. A custom CRM integrates exactly the features you need, adapts to your processes (not the reverse), doesn't require growing monthly subscriptions and can be enriched over time according to your business evolution."
+      },
+      {
+        "question": "Will my data be secure?",
+        "answer": "Security is at the heart of every development. Your CRM integrates secure authentication, sensitive data encryption, automatic backups, fine-grained access rights management and total GDPR compliance. Your data belongs to you and remains hosted in France or Europe according to your choice."
+      },
+      {
+        "question": "Can the CRM connect to my current tools?",
+        "answer": "Yes, I develop integrations with your existing tools: messaging (Gmail, Outlook), billing (Stripe, GoCardless), accounting, calendar, marketing automation tools. The objective is to create a fluid ecosystem where information flows without re-entry."
+      },
+      {
+        "question": "How does migration from our current system work?",
+        "answer": "I manage migration of your existing data (Excel spreadsheets, old CRM, database) to your new system. A migration plan is established to guarantee data integrity, and a parallel operation period is planned for a smooth transition."
+      }
+    ],
+    "content": "\n      <h2>Why custom CRM for your SME?</h2>\n      <p>Customer relationship management is at the heart of every performing company. Yet too many SMEs still juggle between <strong>Excel spreadsheets, sticky notes and scattered emails</strong>. A custom CRM (Customer Relationship Management) centralizes all your customer interactions in one place, accessible to your entire team.</p>\n      <p>Unlike expensive and complex generic SaaS solutions, a custom-developed CRM adapts exactly to your way of working, not the reverse.</p>\n\n      <h2>Features of your customized CRM</h2>\n\n      <h3>Contact and company management</h3>\n      <p>Centralize all your business relationships in a single database:</p>\n      <ul>\n        <li>Enriched contact and company files with complete history</li>\n        <li>Customizable tags, categories and segments</li>\n        <li>Advanced search and filtering</li>\n        <li>Easy import/export from your current tools</li>\n      </ul>\n\n      <h3>Sales pipeline and opportunity tracking</h3>\n      <p>Visualize and manage your commercial activity in real-time:</p>\n      <ul>\n        <li>Customizable sales pipeline kanban view</li>\n        <li>Opportunity tracking with conversion probability</li>\n        <li>Automated reminders and follow-ups</li>\n        <li>Revenue forecasting</li>\n      </ul>\n\n      <h3>Automation and productivity</h3>\n      <p>Free up time by automating low-value tasks:</p>\n      <ul>\n        <li>Automatic follow-up and reminder emails</li>\n        <li>Automatic lead assignment according to defined rules</li>\n        <li>Automatic quote and invoice creation</li>\n        <li>Customized notifications and alerts</li>\n      </ul>\n\n      <h3>Dashboards and indicators</h3>\n      <p>Make informed decisions thanks to reliable data:</p>\n      <ul>\n        <li>Customized dashboard with your key KPIs</li>\n        <li>Automated commercial activity reports</li>\n        <li>Performance analysis by salesperson, product or period</li>\n        <li>Data export for your team meetings</li>\n      </ul>\n\n      <h2>Technologies and architecture</h2>\n      <p>Your CRM is built with modern technologies guaranteeing <strong>performance, security and scalability</strong>:</p>\n      <ul>\n        <li><strong>React / Next.js</strong> — Reactive interface pleasant to use daily.</li>\n        <li><strong>Supabase / PostgreSQL</strong> — Robust relational database with integrated real-time.</li>\n        <li><strong>REST API</strong> — Open architecture for future integrations.</li>\n        <li><strong>Cloud hosting</strong> — Accessible everywhere, scalable and automatically backed up.</li>\n      </ul>\n\n      <h2>Why choose Perrine Huon for your CRM?</h2>\n      <p>Developing a CRM requires a <strong>rare dual skill</strong>: understanding business issues of commercial management AND mastering technical development. My experience with SMEs allows me to design pragmatic tools, focused on real use, that quickly become indispensable to your team's daily work.</p>\n    "
+  },
+  "design-ux-ui": {
+    "title": "UX/UI Design",
+    "metaTitle": "Professional UX/UI Design | Perrine Huon - Web Designer & UX Designer",
+    "metaDescription": "Intuitive and aesthetic user interface design. UX research, wireframes, interactive prototypes, design system. For websites and applications.",
+    "heroSubtitle": "Beautiful, intuitive interfaces designed for your users",
+    "priceRange": "From €1,000",
+    "ctaText": "Discuss my UX/UI project",
+    "features": [
+      "User research and needs analysis",
+      "Information architecture and user journey",
+      "Wireframes and interactive prototypes",
+      "Modern and accessible interface design",
+      "Design system and component library",
+      "User testing and iterations",
+      "Figma deliverables ready for development"
+    ],
+    "faqs": [
+      {
+        "question": "What's the difference between UX and UI design?",
+        "answer": "UX (User Experience) design focuses on the overall user experience: ease of use, logical journey, satisfaction. UI (User Interface) design concerns visual appearance: colors, typography, spacing, animations. Both are complementary and inseparable to create a successful digital product. I master both disciplines."
+      },
+      {
+        "question": "What deliverables do you provide?",
+        "answer": "Depending on the project, deliverables include: personas and user journeys, low-fidelity wireframes, high-fidelity mockups in Figma, clickable interactive prototype, documented design system (colors, typographies, components), developer specifications and style guide."
+      },
+      {
+        "question": "Do you also do interface development?",
+        "answer": "Yes, that's precisely my main advantage. As a web designer and developer, I can ensure continuity between design and integration. The final result corresponds pixel for pixel to validated mockups, without the approximations that occur when designer and developer are two different people."
+      }
+    ],
+    "content": "\n      <h2>Why invest in UX/UI design?</h2>\n      <p>UX/UI design isn't just about aesthetics — it's a <strong>strategic investment</strong>. Every euro invested in UX returns on average 100 euros. Why? Because a well-designed interface reduces friction, increases conversions and builds user loyalty.</p>\n      <p>A poorly designed site or application frustrates users and makes them flee. <strong>88% of internet users don't return to a site after a bad experience</strong>. UX/UI design is your best insurance against this risk.</p>\n\n      <h2>My UX/UI design process</h2>\n\n      <h3>Research and understanding</h3>\n      <p>All good design starts with deep user understanding:</p>\n      <ul>\n        <li><strong>User interviews</strong> — Understanding real needs, frustrations and expectations of your users.</li>\n        <li><strong>Data analysis</strong> — Study of analytics, heatmaps and session recordings if available.</li>\n        <li><strong>Personas</strong> — Creation of typical profiles to guide design decisions.</li>\n        <li><strong>Competitive benchmark</strong> — Analysis of best practices in your sector.</li>\n      </ul>\n\n      <h3>Architecture and wireframes</h3>\n      <p>Before thinking visually, I structure the experience:</p>\n      <ul>\n        <li><strong>Information architecture</strong> — Logical organization of content and features.</li>\n        <li><strong>User flows</strong> — Mapping of key user journeys.</li>\n        <li><strong>Wireframes</strong> — Structural diagrams to validate ergonomics before investing in visual design.</li>\n        <li><strong>Interactive prototypes</strong> — Clickable mockups to test journeys with real users.</li>\n      </ul>\n\n      <h3>Interface design</h3>\n      <p>The moment when your product comes to life visually:</p>\n      <ul>\n        <li><strong>Design system</strong> — A consistent system of components, colors, typographies and reusable spacing.</li>\n        <li><strong>High-fidelity mockups</strong> — Every screen drawn to the pixel in Figma.</li>\n        <li><strong>Micro-interactions</strong> — Subtle animations that make the interface alive and intuitive.</li>\n        <li><strong>Accessibility</strong> — Sufficient contrasts, keyboard navigation, screen reader compatibility.</li>\n      </ul>\n\n      <h3>Testing and iterations</h3>\n      <p>Design is never finished in the first version. I conduct <strong>user testing</strong> to identify friction points and iterate until achieving a fluid and pleasant experience.</p>\n\n      <h2>Design and development: a winning duo</h2>\n      <p>My unique advantage is mastering both <strong>design and development</strong>. This means I design interfaces that are not only beautiful but also technically feasible, performant and responsive. No bad surprise at integration time: the final result exactly matches the design vision.</p>\n\n      <h2>Tools and methodology</h2>\n      <p>I work with reference design tools:</p>\n      <ul>\n        <li><strong>Figma</strong> — Collaborative design with reusable components and auto-layout.</li>\n        <li><strong>Mobile-first principle</strong> — Responsive design starting from mobile up to desktop.</li>\n        <li><strong>Design tokens</strong> — Design variables directly exportable to code (Tailwind CSS).</li>\n        <li><strong>Atomic Design</strong> — Component-based creation methodology for scalable design.</li>\n      </ul>\n\n      <h2>Why choose Perrine Huon for your UX/UI design?</h2>\n      <p>Design is at the heart of my professional identity. Each project is an opportunity to create something <strong>unique, intentional and memorable</strong>. My approach combines methodological rigor, aesthetic sensitivity and technical pragmatism to deliver interfaces that make a difference to your users.</p>\n    "
+  }
+}

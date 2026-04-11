@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "Opiniones de Clientes y Testimonios — Creación de Sitios Web",
+    "description": "Descubra las opiniones y testimonios de clientes satisfechos. Calificación promedio 4.9/5. Creación de sitios web para abogados, restaurantes, pymes y profesionales."
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "testimonials": "Opiniones de Clientes"
+  },
+  "hero": {
+    "back_link": "← Volver al inicio",
+    "title": "Opiniones de Clientes y Testimonios",
+    "subtitle": "Descubra lo que mis clientes dicen sobre su experiencia y los resultados obtenidos después de crear su sitio web.",
+    "rating_based_on": "Basado en",
+    "rating_reviews": "opiniones de clientes"
+  },
+  "rating": {
+    "aria_label": "Calificación:"
+  },
+  "cta": {
+    "title": "Únase a nuestros clientes satisfechos",
+    "description": "Su proyecto merece el mismo cuidado y atención. Hablemos juntos de sus necesidades para crear el sitio web que marcará la diferencia.",
+    "button": "Comenzar mi proyecto"
+  }
+}

@@ -1,26 +1,29 @@
 'use client';
 
-import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/i18n/routing';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useSound } from '@/hooks/useSound';
+import { useHeaderScroll } from '@/hooks/useHeaderScroll';
+import { useLogoLoader } from '@/hooks/useLogoLoader';
 import { SunIcon, MoonIcon, DocumentIcon, EnvelopeIcon, MenuIcon, CloseIcon } from '@/components/icons';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [onDarkSection, setOnDarkSection] = useState(false);
-  const [logoUrl, setLogoUrl] = useState('/images/logo_vert_perrine_huon.png');
   const [isFlying, setIsFlying] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const { scrolled, onDarkSection } = useHeaderScroll(headerRef);
+  const logoUrl = useLogoLoader();
   const logoContainerRef = useRef<HTMLDivElement>(null);
   const cageRef = useRef<HTMLDivElement>(null);
   const birdRef = useRef<HTMLDivElement>(null);
   const letterRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const t = useTranslations('header');
   
   // Précharger le son pour lecture instantanée
   const { play: playParrotSound } = useSound('/sounds/parrot.wav', { volume: 0.5 });
@@ -271,68 +274,20 @@ export default function Header() {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-      
-      // Détecter si le header chevauche une section sombre (fond bleu)
-      const headerEl = headerRef.current;
-      if (headerEl) {
-        const headerHeight = headerEl.getBoundingClientRect().height;
-        // Position du milieu du header dans le viewport (le header est fixed top:0)
-        const headerMidInViewport = headerHeight / 2;
-        
-        const darkSections = document.querySelectorAll('.section-dark');
-        let isOnDark = false;
-        
-        darkSections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          // La section est visible derrière le header si son top est au-dessus du milieu du header
-          // et son bottom est en dessous du milieu du header
-          // Buffer de 80px pour la vague SVG de transition au-dessus de la section
-          if (rect.top - 80 <= headerMidInViewport && rect.bottom >= headerMidInViewport) {
-            isOnDark = true;
-          }
-        });
-        
-        setOnDarkSection(isOnDark);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Vérification initiale
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (pathname === '/') {
-      const logoClick = sessionStorage.getItem('logoClick');
-      if (logoClick === 'true') {
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'auto' });
-        }, 100);
-        sessionStorage.removeItem('logoClick');
-      }
+    if (pathname !== '/') return;
+    const logoClick = sessionStorage.getItem('logoClick');
+    if (logoClick === 'true') {
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'auto' }), 100);
+      sessionStorage.removeItem('logoClick');
     }
   }, [pathname]);
 
-  useEffect(() => {
-    fetch('/api/site-settings')
-      .then(res => res.json())
-      .then(data => {
-        if (data.logo_url) {
-          setLogoUrl(data.logo_url);
-        }
-      })
-      .catch(error => {
-        console.error('Error loading logo:', error);
-      });
-  }, []);
-
   const navigation = [
-    { name: 'Services', href: '/#services' },
-    { name: 'Réalisations', href: '/portfolio' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Tarifs', href: '/tarifs-creation-site-web' },
-    { name: 'FAQ', href: '/faq' },
+    { name: t('services'), href: '/#services' as const },
+    { name: t('portfolio'), href: '/portfolio' as const },
+    { name: t('blog'), href: '/blog' as const },
+    { name: t('pricing'), href: '/tarifs-creation-site-web' as const },
+    { name: t('faq'), href: '/faq' as const },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -486,20 +441,22 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               className="theme-toggle"
-              aria-label={theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair'}
-              title={theme === 'light' ? 'Mode sombre' : 'Mode clair'}
+              aria-label={theme === 'light' ? t('darkMode') : t('lightMode')}
+              title={theme === 'light' ? t('darkModeShort') : t('lightModeShort')}
             >
               <SunIcon />
               <MoonIcon />
             </button>
+
+            <LanguageSwitcher />
             
             {/* Bouton Contact - Enveloppe */}
             <Link
               href="/#contact"
               onClick={(e) => handleNavClick(e, '/#contact')}
               className="contact-icon-btn group"
-              aria-label="Formulaire de contact"
-              title="Écrivez-moi"
+              aria-label={t('contactForm')}
+              title={t('writeMe')}
             >
               <EnvelopeIcon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
             </Link>
@@ -517,7 +474,7 @@ export default function Header() {
               <span className="relative z-10 flex items-center gap-2">
                 <DocumentIcon className="w-4 h-4 icon-ring" />
                 <span className="text-sm uppercase tracking-wider font-semibold">
-                  Devis gratuit
+                  {t('freeQuote')}
                 </span>
               </span>
             </button>
@@ -530,7 +487,7 @@ export default function Header() {
               href="/#contact"
               onClick={(e) => handleNavClick(e, '/#contact')}
               className="contact-icon-btn-mobile"
-              aria-label="Formulaire de contact"
+              aria-label={t('contactForm')}
             >
               <EnvelopeIcon className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
             </Link>
@@ -545,7 +502,7 @@ export default function Header() {
                 }
               }}
               className="phone-cta-mobile btn-cta-devis-mobile"
-              aria-label="Obtenir mon devis gratuit"
+              aria-label={t('getFreeQuote')}
             >
               <DocumentIcon className="w-[18px] h-[18px] sm:w-5 sm:h-5" />
             </button>
@@ -554,12 +511,14 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               className="theme-toggle-mobile"
-              aria-label={theme === 'light' ? 'Activer le mode sombre' : 'Activer le mode clair'}
-              title={theme === 'light' ? 'Mode sombre' : 'Mode clair'}
+              aria-label={theme === 'light' ? t('darkMode') : t('lightMode')}
+              title={theme === 'light' ? t('darkModeShort') : t('lightModeShort')}
             >
               <SunIcon />
               <MoonIcon />
             </button>
+
+            <LanguageSwitcher compact />
             
             {/* Mobile menu button - Style ligne claire */}
             <button
@@ -567,7 +526,7 @@ export default function Header() {
               className="p-1.5 sm:p-2 rounded-lg transition-colors"
               style={{ color: onDarkSection ? '#E8DCC4' : '#2B5B8A' }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label={mobileMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-label={mobileMenuOpen ? t('closeMenu') : t('openMenu')}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
             >
@@ -585,7 +544,7 @@ export default function Header() {
           <nav 
             id="mobile-navigation" 
             className="xl:hidden mt-4 p-6 bg-paper-light border-2 border-primary/20 rounded-sketch-lg shadow-sketch animate-fade-in-down"
-            aria-label="Navigation mobile"
+            aria-label={t('mobileNav')}
           >
             <div className="space-y-1">
               {navigation.map((item, index) => (
@@ -616,7 +575,7 @@ export default function Header() {
               >
                 <DocumentIcon className="w-4 h-4" />
                 <span className="text-sm uppercase tracking-wider font-semibold">
-                  Devis gratuit
+                  {t('freeQuote')}
                 </span>
               </button>
             </div>

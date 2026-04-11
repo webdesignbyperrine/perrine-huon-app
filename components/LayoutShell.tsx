@@ -5,13 +5,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-const STANDALONE_PAGES = ["/contact"];
+const STANDALONE_PATTERNS = ["/contact"];
 
 export default function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isStandalone = STANDALONE_PAGES.includes(pathname);
+  const pathWithoutLocale = pathname.replace(/^\/(en|es)/, '') || '/';
+  const isStandalone = STANDALONE_PATTERNS.some(p => pathWithoutLocale === p || pathWithoutLocale.startsWith(p + '/'));
+  const isAdmin = pathname.startsWith('/admin');
+  const isBlog = pathWithoutLocale.startsWith('/blog');
 
-  if (isStandalone) {
+  if (isStandalone || isAdmin) {
     return <>{children}</>;
   }
 

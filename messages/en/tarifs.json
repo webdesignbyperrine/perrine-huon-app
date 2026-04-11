@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "title": "Website Creation Pricing 2026 — Free Quote",
+    "description": "Discover website creation pricing: showcase website from €1,500, e-commerce from €3,000, custom web application on quote. Transparent pricing, free quote.",
+    "ogTitle": "Website Creation Pricing 2026 — Free Quote",
+    "ogDescription": "Discover website creation pricing: showcase website from €1,500, e-commerce from €3,000, custom web application on quote."
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "pricing": "Pricing"
+  },
+  "hero": {
+    "backLink": "Back to home",
+    "title": "Website Creation Pricing",
+    "description": "Transparent pricing tailored to each project. From showcase websites to custom web applications, find the package that suits you.",
+    "cta": "Get a free quote"
+  },
+  "plans": {
+    "vitrine": {
+      "name": "Showcase Website",
+      "price": "From €1,500",
+      "description": "Perfect for presenting your business and attracting local clients.",
+      "popular": false,
+      "popularBadge": "Popular",
+      "cta": "Request a quote",
+      "features": [
+        "Custom responsive design",
+        "3 to 7 optimized pages",
+        "Basic SEO optimization",
+        "Contact form",
+        "Google Maps integration",
+        "Hosting & deployment",
+        "Content management training",
+        "30-day post-delivery support"
+      ]
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "price": "From €3,000",
+      "description": "High-performance online store with secure payment and inventory management.",
+      "popular": true,
+      "features": [
+        "All Showcase Website features",
+        "Unlimited product catalog",
+        "Secure payment (Stripe, PayPal)",
+        "Inventory & order management",
+        "SEO-optimized product pages",
+        "Automated transactional emails",
+        "Management dashboard",
+        "Complete store training"
+      ]
+    },
+    "webapp": {
+      "name": "Web Application",
+      "price": "On quote",
+      "description": "Custom solution for your business needs: CRM, dashboard, internal tool.",
+      "popular": false,
+      "features": [
+        "Complete functional analysis",
+        "Custom architecture",
+        "Intuitive user interface",
+        "Optimized database",
+        "Authentication & security",
+        "API & third-party integrations",
+        "Testing & acceptance",
+        "Technical documentation"
+      ]
+    },
+    "maintenance": {
+      "name": "Maintenance",
+      "price": "From €80/month",
+      "description": "Keep your site performing, secure, and up-to-date with peace of mind.",
+      "popular": false,
+      "features": [
+        "Security updates",
+        "Automatic backups",
+        "Performance monitoring",
+        "Priority bug fixes",
+        "Continuous SEO optimization",
+        "Technical support via email",
+        "Monthly performance report",
+        "Minor modifications included"
+      ]
+    }
+  },
+  "inclusions": {
+    "title": "What's included in every service",
+    "items": [
+      {
+        "title": "SEO Optimized",
+        "description": "Every page is optimized for natural search: meta tags, semantic structure, performance, and local SEO."
+      },
+      {
+        "title": "Responsive Design",
+        "description": "Your site adapts perfectly to all screens: mobile, tablet, and desktop. Tested on all browsers."
+      },
+      {
+        "title": "Maximum Performance",
+        "description": "Google PageSpeed score above 90. Optimized loading time for a smooth user experience."
+      },
+      {
+        "title": "Hosting Consultation",
+        "description": "Recommendation and setup of the hosting solution best suited to your project and budget."
+      },
+      {
+        "title": "GDPR & Legal Notices",
+        "description": "GDPR compliance, privacy policy, and legal notices included to be compliant from launch."
+      },
+      {
+        "title": "Training & Autonomy",
+        "description": "Personalized training to manage your content autonomously. Documentation and video tutorials included."
+      }
+    ]
+  },
+  "faqs": {
+    "title": "Frequently asked questions about pricing",
+    "items": [
+      {
+        "question": "How is the final price of my website calculated?",
+        "answer": "The price depends on several factors: the number of pages, desired features (forms, booking, online payment...), design complexity, and the volume of content to integrate. After our first discussion, I provide you with a detailed and transparent quote."
+      },
+      {
+        "question": "Are there any hidden costs or additional fees?",
+        "answer": "No, I practice a policy of total transparency. The quote includes the entire service. Only hosting (approximately €10-30/month depending on the solution) and domain name (approximately €10-15/year) are recurring fees that you pay directly to the provider."
+      },
+      {
+        "question": "Do you offer payment facilities?",
+        "answer": "Yes, payment is generally made in 3 installments: a 30% deposit when ordering, 40% upon design validation, and 30% upon delivery. For large projects, a personalized payment schedule can be arranged."
+      },
+      {
+        "question": "How long does it take to create my website?",
+        "answer": "Timelines vary depending on complexity: 2 to 4 weeks for a showcase website, 4 to 8 weeks for e-commerce, and 6 to 12 weeks for a custom web application. A precise schedule is defined together at the beginning of the project."
+      },
+      {
+        "question": "What happens after the website is delivered?",
+        "answer": "After delivery, you benefit from 30 days of free support for any questions or minor adjustments. Then, I offer monthly maintenance packages to ensure the sustainability and performance of your site."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to launch your project?",
+    "description": "Get a personalized and free quote in just a few minutes. Describe your project and receive a proposal tailored to your needs and budget.",
+    "button": "Get my free quote"
+  }
+}

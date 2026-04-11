@@ -1,8 +1,10 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function CalendlySection() {
+  const t = useTranslations('calendly');
   const calendlyUrl = "https://calendly.com/perrinehuon/30min";
   
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
@@ -45,21 +47,21 @@ export default function CalendlySection() {
                 titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              Prendre rendez-vous
+              {t('overtitle')}
             </span>
             <h2 
               className={`text-4xl sm:text-5xl lg:text-6xl font-bold text-paper mb-4 transition-all duration-700 delay-100 ${
                 titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              On s'appelle ?
+              {t('title')}
             </h2>
             <p 
               className={`text-lg text-paper/60 max-w-2xl mx-auto transition-all duration-700 delay-200 ${
                 titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
             >
-              30 minutes pour faire connaissance, comprendre vos besoins et vous proposer les meilleures solutions.
+              {t('intro')}
             </p>
             
             {/* Ligne décorative */}
@@ -96,11 +98,11 @@ export default function CalendlySection() {
 
             {/* Sous-titre */}
             <h3 className="text-2xl sm:text-3xl font-bold text-paper mb-4">
-              Discutons de votre projet
+              {t('discussTitle')}
             </h3>
             
             <p className="text-paper/60 max-w-xl mx-auto mb-10">
-              Première consultation offerte, sans engagement. Je vous conseille sur la meilleure approche pour votre projet.
+              {t('discussDesc')}
             </p>
 
             {/* Bouton CTA */}
@@ -123,7 +125,7 @@ export default function CalendlySection() {
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
               </svg>
               
-              <span>Réserver un créneau</span>
+              <span>{t('bookSlot')}</span>
 
               {/* Flèche */}
               <svg 
@@ -141,7 +143,7 @@ export default function CalendlySection() {
               <svg className="w-4 h-4 text-paper/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              Première consultation offerte • Sans engagement
+              {t('badge')}
             </p>
           </div>
 
@@ -152,22 +154,22 @@ export default function CalendlySection() {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 ),
-                title: "30 minutes",
-                description: "Un échange rapide et efficace"
+                title: t('benefit1Title'),
+                description: t('benefit1Desc')
               },
               {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 ),
-                title: "100% gratuit",
-                description: "Aucun frais, discussion libre"
+                title: t('benefit2Title'),
+                description: t('benefit2Desc')
               },
               {
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 ),
-                title: "Conseils personnalisés",
-                description: "Solutions adaptées à vos besoins"
+                title: t('benefit3Title'),
+                description: t('benefit3Desc')
               }
             ].map((item, index) => (
               <div 

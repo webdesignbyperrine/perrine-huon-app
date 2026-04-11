@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import dynamic from 'next/dynamic';
+import { useTranslations } from 'next-intl';
 import { ProjectQualifier } from '@/components/project-qualifier';
 import { useSound } from '@/hooks/useSound';
 import TypewriterCarousel from '@/components/TypewriterCarousel';
@@ -17,6 +18,7 @@ const HeroIllustration = dynamic(() => import('@/components/illustrations/HeroIl
 });
 
 export default function Hero() {
+  const t = useTranslations('hero');
   const [showQualifier, setShowQualifier] = useState(false);
   const qualifierRef = useRef<HTMLDivElement>(null);
   
@@ -134,34 +136,28 @@ export default function Hero() {
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border-2 border-primary/20 rounded-full mb-6 animate-fade-in-down">
                 <span className="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
                 <span className="text-sm font-medium text-primary/70 uppercase tracking-wider">
-                  Développeuse web freelance — Création de sites internet sur mesure
+                  {t('badge')}
                 </span>
                   </div>
 
                   {/* Titre principal */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
-                <span className="text-primary">Vous bossez.</span>
+                <span className="text-primary">{t('titleLine1')}</span>
                 <br />
-                <span className="text-primary">Votre site web aussi.</span>
+                <span className="text-primary">{t('titleLine2')}</span>
               </h1>
 
               {/* Sous-titre */}
               <p className="text-xl lg:text-2xl text-primary/60 mb-2 animate-fade-in-up animation-delay-200">
-                Sites internet pensés pour être trouvés sur Google.
+                {t('subtitleLine1')}
                 <br />
-                Conçus pour convertir vos visiteurs en clients.
+                {t('subtitleLine2')}
               </p>
               
               {/* Phrase manuscrite */}
               <p className="text-2xl lg:text-3xl text-accent mb-6 animate-fade-in-up animation-delay-200" style={{ fontFamily: 'var(--font-caveat)' }}>
                 <TypewriterCarousel
-                  texts={[
-                    "Construisons ensemble votre succès digital.",
-                    "Sites web pour PME, professions libérales et associations.",
-                    "De Paris à toute la France, votre site sur mesure.",
-                    "Performance, SEO et design : le trio gagnant.",
-                    "Votre prochain client vous cherche sur Google.",
-                  ]}
+                  texts={[t('typewriter1'), t('typewriter2'), t('typewriter3'), t('typewriter4'), t('typewriter5')]}
                   typeDelay={50}
                   deleteDelay={25}
                   pauseDelay={3000}
@@ -187,7 +183,7 @@ export default function Hero() {
                     
                     <span className="relative flex flex-col items-center justify-center gap-1">
                       {/* Label Quiz interactif */}
-                      <span className="text-xs font-medium uppercase tracking-wider opacity-80">Quiz interactif</span>
+                      <span className="text-xs font-medium uppercase tracking-wider opacity-80">{t('quizLabel')}</span>
                       
                       {/* Contenu principal */}
                       <span className="flex items-center justify-center gap-3">
@@ -201,7 +197,7 @@ export default function Hero() {
                             <polyline points="10 9 9 9 8 9"/>
                           </svg>
                         </span>
-                        <span className="font-bold">Quel est votre projet ?</span>
+                        <span className="font-bold">{t('quizCTA')}</span>
                         <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                         </svg>
@@ -214,7 +210,7 @@ export default function Hero() {
                     <svg className="w-4 h-4 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span>2 min chrono</span>
+                    <span>{t('quizDuration')}</span>
                   </span>
                 </div>
               </div>
@@ -244,7 +240,7 @@ export default function Hero() {
                 <svg className="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                   </svg>
-                Retour à l&apos;accueil
+                {t('backToHome')}
                 </button>
 
                 <ProjectQualifier mode="inline" />

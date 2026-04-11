@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { ACCOMPAGNEMENT_OPTIONS, AccompagnementLevel } from '../types';
 import SelectionCard from '../ui/SelectionCard';
@@ -8,6 +9,7 @@ import ProgressBar from '../ui/ProgressBar';
 import { HandshakeIcon } from '../icons';
 
 export default function AccompagnementStep() {
+  const t = useTranslations('qualifier.accompagnement');
   const { data, setAccompagnement, goNext } = useQualifier();
 
   const handleSelect = (level: AccompagnementLevel) => {
@@ -44,10 +46,10 @@ export default function AccompagnementStep() {
       {/* Titre */}
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-          Quel niveau d&apos;accompagnement souhaitez-vous ?
+          {t('title')}
         </h2>
         <p className="text-primary/50 font-light">
-          Je m&apos;adapte à vos besoins après la livraison
+          {t('subtitle')}
         </p>
       </div>
 
@@ -75,10 +77,10 @@ export default function AccompagnementStep() {
               {/* Texte */}
               <div>
                 <h3 className="text-lg font-bold text-primary mb-1">
-                  {option.label}
+                  {t(`options.${option.value}.label`)}
                 </h3>
                 <p className="text-sm text-primary/70 font-medium">
-                  {option.description}
+                  {t(`options.${option.value}.description`)}
                 </p>
               </div>
             </div>

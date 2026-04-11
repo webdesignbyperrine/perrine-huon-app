@@ -9,8 +9,12 @@ interface UseScrollAnimationOptions {
 }
 
 /**
- * Hook pour déclencher des animations au scroll
- * Retourne une ref à attacher à l'élément et un boolean indiquant si l'élément est visible
+ * Hook pour déclencher des animations au scroll via IntersectionObserver.
+ * Retourne une ref à attacher à l'élément et un booléen indiquant si l'élément est visible.
+ * - Gère le fallback si IntersectionObserver n'est pas disponible (retourne `true`).
+ * - Retourne `true` avant l'hydratation pour éviter le flash de contenu invisible.
+ * @param options - Seuil de visibilité (0-1), marge root, et déclenchement unique.
+ * @returns Tuple `[ref, isVisible]`.
  */
 export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
   options: UseScrollAnimationOptions = {}
@@ -69,4 +73,3 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
   // Retourner true si pas encore monté pour éviter le flash de contenu invisible
   return [ref, hasMounted ? isVisible : true];
 }
-

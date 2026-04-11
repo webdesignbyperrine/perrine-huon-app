@@ -1,0 +1,15 @@
+{
+  "notFound": "Artículo no encontrado",
+  "metadataFallback": "Artículo no encontrado",
+  "readingTime": "min de lectura",
+  "breadcrumb": {
+    "home": "Inicio",
+    "blog": "Blog"
+  },
+  "finalCta": {
+    "title": "¿Quieres hablar?",
+    "description": "Hablemos de tu proyecto y veamos cómo puedo ayudarte",
+    "bookCall": "Reservar una llamada",
+    "allArticles": "← Todos los artículos"
+  }
+}

@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { FEATURES_OPTIONS } from '../types';
 import { MultiSelectCard } from '../ui/SelectionCard';
@@ -8,6 +9,7 @@ import ProgressBar from '../ui/ProgressBar';
 import { ICON_MAP } from '../icons';
 
 export default function FeaturesStep() {
+  const t = useTranslations('qualifier.features');
   const { data, toggleFeature, setFeatureOther } = useQualifier();
 
   return (
@@ -17,10 +19,10 @@ export default function FeaturesStep() {
       {/* Titre */}
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-          Quelles fonctionnalités vous intéressent ?
+          {t('title')}
         </h2>
         <p className="text-primary/50 font-light">
-          Sélectionnez autant d&apos;options que vous le souhaitez
+          {t('subtitle')}
         </p>
       </div>
 
@@ -47,7 +49,7 @@ export default function FeaturesStep() {
                 
                 {/* Texte */}
                 <span className="text-sm font-semibold text-primary">
-                  {feature.label}
+                  {t(`options.${feature.value}`)}
                 </span>
               </div>
             </MultiSelectCard>
@@ -59,12 +61,12 @@ export default function FeaturesStep() {
       {data.features.includes('autre') && (
         <div className="mt-6">
           <label className="block text-sm text-primary/60 mb-2">
-            Précisez vos autres besoins :
+            {t('otherLabel')}
           </label>
           <textarea
             value={data.featureOther}
             onChange={(e) => setFeatureOther(e.target.value)}
-            placeholder="Décrivez les fonctionnalités spécifiques dont vous avez besoin..."
+            placeholder={t('otherPlaceholder')}
             className="input-sketch w-full resize-none"
             rows={3}
           />

@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "title": "À Propos — Perrine Huon, Développeuse Web Freelance",
+    "description": "Découvrez le parcours de Perrine Huon, développeuse web freelance spécialisée en création de sites internet sur mesure. Mon approche, mes valeurs et pourquoi me choisir.",
+    "ogTitle": "À Propos — Perrine Huon, Développeuse Web Freelance",
+    "ogDescription": "Découvrez le parcours de Perrine Huon, développeuse web freelance spécialisée en création de sites internet sur mesure."
+  },
+  "breadcrumb": {
+    "home": "Accueil",
+    "about": "À Propos"
+  },
+  "hero": {
+    "backLink": "← Retour à l'accueil",
+    "name": "Perrine Huon",
+    "title": "Développeuse Web Freelance",
+    "description": "Passionnée par le web et le design, je crée des sites internet sur mesure qui allient esthétique, performance et référencement. Mon objectif : donner à chaque projet une présence en ligne à la hauteur de son ambition.",
+    "cta": "Discutons de votre projet",
+    "photoPlaceholder": "Photo à venir"
+  },
+  "parcours": {
+    "title": "Mon parcours",
+    "paragraphs": [
+      "Après plusieurs années dans le monde professionnel, j'ai fait le choix de me consacrer entièrement à ma passion : le développement web. Une reconversion mûrement réfléchie, portée par l'envie de créer des outils numériques qui ont un réel impact pour mes clients.",
+      "Formée aux technologies les plus modernes du web (Next.js, React, TypeScript), je me suis spécialisée dans la création de sites internet sur mesure pour les PME, professions libérales et associations. Mon approche combine la rigueur technique avec une sensibilité pour le design et l'expérience utilisateur.",
+      "Aujourd'hui, je suis freelance et j'accompagne mes clients de A à Z : de la réflexion stratégique à la mise en ligne, en passant par le design, le développement et l'optimisation SEO."
+    ]
+  },
+  "approche": {
+    "title": "Mon approche",
+    "values": [
+      {
+        "title": "Écoute & Compréhension",
+        "description": "Chaque projet commence par une écoute attentive de vos besoins, votre activité et vos objectifs. Pas de solution toute faite : je construis avec vous."
+      },
+      {
+        "title": "Qualité Artisanale",
+        "description": "Chaque ligne de code est réfléchie. Pas de template générique ni de constructeur de page : votre site est créé sur mesure, pixel par pixel."
+      },
+      {
+        "title": "Transparence Totale",
+        "description": "Vous savez exactement où en est votre projet à chaque étape. Communication claire, délais respectés, pas de surprise sur la facture."
+      },
+      {
+        "title": "Performance & SEO",
+        "description": "Un site beau ne suffit pas, il doit être rapide et visible. Chaque projet est optimisé pour Google et pour offrir la meilleure expérience utilisateur."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Mes compétences",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "infra": "Infra",
+      "marketing": "Marketing",
+      "design": "Design"
+    }
+  },
+  "differentiators": {
+    "title": "Pourquoi me choisir",
+    "items": [
+      {
+        "title": "Interlocutrice unique",
+        "description": "Un seul point de contact du début à la fin. Pas de commercial, pas de chef de projet intermédiaire : vous parlez directement à celle qui crée votre site."
+      },
+      {
+        "title": "Technologies modernes",
+        "description": "Next.js, React, Tailwind CSS : les mêmes technologies utilisées par les géants du web, adaptées à votre projet pour des performances optimales."
+      },
+      {
+        "title": "SEO intégré dès la conception",
+        "description": "Le référencement n'est pas un ajout en fin de projet. Il est pensé dès l'architecture et intégré dans chaque page pour une visibilité maximale."
+      },
+      {
+        "title": "Accompagnement personnalisé",
+        "description": "Au-delà de la livraison du site, je vous accompagne avec une formation, des conseils stratégiques et un support réactif pour votre sérénité."
+      },
+      {
+        "title": "Tarifs transparents",
+        "description": "Un devis clair et détaillé avant le démarrage. Pas de frais cachés ni de surprise. Vous savez exactement ce que vous payez et ce que vous obtenez."
+      },
+      {
+        "title": "Résultats mesurables",
+        "description": "Chaque site est livré avec des outils d'analyse. Vous pouvez suivre vos visiteurs, vos conversions et le retour sur investissement de votre présence en ligne."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Envie de travailler ensemble ?",
+    "description": "Discutons de votre projet autour d'un premier échange gratuit et sans engagement. Je serai ravie de vous accompagner dans la création de votre site internet.",
+    "button": "Parlons de votre projet"
+  }
+}

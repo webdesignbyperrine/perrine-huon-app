@@ -1,19 +1,26 @@
-import { type NextRequest } from 'next/server'
-import { updateSession } from '@/lib/supabase/middleware'
+import createMiddleware from 'next-intl/middleware';
+import { NextResponse, type NextRequest } from 'next/server';
+import { routing } from './i18n/routing';
+import { updateSession } from './lib/supabase/middleware';
+
+const intlMiddleware = createMiddleware(routing);
 
 export async function proxy(request: NextRequest) {
-  return await updateSession(request)
+  const { pathname } = request.nextUrl;
+
+  if (pathname.startsWith('/admin')) {
+    return updateSession(request);
+  }
+
+  if (pathname.startsWith('/api')) {
+    return NextResponse.next();
+  }
+
+  return intlMiddleware(request);
 }
 
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
-     */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|wav|mp3|woff|woff2|ttf|json)$).*)',
   ],
-}
+};

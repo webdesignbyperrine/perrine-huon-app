@@ -1,10 +1,12 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { ArrowRightIcon } from '../icons';
 import Image from 'next/image';
 
 export default function IntroStep() {
+  const t = useTranslations('qualifier.intro');
   const { goNext, getCompletedSteps, resetQualifier } = useQualifier();
   const completedSteps = getCompletedSteps();
   const hasProgress = completedSteps > 0;
@@ -23,7 +25,7 @@ export default function IntroStep() {
           <div className="w-20 h-20 mx-auto mb-8 bg-primary/5 border-2 border-primary/20 rounded-full flex items-center justify-center">
             <Image 
               src="/images/aiguille.png" 
-              alt="Aiguille" 
+              alt={t('imageAlt')} 
               width={40} 
               height={40}
               className="w-10 h-10"
@@ -35,13 +37,13 @@ export default function IntroStep() {
 
           {/* Titre */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4">
-            Votre projet web
+            {t('titleLine1')}
             <br />
-            <span className="text-primary/60">conçu sur-mesure</span>
+            <span className="text-primary/60">{t('titleLine2')}</span>
           </h2>
           
           <p className="text-lg md:text-xl text-primary/50 max-w-xl mx-auto mb-10">
-            On fait le point en 2 min ?
+            {t('subtitle')}
           </p>
 
           {/* Si progression existante - badge discret */}
@@ -49,7 +51,7 @@ export default function IntroStep() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border-2 border-primary/10 rounded-full mb-8">
               <span className="w-2 h-2 rounded-full bg-accent"></span>
               <span className="text-sm text-primary/60">
-                {completedSteps} étape{completedSteps > 1 ? 's' : ''} complétée{completedSteps > 1 ? 's' : ''}
+                {t('stepsCompleted', { count: completedSteps })}
               </span>
             </div>
           )}
@@ -60,7 +62,7 @@ export default function IntroStep() {
               onClick={goNext}
               className="btn-cta btn-cta-pulse group inline-flex items-center gap-3"
             >
-              <span>{hasProgress ? 'Reprendre' : 'Définir mes besoins'}</span>
+              <span>{hasProgress ? t('resume') : t('defineNeeds')}</span>
               <ArrowRightIcon className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
 
@@ -73,7 +75,7 @@ export default function IntroStep() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
-                Recommencer à zéro
+                {t('restartFromZero')}
               </button>
             )}
           </div>
@@ -83,7 +85,7 @@ export default function IntroStep() {
             <svg className="w-4 h-4 text-primary/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
-            Gratuit • Sans engagement
+            {t('badge')}
           </p>
         </div>
       </div>

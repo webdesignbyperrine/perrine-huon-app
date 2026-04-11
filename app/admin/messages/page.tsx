@@ -13,7 +13,7 @@ type ContactMessage = {
   email: string;
   subject: string;
   message: string;
-  status: 'new' | 'read' | 'replied';
+  status: MessageStatus;
   created_at: string;
 };
 
@@ -26,10 +26,12 @@ const FILTER_LABELS: Record<FilterType, string> = {
   replied: 'Répondus',
 };
 
-const STATUS_STYLES: Record<string, { bg: string; text: string; label: string }> = {
-  new: { bg: 'bg-red-500/20', text: 'text-red-300', label: '🔴 Nouveau' },
-  read: { bg: 'bg-blue-500/20', text: 'text-blue-300', label: '👁️ Lu' },
-  replied: { bg: 'bg-green-500/20', text: 'text-green-300', label: '✓ Répondu' },
+type MessageStatus = 'new' | 'read' | 'replied';
+
+const STATUS_STYLES: Record<MessageStatus, { bg: string; text: string; label: string }> = {
+  new: { bg: 'bg-red-500/20', text: 'text-red-300', label: 'Nouveau' },
+  read: { bg: 'bg-blue-500/20', text: 'text-blue-300', label: 'Lu' },
+  replied: { bg: 'bg-green-500/20', text: 'text-green-300', label: 'Répondu' },
 };
 
 export default function AdminMessagesPage() {
@@ -109,7 +111,7 @@ export default function AdminMessagesPage() {
       ) : (
         <div className="space-y-4">
           {messages.map((msg) => {
-            const statusStyle = STATUS_STYLES[msg.status];
+            const statusStyle = STATUS_STYLES[msg.status] ?? STATUS_STYLES.new;
             return (
               <div
                 key={msg.id}
@@ -169,7 +171,7 @@ export default function AdminMessagesPage() {
 
                 <div className="mt-4 pt-4 border-t border-white/10">
                   <a
-                    href={`mailto:${msg.email}?subject=Re: ${msg.subject}`}
+                    href={`mailto:${msg.email}?subject=${encodeURIComponent(`Re: ${msg.subject}`)}`}
                     className="inline-flex items-center gap-2 text-secondary hover:underline text-sm"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,7 +188,3 @@ export default function AdminMessagesPage() {
     </AdminPageLayout>
   );
 }
-
-
-
-

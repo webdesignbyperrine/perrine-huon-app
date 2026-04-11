@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "title": "Acerca de — Perrine Huon, Desarrolladora Web Freelance",
+    "description": "Descubra el recorrido de Perrine Huon, desarrolladora web freelance especializada en la creación de sitios web personalizados. Mi enfoque, mis valores y por qué elegirme.",
+    "ogTitle": "Acerca de — Perrine Huon, Desarrolladora Web Freelance",
+    "ogDescription": "Descubra el recorrido de Perrine Huon, desarrolladora web freelance especializada en la creación de sitios web personalizados."
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "about": "Acerca de"
+  },
+  "hero": {
+    "backLink": "← Volver al inicio",
+    "name": "Perrine Huon",
+    "title": "Desarrolladora Web Freelance",
+    "description": "Apasionada por la web y el diseño, creo sitios web personalizados que combinan estética, rendimiento y SEO. Mi objetivo: dar a cada proyecto una presencia en línea a la altura de su ambición.",
+    "cta": "Hablemos de su proyecto",
+    "photoPlaceholder": "Foto próximamente"
+  },
+  "parcours": {
+    "title": "Mi trayectoria",
+    "paragraphs": [
+      "Después de varios años en el mundo profesional, tomé la decisión de dedicarme por completo a mi pasión: el desarrollo web. Una reconversión cuidadosamente reflexionada, impulsada por el deseo de crear herramientas digitales que tengan un impacto real para mis clientes.",
+      "Formada en las tecnologías web más modernas (Next.js, React, TypeScript), me especialicé en la creación de sitios web personalizados para PYMES, profesionales independientes y asociaciones. Mi enfoque combina el rigor técnico con una sensibilidad por el diseño y la experiencia del usuario.",
+      "Hoy, soy freelance y acompaño a mis clientes de principio a fin: desde la reflexión estratégica hasta la puesta en línea, pasando por el diseño, el desarrollo y la optimización SEO."
+    ]
+  },
+  "approche": {
+    "title": "Mi enfoque",
+    "values": [
+      {
+        "title": "Escucha y Comprensión",
+        "description": "Cada proyecto comienza con una escucha atenta de sus necesidades, su actividad y sus objetivos. Sin soluciones predefinidas: construyo con usted."
+      },
+      {
+        "title": "Calidad Artesanal",
+        "description": "Cada línea de código está pensada. Sin plantilla genérica ni constructor de páginas: su sitio se crea a medida, píxel por píxel."
+      },
+      {
+        "title": "Transparencia Total",
+        "description": "Sabe exactamente en qué punto está su proyecto en cada etapa. Comunicación clara, plazos respetados, sin sorpresas en la factura."
+      },
+      {
+        "title": "Rendimiento y SEO",
+        "description": "Un sitio hermoso no es suficiente, debe ser rápido y visible. Cada proyecto está optimizado para Google y para ofrecer la mejor experiencia de usuario."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Mis competencias",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "infra": "Infra",
+      "marketing": "Marketing",
+      "design": "Design"
+    }
+  },
+  "differentiators": {
+    "title": "Por qué elegirme",
+    "items": [
+      {
+        "title": "Interlocutora única",
+        "description": "Un solo punto de contacto de principio a fin. Sin comercial, sin jefe de proyecto intermediario: habla directamente con quien crea su sitio."
+      },
+      {
+        "title": "Tecnologías modernas",
+        "description": "Next.js, React, Tailwind CSS: las mismas tecnologías utilizadas por los gigantes de la web, adaptadas a su proyecto para un rendimiento óptimo."
+      },
+      {
+        "title": "SEO integrado desde el diseño",
+        "description": "El SEO no es un añadido al final del proyecto. Se piensa desde la arquitectura y se integra en cada página para una visibilidad máxima."
+      },
+      {
+        "title": "Acompañamiento personalizado",
+        "description": "Más allá de la entrega del sitio, le acompaño con formación, consejos estratégicos y soporte reactivo para su tranquilidad."
+      },
+      {
+        "title": "Tarifas transparentes",
+        "description": "Un presupuesto claro y detallado antes de empezar. Sin costos ocultos ni sorpresas. Sabe exactamente qué paga y qué obtiene."
+      },
+      {
+        "title": "Resultados medibles",
+        "description": "Cada sitio se entrega con herramientas de análisis. Puede seguir sus visitantes, sus conversiones y el retorno de inversión de su presencia en línea."
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Quiere trabajar juntos?",
+    "description": "Hablemos de su proyecto en un primer intercambio gratuito y sin compromiso. Estaré encantada de acompañarle en la creación de su sitio web.",
+    "button": "Hablemos de su proyecto"
+  }
+}

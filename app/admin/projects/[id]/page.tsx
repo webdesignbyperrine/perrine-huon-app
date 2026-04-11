@@ -58,7 +58,6 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
   const [error, setError] = useState('');
   const [project, setProject] = useState<Project | null>(null);
   const [images, setImages] = useState<UploadedImage[]>([]);
-  const [initialImageIds, setInitialImageIds] = useState<string[]>([]);
 
   const updateField = <K extends keyof Project>(key: K, value: Project[K]) => {
     setProject(prev => prev ? { ...prev, [key]: value } : prev);
@@ -95,7 +94,13 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
         .order('sort_order', { ascending: true });
 
       if (!mediaError && mediaData) {
-        const loadedImages = mediaData.map((item: any) => ({
+        type MediaRow = {
+          media_id: string;
+          is_main: boolean;
+          sort_order: number;
+          media_assets: { id: string; file_url: string; file_name: string; file_size: number };
+        };
+        const loadedImages = (mediaData as unknown as MediaRow[]).map((item) => ({
           id: item.media_assets.id,
           url: item.media_assets.file_url,
           file_name: item.media_assets.file_name,
@@ -104,7 +109,6 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
         }));
         
         setImages(loadedImages);
-        setInitialImageIds(loadedImages.map((img: UploadedImage) => img.id));
       }
 
       setLoading(false);
@@ -144,18 +148,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
       return;
     }
 
-    // Gérer les images - supprimer et recréer les relations
-    const currentImageIds = images.map(img => img.id);
-    const removedImageIds = initialImageIds.filter(imgId => !currentImageIds.includes(imgId));
-
-    if (removedImageIds.length > 0) {
-      await supabase
-        .from('project_media')
-        .delete()
-        .eq('project_id', id)
-        .in('media_id', removedImageIds);
-    }
-
+    // Remplacer toutes les relations projet-médias en une seule passe
     await supabase.from('project_media').delete().eq('project_id', id);
 
     if (images.length > 0) {
@@ -163,9 +156,17 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
         project_id: id,
         media_id: img.id,
         sort_order: index,
-        is_main: img.is_main || false,
+        is_main: img.is_main ?? false,
       }));
-      await supabase.from('project_media').insert(projectMedia);
+      const { error: mediaInsertError } = await supabase
+        .from('project_media')
+        .insert(projectMedia);
+
+      if (mediaInsertError) {
+        setError('Projet sauvegardé mais erreur lors de la mise à jour des images.');
+        setSaving(false);
+        return;
+      }
     }
 
     router.push('/admin/projects');
@@ -248,7 +249,6 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
             </label>
             <ImageCropper
               imageUrl={mainImageUrl}
-              initialCrop={project.image_crop || undefined}
               onCropChange={(crop) => updateField('image_crop', crop)}
               aspectRatio={16 / 9}
             />

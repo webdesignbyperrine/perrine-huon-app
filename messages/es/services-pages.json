@@ -1,0 +1,81 @@
+{
+  "breadcrumb": {
+    "home": "Inicio"
+  },
+  "service": {
+    "backToHome": "← Volver al inicio",
+    "featuresTitle": "Lo que incluye este servicio",
+    "pricing": {
+      "indicative": "Precio indicativo",
+      "uniqueProject": "Cada proyecto es único. El precio final depende de la complejidad, el volumen de contenido y las funcionalidades deseadas. Solicite un presupuesto personalizado gratuito.",
+      "getQuote": "Obtener un presupuesto gratuito"
+    },
+    "faqsTitle": "Preguntas frecuentes",
+    "readyToStart": "¿Listo para comenzar su proyecto?",
+    "discuss": "Hablemos de sus necesidades y construyamos juntos la solución ideal para su negocio. Primera consulta gratuita y sin compromiso."
+  },
+  "location": {
+    "typeLabels": {
+      "city": "Ciudad",
+      "arrondissement": "Distrito",
+      "region": "Región"
+    },
+    "specialist": "Desarrolladora web freelance especializada en creación de sitios web personalizados para empresas de {location}.",
+    "businessTypes": {
+      "title": "Tipos de empresas en {location}",
+      "subtitle": "Trabajo con todo tipo de profesionales en {location}, estos son los sectores más representados."
+    },
+    "whyChoose": {
+      "title": "¿Por qué elegir a Perrine Huon para su sitio web en {location}?",
+      "points": [
+        {
+          "title": "Sitios a medida, sin plantillas",
+          "description": "Cada sitio se diseña desde cero con las tecnologías más modernas (Next.js, React, Tailwind CSS) para un rendimiento óptimo."
+        },
+        {
+          "title": "SEO local integrado desde el diseño",
+          "description": "Su sitio está optimizado para aparecer en los resultados de búsqueda geolocalizados y atraer clientes de su zona."
+        },
+        {
+          "title": "Diseño que convierte visitantes en clientes",
+          "description": "UX diseñado para guiar a sus visitantes hacia la acción: llamada, formulario, compra. Cada elemento tiene un propósito."
+        },
+        {
+          "title": "Rendimiento técnico impecable",
+          "description": "Sitios ultrarrápidos con puntuación alta en Google PageSpeed. La velocidad es un criterio de posicionamiento y conversión."
+        },
+        {
+          "title": "Acompañamiento de principio a fin",
+          "description": "Desde el diseño hasta el lanzamiento y más allá: le acompaño con un seguimiento personalizado y mantenimiento proactivo."
+        },
+        {
+          "title": "Precios transparentes, sin sorpresas",
+          "description": "Presupuesto detallado y gratuito. Sabe exactamente lo que paga, sin costos ocultos ni sorpresas desagradables."
+        }
+      ]
+    },
+    "keyStats": "La cifra clave",
+    "readyToCreate": "¿Listo/a para crear su sitio web en {location}?",
+    "discuss": "Hablemos de su proyecto. Le propongo un intercambio gratuito y sin compromiso para definir la mejor solución web para su actividad en {location}.",
+    "startProject": "Comenzar mi proyecto",
+    "bookCall": "Reservar una llamada gratuita",
+    "jsonLdName": "Perrine Huon - Creación de Sitios Web en {location}",
+    "jsonLdDescription": "Desarrolladora web freelance que ofrece creación de sitios web personalizados en {location}.",
+    "breadcrumbPrefix": "Creación de sitio web en {location}"
+  },
+  "profession": {
+    "categoryLabels": {
+      "profession-liberale": "Profesión Liberal",
+      "pme": "PYME y Comercio",
+      "association": "Asociación"
+    },
+    "customSite": "Un sitio web a medida diseñado para las necesidades específicas de su profesión, optimizado para el SEO local y la conversión.",
+    "keyFeatures": "Funcionalidades clave para {profession}",
+    "regulations": "Normativa y cumplimiento",
+    "faqs": "Preguntas frecuentes",
+    "readyToCreate": "¿Listo para crear su sitio web?",
+    "discuss": "Hablemos de su proyecto y sus necesidades específicas. Le ofrezco un acompañamiento personalizado para crear el sitio que impulsará su actividad.",
+    "startProject": "Comenzar mi proyecto",
+    "bookCall": "Reservar una llamada"
+  }
+}

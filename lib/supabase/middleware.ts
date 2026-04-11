@@ -1,10 +1,16 @@
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
+/**
+ * Rafraîchit la session Supabase et protège les routes admin.
+ * - Renouvelle les cookies de session sur chaque requête.
+ * - Redirige `/admin/*` vers `/admin/login` si l'utilisateur n'est pas authentifié.
+ * - Redirige vers `/` si l'utilisateur authentifié n'a pas le rôle `admin`.
+ * @param request - Requête Next.js entrante.
+ * @returns Réponse Next.js avec les cookies de session mis à jour, ou une redirection.
+ */
 export async function updateSession(request: NextRequest) {
-  let supabaseResponse = NextResponse.next({
-    request,
-  })
+  let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -16,9 +22,7 @@ export async function updateSession(request: NextRequest) {
         },
         setAll(cookiesToSet) {
           cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
-          supabaseResponse = NextResponse.next({
-            request,
-          })
+          supabaseResponse = NextResponse.next({ request })
           cookiesToSet.forEach(({ name, value, options }) =>
             supabaseResponse.cookies.set(name, value, options)
           )
@@ -31,18 +35,14 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // Protection des routes admin
   const isAdminRoute = request.nextUrl.pathname.startsWith('/admin')
   const isLoginPage = request.nextUrl.pathname === '/admin/login'
 
   if (isAdminRoute && !isLoginPage) {
-    // Rediriger vers login si non authentifié
     if (!user) {
-      const redirectUrl = new URL('/admin/login', request.url)
-      return NextResponse.redirect(redirectUrl)
+      return NextResponse.redirect(new URL('/admin/login', request.url))
     }
 
-    // Vérifier le rôle admin
     const { data: profile } = await supabase
       .from('profiles')
       .select('role')
@@ -50,13 +50,9 @@ export async function updateSession(request: NextRequest) {
       .single()
 
     if (profile?.role !== 'admin') {
-      // Rediriger vers l'accueil si non admin
-      const redirectUrl = new URL('/', request.url)
-      return NextResponse.redirect(redirectUrl)
+      return NextResponse.redirect(new URL('/', request.url))
     }
   }
 
   return supabaseResponse
 }
-
-

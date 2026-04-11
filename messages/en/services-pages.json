@@ -1,0 +1,81 @@
+{
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "service": {
+    "backToHome": "← Back to home",
+    "featuresTitle": "What this service includes",
+    "pricing": {
+      "indicative": "Indicative pricing",
+      "uniqueProject": "Every project is unique. The final price depends on complexity, content volume, and desired features. Request a free personalized quote.",
+      "getQuote": "Get a free quote"
+    },
+    "faqsTitle": "Frequently asked questions",
+    "readyToStart": "Ready to start your project?",
+    "discuss": "Let's discuss your needs and build the ideal solution for your business together. First consultation free and no commitment."
+  },
+  "location": {
+    "typeLabels": {
+      "city": "City",
+      "arrondissement": "District",
+      "region": "Region"
+    },
+    "specialist": "Freelance web developer specializing in custom website creation for businesses in {location}.",
+    "businessTypes": {
+      "title": "Types of businesses in {location}",
+      "subtitle": "I work with all types of professionals in {location}, here are the most represented sectors."
+    },
+    "whyChoose": {
+      "title": "Why choose Perrine Huon for your website in {location}?",
+      "points": [
+        {
+          "title": "Custom sites, no templates",
+          "description": "Each site is designed from scratch with the most modern technologies (Next.js, React, Tailwind CSS) for optimal performance."
+        },
+        {
+          "title": "Local SEO integrated from conception",
+          "description": "Your site is optimized to appear in geolocated search results and attract customers in your area."
+        },
+        {
+          "title": "Design that converts visitors into customers",
+          "description": "UX designed to guide your visitors towards action: call, form, purchase. Every element has a purpose."
+        },
+        {
+          "title": "Flawless technical performance",
+          "description": "Ultra-fast sites with high Google PageSpeed scores. Speed is a ranking and conversion criterion."
+        },
+        {
+          "title": "End-to-end support",
+          "description": "From design to launch and beyond: I support you with personalized follow-up and proactive maintenance."
+        },
+        {
+          "title": "Transparent pricing, no surprises",
+          "description": "Detailed and free quote. You know exactly what you're paying for, with no hidden costs or bad surprises."
+        }
+      ]
+    },
+    "keyStats": "The key figure",
+    "readyToCreate": "Ready to create your website in {location}?",
+    "discuss": "Let's discuss your project. I offer you a free consultation with no commitment to define the best web solution for your business in {location}.",
+    "startProject": "Start my project",
+    "bookCall": "Book a free call",
+    "jsonLdName": "Perrine Huon - Website Creation in {location}",
+    "jsonLdDescription": "Freelance web developer offering custom website creation in {location}.",
+    "breadcrumbPrefix": "Website creation in {location}"
+  },
+  "profession": {
+    "categoryLabels": {
+      "profession-liberale": "Liberal Profession",
+      "pme": "SME & Commerce",
+      "association": "Association"
+    },
+    "customSite": "A custom website designed for the specific needs of your profession, optimized for local SEO and conversion.",
+    "keyFeatures": "Key features for {profession}",
+    "regulations": "Regulations & compliance",
+    "faqs": "Frequently asked questions",
+    "readyToCreate": "Ready to create your website?",
+    "discuss": "Let's discuss your project and your specific needs. I offer personalized support to create the website that will boost your business.",
+    "startProject": "Start my project",
+    "bookCall": "Book a call"
+  }
+}

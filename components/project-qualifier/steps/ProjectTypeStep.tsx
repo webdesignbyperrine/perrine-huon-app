@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { PROJECT_TYPES } from '../types';
 import SelectionCard from '../ui/SelectionCard';
@@ -8,6 +9,7 @@ import ProgressBar from '../ui/ProgressBar';
 import { ICON_MAP } from '../icons';
 
 export default function ProjectTypeStep() {
+  const t = useTranslations('qualifier.projectType');
   const { data, setProjectType, goNext } = useQualifier();
 
   const handleSelect = (type: typeof data.projectType) => {
@@ -23,10 +25,10 @@ export default function ProjectTypeStep() {
       {/* Titre */}
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-          Quel type de projet avez-vous en tête ?
+          {t('title')}
         </h2>
         <p className="text-primary/50 font-light">
-          Sélectionnez celui qui correspond le mieux à vos besoins
+          {t('subtitle')}
         </p>
       </div>
 
@@ -55,10 +57,10 @@ export default function ProjectTypeStep() {
                 
                 {/* Texte */}
                 <h3 className="text-base font-bold text-primary mb-1">
-                  {projectType.label}
+                  {t(`options.${projectType.value}.label`)}
                 </h3>
                 <p className="text-sm text-primary/70 font-medium">
-                  {projectType.description}
+                  {t(`options.${projectType.value}.description`)}
                 </p>
               </div>
             </SelectionCard>

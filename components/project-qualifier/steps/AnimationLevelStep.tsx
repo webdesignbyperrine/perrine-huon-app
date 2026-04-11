@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { useQualifier } from '../context';
 import { ANIMATION_LEVELS, AnimationLevel } from '../types';
 import SelectionCard from '../ui/SelectionCard';
@@ -260,6 +261,7 @@ function ImmersifAnimation() {
 }
 
 export default function AnimationLevelStep() {
+  const t = useTranslations('qualifier.animationLevel');
   const { data, setAnimationLevel, goNext } = useQualifier();
 
   const handleSelect = (level: AnimationLevel) => {
@@ -282,10 +284,10 @@ export default function AnimationLevelStep() {
       {/* Titre */}
       <div className="text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
-          Quel niveau d&apos;animation souhaitez-vous ?
+          {t('title')}
         </h2>
         <p className="text-primary/50 font-light">
-          Comparez les 3 styles en temps réel 👇
+          {t('subtitle')}
         </p>
       </div>
 
@@ -306,10 +308,10 @@ export default function AnimationLevelStep() {
               
               {/* Texte */}
               <h3 className="text-lg font-semibold text-primary mb-1 text-center">
-                {level.label}
+                {t(`options.${level.value}.label`)}
               </h3>
               <p className="text-sm text-primary/50 font-light text-center">
-                {level.description}
+                {t(`options.${level.value}.description`)}
               </p>
             </div>
           </SelectionCard>

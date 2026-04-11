@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "title": "Tarifas Creación de Sitio Web 2026 — Presupuesto Gratuito",
+    "description": "Descubre las tarifas de creación de sitio web: sitio vitrina desde 1.500€, e-commerce desde 3.000€, aplicación web bajo presupuesto. Precios transparentes, presupuesto gratuito.",
+    "ogTitle": "Tarifas Creación de Sitio Web 2026 — Presupuesto Gratuito",
+    "ogDescription": "Descubre las tarifas de creación de sitio web: sitio vitrina desde 1.500€, e-commerce desde 3.000€, aplicación web bajo presupuesto."
+  },
+  "breadcrumb": {
+    "home": "Inicio",
+    "pricing": "Tarifas"
+  },
+  "hero": {
+    "backLink": "Volver al inicio",
+    "title": "Tarifas Creación de Sitio Web",
+    "description": "Tarifas transparentes adaptadas a cada proyecto. Del sitio vitrina a la aplicación web personalizada, encuentra la fórmula que te corresponde.",
+    "cta": "Obtener un presupuesto gratuito"
+  },
+  "plans": {
+    "vitrine": {
+      "name": "Sitio Vitrina",
+      "price": "Desde 1.500 €",
+      "description": "Ideal para presentar tu actividad y atraer clientes locales.",
+      "popular": false,
+      "popularBadge": "Popular",
+      "cta": "Solicitar un presupuesto",
+      "features": [
+        "Diseño personalizado y responsive",
+        "3 a 7 páginas optimizadas",
+        "Optimización SEO básica",
+        "Formulario de contacto",
+        "Integración Google Maps",
+        "Alojamiento y puesta en línea",
+        "Formación en gestión de contenido",
+        "Soporte 30 días después de la entrega"
+      ]
+    },
+    "ecommerce": {
+      "name": "E-commerce",
+      "price": "Desde 3.000 €",
+      "description": "Tienda en línea eficiente con pago seguro y gestión de inventario.",
+      "popular": true,
+      "features": [
+        "Todo el pack Sitio Vitrina",
+        "Catálogo de productos ilimitado",
+        "Pago seguro (Stripe, PayPal)",
+        "Gestión de inventario y pedidos",
+        "Páginas de productos optimizadas SEO",
+        "Emails transaccionales automáticos",
+        "Panel de gestión",
+        "Formación completa de la tienda"
+      ]
+    },
+    "webapp": {
+      "name": "Aplicación Web",
+      "price": "Bajo presupuesto",
+      "description": "Solución personalizada para tus necesidades empresariales: CRM, dashboard, herramienta interna.",
+      "popular": false,
+      "features": [
+        "Análisis funcional completo",
+        "Arquitectura personalizada",
+        "Interfaz de usuario intuitiva",
+        "Base de datos optimizada",
+        "Autenticación y seguridad",
+        "API e integraciones terceras",
+        "Pruebas y validación",
+        "Documentación técnica"
+      ]
+    },
+    "maintenance": {
+      "name": "Mantenimiento",
+      "price": "Desde 80 €/mes",
+      "description": "Mantén tu sitio eficiente, seguro y actualizado con total tranquilidad.",
+      "popular": false,
+      "features": [
+        "Actualizaciones de seguridad",
+        "Copias de seguridad automáticas",
+        "Monitoreo de rendimiento",
+        "Corrección de errores prioritarios",
+        "Optimización SEO continua",
+        "Soporte técnico por email",
+        "Informe mensual de rendimiento",
+        "Modificaciones menores incluidas"
+      ]
+    }
+  },
+  "inclusions": {
+    "title": "Lo que está incluido en cada servicio",
+    "items": [
+      {
+        "title": "SEO Optimizado",
+        "description": "Cada página está optimizada para el posicionamiento natural: etiquetas meta, estructura semántica, rendimiento y SEO local."
+      },
+      {
+        "title": "Diseño Responsive",
+        "description": "Tu sitio se adapta perfectamente a todas las pantallas: móvil, tablet y escritorio. Probado en todos los navegadores."
+      },
+      {
+        "title": "Rendimiento Máximo",
+        "description": "Puntuación Google PageSpeed superior a 90. Tiempo de carga optimizado para una experiencia de usuario fluida."
+      },
+      {
+        "title": "Asesoramiento en Alojamiento",
+        "description": "Recomendación e implementación de la solución de alojamiento más adecuada para tu proyecto y presupuesto."
+      },
+      {
+        "title": "RGPD y Avisos Legales",
+        "description": "Conformidad RGPD, política de privacidad y avisos legales incluidos para estar en regla desde el lanzamiento."
+      },
+      {
+        "title": "Formación y Autonomía",
+        "description": "Formación personalizada para gestionar tu contenido con total autonomía. Documentación y tutoriales en vídeo incluidos."
+      }
+    ]
+  },
+  "faqs": {
+    "title": "Preguntas frecuentes sobre las tarifas",
+    "items": [
+      {
+        "question": "¿Cómo se calcula el precio final de mi sitio web?",
+        "answer": "La tarifa depende de varios factores: el número de páginas, las funcionalidades deseadas (formularios, reservas, pago en línea...), la complejidad del diseño y el volumen de contenido a integrar. Después de nuestro primer intercambio, te proporciono un presupuesto detallado y transparente."
+      },
+      {
+        "question": "¿Hay costos ocultos o tarifas adicionales?",
+        "answer": "No, practico una política de transparencia total. El presupuesto incluye todo el servicio. Solo el alojamiento (aproximadamente 10-30€/mes según la solución) y el nombre de dominio (aproximadamente 10-15€/año) son gastos recurrentes que pagas directamente al proveedor."
+      },
+      {
+        "question": "¿Ofrecen facilidades de pago?",
+        "answer": "Sí, el pago se realiza generalmente en 3 veces: un depósito del 30% al realizar el pedido, 40% a la validación del diseño y 30% a la entrega. Para proyectos importantes, se puede establecer un calendario de pagos personalizado."
+      },
+      {
+        "question": "¿Cuánto tiempo se tarda en crear mi sitio?",
+        "answer": "Los plazos varían según la complejidad: 2 a 4 semanas para un sitio vitrina, 4 a 8 semanas para un e-commerce y 6 a 12 semanas para una aplicación web personalizada. Un cronograma preciso se define juntos al inicio del proyecto."
+      },
+      {
+        "question": "¿Qué sucede después de la entrega del sitio?",
+        "answer": "Después de la entrega, te beneficias de 30 días de soporte gratuito para cualquier pregunta o ajuste menor. Luego, propongo fórmulas de mantenimiento mensuales para asegurar la sostenibilidad y el rendimiento de tu sitio."
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para lanzar tu proyecto?",
+    "description": "Obtén un presupuesto personalizado y gratuito en pocos minutos. Describe tu proyecto y recibe una propuesta adaptada a tus necesidades y presupuesto.",
+    "button": "Obtener mi presupuesto gratuito"
+  }
+}

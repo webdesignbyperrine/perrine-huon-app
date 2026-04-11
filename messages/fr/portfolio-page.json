@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "title": "Portfolio - Mes Réalisations Web",
+    "description": "Découvrez une sélection de mes projets web récents, optimisés pour le référencement local"
+  },
+  "header": {
+    "subtitle": "Mes réalisations",
+    "title": "Portfolio",
+    "description": "Une sélection de mes projets récents, optimisés pour le référencement local"
+  },
+  "demoProjects": {
+    "1": {
+      "short_description": "Site vitrine premium pour studio créatif à Lyon"
+    },
+    "2": {
+      "short_description": "E-commerce moderne avec paiement sécurisé"
+    },
+    "3": {
+      "short_description": "Application SaaS pour gestion de projets"
+    },
+    "4": {
+      "short_description": "Portfolio 3D interactif pour architecte"
+    },
+    "5": {
+      "short_description": "Plateforme collaborative pour équipes"
+    },
+    "6": {
+      "short_description": "Site e-learning avec vidéos interactives"
+    }
+  },
+  "cta": {
+    "button": "Obtenir mon devis gratuit"
+  }
+}

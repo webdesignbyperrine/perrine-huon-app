@@ -1,0 +1,53 @@
+{
+  "metadata": {
+    "title": "FAQ — Preguntas Frecuentes | Perrine Huon",
+    "description": "Respuestas a tus preguntas sobre la creación de sitios web, el SEO local, mis servicios y mi proceso de trabajo."
+  },
+  "header": {
+    "subtitle": "Preguntas frecuentes",
+    "title": "FAQ",
+    "description": "Las respuestas a tus preguntas sobre mis servicios, mi proceso de trabajo y el SEO local"
+  },
+  "filters": {
+    "all": "Todas"
+  },
+  "loading": "Cargando...",
+  "cta": {
+    "title": "¿No encontraste tu respuesta?",
+    "description": "Contáctame directamente y te responderé en 24 horas",
+    "contactButton": "Contáctame",
+    "bookCallButton": "Reservar una llamada"
+  },
+  "demoFaqs": {
+    "1": {
+      "question": "¿Cuánto tiempo se tarda en crear un sitio web?",
+      "answer": "El plazo de creación depende de la complejidad del proyecto. Un sitio web corporativo simple puede entregarse en 2-3 semanas, mientras que un sitio de comercio electrónico o una aplicación web personalizada puede tomar de 6 a 12 semanas. Siempre proporciono un cronograma detallado después de nuestro primer intercambio.",
+      "category": "Proceso"
+    },
+    "2": {
+      "question": "¿Cómo funciona el SEO geolocalizado?",
+      "answer": "El SEO geolocalizado permite optimizar tu visibilidad en búsquedas locales específicas. Trabajo en la optimización de contenidos, etiquetas meta, la creación de páginas dirigidas por ciudad o zona geográfica, y la integración con Google My Business para mejorar tu posicionamiento local.",
+      "category": "SEO"
+    },
+    "3": {
+      "question": "¿Ofreces un servicio de mantenimiento?",
+      "answer": "Sí, ofrezco paquetes de mantenimiento mensuales que incluyen actualizaciones de seguridad, optimización continua, copias de seguridad automáticas y soporte técnico prioritario.",
+      "category": "Servicios"
+    },
+    "4": {
+      "question": "¿Cuáles son tus tarifas?",
+      "answer": "Mis tarifas varían según la naturaleza y el alcance del proyecto. Proporciono presupuestos personalizados después de un primer intercambio para comprender bien tus necesidades y objetivos. No dudes en contactarme para hablar sobre tu proyecto.",
+      "category": "Tarifas"
+    },
+    "5": {
+      "question": "¿Trabajas con clientes fuera de Francia?",
+      "answer": "Sí, trabajo con clientes de todo el mundo. La mayoría de los intercambios se realizan en línea (videollamadas, correo electrónico), lo que facilita la colaboración a distancia. El SEO se puede optimizar para cualquier zona geográfica.",
+      "category": "Proceso"
+    },
+    "6": {
+      "question": "¿Qué tecnologías utilizas?",
+      "answer": "Utilizo tecnologías modernas y de alto rendimiento como Next.js, React, TypeScript, Tailwind CSS y Supabase. La elección de tecnologías siempre se adapta a tus necesidades específicas y a los objetivos del proyecto.",
+      "category": "Técnico"
+    }
+  }
+}

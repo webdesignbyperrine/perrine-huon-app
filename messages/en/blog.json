@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "title": "Web Design & Development Blog",
+    "description": "Tips, news and guides on website creation, web development, local SEO, generative AI and digital marketing. By Perrine Huon, freelance web developer."
+  },
+  "header": {
+    "subtitle": "News & Tips",
+    "title": "Blog",
+    "description": "Tips, tricks and news about web design, development and local SEO"
+  },
+  "demoPosts": {
+    "1": {
+      "title": "Local SEO 2026: How to Dominate Geolocated Searches",
+      "excerpt": "Google My Business, local citations, customer reviews... The complete guide to being visible in your city and attracting qualified customers near you."
+    },
+    "2": {
+      "title": "Web Design Trends 2026: What Will Change Everything",
+      "excerpt": "Generative AI, immersive interfaces, micro-interactions... Discover the trends that will redefine web design in 2026."
+    },
+    "3": {
+      "title": "Web Performance: Why Your Site Speed Impacts Your Sales",
+      "excerpt": "Core Web Vitals, loading time, user experience... Every second counts. Discover how to optimize your site to convert more."
+    },
+    "4": {
+      "title": "Vibe Coding: The 2025 Revolution and What Lies Ahead",
+      "excerpt": "How vibe coding transformed web development in 2025, and why 2026 promises to be even more disruptive."
+    },
+    "5": {
+      "title": "Major Design Events of 2025: Looking Back at a Pivotal Year",
+      "excerpt": "From Figma Config to Awwwards, the highlights that marked the design community this year."
+    },
+    "6": {
+      "title": "AI and Web Creation: Where Are We Really at the End of 2025?",
+      "excerpt": "State of AI in website creation: what works, what disappoints, and how to use it intelligently."
+    }
+  },
+  "readArticle": "Read article",
+  "cta": {
+    "button": "Let's talk about your project"
+  }
+}

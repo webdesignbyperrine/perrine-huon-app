@@ -100,7 +100,11 @@ export default function NewProjectPage() {
         .from('project_media')
         .insert(projectMedia);
 
-      if (mediaError) console.error('Error linking media:', mediaError);
+      if (mediaError) {
+        setError('Projet créé mais erreur lors de la liaison des images.');
+        setLoading(false);
+        return;
+      }
     }
 
     router.push('/admin/projects');
@@ -150,7 +154,7 @@ export default function NewProjectPage() {
           label="Année"
           type="number"
           value={formData.year}
-          onChange={(e) => updateField('year', parseInt(e.target.value))}
+          onChange={(e) => updateField('year', parseInt(e.target.value, 10))}
           placeholder="2024"
         />
 
@@ -186,7 +190,6 @@ export default function NewProjectPage() {
             </label>
             <ImageCropper
               imageUrl={mainImageUrl}
-              initialCrop={formData.image_crop || undefined}
               onCropChange={(crop) => updateField('image_crop', crop)}
               aspectRatio={16 / 9}
             />
