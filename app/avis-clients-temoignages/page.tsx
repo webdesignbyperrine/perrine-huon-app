@@ -179,35 +179,62 @@ export default async function TemoignagesPage() {
         </div>
       </section>
 
-      {/* Masonry-like Grid */}
+      {/* Post-it Grid */}
       <section className="py-20 bg-paper-light grain-overlay">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-7xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="max-w-7xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
             {displayTestimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="break-inside-avoid relative bg-white/60 backdrop-blur-sm border-2 border-primary/10 rounded-sketch-lg p-6 hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
+                className="break-inside-avoid postit-card relative p-6 hover:-translate-y-1 transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(145deg, #F5F0E6 0%, #EDE6D6 50%, #E8E0D0 100%)',
+                  boxShadow: '3px 3px 8px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(43, 91, 138, 0.05)',
+                  borderRadius: '2px',
+                }}
               >
-                <span
-                  className="absolute -top-3 left-6 text-5xl font-serif text-accent/20 leading-none select-none"
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </span>
-                <StarRating rating={testimonial.rating} />
-                <blockquote className="mt-4 mb-6 text-primary/70 leading-relaxed">
-                  {testimonial.content}
-                </blockquote>
-                <div className="border-t border-primary/10 pt-4">
-                  <p className="font-semibold text-primary">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-sm text-primary/50">
-                    {[testimonial.profession, testimonial.company]
-                      .filter(Boolean)
-                      .join(' · ')}
-                    {testimonial.city && <span> — {testimonial.city}</span>}
-                  </p>
+                {/* Texture papier - effet grain subtil */}
+                <div 
+                  className="absolute inset-0 pointer-events-none opacity-30"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                    mixBlendMode: 'multiply',
+                  }}
+                />
+
+                {/* Effet de pli/coin légèrement relevé */}
+                <div 
+                  className="absolute top-0 right-0 w-8 h-8 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(135deg, transparent 50%, rgba(0,0,0,0.03) 50%)',
+                  }}
+                />
+
+                {/* Bande adhésive en haut */}
+                <div 
+                  className="absolute -top-2 left-1/2 -translate-x-1/2 w-16 h-5 rounded-sm opacity-60"
+                  style={{
+                    background: 'linear-gradient(180deg, rgba(200, 180, 140, 0.6) 0%, rgba(180, 160, 120, 0.4) 100%)',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
+                  }}
+                />
+
+                <div className="relative z-10">
+                  <StarRating rating={testimonial.rating} />
+                  <blockquote className="mt-4 mb-6 text-primary/80 leading-relaxed italic">
+                    {testimonial.content}
+                  </blockquote>
+                  <div className="border-t border-primary/10 pt-4">
+                    <p className="font-semibold text-primary">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-sm text-primary/50">
+                      {[testimonial.profession, testimonial.company]
+                        .filter(Boolean)
+                        .join(' · ')}
+                      {testimonial.city && <span> — {testimonial.city}</span>}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

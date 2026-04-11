@@ -221,6 +221,27 @@
 .floating-ui:nth-child(4) { animation-delay: 1.5s; }
 .floating-ui:nth-child(5) { animation-delay: 2s; }
 
+/* ========================================
+   POST-IT FALL ANIMATION
+   La carte tombe vers le bas et disparaît
+   ======================================== */
+
+@keyframes postit-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150%) rotate(6deg);
+    opacity: 0;
+  }
+}
+
+.postit-card.is-falling {
+  animation: postit-fall 1.2s cubic-bezier(0.45, 0, 0.55, 1) forwards;
+  z-index: 10 !important;
+}
+
 /* Accessibilité : réduire les animations pour les utilisateurs qui le préfèrent */
 @media (prefers-reduced-motion: reduce) {
   *,
