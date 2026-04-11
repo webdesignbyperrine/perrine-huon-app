@@ -292,14 +292,14 @@ export default async function TemoignagesPage({
 
                 <div className="relative z-10">
                   <StarRating rating={testimonial.rating} ariaLabel={t('rating.aria_label')} />
-                  <blockquote className="mt-4 mb-6 text-primary/80 leading-relaxed italic">
+                  <blockquote className="mt-4 mb-6 text-gray-800 leading-relaxed italic">
                     {getLocalizedField(testimonial, 'content', locale as Locale)}
                   </blockquote>
-                  <div className="border-t border-primary/10 pt-4">
-                    <p className="font-semibold text-primary">
+                  <div className="border-t border-gray-400/30 pt-4">
+                    <p className="font-semibold text-gray-900">
                       {testimonial.name}
                     </p>
-                    <p className="text-sm text-primary/50">
+                    <p className="text-sm text-gray-600">
                       {[getLocalizedField(testimonial, 'profession', locale as Locale), testimonial.company]
                         .filter(Boolean)
                         .join(' · ')}

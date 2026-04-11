@@ -137,13 +137,13 @@ function TestimonialContent({ testimonial, isSecond }: { testimonial: Testimonia
   const locale = useLocale() as 'fr' | 'en' | 'es';
   
   return (
-    <div className={isSecond ? 'border-t border-primary/10 pt-4' : ''}>
+    <div className={isSecond ? 'border-t border-gray-400/30 pt-4' : ''}>
       <StarRating rating={testimonial.rating} />
-      <blockquote className="mt-2 mb-2 text-primary/80 leading-relaxed text-sm italic line-clamp-3">
+      <blockquote className="mt-2 mb-2 text-gray-800 leading-relaxed text-sm italic line-clamp-3">
         {getLocalizedField(testimonial, 'content', locale)}
       </blockquote>
-      <p className="font-semibold text-primary text-sm">{testimonial.name}</p>
-      <p className="text-xs text-primary/50">
+      <p className="font-semibold text-gray-900 text-sm">{testimonial.name}</p>
+      <p className="text-xs text-gray-600">
         {[getLocalizedField(testimonial, 'profession', locale), testimonial.company].filter(Boolean).join(' · ')}
       </p>
     </div>
