@@ -24,7 +24,7 @@ const caveat = Caveat({
   fallback: ['cursive'],
 });
 
-const siteUrl = 'https://perrinehuon.com'
+const siteUrl = 'https://www.perrinehuon.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

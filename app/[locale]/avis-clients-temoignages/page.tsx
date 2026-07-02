@@ -97,13 +97,13 @@ export async function generateMetadata({
     title: t('meta.title'),
     description: t('meta.description'),
     alternates: {
-      canonical: 'https://perrinehuon.com/avis-clients-temoignages',
+      canonical: 'https://www.perrinehuon.com/avis-clients-temoignages',
     },
     openGraph: {
       title: t('meta.title'),
       description: t('meta.description'),
       type: 'website',
-      url: 'https://perrinehuon.com/avis-clients-temoignages',
+      url: 'https://www.perrinehuon.com/avis-clients-temoignages',
       siteName: tMeta('siteName'),
       locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'es_ES',
     },
@@ -217,10 +217,10 @@ export default async function TemoignagesPage({
     <div className="min-h-screen bg-paper-light">
       <BreadcrumbJsonLd
         items={[
-          { name: t('breadcrumb.home'), url: 'https://perrinehuon.com' },
+          { name: t('breadcrumb.home'), url: 'https://www.perrinehuon.com' },
           {
             name: t('breadcrumb.testimonials'),
-            url: 'https://perrinehuon.com/avis-clients-temoignages',
+            url: 'https://www.perrinehuon.com/avis-clients-temoignages',
           },
         ]}
       />

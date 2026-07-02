@@ -1,7 +1,7 @@
 import { Link } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { BreadcrumbJsonLd } from '@/components/JsonLd';
+import { BreadcrumbJsonLd, FAQPageJsonLd } from '@/components/JsonLd';
 
 export async function generateMetadata({
   params,
@@ -15,12 +15,12 @@ export async function generateMetadata({
   return {
     title: t('metadata.title'),
     description: t('metadata.description'),
-    alternates: { canonical: 'https://perrinehuon.com/tarifs-creation-site-web' },
+    alternates: { canonical: 'https://www.perrinehuon.com/tarifs-creation-site-web' },
     openGraph: {
       title: t('metadata.ogTitle'),
       description: t('metadata.ogDescription'),
       type: 'website',
-      url: 'https://perrinehuon.com/tarifs-creation-site-web',
+      url: 'https://www.perrinehuon.com/tarifs-creation-site-web',
       siteName: tMetadata('siteName'),
       locale: locale === 'fr' ? 'fr_FR' : locale === 'es' ? 'es_ES' : 'en_US',
     },
@@ -72,14 +72,20 @@ export default async function TarifsPage({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'tarifs' });
 
+  const faqJsonLdItems = faqs.map((_, idx) => ({
+    question: t(`faqs.items.${idx}.question`),
+    answer: t(`faqs.items.${idx}.answer`),
+  }));
+
   return (
     <div className="min-h-screen bg-paper-light">
       <BreadcrumbJsonLd
         items={[
-          { name: t('breadcrumb.home'), url: 'https://perrinehuon.com' },
-          { name: t('breadcrumb.pricing'), url: 'https://perrinehuon.com/tarifs-creation-site-web' },
+          { name: t('breadcrumb.home'), url: 'https://www.perrinehuon.com' },
+          { name: t('breadcrumb.pricing'), url: 'https://www.perrinehuon.com/tarifs-creation-site-web' },
         ]}
       />
+      <FAQPageJsonLd faqs={faqJsonLdItems} />
 
       {/* Hero */}
       <section className="relative grain-overlay pt-32 pb-20 bg-paper">

@@ -10,7 +10,7 @@ export interface SiteSettings {
 export const DEFAULT_SETTINGS: SiteSettings = {
   logo_url: '/images/logo_vert_perrine_huon.png',
   site_title: 'Perrine Huon',
-  site_description: 'Web Designer & Développeuse Front-End',
+  site_description: 'Développeur Web Freelance & Web Designer',
   calendly_url: 'https://calendly.com/perrinehuon/30min',
 };
 

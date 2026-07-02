@@ -154,7 +154,7 @@ function getEmailFooter(): string {
           Perrine Huon &bull; Web designer
         </p>
         <p style="font-family: 'Outfit', Arial, sans-serif; color: ${EMAIL_STYLES.primaryBlue}; margin: 8px 0 0 0; font-size: 12px; opacity: 0.5;">
-          <a href="https://perrinehuon.com" style="color: ${EMAIL_STYLES.primaryBlue}; text-decoration: none;">perrinehuon.com</a>
+          <a href="https://www.perrinehuon.com" style="color: ${EMAIL_STYLES.primaryBlue}; text-decoration: none;">perrinehuon.com</a>
         </p>
       </td>
     </tr>
@@ -303,7 +303,7 @@ function generateConfirmationEmailHtml(data: ConfirmationEmailData): string {
           </tr>
           <tr>
             <td style="padding: 0 30px 40px 30px; text-align: center;">
-              <a href="https://perrinehuon.com/portfolio" style="font-family: 'Outfit', Arial, sans-serif; display: inline-block; background-color: ${EMAIL_STYLES.accentPink}; color: ${EMAIL_STYLES.white}; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px;">
+              <a href="https://www.perrinehuon.com/portfolio" style="font-family: 'Outfit', Arial, sans-serif; display: inline-block; background-color: ${EMAIL_STYLES.accentPink}; color: ${EMAIL_STYLES.white}; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 16px;">
                 Voir le portfolio
               </a>
             </td>

@@ -3,6 +3,8 @@ import { createClient } from '@/lib/supabase/server'
 import { getAllServiceSlugs } from '@/lib/services-data'
 import { getAllLocationSlugs } from '@/lib/locations-data'
 import { getAllProfessionSlugs } from '@/lib/professions-data'
+import { STATIC_BLOG_POSTS } from '@/lib/static-blog-posts'
+import { STATIC_PORTFOLIO_PROJECTS } from '@/lib/static-portfolio'
 import { locales } from '@/i18n/config'
 
 function multilingualUrl(baseUrl: string, path: string) {
@@ -17,7 +19,7 @@ function multilingualUrl(baseUrl: string, path: string) {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://perrinehuon.com'
+  const baseUrl = 'https://www.perrinehuon.com'
   
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -116,6 +118,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .select('slug, updated_at')
     .eq('published', true)
   
+  const supabaseProjectSlugs = new Set((projects || []).map((p) => p.slug))
   const projectPages: MetadataRoute.Sitemap = (projects || []).map((project) => ({
     ...multilingualUrl(baseUrl, `/portfolio/${project.slug}`),
     lastModified: project.updated_at ? new Date(project.updated_at) : new Date(),
@@ -123,12 +126,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
+  const staticProjectPages: MetadataRoute.Sitemap = STATIC_PORTFOLIO_PROJECTS
+    .filter((p) => !supabaseProjectSlugs.has(p.slug))
+    .map((p) => ({
+      ...multilingualUrl(baseUrl, `/portfolio/${p.slug}`),
+      lastModified: new Date(p.published_at),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    }))
+
   // Blog pages with multilingual URLs
   const { data: posts } = await supabase
     .from('blog_posts')
     .select('slug, updated_at, published_at')
     .eq('published', true)
   
+  const supabaseBlogSlugs = new Set((posts || []).map((p) => p.slug))
   const blogPages: MetadataRoute.Sitemap = (posts || []).map((post) => ({
     ...multilingualUrl(baseUrl, `/blog/${post.slug}`),
     lastModified: post.updated_at ? new Date(post.updated_at) : new Date(),
@@ -136,12 +149,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
+  const staticBlogPages: MetadataRoute.Sitemap = STATIC_BLOG_POSTS
+    .filter((p) => !supabaseBlogSlugs.has(p.slug))
+    .map((p) => ({
+      ...multilingualUrl(baseUrl, `/blog/${p.slug}`),
+      lastModified: new Date(p.updated_at || p.published_at),
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
+    }))
+
   return [
     ...staticPages,
     ...servicePages,
     ...locationPages,
     ...professionPages,
     ...projectPages,
+    ...staticProjectPages,
     ...blogPages,
+    ...staticBlogPages,
   ]
 }

@@ -10,7 +10,7 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const siteUrl = 'https://perrinehuon.com';
+const siteUrl = 'https://www.perrinehuon.com';
 
 const ogLocaleMap: Record<string, string> = {
   fr: 'fr_FR',
@@ -22,42 +22,88 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
+  const localeUrl = locale === 'fr' ? siteUrl : `${siteUrl}/${locale}`;
+  const ogImageUrl = `${siteUrl}/images/og-image.jpg`;
+
   return {
+    metadataBase: new URL(siteUrl),
     title: {
       default: t('title'),
       template: t('titleTemplate'),
     },
     description: t('description'),
+    authors: [{ name: 'Perrine Huon', url: siteUrl }],
+    creator: 'Perrine Huon',
+    publisher: 'Perrine Huon',
+    applicationName: t('siteName'),
+    referrer: 'origin-when-cross-origin',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     openGraph: {
       type: 'website',
       locale: ogLocaleMap[locale] || 'fr_FR',
-      url: siteUrl,
+      alternateLocale: Object.values(ogLocaleMap).filter((l) => l !== (ogLocaleMap[locale] || 'fr_FR')),
+      url: localeUrl,
       siteName: t('siteName'),
       title: t('title'),
       description: t('ogDescription'),
       images: [
         {
-          url: '/images/og-image.jpg',
+          url: ogImageUrl,
+          secureUrl: ogImageUrl,
           width: 1200,
           height: 630,
           alt: t('ogImageAlt'),
+          type: 'image/jpeg',
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@perrinehuon',
+      creator: '@perrinehuon',
       title: t('title'),
       description: t('twitterDescription'),
-      images: ['/images/og-image.jpg'],
-      creator: '@perrinehuon',
+      images: [
+        {
+          url: ogImageUrl,
+          alt: t('ogImageAlt'),
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
     alternates: {
-      canonical: locale === 'fr' ? siteUrl : `${siteUrl}/${locale}`,
+      canonical: localeUrl,
       languages: {
         'fr': siteUrl,
         'en': `${siteUrl}/en`,
         'es': `${siteUrl}/es`,
+        'x-default': siteUrl,
       },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
+    },
+    verification: {
+      // Add Google Search Console & Bing Webmaster verification codes here
+      // when the user submits the property:
+      // google: 'XXXXXXXXXXXX',
+      // other: { 'msvalidate.01': 'XXXXXXXXXXXX' },
     },
   };
 }

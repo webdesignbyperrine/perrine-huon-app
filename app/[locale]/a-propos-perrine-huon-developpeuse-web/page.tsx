@@ -16,13 +16,13 @@ export async function generateMetadata({
     title: t('metadata.title'),
     description: t('metadata.description'),
     alternates: {
-      canonical: 'https://perrinehuon.com/a-propos-perrine-huon-developpeuse-web',
+      canonical: 'https://www.perrinehuon.com/a-propos-perrine-huon-developpeuse-web',
     },
     openGraph: {
       title: t('metadata.ogTitle'),
       description: t('metadata.ogDescription'),
       type: 'website',
-      url: 'https://perrinehuon.com/a-propos-perrine-huon-developpeuse-web',
+      url: 'https://www.perrinehuon.com/a-propos-perrine-huon-developpeuse-web',
       siteName: tMeta('siteName'),
       locale: 'fr_FR',
     },
@@ -123,10 +123,10 @@ export default async function AProposPage({
     <div className="min-h-screen bg-paper-light">
       <BreadcrumbJsonLd
         items={[
-          { name: t('breadcrumb.home'), url: 'https://perrinehuon.com' },
+          { name: t('breadcrumb.home'), url: 'https://www.perrinehuon.com' },
           {
             name: t('breadcrumb.about'),
-            url: 'https://perrinehuon.com/a-propos-perrine-huon-developpeuse-web',
+            url: 'https://www.perrinehuon.com/a-propos-perrine-huon-developpeuse-web',
           },
         ]}
       />

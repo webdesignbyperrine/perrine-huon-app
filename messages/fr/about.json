@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "À Propos — Perrine Huon, Développeuse Web Freelance",
-    "description": "Découvrez le parcours de Perrine Huon, développeuse web freelance spécialisée en création de sites internet sur mesure. Mon approche, mes valeurs et pourquoi me choisir.",
-    "ogTitle": "À Propos — Perrine Huon, Développeuse Web Freelance",
-    "ogDescription": "Découvrez le parcours de Perrine Huon, développeuse web freelance spécialisée en création de sites internet sur mesure."
+    "title": "À Propos — Perrine Huon, Développeur Web Freelance",
+    "description": "Découvrez le parcours de Perrine Huon, développeur web freelance spécialisé en création de sites internet sur mesure. Mon approche, mes valeurs et pourquoi me choisir.",
+    "ogTitle": "À Propos — Perrine Huon, Développeur Web Freelance",
+    "ogDescription": "Découvrez le parcours de Perrine Huon, développeur web freelance spécialisé en création de sites internet sur mesure."
   },
   "breadcrumb": {
     "home": "Accueil",
@@ -12,7 +12,7 @@
   "hero": {
     "backLink": "← Retour à l'accueil",
     "name": "Perrine Huon",
-    "title": "Développeuse Web Freelance",
+    "title": "Développeur Web Freelance",
     "description": "Passionnée par le web et le design, je crée des sites internet sur mesure qui allient esthétique, performance et référencement. Mon objectif : donner à chaque projet une présence en ligne à la hauteur de son ambition.",
     "cta": "Discutons de votre projet",
     "photoPlaceholder": "Photo à venir"

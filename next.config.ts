@@ -77,6 +77,26 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+
+  // Permanent (301) redirect from the bare apex domain to www.
+  // Vercel's edge already redirects (307) at the domain level, but declaring it
+  // here as 301 makes the canonicalisation explicit, idempotent across hosts,
+  // and safer for SEO (search engines treat 301 as the strong canonical signal).
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'perrinehuon.com',
+          },
+        ],
+        destination: 'https://www.perrinehuon.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

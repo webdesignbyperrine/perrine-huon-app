@@ -8,6 +8,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import LaptopMockup from '@/components/LaptopMockup';
 import { useTranslations, useLocale } from 'next-intl';
 import { getLocalizedField } from '@/lib/i18n-helpers';
+import { STATIC_PORTFOLIO_PROJECTS } from '@/lib/static-portfolio';
 
 export default function PortfolioPage() {
   const t = useTranslations('portfolio-page');
@@ -36,60 +37,30 @@ export default function PortfolioPage() {
     fetchProjects();
   }, []);
 
-  // Données de démo
-  const demoProjects = [
-    {
-      id: '1',
-      title: 'STUDIO 74',
-      slug: 'studio-74',
-      short_description: t('demoProjects.1.short_description'),
-      seo_city: 'Lyon',
-      featured_image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800',
-    },
-    {
-      id: '2',
-      title: 'GLOSTER',
-      slug: 'gloster',
-      short_description: t('demoProjects.2.short_description'),
-      seo_city: 'Paris',
-      featured_image: 'https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800',
-    },
-    {
-      id: '3',
-      title: 'LINEA',
-      slug: 'linea-vol1',
-      short_description: t('demoProjects.3.short_description'),
-      seo_city: 'Marseille',
-      featured_image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800',
-    },
-    {
-      id: '4',
-      title: 'CUBE 2.0',
-      slug: 'cube-20',
-      short_description: t('demoProjects.4.short_description'),
-      seo_city: 'Bordeaux',
-      featured_image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800',
-    },
-    {
-      id: '5',
-      title: 'NEXUS',
-      slug: 'nexus',
-      short_description: t('demoProjects.5.short_description'),
-      seo_city: 'Toulouse',
-      featured_image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-    },
-    {
-      id: '6',
-      title: 'AURORA',
-      slug: 'aurora',
-      short_description: t('demoProjects.6.short_description'),
-      seo_city: 'Nantes',
-      featured_image: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800',
-    },
-  ];
+  // "Pillar" portfolio cases stored in code (lib/static-portfolio.ts) so the
+  // portfolio page is never empty even before Supabase is populated. If a
+  // Supabase row exists for a given slug, the Supabase version wins.
+  const supabaseSlugs = new Set(projects.map((p) => p.slug));
+  const staticProjects = STATIC_PORTFOLIO_PROJECTS.filter((p) => !supabaseSlugs.has(p.slug)).map(
+    (p) => ({
+      id: p.id,
+      title: p.title,
+      slug: p.slug,
+      short_description: p.short_description,
+      seo_city: p.seo_city,
+      featured_image: p.featured_image,
+      created_at: p.created_at,
+    }),
+  );
 
-  const supabaseHasTranslations = locale === 'fr' || (projects.length > 0 && `title_${locale}` in projects[0]);
-  const displayProjects = projects.length > 0 && supabaseHasTranslations ? projects : demoProjects;
+  const supabaseHasTranslations =
+    locale === 'fr' || (projects.length > 0 && `title_${locale}` in projects[0]);
+  const dbProjects = supabaseHasTranslations ? projects : [];
+  const displayProjects = [...dbProjects, ...staticProjects].sort((a, b) => {
+    const aDate = new Date((a as { created_at?: string }).created_at || 0).getTime();
+    const bDate = new Date((b as { created_at?: string }).created_at || 0).getTime();
+    return bDate - aDate;
+  });
 
 
   return (

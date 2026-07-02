@@ -18,13 +18,13 @@ export async function generateMetadata({
     title: t('metadata.title'),
     description: t('metadata.description'),
     alternates: {
-      canonical: 'https://perrinehuon.com/mon-parcours',
+      canonical: 'https://www.perrinehuon.com/mon-parcours',
     },
     openGraph: {
       title: t('metadata.ogTitle'),
       description: t('metadata.ogDescription'),
       type: 'website',
-      url: 'https://perrinehuon.com/mon-parcours',
+      url: 'https://www.perrinehuon.com/mon-parcours',
       siteName: tMeta('siteName'),
       locale: locale === 'fr' ? 'fr_FR' : locale === 'en' ? 'en_US' : 'es_ES',
     },
@@ -64,8 +64,8 @@ export default async function MonParcoursPage({
     <>
       <BreadcrumbJsonLd
         items={[
-          { name: t('breadcrumb.home'), url: 'https://perrinehuon.com' },
-          { name: t('breadcrumb.biography'), url: 'https://perrinehuon.com/mon-parcours' },
+          { name: t('breadcrumb.home'), url: 'https://www.perrinehuon.com' },
+          { name: t('breadcrumb.biography'), url: 'https://www.perrinehuon.com/mon-parcours' },
         ]}
       />
 

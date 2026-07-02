@@ -121,7 +121,7 @@ export default function ContactCard() {
             {/* Boutons RDV */}
             <div className="grid gap-4 mx-auto w-fit">
               <a
-                href="https://perrinehuon.com"
+                href="https://www.perrinehuon.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-8 py-4 text-white font-semibold rounded-xl shadow-md active:translate-y-0.5 active:shadow-sm transition-all duration-150"
@@ -230,7 +230,7 @@ export default function ContactCard() {
             {/* Bouton vers le site principal */}
             <div className="text-center">
               <a
-                href="https://perrinehuon.com"
+                href="https://www.perrinehuon.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 text-white font-semibold rounded-xl shadow-md active:translate-y-0.5 active:shadow-sm transition-all duration-150"

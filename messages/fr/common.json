@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Perrine Huon | Création de Sites Internet Sur Mesure | Développeuse Web Freelance",
-    "titleTemplate": "%s | Perrine Huon - Création de Sites Internet",
-    "description": "Développeuse web freelance spécialisée en création de sites internet sur mesure, applications web et SEO géolocalisé. Sites vitrines, e-commerce, landing pages optimisés pour la conversion. Devis gratuit.",
-    "siteName": "Perrine Huon - Création de Sites Internet",
-    "ogDescription": "Développeuse web freelance spécialisée en création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Devis gratuit.",
-    "ogImageAlt": "Perrine Huon - Création de Sites Internet Sur Mesure",
-    "twitterDescription": "Création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Développeuse web freelance."
+    "title": "Perrine Huon | Développeur Web Freelance | Création de Sites Internet Sur Mesure",
+    "titleTemplate": "%s | Perrine Huon - Développeur Web Freelance",
+    "description": "Développeur web freelance spécialisé en création de sites internet sur mesure, applications web et SEO géolocalisé. Sites vitrines, e-commerce, landing pages optimisés pour la conversion. Devis gratuit en 48h.",
+    "siteName": "Perrine Huon - Développeur Web Freelance",
+    "ogDescription": "Développeur web freelance spécialisé en création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Devis gratuit.",
+    "ogImageAlt": "Perrine Huon — Développeur web freelance, création de sites internet sur mesure",
+    "twitterDescription": "Création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Développeur web freelance."
   },
   "header": {
     "services": "Services",
@@ -28,7 +28,7 @@
   },
   "footer": {
     "slogan": "Construisons ensemble votre succès digital.",
-    "subtitle": "Développeuse Web Freelance — Création de Sites Internet",
+    "subtitle": "Développeur Web Freelance — Création de Sites Internet",
     "whatAreYourNeeds": "Quels sont vos besoins ?",
     "stayConnected": "Restons connectés",
     "linkedinDesc": "Conseils web et vie de freelance",
@@ -69,7 +69,7 @@
     }
   },
   "hero": {
-    "badge": "Développeuse web freelance — Création de sites internet sur mesure",
+    "badge": "Développeur web freelance — Création de sites internet sur mesure",
     "titleLine1": "Vous bossez.",
     "titleLine2": "Votre site web aussi.",
     "subtitleLine1": "Sites internet pensés pour être trouvés sur Google.",

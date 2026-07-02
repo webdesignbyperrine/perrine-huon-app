@@ -5,7 +5,9 @@ import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { getAllServiceSlugs, getServiceBySlug } from '@/lib/services-data';
 import { getAllLocationSlugs, getLocationBySlug } from '@/lib/locations-data';
 import { getAllProfessionSlugs, getProfessionBySlug } from '@/lib/professions-data';
-import { BreadcrumbJsonLd, FAQPageJsonLd } from '@/components/JsonLd';
+import { BreadcrumbJsonLd, FAQPageJsonLd, ServiceJsonLd } from '@/components/JsonLd';
+import { ProfessionToLocationsLinks, LocationToProfessionsLinks } from '@/components/SeoCrossLinks';
+import { PRIORITY_LOCATIONS } from '@/lib/seo-priority';
 
 const LOCATION_PREFIX = 'creation-site-internet-';
 const PROFESSION_PREFIX = 'site-internet-';
@@ -46,8 +48,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     return {
       title: s.metaTitle,
       description: s.metaDescription,
-      alternates: { canonical: `https://perrinehuon.com/${slug}` },
-      openGraph: { title: s.metaTitle, description: s.metaDescription, url: `https://perrinehuon.com/${slug}`, type: 'website', locale: 'fr_FR', siteName: 'Perrine Huon - Création de Sites Internet' },
+      alternates: { canonical: `https://www.perrinehuon.com/${slug}` },
+      openGraph: { title: s.metaTitle, description: s.metaDescription, url: `https://www.perrinehuon.com/${slug}`, type: 'website', locale: 'fr_FR', siteName: 'Perrine Huon - Création de Sites Internet' },
       twitter: { card: 'summary_large_image', title: s.metaTitle, description: s.metaDescription },
     };
   }
@@ -57,8 +59,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     return {
       title: l.metaTitle,
       description: l.metaDescription,
-      alternates: { canonical: `https://perrinehuon.com/${slug}` },
-      openGraph: { title: l.metaTitle, description: l.metaDescription, url: `https://perrinehuon.com/${slug}`, type: 'website', locale: 'fr_FR', siteName: 'Perrine Huon - Création de Sites Internet' },
+      alternates: { canonical: `https://www.perrinehuon.com/${slug}` },
+      openGraph: { title: l.metaTitle, description: l.metaDescription, url: `https://www.perrinehuon.com/${slug}`, type: 'website', locale: 'fr_FR', siteName: 'Perrine Huon - Création de Sites Internet' },
       twitter: { card: 'summary_large_image', title: l.metaTitle, description: l.metaDescription },
     };
   }
@@ -67,8 +69,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: p.metaTitle,
     description: p.metaDescription,
-    alternates: { canonical: `https://perrinehuon.com/${slug}` },
-    openGraph: { title: p.metaTitle, description: p.metaDescription, url: `https://perrinehuon.com/${slug}`, type: 'website', locale: 'fr_FR', siteName: 'Perrine Huon - Création de Sites Internet' },
+    alternates: { canonical: `https://www.perrinehuon.com/${slug}` },
+    openGraph: { title: p.metaTitle, description: p.metaDescription, url: `https://www.perrinehuon.com/${slug}`, type: 'website', locale: 'fr_FR', siteName: 'Perrine Huon - Création de Sites Internet' },
     twitter: { card: 'summary_large_image', title: p.metaTitle, description: p.metaDescription },
   };
 }
@@ -96,8 +98,14 @@ async function ServiceView({ slug, dataSlug, locale }: { slug: string; dataSlug:
   const service = getServiceBySlug(dataSlug, locale as any)!;
   return (
     <div className="min-h-screen bg-paper-light">
-      <BreadcrumbJsonLd items={[{ name: tBreadcrumb('home'), url: 'https://perrinehuon.com' }, { name: service.title, url: `https://perrinehuon.com/${slug}` }]} />
+      <BreadcrumbJsonLd items={[{ name: tBreadcrumb('home'), url: 'https://www.perrinehuon.com' }, { name: service.title, url: `https://www.perrinehuon.com/${slug}` }]} />
       <FAQPageJsonLd faqs={service.faqs} />
+      <ServiceJsonLd
+        name={service.title}
+        description={service.metaDescription}
+        url={`https://www.perrinehuon.com/${slug}`}
+        serviceType={service.title}
+      />
 
       <section className="relative grain-overlay pt-32 pb-20 bg-paper">
         <div className="container mx-auto px-4 relative z-10">
@@ -184,8 +192,8 @@ function LocationJsonLd({ name, slug, type, description }: { name: string; slug:
     '@type': 'ProfessionalService',
     name,
     description,
-    url: `https://perrinehuon.com/creation-site-internet-${slug}`,
-    logo: 'https://perrinehuon.com/images/logo_vert_perrine_huon.png',
+    url: `https://www.perrinehuon.com/creation-site-internet-${slug}`,
+    logo: 'https://www.perrinehuon.com/images/logo_vert_perrine_huon.png',
     email: 'contact@perrinehuon.com',
     priceRange: '€€',
     areaServed: { '@type': type === 'region' ? 'AdministrativeArea' : 'City', name },
@@ -202,7 +210,7 @@ async function LocationView({ slug, dataSlug, locale }: { slug: string; dataSlug
 
   return (
     <div className="min-h-screen bg-paper">
-      <BreadcrumbJsonLd items={[{ name: tBreadcrumb('home'), url: 'https://perrinehuon.com' }, { name: t('breadcrumbPrefix', { location: location.name }), url: `https://perrinehuon.com/${slug}` }]} />
+      <BreadcrumbJsonLd items={[{ name: tBreadcrumb('home'), url: 'https://www.perrinehuon.com' }, { name: t('breadcrumbPrefix', { location: location.name }), url: `https://www.perrinehuon.com/${slug}` }]} />
       <LocationJsonLd name={t('jsonLdName', { location: location.name })} slug={dataSlug} type={location.type} description={t('jsonLdDescription', { location: location.name })} />
 
       <section className="relative bg-paper-light grain-overlay overflow-hidden">
@@ -271,6 +279,8 @@ async function LocationView({ slug, dataSlug, locale }: { slug: string; dataSlug
         </div>
       </section>
 
+      <LocationToProfessionsLinks location={{ name: location.name, slug: dataSlug }} />
+
       <section className="py-16 md:py-24 bg-paper">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto bg-white/60 backdrop-blur-sm rounded-sketch-lg p-10 md:p-14 border-2 border-primary/10">
@@ -298,8 +308,15 @@ async function ProfessionView({ slug, dataSlug, locale }: { slug: string; dataSl
 
   return (
     <div className="min-h-screen bg-paper-light grain-overlay">
-      <BreadcrumbJsonLd items={[{ name: tBreadcrumb('home'), url: 'https://perrinehuon.com' }, { name: profession.name, url: `https://perrinehuon.com/${slug}` }]} />
+      <BreadcrumbJsonLd items={[{ name: tBreadcrumb('home'), url: 'https://www.perrinehuon.com' }, { name: profession.name, url: `https://www.perrinehuon.com/${slug}` }]} />
       <FAQPageJsonLd faqs={profession.faqs} />
+      <ServiceJsonLd
+        name={profession.h1}
+        description={profession.metaDescription}
+        url={`https://www.perrinehuon.com/${slug}`}
+        serviceType={`Création de site internet pour ${profession.name}`}
+        areaServed={PRIORITY_LOCATIONS.map((l) => l.name)}
+      />
 
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="container mx-auto px-4">
@@ -368,6 +385,8 @@ async function ProfessionView({ slug, dataSlug, locale }: { slug: string; dataSl
           </div>
         </div>
       </section>
+
+      <ProfessionToLocationsLinks profession={{ name: profession.name, slug: dataSlug }} />
 
       <section className="py-20 bg-paper">
         <div className="container mx-auto px-4 text-center">

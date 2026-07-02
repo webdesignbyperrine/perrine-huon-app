@@ -16,13 +16,13 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: 'https://perrinehuon.com/pourquoi-pas-wordpress',
+      canonical: 'https://www.perrinehuon.com/pourquoi-pas-wordpress',
     },
     openGraph: {
       title: t('ogTitle'),
       description: t('ogDescription'),
       type: 'website',
-      url: 'https://perrinehuon.com/pourquoi-pas-wordpress',
+      url: 'https://www.perrinehuon.com/pourquoi-pas-wordpress',
       siteName: tMeta('siteName'),
       locale: locale === 'fr' ? 'fr_FR' : locale === 'es' ? 'es_ES' : 'en_US',
     },
@@ -47,10 +47,10 @@ export default async function PourquoiPasWordPressPage({
     <div className="min-h-screen bg-paper-light">
       <BreadcrumbJsonLd
         items={[
-          { name: t('breadcrumb.home'), url: 'https://perrinehuon.com' },
+          { name: t('breadcrumb.home'), url: 'https://www.perrinehuon.com' },
           {
             name: t('breadcrumb.current'),
-            url: 'https://perrinehuon.com/pourquoi-pas-wordpress',
+            url: 'https://www.perrinehuon.com/pourquoi-pas-wordpress',
           },
         ]}
       />

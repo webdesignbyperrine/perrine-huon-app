@@ -16,13 +16,13 @@ export async function generateMetadata({
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: 'https://perrinehuon.com/freelance-vs-agence-web',
+      canonical: 'https://www.perrinehuon.com/freelance-vs-agence-web',
     },
     openGraph: {
       title: t('ogTitle'),
       description: t('ogDescription'),
       type: 'website',
-      url: 'https://perrinehuon.com/freelance-vs-agence-web',
+      url: 'https://www.perrinehuon.com/freelance-vs-agence-web',
       siteName: tMeta('siteName'),
       locale: locale === 'fr' ? 'fr_FR' : locale === 'es' ? 'es_ES' : 'en_US',
     },
@@ -49,10 +49,10 @@ export default async function FreelanceVsAgencePage({
     <div className="min-h-screen bg-paper-light">
       <BreadcrumbJsonLd
         items={[
-          { name: t('breadcrumb.home'), url: 'https://perrinehuon.com' },
+          { name: t('breadcrumb.home'), url: 'https://www.perrinehuon.com' },
           {
             name: t('breadcrumb.current'),
-            url: 'https://perrinehuon.com/freelance-vs-agence-web',
+            url: 'https://www.perrinehuon.com/freelance-vs-agence-web',
           },
         ]}
       />

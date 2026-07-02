@@ -14,14 +14,26 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
+  const baseUrl = 'https://www.perrinehuon.com';
+  const localeUrl = locale === 'fr' ? baseUrl : `${baseUrl}/${locale}`;
+
   return {
     title: t('title'),
     description: t('description'),
-    alternates: { canonical: 'https://perrinehuon.com' },
+    alternates: {
+      canonical: localeUrl,
+      languages: {
+        fr: baseUrl,
+        en: `${baseUrl}/en`,
+        es: `${baseUrl}/es`,
+        'x-default': baseUrl,
+      },
+    },
     openGraph: {
       title: t('title'),
       description: t('ogDescription'),
       siteName: t('siteName'),
+      url: localeUrl,
     },
   };
 }

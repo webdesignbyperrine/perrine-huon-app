@@ -20,7 +20,7 @@
       "arrondissement": "Arrondissement",
       "region": "Région"
     },
-    "specialist": "Développeuse web freelance spécialisée en création de sites internet sur mesure pour les entreprises de {location}.",
+    "specialist": "Développeur web freelance spécialisé en création de sites internet sur mesure pour les entreprises de {location}.",
     "businessTypes": {
       "title": "Types d'entreprises à {location}",
       "subtitle": "Je travaille avec tous types de professionnels à {location}, voici les secteurs les plus représentés."
@@ -60,7 +60,7 @@
     "startProject": "Démarrer mon projet",
     "bookCall": "Réserver un appel gratuit",
     "jsonLdName": "Perrine Huon - Création de Sites Internet à {location}",
-    "jsonLdDescription": "Développeuse web freelance proposant la création de sites internet sur mesure à {location}.",
+    "jsonLdDescription": "Développeur web freelance proposant la création de sites internet sur mesure à {location}.",
     "breadcrumbPrefix": "Création de site internet à {location}"
   },
   "profession": {
