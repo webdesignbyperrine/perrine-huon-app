@@ -1,5 +1,7 @@
 'use client';
 
+import { useState, useEffect } from 'react';
+
 /**
  * Composant SafeHTML - Rendu sécurisé de HTML
  * Sanitise le HTML pour prévenir les attaques XSS
@@ -38,12 +40,6 @@ const ALLOWED_PROTOCOLS = ['http:', 'https:', 'mailto:'];
  */
 function sanitizeHTML(html: string): string {
   if (!html) return '';
-
-  // DOMParser is browser-only — during SSR the content is developer-controlled
-  // (static blog posts), so returning it as-is is safe.
-  if (typeof window === 'undefined') {
-    return html;
-  }
 
   // Créer un parser DOM côté client
   const parser = new DOMParser();
@@ -145,9 +141,15 @@ function sanitizeHTML(html: string): string {
 }
 
 export default function SafeHTML({ html, className }: SafeHTMLProps) {
-  // Sanitiser le HTML côté client
-  const sanitizedHTML = sanitizeHTML(html);
-  
+  // On initialise avec le HTML brut (identique au rendu SSR) pour éviter
+  // tout mismatch d'hydration. La sanitisation s'effectue côté client
+  // après montage via useEffect.
+  const [sanitizedHTML, setSanitizedHTML] = useState(html);
+
+  useEffect(() => {
+    setSanitizedHTML(sanitizeHTML(html));
+  }, [html]);
+
   return (
     <div
       className={className}
