@@ -396,17 +396,21 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 
 <h3>Ce qui est autorisé</h3>
 
+<p>Le CNB permet explicitement aux avocats de :</p>
+
 <ul>
   <li>Avoir un <strong>site internet professionnel</strong> présentant votre cabinet et vos compétences</li>
   <li>Communiquer sur vos domaines d'expertise et spécialisations</li>
   <li>Publier des <strong>articles de blog juridiques</strong> (vulgarisation, actualités)</li>
   <li>Être présent sur <strong>LinkedIn</strong> et d'autres réseaux professionnels</li>
-  <li>Indiquer vos coordonnées, tarifs indicatifs et modalités de prise de rendez-vous</li>
+  <li>Indiquer vos coordonnées et modalités de prise de rendez-vous</li>
   <li>Recueillir et afficher des <strong>avis clients</strong> vérifiables (Google, Avocats.fr)</li>
   <li>Utiliser Google Ads, sous réserve que les annonces soient loyales et non comparatives</li>
 </ul>
 
 <h3>Ce qui est interdit ou encadré</h3>
+
+<p>À l'inverse, ces pratiques sont proscrites ou strictement encadrées :</p>
 
 <ul>
   <li>La <strong>publicité comparative</strong> (se positionner comme "le meilleur" ou dénigrer un concurrent)</li>
@@ -483,6 +487,8 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
   — avant même qu'ils vous appellent.
 </p>
 
+<p>Quelques principes concrets à appliquer :</p>
+
 <ul>
   <li>Utilisez le <strong>langage de vos clients</strong>, pas celui de vos collègues</li>
   <li>Expliquez votre processus en termes simples : comment se passe un premier rendez-vous ?</li>
@@ -491,6 +497,8 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </ul>
 
 <h3>Les erreurs à éviter</h3>
+
+<p>Les pièges les plus courants que j'observe sur les sites d'avocats :</p>
 
 <ul>
   <li>
@@ -546,32 +554,18 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
   </li>
 </ul>
 
-<h2>Combien coûte un site pour un avocat ?</h2>
+<h2>Prêt à créer ou refondre votre site ?</h2>
 
 <p>
-  Pour un cabinet d'avocat indépendant ou une petite structure (1 à 5 avocats) :
+  Avoir un site conforme à la déontologie et visible sur Google n'est pas contradictoire.
+  C'est même une combinaison puissante — à condition de le construire avec les bons outils
+  et une stratégie SEO locale adaptée à votre barreau.
 </p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Type de site</th>
-      <th>Fourchette HT</th>
-      <th>Délai</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Vitrine simple (5 pages, sans blog)</td><td>3 500 – 5 500 €</td><td>4-6 semaines</td></tr>
-    <tr><td>Site complet avec blog et SEO local</td><td>5 500 – 9 000 €</td><td>7-10 semaines</td></tr>
-    <tr><td>Site multi-avocats avec espace client</td><td>9 000 – 18 000 €</td><td>10-16 semaines</td></tr>
-    <tr><td>Maintenance + suivi SEO mensuel</td><td>180 – 350 € / mois</td><td>Continu</td></tr>
-  </tbody>
-</table>
-
 <p>
-  <a href="/?openQualifier=true">Demandez un devis personnalisé pour votre cabinet</a> —
+  <a href="/?openQualifier=true">Discutons de votre projet</a> —
   j'ai accompagné plusieurs professions réglementées et je connais les contraintes
-  déontologiques de votre secteur.
+  spécifiques à votre secteur.
 </p>
 `,
     faqs: [
@@ -592,8 +586,8 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
         answer: "Les 4 leviers prioritaires : (1) Google Business Profile complet et tenu à jour, (2) pages dédiées par domaine d'expertise avec mention géographique, (3) données structurées Schema.org LegalService + LocalBusiness, (4) blog juridique avec articles ciblant les questions concrètes de vos clients locaux (ex : 'divorce à Paris 15e : procédure et délais').",
       },
       {
-        question: 'Un cabinet d\'avocats peut-il afficher ses tarifs sur son site ?',
-        answer: "Oui, c'est même recommandé. Le CNB n'interdit pas l'affichage des honoraires et beaucoup de clients apprécient la transparence. Vous pouvez indiquer des forfaits (ex : consultation initiale 150 €), des plages tarifaires, ou votre taux horaire. Précisez si les montants sont HT ou TTC et si vous êtes conventionné aide juridictionnelle.",
+        question: 'Un cabinet d\'avocats peut-il demander des avis clients en ligne ?',
+        answer: "Oui, et c'est même fortement recommandé. Les avis Google, Avocats.fr ou Juriway sont parfaitement compatibles avec la déontologie, à condition qu'ils soient authentiques et non sollicités de façon mensongère. Répondez à tous les avis — positifs comme négatifs — de façon professionnelle et personnalisée.",
       },
     ],
   },

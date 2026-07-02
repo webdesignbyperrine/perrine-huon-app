@@ -207,7 +207,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
         <div className="container mx-auto px-4">
           <SafeHTML
             html={content}
-            className="max-w-4xl mx-auto prose prose-lg prose-headings:text-primary prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-4 prose-h2:mt-12 prose-p:text-primary/70 prose-p:leading-relaxed prose-li:text-primary/70 prose-strong:text-primary prose-ul:text-primary/70 prose-table:text-primary/70 prose-th:text-primary prose-th:font-bold prose-a:text-accent hover:prose-a:underline"
+            className="max-w-4xl mx-auto prose prose-lg prose-headings:text-primary prose-h2:text-3xl prose-h2:font-bold prose-h2:mb-6 prose-h2:mt-14 prose-h3:text-xl prose-h3:font-semibold prose-h3:mt-10 prose-h3:mb-4 prose-p:text-primary/70 prose-p:leading-relaxed prose-p:mb-5 prose-li:text-primary/70 prose-li:mb-2 prose-ul:mt-4 prose-ul:mb-6 prose-ol:mt-4 prose-ol:mb-6 prose-strong:text-primary prose-ul:text-primary/70 prose-table:text-primary/70 prose-th:text-primary prose-th:font-bold prose-a:text-accent hover:prose-a:underline prose-blockquote:border-accent prose-blockquote:text-primary/80 prose-blockquote:bg-accent/5 prose-blockquote:rounded-r-lg prose-blockquote:py-1"
           />
 
           {faqs && faqs.length > 0 && (
