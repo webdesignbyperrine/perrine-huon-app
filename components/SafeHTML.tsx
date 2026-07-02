@@ -38,7 +38,13 @@ const ALLOWED_PROTOCOLS = ['http:', 'https:', 'mailto:'];
  */
 function sanitizeHTML(html: string): string {
   if (!html) return '';
-  
+
+  // DOMParser is browser-only — during SSR the content is developer-controlled
+  // (static blog posts), so returning it as-is is safe.
+  if (typeof window === 'undefined') {
+    return html;
+  }
+
   // Créer un parser DOM côté client
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, 'text/html');
