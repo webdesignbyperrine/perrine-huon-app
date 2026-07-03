@@ -1,11 +1,37 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 
 // ============================================
 // COMPOSANTS UI ADMIN RÉUTILISABLES
 // ============================================
+
+/** Icône ⓘ avec tooltip au survol */
+export function InfoTooltip({ text }: { text: string }) {
+  const [visible, setVisible] = useState(false);
+  return (
+    <span className="relative inline-flex items-center ml-2">
+      <button
+        type="button"
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
+        onFocus={() => setVisible(true)}
+        onBlur={() => setVisible(false)}
+        className="w-4 h-4 rounded-full border border-white/30 text-white/40 hover:text-secondary hover:border-secondary transition-colors flex items-center justify-center text-[10px] font-bold leading-none"
+        aria-label="Info"
+      >
+        i
+      </button>
+      {visible && (
+        <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 w-60 text-xs bg-[#0d0d1a] border border-white/10 text-white/70 rounded-lg px-3 py-2 shadow-xl pointer-events-none">
+          {text}
+          <span className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-[#0d0d1a]" />
+        </span>
+      )}
+    </span>
+  );
+}
 
 /** Spinner de chargement plein écran */
 export function AdminLoadingSpinner() {
@@ -82,16 +108,19 @@ export function AdminInput({
   label, 
   required, 
   hint,
+  tooltip,
   ...props 
 }: { 
   label: string; 
   required?: boolean;
   hint?: string;
+  tooltip?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
+      <label className="flex items-center text-white/80 mb-2 text-sm uppercase tracking-wider">
         {label} {required && '*'}
+        {tooltip && <InfoTooltip text={tooltip} />}
       </label>
       <input
         {...props}
@@ -108,16 +137,19 @@ export function AdminTextarea({
   label, 
   required,
   hint,
+  tooltip,
   ...props 
 }: { 
   label: string; 
   required?: boolean;
   hint?: string;
+  tooltip?: string;
 } & React.TextareaHTMLAttributes<HTMLTextAreaElement>) {
   return (
     <div>
-      <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
+      <label className="flex items-center text-white/80 mb-2 text-sm uppercase tracking-wider">
         {label} {required && '*'}
+        {tooltip && <InfoTooltip text={tooltip} />}
       </label>
       <textarea
         {...props}
@@ -133,15 +165,18 @@ export function AdminTextarea({
 export function AdminSelect({ 
   label, 
   options,
+  tooltip,
   ...props 
 }: { 
   label: string; 
   options: { value: string; label: string }[];
+  tooltip?: string;
 } & React.SelectHTMLAttributes<HTMLSelectElement>) {
   return (
     <div>
-      <label className="block text-white/80 mb-2 text-sm uppercase tracking-wider">
+      <label className="flex items-center text-white/80 mb-2 text-sm uppercase tracking-wider">
         {label}
+        {tooltip && <InfoTooltip text={tooltip} />}
       </label>
       <select
         {...props}

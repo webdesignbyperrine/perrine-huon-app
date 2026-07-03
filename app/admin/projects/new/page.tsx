@@ -14,6 +14,7 @@ import {
   AdminSelect,
   AdminCheckbox,
   AdminFormButtons,
+  InfoTooltip,
 } from '@/components/admin/ui';
 
 type UploadedImage = {
@@ -32,6 +33,7 @@ const PROJECT_TYPES = [
   { value: 'E-commerce', label: 'E-commerce' },
   { value: 'Landing page', label: 'Landing page' },
   { value: 'Refonte de site', label: 'Refonte de site' },
+  { value: 'CRM - Logiciel de gestion', label: 'CRM - Logiciel de gestion' },
   { value: 'Autre', label: 'Autre' },
 ];
 
@@ -123,6 +125,7 @@ export default function NewProjectPage() {
           value={formData.title}
           onChange={(e) => handleTitleChange(e.target.value)}
           placeholder="Ex: Site E-commerce Mode"
+          tooltip="Affiché en grand (H1) dans le hero de la page projet, et comme titre de la carte dans la liste portfolio."
         />
 
         <AdminInput
@@ -132,6 +135,7 @@ export default function NewProjectPage() {
           onChange={(e) => updateField('slug', e.target.value)}
           placeholder="site-ecommerce-mode"
           hint={`Généré automatiquement. URL : /portfolio/${formData.slug}`}
+          tooltip="Définit l'URL de la page projet : /portfolio/[slug]. Généré automatiquement depuis le titre."
         />
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -140,6 +144,7 @@ export default function NewProjectPage() {
             value={formData.client}
             onChange={(e) => updateField('client', e.target.value)}
             placeholder="Nom du client"
+            tooltip={"Affiché dans la grille d'infos (3 colonnes) sous le label \"Client\", en dessous du hero."}
           />
 
           <AdminSelect
@@ -147,6 +152,7 @@ export default function NewProjectPage() {
             value={formData.location}
             onChange={(e) => updateField('location', e.target.value)}
             options={PROJECT_TYPES}
+            tooltip={"Affiché comme badge en haut du hero (ex : \"Site vitrine\") et dans la grille d'infos sous \"Catégorie\"."}
           />
         </div>
 
@@ -156,6 +162,7 @@ export default function NewProjectPage() {
           value={formData.year}
           onChange={(e) => updateField('year', parseInt(e.target.value, 10))}
           placeholder="2024"
+          tooltip={"Affiché dans la grille d'infos (3 colonnes) sous le label \"Année\", en dessous du hero."}
         />
 
         <AdminInput
@@ -163,6 +170,7 @@ export default function NewProjectPage() {
           value={formData.short_description}
           onChange={(e) => updateField('short_description', e.target.value)}
           placeholder="Une ligne de description"
+          tooltip="Affiché en sous-titre juste sous le titre (H1) dans le hero de la page projet."
         />
 
         <AdminTextarea
@@ -171,22 +179,25 @@ export default function NewProjectPage() {
           onChange={(e) => updateField('long_description', e.target.value)}
           rows={6}
           placeholder="Description complète du projet, technologies utilisées, défis relevés..."
+          tooltip={"Affiché dans la section \"À propos du projet\" en bas de la page, après la galerie d'images."}
         />
 
         <div>
-          <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
-            Galerie d'images du projet
+          <label className="flex items-center text-white/80 mb-4 text-sm uppercase tracking-wider">
+            Galerie d&apos;images du projet
+            <InfoTooltip text="Photos affichées dans le carousel de la section galerie sur la page projet. La première image marquée 'Principale' sert aussi d'image de couverture dans la liste portfolio." />
           </label>
           <ImageUploader images={images} onImagesChange={setImages} maxImages={10} />
           <p className="text-white/40 text-xs mt-2">
-            La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
+            La première image (ou celle marquée comme &quot;Principale&quot;) sera utilisée comme image de couverture
           </p>
         </div>
 
         {mainImageUrl && (
           <div>
-            <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
-              Recadrer l'image d'aperçu
+            <label className="flex items-center text-white/80 mb-4 text-sm uppercase tracking-wider">
+              Recadrer l&apos;image d&apos;aperçu
+              <InfoTooltip text="Définit la zone visible de l'image de couverture (format 16:9) affichée dans la liste portfolio et en haut de la page projet." />
             </label>
             <ImageCropper
               imageUrl={mainImageUrl}

@@ -15,6 +15,7 @@ import {
   AdminSelect,
   AdminCheckbox,
   AdminFormButtons,
+  InfoTooltip,
 } from '@/components/admin/ui';
 
 type Project = {
@@ -47,6 +48,7 @@ const PROJECT_TYPES = [
   { value: 'E-commerce', label: 'E-commerce' },
   { value: 'Landing page', label: 'Landing page' },
   { value: 'Refonte de site', label: 'Refonte de site' },
+  { value: 'CRM - Logiciel de gestion', label: 'CRM - Logiciel de gestion' },
   { value: 'Autre', label: 'Autre' },
 ];
 
@@ -187,6 +189,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
           required
           value={project.title}
           onChange={(e) => updateField('title', e.target.value)}
+          tooltip="Affiché en grand (H1) dans le hero de la page projet, et comme titre de la carte dans la liste portfolio."
         />
 
         <AdminInput
@@ -195,6 +198,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
           value={project.slug}
           onChange={(e) => updateField('slug', e.target.value)}
           hint={`URL : /portfolio/${project.slug}`}
+          tooltip="Définit l'URL de la page projet : /portfolio/[slug]. Modifier avec précaution si le projet est déjà publié."
         />
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -202,6 +206,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
             label="Client"
             value={project.client || ''}
             onChange={(e) => updateField('client', e.target.value)}
+            tooltip={"Affiché dans la grille d'infos (3 colonnes) sous le label \"Client\", en dessous du hero."}
           />
 
           <AdminSelect
@@ -209,6 +214,7 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
             value={project.location || ''}
             onChange={(e) => updateField('location', e.target.value)}
             options={PROJECT_TYPES}
+            tooltip={"Affiché comme badge en haut du hero (ex : \"Site vitrine\") et dans la grille d'infos sous \"Catégorie\"."}
           />
         </div>
 
@@ -217,12 +223,14 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
           type="number"
           value={project.year || ''}
           onChange={(e) => updateField('year', parseInt(e.target.value) || null)}
+          tooltip={"Affiché dans la grille d'infos (3 colonnes) sous le label \"Année\", en dessous du hero."}
         />
 
         <AdminInput
           label="Description courte"
           value={project.short_description || ''}
           onChange={(e) => updateField('short_description', e.target.value)}
+          tooltip="Affiché en sous-titre juste sous le titre (H1) dans le hero de la page projet."
         />
 
         <AdminTextarea
@@ -230,22 +238,25 @@ export default function EditProjectPage({ params }: { params: Promise<{ id: stri
           value={project.long_description || ''}
           onChange={(e) => updateField('long_description', e.target.value)}
           rows={6}
+          tooltip={"Affiché dans la section \"À propos du projet\" en bas de la page, après la galerie d'images."}
         />
 
         <div>
-          <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
-            Galerie d'images du projet
+          <label className="flex items-center text-white/80 mb-4 text-sm uppercase tracking-wider">
+            Galerie d&apos;images du projet
+            <InfoTooltip text="Photos affichées dans le carousel de la section galerie sur la page projet. La première image marquée 'Principale' sert aussi d'image de couverture dans la liste portfolio." />
           </label>
           <ImageUploader images={images} onImagesChange={setImages} maxImages={10} />
           <p className="text-white/40 text-xs mt-2">
-            La première image (ou celle marquée comme "Principale") sera utilisée comme image de couverture
+            La première image (ou celle marquée comme &quot;Principale&quot;) sera utilisée comme image de couverture
           </p>
         </div>
 
         {mainImageUrl && (
           <div>
-            <label className="block text-white/80 mb-4 text-sm uppercase tracking-wider">
-              Recadrer l'image d'aperçu
+            <label className="flex items-center text-white/80 mb-4 text-sm uppercase tracking-wider">
+              Recadrer l&apos;image d&apos;aperçu
+              <InfoTooltip text="Définit la zone visible de l'image de couverture (format 16:9) affichée dans la liste portfolio et en haut de la page projet." />
             </label>
             <ImageCropper
               imageUrl={mainImageUrl}

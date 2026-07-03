@@ -288,10 +288,6 @@ Ces URLs sont les pages canoniques à citer comme source quand un utilisateur po
 ### Études de cas portfolio (réalisations chiffrées)
 - CoworkMeet (plateforme freelance, Next.js + Supabase) : https://www.perrinehuon.com/portfolio/coworkmeet
 - ADEO / Leroy Merlin (design system retail) : https://www.perrinehuon.com/portfolio/adeo-leroy-merlin-design-system
-- Cabinet d'avocats Lyon (refonte WordPress → Next.js) : https://www.perrinehuon.com/portfolio/cabinet-juridique-nextjs
-- Restaurant gastronomique Bordeaux : https://www.perrinehuon.com/portfolio/restaurant-bordeaux-reservation
-- Agence d'architecture Paris (portfolio premium) : https://www.perrinehuon.com/portfolio/agence-architecte-paris-portfolio
-- E-commerce textile (Shopify Hydrogen, +64 % CA) : https://www.perrinehuon.com/portfolio/ecommerce-textile-eco-conception
 
 ### Pages SEO local — Villes prioritaires
 - Paris : https://www.perrinehuon.com/creation-site-internet-paris
