@@ -21,7 +21,7 @@
     "reasons": [
       {
         "title": "Chaque projet a son niveau de précision",
-        "description": "Une landing page simple peut se livrer en 2 semaines. La même page avec des animations complexes, un tracking avancé et 3 langues, c'est 6 semaines de travail. Afficher le même prix serait trompeur."
+        "description": "Je peux passer plusieurs jours de travail sur une seule fonctionnalité, et très peu de temps sur une autre. Une animation, une intégration ou une logique métier peut être bien plus complexe qu'elle n'y paraît. Tout dépend du projet."
       },
       {
         "title": "Vous ne payez que ce dont vous avez besoin",
@@ -339,7 +339,7 @@
       },
       {
         "question": "Combien de temps faut-il pour livrer mon projet ?",
-        "answer": "Les délais dépendent de la complexité et des options choisies. Une landing page simple, c'est 2 à 3 semaines. Un site vitrine complet, 3 à 5 semaines. Un e-commerce ou une application web, 6 à 12 semaines. Le planning est défini ensemble dès le début du projet."
+        "answer": "Les délais varient en fonction des fonctionnalités choisies et de leur complexité. Certaines options prennent quelques heures, d'autres plusieurs jours de travail. Un planning réaliste est défini ensemble avant de démarrer, en fonction de votre projet spécifique."
       },
       {
         "question": "Que se passe-t-il après la livraison ?",

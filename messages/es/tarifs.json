@@ -21,7 +21,7 @@
     "reasons": [
       {
         "title": "Cada proyecto tiene su nivel de complejidad",
-        "description": "Una landing page sencilla puede entregarse en 2 semanas. La misma página con animaciones complejas, seguimiento avanzado y 3 idiomas requiere 6 semanas de trabajo. Mostrar el mismo precio sería engañoso."
+        "description": "Puedo pasar varios días de trabajo en una sola funcionalidad, y muy poco tiempo en otra. Una animación, una integración o una lógica de negocio puede ser mucho más compleja de lo que parece. Todo depende del proyecto."
       },
       {
         "title": "Solo pagas lo que necesitas",
@@ -339,7 +339,7 @@
       },
       {
         "question": "¿Cuánto tiempo se tarda en entregar el proyecto?",
-        "answer": "Los plazos dependen de la complejidad y las opciones elegidas. Una landing page sencilla lleva 2 o 3 semanas. Un sitio vitrina completo, 3 a 5 semanas. Un e-commerce o una aplicación web, 6 a 12 semanas. El planning se define juntos desde el principio."
+        "answer": "Los plazos varían según las funcionalidades elegidas y su complejidad. Algunas opciones llevan pocas horas, otras varios días de trabajo. Definimos juntos un planning realista antes de empezar, adaptado a tu proyecto específico."
       },
       {
         "question": "¿Qué ocurre después de la entrega?",

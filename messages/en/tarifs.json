@@ -21,7 +21,7 @@
     "reasons": [
       {
         "title": "Every project has its own level of complexity",
-        "description": "A simple landing page can be delivered in 2 weeks. The same page with complex animations, advanced tracking and 3 languages takes 6 weeks of work. Showing the same price would be misleading."
+        "description": "I can spend several days of work on a single feature, and very little time on another. An animation, an integration or a business logic can be far more complex than it looks. It all depends on the project."
       },
       {
         "title": "You only pay for what you need",
@@ -339,7 +339,7 @@
       },
       {
         "question": "How long does it take to deliver my project?",
-        "answer": "Timelines depend on complexity and chosen options. A simple landing page takes 2 to 3 weeks. A full showcase site, 3 to 5 weeks. An e-commerce store or web app, 6 to 12 weeks. The schedule is agreed together from the start."
+        "answer": "Timelines vary depending on the features chosen and their complexity. Some options take a few hours, others several days of work. A realistic schedule is defined together before starting, based on your specific project."
       },
       {
         "question": "What happens after delivery?",
