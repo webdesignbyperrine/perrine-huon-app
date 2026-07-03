@@ -34,6 +34,7 @@ const PROJECT_TYPES = [
   { value: 'Landing page', label: 'Landing page' },
   { value: 'Refonte de site', label: 'Refonte de site' },
   { value: 'CRM - Logiciel de gestion', label: 'CRM - Logiciel de gestion' },
+  { value: 'Référencement naturel - SEO/GEO', label: 'Référencement naturel - SEO/GEO' },
   { value: 'Autre', label: 'Autre' },
 ];
 
