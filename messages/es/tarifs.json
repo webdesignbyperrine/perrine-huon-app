@@ -1,145 +1,355 @@
 {
   "metadata": {
-    "title": "Tarifas Creación de Sitio Web 2026 — Presupuesto Gratuito",
-    "description": "Descubre las tarifas de creación de sitio web: sitio vitrina desde 1.500€, e-commerce desde 3.000€, aplicación web bajo presupuesto. Precios transparentes, presupuesto gratuito.",
-    "ogTitle": "Tarifas Creación de Sitio Web 2026 — Presupuesto Gratuito",
-    "ogDescription": "Descubre las tarifas de creación de sitio web: sitio vitrina desde 1.500€, e-commerce desde 3.000€, aplicación web bajo presupuesto."
+    "title": "Precios Creación de Sitio Web 2026 — Presupuesto Personalizado",
+    "description": "Sin tarifa fija: cada proyecto es único. Descubre el presupuesto modular para tu landing page, sitio web, e-commerce, aplicación web, CRM o SEO.",
+    "ogTitle": "Precios Creación de Sitio Web 2026 — Presupuesto Personalizado",
+    "ogDescription": "Sin precio fijo, una fórmula adaptada a tu proyecto. Landing page, sitio vitrina, e-commerce, aplicación web y más — presupuesto gratuito."
   },
   "breadcrumb": {
     "home": "Inicio",
-    "pricing": "Tarifas"
+    "pricing": "Precios"
   },
   "hero": {
     "backLink": "Volver al inicio",
-    "title": "Tarifas Creación de Sitio Web",
-    "description": "Tarifas transparentes adaptadas a cada proyecto. Del sitio vitrina a la aplicación web personalizada, encuentra la fórmula que te corresponde.",
+    "title": "Soluciones a medida, no precios estándar",
+    "description": "Cada proyecto es único. En lugar de una tarifa fija que no se adapta a nada, te ofrezco un presupuesto modular: una base sólida y solo las opciones que realmente necesitas.",
     "cta": "Obtener un presupuesto gratuito"
   },
-  "plans": {
+  "whyNoPrice": {
+    "title": "¿Por qué no muestro precios fijos?",
+    "intro": "Un sitio web es como una casa: los cimientos son iguales para todos, pero la superficie, los materiales y los acabados marcan toda la diferencia en el presupuesto final.",
+    "reasons": [
+      {
+        "title": "Cada proyecto tiene su nivel de complejidad",
+        "description": "Una landing page sencilla puede entregarse en 2 semanas. La misma página con animaciones complejas, seguimiento avanzado y 3 idiomas requiere 6 semanas de trabajo. Mostrar el mismo precio sería engañoso."
+      },
+      {
+        "title": "Solo pagas lo que necesitas",
+        "description": "¿Para qué incluir un sistema de reservas online si no lo necesitas? Mi sistema de presupuesto modular te permite elegir únicamente las funcionalidades útiles para tu negocio."
+      },
+      {
+        "title": "La calidad no se negocia",
+        "description": "No ofrezco paquetes baratos que sacrifican el SEO, el rendimiento o la accesibilidad. Cada proyecto, grande o pequeño, recibe el mismo nivel de exigencia técnica."
+      }
+    ]
+  },
+  "projects": {
+    "sectionTitle": "Tipos de proyectos",
+    "sectionDescription": "Del más sencillo al más ambicioso, esto es lo que realizo — y cómo cada proyecto se adapta a tus necesidades y presupuesto.",
+    "baseLabel": "Incluido de base",
+    "optionsLabel": "Opciones disponibles",
+    "ctaLabel": "Hablemos de tu proyecto",
+    "landingPage": {
+      "name": "Landing page",
+      "description": "Una página única e impactante, diseñada para convertir. Ideal para lanzar un producto, probar una oferta o promocionar un evento.",
+      "base": [
+        "Diseño responsive personalizado",
+        "Estructura orientada a la conversión (UX / copywriting)",
+        "Formulario de contacto o captación",
+        "SEO on-page completo",
+        "Publicación en línea incluida"
+      ],
+      "options": [
+        "Animaciones e interacciones avanzadas",
+        "Integración Calendly / reserva de citas",
+        "Pop-up de captación de email (Mailchimp, Brevo…)",
+        "Seguimiento avanzado (Google Analytics, Meta Pixel…)",
+        "Versión multilingüe",
+        "A/B testing de la página",
+        "Vídeo de fondo o sección de vídeo",
+        "Chatbot o FAQ interactiva"
+      ]
+    },
     "vitrine": {
-      "name": "Sitio Vitrina",
-      "price": "Desde 1.500 €",
-      "description": "Ideal para presentar tu actividad y atraer clientes locales.",
-      "popular": false,
-      "popularBadge": "Popular",
-      "cta": "Solicitar un presupuesto",
+      "name": "Sitio vitrina",
+      "price": "Presupuesto personalizado",
+      "popularBadge": "El más solicitado",
+      "cta": "Hablemos de tu proyecto",
+      "description": "El sitio de referencia para tu negocio. Presenta quién eres, qué haces y anima a tus visitantes a contactarte.",
       "features": [
-        "Diseño personalizado y responsive",
-        "3 a 7 páginas optimizadas",
-        "Optimización SEO básica",
-        "Formulario de contacto",
+        "Diseño responsive personalizado",
+        "Hasta 5 páginas (inicio, servicios, contacto…)",
+        "Formulario de contacto seguro",
+        "SEO on-page optimizado",
         "Integración Google Maps",
-        "Alojamiento y puesta en línea",
-        "Formación en gestión de contenido",
-        "Soporte 30 días después de la entrega"
+        "Publicación en línea incluida",
+        "30 días de soporte gratuito",
+        "Entrega en 3 a 5 semanas"
+      ],
+      "base": [
+        "Diseño responsive personalizado",
+        "Hasta 5 páginas (inicio, servicios, sobre mí, contacto…)",
+        "Formulario de contacto seguro",
+        "SEO on-page optimizado",
+        "Integración Google Maps",
+        "Publicación en línea incluida"
+      ],
+      "options": [
+        "Páginas adicionales (tarifas, blog, equipo…)",
+        "Portfolio o galería con filtros",
+        "Sección de testimonios y reseñas",
+        "Reserva de citas online",
+        "Newsletter / captación de email",
+        "Chat en directo",
+        "Área de miembros o contenido restringido",
+        "Versión multilingüe"
+      ]
+    },
+    "multipage": {
+      "name": "Sitio multipágina",
+      "description": "Un sitio completo con una arquitectura de contenido pensada para el SEO y la experiencia de usuario. Ideal para negocios con servicios o contenido abundante.",
+      "base": [
+        "Arquitectura de la información a medida",
+        "Diseño responsive coherente en todas las páginas",
+        "Blog o espacio de actualidad",
+        "SEO técnico y on-page en profundidad",
+        "Enlazado interno optimizado",
+        "Publicación y configuración DNS"
+      ],
+      "options": [
+        "Páginas de servicios ilimitadas",
+        "Motor de búsqueda interno",
+        "FAQ dinámica por categoría",
+        "Reseñas automatizadas (Google, Trustpilot…)",
+        "Subdominio o microsite",
+        "Varios idiomas",
+        "Área de suscriptores o miembros",
+        "Intranet o extranet"
       ]
     },
     "ecommerce": {
       "name": "E-commerce",
-      "price": "Desde 3.000 €",
-      "description": "Tienda en línea eficiente con pago seguro y gestión de inventario.",
-      "popular": true,
+      "price": "Presupuesto personalizado",
+      "description": "Una tienda online de alto rendimiento, segura y optimizada para vender. Desde un pequeño catálogo artesanal hasta una gran tienda.",
       "features": [
-        "Todo el pack Sitio Vitrina",
         "Catálogo de productos ilimitado",
-        "Pago seguro (Stripe, PayPal)",
-        "Gestión de inventario y pedidos",
-        "Páginas de productos optimizadas SEO",
+        "Carrito y pago seguro (Stripe, PayPal…)",
+        "Gestión de stock y pedidos",
+        "Páginas de producto optimizadas para SEO",
         "Emails transaccionales automáticos",
         "Panel de gestión",
-        "Formación completa de la tienda"
+        "Filtros y búsqueda avanzada",
+        "Entrega en 6 a 10 semanas"
+      ],
+      "base": [
+        "Catálogo de productos ilimitado",
+        "Carrito y pago seguro (Stripe, PayPal…)",
+        "Gestión de stock y pedidos",
+        "Páginas de producto optimizadas para SEO",
+        "Emails transaccionales automáticos",
+        "Panel de gestión"
+      ],
+      "options": [
+        "Filtros y búsqueda de productos avanzada",
+        "Programa de fidelidad y códigos de descuento",
+        "Suscripciones y pagos recurrentes",
+        "Marketplace multi-vendedor",
+        "Seguimiento de envíos integrado",
+        "Reseñas verificadas (Trustpilot, Yotpo…)",
+        "Recomendaciones de productos (cross-sell / upsell)",
+        "Sincronización de stock con ERP o Shopify"
       ]
     },
     "webapp": {
-      "name": "Aplicación Web",
-      "price": "Bajo presupuesto",
-      "description": "Solución personalizada para tus necesidades empresariales: CRM, dashboard, herramienta interna.",
-      "popular": false,
+      "name": "Aplicación web / SaaS",
+      "price": "Presupuesto personalizado",
+      "description": "Una solución profesional a medida accesible desde cualquier navegador. Para automatizar un proceso, centralizar datos u ofrecer un servicio online.",
       "features": [
-        "Análisis funcional completo",
-        "Arquitectura personalizada",
-        "Interfaz de usuario intuitiva",
-        "Base de datos optimizada",
-        "Autenticación y seguridad",
-        "API e integraciones terceras",
-        "Pruebas y validación",
-        "Documentación técnica"
+        "Autenticación segura (email, OAuth…)",
+        "Interfaz de usuario a medida",
+        "Base de datos y API",
+        "Panel de gestión",
+        "Alojamiento y despliegue en la nube",
+        "Roles y permisos multinivel",
+        "Notificaciones por email y push",
+        "Entrega en 8 a 14 semanas"
+      ],
+      "base": [
+        "Autenticación segura (email, OAuth…)",
+        "Interfaz de usuario a medida",
+        "Base de datos y API",
+        "Panel de gestión",
+        "Alojamiento y despliegue"
+      ],
+      "options": [
+        "Roles y permisos multinivel",
+        "Notificaciones por email y push",
+        "Facturación y suscripciones (Stripe)",
+        "Modo sin conexión (PWA)",
+        "Exportación PDF, Excel, CSV",
+        "Integraciones de terceros (Zapier, Make, n8n…)",
+        "Aplicación móvil (React Native)",
+        "Auditoría de seguridad"
+      ]
+    },
+    "mvp": {
+      "name": "MVP / Prototipo",
+      "description": "¿Tienes una idea y quieres probarla rápidamente? Creo un prototipo funcional para validar tu concepto antes de invertir a fondo.",
+      "base": [
+        "Alcance funcional definido juntos",
+        "Interfaz simplificada pero operativa",
+        "Publicación online rápida",
+        "Documentación del proyecto",
+        "Retroalimentación e iteraciones incluidas"
+      ],
+      "options": [
+        "Tests de usuario y mapas de calor",
+        "Analytics integrados (Mixpanel, Posthog…)",
+        "API documentada (OpenAPI / Swagger)",
+        "Preparación para escalar (arquitectura cloud)",
+        "Pitch deck o demo para inversores",
+        "Transición a versión de producción"
+      ]
+    },
+    "crm": {
+      "name": "CRM / Software de gestión",
+      "description": "Una herramienta de gestión interna a medida: seguimiento de clientes, control del negocio, informes. Mucho más flexible que un software estándar.",
+      "base": [
+        "Panel con indicadores clave",
+        "Gestión de contactos y clientes",
+        "Informes y exportaciones (PDF, Excel…)",
+        "Acceso multiusuario",
+        "Seguridad y autenticación"
+      ],
+      "options": [
+        "Importación/exportación CSV desde sistemas existentes",
+        "Automatizaciones y recordatorios de seguimiento",
+        "Pipeline de ventas visual (Kanban)",
+        "Integración de calendario (Google, Outlook)",
+        "Módulo de facturación",
+        "Conexión API HubSpot / Salesforce",
+        "Gestión de tareas y proyectos internos",
+        "Aplicación móvil dedicada"
+      ]
+    },
+    "refonte": {
+      "name": "Rediseño de sitio web",
+      "description": "¿Tu sitio actual ya no convierte, es lento o no refleja tu imagen? Lo analizo, lo reformulo y lo modernizo conservando lo que funciona.",
+      "base": [
+        "Auditoría completa del sitio existente",
+        "Nuevo diseño a medida",
+        "Revisión y optimización del contenido",
+        "Redirección de URLs existentes (301)",
+        "Mejora del rendimiento y el SEO"
+      ],
+      "options": [
+        "Migración a un nuevo CMS",
+        "Rediseño de la arquitectura de la información",
+        "Mejoras de accesibilidad (WCAG)",
+        "Formación sobre la nueva interfaz",
+        "Auditoría de backlinks y limpieza SEO",
+        "Nuevo dominio y estrategia de migración",
+        "Nuevas integraciones (e-commerce, reservas…)",
+        "Campaña de comunicación sobre el relanzamiento"
+      ]
+    },
+    "seo": {
+      "name": "Posicionamiento SEO / GEO",
+      "description": "Aparecer en Google — y mañana en las IA — requiere una estrategia. Audito, optimizo y construyo tu visibilidad a largo plazo.",
+      "base": [
+        "Auditoría SEO técnica completa",
+        "Investigación de palabras clave estratégicas",
+        "Optimización on-page (etiquetas, contenido, enlaces)",
+        "Alta en directorios locales",
+        "Informe de seguimiento mensual"
+      ],
+      "options": [
+        "Creación de contenido SEO (artículos, páginas de servicios)",
+        "Link building (adquisición de backlinks)",
+        "SEO local (Google Business Profile optimizado)",
+        "GEO — Generative Engine Optimization (IA)",
+        "Core Web Vitals y SEO técnico avanzado",
+        "Estrategia de contenido a 6 o 12 meses",
+        "Seguimiento de posicionamiento semanal",
+        "Formación SEO para tu equipo"
       ]
     },
     "maintenance": {
-      "name": "Mantenimiento",
-      "price": "Desde 80 €/mes",
-      "description": "Mantén tu sitio eficiente, seguro y actualizado con total tranquilidad.",
-      "popular": false,
+      "name": "Mantenimiento & Soporte",
+      "price": "Personalizado / mes",
+      "description": "Tu sitio se mantiene rápido, seguro y actualizado. Gestiono las actualizaciones, copias de seguridad y optimizaciones continuas para que te centres en tu negocio.",
       "features": [
-        "Actualizaciones de seguridad",
-        "Copias de seguridad automáticas",
-        "Monitoreo de rendimiento",
-        "Corrección de errores prioritarios",
-        "Optimización SEO continua",
-        "Soporte técnico por email",
+        "Actualizaciones de CMS, plugins y dependencias",
+        "Copias de seguridad automáticas diarias",
+        "Monitoreo de disponibilidad 24h/24",
         "Informe mensual de rendimiento",
-        "Modificaciones menores incluidas"
+        "Soporte técnico prioritario",
+        "Optimizaciones SEO continuas",
+        "Corrección de errores incluida",
+        "Alojamiento de alta disponibilidad"
+      ],
+      "base": [
+        "Actualizaciones de CMS, plugins y dependencias",
+        "Copias de seguridad automáticas diarias",
+        "Monitoreo de disponibilidad 24h/24",
+        "Informe mensual de rendimiento",
+        "Soporte técnico prioritario"
+      ],
+      "options": [
+        "Optimizaciones SEO continuas",
+        "Redacción de contenido",
+        "Desarrollo de nuevas funcionalidades",
+        "Formación del equipo"
       ]
     }
   },
   "inclusions": {
-    "title": "Lo que está incluido en cada servicio",
+    "title": "Lo que se incluye en cada proyecto",
     "items": [
       {
         "title": "SEO Optimizado",
-        "description": "Cada página está optimizada para el posicionamiento natural: etiquetas meta, estructura semántica, rendimiento y SEO local."
+        "description": "Cada página está optimizada para el posicionamiento natural: meta etiquetas, estructura semántica, rendimiento y SEO local."
       },
       {
         "title": "Diseño Responsive",
-        "description": "Tu sitio se adapta perfectamente a todas las pantallas: móvil, tablet y escritorio. Probado en todos los navegadores."
+        "description": "Tu sitio se adapta perfectamente a todas las pantallas: móvil, tableta y escritorio. Probado en todos los navegadores principales."
       },
       {
         "title": "Rendimiento Máximo",
-        "description": "Puntuación Google PageSpeed superior a 90. Tiempo de carga optimizado para una experiencia de usuario fluida."
+        "description": "Puntuación Google PageSpeed superior a 90. Tiempos de carga optimizados para una experiencia de usuario fluida."
       },
       {
-        "title": "Asesoramiento en Alojamiento",
-        "description": "Recomendación e implementación de la solución de alojamiento más adecuada para tu proyecto y presupuesto."
+        "title": "Asesoría de Alojamiento",
+        "description": "Recomendación y configuración de la solución de alojamiento más adecuada para tu proyecto y presupuesto."
       },
       {
-        "title": "RGPD y Avisos Legales",
-        "description": "Conformidad RGPD, política de privacidad y avisos legales incluidos para estar en regla desde el lanzamiento."
+        "title": "RGPD y Aviso Legal",
+        "description": "Cumplimiento del RGPD, política de privacidad y aviso legal incluidos para estar en regla desde el primer día."
       },
       {
         "title": "Formación y Autonomía",
-        "description": "Formación personalizada para gestionar tu contenido con total autonomía. Documentación y tutoriales en vídeo incluidos."
+        "description": "Formación personalizada para gestionar tu contenido de forma autónoma. Documentación y tutoriales en vídeo incluidos."
       }
     ]
   },
   "faqs": {
-    "title": "Preguntas frecuentes sobre las tarifas",
+    "title": "Preguntas frecuentes",
     "items": [
       {
-        "question": "¿Cómo se calcula el precio final de mi sitio web?",
-        "answer": "La tarifa depende de varios factores: el número de páginas, las funcionalidades deseadas (formularios, reservas, pago en línea...), la complejidad del diseño y el volumen de contenido a integrar. Después de nuestro primer intercambio, te proporciono un presupuesto detallado y transparente."
+        "question": "¿Cómo funciona el presupuesto modular?",
+        "answer": "Parto de una base común para tu tipo de proyecto y luego eliges las opciones que realmente necesitas. Cada funcionalidad tiene un coste claro y transparente. Apruebas el presupuesto antes de que empiece — sin sorpresas."
       },
       {
-        "question": "¿Hay costos ocultos o tarifas adicionales?",
-        "answer": "No, practico una política de transparencia total. El presupuesto incluye todo el servicio. Solo el alojamiento (aproximadamente 10-30€/mes según la solución) y el nombre de dominio (aproximadamente 10-15€/año) son gastos recurrentes que pagas directamente al proveedor."
+        "question": "¿Hay costes ocultos o cargos adicionales?",
+        "answer": "No, aplico una política de transparencia total. El presupuesto incluye toda la prestación. Solo el alojamiento (unos 10-30€/mes según la solución) y el nombre de dominio (unos 10-15€/año) son costes recurrentes que pagas directamente al proveedor."
       },
       {
-        "question": "¿Ofrecen facilidades de pago?",
-        "answer": "Sí, el pago se realiza generalmente en 3 veces: un depósito del 30% al realizar el pedido, 40% a la validación del diseño y 30% a la entrega. Para proyectos importantes, se puede establecer un calendario de pagos personalizado."
+        "question": "¿Ofrecéis facilidades de pago?",
+        "answer": "Sí, el pago se realiza habitualmente en 3 plazos: un 30% de anticipo al contratar, 40% al aprobar el diseño y 30% a la entrega. Para proyectos más grandes se puede acordar un calendario de pagos personalizado."
       },
       {
-        "question": "¿Cuánto tiempo se tarda en crear mi sitio?",
-        "answer": "Los plazos varían según la complejidad: 2 a 4 semanas para un sitio vitrina, 4 a 8 semanas para un e-commerce y 6 a 12 semanas para una aplicación web personalizada. Un cronograma preciso se define juntos al inicio del proyecto."
+        "question": "¿Cuánto tiempo se tarda en entregar el proyecto?",
+        "answer": "Los plazos dependen de la complejidad y las opciones elegidas. Una landing page sencilla lleva 2 o 3 semanas. Un sitio vitrina completo, 3 a 5 semanas. Un e-commerce o una aplicación web, 6 a 12 semanas. El planning se define juntos desde el principio."
       },
       {
-        "question": "¿Qué sucede después de la entrega del sitio?",
-        "answer": "Después de la entrega, te beneficias de 30 días de soporte gratuito para cualquier pregunta o ajuste menor. Luego, propongo fórmulas de mantenimiento mensuales para asegurar la sostenibilidad y el rendimiento de tu sitio."
+        "question": "¿Qué ocurre después de la entrega?",
+        "answer": "Tras la entrega, dispones de 30 días de soporte gratuito para cualquier pregunta o ajuste menor. Después ofrezco planes de mantenimiento mensual para garantizar el rendimiento y la seguridad de tu sitio."
       }
     ]
   },
   "cta": {
-    "title": "¿Listo para lanzar tu proyecto?",
-    "description": "Obtén un presupuesto personalizado y gratuito en pocos minutos. Describe tu proyecto y recibe una propuesta adaptada a tus necesidades y presupuesto.",
+    "title": "Hablemos de tu proyecto",
+    "description": "En pocos minutos, describe tu proyecto y recibe una propuesta adaptada a tus necesidades y presupuesto. Sin tarifas fijas, sin sorpresas.",
     "button": "Obtener mi presupuesto gratuito"
   }
 }

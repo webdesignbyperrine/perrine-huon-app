@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "Tarifs Création de Site Internet 2026 — Devis Gratuit",
-    "description": "Découvrez les tarifs de création de site internet : site vitrine à partir de 1 500€, e-commerce à partir de 3 000€, application web sur devis. Tarifs transparents, devis gratuit.",
-    "ogTitle": "Tarifs Création de Site Internet 2026 — Devis Gratuit",
-    "ogDescription": "Découvrez les tarifs de création de site internet : site vitrine à partir de 1 500€, e-commerce à partir de 3 000€, application web sur devis."
+    "title": "Tarifs Création de Site Internet 2026 — Devis Sur Mesure",
+    "description": "Pas de grille tarifaire figée : chaque projet est unique. Découvrez le devis à tiroir pour votre site vitrine, landing page, e-commerce, application web, CRM ou SEO.",
+    "ogTitle": "Tarifs Création de Site Internet 2026 — Devis Sur Mesure",
+    "ogDescription": "Pas de prix fixe, une formule adaptée à votre projet. Landing page, site vitrine, e-commerce, application web et plus — devis gratuit."
   },
   "breadcrumb": {
     "home": "Accueil",
@@ -11,75 +11,285 @@
   },
   "hero": {
     "backLink": "Retour à l'accueil",
-    "title": "Tarifs Création de Site Internet",
-    "description": "Des tarifs transparents adaptés à chaque projet. Du site vitrine à l'application web sur mesure, trouvez la formule qui vous correspond.",
+    "title": "Des formules sur mesure, pas des prix au kilo",
+    "description": "Chaque projet est unique. Plutôt qu'une grille tarifaire qui ne correspond à rien, je vous propose un devis à tiroir : une base solide, et les options que vous choisissez vraiment.",
     "cta": "Obtenir un devis gratuit"
   },
-  "plans": {
+  "whyNoPrice": {
+    "title": "Pourquoi je n'affiche pas de prix fixes ?",
+    "intro": "Un site internet, c'est comme une maison : les fondations sont les mêmes pour tout le monde, mais la surface, les matériaux et les finitions font toute la différence sur le budget final.",
+    "reasons": [
+      {
+        "title": "Chaque projet a son niveau de précision",
+        "description": "Une landing page simple peut se livrer en 2 semaines. La même page avec des animations complexes, un tracking avancé et 3 langues, c'est 6 semaines de travail. Afficher le même prix serait trompeur."
+      },
+      {
+        "title": "Vous ne payez que ce dont vous avez besoin",
+        "description": "Pourquoi inclure un système de réservation en ligne si vous n'en avez pas besoin ? Mon système de devis à tiroir vous permet de choisir uniquement les fonctionnalités utiles à votre activité."
+      },
+      {
+        "title": "La qualité ne se brade pas",
+        "description": "Je ne propose pas de forfaits low-cost qui sacrifient le SEO, les performances ou l'accessibilité. Chaque projet, petit ou grand, bénéficie du même niveau d'exigence technique."
+      }
+    ]
+  },
+  "projects": {
+    "sectionTitle": "Les types de projets",
+    "sectionDescription": "Du plus simple au plus ambitieux, voici ce que je réalise — et comment chaque projet s'adapte à vos besoins et votre budget.",
+    "baseLabel": "Inclus de base",
+    "optionsLabel": "Options disponibles",
+    "ctaLabel": "Discutons de votre projet",
+    "landingPage": {
+      "name": "Landing page",
+      "description": "Une page unique, percutante, conçue pour convertir. Idéale pour lancer un produit, tester une offre ou promouvoir un événement.",
+      "base": [
+        "Design responsive sur mesure",
+        "Structure orientée conversion (UX / copywriting)",
+        "Formulaire de contact ou de capture",
+        "SEO on-page complet",
+        "Mise en ligne incluse"
+      ],
+      "options": [
+        "Animations et interactions avancées",
+        "Intégration Calendly / prise de rendez-vous",
+        "Pop-up de capture d'email (Mailchimp, Brevo…)",
+        "Tracking avancé (Google Analytics, Meta Pixel…)",
+        "Version multilingue",
+        "A/B testing de la page",
+        "Vidéo de fond ou section vidéo",
+        "Chatbot ou FAQ interactive"
+      ]
+    },
     "vitrine": {
-      "name": "Site Vitrine",
-      "price": "À partir de 1 500 €",
-      "description": "Idéal pour présenter votre activité et attirer des clients locaux.",
-      "popular": false,
-      "popularBadge": "Populaire",
-      "cta": "Demander un devis",
+      "name": "Site vitrine",
+      "price": "Sur devis",
+      "popularBadge": "Le plus demandé",
+      "cta": "Discutons de votre projet",
+      "description": "Le site de référence pour votre activité. Il présente qui vous êtes, ce que vous faites et donne envie à vos visiteurs de vous contacter.",
       "features": [
-        "Design sur mesure et responsive",
-        "3 à 7 pages optimisées",
-        "Optimisation SEO de base",
-        "Formulaire de contact",
+        "Design responsive et personnalisé",
+        "Jusqu'à 5 pages (accueil, services, contact…)",
+        "Formulaire de contact sécurisé",
+        "SEO on-page optimisé",
         "Intégration Google Maps",
-        "Hébergement & mise en ligne",
-        "Formation à la gestion du contenu",
-        "Support 30 jours après livraison"
+        "Mise en ligne incluse",
+        "30 jours de support offert",
+        "Livraison en 3 à 5 semaines"
+      ],
+      "base": [
+        "Design responsive et personnalisé",
+        "Jusqu'à 5 pages (accueil, services, à propos, contact…)",
+        "Formulaire de contact sécurisé",
+        "SEO on-page optimisé",
+        "Intégration Google Maps",
+        "Mise en ligne incluse"
+      ],
+      "options": [
+        "Pages supplémentaires (tarifs, blog, équipe…)",
+        "Portfolio ou galerie filtrable",
+        "Section témoignages et avis clients",
+        "Prise de rendez-vous en ligne",
+        "Newsletter / capture d'email",
+        "Chat en direct",
+        "Espace membres ou contenu restreint",
+        "Version multilingue"
+      ]
+    },
+    "multipage": {
+      "name": "Site multi-pages",
+      "description": "Un site complet avec une architecture de contenu pensée pour le SEO et l'expérience utilisateur. Idéal pour les activités riches en services ou en contenu.",
+      "base": [
+        "Architecture de l'information sur mesure",
+        "Design responsive cohérent sur toutes les pages",
+        "Blog ou espace actualités",
+        "SEO technique et on-page approfondi",
+        "Maillage interne optimisé",
+        "Mise en ligne et configuration DNS"
+      ],
+      "options": [
+        "Nombre illimité de pages de services",
+        "Moteur de recherche interne",
+        "FAQ dynamique par catégorie",
+        "Avis clients automatisés (Google, Trustpilot…)",
+        "Sous-domaine ou microsite",
+        "Plusieurs langues",
+        "Espace abonnés ou membres",
+        "Intranet ou extranet"
       ]
     },
     "ecommerce": {
       "name": "E-commerce",
-      "price": "À partir de 3 000 €",
-      "description": "Boutique en ligne performante avec paiement sécurisé et gestion des stocks.",
-      "popular": true,
+      "price": "Sur devis",
+      "description": "Une boutique en ligne performante, sécurisée et optimisée pour vendre. Du petit catalogue artisanal à la grande enseigne.",
       "features": [
-        "Tout le pack Site Vitrine",
         "Catalogue produits illimité",
-        "Paiement sécurisé (Stripe, PayPal)",
-        "Gestion des stocks & commandes",
+        "Panier et paiement sécurisé (Stripe, PayPal…)",
+        "Gestion des stocks et des commandes",
         "Pages produits optimisées SEO",
         "Emails transactionnels automatiques",
         "Tableau de bord de gestion",
-        "Formation complète à la boutique"
+        "Filtres et recherche avancée",
+        "Livraison en 6 à 10 semaines"
+      ],
+      "base": [
+        "Catalogue produits illimité",
+        "Panier et paiement sécurisé (Stripe, PayPal…)",
+        "Gestion des stocks et des commandes",
+        "Pages produits optimisées SEO",
+        "Emails transactionnels automatiques",
+        "Tableau de bord de gestion"
+      ],
+      "options": [
+        "Filtres et recherche produits avancée",
+        "Programme de fidélité et codes promo",
+        "Abonnements et paiements récurrents",
+        "Marketplace multi-vendeurs",
+        "Suivi de livraison intégré",
+        "Avis vérifiés (Trustpilot, Yotpo…)",
+        "Recommandations produits (cross-sell / upsell)",
+        "Synchronisation stock ERP ou Shopify"
       ]
     },
     "webapp": {
-      "name": "Application Web",
+      "name": "Application web / SaaS",
       "price": "Sur devis",
-      "description": "Solution sur mesure pour vos besoins métier : CRM, dashboard, outil interne.",
-      "popular": false,
+      "description": "Une solution métier sur mesure accessible depuis un navigateur. Pour automatiser un processus, centraliser des données ou proposer un service en ligne.",
       "features": [
-        "Analyse fonctionnelle complète",
-        "Architecture sur mesure",
-        "Interface utilisateur intuitive",
-        "Base de données optimisée",
-        "Authentification & sécurité",
-        "API & intégrations tierces",
-        "Tests & recette",
-        "Documentation technique"
+        "Authentification sécurisée (email, OAuth…)",
+        "Interface utilisateur sur mesure",
+        "Base de données et API",
+        "Tableau de bord de gestion",
+        "Hébergement et déploiement cloud",
+        "Rôles et permissions multi-niveaux",
+        "Notifications email et push",
+        "Livraison en 8 à 14 semaines"
+      ],
+      "base": [
+        "Authentification sécurisée (email, OAuth…)",
+        "Interface utilisateur sur mesure",
+        "Base de données et API",
+        "Tableau de bord de gestion",
+        "Hébergement et déploiement"
+      ],
+      "options": [
+        "Rôles et permissions multi-niveaux",
+        "Notifications email et push",
+        "Facturation et abonnements (Stripe)",
+        "Mode hors-ligne (PWA)",
+        "Export PDF, Excel, CSV",
+        "Intégrations tierces (Zapier, Make, n8n…)",
+        "Application mobile (React Native)",
+        "Audit de sécurité"
+      ]
+    },
+    "mvp": {
+      "name": "MVP / Prototype",
+      "description": "Vous avez une idée et souhaitez la tester rapidement ? Je conçois un prototype fonctionnel pour valider votre concept avant d'investir massivement.",
+      "base": [
+        "Périmètre fonctionnel défini ensemble",
+        "Interface simplifiée mais opérationnelle",
+        "Déploiement en ligne rapide",
+        "Documentation du projet",
+        "Retours et itérations inclus"
+      ],
+      "options": [
+        "Tests utilisateurs et heat maps",
+        "Analytics intégrés (Mixpanel, Posthog…)",
+        "API documentée (OpenAPI / Swagger)",
+        "Préparation au scaling (architecture cloud)",
+        "Pitch deck ou démo investisseurs",
+        "Transition vers version production"
+      ]
+    },
+    "crm": {
+      "name": "CRM / Logiciel de gestion",
+      "description": "Un outil de gestion interne sur mesure : suivi des clients, pilotage de l'activité, reporting. Bien plus flexible qu'un logiciel standard.",
+      "base": [
+        "Tableau de bord avec indicateurs clés",
+        "Gestion des contacts et clients",
+        "Rapports et exports (PDF, Excel…)",
+        "Accès multi-utilisateurs",
+        "Sécurité et authentification"
+      ],
+      "options": [
+        "Import/export CSV depuis l'existant",
+        "Automatisations et relances",
+        "Pipeline de vente visuel (Kanban)",
+        "Intégration calendrier (Google, Outlook)",
+        "Module de facturation",
+        "Connexion API HubSpot, Salesforce…",
+        "Gestion des tâches et projets internes",
+        "Application mobile dédiée"
+      ]
+    },
+    "refonte": {
+      "name": "Refonte de site",
+      "description": "Votre site actuel ne convertit plus, est lent ou n'est plus à votre image ? Je l'analyse, le repense et le modernise en conservant ce qui fonctionne.",
+      "base": [
+        "Audit complet du site existant",
+        "Nouveau design sur mesure",
+        "Reprise et optimisation du contenu",
+        "Redirection des URLs existantes (301)",
+        "Amélioration des performances et du SEO"
+      ],
+      "options": [
+        "Migration vers un nouveau CMS",
+        "Refonte de l'architecture de l'information",
+        "Amélioration de l'accessibilité (RGAA)",
+        "Formation à la nouvelle interface",
+        "Audit des backlinks et nettoyage SEO",
+        "Nouveau nom de domaine et stratégie de migration",
+        "Intégrations nouvelles (e-commerce, réservation…)",
+        "Campagne de communication sur la refonte"
+      ]
+    },
+    "seo": {
+      "name": "Référencement SEO / GEO",
+      "description": "Être trouvé sur Google — et demain sur les IA — demande une stratégie. J'audite, j'optimise et je construis votre visibilité sur le long terme.",
+      "base": [
+        "Audit SEO technique complet",
+        "Recherche de mots-clés stratégiques",
+        "Optimisation on-page (balises, contenu, maillage)",
+        "Soumission aux annuaires locaux",
+        "Rapport de suivi mensuel"
+      ],
+      "options": [
+        "Création de contenu SEO (articles, pages de service)",
+        "Netlinking (acquisition de backlinks)",
+        "SEO local (Google Business Profile optimisé)",
+        "GEO — Generative Engine Optimization (IA)",
+        "Core Web Vitals et SEO technique avancé",
+        "Stratégie de contenu sur 6 ou 12 mois",
+        "Suivi de positionnement hebdomadaire",
+        "Formation SEO pour votre équipe"
       ]
     },
     "maintenance": {
-      "name": "Maintenance",
-      "price": "À partir de 80 €/mois",
-      "description": "Gardez votre site performant, sécurisé et à jour en toute sérénité.",
-      "popular": false,
+      "name": "Maintenance & Suivi",
+      "price": "Sur devis / mois",
+      "description": "Votre site reste rapide, sécurisé et à jour. Je gère les mises à jour, les sauvegardes et les optimisations continues pour que vous puissiez vous concentrer sur votre activité.",
       "features": [
-        "Mises à jour de sécurité",
-        "Sauvegardes automatiques",
-        "Monitoring des performances",
-        "Corrections de bugs prioritaires",
-        "Optimisation SEO continue",
-        "Support technique par email",
+        "Mises à jour CMS, plugins et dépendances",
+        "Sauvegardes automatiques quotidiennes",
+        "Monitoring de disponibilité 24h/24",
         "Rapport mensuel de performances",
-        "Modifications mineures incluses"
+        "Support technique prioritaire",
+        "Optimisations SEO continues",
+        "Corrections de bugs incluses",
+        "Hébergement haute disponibilité"
+      ],
+      "base": [
+        "Mises à jour CMS, plugins et dépendances",
+        "Sauvegardes automatiques quotidiennes",
+        "Monitoring de disponibilité 24h/24",
+        "Rapport mensuel de performances",
+        "Support technique prioritaire"
+      ],
+      "options": [
+        "Optimisations SEO continues",
+        "Rédaction de contenu",
+        "Ajout de nouvelles fonctionnalités",
+        "Formation de votre équipe"
       ]
     }
   },
@@ -113,11 +323,11 @@
     ]
   },
   "faqs": {
-    "title": "Questions fréquentes sur les tarifs",
+    "title": "Questions fréquentes",
     "items": [
       {
-        "question": "Comment est calculé le prix final de mon site internet ?",
-        "answer": "Le tarif dépend de plusieurs facteurs : le nombre de pages, les fonctionnalités souhaitées (formulaires, réservation, paiement en ligne…), la complexité du design et le volume de contenu à intégrer. Après notre premier échange, je vous fournis un devis détaillé et transparent."
+        "question": "Comment fonctionne le devis à tiroir ?",
+        "answer": "Je pars d'une base commune pour votre type de projet, puis vous choisissez les options dont vous avez réellement besoin. Chaque fonctionnalité a un coût identifié et transparent. Vous validez le devis avant que je commence — pas de mauvaise surprise."
       },
       {
         "question": "Y a-t-il des coûts cachés ou des frais supplémentaires ?",
@@ -128,18 +338,18 @@
         "answer": "Oui, le paiement se fait généralement en 3 fois : un acompte de 30% à la commande, 40% à la validation du design, et 30% à la livraison. Pour les projets importants, un échéancier personnalisé peut être mis en place."
       },
       {
-        "question": "Combien de temps faut-il pour créer mon site ?",
-        "answer": "Les délais varient selon la complexité : 2 à 4 semaines pour un site vitrine, 4 à 8 semaines pour un e-commerce, et 6 à 12 semaines pour une application web sur mesure. Un planning précis est défini ensemble dès le début du projet."
+        "question": "Combien de temps faut-il pour livrer mon projet ?",
+        "answer": "Les délais dépendent de la complexité et des options choisies. Une landing page simple, c'est 2 à 3 semaines. Un site vitrine complet, 3 à 5 semaines. Un e-commerce ou une application web, 6 à 12 semaines. Le planning est défini ensemble dès le début du projet."
       },
       {
-        "question": "Que se passe-t-il après la livraison du site ?",
+        "question": "Que se passe-t-il après la livraison ?",
         "answer": "Après la livraison, vous bénéficiez de 30 jours de support gratuit pour toute question ou ajustement mineur. Ensuite, je propose des formules de maintenance mensuelles pour assurer la pérennité et les performances de votre site."
       }
     ]
   },
   "cta": {
-    "title": "Prêt à lancer votre projet ?",
-    "description": "Obtenez un devis personnalisé et gratuit en quelques minutes. Décrivez votre projet et recevez une proposition adaptée à vos besoins et votre budget.",
+    "title": "Parlons de votre projet",
+    "description": "En quelques minutes, décrivez votre projet et recevez une proposition adaptée à vos besoins et à votre budget. Pas de grille tarifaire, pas de surprise.",
     "button": "Obtenir mon devis gratuit"
   }
 }

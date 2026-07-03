@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "Website Creation Pricing 2026 — Free Quote",
-    "description": "Discover website creation pricing: showcase website from €1,500, e-commerce from €3,000, custom web application on quote. Transparent pricing, free quote.",
-    "ogTitle": "Website Creation Pricing 2026 — Free Quote",
-    "ogDescription": "Discover website creation pricing: showcase website from €1,500, e-commerce from €3,000, custom web application on quote."
+    "title": "Web Design Pricing 2026 — Custom Quote",
+    "description": "No fixed price list: every project is unique. Discover the modular quote system for your landing page, showcase site, e-commerce, web app, CRM or SEO strategy.",
+    "ogTitle": "Web Design Pricing 2026 — Custom Quote",
+    "ogDescription": "No fixed rates, a formula tailored to your project. Landing page, showcase site, e-commerce, web app and more — free quote."
   },
   "breadcrumb": {
     "home": "Home",
@@ -11,135 +11,345 @@
   },
   "hero": {
     "backLink": "Back to home",
-    "title": "Website Creation Pricing",
-    "description": "Transparent pricing tailored to each project. From showcase websites to custom web applications, find the package that suits you.",
+    "title": "Tailored solutions, not one-size-fits-all pricing",
+    "description": "Every project is unique. Rather than a price list that fits no one, I offer a modular quote: a solid foundation, and only the options you actually need.",
     "cta": "Get a free quote"
   },
-  "plans": {
+  "whyNoPrice": {
+    "title": "Why don't I display fixed prices?",
+    "intro": "A website is like a house: the foundations are the same for everyone, but the size, materials and finishes make all the difference to the final budget.",
+    "reasons": [
+      {
+        "title": "Every project has its own level of complexity",
+        "description": "A simple landing page can be delivered in 2 weeks. The same page with complex animations, advanced tracking and 3 languages takes 6 weeks of work. Showing the same price would be misleading."
+      },
+      {
+        "title": "You only pay for what you need",
+        "description": "Why include an online booking system if you don't need one? My modular quote system lets you choose only the features that are useful to your business."
+      },
+      {
+        "title": "Quality is non-negotiable",
+        "description": "I don't offer low-cost packages that sacrifice SEO, performance or accessibility. Every project, large or small, receives the same level of technical rigour."
+      }
+    ]
+  },
+  "projects": {
+    "sectionTitle": "Project types",
+    "sectionDescription": "From the simplest to the most ambitious, here's what I build — and how each project adapts to your needs and budget.",
+    "baseLabel": "Included as standard",
+    "optionsLabel": "Available add-ons",
+    "ctaLabel": "Let's talk about your project",
+    "landingPage": {
+      "name": "Landing page",
+      "description": "A single, high-impact page designed to convert. Perfect for launching a product, testing an offer or promoting an event.",
+      "base": [
+        "Custom responsive design",
+        "Conversion-oriented structure (UX / copywriting)",
+        "Contact or lead capture form",
+        "Full on-page SEO",
+        "Hosting and go-live included"
+      ],
+      "options": [
+        "Advanced animations and interactions",
+        "Calendly / appointment booking integration",
+        "Email capture pop-up (Mailchimp, Brevo…)",
+        "Advanced tracking (Google Analytics, Meta Pixel…)",
+        "Multilingual version",
+        "A/B testing",
+        "Background video or video section",
+        "Chatbot or interactive FAQ"
+      ]
+    },
     "vitrine": {
-      "name": "Showcase Website",
-      "price": "From €1,500",
-      "description": "Perfect for presenting your business and attracting local clients.",
-      "popular": false,
-      "popularBadge": "Popular",
-      "cta": "Request a quote",
+      "name": "Showcase website",
+      "price": "Custom quote",
+      "popularBadge": "Most popular",
+      "cta": "Let's talk about your project",
+      "description": "The reference site for your business. It presents who you are, what you do and encourages visitors to get in touch.",
       "features": [
         "Custom responsive design",
-        "3 to 7 optimized pages",
-        "Basic SEO optimization",
-        "Contact form",
+        "Up to 5 pages (home, services, contact…)",
+        "Secure contact form",
+        "Optimised on-page SEO",
         "Google Maps integration",
-        "Hosting & deployment",
-        "Content management training",
-        "30-day post-delivery support"
+        "Hosting and go-live included",
+        "30 days of free support",
+        "Delivered in 3 to 5 weeks"
+      ],
+      "base": [
+        "Custom responsive design",
+        "Up to 5 pages (home, services, about, contact…)",
+        "Secure contact form",
+        "Optimised on-page SEO",
+        "Google Maps integration",
+        "Hosting and go-live included"
+      ],
+      "options": [
+        "Additional pages (pricing, blog, team…)",
+        "Filterable portfolio or gallery",
+        "Testimonials and reviews section",
+        "Online appointment booking",
+        "Newsletter / email capture",
+        "Live chat",
+        "Members area or restricted content",
+        "Multilingual version"
+      ]
+    },
+    "multipage": {
+      "name": "Multi-page website",
+      "description": "A complete site with an information architecture designed for SEO and user experience. Ideal for businesses with rich services or content.",
+      "base": [
+        "Custom information architecture",
+        "Consistent responsive design across all pages",
+        "Blog or news section",
+        "In-depth technical and on-page SEO",
+        "Optimised internal linking",
+        "Hosting and DNS configuration"
+      ],
+      "options": [
+        "Unlimited service pages",
+        "Internal search engine",
+        "Dynamic FAQ by category",
+        "Automated reviews (Google, Trustpilot…)",
+        "Subdomain or microsite",
+        "Multiple languages",
+        "Subscribers or members area",
+        "Intranet or extranet"
       ]
     },
     "ecommerce": {
       "name": "E-commerce",
-      "price": "From €3,000",
-      "description": "High-performance online store with secure payment and inventory management.",
-      "popular": true,
+      "price": "Custom quote",
+      "description": "A high-performance, secure online shop optimised for sales. From a small artisan catalogue to a large store.",
       "features": [
-        "All Showcase Website features",
-        "Unlimited product catalog",
-        "Secure payment (Stripe, PayPal)",
-        "Inventory & order management",
-        "SEO-optimized product pages",
-        "Automated transactional emails",
+        "Unlimited product catalogue",
+        "Cart and secure payment (Stripe, PayPal…)",
+        "Stock and order management",
+        "SEO-optimised product pages",
+        "Automatic transactional emails",
         "Management dashboard",
-        "Complete store training"
+        "Advanced product filters and search",
+        "Delivered in 6 to 10 weeks"
+      ],
+      "base": [
+        "Unlimited product catalogue",
+        "Cart and secure payment (Stripe, PayPal…)",
+        "Stock and order management",
+        "SEO-optimised product pages",
+        "Automatic transactional emails",
+        "Management dashboard"
+      ],
+      "options": [
+        "Advanced product filters and search",
+        "Loyalty programme and promo codes",
+        "Subscriptions and recurring payments",
+        "Multi-vendor marketplace",
+        "Integrated delivery tracking",
+        "Verified reviews (Trustpilot, Yotpo…)",
+        "Product recommendations (cross-sell / upsell)",
+        "ERP or Shopify stock synchronisation"
       ]
     },
     "webapp": {
-      "name": "Web Application",
-      "price": "On quote",
-      "description": "Custom solution for your business needs: CRM, dashboard, internal tool.",
-      "popular": false,
+      "name": "Web app / SaaS",
+      "price": "Custom quote",
+      "description": "A custom business solution accessible from any browser. To automate a process, centralise data or offer an online service.",
       "features": [
-        "Complete functional analysis",
-        "Custom architecture",
-        "Intuitive user interface",
-        "Optimized database",
-        "Authentication & security",
-        "API & third-party integrations",
-        "Testing & acceptance",
-        "Technical documentation"
+        "Secure authentication (email, OAuth…)",
+        "Custom user interface",
+        "Database and API",
+        "Management dashboard",
+        "Hosting and cloud deployment",
+        "Multi-level roles and permissions",
+        "Email and push notifications",
+        "Delivered in 8 to 14 weeks"
+      ],
+      "base": [
+        "Secure authentication (email, OAuth…)",
+        "Custom user interface",
+        "Database and API",
+        "Management dashboard",
+        "Hosting and deployment"
+      ],
+      "options": [
+        "Multi-level roles and permissions",
+        "Email and push notifications",
+        "Billing and subscriptions (Stripe)",
+        "Offline mode (PWA)",
+        "PDF, Excel, CSV exports",
+        "Third-party integrations (Zapier, Make, n8n…)",
+        "Mobile app (React Native)",
+        "Security audit"
+      ]
+    },
+    "mvp": {
+      "name": "MVP / Prototype",
+      "description": "Have an idea and want to test it quickly? I build a working prototype to validate your concept before a major investment.",
+      "base": [
+        "Functional scope defined together",
+        "Simplified but working interface",
+        "Quick online deployment",
+        "Project documentation",
+        "Feedback and iterations included"
+      ],
+      "options": [
+        "User testing and heat maps",
+        "Integrated analytics (Mixpanel, Posthog…)",
+        "Documented API (OpenAPI / Swagger)",
+        "Scaling preparation (cloud architecture)",
+        "Investor pitch deck or demo",
+        "Transition to production version"
+      ]
+    },
+    "crm": {
+      "name": "CRM / Management software",
+      "description": "A custom internal management tool: client tracking, business oversight, reporting. Far more flexible than off-the-shelf software.",
+      "base": [
+        "Dashboard with key metrics",
+        "Contact and client management",
+        "Reports and exports (PDF, Excel…)",
+        "Multi-user access",
+        "Security and authentication"
+      ],
+      "options": [
+        "CSV import/export from existing systems",
+        "Automations and follow-up reminders",
+        "Visual sales pipeline (Kanban)",
+        "Calendar integration (Google, Outlook)",
+        "Billing module",
+        "HubSpot / Salesforce API connection",
+        "Internal task and project management",
+        "Dedicated mobile app"
+      ]
+    },
+    "refonte": {
+      "name": "Website redesign",
+      "description": "Is your current site no longer converting, too slow or out of date? I analyse it, rethink it and modernise it while keeping what works.",
+      "base": [
+        "Full audit of the existing site",
+        "Custom new design",
+        "Content review and optimisation",
+        "Existing URL redirects (301)",
+        "Performance and SEO improvements"
+      ],
+      "options": [
+        "Migration to a new CMS",
+        "Information architecture redesign",
+        "Accessibility improvements (WCAG)",
+        "Training on the new interface",
+        "Backlink audit and SEO clean-up",
+        "New domain and migration strategy",
+        "New integrations (e-commerce, booking…)",
+        "Communication campaign around the relaunch"
+      ]
+    },
+    "seo": {
+      "name": "SEO / GEO",
+      "description": "Being found on Google — and tomorrow on AI engines — requires a strategy. I audit, optimise and build your visibility for the long term.",
+      "base": [
+        "Full technical SEO audit",
+        "Strategic keyword research",
+        "On-page optimisation (tags, content, linking)",
+        "Local directory submissions",
+        "Monthly tracking report"
+      ],
+      "options": [
+        "SEO content creation (articles, service pages)",
+        "Link building (backlink acquisition)",
+        "Local SEO (Google Business Profile)",
+        "GEO — Generative Engine Optimisation (AI)",
+        "Core Web Vitals and advanced technical SEO",
+        "6 or 12-month content strategy",
+        "Weekly ranking tracking",
+        "SEO training for your team"
       ]
     },
     "maintenance": {
-      "name": "Maintenance",
-      "price": "From €80/month",
-      "description": "Keep your site performing, secure, and up-to-date with peace of mind.",
-      "popular": false,
+      "name": "Maintenance & Support",
+      "price": "Custom / month",
+      "description": "Your site stays fast, secure and up to date. I handle updates, backups and ongoing optimisations so you can focus on your business.",
       "features": [
-        "Security updates",
-        "Automatic backups",
-        "Performance monitoring",
-        "Priority bug fixes",
-        "Continuous SEO optimization",
-        "Technical support via email",
+        "CMS, plugin and dependency updates",
+        "Automatic daily backups",
+        "24/7 uptime monitoring",
         "Monthly performance report",
-        "Minor modifications included"
+        "Priority technical support",
+        "Ongoing SEO optimisations",
+        "Bug fixes included",
+        "High-availability hosting"
+      ],
+      "base": [
+        "CMS, plugin and dependency updates",
+        "Automatic daily backups",
+        "24/7 uptime monitoring",
+        "Monthly performance report",
+        "Priority technical support"
+      ],
+      "options": [
+        "Ongoing SEO optimisations",
+        "Content writing",
+        "New feature development",
+        "Team training"
       ]
     }
   },
   "inclusions": {
-    "title": "What's included in every service",
+    "title": "What's included in every project",
     "items": [
       {
-        "title": "SEO Optimized",
-        "description": "Every page is optimized for natural search: meta tags, semantic structure, performance, and local SEO."
+        "title": "Optimised SEO",
+        "description": "Every page is optimised for search engines: meta tags, semantic structure, performance and local SEO."
       },
       {
         "title": "Responsive Design",
-        "description": "Your site adapts perfectly to all screens: mobile, tablet, and desktop. Tested on all browsers."
+        "description": "Your site adapts perfectly to all screens: mobile, tablet and desktop. Tested across all major browsers."
       },
       {
         "title": "Maximum Performance",
-        "description": "Google PageSpeed score above 90. Optimized loading time for a smooth user experience."
+        "description": "Google PageSpeed score above 90. Optimised load times for a smooth user experience."
       },
       {
-        "title": "Hosting Consultation",
+        "title": "Hosting Advice",
         "description": "Recommendation and setup of the hosting solution best suited to your project and budget."
       },
       {
-        "title": "GDPR & Legal Notices",
-        "description": "GDPR compliance, privacy policy, and legal notices included to be compliant from launch."
+        "title": "GDPR & Legal Pages",
+        "description": "GDPR compliance, privacy policy and legal notices included so you're compliant from day one."
       },
       {
-        "title": "Training & Autonomy",
-        "description": "Personalized training to manage your content autonomously. Documentation and video tutorials included."
+        "title": "Training & Independence",
+        "description": "Personalised training to manage your content independently. Documentation and video tutorials included."
       }
     ]
   },
   "faqs": {
-    "title": "Frequently asked questions about pricing",
+    "title": "Frequently asked questions",
     "items": [
       {
-        "question": "How is the final price of my website calculated?",
-        "answer": "The price depends on several factors: the number of pages, desired features (forms, booking, online payment...), design complexity, and the volume of content to integrate. After our first discussion, I provide you with a detailed and transparent quote."
+        "question": "How does the modular quote work?",
+        "answer": "I start from a common base for your project type, then you choose the options you actually need. Each feature has a clear, transparent cost. You approve the quote before I start — no nasty surprises."
       },
       {
-        "question": "Are there any hidden costs or additional fees?",
-        "answer": "No, I practice a policy of total transparency. The quote includes the entire service. Only hosting (approximately €10-30/month depending on the solution) and domain name (approximately €10-15/year) are recurring fees that you pay directly to the provider."
+        "question": "Are there hidden costs or extra fees?",
+        "answer": "No, I have a full transparency policy. The quote covers the entire project. Only hosting (around €10-30/month depending on the solution) and the domain name (around €10-15/year) are recurring costs you pay directly to the provider."
       },
       {
-        "question": "Do you offer payment facilities?",
-        "answer": "Yes, payment is generally made in 3 installments: a 30% deposit when ordering, 40% upon design validation, and 30% upon delivery. For large projects, a personalized payment schedule can be arranged."
+        "question": "Do you offer payment plans?",
+        "answer": "Yes, payment is typically split into 3 instalments: 30% deposit on order, 40% on design approval, and 30% on delivery. For larger projects, a custom payment schedule can be arranged."
       },
       {
-        "question": "How long does it take to create my website?",
-        "answer": "Timelines vary depending on complexity: 2 to 4 weeks for a showcase website, 4 to 8 weeks for e-commerce, and 6 to 12 weeks for a custom web application. A precise schedule is defined together at the beginning of the project."
+        "question": "How long does it take to deliver my project?",
+        "answer": "Timelines depend on complexity and chosen options. A simple landing page takes 2 to 3 weeks. A full showcase site, 3 to 5 weeks. An e-commerce store or web app, 6 to 12 weeks. The schedule is agreed together from the start."
       },
       {
-        "question": "What happens after the website is delivered?",
-        "answer": "After delivery, you benefit from 30 days of free support for any questions or minor adjustments. Then, I offer monthly maintenance packages to ensure the sustainability and performance of your site."
+        "question": "What happens after delivery?",
+        "answer": "After delivery, you get 30 days of free support for any questions or minor adjustments. Then I offer monthly maintenance packages to keep your site performing and secure."
       }
     ]
   },
   "cta": {
-    "title": "Ready to launch your project?",
-    "description": "Get a personalized and free quote in just a few minutes. Describe your project and receive a proposal tailored to your needs and budget.",
+    "title": "Let's talk about your project",
+    "description": "In a few minutes, describe your project and receive a proposal tailored to your needs and budget. No price grid, no surprises.",
     "button": "Get my free quote"
   }
 }
