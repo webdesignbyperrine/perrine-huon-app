@@ -36,6 +36,7 @@ export default function PortfolioPreview() {
         .from('projects')
         .select('*')
         .eq('published', true)
+        .order('sort_order', { ascending: true })
         .order('created_at', { ascending: false })
         .limit(4);
 
@@ -46,6 +47,7 @@ export default function PortfolioPreview() {
         const { data: allData } = await supabase
           .from('projects')
           .select('*')
+          .order('sort_order', { ascending: true })
           .order('created_at', { ascending: false })
           .limit(4);
         

@@ -26,6 +26,7 @@ export default function PortfolioPage() {
         .from('projects')
         .select('*')
         .eq('published', true)
+        .order('sort_order', { ascending: true })
         .order('created_at', { ascending: false });
 
       if (!error && data) {
@@ -56,11 +57,9 @@ export default function PortfolioPage() {
   const supabaseHasTranslations =
     locale === 'fr' || (projects.length > 0 && `title_${locale}` in projects[0]);
   const dbProjects = supabaseHasTranslations ? projects : [];
-  const displayProjects = [...dbProjects, ...staticProjects].sort((a, b) => {
-    const aDate = new Date((a as { created_at?: string }).created_at || 0).getTime();
-    const bDate = new Date((b as { created_at?: string }).created_at || 0).getTime();
-    return bDate - aDate;
-  });
+  // Les projets Supabase arrivent déjà triés par sort_order + created_at.
+  // Les projets statiques sont placés à la suite.
+  const displayProjects = [...dbProjects, ...staticProjects];
 
 
   return (
