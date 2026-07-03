@@ -102,55 +102,6 @@ Résultats : 176 utilisateurs actifs, 57 sessions de coworking organisées, 263 
     published_at: '2025-12-01T08:00:00Z',
     created_at: '2025-12-01T08:00:00Z',
   },
-  {
-    id: 'static-adeo-leroy-merlin',
-    slug: 'adeo-leroy-merlin-design-system',
-    title: 'ADEO / Leroy Merlin — Composants Design System',
-    client: 'ADEO (Leroy Merlin, Bricoman, Weldom)',
-    location: 'Design system retail',
-    year: 2024,
-    short_description:
-      "Contribution au design system du groupe ADEO (Leroy Merlin, Bricoman, Weldom) : composants React/TypeScript accessibles, performants et utilisés en production sur des sites e-commerce à plusieurs millions de visiteurs/mois.",
-    long_description: `Mission au sein des équipes produit d'ADEO sur le design system commun aux marques retail du groupe (Leroy Merlin, Bricoman, Weldom).
-
-Mes responsabilités :
-- Développement de composants React/TypeScript du design system (form, navigation, datatable, modal)
-- Tests unitaires et d'intégration (Vitest, Testing Library, Playwright)
-- Accessibilité WCAG 2.1 AA stricte (audits manuels + axe-core)
-- Documentation Storybook pour les équipes consommatrices
-- Pair programming avec design ops, support des équipes produit (40+ devs internes)
-- Participation aux revues d'architecture et aux ateliers de pair design
-
-Contexte : design system utilisé sur les sites Leroy Merlin France (~50M visiteurs/mois), Bricoman et Weldom. La performance, l'accessibilité et la cohérence visuelle sont critiques pour la conversion à grande échelle.
-
-Stack : React 18, TypeScript strict, Storybook, Vitest, Playwright, Tailwind CSS, Figma Tokens.`,
-    featured_image:
-      'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&h=900&fit=crop',
-    testimonial: {
-      author: 'Lead Design System ADEO',
-      role: 'Équipe produit retail',
-      quote:
-        "Une développeuse rigoureuse, attentive à l'accessibilité et capable de comprendre les enjeux design ops sur un design system multi-marques.",
-    },
-    stack: ['React 18', 'TypeScript', 'Storybook', 'Vitest', 'Playwright', 'Tailwind CSS'],
-    results: [
-      'Composants utilisés sur 3 enseignes du groupe ADEO',
-      'Conformité WCAG 2.1 AA validée',
-      'Documentation Storybook utilisée par 40+ devs internes',
-    ],
-    keywords: [
-      'développeuse React design system',
-      'design system retail Leroy Merlin',
-      'développeur Next.js TypeScript freelance',
-      'accessibilité WCAG retail',
-    ],
-    seo_title: 'ADEO / Leroy Merlin — Composants Design System React | Portfolio Perrine Huon',
-    seo_description:
-      "Étude de cas : contribution au design system du groupe ADEO (Leroy Merlin, Bricoman, Weldom). Composants React/TypeScript accessibles WCAG 2.1 AA, tests Playwright, Storybook documenté.",
-    seo_city: 'Lille',
-    published_at: '2024-09-01T08:00:00Z',
-    created_at: '2024-09-01T08:00:00Z',
-  },
 ];
 
 export function getStaticPortfolioProject(slug: string): StaticPortfolioProject | undefined {
