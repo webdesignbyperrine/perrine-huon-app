@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useEffect, useState } from 'react';
+import { useCallback, useRef, useEffect } from 'react';
 
 interface UseSoundOptions {
   volume?: number;
@@ -11,70 +11,57 @@ interface UseSoundOptions {
 // Cache global pour les audios préchargés (persiste entre les re-renders)
 const audioCache = new Map<string, HTMLAudioElement>();
 
+function resetAudio(audio: HTMLAudioElement) {
+  audio.currentTime = 0;
+}
+
 /**
  * Hook pour charger et jouer un son avec mise en cache globale.
  * Précharge le fichier audio au montage pour une lecture instantanée sans latence.
  * Les erreurs de lecture (politiques autoplay strictes) sont ignorées silencieusement.
  * @param soundUrl - URL du fichier audio (ex. '/sounds/parrot.wav').
  * @param options - Volume (0-1), vitesse de lecture, et activation du préchargement.
- * @returns `{ play, stop, isLoaded }` — fonctions de contrôle et état de chargement.
+ * @returns Fonctions de chargement et de contrôle du son.
  */
 export function useSound(soundUrl: string, options: UseSoundOptions = {}) {
-  const { volume = 0.5, playbackRate = 1, preload = true } = options;
+  const { volume = 0.5, playbackRate = 1, preload = false } = options;
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
 
-  // Précharger l'audio au montage pour une lecture instantanée
-  useEffect(() => {
-    if (!preload || typeof window === 'undefined') return;
-    
-    // Vérifier si déjà dans le cache global
+  const load = useCallback(() => {
+    if (typeof window === 'undefined') return null;
+
     if (audioCache.has(soundUrl)) {
-      audioRef.current = audioCache.get(soundUrl)!;
-      audioRef.current.volume = Math.max(0, Math.min(1, volume));
-      setIsLoaded(true);
-      return;
+      const cachedAudio = audioCache.get(soundUrl)!;
+      cachedAudio.volume = Math.max(0, Math.min(1, volume));
+      cachedAudio.playbackRate = playbackRate;
+      audioRef.current = cachedAudio;
+      return cachedAudio;
     }
-    
-    // Créer et précharger le nouvel audio
+
     const audio = new Audio();
     audio.preload = 'auto';
     audio.src = soundUrl;
     audio.volume = Math.max(0, Math.min(1, volume));
     audio.playbackRate = playbackRate;
-    
-    const handleCanPlay = () => {
-      setIsLoaded(true);
-    };
-    
-    audio.addEventListener('canplaythrough', handleCanPlay);
-    
-    // Déclencher le chargement immédiatement
     audio.load();
-    
-    // Stocker dans le cache global et la ref
+
     audioCache.set(soundUrl, audio);
     audioRef.current = audio;
-    
-    return () => {
-      audio.removeEventListener('canplaythrough', handleCanPlay);
-    };
-  }, [soundUrl, volume, playbackRate, preload]);
+
+    return audio;
+  }, [soundUrl, volume, playbackRate]);
+
+  // Le préchargement reste disponible pour les usages qui le demandent explicitement.
+  useEffect(() => {
+    if (preload) load();
+  }, [preload, load]);
 
   const play = useCallback(() => {
-    // Utiliser le cache global si disponible
-    let audio = audioRef.current || audioCache.get(soundUrl);
-    
-    // Fallback: créer à la volée si nécessaire
-    if (!audio) {
-      audio = new Audio(soundUrl);
-      audio.volume = Math.max(0, Math.min(1, volume));
-      audio.playbackRate = playbackRate;
-      audioRef.current = audio;
-    }
+    const audio = audioRef.current || audioCache.get(soundUrl) || load();
+    if (!audio) return;
     
     // Remettre au début pour lecture immédiate
-    audio.currentTime = 0;
+    resetAudio(audio);
     
     // Jouer le son immédiatement
     const playPromise = audio.play();
@@ -83,15 +70,15 @@ export function useSound(soundUrl: string, options: UseSoundOptions = {}) {
         // Navigateurs stricts - ignore silencieusement
       });
     }
-  }, [soundUrl, volume, playbackRate]);
+  }, [soundUrl, load]);
 
   const stop = useCallback(() => {
     const audio = audioRef.current || audioCache.get(soundUrl);
     if (audio) {
       audio.pause();
-      audio.currentTime = 0;
+      resetAudio(audio);
     }
   }, [soundUrl]);
 
-  return { play, stop, isLoaded };
+  return { play, stop, load };
 }

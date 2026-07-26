@@ -5,6 +5,9 @@ import Hero from '@/components/home/Hero';
 import About from '@/components/home/About';
 import Services from '@/components/home/Services';
 import ScrollToAnchor from '@/components/ScrollToAnchor';
+import { getHomepageData } from '@/lib/home-data';
+
+export const revalidate = 300;
 
 export async function generateMetadata({
   params,
@@ -66,6 +69,7 @@ export default async function Home({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const homepageData = await getHomepageData();
 
   return (
     <div className="min-h-screen">
@@ -73,11 +77,11 @@ export default async function Home({
       <Hero />
       <Services />
       <About />
-      <Testimonials />
-      <PortfolioPreview />
+      <Testimonials initialTestimonials={homepageData.testimonials} />
+      <PortfolioPreview initialProjects={homepageData.projects} />
       <ContactForm />
-      <FAQPreview />
-      <BlogPreview />
+      <FAQPreview initialFaqs={homepageData.faqs} />
+      <BlogPreview initialPosts={homepageData.posts} />
     </div>
   );
 }

@@ -20,10 +20,11 @@ const HeroIllustration = dynamic(() => import('@/components/illustrations/HeroIl
 export default function Hero() {
   const t = useTranslations('hero');
   const [showQualifier, setShowQualifier] = useState(false);
+  const [showIllustration, setShowIllustration] = useState(false);
   const qualifierRef = useRef<HTMLDivElement>(null);
   
   // Son au clic sur "C'est parti" 🎮
-  const { play: playRaceStartSound } = useSound('/sounds/race-start.wav', { volume: 0.5 });
+  const { play: playRaceStartSound, load: loadRaceStartSound } = useSound('/sounds/race-start.wav', { volume: 0.5 });
 
   // Fonction pour ouvrir le qualifier (utilisée par le bouton Hero et le Header)
   const openQualifier = useCallback(() => {
@@ -84,6 +85,35 @@ export default function Hero() {
     window.addEventListener('openQualifier', handleOpenQualifier);
     return () => window.removeEventListener('openQualifier', handleOpenQualifier);
   }, [openQualifier]);
+
+  // Sur desktop, la Lottie démarre immédiatement. Sur mobile, elle se trouve
+  // sous le premier écran : la charger au premier défilement lui laisse le
+  // temps de démarrer avant que l'utilisateur n'atteigne l'illustration.
+  useEffect(() => {
+    const desktopQuery = window.matchMedia('(min-width: 1024px)');
+
+    const showForCurrentViewport = () => {
+      if (desktopQuery.matches || window.scrollY > 80) {
+        setShowIllustration(true);
+      }
+    };
+
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setShowIllustration(true);
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    showForCurrentViewport();
+    desktopQuery.addEventListener('change', showForCurrentViewport);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      desktopQuery.removeEventListener('change', showForCurrentViewport);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <section className="relative min-h-screen bg-paper-light grain-overlay overflow-hidden">
@@ -176,6 +206,9 @@ export default function Hero() {
                     onClick={() => {
                       openQualifier();
                     }}
+                    onPointerEnter={() => { loadRaceStartSound(); }}
+                    onFocus={() => { loadRaceStartSound(); }}
+                    onTouchStart={() => { loadRaceStartSound(); }}
                     className="btn-cta-hero-enhanced group w-full sm:w-auto"
                   >
                     {/* Effet shimmer */}
@@ -219,7 +252,17 @@ export default function Hero() {
 
             {/* Illustration Lottie - Droite */}
             <div className="flex-1 lg:flex-none lg:w-[55%] flex items-center justify-center animate-fade-in-right animation-delay-300">
-              <HeroIllustration className="w-full max-w-none lg:scale-110 xl:scale-125 origin-center" />
+              {showIllustration ? (
+                <HeroIllustration className="w-full max-w-none lg:scale-110 xl:scale-125 origin-center" />
+              ) : (
+                <div
+                  className="w-full max-w-none lg:scale-110 xl:scale-125 origin-center"
+                  style={{ minHeight: '400px', minWidth: '400px' }}
+                  aria-hidden="true"
+                >
+                  <div className="w-full h-full bg-primary/5 animate-pulse rounded-lg" />
+                </div>
+              )}
             </div>
 
             </div>

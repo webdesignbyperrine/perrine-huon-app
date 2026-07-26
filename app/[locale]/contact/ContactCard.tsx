@@ -40,7 +40,7 @@ export default function ContactCard() {
             <div className="flex justify-center mb-4">
               <div className="relative w-16 h-16 sm:w-20 sm:h-20">
                 <Image
-                  src="/images/logo_vert_perrine_huon.png"
+                  src="/images/logo_vert_perrine_huon.webp"
                   alt="Perrine Huon"
                   fill
                   className="object-contain"

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const DEFAULT_LOGO = '/images/logo_vert_perrine_huon.png';
+const DEFAULT_LOGO = '/images/logo_vert_perrine_huon.webp';
 
 /**
  * Charge l'URL du logo depuis l'API site-settings.

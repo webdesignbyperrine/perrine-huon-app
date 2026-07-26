@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface TypewriterCarouselProps {
   texts: string[];
@@ -26,13 +26,30 @@ export default function TypewriterCarousel({
   const [displayedText, setDisplayedText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
   const [phase, setPhase] = useState<'waiting' | 'typing' | 'pausing' | 'deleting'>('waiting');
+  const [isVisible, setIsVisible] = useState(true);
+  const containerRef = useRef<HTMLSpanElement>(null);
 
   const currentText = texts[textIndex];
 
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.01 },
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || phase !== 'waiting') return;
+
     const timer = setTimeout(() => setPhase('typing'), startDelay);
     return () => clearTimeout(timer);
-  }, [startDelay]);
+  }, [startDelay, isVisible, phase]);
 
   const advanceToNextText = useCallback(() => {
     setTextIndex((prev) => (prev + 1) % texts.length);
@@ -40,6 +57,8 @@ export default function TypewriterCarousel({
   }, [texts.length]);
 
   useEffect(() => {
+    if (!isVisible) return;
+
     if (phase === 'typing') {
       if (displayedText.length < currentText.length) {
         const timer = setTimeout(() => {
@@ -47,7 +66,8 @@ export default function TypewriterCarousel({
         }, typeDelay);
         return () => clearTimeout(timer);
       } else {
-        setPhase('pausing');
+        const timer = setTimeout(() => setPhase('pausing'), 0);
+        return () => clearTimeout(timer);
       }
     }
 
@@ -63,16 +83,17 @@ export default function TypewriterCarousel({
         }, deleteDelay);
         return () => clearTimeout(timer);
       } else {
-        advanceToNextText();
+        const timer = setTimeout(advanceToNextText, 0);
+        return () => clearTimeout(timer);
       }
     }
-  }, [phase, displayedText, currentText, typeDelay, deleteDelay, pauseDelay, advanceToNextText]);
+  }, [phase, displayedText, currentText, typeDelay, deleteDelay, pauseDelay, advanceToNextText, isVisible]);
 
   const isActive = phase !== 'waiting';
   const isBlinking = phase === 'pausing';
 
   return (
-    <span className={className}>
+    <span ref={containerRef} className={className}>
       {displayedText}
       {showCursor && (
         <span

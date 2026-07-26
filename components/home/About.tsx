@@ -196,7 +196,6 @@ export default function About() {
                     alt={t('imageAlt')}
                     fill
                     className="object-cover object-top transition-opacity duration-500"
-                    priority
                     sizes="(max-width: 768px) 100vw, 500px"
                   />
                   
@@ -305,7 +304,7 @@ export default function About() {
                 cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('techStack')}</h4>
+              <h3 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('techStack')}</h3>
               <div className="sm:hidden -mx-2">
                 <div
                   ref={techCarouselRef}
@@ -352,7 +351,7 @@ export default function About() {
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('trustedBy')}</h4>
+              <h3 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('trustedBy')}</h3>
               <div className="sm:hidden -mx-2">
                 <div
                   ref={clientCarouselRef}
@@ -399,7 +398,7 @@ export default function About() {
               }`}
               style={{ transitionDelay: '200ms' }}
             >
-              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('specialties')}</h4>
+              <h3 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('specialties')}</h3>
               <div className="flex flex-col gap-2 sm:gap-3">
                 <div className="flex items-center gap-2 sm:gap-3">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-accent flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -436,7 +435,7 @@ export default function About() {
               }`}
               style={{ transitionDelay: '300ms' }}
             >
-              <h4 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('stayConnected')}</h4>
+              <h3 className="text-[10px] sm:text-xs text-paper/40 uppercase tracking-wider mb-3 sm:mb-4">{t('stayConnected')}</h3>
               <div className="flex items-center gap-3 sm:gap-4">
                 {/* LinkedIn */}
                 <a 

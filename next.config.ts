@@ -72,6 +72,24 @@ const nextConfig: NextConfig = {
 
     return [
       {
+        source: '/animations/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/logo_vert_perrine_huon.webp',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/:path*',
         headers: securityHeaders,
       },

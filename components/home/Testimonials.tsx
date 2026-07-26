@@ -2,13 +2,14 @@
 
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { createClient } from '@/lib/supabase/client';
-import type { Testimonial } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { SectionTitle, LoadingSpinner, CTAQuiz } from '@/components/ui';
+import { SectionTitle, CTAQuiz } from '@/components/ui';
 import { getLocalizedField } from '@/lib/i18n-helpers';
+import type { HomepageTestimonial } from '@/lib/home-data';
 
-function getDemoTestimonials(t: any): Testimonial[] {
+type TestimonialsTranslator = ReturnType<typeof useTranslations<'testimonials'>>;
+
+function getDemoTestimonials(t: TestimonialsTranslator): HomepageTestimonial[] {
   return [
     {
       id: '1',
@@ -88,12 +89,12 @@ function getDemoTestimonials(t: any): Testimonial[] {
 function StarRating({ rating }: { rating: number }) {
   const t = useTranslations('testimonials');
   return (
-    <div className="flex gap-1" aria-label={t('ratingAria', { rating })}>
+    <div className="flex gap-1" role="img" aria-label={t('ratingAria', { rating })}>
       {[1, 2, 3, 4, 5].map((star) => {
         const filled = rating >= star;
         const half = !filled && rating >= star - 0.5;
         return (
-          <svg key={star} className="w-5 h-5" viewBox="0 0 20 20" fill="none">
+          <svg key={star} aria-hidden="true" className="w-5 h-5" viewBox="0 0 20 20" fill="none">
             {filled ? (
               <path
                 d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.44.91-5.32L2.27 6.62l5.34-.78L10 1z"
@@ -133,7 +134,7 @@ function StarRating({ rating }: { rating: number }) {
   );
 }
 
-function TestimonialContent({ testimonial, isSecond }: { testimonial: Testimonial, isSecond: boolean }) {
+function TestimonialContent({ testimonial, isSecond }: { testimonial: HomepageTestimonial, isSecond: boolean }) {
   const locale = useLocale() as 'fr' | 'en' | 'es';
   
   return (
@@ -151,7 +152,7 @@ function TestimonialContent({ testimonial, isSecond }: { testimonial: Testimonia
 }
 
 interface PostItStackProps {
-  testimonialPairs: [Testimonial, Testimonial?][];
+  testimonialPairs: [HomepageTestimonial, HomepageTestimonial?][];
   delayOffset: number;
 }
 
@@ -205,7 +206,7 @@ function PostItStack({ testimonialPairs, delayOffset }: PostItStackProps) {
   const nextPairIndex = (currentPairIndex + 1) % testimonialPairs.length;
   const nextPair = testimonialPairs[nextPairIndex];
 
-  const renderPostIt = (pair: (Testimonial | undefined)[], isTop: boolean, falling: boolean) => (
+  const renderPostIt = (pair: (HomepageTestimonial | undefined)[], isTop: boolean, falling: boolean) => (
     <div
       className={`postit-card absolute inset-0 p-5 flex flex-col ${isTop ? 'cursor-pointer' : ''} ${
         isTop && falling ? 'is-falling' : ''
@@ -277,11 +278,13 @@ function PostItStack({ testimonialPairs, delayOffset }: PostItStackProps) {
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({
+  initialTestimonials,
+}: {
+  initialTestimonials: HomepageTestimonial[];
+}) {
   const t = useTranslations('testimonials');
   const locale = useLocale() as 'fr' | 'en' | 'es';
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [loading, setLoading] = useState(true);
 
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
@@ -289,29 +292,13 @@ export default function Testimonials() {
 
   const demoTestimonials = getDemoTestimonials(t);
 
-  useEffect(() => {
-    async function fetchTestimonials() {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from('testimonials')
-        .select('*')
-        .eq('is_published', true)
-        .order('sort_order', { ascending: true });
+  const supabaseHasTranslations = locale === 'fr' || (initialTestimonials.length > 0 && `content_${locale}` in initialTestimonials[0]);
+  const displayTestimonials = initialTestimonials.length > 0 && supabaseHasTranslations
+    ? initialTestimonials
+    : demoTestimonials;
 
-      if (!error && data && data.length > 0) {
-        setTestimonials(data);
-      }
-      setLoading(false);
-    }
-
-    fetchTestimonials();
-  }, []);
-
-  const supabaseHasTranslations = locale === 'fr' || (testimonials.length > 0 && `content_${locale}` in testimonials[0]);
-  const displayTestimonials = testimonials.length > 0 && supabaseHasTranslations ? testimonials : demoTestimonials;
-
-  const createPairsForStack = useCallback((startIndex: number, totalStacks: number): [Testimonial, Testimonial?][] => {
-    const pairs: [Testimonial, Testimonial?][] = [];
+  const createPairsForStack = useCallback((startIndex: number, totalStacks: number): [HomepageTestimonial, HomepageTestimonial?][] => {
+    const pairs: [HomepageTestimonial, HomepageTestimonial?][] = [];
     const testimonialsPerStack = Math.ceil(displayTestimonials.length / totalStacks);
     
     for (let i = 0; i < testimonialsPerStack; i += 2) {
@@ -371,11 +358,8 @@ export default function Testimonials() {
           />
         </div>
 
-        {loading ? (
-          <LoadingSpinner />
-        ) : (
-          <>
-            <div
+        <>
+          <div
               ref={gridRef}
               className={`relative max-w-7xl mx-auto transition-all duration-700 ${
                 gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -395,18 +379,17 @@ export default function Testimonials() {
                   </div>
                 ))}
               </div>
-            </div>
+          </div>
 
-            <div
+          <div
               ref={ctaRef}
               className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${
                 ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
             >
               <CTAQuiz />
-            </div>
-          </>
-        )}
+          </div>
+        </>
       </div>
     </section>
   );

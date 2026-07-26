@@ -1,23 +1,23 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { createClient } from '@/lib/supabase/client';
 import { formatDate } from '@/lib/utils';
-import type { BlogPost } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
+import { SectionTitle, SectionLink, CTAQuiz } from '@/components/ui';
 import { getLocalizedField } from '@/lib/i18n-helpers';
+import type { HomepageBlogPost } from '@/lib/home-data';
 
-type BlogPostWithCover = BlogPost & { cover_image_url?: string };
-
-function BlogPreview() {
+function BlogPreview({
+  initialPosts,
+}: {
+  initialPosts: HomepageBlogPost[];
+}) {
   const t = useTranslations('blogPreview');
   const locale = useLocale() as 'fr' | 'en' | 'es';
   
-  const [posts, setPosts] = useState<BlogPostWithCover[]>([]);
-  const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   
@@ -25,25 +25,6 @@ function BlogPreview() {
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [carouselContainerRef, carouselVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
-
-  useEffect(() => {
-    async function fetchPosts() {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('published', true)
-        .order('published_at', { ascending: false })
-        .limit(6);
-
-      if (!error && data) {
-        setPosts(data);
-      }
-      setLoading(false);
-    }
-
-    fetchPosts();
-  }, []);
 
   // Navigation du carousel
   const scrollToIndex = (index: number) => {
@@ -133,8 +114,8 @@ function BlogPreview() {
     },
   ];
 
-  const supabaseHasTranslations = locale === 'fr' || (posts.length > 0 && `title_${locale}` in posts[0]);
-  const displayPosts = posts.length > 0 && supabaseHasTranslations ? posts : demoPosts;
+  const supabaseHasTranslations = locale === 'fr' || (initialPosts.length > 0 && `title_${locale}` in initialPosts[0]);
+  const displayPosts = initialPosts.length > 0 && supabaseHasTranslations ? initialPosts : demoPosts;
 
   return (
     <section id="blog-preview" className="relative pt-8 lg:pt-12 pb-32 lg:pb-40 bg-primary section-dark overflow-hidden">
@@ -173,12 +154,9 @@ function BlogPreview() {
           />
         </div>
 
-        {loading ? (
-          <LoadingSpinner theme="dark" />
-        ) : (
-          <>
-            {/* Carousel Container */}
-            <div ref={carouselContainerRef} className={`relative max-w-7xl mx-auto transition-all duration-700 ${carouselVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <>
+          {/* Carousel Container */}
+          <div ref={carouselContainerRef} className={`relative max-w-7xl mx-auto transition-all duration-700 ${carouselVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               {/* Boutons de navigation */}
               <button
                 onClick={goToPrevious}
@@ -212,30 +190,29 @@ function BlogPreview() {
                   msOverflowStyle: 'none',
                 }}
               >
-                {displayPosts.map((post, index) => (
+                {displayPosts.map((post) => (
                   <Link
                     key={post.id}
                     href={`/blog/${post.slug}`}
                     className="group overflow-hidden flex-shrink-0 w-[85%] sm:w-[45%] lg:w-[30%] snap-center bg-paper/5 border border-paper/10 rounded-sketch-lg hover:bg-paper/10 hover:border-paper/20 transition-all duration-300"
                   >
                     {/* Image */}
-                    <div className="relative h-48 overflow-hidden rounded-t-sketch-lg">
-                      <div 
-                        className="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 bg-cover bg-center transform group-hover:scale-110 transition-transform duration-500"
-                        style={{ 
-                          backgroundImage: (post.featured_image || post.cover_image_url)
-                            ? `url(${post.featured_image || post.cover_image_url})` 
-                            : undefined 
-                        }}
-                      >
-                        {!(post.featured_image || post.cover_image_url) && (
-                          <div className="w-full h-full flex items-center justify-center">
-                            <svg className="w-16 h-16 text-paper/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                          </div>
-                        )}
-                      </div>
+                    <div className="relative h-48 overflow-hidden rounded-t-sketch-lg bg-gradient-to-br from-primary-600 to-primary-800">
+                      {(post.featured_image || post.cover_image_url) ? (
+                        <Image
+                          src={post.featured_image || post.cover_image_url || ''}
+                          alt=""
+                          fill
+                          sizes="(max-width: 640px) 85vw, (max-width: 1024px) 45vw, 30vw"
+                          className="object-cover object-center transform group-hover:scale-110 transition-transform duration-500"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center">
+                          <svg className="w-16 h-16 text-paper/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                        </div>
+                      )}
                     </div>
 
                     {/* Contenu */}
@@ -278,14 +255,13 @@ function BlogPreview() {
                   />
                 ))}
               </div>
-            </div>
+          </div>
 
-            <div ref={ctaRef} className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              <SectionLink href="/blog" theme="dark">{t('viewAll')}</SectionLink>
-              <CTAQuiz />
-            </div>
-          </>
-        )}
+          <div ref={ctaRef} className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <SectionLink href="/blog" theme="dark">{t('viewAll')}</SectionLink>
+            <CTAQuiz />
+          </div>
+        </>
       </div>
       
     </section>

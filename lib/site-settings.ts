@@ -8,7 +8,7 @@ export interface SiteSettings {
 }
 
 export const DEFAULT_SETTINGS: SiteSettings = {
-  logo_url: '/images/logo_vert_perrine_huon.png',
+  logo_url: '/images/logo_vert_perrine_huon.webp',
   site_title: 'Perrine Huon',
   site_description: 'Développeur Web Freelance & Web Designer',
   calendly_url: 'https://calendly.com/perrinehuon/30min',
@@ -38,8 +38,12 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     const profile = profiles?.[0];
     if (!profile) return DEFAULT_SETTINGS;
 
+    const logoUrl = profile.avatar_url === '/images/logo_vert_perrine_huon.png'
+      ? DEFAULT_SETTINGS.logo_url
+      : profile.avatar_url ?? DEFAULT_SETTINGS.logo_url;
+
     return {
-      logo_url: profile.avatar_url ?? DEFAULT_SETTINGS.logo_url,
+      logo_url: logoUrl,
       site_title: profile.name ?? DEFAULT_SETTINGS.site_title,
       site_description: profile.bio ?? DEFAULT_SETTINGS.site_description,
       calendly_url: DEFAULT_SETTINGS.calendly_url,

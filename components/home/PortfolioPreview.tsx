@@ -1,71 +1,30 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/i18n/routing';
-import { createClient } from '@/lib/supabase/client';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import LaptopMockup from '@/components/LaptopMockup';
-import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
+import { SectionTitle, SectionLink, CTAQuiz } from '@/components/ui';
 import { getLocalizedField } from '@/lib/i18n-helpers';
+import type { HomepageProject } from '@/lib/home-data';
 
-type ProjectData = {
-  id: string;
-  title: string;
-  slug: string;
-  short_description: string | null;
-  featured_image: string | null;
-  published: boolean;
-};
-
-export default function PortfolioPreview() {
+export default function PortfolioPreview({
+  initialProjects,
+}: {
+  initialProjects: HomepageProject[];
+}) {
   const t = useTranslations('portfolioPreview');
   const locale = useLocale() as 'fr' | 'en' | 'es';
-  const [projects, setProjects] = useState<ProjectData[]>([]);
-  const [loading, setLoading] = useState(true);
   
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [gridRef, gridVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
 
-  useEffect(() => {
-    async function fetchProjects() {
-      const supabase = createClient();
-      
-      const { data, error } = await supabase
-        .from('projects')
-        .select('*')
-        .eq('published', true)
-        .order('sort_order', { ascending: true })
-        .order('created_at', { ascending: false })
-        .limit(4);
+  const supabaseHasTranslations = locale === 'fr' || (initialProjects.length > 0 && `title_${locale}` in initialProjects[0]);
 
-      if (!error && data) {
-        setProjects(data as ProjectData[]);
-      } else if (error) {
-        console.error('Error loading projects:', error);
-        const { data: allData } = await supabase
-          .from('projects')
-          .select('*')
-          .order('sort_order', { ascending: true })
-          .order('created_at', { ascending: false })
-          .limit(4);
-        
-        if (allData) {
-          setProjects(allData as ProjectData[]);
-        }
-      }
-      setLoading(false);
-    }
-
-    fetchProjects();
-  }, []);
-
-  const supabaseHasTranslations = locale === 'fr' || (projects.length > 0 && `title_${locale}` in projects[0]);
-
-  const displayProjects = projects.length > 0 && supabaseHasTranslations
-    ? projects
-    : projects.map((project, index) => ({
+  const displayProjects = initialProjects.length > 0 && supabaseHasTranslations
+    ? initialProjects
+    : initialProjects.map((project, index) => ({
         ...project,
         title: t.has(`demoProjects.${index + 1}.title`) ? t(`demoProjects.${index + 1}.title`) : project.title,
         short_description: t.has(`demoProjects.${index + 1}.short_description`) ? t(`demoProjects.${index + 1}.short_description`) : project.short_description,
@@ -76,16 +35,6 @@ export default function PortfolioPreview() {
     number: String(index + 1).padStart(2, '0'),
     previewImage: project.featured_image,
   }));
-
-  if (loading) {
-    return (
-      <section className="relative py-24 lg:py-32 bg-paper overflow-hidden">
-        <div className="container mx-auto px-4">
-          <LoadingSpinner />
-        </div>
-      </section>
-    );
-  }
 
   if (formattedProjects.length === 0) {
     return (

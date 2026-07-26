@@ -51,6 +51,7 @@ export default function LaptopMockup({ src, alt, className = '' }: LaptopMockupP
                   src={src}
                   alt={alt}
                   fill
+                  sizes="(max-width: 640px) 75vw, 280px"
                   style={{ objectFit: 'cover' }}
                 />
                 

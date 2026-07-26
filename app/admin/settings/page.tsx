@@ -13,7 +13,7 @@ type Settings = {
 };
 
 const DEFAULT_SETTINGS: Settings = {
-  logo_url: '/images/logo_vert_perrine_huon.png',
+  logo_url: '/images/logo_vert_perrine_huon.webp',
   site_title: 'Perrine Huon',
   site_description: 'Développeur Web Freelance & Web Designer',
 };

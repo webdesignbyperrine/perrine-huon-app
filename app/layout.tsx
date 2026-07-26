@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getLocale } from "next-intl/server";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { MainJsonLd } from "@/components/JsonLd";
@@ -76,20 +77,21 @@ const themeScript = `
   })();
 `;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+
   return (
-    <html className="scroll-smooth" suppressHydrationWarning>
+    <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
       <head>
         <meta name="color-scheme" content="light dark" />
         <meta name="theme-color" content="#D4C4A8" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <MainJsonLd />
-        <link rel="preload" href="/images/logo_vert_perrine_huon.png" as="image" />
       </head>
       <body
         className={`${outfit.variable} ${caveat.variable} antialiased`}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface TypewriterTextProps {
   text: string;
@@ -22,18 +22,35 @@ export default function TypewriterText({
   const [displayedText, setDisplayedText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const containerRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.01 },
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible || isTyping) return;
+
     // Délai avant de commencer
     const startTimer = setTimeout(() => {
       setIsTyping(true);
     }, startDelay);
 
     return () => clearTimeout(startTimer);
-  }, [startDelay]);
+  }, [startDelay, isVisible, isTyping]);
 
   useEffect(() => {
-    if (!isTyping) return;
+    if (!isTyping || !isVisible) return;
 
     if (displayedText.length < text.length) {
       const timer = setTimeout(() => {
@@ -42,12 +59,13 @@ export default function TypewriterText({
 
       return () => clearTimeout(timer);
     } else {
-      setIsComplete(true);
+      const timer = setTimeout(() => setIsComplete(true), 0);
+      return () => clearTimeout(timer);
     }
-  }, [displayedText, text, delay, isTyping]);
+  }, [displayedText, text, delay, isTyping, isVisible]);
 
   return (
-    <span className={className}>
+    <span ref={containerRef} className={className}>
       {displayedText}
       {showCursor && (
         <span 

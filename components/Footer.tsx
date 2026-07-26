@@ -60,7 +60,7 @@ export default function Footer() {
               <div className="flex justify-center mb-4">
                 <div className="relative w-16 h-16 lg:w-20 lg:h-20">
                   <Image
-                    src="/images/logo_vert_perrine_huon.png"
+                    src="/images/logo_vert_perrine_huon.webp"
                     alt="Perrine Huon - Création de Sites Internet"
                     fill
                     className={`object-contain ${

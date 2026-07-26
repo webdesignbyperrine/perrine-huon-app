@@ -57,6 +57,6 @@ export const config = {
   // and any path ending with a known static extension so they are not
   // rewritten by the next-intl locale middleware.
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|llms-full.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|wav|mp3|woff|woff2|ttf|txt|xml|json|map|webmanifest)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|llms-full.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico|wav|mp3|woff|woff2|ttf|txt|xml|json|map|webmanifest|wasm|lottie)$).*)',
   ],
 };

@@ -1,43 +1,25 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
-import { createClient } from '@/lib/supabase/client';
-import type { FAQ } from '@/types/database.types';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { SectionTitle, LoadingSpinner, SectionLink, CTAQuiz } from '@/components/ui';
+import { SectionTitle, SectionLink, CTAQuiz } from '@/components/ui';
 import { getLocalizedField } from '@/lib/i18n-helpers';
+import type { HomepageFaq } from '@/lib/home-data';
 
-export default function FAQPreview() {
+export default function FAQPreview({
+  initialFaqs,
+}: {
+  initialFaqs: HomepageFaq[];
+}) {
   const t = useTranslations('faqPreview');
   const locale = useLocale() as 'fr' | 'en' | 'es';
-  const [faqs, setFaqs] = useState<FAQ[]>([]);
-  const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   
   // Animations au scroll
   const [titleRef, titleVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
   const [faqsRef, faqsVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
   const [ctaRef, ctaVisible] = useScrollAnimation<HTMLDivElement>({ threshold: 0.3 });
-
-  useEffect(() => {
-    async function fetchFAQs() {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from('faqs')
-        .select('*')
-        .eq('is_published', true)
-        .order('sort_order', { ascending: true })
-        .limit(5);
-
-      if (!error && data) {
-        setFaqs(data);
-      }
-      setLoading(false);
-    }
-
-    fetchFAQs();
-  }, []);
 
   // FAQs de démo (internationalisées)
   const demoFaqs = [
@@ -67,8 +49,8 @@ export default function FAQPreview() {
     },
   ];
 
-  const supabaseHasTranslations = locale === 'fr' || (faqs.length > 0 && `question_${locale}` in faqs[0]);
-  const displayFaqs = faqs.length > 0 && supabaseHasTranslations ? faqs : demoFaqs;
+  const supabaseHasTranslations = locale === 'fr' || (initialFaqs.length > 0 && `question_${locale}` in initialFaqs[0]);
+  const displayFaqs = initialFaqs.length > 0 && supabaseHasTranslations ? initialFaqs : demoFaqs;
 
   return (
     <section id="faq-preview" className="relative pt-32 lg:pt-40 pb-32 lg:pb-40 bg-paper-light grain-overlay overflow-hidden">
@@ -136,11 +118,8 @@ export default function FAQPreview() {
             />
         </div>
 
-        {loading ? (
-          <LoadingSpinner />
-        ) : (
-          <>
-            <div ref={faqsRef} className="max-w-4xl mx-auto space-y-4">
+        <>
+          <div ref={faqsRef} className="max-w-4xl mx-auto space-y-4">
               {displayFaqs.map((faq, index) => (
                 <div 
                   key={faq.id} 
@@ -178,14 +157,13 @@ export default function FAQPreview() {
                   </div>
                 </div>
               ))}
-            </div>
+          </div>
 
-            <div ref={ctaRef} className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-              <SectionLink href="/faq">{t('viewAll')}</SectionLink>
-              <CTAQuiz />
-            </div>
-          </>
-        )}
+          <div ref={ctaRef} className={`text-center mt-12 flex flex-col items-center gap-6 transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <SectionLink href="/faq">{t('viewAll')}</SectionLink>
+            <CTAQuiz />
+          </div>
+        </>
       </div>
     </section>
   );

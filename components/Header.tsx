@@ -26,7 +26,7 @@ export default function Header() {
   const t = useTranslations('header');
   
   // Précharger le son pour lecture instantanée
-  const { play: playParrotSound } = useSound('/sounds/parrot.wav', { volume: 0.5 });
+  const { play: playParrotSound, load: loadParrotSound } = useSound('/sounds/parrot.wav', { volume: 0.5 });
 
   const handleLogoClick = useCallback((e: React.MouseEvent) => {
     if (isFlying) return; // Empêcher de cliquer pendant l'animation
@@ -322,7 +322,14 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4 xl:py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" onClick={handleLogoClick} className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0">
+          <Link
+            href="/"
+            onClick={handleLogoClick}
+            onPointerEnter={() => { loadParrotSound(); }}
+            onFocus={() => { loadParrotSound(); }}
+            onTouchStart={() => { loadParrotSound(); }}
+            className="flex items-center space-x-2 sm:space-x-3 group flex-shrink-0"
+          >
             <div className="relative">
               {/* Cercle décoratif - la "cage" (visible seulement pendant l'animation) */}
               <div 
