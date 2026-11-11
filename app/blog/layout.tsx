@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import RootDocument from '@/components/RootDocument';
 
 export const metadata: Metadata = {
   title: 'Blog Webdesign & Développement Web',
@@ -12,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return <RootDocument lang="fr">{children}</RootDocument>;
 }

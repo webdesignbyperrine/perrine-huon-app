@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import LayoutShell from '@/components/LayoutShell';
+import RootDocument from '@/components/RootDocument';
 
 type Props = {
   children: React.ReactNode;
@@ -164,10 +165,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <LayoutShell>
-        {children}
-      </LayoutShell>
-    </NextIntlClientProvider>
+    <RootDocument lang={locale}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <LayoutShell>
+          {children}
+        </LayoutShell>
+      </NextIntlClientProvider>
+    </RootDocument>
   );
 }
