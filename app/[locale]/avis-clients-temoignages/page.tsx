@@ -2,10 +2,15 @@ import { Link } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
-import { createClient } from '@/lib/supabase/server';
+import { createStaticClient } from '@/lib/supabase/server';
 import type { Testimonial } from '@/types/database.types';
 import { getLocalizedField } from '@/lib/i18n-helpers';
 import type { Locale } from '@/i18n/config';
+
+// Static (ISR) rendering: published content is read from Supabase with the
+// anonymous client (no cookies), so the page can be cached and is refreshed
+// at most once a day instead of being rendered on every request.
+export const revalidate = 86400;
 
 function getDemoTestimonials(t: any): Testimonial[] {
   return [
@@ -194,7 +199,7 @@ export default async function TemoignagesPage({
   let testimonials: Testimonial[] = [];
 
   try {
-    const supabase = await createClient();
+    const supabase = createStaticClient();
     const { data, error } = await supabase
       .from('testimonials')
       .select('*')

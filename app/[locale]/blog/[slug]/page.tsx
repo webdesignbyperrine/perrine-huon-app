@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { formatDate, estimateReadingTime } from '@/lib/utils';
-import { createClient, createStaticClient } from '@/lib/supabase/server';
+import { createStaticClient } from '@/lib/supabase/server';
 import SafeHTML from '@/components/SafeHTML';
 import { BreadcrumbJsonLd, ArticleJsonLd, FAQPageJsonLd, HowToJsonLd } from '@/components/JsonLd';
 import { getLocalizedField } from '@/lib/i18n-helpers';
@@ -14,6 +14,11 @@ import {
   getStaticBlogPost,
   type StaticBlogPost,
 } from '@/lib/static-blog-posts';
+
+// Static (ISR) rendering: published content is read from Supabase with the
+// anonymous client (no cookies), so the page can be cached and is refreshed
+// at most once a day instead of being rendered on every request.
+export const revalidate = 86400;
 
 // Génération statique des paramètres pour tous les articles (Supabase + statiques)
 export async function generateStaticParams() {
@@ -44,7 +49,7 @@ export async function generateStaticParams() {
 // Métadonnées SEO dynamiques (Supabase d'abord, fallback statique)
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const supabase = await createClient();
+  const supabase = createStaticClient();
   const t = await getTranslations({ locale, namespace: 'blog-detail' });
 
   const { data: post } = await supabase
@@ -100,7 +105,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ local
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: 'blog-detail' });
-  const supabase = await createClient();
+  const supabase = createStaticClient();
 
   const { data: dbPost } = await supabase
     .from('blog_posts')

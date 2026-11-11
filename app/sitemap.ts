@@ -1,11 +1,15 @@
 import { MetadataRoute } from 'next'
-import { createClient } from '@/lib/supabase/server'
+import { createStaticClient } from '@/lib/supabase/server'
 import { getAllServiceSlugs } from '@/lib/services-data'
 import { getAllLocationSlugs } from '@/lib/locations-data'
 import { getAllProfessionSlugs } from '@/lib/professions-data'
 import { STATIC_BLOG_POSTS } from '@/lib/static-blog-posts'
 import { STATIC_PORTFOLIO_PROJECTS } from '@/lib/static-portfolio'
 import { locales } from '@/i18n/config'
+
+// Cached sitemap, regenerated at most once a day (it reads published
+// projects and posts from Supabase with the anonymous client).
+export const revalidate = 86400
 
 function multilingualUrl(baseUrl: string, path: string) {
   const languages: Record<string, string> = {};
@@ -111,7 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }))
 
-  const supabase = await createClient()
+  const supabase = createStaticClient()
   
   const { data: projects } = await supabase
     .from('projects')

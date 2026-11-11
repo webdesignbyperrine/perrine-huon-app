@@ -1,4 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
+import { createStaticClient } from '@/lib/supabase/server';
 
 export interface SiteSettings {
   logo_url: string;
@@ -22,7 +22,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
  */
 export async function getSiteSettings(): Promise<SiteSettings> {
   try {
-    const supabase = await createClient();
+    const supabase = createStaticClient();
 
     const { data: profiles, error } = await supabase
       .from('profiles')

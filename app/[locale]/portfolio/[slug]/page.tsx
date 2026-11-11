@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { Link } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { createClient, createStaticClient } from '@/lib/supabase/server';
+import { createStaticClient } from '@/lib/supabase/server';
 import ImageCarousel from '@/components/ImageCarousel';
 import FormattedDescription from '@/components/FormattedDescription';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
@@ -28,6 +28,11 @@ type ProjectMediaWithMedia = ProjectMedia & {
   media_assets: MediaAssetDB;
 };
 
+// Static (ISR) rendering: published content is read from Supabase with the
+// anonymous client (no cookies), so the page can be cached and is refreshed
+// at most once a day instead of being rendered on every request.
+export const revalidate = 86400;
+
 // Génération statique des paramètres pour toutes les pages de projets,
 // y compris les études de cas "pillar" stockées en code.
 export async function generateStaticParams() {
@@ -49,7 +54,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale, namespace: 'portfolio-detail' });
-  const supabase = await createClient();
+  const supabase = createStaticClient();
   
   const { data: dbProject } = await supabase
     .from('projects')
@@ -112,7 +117,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'portfolio-detail' });
 
-  const supabase = await createClient();
+  const supabase = createStaticClient();
 
   // Charger le projet depuis la base de données
   const { data: dbProject } = await supabase

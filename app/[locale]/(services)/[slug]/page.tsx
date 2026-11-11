@@ -31,6 +31,11 @@ function resolveSlug(slug: string, locale: string = 'fr'): PageType {
   return null;
 }
 
+// Every valid slug comes from the static data files above and is prerendered
+// by generateStaticParams. Any other slug (typically bots probing URLs) gets
+// the static 404 without running a server render.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const serviceSlugs = getAllServiceSlugs().map((s) => ({ slug: s }));
   const locationSlugs = getAllLocationSlugs().map((s) => ({ slug: `${LOCATION_PREFIX}${s}` }));

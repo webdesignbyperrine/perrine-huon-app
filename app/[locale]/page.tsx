@@ -7,7 +7,9 @@ import Services from '@/components/home/Services';
 import ScrollToAnchor from '@/components/ScrollToAnchor';
 import { getHomepageData } from '@/lib/home-data';
 
-export const revalidate = 300;
+// Homepage data comes from Supabase (anonymous client): refresh the cached
+// page at most once a day.
+export const revalidate = 86400;
 
 export async function generateMetadata({
   params,
