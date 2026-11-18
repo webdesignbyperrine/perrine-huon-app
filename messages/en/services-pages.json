@@ -20,7 +20,7 @@
       "arrondissement": "District",
       "region": "Region"
     },
-    "specialist": "Freelance web developer specializing in custom website creation for businesses in {location}.",
+    "specialist": "web developer specializing in custom website creation for businesses in {location}.",
     "businessTypes": {
       "title": "Types of businesses in {location}",
       "subtitle": "I work with all types of professionals in {location}, here are the most represented sectors."
@@ -60,7 +60,7 @@
     "startProject": "Start my project",
     "bookCall": "Book a free call",
     "jsonLdName": "Perrine Huon - Website Creation in {location}",
-    "jsonLdDescription": "Freelance web developer offering custom website creation in {location}.",
+    "jsonLdDescription": "web developer offering custom website creation in {location}.",
     "breadcrumbPrefix": "Website creation in {location}"
   },
   "profession": {

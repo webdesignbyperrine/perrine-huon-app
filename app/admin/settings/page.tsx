@@ -15,7 +15,7 @@ type Settings = {
 const DEFAULT_SETTINGS: Settings = {
   logo_url: '/images/logo_vert_perrine_huon.webp',
   site_title: 'Perrine Huon',
-  site_description: 'Développeur Web Freelance & Web Designer',
+  site_description: 'Développeuse Web & Web Designer',
 };
 
 export default function SettingsPage() {
@@ -223,7 +223,7 @@ export default function SettingsPage() {
             onChange={(e) => setSettings((prev) => ({ ...prev, site_description: e.target.value }))}
             rows={3}
             className="w-full px-4 py-3 bg-primary-800/50 border border-white/10 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-secondary transition-colors resize-none"
-            placeholder="Développeur Web Freelance & Web Designer"
+            placeholder="Développeuse Web & Web Designer"
           />
         </div>
 

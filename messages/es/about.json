@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "Acerca de — Perrine Huon, Desarrolladora Web Freelance",
-    "description": "Descubra el recorrido de Perrine Huon, desarrolladora web freelance especializada en la creación de sitios web personalizados. Mi enfoque, mis valores y por qué elegirme.",
-    "ogTitle": "Acerca de — Perrine Huon, Desarrolladora Web Freelance",
-    "ogDescription": "Descubra el recorrido de Perrine Huon, desarrolladora web freelance especializada en la creación de sitios web personalizados."
+    "title": "Acerca de — Perrine Huon, Desarrolladora Web",
+    "description": "Descubra el recorrido de Perrine Huon, desarrolladora web especializada en la creación de sitios web personalizados. Mi enfoque, mis valores y por qué elegirme.",
+    "ogTitle": "Acerca de — Perrine Huon, Desarrolladora Web",
+    "ogDescription": "Descubra el recorrido de Perrine Huon, desarrolladora web especializada en la creación de sitios web personalizados."
   },
   "breadcrumb": {
     "home": "Inicio",
@@ -12,7 +12,7 @@
   "hero": {
     "backLink": "← Volver al inicio",
     "name": "Perrine Huon",
-    "title": "Desarrolladora Web Freelance",
+    "title": "Desarrolladora Web",
     "description": "Apasionada por la web y el diseño, creo sitios web personalizados que combinan estética, rendimiento y SEO. Mi objetivo: dar a cada proyecto una presencia en línea a la altura de su ambición.",
     "cta": "Hablemos de su proyecto",
     "photoPlaceholder": "Foto próximamente"
@@ -22,7 +22,7 @@
     "paragraphs": [
       "Después de varios años en el mundo profesional, tomé la decisión de dedicarme por completo a mi pasión: el desarrollo web. Una reconversión cuidadosamente reflexionada, impulsada por el deseo de crear herramientas digitales que tengan un impacto real para mis clientes.",
       "Formada en las tecnologías web más modernas (Next.js, React, TypeScript), me especialicé en la creación de sitios web personalizados para PYMES, profesionales independientes y asociaciones. Mi enfoque combina el rigor técnico con una sensibilidad por el diseño y la experiencia del usuario.",
-      "Hoy, soy freelance y acompaño a mis clientes de principio a fin: desde la reflexión estratégica hasta la puesta en línea, pasando por el diseño, el desarrollo y la optimización SEO."
+      "Hoy, diseño sitios web y acompaño a mis clientes de principio a fin: desde la reflexión estratégica hasta la puesta en línea, pasando por el diseño, el desarrollo y la optimización SEO."
     ]
   },
   "approche": {

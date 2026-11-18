@@ -12,11 +12,11 @@ export async function generateMetadata({
 
   return {
     title: 'Réalisations & Projets Sites Web',
-    description: 'Découvrez les sites internet et applications web créés par Perrine Huon, développeur web freelance. Sites vitrines, e-commerce, applications sur mesure pour PME et professions libérales.',
+    description: 'Découvrez les sites internet et applications web créés par Perrine Huon, développeuse web. Sites vitrines, e-commerce, applications sur mesure pour PME et professions libérales.',
     alternates: { canonical: 'https://www.perrinehuon.com/portfolio' },
     openGraph: {
       title: 'Réalisations & Projets Sites Web | Perrine Huon',
-      description: 'Découvrez les sites internet et applications web créés par Perrine Huon, développeur web freelance.',
+      description: 'Découvrez les sites internet et applications web créés par Perrine Huon, développeuse web.',
       url: 'https://www.perrinehuon.com/portfolio',
       siteName: t('siteName'),
     },

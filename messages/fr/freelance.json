@@ -1,24 +1,24 @@
 {
   "metadata": {
-    "title": "Freelance vs Agence Web : Comment Choisir en 2026",
-    "description": "Freelance ou agence web ? Comparez les avantages, inconvénients et tarifs pour faire le bon choix pour votre site internet. Guide complet 2026.",
-    "ogTitle": "Freelance vs Agence Web : Comment Choisir en 2026",
-    "ogDescription": "Freelance ou agence web ? Comparez les avantages, inconvénients et tarifs pour faire le bon choix pour votre site internet."
+    "title": "Prestataire vs Agence Web : Comment Choisir en 2026",
+    "description": "Prestataire ou agence web ? Comparez les avantages, inconvénients et tarifs pour faire le bon choix pour votre site internet. Guide complet 2026.",
+    "ogTitle": "Prestataire vs Agence Web : Comment Choisir en 2026",
+    "ogDescription": "Prestataire ou agence web ? Comparez les avantages, inconvénients et tarifs pour faire le bon choix pour votre site internet."
   },
   "breadcrumb": {
     "home": "Accueil",
-    "current": "Freelance vs Agence"
+    "current": "Prestataire vs Agence"
   },
   "hero": {
     "backToHome": "Retour à l'accueil",
-    "title": "Freelance vs Agence Web",
+    "title": "Prestataire vs Agence Web",
     "subtitle": "Comment choisir le bon partenaire pour la création de votre site internet ? Comparaison objective pour vous aider à décider."
   },
   "comparisonTable": {
     "title": "Comparatif détaillé",
     "headers": {
       "criterion": "Critère",
-      "freelance": "Freelance",
+      "freelance": "Prestataire",
       "agency": "Agence",
       "diy": "WordPress DIY"
     },
@@ -74,12 +74,12 @@
     ]
   },
   "whenChooseFreelance": {
-    "title": "Quand choisir un freelance ?",
-    "subtitle": "Le freelance est le choix idéal pour la majorité des projets web de PME, professions libérales et associations.",
+    "title": "Quand choisir un prestataire ?",
+    "subtitle": "Le prestataire est le choix idéal pour la majorité des projets web de PME, professions libérales et associations.",
     "advantages": [
       {
         "title": "Rapport qualité-prix imbattable",
-        "description": "Sans les frais de structure d'une agence, un freelance propose des tarifs 40 à 60% inférieurs pour une qualité équivalente."
+        "description": "Sans les frais de structure d'une agence, un prestataire propose des tarifs 40 à 60% inférieurs pour une qualité équivalente."
       },
       {
         "title": "Communication directe",
@@ -87,11 +87,11 @@
       },
       {
         "title": "Flexibilité & réactivité",
-        "description": "Un freelance s'adapte à votre planning et peut réagir rapidement aux demandes de modifications, sans les processus lourds d'une agence."
+        "description": "Un prestataire s'adapte à votre planning et peut réagir rapidement aux demandes de modifications, sans les processus lourds d'une agence."
       },
       {
         "title": "Engagement personnel",
-        "description": "Votre projet n'est pas un dossier parmi des dizaines. Le freelance s'engage personnellement dans la réussite de votre site."
+        "description": "Votre projet n'est pas un dossier parmi des dizaines. Le prestataire s'engage personnellement dans la réussite de votre site."
       }
     ]
   },
@@ -101,7 +101,7 @@
     "advantages": [
       {
         "title": "Ressources multiples",
-        "description": "Une agence dispose de spécialistes variés (designer, développeur, rédacteur, SEO) qui peuvent intervenir en parallèle."
+        "description": "Une agence dispose de spécialistes variés (designer, développeuse, rédacteur, SEO) qui peuvent intervenir en parallèle."
       },
       {
         "title": "Projets de grande envergure",
@@ -115,10 +115,10 @@
   },
   "whyPerrine": {
     "title": "Les avantages de travailler avec Perrine",
-    "subtitle": "Le meilleur des deux mondes : l'expertise technique d'une agence avec la proximité et les tarifs d'un freelance.",
+    "subtitle": "Le meilleur des deux mondes : l'expertise technique d'une agence avec la proximité et les tarifs d'un prestataire.",
     "benefits": [
       {
-        "title": "Technologies premium, tarif freelance",
+        "title": "Technologies premium, tarif prestataire",
         "description": "Next.js, React, Tailwind CSS : les mêmes outils que les meilleures agences, sans les frais de structure."
       },
       {
@@ -143,16 +143,16 @@
     "title": "Questions fréquentes",
     "items": [
       {
-        "question": "Un freelance peut-il gérer un projet complexe aussi bien qu'une agence ?",
-        "answer": "Absolument. Un freelance expérimenté maîtrise l'ensemble de la chaîne de création (design, développement, SEO) et peut mobiliser des collaborateurs spécialisés si nécessaire. Pour la majorité des projets de PME et professions libérales, un freelance est non seulement suffisant mais souvent préférable pour la qualité de la relation client."
+        "question": "Un prestataire peut-il gérer un projet complexe aussi bien qu'une agence ?",
+        "answer": "Absolument. Un prestataire expérimenté maîtrise l'ensemble de la chaîne de création (design, développement, SEO) et peut mobiliser des collaborateurs spécialisés si nécessaire. Pour la majorité des projets de PME et professions libérales, un prestataire est non seulement suffisant mais souvent préférable pour la qualité de la relation client."
       },
       {
-        "question": "Que se passe-t-il si le freelance n'est plus disponible ?",
-        "answer": "Un code propre et bien documenté garantit que n'importe quel développeur compétent peut reprendre le projet. C'est pourquoi j'utilise des technologies standards (Next.js, React) et que je fournis une documentation complète. Votre site ne dépend jamais d'une seule personne."
+        "question": "Que se passe-t-il si le prestataire n'est plus disponible ?",
+        "answer": "Un code propre et bien documenté garantit que n'importe quelle développeuse compétent peut reprendre le projet. C'est pourquoi j'utilise des technologies standards (Next.js, React) et que je fournis une documentation complète. Votre site ne dépend jamais d'une seule personne."
       },
       {
-        "question": "Comment choisir entre freelance et agence pour mon projet ?",
-        "answer": "Si votre budget est inférieur à 10 000€ et que vous souhaitez un interlocuteur unique avec une relation de confiance, le freelance est idéal. Si votre projet nécessite plus de 5 métiers différents en simultané (ex: application mobile + web + marketing), une agence peut être pertinente."
+        "question": "Comment choisir entre prestataire et agence pour mon projet ?",
+        "answer": "Si votre budget est inférieur à 10 000€ et que vous souhaitez un interlocuteur unique avec une relation de confiance, le prestataire est idéal. Si votre projet nécessite plus de 5 métiers différents en simultané (ex: application mobile + web + marketing), une agence peut être pertinente."
       },
       {
         "question": "Pourquoi ne pas simplement créer mon site moi-même avec WordPress ?",
@@ -161,7 +161,7 @@
     ]
   },
   "cta": {
-    "title": "Convaincu par le freelance ?",
+    "title": "Convaincu par le prestataire ?",
     "description": "Discutons de votre projet lors d'un premier échange gratuit et sans engagement. Vous verrez par vous-même les avantages de travailler en direct.",
     "button": "Discuter de mon projet"
   }

@@ -20,7 +20,7 @@
       "arrondissement": "Distrito",
       "region": "Región"
     },
-    "specialist": "Desarrolladora web freelance especializada en creación de sitios web personalizados para empresas de {location}.",
+    "specialist": "Desarrolladora web especializada en creación de sitios web personalizados para empresas de {location}.",
     "businessTypes": {
       "title": "Tipos de empresas en {location}",
       "subtitle": "Trabajo con todo tipo de profesionales en {location}, estos son los sectores más representados."
@@ -60,7 +60,7 @@
     "startProject": "Comenzar mi proyecto",
     "bookCall": "Reservar una llamada gratuita",
     "jsonLdName": "Perrine Huon - Creación de Sitios Web en {location}",
-    "jsonLdDescription": "Desarrolladora web freelance que ofrece creación de sitios web personalizados en {location}.",
+    "jsonLdDescription": "Desarrolladora web que ofrece creación de sitios web personalizados en {location}.",
     "breadcrumbPrefix": "Creación de sitio web en {location}"
   },
   "profession": {

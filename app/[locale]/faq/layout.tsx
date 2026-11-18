@@ -12,7 +12,7 @@ export async function generateMetadata({
 
   return {
     title: 'Questions Fréquentes — Création de Site Internet',
-    description: 'Réponses à toutes vos questions sur la création de sites internet : tarifs, délais, SEO, technologies, processus de travail. FAQ complète par Perrine Huon, développeur web freelance.',
+    description: 'Réponses à toutes vos questions sur la création de sites internet : tarifs, délais, SEO, technologies, processus de travail. FAQ complète par Perrine Huon, développeuse web.',
     alternates: { canonical: 'https://www.perrinehuon.com/faq' },
     openGraph: {
       title: 'FAQ — Création de Site Internet | Perrine Huon',

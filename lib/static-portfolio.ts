@@ -55,8 +55,8 @@ export const STATIC_PORTFOLIO_PROJECTS: StaticPortfolioProject[] = [
     location: 'Plateforme communautaire',
     year: 2025,
     short_description:
-      "Plateforme nationale qui réunit les freelances et indépendants autour de sessions de coworking en café, pour rompre l'isolement et créer un vrai réseau pro.",
-    long_description: `CoworkMeet est née d'un besoin concret : permettre aux freelances et indépendants français de se retrouver dans un café, une fois par semaine, pour travailler ensemble sans payer un coworking traditionnel.
+      "Plateforme nationale qui réunit les professionnels et indépendants autour de sessions de coworking en café, pour rompre l'isolement et créer un vrai réseau pro.",
+    long_description: `CoworkMeet est née d'un besoin concret : permettre aux professionnels et indépendants français de se retrouver dans un café, une fois par semaine, pour travailler ensemble sans payer un coworking traditionnel.
 
 Mes responsabilités :
 - Architecture full-stack Next.js 16 + Supabase (auth, DB, storage, RLS)
@@ -79,9 +79,9 @@ Résultats : 176 utilisateurs actifs, 57 sessions de coworking organisées, 263 
     ],
     testimonial: {
       author: 'Communauté CoworkMeet',
-      role: '176 freelances actifs (avril 2026)',
+      role: '176 professionnels actifs (avril 2026)',
       quote:
-        "Une plateforme qui change vraiment la vie des freelances en région. Simple, fluide, et qui fait gagner du temps.",
+        "Une plateforme qui change vraiment la vie des professionnels en région. Simple, fluide, et qui fait gagner du temps.",
     },
     stack: ['Next.js 16', 'Supabase', 'TypeScript', 'Tailwind CSS', 'Vercel', 'Resend'],
     results: [
@@ -90,14 +90,14 @@ Résultats : 176 utilisateurs actifs, 57 sessions de coworking organisées, 263 
       'Lighthouse 96/97/95/100 (Perf/Acc/BP/SEO)',
     ],
     keywords: [
-      'plateforme coworking freelance',
+      'plateforme coworking prestataire',
       'application Next.js Supabase',
       'développement application web sur mesure',
-      'application communautaire freelance',
+      'application communautaire prestataire',
     ],
-    seo_title: 'CoworkMeet — Plateforme de sessions de coworking pour freelances | Portfolio Perrine Huon',
+    seo_title: 'CoworkMeet — Plateforme de sessions de coworking pour professionnels | Portfolio Perrine Huon',
     seo_description:
-      "Étude de cas : développement de CoworkMeet, une plateforme Next.js + Supabase qui réunit 176+ freelances autour de sessions de coworking en café, sur tout le territoire français.",
+      "Étude de cas : développement de CoworkMeet, une plateforme Next.js + Supabase qui réunit 176+ professionnels autour de sessions de coworking en café, sur tout le territoire français.",
     seo_city: 'France',
     published_at: '2025-12-01T08:00:00Z',
     created_at: '2025-12-01T08:00:00Z',

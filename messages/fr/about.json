@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "À Propos — Perrine Huon, Développeur Web Freelance",
-    "description": "Découvrez le parcours de Perrine Huon, développeur web freelance spécialisé en création de sites internet sur mesure. Mon approche, mes valeurs et pourquoi me choisir.",
-    "ogTitle": "À Propos — Perrine Huon, Développeur Web Freelance",
-    "ogDescription": "Découvrez le parcours de Perrine Huon, développeur web freelance spécialisé en création de sites internet sur mesure."
+    "title": "À Propos — Perrine Huon, Développeuse Web",
+    "description": "Découvrez le parcours de Perrine Huon, développeuse web spécialisée en création de sites internet sur mesure. Mon approche, mes valeurs et pourquoi me choisir.",
+    "ogTitle": "À Propos — Perrine Huon, Développeuse Web",
+    "ogDescription": "Découvrez le parcours de Perrine Huon, développeuse web spécialisée en création de sites internet sur mesure."
   },
   "breadcrumb": {
     "home": "Accueil",
@@ -12,7 +12,7 @@
   "hero": {
     "backLink": "← Retour à l'accueil",
     "name": "Perrine Huon",
-    "title": "Développeur Web Freelance",
+    "title": "Développeuse Web",
     "description": "Passionnée par le web et le design, je crée des sites internet sur mesure qui allient esthétique, performance et référencement. Mon objectif : donner à chaque projet une présence en ligne à la hauteur de son ambition.",
     "cta": "Discutons de votre projet",
     "photoPlaceholder": "Photo à venir"
@@ -22,7 +22,7 @@
     "paragraphs": [
       "Après plusieurs années dans le monde professionnel, j'ai fait le choix de me consacrer entièrement à ma passion : le développement web. Une reconversion mûrement réfléchie, portée par l'envie de créer des outils numériques qui ont un réel impact pour mes clients.",
       "Formée aux technologies les plus modernes du web (Next.js, React, TypeScript), je me suis spécialisée dans la création de sites internet sur mesure pour les PME, professions libérales et associations. Mon approche combine la rigueur technique avec une sensibilité pour le design et l'expérience utilisateur.",
-      "Aujourd'hui, je suis freelance et j'accompagne mes clients de A à Z : de la réflexion stratégique à la mise en ligne, en passant par le design, le développement et l'optimisation SEO."
+      "Aujourd'hui, je conçois des sites web et j'accompagne mes clients de A à Z : de la réflexion stratégique à la mise en ligne, en passant par le design, le développement et l'optimisation SEO."
     ]
   },
   "approche": {

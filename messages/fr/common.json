@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Perrine Huon | Développeur Web Freelance | Création de Sites Internet Sur Mesure",
-    "titleTemplate": "%s | Perrine Huon - Développeur Web Freelance",
-    "description": "Développeur web freelance spécialisé en création de sites internet sur mesure, applications web et SEO géolocalisé. Sites vitrines, e-commerce, landing pages optimisés pour la conversion. Devis gratuit en 48h.",
-    "siteName": "Perrine Huon - Développeur Web Freelance",
-    "ogDescription": "Développeur web freelance spécialisé en création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Devis gratuit.",
-    "ogImageAlt": "Perrine Huon — Développeur web freelance, création de sites internet sur mesure",
-    "twitterDescription": "Création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Développeur web freelance."
+    "title": "Perrine Huon | Développeuse Web | Création de Sites Internet Sur Mesure",
+    "titleTemplate": "%s | Perrine Huon - Développeuse Web",
+    "description": "Développeuse web spécialisée en création de sites internet sur mesure, applications web et SEO géolocalisé. Sites vitrines, e-commerce, landing pages optimisés pour la conversion. Devis gratuit en 48h.",
+    "siteName": "Perrine Huon - Développeuse Web",
+    "ogDescription": "Développeuse web spécialisée en création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Devis gratuit.",
+    "ogImageAlt": "Perrine Huon — Développeuse web, création de sites internet sur mesure",
+    "twitterDescription": "Création de sites internet sur mesure et SEO géolocalisé. Sites vitrines, e-commerce, applications web. Développeuse web."
   },
   "header": {
     "services": "Services",
@@ -28,10 +28,10 @@
   },
   "footer": {
     "slogan": "Construisons ensemble votre succès digital.",
-    "subtitle": "Développeur Web Freelance — Création de Sites Internet",
+    "subtitle": "Développeuse Web — Création de Sites Internet",
     "whatAreYourNeeds": "Quels sont vos besoins ?",
     "stayConnected": "Restons connectés",
-    "linkedinDesc": "Conseils web et vie de freelance",
+    "linkedinDesc": "Conseils web et projets digitaux",
     "instagramDesc": "Coulisses et inspirations design",
     "facebookDesc": "Actualités et partages web",
     "followMe": "Me suivre",
@@ -69,7 +69,7 @@
     }
   },
   "hero": {
-    "badge": "Développeur web freelance — Création de sites internet sur mesure",
+    "badge": "Développeuse web — Création de sites internet sur mesure",
     "titleLine1": "Vous bossez.",
     "titleLine2": "Votre site web aussi.",
     "subtitleLine1": "Sites internet pensés pour être trouvés sur Google.",
@@ -236,10 +236,22 @@
     "noProjects": "Aucun projet publié pour le moment",
     "viewAll": "Voir tous les projets",
     "demoProjects": {
-      "1": { "title": "Workflow Automation Lab", "short_description": "Site vitrine moderne conçu pour convertir les visiteurs en clients — Design rétro-futuriste avec intégrations IA" },
-      "2": { "title": "COWORKMEET", "short_description": "Plateforme communautaire complète pour organiser des sessions de coworking et networking" },
-      "3": { "title": "Toca do Jaguar", "short_description": "Site vitrine immersif pour un éco-lodge en Amazonie — Expérience nature authentique" },
-      "4": { "title": "Portfolio Digital", "short_description": "Portfolio créatif pour un designer freelance — Animations fluides et mise en page audacieuse" }
+      "1": {
+        "title": "Workflow Automation Lab",
+        "short_description": "Site vitrine moderne conçu pour convertir les visiteurs en clients — Design rétro-futuriste avec intégrations IA"
+      },
+      "2": {
+        "title": "COWORKMEET",
+        "short_description": "Plateforme communautaire complète pour organiser des sessions de coworking et networking"
+      },
+      "3": {
+        "title": "Toca do Jaguar",
+        "short_description": "Site vitrine immersif pour un éco-lodge en Amazonie — Expérience nature authentique"
+      },
+      "4": {
+        "title": "Portfolio Digital",
+        "short_description": "Portfolio créatif pour un designer — Animations fluides et mise en page audacieuse"
+      }
     }
   },
   "calendly": {

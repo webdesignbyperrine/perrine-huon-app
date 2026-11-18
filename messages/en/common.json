@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Perrine Huon | Custom Website Creation | Freelance Web Developer",
+    "title": "Perrine Huon | Custom Website Creation | Web Developer",
     "titleTemplate": "%s | Perrine Huon - Website Creation",
-    "description": "Freelance web developer specializing in custom website creation, web applications and local SEO. Showcase sites, e-commerce, landing pages optimized for conversion. Free quote.",
+    "description": "web developer specializing in custom website creation, web applications and local SEO. Showcase sites, e-commerce, landing pages optimized for conversion. Free quote.",
     "siteName": "Perrine Huon - Website Creation",
-    "ogDescription": "Freelance web developer specializing in custom website creation and local SEO. Showcase sites, e-commerce, web applications. Free quote.",
+    "ogDescription": "web developer specializing in custom website creation and local SEO. Showcase sites, e-commerce, web applications. Free quote.",
     "ogImageAlt": "Perrine Huon - Custom Website Creation",
-    "twitterDescription": "Custom website creation and local SEO. Showcase sites, e-commerce, web applications. Freelance web developer."
+    "twitterDescription": "Custom website creation and local SEO. Showcase sites, e-commerce, web applications. web developer."
   },
   "header": {
     "services": "Services",
@@ -28,10 +28,10 @@
   },
   "footer": {
     "slogan": "Let's build your digital success together.",
-    "subtitle": "Freelance Web Developer — Custom Website Creation",
+    "subtitle": "Web Developer — Custom Website Creation",
     "whatAreYourNeeds": "What are your needs?",
     "stayConnected": "Stay connected",
-    "linkedinDesc": "Web tips and freelance life",
+    "linkedinDesc": "Web tips and digital projects",
     "instagramDesc": "Behind the scenes and design inspiration",
     "facebookDesc": "News and web shares",
     "followMe": "Follow me",
@@ -69,7 +69,7 @@
     }
   },
   "hero": {
-    "badge": "Freelance web developer — Custom website creation",
+    "badge": "web developer — Custom website creation",
     "titleLine1": "You work hard.",
     "titleLine2": "Your website should too.",
     "subtitleLine1": "Websites designed to be found on Google.",
@@ -236,10 +236,22 @@
     "noProjects": "No published projects yet",
     "viewAll": "View all projects",
     "demoProjects": {
-      "1": { "title": "Workflow Automation Lab", "short_description": "Modern showcase site designed to convert visitors into clients — Retro-futuristic design with AI integrations" },
-      "2": { "title": "COWORKMEET", "short_description": "Complete community platform for organizing coworking and networking sessions" },
-      "3": { "title": "Toca do Jaguar", "short_description": "Immersive showcase site for an eco-lodge in the Amazon — Authentic nature experience" },
-      "4": { "title": "Portfolio Digital", "short_description": "Creative portfolio for a freelance designer — Fluid animations and bold layout" }
+      "1": {
+        "title": "Workflow Automation Lab",
+        "short_description": "Modern showcase site designed to convert visitors into clients — Retro-futuristic design with AI integrations"
+      },
+      "2": {
+        "title": "COWORKMEET",
+        "short_description": "Complete community platform for organizing coworking and networking sessions"
+      },
+      "3": {
+        "title": "Toca do Jaguar",
+        "short_description": "Immersive showcase site for an eco-lodge in the Amazon — Authentic nature experience"
+      },
+      "4": {
+        "title": "Portfolio Digital",
+        "short_description": "Creative portfolio for a designer — Fluid animations and bold layout"
+      }
     }
   },
   "calendly": {
