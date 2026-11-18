@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description =
     getLocalizedField(source, 'seo_description', locale as Locale) ||
     getLocalizedField(source, 'excerpt', locale as Locale) ||
-    `${getLocalizedField(source, 'title', locale as Locale)} - Conseils et actualités par Perrine Huon, développeur web freelance.`;
+    `${getLocalizedField(source, 'title', locale as Locale)} - Conseils et actualités par Perrine Huon, développeuse web.`;
   const baseUrl = 'https://www.perrinehuon.com';
   const localePath = locale === 'fr' ? '' : `/${locale}`;
   const url = `${baseUrl}${localePath}/blog/${slug}`;
