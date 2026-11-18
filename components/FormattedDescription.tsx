@@ -70,7 +70,23 @@ function capitalizeFirstLetter(text: string): string {
 
 function formatLine(line: string, titleType: 'main' | 'sub' | 'none'): React.ReactNode {
   if (titleType === 'none') {
-    return line;
+    return line.split(/(https?:\/\/[^\s<>]+)/g).map((part, index) => {
+      if (!/^https?:\/\//.test(part)) return part;
+      const url = part.replace(/[.,;!?)]+$/, '');
+      return (
+        <span key={index}>
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 hover:text-primary transition-colors break-words"
+          >
+            {url}
+          </a>
+          {part.slice(url.length)}
+        </span>
+      );
+    });
   }
   
   // Extraire l'emoji et le texte
