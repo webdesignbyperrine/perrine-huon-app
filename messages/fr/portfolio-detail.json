@@ -1,6 +1,6 @@
 {
   "notFound": "Projet non trouvé",
-  "metadataFallback": "Découvrez le projet {title} réalisé par Perrine Huon, web designer freelance.",
+  "metadataFallback": "Découvrez le projet {title} réalisé par Perrine Huon, web designer.",
   "breadcrumb": {
     "home": "Accueil",
     "portfolio": "Portfolio"
