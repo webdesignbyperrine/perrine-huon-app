@@ -1,3 +1,4 @@
+import { formatPublicCopy } from '@/lib/public-copy';
 import type { Locale } from '@/i18n/config';
 
 /**
@@ -19,7 +20,7 @@ export function getLocalizedField<T extends Record<string, any>>(
 ): string {
   // Si la locale est française, retourner directement le champ
   if (locale === 'fr') {
-    return item[fieldName] || '';
+    return formatPublicCopy(item[fieldName] || '', locale);
   }
 
   // Essayer de récupérer la version localisée
@@ -28,11 +29,11 @@ export function getLocalizedField<T extends Record<string, any>>(
 
   // Si la valeur localisée existe et n'est pas vide, la retourner
   if (localizedValue && localizedValue.trim() !== '') {
-    return localizedValue;
+    return formatPublicCopy(localizedValue, locale);
   }
 
   // Fallback sur le français
-  return item[fieldName] || '';
+  return formatPublicCopy(item[fieldName] || '', locale);
 }
 
 /**

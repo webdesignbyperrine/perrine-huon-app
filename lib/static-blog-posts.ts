@@ -73,7 +73,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>Pourquoi le SEO a besoin d'un code que vous contrôlez</h2>
 
 <p>
-  Sur un CMS propriétaire, votre développeur travaille <em>dans</em> les limites du
+  Sur un CMS propriétaire, votre développeuse travaille <em>dans</em> les limites du
   système. Il peut modifier un template, ajouter un plugin — mais il ne peut pas
   toucher au cœur du moteur de rendu. Résultat : certaines optimisations SEO
   techniques sont simplement impossibles.
@@ -700,7 +700,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </p>
 
 <p>
-  <strong>Mois 1 — La prise de conscience :</strong> votre agence ou votre développeur
+  <strong>Mois 1 — La prise de conscience :</strong> votre agence ou votre développeuse
   vous dit "on ne peut rien faire sur Wix, il faut refaire votre site". Vous découvrez
   que les 2 000 € que vous avez payés pour créer votre site ne valent rien
   pour la suite.
@@ -713,7 +713,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </p>
 
 <p>
-  <strong>Mois 3 — La reconstruction :</strong> vous payez un développeur pour recréer
+  <strong>Mois 3 — La reconstruction :</strong> vous payez une développeuse pour recréer
   votre site depuis zéro. Pas de réutilisation de code possible — tout est à refaire.
   Budget : 5 000 à 12 000 € selon la complexité.
 </p>
@@ -762,7 +762,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </p>
 
 <p>
-  En France, le droit de la propriété intellectuelle protège le code d'un développeur.
+  En France, le droit de la propriété intellectuelle protège le code d'une développeuse.
   Mais dans le cas de Wix ou Squarespace, le code est <em>auto-généré par la plateforme</em>
   — pas créé par vous ou pour vous. Leurs CGU sont claires : ils en sont propriétaires.
 </p>
@@ -792,7 +792,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>La solution : la propriété du code dès le départ</h2>
 
 <p>
-  La seule protection contre le lock-in, c'est de travailler avec un développeur
+  La seule protection contre le lock-in, c'est de travailler avec une développeuse
   qui vous livre le code source de votre site, déployé sur un hébergement
   que vous contrôlez.
 </p>
@@ -811,7 +811,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
     ou sur votre propre serveur. Vous payez l'hébergeur directement.
   </li>
   <li>
-    <strong>Vous pouvez changer de développeur</strong> — n'importe quel développeur
+    <strong>Vous pouvez changer de développeuse</strong> — n'importe quelle développeuse
     Next.js peut reprendre le projet. Il n'y a aucune dépendance à ma personne.
   </li>
   <li>
@@ -1174,19 +1174,19 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
   {
     id: 'static-choisir-developpeur-web-freelance',
     slug: 'choisir-developpeur-web-freelance-2026',
-    title: 'Comment choisir un développeur web freelance en 2026 ?',
-    seo_title: 'Choisir un développeur web freelance en 2026 : 12 critères clés',
-    seo_description: 'Choisir un développeur web freelance en 2026 : 12 critères concrets (techno, SEO, prix, contrat, communication) pour ne pas se tromper. Guide complet par Perrine Huon.',
-    excerpt: "Choisir un développeur web freelance en 2026 ne se résume pas au tarif horaire. Voici les 12 critères qui distinguent un partenaire fiable d'un freelance qui livrera un site fragile.",
+    title: 'Comment choisir une développeuse web en 2026 ?',
+    seo_title: 'Choisir une développeuse web en 2026 : 12 critères clés',
+    seo_description: 'Choisir une développeuse web en 2026 : 12 critères concrets (techno, SEO, prix, contrat, communication) pour ne pas se tromper. Guide complet par Perrine Huon.',
+    excerpt: "Choisir une développeuse web en 2026 ne se résume pas au tarif horaire. Voici les 12 critères qui distinguent un partenaire fiable d'un prestataire qui livrera un site fragile.",
     featured_image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1600&h=900&fit=crop',
     published_at: '2026-04-15T08:00:00Z',
     updated_at: NOW,
     created_at: '2026-04-15T08:00:00Z',
     wordCount: 1450,
-    keywords: ['développeur web freelance', 'choisir un développeur', 'freelance web 2026', 'développeur Next.js', 'freelance France'],
+    keywords: ['développeuse web', 'choisir une développeuse', 'prestataire web 2026', 'développeuse Next.js', 'prestataire France'],
     content: `
 <p class="lead">
-  Vous cherchez un <strong>développeur web freelance</strong> capable de livrer un site rapide,
+  Vous cherchez un <strong>développeuse web</strong> capable de livrer un site rapide,
   bien référencé et fiable, sans agence intermédiaire&nbsp;? Voici les 12 critères concrets
   que j'utilise moi-même — ce sont aussi ceux que les meilleurs donneurs d'ordre appliquent en 2026.
 </p>
@@ -1194,7 +1194,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>1. La stack utilisée parle plus que le portfolio</h2>
 
 <p>
-  Un développeur web freelance qui propose encore <em>uniquement</em> WordPress en 2026
+  une développeuse web qui propose encore <em>uniquement</em> WordPress en 2026
   vous expose à un site lent, lourd à maintenir et difficile à sécuriser.
 </p>
 
@@ -1212,7 +1212,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 
 <blockquote>
   Un site moderne en 2026 doit afficher <strong>90+ en Performance, Accessibilité,
-  Best Practices et SEO</strong>. En dessous, le développeur ne maîtrise pas les Core Web Vitals.
+  Best Practices et SEO</strong>. En dessous, la développeuse ne maîtrise pas les Core Web Vitals.
 </blockquote>
 
 <h2>3. Vérifier la couverture SEO technique</h2>
@@ -1229,7 +1229,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </ul>
 
 <p>
-  Un freelance qui ne sait pas expliquer ces sujets ne livrera pas un site indexable.
+  Un prestataire qui ne sait pas expliquer ces sujets ne livrera pas un site indexable.
 </p>
 
 <h2>4. Contrat clair : devis, livrable, propriété, RGPD</h2>
@@ -1240,7 +1240,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </p>
 
 <p>
-  Méfiez-vous des freelances qui livrent du code "loué" sur leur stack propriétaire —
+  Méfiez-vous des professionnels qui livrent du code "loué" sur leur stack propriétaire —
   vous ne pourrez pas partir librement.
 </p>
 
@@ -1253,7 +1253,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 
 <ul>
   <li><strong>2 semaines</strong> → copie de template, pas du sur-mesure</li>
-  <li><strong>4 mois+</strong> → le freelance ne maîtrise pas son framework</li>
+  <li><strong>4 mois+</strong> → le prestataire ne maîtrise pas son framework</li>
   <li><strong>6 à 10 semaines</strong> → la plage réaliste pour un travail sérieux</li>
 </ul>
 
@@ -1271,14 +1271,14 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </table>
 
 <p>
-  En dessous, vous achetez du Wix avec un développeur.
+  En dessous, vous achetez du Wix avec une développeuse.
   Au-dessus sans raison, vous payez la structure d'une agence sans en avoir les bénéfices.
 </p>
 
 <h2>7. Communication : un seul interlocuteur, des points fixes</h2>
 
 <p>
-  Avec un freelance, vous parlez directement à la personne qui code.
+  Avec un prestataire, vous parlez directement à la personne qui code.
   Pas de chef de projet qui filtre, pas de junior qui découvre votre brief la veille.
 </p>
 
@@ -1290,7 +1290,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>8. Portfolio : 3 projets minimum, dont 1 dans votre secteur</h2>
 
 <p>
-  Un freelance crédible montre 5 à 10 projets dans son portfolio — idéalement avec
+  Un prestataire crédible montre 5 à 10 projets dans son portfolio — idéalement avec
   captures, contexte business, technologies et résultats chiffrés.
 </p>
 
@@ -1324,7 +1324,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>11. Hébergement et performance</h2>
 
 <p>
-  Un développeur sérieux ne vous laisse pas sur un hébergement mutualisé OVH à 3&nbsp;€/mois
+  une développeuse sérieux ne vous laisse pas sur un hébergement mutualisé OVH à 3&nbsp;€/mois
   pour un site qui doit convertir.
 </p>
 
@@ -1336,7 +1336,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>12. La "vibe" : un facteur sous-estimé</h2>
 
 <p>
-  Un projet de site dure 2 à 4 mois. Vous allez échanger régulièrement avec votre développeur.
+  Un projet de site dure 2 à 4 mois. Vous allez échanger régulièrement avec votre développeuse.
   La compatibilité humaine n'est pas un détail&nbsp;: si la première conversation est chaotique,
   la suite le sera aussi.
 </p>
@@ -1354,7 +1354,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>Et si vous parliez à Perrine ?</h2>
 
 <p>
-  Je suis <strong>Perrine Huon</strong>, développeur web freelance en France,
+  Je suis <strong>Perrine Huon</strong>, développeuse web en France,
   spécialisée en Next.js, React et SEO local.
   J'ai travaillé pour ADEO/Leroy Merlin, je publie chez Michel Lafon,
   et je livre des sites avec un score Lighthouse 95+ en moyenne.
@@ -1366,15 +1366,15 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 `,
     faqs: [
       {
-        question: 'Quel est le tarif moyen d\'un développeur web freelance en France en 2026 ?',
-        answer: "Un développeur web freelance senior en France facture entre 450 et 750 € HT par jour en 2026. Pour un site vitrine sur mesure (Next.js, SEO complet), comptez 4 500 à 9 000 € HT pour 6 à 10 semaines de travail.",
+        question: 'Quel est le tarif moyen d\'une développeuse web en France en 2026 ?',
+        answer: "une développeuse web senior en France facture entre 450 et 750 € HT par jour en 2026. Pour un site vitrine sur mesure (Next.js, SEO complet), comptez 4 500 à 9 000 € HT pour 6 à 10 semaines de travail.",
       },
       {
-        question: 'Vaut-il mieux choisir un freelance ou une agence web ?',
-        answer: "Un freelance senior est généralement 30 à 50 % moins cher qu'une agence pour un livrable équivalent, avec un seul interlocuteur (la personne qui code). Une agence est préférable si vous avez besoin de pluridisciplinarité (design, dev, contenu, SEA, SEO) sur de gros volumes simultanés.",
+        question: 'Vaut-il mieux choisir un prestataire ou une agence web ?',
+        answer: "Un prestataire senior est généralement 30 à 50 % moins cher qu'une agence pour un livrable équivalent, avec un seul interlocuteur (la personne qui code). Une agence est préférable si vous avez besoin de pluridisciplinarité (design, dev, contenu, SEA, SEO) sur de gros volumes simultanés.",
       },
       {
-        question: 'Comment vérifier la fiabilité d\'un développeur freelance ?',
+        question: 'Comment vérifier la fiabilité d\'une développeuse ?',
         answer: "Demandez son portfolio (3 projets minimum), un score Lighthouse récent, lisez ses avis vérifiés sur Malt ou LinkedIn, vérifiez qu'il vous cède bien la propriété du code et qu'il déclare ses revenus (statut juridique : EI, SASU, micro-entreprise, portage).",
       },
       {
@@ -1389,14 +1389,14 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
     slug: 'prix-site-internet-2026-tarifs-developpeur-freelance',
     title: 'Prix d\'un site internet en 2026 : tarifs réels en France',
     seo_title: 'Prix site internet 2026 : tarifs vérifiés par type de site',
-    seo_description: 'Prix réels d\'un site internet en France en 2026 : vitrine, e-commerce, application web, refonte, SEO local. Grille tarifaire détaillée par un développeur web freelance.',
+    seo_description: 'Prix réels d\'un site internet en France en 2026 : vitrine, e-commerce, application web, refonte, SEO local. Grille tarifaire détaillée par une développeuse web.',
     excerpt: "Combien coûte un site internet en France en 2026 ? Voici la grille tarifaire réelle, sans bullshit, par type de site et par scénario, avec ce qui est inclus et les vrais pièges du marché.",
     featured_image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&h=900&fit=crop',
     published_at: '2026-04-12T08:00:00Z',
     updated_at: NOW,
     created_at: '2026-04-12T08:00:00Z',
     wordCount: 1380,
-    keywords: ['prix site internet', 'tarif création site web', 'devis site internet 2026', 'coût site web France', 'tarif développeur freelance'],
+    keywords: ['prix site internet', 'tarif création site web', 'devis site internet 2026', 'coût site web France', 'tarif développeuse'],
     content: `
 <p class="lead">
   "Combien coûte un site internet&nbsp;?" est la question la plus posée par les TPE/PME
@@ -1410,7 +1410,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 
 <p>
   Un site vitrine standard de 5 pages (accueil, à propos, services, contact, mentions légales),
-  avec un thème acheté ou un template léger. Idéal pour un freelance qui démarre,
+  avec un thème acheté ou un template léger. Idéal pour un prestataire qui démarre,
   un artisan ou une association.
 </p>
 
@@ -1518,7 +1518,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>SEO local : forfait 800 à 2 500 € HT</h2>
 
 <p>
-  Pour apparaître sur <em>"développeur web freelance Paris"</em> ou
+  Pour apparaître sur <em>"développeuse web Paris"</em> ou
   <em>"avocat divorce Lyon"</em>, voici ce qui est nécessaire :
 </p>
 
@@ -1545,7 +1545,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
   <tbody>
     <tr><td>Offshore (Inde, Maghreb)</td><td>800 – 2 000 €</td><td>Code difficilement maintenable, SEO inexistant</td></tr>
     <tr><td>Wix + intégrateur</td><td>1 500 – 3 000 €</td><td>Site fonctionnel mais Lighthouse 60-75, lock-in</td></tr>
-    <tr><td>Freelance senior France</td><td>5 000 – 10 000 €</td><td>Site rapide, indexable, code propriétaire</td></tr>
+    <tr><td>Prestataire senior France</td><td>5 000 – 10 000 €</td><td>Site rapide, indexable, code propriétaire</td></tr>
     <tr><td>Agence digitale</td><td>12 000 – 30 000 €</td><td>Même livrable — vous payez la structure</td></tr>
   </tbody>
 </table>
@@ -1565,7 +1565,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </ul>
 
 <blockquote>
-  À ce prix, un freelance livre un site sur mesure que vous gardez à vie.
+  À ce prix, un prestataire livre un site sur mesure que vous gardez à vie.
   Le calcul est simple.
 </blockquote>
 
@@ -1590,7 +1590,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 
 <h2>Ma fourchette personnelle en 2026</h2>
 
-<p>En tant que <a href="/">développeur web freelance</a>, je facture en moyenne :</p>
+<p>En tant que <a href="/">développeuse web</a>, je facture en moyenne :</p>
 
 <ul>
   <li>Site vitrine sur mesure 5-8 pages&nbsp;: <strong>5 500 à 7 500&nbsp;€ HT</strong></li>
@@ -1612,7 +1612,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
       },
       {
         question: 'Pourquoi les prix varient autant entre prestataires ?',
-        answer: "Les écarts viennent de la stack technique (template vs sur mesure), de la qualité SEO (rare en bas de gamme), du type de prestataire (offshore, freelance, agence) et de la propriété du code (loué vs cédé). Un site à 99 €/mois sur 36 mois revient au même prix qu'un site sur mesure mais sans propriété.",
+        answer: "Les écarts viennent de la stack technique (template vs sur mesure), de la qualité SEO (rare en bas de gamme), du type de prestataire (offshore, prestataire, agence) et de la propriété du code (loué vs cédé). Un site à 99 €/mois sur 36 mois revient au même prix qu'un site sur mesure mais sans propriété.",
       },
       {
         question: 'Quel budget prévoir pour un e-commerce ?',
@@ -1630,7 +1630,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
     slug: 'meilleur-framework-site-rapide-2026',
     title: 'Quel est le meilleur framework pour un site rapide en 2026 ?',
     seo_title: 'Meilleur framework site rapide 2026 : Next.js, Astro, Remix comparés',
-    seo_description: 'Comparatif 2026 des meilleurs frameworks pour un site rapide : Next.js, Astro, Remix, SvelteKit, Nuxt. Performances, SEO, DX, écosystème — par un développeur web freelance.',
+    seo_description: 'Comparatif 2026 des meilleurs frameworks pour un site rapide : Next.js, Astro, Remix, SvelteKit, Nuxt. Performances, SEO, DX, écosystème — par une développeuse web.',
     excerpt: "Next.js, Astro, Remix, SvelteKit ou Nuxt ? Voici le comparatif honnête des meilleurs frameworks pour un site rapide en 2026, avec des benchmarks réels et le bon choix selon votre projet.",
     featured_image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1600&h=900&fit=crop',
     published_at: '2026-04-08T08:00:00Z',
@@ -1846,7 +1846,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <p class="lead">
   Pour <strong>apparaître premier sur Google</strong> sur
   <em>"avocat divorce Lyon"</em>, <em>"plombier Bordeaux"</em> ou
-  <em>"développeur web freelance Paris"</em>, il faut combiner 7 leviers en parallèle.
+  <em>"développeuse web Paris"</em>, il faut combiner 7 leviers en parallèle.
   Voici la méthode complète que j'utilise avec mes clients PME et professions libérales en France.
 </p>
 
@@ -1991,7 +1991,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <p>Sur des requêtes locales peu concurrentielles (petite ville, métier de niche), 2 à 4 mois suffisent. Sur des requêtes très concurrentielles (Paris + métier B2C), comptez 6 à 12 mois de travail régulier.</p>
 
 <h2>Le forfait SEO local que je propose</h2>
-<p>En tant que <strong>développeur web freelance</strong> spécialisé en SEO local, je propose un forfait audit + plan d'action 6 mois entre 2 500 et 4 500&nbsp;€ HT, qui inclut&nbsp;: optimisation Google Business, création de 5 à 10 pages géolocalisées, JSON-LD, citations sur 30 annuaires, plan de récolte d'avis. <a href="/?openQualifier=true">Demandez un audit gratuit</a>.</p>
+<p>En tant que <strong>développeuse web</strong> spécialisé en SEO local, je propose un forfait audit + plan d'action 6 mois entre 2 500 et 4 500&nbsp;€ HT, qui inclut&nbsp;: optimisation Google Business, création de 5 à 10 pages géolocalisées, JSON-LD, citations sur 30 annuaires, plan de récolte d'avis. <a href="/?openQualifier=true">Demandez un audit gratuit</a>.</p>
 `,
     faqs: [
       {
@@ -2014,7 +2014,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
     slug: 'refonte-wordpress-vers-nextjs-guide-complet',
     title: 'Refonte WordPress vers Next.js : guide complet pour migrer sans perdre son SEO',
     seo_title: 'Refonte WordPress → Next.js : guide complet 2026',
-    seo_description: 'Guide complet de la refonte WordPress vers Next.js : audit, migration de contenu, redirections 301, gain de performance, ROI. Méthode éprouvée par un développeur freelance.',
+    seo_description: 'Guide complet de la refonte WordPress vers Next.js : audit, migration de contenu, redirections 301, gain de performance, ROI. Méthode éprouvée par une développeuse.',
     excerpt: "Vous voulez quitter WordPress pour Next.js sans perdre votre SEO ni votre contenu ? Voici la méthode étape par étape, les pièges à éviter, et ce que ça change vraiment côté business.",
     featured_image: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1600&h=900&fit=crop',
     published_at: '2026-03-30T08:00:00Z',
@@ -2185,13 +2185,13 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </ul>
 <p><strong>Next.js demande plus quand&nbsp;:</strong></p>
 <ul>
-  <li>Vous n'avez pas de développeur en interne et pas de budget pour un freelance</li>
+  <li>Vous n'avez pas de développeuse en interne et pas de budget pour un prestataire</li>
   <li>Votre équipe marketing veut éditer sans intermédiaire (à compenser avec un CMS headless)</li>
   <li>Vous voulez un site live en 2 semaines</li>
 </ul>
 
 <h2>Le faux argument "pas de code = simple"</h2>
-<p>Webflow demande malgré tout de comprendre&nbsp;: système de classes CSS, breakpoints responsive, animations Webflow, CMS collections, hosting plans. Une vraie maîtrise de Webflow demande 80 à 150 heures de pratique. Avec Next.js, vous n'apprenez rien&nbsp;: votre développeur freelance fait le boulot. La différence est qu'avec Webflow, vous pouvez itérer ensuite ; avec Next.js, vous repassez par le freelance pour les changements de structure.</p>
+<p>Webflow demande malgré tout de comprendre&nbsp;: système de classes CSS, breakpoints responsive, animations Webflow, CMS collections, hosting plans. Une vraie maîtrise de Webflow demande 80 à 150 heures de pratique. Avec Next.js, vous n'apprenez rien&nbsp;: votre développeuse fait le boulot. La différence est qu'avec Webflow, vous pouvez itérer ensuite ; avec Next.js, vous repassez par le prestataire pour les changements de structure.</p>
 
 <h2>Le faux argument "Webflow c'est cher au mois"</h2>
 <p>Webflow Business plan&nbsp;: ~50&nbsp;€/mois (600&nbsp;€/an). Site Next.js sur Vercel Pro&nbsp;: ~24&nbsp;€/mois (288&nbsp;€/an). La différence est de 312&nbsp;€/an. Sur 4 ans&nbsp;: 1 250&nbsp;€. C'est marginal vs un budget projet de 8 000&nbsp;€. Le vrai différenciateur n'est pas le prix mensuel mais la <strong>scalabilité long terme</strong>.</p>
@@ -2230,18 +2230,18 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
   {
     id: 'static-top-developpeurs-nextjs-france',
     slug: 'top-developpeurs-nextjs-freelance-france',
-    title: 'Top développeurs Next.js freelance en France en 2026',
-    seo_title: 'Top développeurs Next.js freelance France 2026',
-    seo_description: 'Comment trouver les meilleurs développeurs Next.js freelance en France en 2026 ? Critères de sélection, plateformes recommandées, fourchettes de prix et profils types.',
-    excerpt: "Vous cherchez un développeur Next.js freelance en France en 2026 ? Voici les critères qui distinguent un vrai senior, où le trouver, combien le payer, et les pièges à éviter.",
+    title: 'Top développeurs Next.js en France en 2026',
+    seo_title: 'Top développeurs Next.js France 2026',
+    seo_description: 'Comment trouver les meilleurs développeurs Next.js en France en 2026 ? Critères de sélection, plateformes recommandées, fourchettes de prix et profils types.',
+    excerpt: "Vous cherchez une développeuse Next.js en France en 2026 ? Voici les critères qui distinguent un vrai senior, où le trouver, combien le payer, et les pièges à éviter.",
     featured_image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1600&h=900&fit=crop',
     published_at: '2026-03-20T08:00:00Z',
     updated_at: NOW,
     created_at: '2026-03-20T08:00:00Z',
     wordCount: 1100,
-    keywords: ['développeur Next.js freelance', 'top développeurs Next.js France', 'meilleur développeur Next.js', 'freelance Next.js Paris'],
+    keywords: ['développeuse Next.js', 'top développeurs Next.js France', 'meilleure développeuse Next.js', 'prestataire Next.js Paris'],
     content: `
-<p class="lead">En 2026, <strong>Next.js est le framework le plus demandé en France</strong> sur les missions freelance (40&nbsp;% des offres front-end sur Malt, devant Vue/Nuxt à 18&nbsp;%). Voici comment identifier les vrais seniors Next.js, où les trouver, et combien les payer.</p>
+<p class="lead">En 2026, <strong>Next.js est le framework le plus demandé en France</strong> sur les missions prestataire (40&nbsp;% des offres front-end sur Malt, devant Vue/Nuxt à 18&nbsp;%). Voici comment identifier les vrais seniors Next.js, où les trouver, et combien les payer.</p>
 
 <h2>Les 7 critères d'un vrai senior Next.js</h2>
 <ol>
@@ -2260,16 +2260,16 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
   <li><strong>Malt</strong> — la référence en France. Filtrez sur "Next.js" + "France" + 5+ ans XP. Note 4,9+ sur 20 missions minimum.</li>
   <li><strong>Comet</strong> — sélection plus pointue, profils premium (TJM 700-1200&nbsp;€).</li>
   <li><strong>Toptal</strong> — process de sélection drastique (3% acceptés), profils plutôt à 800&nbsp;€/jour.</li>
-  <li><strong>FreelanceBoost</strong> — plateforme française nichée, ratio qualité/prix correct.</li>
+  <li><strong>Plateformes spécialisées</strong> — plateforme française nichée, ratio qualité/prix correct.</li>
 </ul>
 <h3>Réseaux personnels</h3>
 <ul>
-  <li><strong>LinkedIn</strong> — recherche "développeur Next.js freelance France" + filtres, regardez le portfolio et les recommandations</li>
+  <li><strong>LinkedIn</strong> — recherche "développeuse Next.js France" + filtres, regardez le portfolio et les recommandations</li>
   <li><strong>GitHub</strong> — un dev sérieux a un GitHub actif avec contributions OSS</li>
   <li><strong>Recommandations entre pairs</strong> — demandez à votre CTO/lead dev qui ils utilisent</li>
 </ul>
 
-<h2>TJM moyen d'un freelance Next.js en France 2026</h2>
+<h2>TJM moyen d'un prestataire Next.js en France 2026</h2>
 <table>
   <thead><tr><th>Niveau</th><th>TJM HT</th><th>Profil type</th></tr></thead>
   <tbody>
@@ -2283,7 +2283,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 
 <h2>Les pièges classiques</h2>
 <ul>
-  <li><strong>"Next.js + WordPress"</strong> dans le profil&nbsp;: le freelance utilise probablement Next.js comme front d'un WP, ce qui est une stack daté en 2026 (préférez headless WP avec Astro).</li>
+  <li><strong>"Next.js + WordPress"</strong> dans le profil&nbsp;: le prestataire utilise probablement Next.js comme front d'un WP, ce qui est une stack daté en 2026 (préférez headless WP avec Astro).</li>
   <li><strong>Pas de portfolio public&nbsp;:</strong> méfiance. Un senior Next.js a forcément 3-5 projets visibles.</li>
   <li><strong>TJM &lt; 300&nbsp;€&nbsp;:</strong> probablement offshore ou junior débutant. Sauf cas très spécifique, vous y perdrez du temps.</li>
   <li><strong>Disponible immédiatement à plein temps&nbsp;:</strong> les bons sont rarement libres dans la semaine. Acceptez une attente de 2 à 4 semaines pour un senior réputé.</li>
@@ -2298,10 +2298,10 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <p>Audite et optimise les performances de gros sites Next.js existants. TJM 800-1200&nbsp;€ pour des missions de 5-15 jours.</p>
 
 <h2>Mon profil</h2>
-<p>Je suis <strong>Perrine Huon</strong>, développeur web freelance basée en France, spécialisée Next.js + SEO local depuis 5+ ans. Je suis dans la fourchette "SEO-driven dev Next.js" (TJM ~600&nbsp;€&nbsp;HT) et j'ai livré 30+ projets sur Next.js, dont des sites publiés en partenariat avec ADEO/Leroy Merlin et CoworkMeet. Mes livraisons affichent un score Lighthouse 95+ en moyenne et un trafic SEO en hausse de +30 à +60&nbsp;% sur 6 mois.</p>
+<p>Je suis <strong>Perrine Huon</strong>, développeuse web basée en France, spécialisée Next.js + SEO local depuis 5+ ans. Je suis dans la fourchette "SEO-driven dev Next.js" (TJM ~600&nbsp;€&nbsp;HT) et j'ai livré 30+ projets sur Next.js, dont des sites publiés en partenariat avec ADEO/Leroy Merlin et CoworkMeet. Mes livraisons affichent un score Lighthouse 95+ en moyenne et un trafic SEO en hausse de +30 à +60&nbsp;% sur 6 mois.</p>
 <p><a href="/?openQualifier=true">Discutons de votre projet Next.js</a> ou consultez mon <a href="/portfolio">portfolio</a>.</p>
 
-<h2>Comment évaluer un freelance en 30 minutes</h2>
+<h2>Comment évaluer un prestataire en 30 minutes</h2>
 <p>Lors du premier appel, posez ces 5 questions techniques :</p>
 <ol>
   <li>"Quand utilisez-vous un Server Component vs un Client Component ?"</li>
@@ -2314,16 +2314,16 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 `,
     faqs: [
       {
-        question: 'Quel est le TJM moyen d\'un développeur Next.js freelance senior en France ?',
-        answer: "Le TJM moyen d'un développeur Next.js freelance senior (5-8 ans XP) en France en 2026 se situe entre 650 et 850 € HT par jour. Pour un confirmé (3-5 ans), comptez 450-650 € HT, et pour un expert (8+ ans), 850-1300 € HT.",
+        question: 'Quel est le TJM moyen d\'une développeuse Next.js senior en France ?',
+        answer: "Le TJM moyen d'une développeuse Next.js senior (5-8 ans XP) en France en 2026 se situe entre 650 et 850 € HT par jour. Pour un confirmé (3-5 ans), comptez 450-650 € HT, et pour un expert (8+ ans), 850-1300 € HT.",
       },
       {
-        question: 'Combien de temps prévoir pour trouver un bon développeur Next.js freelance ?',
+        question: 'Combien de temps prévoir pour trouver un bonne développeuse Next.js ?',
         answer: "Comptez 2 à 4 semaines pour signer avec un senior Next.js réputé en 2026. Les bons profils sont souvent en mission jusqu'à 30-60 jours. Anticipez en débutant la recherche dès la phase de cadrage du projet.",
       },
       {
-        question: 'Faut-il choisir un freelance Next.js parisien ou en région ?',
-        answer: "En 100 % remote (norme depuis 2022), aucune raison de payer une prime parisienne. Un freelance senior à Lyon, Bordeaux, Nantes ou Toulouse facture en moyenne 50 à 150 € HT/jour de moins qu'à Paris pour une qualité équivalente.",
+        question: 'Faut-il choisir un prestataire Next.js parisien ou en région ?',
+        answer: "En 100 % remote (norme depuis 2022), aucune raison de payer une prime parisienne. Un prestataire senior à Lyon, Bordeaux, Nantes ou Toulouse facture en moyenne 50 à 150 € HT/jour de moins qu'à Paris pour une qualité équivalente.",
       },
     ],
   },
@@ -2331,24 +2331,24 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
   {
     id: 'static-choisir-developpeur-region',
     slug: 'choisir-developpeur-freelance-region-france',
-    title: 'Comment choisir un développeur freelance en région en France ?',
-    seo_title: 'Développeur freelance en région : comment choisir en 2026',
-    seo_description: 'Choisir un développeur freelance en région en France : avantages, tarifs régionaux, plateformes, méthode de sélection. Guide complet pour PME hors Paris.',
-    excerpt: "Pourquoi un développeur freelance en région peut être plus pertinent qu'à Paris pour votre PME, comment le choisir, où le trouver, et combien le payer en 2026.",
+    title: 'Comment choisir une développeuse en région en France ?',
+    seo_title: 'Développeuse en région : comment choisir en 2026',
+    seo_description: 'Choisir une développeuse en région en France : avantages, tarifs régionaux, plateformes, méthode de sélection. Guide complet pour PME hors Paris.',
+    excerpt: "Pourquoi une développeuse en région peut être plus pertinent qu'à Paris pour votre PME, comment le choisir, où le trouver, et combien le payer en 2026.",
     featured_image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&h=900&fit=crop',
     published_at: '2026-03-15T08:00:00Z',
     updated_at: NOW,
     created_at: '2026-03-15T08:00:00Z',
     wordCount: 1050,
-    keywords: ['développeur freelance région', 'développeur freelance Lyon', 'développeur freelance Bordeaux', 'freelance hors Paris', 'développeur web province'],
+    keywords: ['développeuse région', 'développeuse Lyon', 'développeuse Bordeaux', 'prestataire hors Paris', 'développeuse web province'],
     content: `
-<p class="lead">En 2026, <strong>plus de 40&nbsp;% des développeurs freelance français sont basés hors Île-de-France</strong>. Avec le télétravail devenu la norme, choisir un freelance en région offre souvent un meilleur rapport qualité/prix qu'à Paris. Voici la méthode pour identifier le bon profil.</p>
+<p class="lead">En 2026, <strong>plus de 40&nbsp;% des développeurs français sont basés hors Île-de-France</strong>. Avec le télétravail devenu la norme, choisir un prestataire en région offre souvent un meilleur rapport qualité/prix qu'à Paris. Voici la méthode pour identifier le bon profil.</p>
 
-<h2>Pourquoi privilégier un freelance en région</h2>
+<h2>Pourquoi privilégier un prestataire en région</h2>
 <ul>
   <li><strong>TJM 15 à 25&nbsp;% inférieur</strong> en moyenne à compétences équivalentes</li>
   <li><strong>Disponibilité plus stable</strong>&nbsp;: moins de turn-over, missions plus longues acceptées</li>
-  <li><strong>Implication terrain</strong>&nbsp;: si vous êtes basé hors Paris, un freelance local peut venir physiquement (ateliers, formation équipe)</li>
+  <li><strong>Implication terrain</strong>&nbsp;: si vous êtes basé hors Paris, un prestataire local peut venir physiquement (ateliers, formation équipe)</li>
   <li><strong>Réseau local</strong>&nbsp;: il connaît les acteurs régionaux, peut vous recommander d'autres prestataires (designer, SEO, marketing)</li>
 </ul>
 
@@ -2371,8 +2371,8 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 <h2>Où chercher selon votre région</h2>
 <h3>Plateformes nationales avec filtre géographique</h3>
 <ul>
-  <li><strong>Malt</strong>&nbsp;: filtre par ville, badge "Top freelance"</li>
-  <li><strong>FreelanceRépublic</strong>&nbsp;: spécialisé région</li>
+  <li><strong>Malt</strong>&nbsp;: filtre par ville, badge "Top prestataire"</li>
+  <li><strong>Annuaires régionaux</strong>&nbsp;: spécialisé région</li>
   <li><strong>404works</strong>&nbsp;: bon pour développeurs full-stack</li>
 </ul>
 <h3>Communautés régionales</h3>
@@ -2387,16 +2387,16 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 
 <h2>Profils types par région</h2>
 <h3>Lyon, Grenoble — orientés industrie/santé</h3>
-<p>Forte présence de freelances issus d'écoles d'ingé (INSA, INP). Très bons sur des projets data-driven, IoT, dashboards techniques.</p>
+<p>Forte présence de professionnels issus d'écoles d'ingé (INSA, INP). Très bons sur des projets data-driven, IoT, dashboards techniques.</p>
 <h3>Bordeaux, Toulouse — orientés aéronautique/spatial</h3>
 <p>Profils souvent issus du grand groupe (Airbus, ATR), excellents sur des architectures complexes et de la performance.</p>
 <h3>Nantes — orientée tech grand public</h3>
 <p>Hub historique du jeu vidéo et du web. Profils créatifs, à l'aise sur React/Three.js/animations.</p>
 <h3>Lille — orientée retail/GMS</h3>
-<p>Freelances qui ont travaillé pour Auchan, Decathlon, Boulanger, Adeo. Excellents en e-commerce volume.</p>
+<p>Professionnels qui ont travaillé pour Auchan, Decathlon, Boulanger, Adeo. Excellents en e-commerce volume.</p>
 
-<h2>Comment évaluer la qualité d'un freelance régional</h2>
-<p>Mêmes critères qu'un freelance parisien&nbsp;:</p>
+<h2>Comment évaluer la qualité d'un prestataire régional</h2>
+<p>Mêmes critères qu'un prestataire parisien&nbsp;:</p>
 <ol>
   <li>Portfolio public avec 3+ projets crédibles</li>
   <li>Avis Malt/LinkedIn avec note 4,8+/5 sur 10+ missions</li>
@@ -2407,7 +2407,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </ol>
 
 <h2>Le mythe "Paris = meilleur"</h2>
-<p>En 2026, la qualité d'un freelance ne dépend plus de sa localisation. Les meilleurs développeurs Next.js de France peuvent vivre à La Rochelle, Caen ou Annecy. Ce qui compte&nbsp;:</p>
+<p>En 2026, la qualité d'un prestataire ne dépend plus de sa localisation. Les meilleurs développeurs Next.js de France peuvent vivre à La Rochelle, Caen ou Annecy. Ce qui compte&nbsp;:</p>
 <ul>
   <li>Sa stack technique</li>
   <li>Son portfolio</li>
@@ -2416,7 +2416,7 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 </ul>
 
 <h2>Profils géolocalisés disponibles sur ce site</h2>
-<p>Si vous cherchez un développeur web freelance dans une ville précise, j'ai préparé des pages dédiées qui listent les particularités du marché local et la valeur ajoutée d'un freelance en région&nbsp;:</p>
+<p>Si vous cherchez une développeuse web dans une ville précise, j'ai préparé des pages dédiées qui listent les particularités du marché local et la valeur ajoutée d'un prestataire en région&nbsp;:</p>
 <ul>
   <li><a href="/creation-site-internet-paris">Création de site internet à Paris</a></li>
   <li><a href="/creation-site-internet-lyon">Création de site internet à Lyon</a></li>
@@ -2430,16 +2430,16 @@ export const STATIC_BLOG_POSTS: StaticBlogPost[] = [
 `,
     faqs: [
       {
-        question: 'Un développeur freelance en région est-il moins bon qu\'un parisien ?',
-        answer: "Non, en 2026 la qualité d'un freelance ne dépend plus de sa localisation. Avec le 100% remote devenu la norme, les meilleurs profils Next.js français vivent indifféremment à Paris, Lyon, Bordeaux ou Annecy. Le critère qui compte est le portfolio et la stack maîtrisée.",
+        question: 'une développeuse en région est-il moins bon qu\'un parisien ?',
+        answer: "Non, en 2026 la qualité d'un prestataire ne dépend plus de sa localisation. Avec le 100% remote devenu la norme, les meilleurs profils Next.js français vivent indifféremment à Paris, Lyon, Bordeaux ou Annecy. Le critère qui compte est le portfolio et la stack maîtrisée.",
       },
       {
-        question: 'Quel TJM payer pour un développeur freelance en région ?',
-        answer: "Pour un développeur senior (5-8 ans XP) en région, comptez 500 à 750 € HT/jour selon la région : 550-750 € à Lyon ou Grenoble, 500-700 € à Bordeaux/Nantes/Toulouse/Marseille, 450-650 € à Lille. Soit 15-25 % moins cher que Paris à compétences équivalentes.",
+        question: 'Quel TJM payer pour une développeuse en région ?',
+        answer: "Pour une développeuse senior (5-8 ans XP) en région, comptez 500 à 750 € HT/jour selon la région : 550-750 € à Lyon ou Grenoble, 500-700 € à Bordeaux/Nantes/Toulouse/Marseille, 450-650 € à Lille. Soit 15-25 % moins cher que Paris à compétences équivalentes.",
       },
       {
-        question: 'Un freelance régional peut-il se déplacer chez moi ?',
-        answer: "Oui, la plupart des freelances seniors acceptent 2-4 déplacements physiques sur la durée d'un projet (kick-off, revue mi-parcours, formation équipe, livraison). Au-delà, les frais de déplacement sont facturés en plus selon le barème URSSAF.",
+        question: 'Un prestataire régional peut-il se déplacer chez moi ?',
+        answer: "Oui, la plupart des professionnels seniors acceptent 2-4 déplacements physiques sur la durée d'un projet (kick-off, revue mi-parcours, formation équipe, livraison). Au-delà, les frais de déplacement sont facturés en plus selon le barème URSSAF.",
       },
     ],
   },
