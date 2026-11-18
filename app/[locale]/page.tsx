@@ -39,6 +39,13 @@ export async function generateMetadata({
       description: t('ogDescription'),
       siteName: t('siteName'),
       url: localeUrl,
+      images: [{
+        url: `${baseUrl}/images/partage-perrine-huon-v2.jpg`,
+        width: 1200,
+        height: 630,
+        alt: t('ogImageAlt'),
+        type: 'image/jpeg',
+      }],
     },
   };
 }
