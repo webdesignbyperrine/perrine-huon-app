@@ -1,24 +1,24 @@
 {
   "metadata": {
-    "title": "Freelance vs Agencia Web: Cómo Elegir en 2026",
-    "description": "¿Freelance o agencia web? Compara ventajas, desventajas y precios para tomar la decisión correcta para tu sitio web. Guía completa 2026.",
-    "ogTitle": "Freelance vs Agencia Web: Cómo Elegir en 2026",
-    "ogDescription": "¿Freelance o agencia web? Compara ventajas, desventajas y precios para tomar la decisión correcta para tu sitio web."
+    "title": "Profesional vs Agencia Web: Cómo Elegir en 2026",
+    "description": "¿Profesional o agencia web? Compara ventajas, desventajas y precios para tomar la decisión correcta para tu sitio web. Guía completa 2026.",
+    "ogTitle": "Profesional vs Agencia Web: Cómo Elegir en 2026",
+    "ogDescription": "¿Profesional o agencia web? Compara ventajas, desventajas y precios para tomar la decisión correcta para tu sitio web."
   },
   "breadcrumb": {
     "home": "Inicio",
-    "current": "Freelance vs Agencia"
+    "current": "Profesional vs Agencia"
   },
   "hero": {
     "backToHome": "Volver al inicio",
-    "title": "Freelance vs Agencia Web",
+    "title": "Profesional vs Agencia Web",
     "subtitle": "¿Cómo elegir el socio adecuado para la creación de tu sitio web? Comparación objetiva para ayudarte a decidir."
   },
   "comparisonTable": {
     "title": "Comparación Detallada",
     "headers": {
       "criterion": "Criterio",
-      "freelance": "Freelance",
+      "freelance": "Profesional",
       "agency": "Agencia",
       "diy": "WordPress DIY"
     },
@@ -74,12 +74,12 @@
     ]
   },
   "whenChooseFreelance": {
-    "title": "¿Cuándo elegir un freelance?",
-    "subtitle": "El freelance es la opción ideal para la mayoría de proyectos web de PYMES, profesiones liberales y asociaciones.",
+    "title": "¿Cuándo elegir un profesional?",
+    "subtitle": "El profesional es la opción ideal para la mayoría de proyectos web de PYMES, profesiones liberales y asociaciones.",
     "advantages": [
       {
         "title": "Relación calidad-precio inmejorable",
-        "description": "Sin los costos estructurales de una agencia, un freelance ofrece tarifas 40 a 60% más bajas para una calidad equivalente."
+        "description": "Sin los costos estructurales de una agencia, un profesional ofrece tarifas 40 a 60% más bajas para una calidad equivalente."
       },
       {
         "title": "Comunicación directa",
@@ -87,11 +87,11 @@
       },
       {
         "title": "Flexibilidad y capacidad de respuesta",
-        "description": "Un freelance se adapta a tu planificación y puede reaccionar rápidamente a solicitudes de modificaciones, sin los procesos pesados de una agencia."
+        "description": "Un profesional se adapta a tu planificación y puede reaccionar rápidamente a solicitudes de modificaciones, sin los procesos pesados de una agencia."
       },
       {
         "title": "Compromiso personal",
-        "description": "Tu proyecto no es un expediente entre docenas. El freelance se compromete personalmente con el éxito de tu sitio."
+        "description": "Tu proyecto no es un expediente entre docenas. El profesional se compromete personalmente con el éxito de tu sitio."
       }
     ]
   },
@@ -115,10 +115,10 @@
   },
   "whyPerrine": {
     "title": "Las ventajas de trabajar con Perrine",
-    "subtitle": "Lo mejor de ambos mundos: la experiencia técnica de una agencia con la proximidad y las tarifas de un freelance.",
+    "subtitle": "Lo mejor de ambos mundos: la experiencia técnica de una agencia con la proximidad y las tarifas de un profesional.",
     "benefits": [
       {
-        "title": "Tecnologías premium, tarifa freelance",
+        "title": "Tecnologías premium, tarifa profesional",
         "description": "Next.js, React, Tailwind CSS: las mismas herramientas que las mejores agencias, sin los costos estructurales."
       },
       {
@@ -143,16 +143,16 @@
     "title": "Preguntas Frecuentes",
     "items": [
       {
-        "question": "¿Puede un freelance gestionar un proyecto complejo tan bien como una agencia?",
-        "answer": "Absolutamente. Un freelance experimentado domina toda la cadena de creación (diseño, desarrollo, SEO) y puede movilizar colaboradores especializados si es necesario. Para la mayoría de proyectos de PYMES y profesiones liberales, un freelance no solo es suficiente sino a menudo preferible por la calidad de la relación con el cliente."
+        "question": "¿Puede un profesional gestionar un proyecto complejo tan bien como una agencia?",
+        "answer": "Absolutamente. Un profesional experimentado domina toda la cadena de creación (diseño, desarrollo, SEO) y puede movilizar colaboradores especializados si es necesario. Para la mayoría de proyectos de PYMES y profesiones liberales, un profesional no solo es suficiente sino a menudo preferible por la calidad de la relación con el cliente."
       },
       {
-        "question": "¿Qué ocurre si el freelance ya no está disponible?",
+        "question": "¿Qué ocurre si el profesional ya no está disponible?",
         "answer": "Un código limpio y bien documentado garantiza que cualquier desarrollador competente pueda retomar el proyecto. Por eso utilizo tecnologías estándar (Next.js, React) y proporciono documentación completa. Tu sitio nunca depende de una sola persona."
       },
       {
-        "question": "¿Cómo elegir entre freelance y agencia para mi proyecto?",
-        "answer": "Si tu presupuesto es inferior a 10.000€ y deseas un interlocutor único con una relación de confianza, el freelance es ideal. Si tu proyecto requiere más de 5 oficios diferentes en simultáneo (ej: app móvil + web + marketing), una agencia puede ser pertinente."
+        "question": "¿Cómo elegir entre profesional y agencia para mi proyecto?",
+        "answer": "Si tu presupuesto es inferior a 10.000€ y deseas un interlocutor único con una relación de confianza, el profesional es ideal. Si tu proyecto requiere más de 5 oficios diferentes en simultáneo (ej: app móvil + web + marketing), una agencia puede ser pertinente."
       },
       {
         "question": "¿Por qué no crear simplemente mi sitio yo mismo con WordPress?",
@@ -161,7 +161,7 @@
     ]
   },
   "cta": {
-    "title": "¿Convencido por el freelance?",
+    "title": "¿Convencido por el profesional?",
     "description": "Hablemos de tu proyecto en un primer intercambio gratuito y sin compromiso. Verás por ti mismo las ventajas de trabajar directamente.",
     "button": "Hablar de mi proyecto"
   }

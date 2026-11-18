@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Perrine Huon | Creación de Sitios Web a Medida | Desarrolladora Web Freelance",
+    "title": "Perrine Huon | Creación de Sitios Web a Medida | Desarrolladora Web",
     "titleTemplate": "%s | Perrine Huon - Creación de Sitios Web",
-    "description": "Desarrolladora web freelance especializada en creación de sitios web a medida, aplicaciones web y SEO local. Sitios vitrina, e-commerce, landing pages optimizadas para la conversión. Presupuesto gratuito.",
+    "description": "Desarrolladora web especializada en creación de sitios web a medida, aplicaciones web y SEO local. Sitios vitrina, e-commerce, landing pages optimizadas para la conversión. Presupuesto gratuito.",
     "siteName": "Perrine Huon - Creación de Sitios Web",
-    "ogDescription": "Desarrolladora web freelance especializada en creación de sitios web a medida y SEO local. Sitios vitrina, e-commerce, aplicaciones web. Presupuesto gratuito.",
+    "ogDescription": "Desarrolladora web especializada en creación de sitios web a medida y SEO local. Sitios vitrina, e-commerce, aplicaciones web. Presupuesto gratuito.",
     "ogImageAlt": "Perrine Huon - Creación de Sitios Web a Medida",
-    "twitterDescription": "Creación de sitios web a medida y SEO local. Sitios vitrina, e-commerce, aplicaciones web. Desarrolladora web freelance."
+    "twitterDescription": "Creación de sitios web a medida y SEO local. Sitios vitrina, e-commerce, aplicaciones web. Desarrolladora web."
   },
   "header": {
     "services": "Servicios",
@@ -28,10 +28,10 @@
   },
   "footer": {
     "slogan": "Construyamos juntos tu éxito digital.",
-    "subtitle": "Desarrolladora Web Freelance — Creación de Sitios Web",
+    "subtitle": "Desarrolladora Web — Creación de Sitios Web",
     "whatAreYourNeeds": "¿Cuáles son tus necesidades?",
     "stayConnected": "Mantengamos el contacto",
-    "linkedinDesc": "Consejos web y vida freelance",
+    "linkedinDesc": "Consejos web y proyectos digitales",
     "instagramDesc": "Backstage e inspiraciones de diseño",
     "facebookDesc": "Noticias y contenidos web",
     "followMe": "Seguirme",
@@ -69,7 +69,7 @@
     }
   },
   "hero": {
-    "badge": "Desarrolladora web freelance — Creación de sitios web a medida",
+    "badge": "Desarrolladora web — Creación de sitios web a medida",
     "titleLine1": "Tú trabajas.",
     "titleLine2": "Tu web también.",
     "subtitleLine1": "Sitios web pensados para ser encontrados en Google.",
@@ -236,10 +236,22 @@
     "noProjects": "Ningún proyecto publicado por el momento",
     "viewAll": "Ver todos los proyectos",
     "demoProjects": {
-      "1": { "title": "Workflow Automation Lab", "short_description": "Sitio vitrina moderno diseñado para convertir visitantes en clientes — Diseño retro-futurista con integraciones de IA" },
-      "2": { "title": "COWORKMEET", "short_description": "Plataforma comunitaria completa para organizar sesiones de coworking y networking" },
-      "3": { "title": "Toca do Jaguar", "short_description": "Sitio vitrina inmersivo para un eco-lodge en la Amazonía — Experiencia natural auténtica" },
-      "4": { "title": "Portfolio Digital", "short_description": "Portfolio creativo para un diseñador freelance — Animaciones fluidas y diseño audaz" }
+      "1": {
+        "title": "Workflow Automation Lab",
+        "short_description": "Sitio vitrina moderno diseñado para convertir visitantes en clientes — Diseño retro-futurista con integraciones de IA"
+      },
+      "2": {
+        "title": "COWORKMEET",
+        "short_description": "Plataforma comunitaria completa para organizar sesiones de coworking y networking"
+      },
+      "3": {
+        "title": "Toca do Jaguar",
+        "short_description": "Sitio vitrina inmersivo para un eco-lodge en la Amazonía — Experiencia natural auténtica"
+      },
+      "4": {
+        "title": "Portfolio Digital",
+        "short_description": "Portfolio creativo para un diseñador — Animaciones fluidas y diseño audaz"
+      }
     }
   },
   "calendly": {
