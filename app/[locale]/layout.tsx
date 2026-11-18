@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale, namespace: 'metadata' });
 
   const localeUrl = locale === 'fr' ? siteUrl : `${siteUrl}/${locale}`;
-  const ogImageUrl = `${siteUrl}/images/og-image.jpg`;
+  const ogImageUrl = `${siteUrl}/images/partage-perrine-huon-v2.jpg`;
 
   return {
     metadataBase: new URL(siteUrl),
