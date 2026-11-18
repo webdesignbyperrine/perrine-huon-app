@@ -3,7 +3,7 @@ import { setRequestLocale } from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: 'Mentions Légales',
-  description: 'Mentions légales du site perrinehuon.com — Perrine Huon, développeur web freelance. Informations légales, hébergement, propriété intellectuelle, RGPD.',
+  description: 'Mentions légales du site perrinehuon.com — Perrine Huon, développeuse web. Informations légales, hébergement, propriété intellectuelle, RGPD.',
   alternates: { canonical: 'https://www.perrinehuon.com/mentions-legales' },
 };
 
