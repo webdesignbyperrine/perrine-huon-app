@@ -185,7 +185,7 @@ export default function ContactCard() {
                       Fondatrice de CoworkMeet
                     </h3>
                     <p className="text-sm text-[#2B5B8A]/70 mb-3">
-                      Communauté de freelances pour se rencontrer et collaborer
+                      Communauté de professionnels pour se rencontrer et collaborer
                     </p>
                     <div className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#E85D8C]">
                       <span>Découvrir</span>
