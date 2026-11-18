@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   const title = post.seo_title || `${post.title} | Blog Perrine Huon`;
-  const description = post.seo_description || post.excerpt || `${post.title} - Conseils et actualités web design par Perrine Huon, web designer freelance.`;
+  const description = post.seo_description || post.excerpt || `${post.title} - Conseils et actualités web design par Perrine Huon, web designer.`;
 
   return {
     title,
