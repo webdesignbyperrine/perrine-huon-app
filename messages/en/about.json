@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "title": "About — Perrine Huon, Freelance Web Developer",
-    "description": "Discover the journey of Perrine Huon, a freelance web developer specialized in custom website creation. My approach, my values, and why choose me.",
-    "ogTitle": "About — Perrine Huon, Freelance Web Developer",
-    "ogDescription": "Discover the journey of Perrine Huon, a freelance web developer specialized in custom website creation."
+    "title": "About — Perrine Huon, Web Developer",
+    "description": "Discover the journey of Perrine Huon, a web developer specialized in custom website creation. My approach, my values, and why choose me.",
+    "ogTitle": "About — Perrine Huon, Web Developer",
+    "ogDescription": "Discover the journey of Perrine Huon, a web developer specialized in custom website creation."
   },
   "breadcrumb": {
     "home": "Home",
@@ -12,7 +12,7 @@
   "hero": {
     "backLink": "← Back to home",
     "name": "Perrine Huon",
-    "title": "Freelance Web Developer",
+    "title": "Web Developer",
     "description": "Passionate about web and design, I create custom websites that combine aesthetics, performance, and SEO. My goal: to give every project an online presence that matches its ambition.",
     "cta": "Let's discuss your project",
     "photoPlaceholder": "Photo coming soon"
@@ -22,7 +22,7 @@
     "paragraphs": [
       "After several years in the professional world, I made the choice to devote myself entirely to my passion: web development. A carefully considered career change, driven by the desire to create digital tools that have a real impact for my clients.",
       "Trained in the most modern web technologies (Next.js, React, TypeScript), I specialized in creating custom websites for SMEs, independent professionals, and associations. My approach combines technical rigor with a sensitivity for design and user experience.",
-      "Today, I'm a freelancer and I support my clients from A to Z: from strategic thinking to going live, including design, development, and SEO optimization."
+      "Today, I design websites and I support my clients from A to Z: from strategic thinking to going live, including design, development, and SEO optimization."
     ]
   },
   "approche": {

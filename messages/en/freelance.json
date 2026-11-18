@@ -1,24 +1,24 @@
 {
   "metadata": {
-    "title": "Freelance vs Web Agency: How to Choose in 2026",
-    "description": "Freelance or web agency? Compare advantages, disadvantages, and pricing to make the right choice for your website. Complete 2026 guide.",
-    "ogTitle": "Freelance vs Web Agency: How to Choose in 2026",
-    "ogDescription": "Freelance or web agency? Compare advantages, disadvantages, and pricing to make the right choice for your website."
+    "title": "Service provider vs Web Agency: How to Choose in 2026",
+    "description": "Service provider or web agency? Compare advantages, disadvantages, and pricing to make the right choice for your website. Complete 2026 guide.",
+    "ogTitle": "Service provider vs Web Agency: How to Choose in 2026",
+    "ogDescription": "Service provider or web agency? Compare advantages, disadvantages, and pricing to make the right choice for your website."
   },
   "breadcrumb": {
     "home": "Home",
-    "current": "Freelance vs Agency"
+    "current": "Service provider vs Agency"
   },
   "hero": {
     "backToHome": "Back to home",
-    "title": "Freelance vs Web Agency",
+    "title": "Service provider vs Web Agency",
     "subtitle": "How to choose the right partner for creating your website? Objective comparison to help you decide."
   },
   "comparisonTable": {
     "title": "Detailed Comparison",
     "headers": {
       "criterion": "Criterion",
-      "freelance": "Freelance",
+      "freelance": "Service provider",
       "agency": "Agency",
       "diy": "WordPress DIY"
     },
@@ -74,12 +74,12 @@
     ]
   },
   "whenChooseFreelance": {
-    "title": "When to choose a freelance?",
-    "subtitle": "Freelance is the ideal choice for most web projects for SMEs, liberal professions, and associations.",
+    "title": "When to choose a service provider?",
+    "subtitle": "Service provider is the ideal choice for most web projects for SMEs, liberal professions, and associations.",
     "advantages": [
       {
         "title": "Unbeatable value for money",
-        "description": "Without an agency's structural costs, a freelance offers rates 40 to 60% lower for equivalent quality."
+        "description": "Without an agency's structural costs, a service provider offers rates 40 to 60% lower for equivalent quality."
       },
       {
         "title": "Direct communication",
@@ -87,11 +87,11 @@
       },
       {
         "title": "Flexibility & responsiveness",
-        "description": "A freelance adapts to your schedule and can respond quickly to modification requests, without the heavy processes of an agency."
+        "description": "A service provider adapts to your schedule and can respond quickly to modification requests, without the heavy processes of an agency."
       },
       {
         "title": "Personal commitment",
-        "description": "Your project isn't just another file among dozens. The freelance is personally committed to your website's success."
+        "description": "Your project isn't just another file among dozens. The service provider is personally committed to your website's success."
       }
     ]
   },
@@ -115,10 +115,10 @@
   },
   "whyPerrine": {
     "title": "The advantages of working with Perrine",
-    "subtitle": "The best of both worlds: an agency's technical expertise with a freelance's proximity and rates.",
+    "subtitle": "The best of both worlds: an agency's technical expertise with a service provider's proximity and rates.",
     "benefits": [
       {
-        "title": "Premium technologies, freelance rate",
+        "title": "Premium technologies, service provider rate",
         "description": "Next.js, React, Tailwind CSS: the same tools as the best agencies, without structural costs."
       },
       {
@@ -143,16 +143,16 @@
     "title": "Frequently Asked Questions",
     "items": [
       {
-        "question": "Can a freelance handle a complex project as well as an agency?",
-        "answer": "Absolutely. An experienced freelance masters the entire creation chain (design, development, SEO) and can mobilize specialized collaborators if necessary. For most SME and liberal profession projects, a freelance is not only sufficient but often preferable for client relationship quality."
+        "question": "Can a service provider handle a complex project as well as an agency?",
+        "answer": "Absolutely. An experienced service provider masters the entire creation chain (design, development, SEO) and can mobilize specialized collaborators if necessary. For most SME and liberal profession projects, a service provider is not only sufficient but often preferable for client relationship quality."
       },
       {
-        "question": "What happens if the freelance is no longer available?",
+        "question": "What happens if the service provider is no longer available?",
         "answer": "Clean and well-documented code ensures that any competent developer can take over the project. That's why I use standard technologies (Next.js, React) and provide complete documentation. Your site never depends on a single person."
       },
       {
-        "question": "How to choose between freelance and agency for my project?",
-        "answer": "If your budget is under $12,000 and you want a single point of contact with a trust relationship, freelance is ideal. If your project requires more than 5 different trades simultaneously (e.g., mobile app + web + marketing), an agency may be relevant."
+        "question": "How to choose between service provider and agency for my project?",
+        "answer": "If your budget is under $12,000 and you want a single point of contact with a trust relationship, service provider is ideal. If your project requires more than 5 different trades simultaneously (e.g., mobile app + web + marketing), an agency may be relevant."
       },
       {
         "question": "Why not simply create my site myself with WordPress?",
@@ -161,7 +161,7 @@
     ]
   },
   "cta": {
-    "title": "Convinced by freelance?",
+    "title": "Convinced by service provider?",
     "description": "Let's discuss your project during a first free and no-obligation exchange. You'll see for yourself the advantages of working directly.",
     "button": "Discuss my project"
   }

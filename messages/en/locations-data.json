@@ -2,7 +2,7 @@
   "paris": {
     "name": "Paris",
     "type": "city",
-    "metaTitle": "Website Creation in Paris | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris | Web Developer",
     "metaDescription": "Website creation in Paris. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris",
     "introduction": "<p>Professional website creation services in Paris.</p>",
@@ -21,7 +21,7 @@
   "lyon": {
     "name": "Lyon",
     "type": "city",
-    "metaTitle": "Website Creation in Lyon | Freelance Web Developer",
+    "metaTitle": "Website Creation in Lyon | Web Developer",
     "metaDescription": "Website creation in Lyon. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Lyon",
     "introduction": "<p>Professional website creation services in Lyon.</p>",
@@ -40,7 +40,7 @@
   "marseille": {
     "name": "Marseille",
     "type": "city",
-    "metaTitle": "Website Creation in Marseille | Freelance Web Developer",
+    "metaTitle": "Website Creation in Marseille | Web Developer",
     "metaDescription": "Website creation in Marseille. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Marseille",
     "introduction": "<p>Professional website creation services in Marseille.</p>",
@@ -59,7 +59,7 @@
   "toulouse": {
     "name": "Toulouse",
     "type": "city",
-    "metaTitle": "Website Creation in Toulouse | Freelance Web Developer",
+    "metaTitle": "Website Creation in Toulouse | Web Developer",
     "metaDescription": "Website creation in Toulouse. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Toulouse",
     "introduction": "<p>Professional website creation services in Toulouse.</p>",
@@ -78,7 +78,7 @@
   "bordeaux": {
     "name": "Bordeaux",
     "type": "city",
-    "metaTitle": "Website Creation in Bordeaux | Freelance Web Developer",
+    "metaTitle": "Website Creation in Bordeaux | Web Developer",
     "metaDescription": "Website creation in Bordeaux. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Bordeaux",
     "introduction": "<p>Professional website creation services in Bordeaux.</p>",
@@ -97,7 +97,7 @@
   "lille": {
     "name": "Lille",
     "type": "city",
-    "metaTitle": "Website Creation in Lille | Freelance Web Developer",
+    "metaTitle": "Website Creation in Lille | Web Developer",
     "metaDescription": "Website creation in Lille. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Lille",
     "introduction": "<p>Professional website creation services in Lille.</p>",
@@ -116,7 +116,7 @@
   "nantes": {
     "name": "Nantes",
     "type": "city",
-    "metaTitle": "Website Creation in Nantes | Freelance Web Developer",
+    "metaTitle": "Website Creation in Nantes | Web Developer",
     "metaDescription": "Website creation in Nantes. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Nantes",
     "introduction": "<p>Professional website creation services in Nantes.</p>",
@@ -135,7 +135,7 @@
   "strasbourg": {
     "name": "Strasbourg",
     "type": "city",
-    "metaTitle": "Website Creation in Strasbourg | Freelance Web Developer",
+    "metaTitle": "Website Creation in Strasbourg | Web Developer",
     "metaDescription": "Website creation in Strasbourg. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Strasbourg",
     "introduction": "<p>Professional website creation services in Strasbourg.</p>",
@@ -154,7 +154,7 @@
   "nice": {
     "name": "Nice",
     "type": "city",
-    "metaTitle": "Website Creation in Nice | Freelance Web Developer",
+    "metaTitle": "Website Creation in Nice | Web Developer",
     "metaDescription": "Website creation in Nice. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Nice",
     "introduction": "<p>Professional website creation services in Nice.</p>",
@@ -173,7 +173,7 @@
   "montpellier": {
     "name": "Montpellier",
     "type": "city",
-    "metaTitle": "Website Creation in Montpellier | Freelance Web Developer",
+    "metaTitle": "Website Creation in Montpellier | Web Developer",
     "metaDescription": "Website creation in Montpellier. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Montpellier",
     "introduction": "<p>Professional website creation services in Montpellier.</p>",
@@ -192,7 +192,7 @@
   "rennes": {
     "name": "Rennes",
     "type": "city",
-    "metaTitle": "Website Creation in Rennes | Freelance Web Developer",
+    "metaTitle": "Website Creation in Rennes | Web Developer",
     "metaDescription": "Website creation in Rennes. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Rennes",
     "introduction": "<p>Professional website creation services in Rennes.</p>",
@@ -211,7 +211,7 @@
   "grenoble": {
     "name": "Grenoble",
     "type": "city",
-    "metaTitle": "Website Creation in Grenoble | Freelance Web Developer",
+    "metaTitle": "Website Creation in Grenoble | Web Developer",
     "metaDescription": "Website creation in Grenoble. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Grenoble",
     "introduction": "<p>Professional website creation services in Grenoble.</p>",
@@ -230,7 +230,7 @@
   "rouen": {
     "name": "Rouen",
     "type": "city",
-    "metaTitle": "Website Creation in Rouen | Freelance Web Developer",
+    "metaTitle": "Website Creation in Rouen | Web Developer",
     "metaDescription": "Website creation in Rouen. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Rouen",
     "introduction": "<p>Professional website creation services in Rouen.</p>",
@@ -249,7 +249,7 @@
   "toulon": {
     "name": "Toulon",
     "type": "city",
-    "metaTitle": "Website Creation in Toulon | Freelance Web Developer",
+    "metaTitle": "Website Creation in Toulon | Web Developer",
     "metaDescription": "Website creation in Toulon. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Toulon",
     "introduction": "<p>Professional website creation services in Toulon.</p>",
@@ -268,7 +268,7 @@
   "clermont-ferrand": {
     "name": "Clermont-Ferrand",
     "type": "city",
-    "metaTitle": "Website Creation in Clermont-Ferrand | Freelance Web Developer",
+    "metaTitle": "Website Creation in Clermont-Ferrand | Web Developer",
     "metaDescription": "Website creation in Clermont-Ferrand. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Clermont-Ferrand",
     "introduction": "<p>Professional website creation services in Clermont-Ferrand.</p>",
@@ -287,7 +287,7 @@
   "dijon": {
     "name": "Dijon",
     "type": "city",
-    "metaTitle": "Website Creation in Dijon | Freelance Web Developer",
+    "metaTitle": "Website Creation in Dijon | Web Developer",
     "metaDescription": "Website creation in Dijon. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Dijon",
     "introduction": "<p>Professional website creation services in Dijon.</p>",
@@ -306,7 +306,7 @@
   "angers": {
     "name": "Angers",
     "type": "city",
-    "metaTitle": "Website Creation in Angers | Freelance Web Developer",
+    "metaTitle": "Website Creation in Angers | Web Developer",
     "metaDescription": "Website creation in Angers. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Angers",
     "introduction": "<p>Professional website creation services in Angers.</p>",
@@ -325,7 +325,7 @@
   "reims": {
     "name": "Reims",
     "type": "city",
-    "metaTitle": "Website Creation in Reims | Freelance Web Developer",
+    "metaTitle": "Website Creation in Reims | Web Developer",
     "metaDescription": "Website creation in Reims. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Reims",
     "introduction": "<p>Professional website creation services in Reims.</p>",
@@ -344,7 +344,7 @@
   "saint-etienne": {
     "name": "Saint-Étienne",
     "type": "city",
-    "metaTitle": "Website Creation in Saint-Étienne | Freelance Web Developer",
+    "metaTitle": "Website Creation in Saint-Étienne | Web Developer",
     "metaDescription": "Website creation in Saint-Étienne. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Saint-Étienne",
     "introduction": "<p>Professional website creation services in Saint-Étienne.</p>",
@@ -363,7 +363,7 @@
   "aix-en-provence": {
     "name": "Aix-en-Provence",
     "type": "city",
-    "metaTitle": "Website Creation in Aix-en-Provence | Freelance Web Developer",
+    "metaTitle": "Website Creation in Aix-en-Provence | Web Developer",
     "metaDescription": "Website creation in Aix-en-Provence. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Aix-en-Provence",
     "introduction": "<p>Professional website creation services in Aix-en-Provence.</p>",
@@ -382,7 +382,7 @@
   "paris-2eme-arrondissement": {
     "name": "Paris 2ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 2ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 2ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 2ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 2ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 2ème Arrondissement.</p>",
@@ -401,7 +401,7 @@
   "paris-3eme-arrondissement": {
     "name": "Paris 3ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 3ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 3ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 3ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 3ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 3ème Arrondissement.</p>",
@@ -420,7 +420,7 @@
   "paris-4eme-arrondissement": {
     "name": "Paris 4ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 4ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 4ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 4ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 4ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 4ème Arrondissement.</p>",
@@ -439,7 +439,7 @@
   "paris-5eme-arrondissement": {
     "name": "Paris 5ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 5ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 5ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 5ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 5ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 5ème Arrondissement.</p>",
@@ -458,7 +458,7 @@
   "paris-6eme-arrondissement": {
     "name": "Paris 6ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 6ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 6ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 6ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 6ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 6ème Arrondissement.</p>",
@@ -477,7 +477,7 @@
   "paris-7eme-arrondissement": {
     "name": "Paris 7ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 7ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 7ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 7ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 7ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 7ème Arrondissement.</p>",
@@ -496,7 +496,7 @@
   "paris-8eme-arrondissement": {
     "name": "Paris 8ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 8ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 8ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 8ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 8ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 8ème Arrondissement.</p>",
@@ -515,7 +515,7 @@
   "paris-9eme-arrondissement": {
     "name": "Paris 9ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 9ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 9ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 9ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 9ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 9ème Arrondissement.</p>",
@@ -534,7 +534,7 @@
   "paris-10eme-arrondissement": {
     "name": "Paris 10ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 10ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 10ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 10ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 10ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 10ème Arrondissement.</p>",
@@ -553,7 +553,7 @@
   "paris-11eme-arrondissement": {
     "name": "Paris 11ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 11ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 11ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 11ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 11ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 11ème Arrondissement.</p>",
@@ -561,7 +561,7 @@
       "Furniture Artisans",
       "Restaurants & Bistros",
       "Bars & Nightlife",
-      "Startups & Freelancers",
+      "Startups & Professionals",
       "Creative Workshops",
       "Local Shops",
       "Independent Galleries",
@@ -572,7 +572,7 @@
   "paris-12eme-arrondissement": {
     "name": "Paris 12ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 12ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 12ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 12ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 12ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 12ème Arrondissement.</p>",
@@ -591,7 +591,7 @@
   "paris-13eme-arrondissement": {
     "name": "Paris 13ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 13ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 13ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 13ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 13ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 13ème Arrondissement.</p>",
@@ -610,7 +610,7 @@
   "paris-14eme-arrondissement": {
     "name": "Paris 14ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 14ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 14ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 14ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 14ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 14ème Arrondissement.</p>",
@@ -629,7 +629,7 @@
   "paris-15eme-arrondissement": {
     "name": "Paris 15ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 15ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 15ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 15ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 15ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 15ème Arrondissement.</p>",
@@ -648,7 +648,7 @@
   "paris-16eme-arrondissement": {
     "name": "Paris 16ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 16ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 16ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 16ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 16ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 16ème Arrondissement.</p>",
@@ -667,7 +667,7 @@
   "paris-17eme-arrondissement": {
     "name": "Paris 17ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 17ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 17ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 17ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 17ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 17ème Arrondissement.</p>",
@@ -686,7 +686,7 @@
   "paris-18eme-arrondissement": {
     "name": "Paris 18ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 18ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 18ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 18ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 18ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 18ème Arrondissement.</p>",
@@ -705,7 +705,7 @@
   "paris-19eme-arrondissement": {
     "name": "Paris 19ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 19ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 19ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 19ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 19ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 19ème Arrondissement.</p>",
@@ -724,7 +724,7 @@
   "paris-20eme-arrondissement": {
     "name": "Paris 20ème Arrondissement",
     "type": "arrondissement",
-    "metaTitle": "Website Creation in Paris 20ème Arrondissement | Freelance Web Developer",
+    "metaTitle": "Website Creation in Paris 20ème Arrondissement | Web Developer",
     "metaDescription": "Website creation in Paris 20ème Arrondissement. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Paris 20ème Arrondissement",
     "introduction": "<p>Professional website creation services in Paris 20ème Arrondissement.</p>",
@@ -743,7 +743,7 @@
   "auvergne-rhone-alpes": {
     "name": "Auvergne-Rhône-Alpes",
     "type": "region",
-    "metaTitle": "Website Creation in Auvergne-Rhône-Alpes | Freelance Web Developer",
+    "metaTitle": "Website Creation in Auvergne-Rhône-Alpes | Web Developer",
     "metaDescription": "Website creation in Auvergne-Rhône-Alpes. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Auvergne-Rhône-Alpes",
     "introduction": "<p>Professional website creation services in Auvergne-Rhône-Alpes.</p>",
@@ -762,7 +762,7 @@
   "hauts-de-france": {
     "name": "Hauts-de-France",
     "type": "region",
-    "metaTitle": "Website Creation in Hauts-de-France | Freelance Web Developer",
+    "metaTitle": "Website Creation in Hauts-de-France | Web Developer",
     "metaDescription": "Website creation in Hauts-de-France. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Hauts-de-France",
     "introduction": "<p>Professional website creation services in Hauts-de-France.</p>",
@@ -781,7 +781,7 @@
   "nouvelle-aquitaine": {
     "name": "Nouvelle-Aquitaine",
     "type": "region",
-    "metaTitle": "Website Creation in Nouvelle-Aquitaine | Freelance Web Developer",
+    "metaTitle": "Website Creation in Nouvelle-Aquitaine | Web Developer",
     "metaDescription": "Website creation in Nouvelle-Aquitaine. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Nouvelle-Aquitaine",
     "introduction": "<p>Professional website creation services in Nouvelle-Aquitaine.</p>",
@@ -800,7 +800,7 @@
   "occitanie": {
     "name": "Occitanie",
     "type": "region",
-    "metaTitle": "Website Creation in Occitanie | Freelance Web Developer",
+    "metaTitle": "Website Creation in Occitanie | Web Developer",
     "metaDescription": "Website creation in Occitanie. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Occitanie",
     "introduction": "<p>Professional website creation services in Occitanie.</p>",
@@ -819,7 +819,7 @@
   "provence-alpes-cote-azur": {
     "name": "Provence-Alpes-Côte d\\",
     "type": "region",
-    "metaTitle": "Website Creation in Provence-Alpes-Côte d\\ | Freelance Web Developer",
+    "metaTitle": "Website Creation in Provence-Alpes-Côte d\\ | Web Developer",
     "metaDescription": "Website creation in Provence-Alpes-Côte d\\. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Provence-Alpes-Côte d\\",
     "introduction": "<p>Professional website creation services in Provence-Alpes-Côte d\\.</p>",
@@ -838,7 +838,7 @@
   "grand-est": {
     "name": "Grand Est",
     "type": "region",
-    "metaTitle": "Website Creation in Grand Est | Freelance Web Developer",
+    "metaTitle": "Website Creation in Grand Est | Web Developer",
     "metaDescription": "Website creation in Grand Est. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Grand Est",
     "introduction": "<p>Professional website creation services in Grand Est.</p>",
@@ -857,7 +857,7 @@
   "pays-de-la-loire": {
     "name": "Pays de la Loire",
     "type": "region",
-    "metaTitle": "Website Creation in Pays de la Loire | Freelance Web Developer",
+    "metaTitle": "Website Creation in Pays de la Loire | Web Developer",
     "metaDescription": "Website creation in Pays de la Loire. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Pays de la Loire",
     "introduction": "<p>Professional website creation services in Pays de la Loire.</p>",
@@ -876,7 +876,7 @@
   "bretagne": {
     "name": "Bretagne",
     "type": "region",
-    "metaTitle": "Website Creation in Bretagne | Freelance Web Developer",
+    "metaTitle": "Website Creation in Bretagne | Web Developer",
     "metaDescription": "Website creation in Bretagne. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Bretagne",
     "introduction": "<p>Professional website creation services in Bretagne.</p>",
@@ -895,7 +895,7 @@
   "normandie": {
     "name": "Normandie",
     "type": "region",
-    "metaTitle": "Website Creation in Normandie | Freelance Web Developer",
+    "metaTitle": "Website Creation in Normandie | Web Developer",
     "metaDescription": "Website creation in Normandie. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Normandie",
     "introduction": "<p>Professional website creation services in Normandie.</p>",
@@ -914,7 +914,7 @@
   "bourgogne-franche-comte": {
     "name": "Bourgogne-Franche-Comté",
     "type": "region",
-    "metaTitle": "Website Creation in Bourgogne-Franche-Comté | Freelance Web Developer",
+    "metaTitle": "Website Creation in Bourgogne-Franche-Comté | Web Developer",
     "metaDescription": "Website creation in Bourgogne-Franche-Comté. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Bourgogne-Franche-Comté",
     "introduction": "<p>Professional website creation services in Bourgogne-Franche-Comté.</p>",
@@ -933,7 +933,7 @@
   "centre-val-de-loire": {
     "name": "Centre-Val de Loire",
     "type": "region",
-    "metaTitle": "Website Creation in Centre-Val de Loire | Freelance Web Developer",
+    "metaTitle": "Website Creation in Centre-Val de Loire | Web Developer",
     "metaDescription": "Website creation in Centre-Val de Loire. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Centre-Val de Loire",
     "introduction": "<p>Professional website creation services in Centre-Val de Loire.</p>",
@@ -952,7 +952,7 @@
   "corse": {
     "name": "Corse",
     "type": "region",
-    "metaTitle": "Website Creation in Corse | Freelance Web Developer",
+    "metaTitle": "Website Creation in Corse | Web Developer",
     "metaDescription": "Website creation in Corse. Custom showcase sites, e-commerce and web applications. Local SEO included.",
     "h1": "Website Creation in Corse",
     "introduction": "<p>Professional website creation services in Corse.</p>",
@@ -971,8 +971,8 @@
   "ile-de-france": {
     "name": "Île-de-France",
     "type": "region",
-    "metaTitle": "Website Creation in Île-de-France | Freelance Web Developer",
-    "metaDescription": "Website creation in Île-de-France. Freelance web developer for companies in the Paris region. Showcase sites, e-commerce, local SEO.",
+    "metaTitle": "Website Creation in Île-de-France | Web Developer",
+    "metaDescription": "Website creation in Île-de-France. web developer for companies in the Paris region. Showcase sites, e-commerce, local SEO.",
     "h1": "Website Creation in Île-de-France",
     "introduction": "<p>Île-de-France is Europe's leading economic region, concentrating nearly one-third of France's GDP. With 12 million inhabitants and more than 1.2 million companies, the region offers a colossal market but also fierce competition. From La Défense, Europe's premier business district, to the industrial zones of the outer suburbs, every company in the Paris region must stand out in the digital landscape to capture its market share.</p>\n<p>The economic fabric of the Paris region is unmatched in density: multinational headquarters, innovative SMEs, artisans, and local businesses across the region's 1,300 municipalities. Competitiveness clusters (Systematic, Medicen, Cap Digital) drive innovation while suburban shopping centers and prefecture downtowns (Versailles, Évry, Bobigny, Créteil) generate considerable economic activity.</p>\n<p>I develop websites for businesses throughout Île-de-France. My expertise in geolocated SEO allows me to precisely target your catchment area, whether municipal, departmental, or regional. From a showcase site for an artisan in Seine-et-Marne to an e-commerce portal for a business in Yvelines, I create high-performance web solutions tailored to your Paris region market reality.</p>",
     "localBusinessTypes": [

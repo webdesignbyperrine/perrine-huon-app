@@ -1,6 +1,6 @@
 {
   "notFound": "Project not found",
-  "metadataFallback": "Discover the {title} project created by Perrine Huon, freelance web designer.",
+  "metadataFallback": "Discover the {title} project created by Perrine Huon, web designer.",
   "breadcrumb": {
     "home": "Home",
     "portfolio": "Portfolio"
